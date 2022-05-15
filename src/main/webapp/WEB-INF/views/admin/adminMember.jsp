@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AdminLTE 3 | 신고관리</title>
+<title>AdminLTE 3 | 회원관리</title>
 
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet"
@@ -44,7 +44,7 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1 class="m-0">리뷰신고</h1>
+							<h1 class="m-0">회원관리</h1>
 						</div>
 						<!-- /.col -->
 						<div class="col-sm-6">
@@ -63,7 +63,7 @@
 
    <div class="card">
               <div class="card-header">
-                <h3 class="card-title">신고목록</h3>
+                <h3 class="card-title">회원목록</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -76,6 +76,7 @@
                     <th>전화번호</th>
                     <th>주소</th>
                     <th>가입날짜</th>
+                    <th>삭제</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -86,6 +87,7 @@
                     <td>010-1234-5678</td>
                     <td>서울 금천구</td>
                     <td>2022-05-13</td>
+                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
                   </tr>
                   <tr>
                     <td>Trident</td>
@@ -96,6 +98,7 @@
                     <td>5</td>
                     <td>C</td>
                     <td>C</td>
+                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
                   </tr>
                   <tr>
                     <td>Trident</td>
@@ -106,6 +109,7 @@
                     <td>5.5</td>
                     <td>A</td>
                     <td>C</td>
+                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
                   </tr>
                   </tbody>                                       
                   </tfoot>
@@ -162,7 +166,7 @@
 				"lengthChange" : false,
 				"searching" : true,
 				"ordering" : true,
-				"info" : true,
+				"info" : false,
 				"autoWidth" : false,
 				"responsive" : true,
 			});

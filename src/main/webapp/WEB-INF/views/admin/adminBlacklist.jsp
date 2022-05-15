@@ -22,8 +22,6 @@
 	href="/admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 <!-- Theme style -->
 <link rel="stylesheet" href="/admin/dist/css/adminlte.min.css">
-
-
 </head>
 <body class="hold-transition sidebar-mini">
 	<div class="wrapper">
@@ -65,31 +63,36 @@
 
    <div class="card">
               <div class="card-header">
-                <h3 class="card-title">블랙리스트목록</h3>
+                <h3 class="card-title">블랙리스트목록</h3> <button type="button" class="btn btn-info">추가</button>   
               </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
+              <!-- /.card-header -->            
+              <div class="card-body">            
+                <table id="example2" class="table table-bordered table-hover">
+                          
                   <thead>
                   <tr>
+                  	<th width="40">번호</th>
                     <th>이메일</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
+                    <th>리뷰내용</th>
+                    <th>신고사유</th>
+                    <th>신고날짜</th>
+                    <th>신고횟수</th>
+                    <th width="50">삭제</th>
                   </tr>
                   </thead>
                   <tbody>
                   <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
+                 	<td text-align="center">1</td>
+                    <td>tt@naver.com</td>
+                    <td>최악이예요
                     </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td>X</td>
+                    <td>욕설</td>
+                    <td>2022-05-13</td>
+                    <td>5</td>
+                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
                   </tr>
                   <tr>
+                  	<td text-align="center">2</td>
                     <td>Trident</td>
                     <td>Internet
                       Explorer 5.0
@@ -97,8 +100,10 @@
                     <td>Win 95+</td>
                     <td>5</td>
                     <td>C</td>
+                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
                   </tr>
                   <tr>
+                  	<td text-align="center">3</td>
                     <td>Trident</td>
                     <td>Internet
                       Explorer 5.5
@@ -106,16 +111,20 @@
                     <td>Win 95+</td>
                     <td>5.5</td>
                     <td>A</td>
+                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
                   </tr>
-                  </tbody>                                       
-                  </tfoot>
-                </table>
+                  </tbody>     
+             
+                </table>              
+                  
               </div>
+  
               <!-- /.card-body -->
-            </div>
-           
-		</div>
-		<!-- /.content-wrapper -->
+            </div>         
+		</div>    
+		 
+		<!-- Main content -->
+
 		<%@ include file="../admin/adminFooter.jsp"%>
 		<!-- Control Sidebar -->
 		<aside class="control-sidebar control-sidebar-dark">
@@ -156,13 +165,15 @@
 						"responsive" : true,
 						"lengthChange" : false,
 						"autoWidth" : false,
+						 "info": false,
 					}),
 			$('#example2').DataTable({
+				
 				"paging" : true,
 				"lengthChange" : false,
-				"searching" : false,
+				"searching" : true,
 				"ordering" : true,
-				"info" : true,
+				"info" : false,
 				"autoWidth" : false,
 				"responsive" : true,
 			});

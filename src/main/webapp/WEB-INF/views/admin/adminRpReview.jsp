@@ -70,23 +70,28 @@
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
+                  	<th width="40">리뷰번호</th>
                     <th>이메일</th>
                     <th>리뷰내용</th>
                     <th>신고사유</th>
                     <th>신고날짜</th>
                     <th>신고횟수</th>
+                    <th width="50">삭제</th>
                   </tr>
                   </thead>
                   <tbody>
                   <tr>
+                 	<td text-align="center">1</td>
                     <td>tt@naver.com</td>
                     <td>최악이예요
                     </td>
                     <td>욕설</td>
                     <td>2022-05-13</td>
                     <td>5</td>
+                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
                   </tr>
                   <tr>
+                  	<td text-align="center">2</td>
                     <td>Trident</td>
                     <td>Internet
                       Explorer 5.0
@@ -94,8 +99,10 @@
                     <td>Win 95+</td>
                     <td>5</td>
                     <td>C</td>
+                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
                   </tr>
                   <tr>
+                  	<td text-align="center">3</td>
                     <td>Trident</td>
                     <td>Internet
                       Explorer 5.5
@@ -103,14 +110,18 @@
                     <td>Win 95+</td>
                     <td>5.5</td>
                     <td>A</td>
+                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
                   </tr>
-                  </tbody>                                       
-                  </tfoot>
-                </table>
+                  </tbody>     
+             
+                </table>              
+                  
               </div>
+  
               <!-- /.card-body -->
-            </div>
+            </div>         
 		</div>    
+		 
 		<!-- Main content -->
 
 		<%@ include file="../admin/adminFooter.jsp"%>
