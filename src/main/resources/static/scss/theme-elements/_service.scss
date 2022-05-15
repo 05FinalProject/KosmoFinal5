@@ -1,0 +1,42 @@
+.lana_service.type-lana_service {
+  &.service-card {
+    border: 0;
+
+    .card-img-top {
+      margin-bottom: ($spacer * 1);
+
+      // padding mobile and tablet optimization
+      @include media-breakpoint-down(md) {
+        margin-bottom: 0;
+      }
+    }
+
+    .card-title {
+      font-weight: $font-weight-bold;
+      margin-bottom: ($spacer * 1.5);
+    }
+
+    .card-body {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .card-footer {
+      background: transparent;
+      border: 0;
+      padding: 0 0 ($spacer * 1.5);
+    }
+
+    a.more-link {
+      color: $body-color;
+
+      @include hover-focus {
+        color: $link-color;
+      }
+
+      i.lana-icon-arrow-right {
+        margin-left: ($spacer * .5);
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+// information toggler
+.information-toggler {
+  border: 0;
+  background: 0;
+}
+
+// information
+#lana-information {
+  right: 0;
+  overflow: auto;
+  width: 560px;
+  max-width: 100%;
+  height: 100%;
+  padding: ($spacer * 2.5);
+  z-index: 1080;
+
+  // margin mobile optimization
+  @include media-breakpoint-down(sm) {
+    padding: ($spacer * 2) ($spacer * 1);
+  }
+
+  &.collapsing {
+    overflow: hidden;
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba($primary, .3);
+    background-color: #F5F5F5;
+  }
+
+  &::-webkit-scrollbar {
+    width: ($spacer * .5);
+    background-color: $gray-50;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $primary;
+  }
+
+  .close {
+    color: $white;
+    opacity: 1;
+    text-shadow: none;
+    font-size: ($spacer * 5);
+    font-weight: $font-weight-light;
+    line-height: .5;
+
+    @include hover-focus {
+      color: $white;
+      opacity: .5;
+      outline: 0;
+    }
+  }
+}

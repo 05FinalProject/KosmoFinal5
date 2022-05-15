@@ -1,0 +1,12 @@
+// tabs
+.nav-tabs {
+
+  // white background
+  .bg-white & {
+    .nav-link.active,
+    .nav-item.show .nav-link {
+      background-color: $white;
+      border-bottom-color: $white;
+    }
+  }
+}

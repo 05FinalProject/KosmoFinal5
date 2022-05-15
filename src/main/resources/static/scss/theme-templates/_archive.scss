@@ -1,0 +1,387 @@
+body.blog,
+body.archive {
+
+  // blog posts with post card
+  .blog-posts {
+    background: $white;
+    padding: ($spacer * 2.75) ($spacer * 2.75);
+
+    @include media-breakpoint-down(sm) {
+      padding: ($spacer * 1.5) ($spacer * 1.25);
+    }
+
+    -webkit-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    -moz-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+
+    // post card
+    .post-card {
+      margin-bottom: ($spacer * 2.5);
+      padding-bottom: ($spacer * 2.5);
+      border-bottom: 1px solid $gray-100;
+
+      &:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+    }
+  }
+
+  // sticky posts
+  .sticky-posts {
+    margin-bottom: ($spacer * 3);
+    border-right: ($spacer * .5) solid $primary;
+
+    // post card
+    .post-card {
+      &:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+    }
+  }
+
+  // with sidebar
+  .with-sidebar,
+  &.with-sidebar {
+    // post card
+    .post-card {
+      .card-img,
+      .card-embed {
+        margin-bottom: ($spacer * 1.5);
+      }
+
+      .card-body {
+        padding: 0 ($spacer * 3) 0 0;
+
+        // padding mobile and tablet optimization
+        @include media-breakpoint-down(sm) {
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  // without sidebar
+  .without-sidebar,
+  &.without-sidebar {
+    // blog posts
+    .blog-posts {
+      // post card
+      .post-card {
+        .card-body {
+          padding-top: ($spacer * .25);
+          padding-bottom: ($spacer * .25);
+        }
+      }
+    }
+  }
+
+  // blog grid posts with post card
+  .blog-grid-posts {
+    .blog-grid-col {
+      margin-bottom: $grid-gutter-width;
+    }
+
+    // auto columns
+    .card-columns {
+      .blog-grid-col {
+        margin-bottom: ($spacer * .5);
+
+        .post-grid-card {
+          box-shadow: none;
+        }
+      }
+
+      @include media-breakpoint-down(xl) {
+        column-count: 4;
+      }
+
+      @include media-breakpoint-down(lg) {
+        column-count: 3;
+      }
+
+      @include media-breakpoint-down(md) {
+        column-count: 2;
+      }
+
+      @include media-breakpoint-down(sm) {
+        column-count: 1;
+      }
+    }
+  }
+
+  // pagination
+  .navigation.pagination {
+    // none
+  }
+
+  // blog sidebar with widgets
+  .blog-sidebar {
+    background: $white;
+    padding: ($spacer * 2.75) ($spacer * 2);
+
+    @include media-breakpoint-down(sm) {
+      padding: ($spacer * 1.5) ($spacer * 1.25);
+    }
+
+    -webkit-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    -moz-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+  }
+}
+
+body.post-type-archive-lana_pet,
+body[class*="tax-lana_pet"] {
+
+  // pet posts with post card
+  .pet-posts {
+    background: $white;
+    padding: ($spacer * 2.75) ($spacer * 2.75);
+
+    @include media-breakpoint-down(sm) {
+      padding: ($spacer * 1.5) ($spacer * 1.25);
+    }
+
+    -webkit-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    -moz-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+
+    // pet card
+    .pet-card {
+      margin-bottom: ($spacer * 2.5);
+      padding-bottom: ($spacer * 2.5);
+      border-bottom: 1px solid $gray-100;
+
+      &:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+
+      .card-body {
+        padding: 0;
+      }
+    }
+  }
+
+  // pet grid posts with post card
+  .pet-grid-posts {
+    .pet-grid-col {
+      margin-bottom: $grid-gutter-width;
+    }
+
+    // auto columns
+    .card-columns {
+      .pet-grid-col {
+        margin-bottom: ($spacer * .5);
+
+        .pet-grid-card {
+          box-shadow: none;
+        }
+      }
+
+      @include media-breakpoint-down(xl) {
+        column-count: 3;
+      }
+
+      @include media-breakpoint-down(md) {
+        column-count: 2;
+      }
+
+      @include media-breakpoint-down(sm) {
+        column-count: 1;
+      }
+    }
+
+    // no posts
+    .no-posts {
+      background: $white;
+      padding: ($spacer * 2.25) ($spacer * 2);
+
+      @include media-breakpoint-down(sm) {
+        padding: ($spacer * 1.5) ($spacer * 1.25);
+      }
+
+      -webkit-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+      -moz-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+      box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    }
+  }
+
+  // pagination
+  .navigation.pagination {
+    // none
+  }
+
+  // pet sidebar with widgets
+  .pet-sidebar {
+    background: $white;
+    padding: ($spacer * 2.25) ($spacer * 2);
+
+    @include media-breakpoint-down(sm) {
+      padding: ($spacer * 1.5) ($spacer * 1.25);
+    }
+
+    -webkit-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    -moz-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+
+    // pet filter form
+    .pet-filter-form {
+      fieldset.form-group {
+        margin-bottom: ($spacer * 2);
+
+        legend {
+          margin-bottom: ($spacer * 2);
+        }
+      }
+
+      .form-row {
+        div[class^="col"] {
+          margin-bottom: ($spacer * 1);
+        }
+      }
+    }
+  }
+}
+
+body.post-type-archive-lana_story,
+body[class*="tax-lana_story"] {
+
+  // story posts with post card
+  .story-posts {
+    background: $white;
+    padding: ($spacer * 2.75) ($spacer * 2.75);
+
+    @include media-breakpoint-down(sm) {
+      padding: ($spacer * 1.5) ($spacer * 1.25);
+    }
+
+    -webkit-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    -moz-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+
+    // story card
+    .story-card {
+      margin-bottom: ($spacer * 2.5);
+      padding-bottom: ($spacer * 2.5);
+      border-bottom: 1px solid $gray-100;
+
+      // quotation marks icon
+      &::after {
+        top: ($spacer * 1.25);
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+    }
+  }
+
+  // story grid posts with post card
+  .story-grid-posts {
+    .story-grid-col {
+      margin-bottom: $grid-gutter-width;
+    }
+
+    // no posts
+    .no-posts {
+      background: $white;
+      padding: ($spacer * 2.25) ($spacer * 2);
+
+      @include media-breakpoint-down(sm) {
+        padding: ($spacer * 1.5) ($spacer * 1.25);
+      }
+
+      -webkit-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+      -moz-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+      box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    }
+  }
+
+  // pagination
+  .navigation.pagination {
+    // none
+  }
+
+  // story sidebar with widgets
+  .story-sidebar {
+    background: $white;
+    padding: ($spacer * 2.75) ($spacer * 2);
+
+    @include media-breakpoint-down(sm) {
+      padding: ($spacer * 1.5) ($spacer * 1.25);
+    }
+
+    -webkit-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    -moz-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+  }
+}
+
+body.post-type-archive-lana_fundraiser,
+body[class*="tax-lana_fundraiser"] {
+
+  // fundraiser posts with post card
+  .fundraiser-posts {
+    background: $white;
+    padding: ($spacer * 2.75) ($spacer * 2.75);
+
+    @include media-breakpoint-down(sm) {
+      padding: ($spacer * 1.5) ($spacer * 1.25);
+    }
+
+    -webkit-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    -moz-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+
+    // fundraiser card
+    .fundraiser-card {
+      margin-bottom: ($spacer * 2.5);
+      padding-bottom: ($spacer * 2.5);
+      border-bottom: 1px solid $gray-100;
+
+      .card-body {
+        padding-top: ($spacer * .25);
+        padding-bottom: ($spacer * .25);
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+    }
+  }
+
+  // fundraiser grid posts with post card
+  .fundraiser-grid-posts {
+    .fundraiser-grid-col {
+      margin-bottom: $grid-gutter-width;
+    }
+
+    // no posts
+    .no-posts {
+      background: $white;
+      padding: ($spacer * 2.25) ($spacer * 2);
+
+      @include media-breakpoint-down(sm) {
+        padding: ($spacer * 1.5) ($spacer * 1.25);
+      }
+
+      -webkit-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+      -moz-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+      box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    }
+  }
+
+  // pagination
+  .navigation.pagination {
+    // none
+  }
+}

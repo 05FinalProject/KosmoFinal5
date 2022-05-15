@@ -1,0 +1,24 @@
+body.error404 {
+
+  .header {
+    min-height: 100% !important;
+
+    #lana-pet-main-navbar {
+      margin-bottom: ($spacer * 2.5);
+    }
+  }
+
+  .main {
+    margin-top: auto;
+    margin-bottom: $lana-main-padding-y;
+  }
+
+  .title {
+    font-weight: $font-weight-bold;
+    margin-bottom: ($spacer * 2);
+  }
+
+  .subtitle {
+    margin-bottom: ($spacer * 1.5);
+  }
+}

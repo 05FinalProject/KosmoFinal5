@@ -1,0 +1,154 @@
+.comments-container {
+  .comments-row {
+
+    // comment title
+    .comments-title {
+      margin-bottom: ($spacer * 3);
+    }
+
+    // comment list
+    .comment-list {
+      margin-top: 0;
+      margin-bottom: ($spacer * 3);
+
+      .media {
+        margin-top: ($spacer * 3);
+        margin-bottom: ($spacer * 3);
+
+        // avatar
+        img.avatar {
+          // size tablet optimization
+          @include media-breakpoint-down(md) {
+            max-width: 50px;
+          }
+
+          // size mobil optimization
+          @include media-breakpoint-down(sm) {
+            max-width: 45px;
+          }
+        }
+
+        // title
+        .comment-title {
+          margin-right: ($spacer * .5);
+          @include font-size($font-size-base * 1.125);
+          font-weight: $font-weight-medium;
+
+          // margin mobile and tablet optimization
+          @include media-breakpoint-down(md) {
+            margin-bottom: 0;
+          }
+
+          a {
+            color: $body-color;
+
+            @include hover-focus {
+              color: $link-color;
+            }
+          }
+        }
+
+        // date
+        .comment-date {
+          @include font-size($font-size-sm);
+
+          a {
+            color: $text-muted;
+
+            @include hover-focus {
+              color: $link-color;
+            }
+          }
+        }
+
+        // meta
+        ul.comment-meta {
+          @include font-size($font-size-sm);
+
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+          padding: 0;
+          list-style-type: none;
+
+          li {
+            + li {
+              a {
+                padding-left: ($spacer * 2);
+              }
+            }
+
+            a {
+              color: $normal-blue;
+
+              i {
+                color: $gray-blue;
+                margin-right: ($spacer * .25);
+              }
+
+              @include hover-focus {
+                color: $link-color;
+
+                i {
+                  color: $link-color;
+                }
+              }
+            }
+          }
+        }
+
+        // text
+        .comment-text {
+          // margin mobile and tablet optimization
+          @include media-breakpoint-down(md) {
+            margin-top: ($spacer * .5);
+          }
+        }
+      }
+
+      // first depth
+      > .media {
+
+        // first and last comment
+        &:first-child,
+        &:last-child {
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+
+        // margin right
+        > .media-body {
+          > div > .comment-date,
+          > .comment-text,
+          > .comment-meta {
+            margin-right: percentage(1/$grid-columns);
+          }
+        }
+      }
+
+      // children depth
+      .comment-children {
+        // last comment
+        > .media:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    // comment pagination
+    .comment-pagination {
+      margin-top: ($spacer * 2.5);
+    }
+
+    // comment respond
+    .comment-respond {
+      margin-top: ($spacer * 5);
+
+      // reply title
+      .comment-reply-title {
+        margin-bottom: ($spacer * 2.5);
+      }
+    }
+  }
+}

@@ -1,0 +1,231 @@
+.post.type-post {
+  .post-thumbnail {
+    min-width: 100%;
+  }
+
+  ul.post-meta {
+    display: -ms-flexbox;
+    display: inline-flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0;
+    list-style-type: none;
+
+    li {
+      + li {
+        padding-left: ($spacer * .25);
+
+        &::before {
+          display: inline-block;
+          padding-right: ($spacer * .25);
+          content: "/";
+        }
+      }
+    }
+  }
+
+  .post-tags {
+    font-weight: $font-weight-medium;
+
+    .tags-text {
+      @include font-size($font-size-lg);
+      margin-right: ($spacer * .75);
+    }
+
+    a {
+      color: $body-color;
+      margin: 0 ($spacer * .25);
+      padding: ($spacer * .375) ($spacer * .75);
+      -webkit-border-radius: ($spacer * 1);
+      -moz-border-radius: ($spacer * 1);
+      border-radius: ($spacer * 1);
+      border: 2px solid $primary;
+
+      @include hover-focus {
+        color: $white;
+        background-color: rgba($primary, .8);
+      }
+    }
+  }
+
+  .post-content {
+    .post-password-form {
+      margin-bottom: ($spacer * 1);
+    }
+  }
+
+  .post-pages {
+    // none
+  }
+
+  &.post-card {
+    border: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+
+    .row {
+      // padding mobile and tablet optimization
+      @include media-breakpoint-down(md) {
+        // image
+        > .col-md-4 {
+          .card-img {
+            margin-bottom: ($spacer * 1);
+          }
+        }
+
+        // content
+        > .col-md-8 {
+          .card-body {
+            padding-left: 0;
+            padding-right: 0;
+          }
+
+          .card-footer {
+            padding-left: 0;
+            padding-right: 0;
+          }
+        }
+      }
+    }
+
+    .card-title {
+      font-weight: $font-weight-bold;
+
+      a {
+        color: $body-color;
+
+        @include hover-focus {
+          color: $link-color;
+        }
+      }
+    }
+
+    .card-body {
+      &.d-flex {
+        .card-text {
+          max-width: 100% !important;
+        }
+      }
+    }
+
+    ul.post-meta {
+      color: $text-muted;
+
+      li {
+        + li {
+          &::before {
+            color: $text-muted;
+          }
+        }
+      }
+    }
+
+    .post-meta {
+      @include font-size($font-size-sm);
+
+      a {
+        color: $text-muted;
+
+        @include hover-focus {
+          color: $link-color;
+        }
+      }
+    }
+
+    .author-meta {
+      a {
+        @include font-size($font-size-sm);
+        color: $body-color;
+
+        @include hover-focus {
+          color: $link-color;
+        }
+      }
+    }
+
+    a[rel="author"],
+    a.author-link,
+    a.more-link {
+      @include font-size($font-size-sm);
+      color: $body-color;
+
+      @include hover-focus {
+        color: $link-color;
+      }
+
+      i.lana-icon-arrow-right {
+        margin-left: ($spacer * .5);
+      }
+    }
+  }
+
+  &.post-grid-card {
+    border: 0;
+
+    -webkit-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    -moz-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+
+    .card-body {
+      padding-top: ($spacer * 1.5);
+    }
+
+    .card-footer {
+      background: transparent;
+      border: 0;
+      padding-top: 0;
+      padding-bottom: ($spacer * 1.5);
+    }
+  }
+
+  &.post-slide-card {
+    background: transparent;
+    border: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    padding-top: ($spacer * 3);
+    padding-bottom: ($spacer * 3);
+
+    // if the card is used as a link
+    @at-root a#{&} {
+      color: $body-color;
+
+      @include hover-focus {
+        color: $body-color;
+      }
+    }
+
+    .card-title {
+      font-weight: $font-weight-medium;
+      margin-bottom: ($spacer * 1);
+
+      a {
+        color: $body-color;
+
+        @include hover-focus {
+          color: $link-color;
+        }
+      }
+    }
+
+    .card-subtitle {
+      color: $gray-600;
+      margin-bottom: ($spacer * 1);
+    }
+
+    .media {
+      img {
+        margin-right: ($spacer * 1);
+        width: auto;
+      }
+    }
+
+    .card-footer {
+      background: transparent;
+      border: 0;
+      padding-top: 0;
+    }
+  }
+}

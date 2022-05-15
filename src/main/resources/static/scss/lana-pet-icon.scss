@@ -1,0 +1,275 @@
+// variables
+$lpi-font-family: "LanaPetIcon";
+$lpi-file-path: "../fonts/LanaPetIcon";
+
+// mixins
+@import "mixins/font-face";
+
+// Flaticon icon font: LanaPetIcon
+@include font-face($lpi-font-family, $lpi-file-path);
+
+// webkit fix
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @include font-face($lpi-font-family, $lpi-file-path, null, null, svg);
+}
+
+.lpi {
+  line-height: 1;
+}
+
+.lpi:before {
+  display: inline-block;
+  font-family: $lpi-font-family;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+$font-LanaPetIcon-dog: "\f100";
+$font-LanaPetIcon-pet: "\f101";
+$font-LanaPetIcon-paw: "\f102";
+$font-LanaPetIcon-healthy: "\f103";
+$font-LanaPetIcon-dog-1: "\f104";
+$font-LanaPetIcon-breakfast: "\f105";
+$font-LanaPetIcon-bill: "\f106";
+$font-LanaPetIcon-payment: "\f107";
+$font-LanaPetIcon-bank: "\f108";
+$font-LanaPetIcon-staff: "\f109";
+$font-LanaPetIcon-passport: "\f10a";
+$font-LanaPetIcon-calendar: "\f10b";
+$font-LanaPetIcon-calendar-1: "\f10c";
+$font-LanaPetIcon-door: "\f10d";
+$font-LanaPetIcon-hotel: "\f10e";
+$font-LanaPetIcon-cat: "\f10f";
+$font-LanaPetIcon-first-aid-kit: "\f110";
+$font-LanaPetIcon-dog-house: "\f111";
+$font-LanaPetIcon-cat-1: "\f112";
+$font-LanaPetIcon-bunny: "\f113";
+$font-LanaPetIcon-dog-2: "\f114";
+$font-LanaPetIcon-medical-record: "\f115";
+$font-LanaPetIcon-poo: "\f116";
+$font-LanaPetIcon-ticks: "\f117";
+$font-LanaPetIcon-turtle: "\f118";
+$font-LanaPetIcon-paw-1: "\f119";
+$font-LanaPetIcon-band-aid: "\f11a";
+$font-LanaPetIcon-fishbowl: "\f11b";
+$font-LanaPetIcon-hamster-ball: "\f11c";
+$font-LanaPetIcon-elizabethan-collar: "\f11d";
+$font-LanaPetIcon-stethoscope: "\f11e";
+$font-LanaPetIcon-hamster: "\f11f";
+$font-LanaPetIcon-podium: "\f120";
+$font-LanaPetIcon-comb: "\f121";
+$font-LanaPetIcon-fish: "\f122";
+$font-LanaPetIcon-syringe: "\f123";
+$font-LanaPetIcon-yarn-ball: "\f124";
+$font-LanaPetIcon-veterinarian: "\f125";
+$font-LanaPetIcon-bone: "\f126";
+$font-LanaPetIcon-carrot: "\f127";
+$font-LanaPetIcon-veterinarian-1: "\f128";
+$font-LanaPetIcon-bandage: "\f129";
+$font-LanaPetIcon-hamster-1: "\f12a";
+$font-LanaPetIcon-pills: "\f12b";
+$font-LanaPetIcon-veterinary: "\f12c";
+$font-LanaPetIcon-heart: "\f12d";
+$font-LanaPetIcon-spray: "\f12e";
+$font-LanaPetIcon-shampoo: "\f12f";
+$font-LanaPetIcon-pet-brush: "\f130";
+$font-LanaPetIcon-food: "\f131";
+$font-LanaPetIcon-pet-1: "\f132";
+$font-LanaPetIcon-dog-3: "\f133";
+$font-LanaPetIcon-canned-food: "\f134";
+$font-LanaPetIcon-plate: "\f135";
+$font-LanaPetIcon-bird: "\f136";
+$font-LanaPetIcon-cat-2: "\f137";
+$font-LanaPetIcon-bird-1: "\f138";
+$font-LanaPetIcon-thermometer: "\f139";
+$font-LanaPetIcon-collar: "\f13a";
+$font-LanaPetIcon-vaccination: "\f13b";
+$font-LanaPetIcon-spray-1: "\f13c";
+$font-LanaPetIcon-dustpan: "\f13d";
+$font-LanaPetIcon-bone-1: "\f13e";
+$font-LanaPetIcon-collar-1: "\f13f";
+$font-LanaPetIcon-cat-bed: "\f140";
+$font-LanaPetIcon-no-animals: "\f141";
+$font-LanaPetIcon-pet-dress: "\f142";
+$font-LanaPetIcon-dog-food: "\f143";
+$font-LanaPetIcon-bird-2: "\f144";
+$font-LanaPetIcon-sleighbell: "\f145";
+$font-LanaPetIcon-hamster-wheel: "\f146";
+$font-LanaPetIcon-birdhouse: "\f147";
+$font-LanaPetIcon-extending-leads: "\f148";
+$font-LanaPetIcon-cat-collar: "\f149";
+$font-LanaPetIcon-fish-1: "\f14a";
+$font-LanaPetIcon-snake: "\f14b";
+$font-LanaPetIcon-cat-food: "\f14c";
+$font-LanaPetIcon-fish-food: "\f14d";
+$font-LanaPetIcon-dog-4: "\f14e";
+$font-LanaPetIcon-cone-of-shame: "\f14f";
+$font-LanaPetIcon-health-certificate: "\f150";
+$font-LanaPetIcon-hedgehog: "\f151";
+$font-LanaPetIcon-bird-cage: "\f152";
+$font-LanaPetIcon-pet-comb: "\f153";
+$font-LanaPetIcon-cow: "\f154";
+$font-LanaPetIcon-syringe-1: "\f155";
+$font-LanaPetIcon-dog-health-list: "\f156";
+$font-LanaPetIcon-cat-3: "\f157";
+$font-LanaPetIcon-pet-grooming: "\f158";
+$font-LanaPetIcon-pet-first-aid: "\f159";
+$font-LanaPetIcon-cat-health-list: "\f15a";
+$font-LanaPetIcon-pet-disease: "\f15b";
+$font-LanaPetIcon-rabbit: "\f15c";
+$font-LanaPetIcon-pets-bath: "\f15d";
+$font-LanaPetIcon-toy-mouse: "\f15e";
+$font-LanaPetIcon-cat-food-1: "\f15f";
+$font-LanaPetIcon-hamster-2: "\f160";
+$font-LanaPetIcon-sitting-dog: "\f161";
+$font-LanaPetIcon-dog-toy: "\f162";
+$font-LanaPetIcon-chameleon: "\f163";
+$font-LanaPetIcon-dog-kennel: "\f164";
+$font-LanaPetIcon-pet-trimmer: "\f165";
+$font-LanaPetIcon-pet-carrier: "\f166";
+$font-LanaPetIcon-sheep: "\f167";
+$font-LanaPetIcon-cat-box: "\f168";
+$font-LanaPetIcon-pawprints: "\f169";
+$font-LanaPetIcon-turtle-1: "\f16a";
+$font-LanaPetIcon-cat-toy: "\f16b";
+$font-LanaPetIcon-pet-shelter: "\f16c";
+$font-LanaPetIcon-pet-lotion: "\f16d";
+$font-LanaPetIcon-stethoscope-1: "\f16e";
+$font-LanaPetIcon-dog-food-1: "\f16f";
+$font-LanaPetIcon-snail: "\f170";
+
+$font-LanaPetIcon: (
+        "dog": $font-LanaPetIcon-dog,
+        "pet": $font-LanaPetIcon-pet,
+        "paw": $font-LanaPetIcon-paw,
+        "healthy": $font-LanaPetIcon-healthy,
+        "dog-1": $font-LanaPetIcon-dog-1,
+        "breakfast": $font-LanaPetIcon-breakfast,
+        "bill": $font-LanaPetIcon-bill,
+        "payment": $font-LanaPetIcon-payment,
+        "bank": $font-LanaPetIcon-bank,
+        "staff": $font-LanaPetIcon-staff,
+        "passport": $font-LanaPetIcon-passport,
+        "calendar": $font-LanaPetIcon-calendar,
+        "calendar-1": $font-LanaPetIcon-calendar-1,
+        "door": $font-LanaPetIcon-door,
+        "hotel": $font-LanaPetIcon-hotel,
+        "cat": $font-LanaPetIcon-cat,
+        "first-aid-kit": $font-LanaPetIcon-first-aid-kit,
+        "dog-house": $font-LanaPetIcon-dog-house,
+        "cat-1": $font-LanaPetIcon-cat-1,
+        "bunny": $font-LanaPetIcon-bunny,
+        "dog-2": $font-LanaPetIcon-dog-2,
+        "medical-record": $font-LanaPetIcon-medical-record,
+        "poo": $font-LanaPetIcon-poo,
+        "ticks": $font-LanaPetIcon-ticks,
+        "turtle": $font-LanaPetIcon-turtle,
+        "paw-1": $font-LanaPetIcon-paw-1,
+        "band-aid": $font-LanaPetIcon-band-aid,
+        "fishbowl": $font-LanaPetIcon-fishbowl,
+        "hamster-ball": $font-LanaPetIcon-hamster-ball,
+        "elizabethan-collar": $font-LanaPetIcon-elizabethan-collar,
+        "stethoscope": $font-LanaPetIcon-stethoscope,
+        "hamster": $font-LanaPetIcon-hamster,
+        "podium": $font-LanaPetIcon-podium,
+        "comb": $font-LanaPetIcon-comb,
+        "fish": $font-LanaPetIcon-fish,
+        "syringe": $font-LanaPetIcon-syringe,
+        "yarn-ball": $font-LanaPetIcon-yarn-ball,
+        "veterinarian": $font-LanaPetIcon-veterinarian,
+        "bone": $font-LanaPetIcon-bone,
+        "carrot": $font-LanaPetIcon-carrot,
+        "veterinarian-1": $font-LanaPetIcon-veterinarian-1,
+        "bandage": $font-LanaPetIcon-bandage,
+        "hamster-1": $font-LanaPetIcon-hamster-1,
+        "pills": $font-LanaPetIcon-pills,
+        "veterinary": $font-LanaPetIcon-veterinary,
+        "heart": $font-LanaPetIcon-heart,
+        "spray": $font-LanaPetIcon-spray,
+        "shampoo": $font-LanaPetIcon-shampoo,
+        "pet-brush": $font-LanaPetIcon-pet-brush,
+        "food": $font-LanaPetIcon-food,
+        "pet-1": $font-LanaPetIcon-pet-1,
+        "dog-3": $font-LanaPetIcon-dog-3,
+        "canned-food": $font-LanaPetIcon-canned-food,
+        "plate": $font-LanaPetIcon-plate,
+        "bird": $font-LanaPetIcon-bird,
+        "cat-2": $font-LanaPetIcon-cat-2,
+        "bird-1": $font-LanaPetIcon-bird-1,
+        "thermometer": $font-LanaPetIcon-thermometer,
+        "collar": $font-LanaPetIcon-collar,
+        "vaccination": $font-LanaPetIcon-vaccination,
+        "spray-1": $font-LanaPetIcon-spray-1,
+        "dustpan": $font-LanaPetIcon-dustpan,
+        "bone-1": $font-LanaPetIcon-bone-1,
+        "collar-1": $font-LanaPetIcon-collar-1,
+        "cat-bed": $font-LanaPetIcon-cat-bed,
+        "no-animals": $font-LanaPetIcon-no-animals,
+        "pet-dress": $font-LanaPetIcon-pet-dress,
+        "dog-food": $font-LanaPetIcon-dog-food,
+        "bird-2": $font-LanaPetIcon-bird-2,
+        "sleighbell": $font-LanaPetIcon-sleighbell,
+        "hamster-wheel": $font-LanaPetIcon-hamster-wheel,
+        "birdhouse": $font-LanaPetIcon-birdhouse,
+        "extending-leads": $font-LanaPetIcon-extending-leads,
+        "cat-collar": $font-LanaPetIcon-cat-collar,
+        "fish-1": $font-LanaPetIcon-fish-1,
+        "snake": $font-LanaPetIcon-snake,
+        "cat-food": $font-LanaPetIcon-cat-food,
+        "fish-food": $font-LanaPetIcon-fish-food,
+        "dog-4": $font-LanaPetIcon-dog-4,
+        "cone-of-shame": $font-LanaPetIcon-cone-of-shame,
+        "health-certificate": $font-LanaPetIcon-health-certificate,
+        "hedgehog": $font-LanaPetIcon-hedgehog,
+        "bird-cage": $font-LanaPetIcon-bird-cage,
+        "pet-comb": $font-LanaPetIcon-pet-comb,
+        "cow": $font-LanaPetIcon-cow,
+        "syringe-1": $font-LanaPetIcon-syringe-1,
+        "dog-health-list": $font-LanaPetIcon-dog-health-list,
+        "cat-3": $font-LanaPetIcon-cat-3,
+        "pet-grooming": $font-LanaPetIcon-pet-grooming,
+        "pet-first-aid": $font-LanaPetIcon-pet-first-aid,
+        "cat-health-list": $font-LanaPetIcon-cat-health-list,
+        "pet-disease": $font-LanaPetIcon-pet-disease,
+        "rabbit": $font-LanaPetIcon-rabbit,
+        "pets-bath": $font-LanaPetIcon-pets-bath,
+        "toy-mouse": $font-LanaPetIcon-toy-mouse,
+        "cat-food-1": $font-LanaPetIcon-cat-food-1,
+        "hamster-2": $font-LanaPetIcon-hamster-2,
+        "sitting-dog": $font-LanaPetIcon-sitting-dog,
+        "dog-toy": $font-LanaPetIcon-dog-toy,
+        "chameleon": $font-LanaPetIcon-chameleon,
+        "dog-kennel": $font-LanaPetIcon-dog-kennel,
+        "pet-trimmer": $font-LanaPetIcon-pet-trimmer,
+        "pet-carrier": $font-LanaPetIcon-pet-carrier,
+        "sheep": $font-LanaPetIcon-sheep,
+        "cat-box": $font-LanaPetIcon-cat-box,
+        "pawprints": $font-LanaPetIcon-pawprints,
+        "turtle-1": $font-LanaPetIcon-turtle-1,
+        "cat-toy": $font-LanaPetIcon-cat-toy,
+        "pet-shelter": $font-LanaPetIcon-pet-shelter,
+        "pet-lotion": $font-LanaPetIcon-pet-lotion,
+        "stethoscope-1": $font-LanaPetIcon-stethoscope-1,
+        "dog-food-1": $font-LanaPetIcon-dog-food-1,
+        "snail": $font-LanaPetIcon-snail
+);
+
+@each $name, $icon in $font-LanaPetIcon {
+  .lpi-#{$name}:before {
+    content: $icon;
+  }
+}
+
+@for $i from 1 through 10 {
+  .lpi-#{$i}x {
+    font-size: $i * 1em;
+  }
+}

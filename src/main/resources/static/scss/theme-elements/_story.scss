@@ -1,0 +1,164 @@
+// quotation marks svg
+@function lana-story-quotation-marks-svg($fill) {
+  @return "<svg xmlns='http://www.w3.org/2000/svg' width='81.94' height='57.78'><path d='M23.97-.01c-9.69 0-17.68 7.14-17.68 17.68a15.026 15.026 0 0 0 6.63 12.75L0 57.79h16.83l16.83-27.37c4.25-6.46 5.78-10.2 5.78-15.13 0-9.01-6.29-15.3-15.47-15.3zm42.49 0c-9.69 0-17.68 7.14-17.68 17.68a15.026 15.026 0 0 0 6.63 12.75L42.49 57.79h16.83l16.83-27.37c4.25-6.46 5.78-10.2 5.78-15.13 0-9.01-6.29-15.3-15.47-15.3z' fill='#{$fill}' fill-rule='evenodd'/></svg>";
+}
+
+.lana_story.type-lana_story {
+
+  .post-title {
+    font-weight: $font-weight-medium;
+  }
+
+  .post-subtitle {
+    color: $dark-blue;
+  }
+
+  // media contains the image, title and subtitle
+  .media {
+    margin-bottom: ($spacer * 1.5);
+
+    img {
+      margin-right: ($spacer * 1);
+      width: auto;
+    }
+  }
+
+  .date-meta {
+    @include font-size($font-size-sm);
+    font-weight: $font-weight-medium;
+    color: $normal-blue;
+
+    i {
+      color: $gray-blue;
+      margin-right: ($spacer * .25);
+    }
+  }
+
+  &.story-card {
+    border: 0;
+
+    .media {
+      img {
+        max-width: 64px;
+        max-height: 64px;
+      }
+    }
+
+    .card-title {
+      font-weight: $font-weight-medium;
+    }
+
+    .card-subtitle {
+      color: $dark-blue;
+    }
+
+    .card-body {
+      z-index: 1;
+    }
+
+    .post-meta {
+      @include font-size($font-size-sm);
+      color: $text-muted;
+    }
+
+    a.more-link {
+      @include font-size($font-size-sm);
+      color: $body-color;
+
+      @include hover-focus {
+        color: $link-color;
+      }
+
+      i.lana-icon-arrow-right {
+        margin-left: ($spacer * .5);
+      }
+    }
+
+    // quotation marks icon
+    &::after {
+      content: ' ';
+      background-image: lana-svg-uri(lana-story-quotation-marks-svg($gray-100));
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      z-index: 0;
+      width: 82px;
+      height: 58px;
+      bottom: 0;
+      right: ($spacer * 1.5);
+    }
+  }
+
+  &.story-grid-card,
+  &.story-slide-card {
+    border: 0;
+    -webkit-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    -moz-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+
+    // if the card is used as a link
+    @at-root a#{&} {
+      color: $body-color;
+
+      @include hover-focus {
+        color: $body-color;
+      }
+    }
+
+    .media {
+      img {
+        max-width: 64px;
+        max-height: 64px;
+      }
+    }
+
+    .card-title {
+      font-weight: $font-weight-medium;
+    }
+
+    .card-subtitle {
+      color: $dark-blue;
+    }
+
+    .card-body {
+      padding: ($spacer * 3.5) ($spacer * 1.5) ($spacer * 5);
+      z-index: 1;
+    }
+
+    // quotation marks icon
+    &::after {
+      bottom: ($spacer * 3.5);
+    }
+  }
+}
+
+.more-stories-grid-card {
+  min-height: 300px;
+  border: 0;
+
+  -webkit-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+  -moz-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+  box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+
+  .more-icons {
+    display: block;
+    margin-bottom: ($spacer * 4);
+
+    .more-icon {
+      display: inline-block;
+      border: $btn-border-width solid $white;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      width: ($spacer * 1);
+      height: ($spacer * 1);
+      margin-left: ($spacer * .2);
+      margin-right: ($spacer * .2);
+    }
+  }
+
+  a.more-link {
+    color: $white;
+    font-weight: $font-weight-medium;
+  }
+}

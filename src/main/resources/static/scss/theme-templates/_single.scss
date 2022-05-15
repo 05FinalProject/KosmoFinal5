@@ -1,0 +1,347 @@
+body.single {
+
+  .main {
+    .post {
+
+      // post
+      .post-container {
+        padding-top: ($spacer * 4);
+        padding-bottom: ($spacer * 4);
+
+        // padding mobile optimization
+        @include media-breakpoint-down(sm) {
+          padding-top: ($spacer * 2);
+          padding-bottom: ($spacer * 2);
+        }
+
+        -webkit-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+        -moz-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+        box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+
+        -webkit-border-radius: ($spacer * .125);
+        -moz-border-radius: ($spacer * .125);
+        border-radius: ($spacer * .125);
+
+        .post-row {
+          .post-thumbnail {
+            margin-bottom: ($spacer * 3);
+
+            // margin mobile optimization
+            @include media-breakpoint-down(sm) {
+              margin-bottom: ($spacer * 1.5);
+            }
+          }
+
+          .post-content {
+            margin-bottom: ($spacer * 1);
+          }
+
+          .post-pages {
+            padding-top: ($spacer * .5);
+            padding-bottom: ($spacer * .5);
+
+            // padding mobile optimization
+            @include media-breakpoint-down(sm) {
+              padding-top: 0;
+              padding-bottom: 0;
+            }
+          }
+
+          .post-tags {
+            padding-top: ($spacer * 1);
+            padding-bottom: ($spacer * 1);
+
+            // padding mobile optimization
+            @include media-breakpoint-down(sm) {
+              padding-top: ($spacer * .5);
+              padding-bottom: ($spacer * .5);
+            }
+          }
+        }
+      }
+
+      // comments
+      .comments-container {
+        padding-top: ($spacer * 4);
+        padding-bottom: ($spacer * 4);
+        margin-top: ($spacer * 3);
+
+        // padding and margin mobile optimization
+        @include media-breakpoint-down(sm) {
+          padding-top: ($spacer * 2);
+          padding-bottom: ($spacer * 2);
+          margin-top: ($spacer * 1);
+        }
+
+        -webkit-border-radius: ($spacer * .125);
+        -moz-border-radius: ($spacer * .125);
+        border-radius: ($spacer * .125);
+
+        -webkit-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+        -moz-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+        box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+      }
+    }
+  }
+}
+
+body.single.single-post {
+
+  .main {
+    // default margin from main.scss
+
+    // margin mobile optimization
+    @include media-breakpoint-down(sm) {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+}
+
+body.single.single-lana_pet {
+  .main {
+    .lana_pet {
+      // post
+      .post-container {
+        .post-row {
+          -webkit-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+          -moz-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+          box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+
+          -webkit-border-radius: ($spacer * .125);
+          -moz-border-radius: ($spacer * .125);
+          border-radius: ($spacer * .125);
+
+          .post-thumbnail-col {
+            .post-thumbnail {
+              -webkit-border-top-left-radius: ($spacer * .125);
+              -webkit-border-top-right-radius: ($spacer * .125);
+              -moz-border-radius-topleft: ($spacer * .125);
+              -moz-border-radius-topright: ($spacer * .125);
+              border-top-left-radius: ($spacer * .125);
+              border-top-right-radius: ($spacer * .125);
+            }
+          }
+
+          .post-col {
+            padding-top: ($spacer * 3.5);
+            padding-bottom: ($spacer * 4);
+
+            // padding mobile optimization
+            @include media-breakpoint-down(sm) {
+              padding: ($spacer * 1.5) ($spacer * 1.25);
+            }
+          }
+
+          .post-title {
+            margin-bottom: ($spacer * 1);
+          }
+
+          .post-content {
+            margin-bottom: ($spacer * 1);
+          }
+
+          .post-meta {
+            &.post-meta-top {
+              margin-bottom: ($spacer * 1.5);
+            }
+
+            &.post-meta-bottom {
+              margin-top: ($spacer * 3);
+
+              // margin mobile optimization
+              @include media-breakpoint-down(sm) {
+                margin-top: ($spacer * 1.5);
+              }
+            }
+          }
+        }
+      }
+
+      // more pets
+      .more-pets-container {
+        .more-pets-row {
+          margin-top: ($spacer * 3);
+        }
+      }
+
+      // adopt
+      .adopt-container {
+        .adopt-row {
+          padding-top: ($spacer * 4);
+          padding-bottom: ($spacer * 4);
+          margin-top: ($spacer * 3);
+
+          // padding mobile optimization
+          @include media-breakpoint-down(sm) {
+            padding: ($spacer * 1.5) ($spacer * 1.25);
+          }
+
+          -webkit-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+          -moz-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+          box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+
+          -webkit-border-radius: ($spacer * .125);
+          -moz-border-radius: ($spacer * .125);
+          border-radius: ($spacer * .125);
+        }
+      }
+    }
+  }
+}
+
+body.single.single-lana_story {
+  .main {
+    .lana_story {
+      // post
+      .post-container {
+        .post-row {
+          -webkit-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+          -moz-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+          box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+
+          -webkit-border-radius: ($spacer * .125);
+          -moz-border-radius: ($spacer * .125);
+          border-radius: ($spacer * .125);
+
+          .post-col {
+            padding-top: ($spacer * 3.5);
+            padding-bottom: ($spacer * 4);
+
+            // padding mobile optimization
+            @include media-breakpoint-down(sm) {
+              padding: ($spacer * 1.5) ($spacer * 1.25);
+            }
+
+            // quotation marks icon
+            &::after {
+              content: ' ';
+              background-image: lana-svg-uri(lana-story-quotation-marks-svg($gray-100));
+              background-repeat: no-repeat;
+              background-size: contain;
+              position: absolute;
+              z-index: 0;
+              width: 82px;
+              height: 58px;
+              top: ($spacer * 3.5);
+              right: ($spacer * 1.5);
+            }
+          }
+
+          .post-title {
+            margin-bottom: ($spacer * .5);
+          }
+
+          .post-content {
+            margin-bottom: ($spacer * 1);
+          }
+
+          .post-meta {
+            &.post-meta-top {
+              margin-bottom: ($spacer * 1.5);
+            }
+
+            &.post-meta-bottom {
+              margin-top: ($spacer * 3);
+
+              // margin mobile optimization
+              @include media-breakpoint-down(sm) {
+                margin-top: ($spacer * 1.5);
+              }
+            }
+          }
+        }
+      }
+
+      // more stories
+      .more-stories-container {
+        .more-stories-row {
+          margin-top: ($spacer * 3);
+
+          .story-grid-card {
+            .card-body {
+              padding: ($spacer * 2.5) ($spacer * 1.5) ($spacer * 3) !important;
+            }
+
+            // quotation marks icon
+            &::after {
+              width: 57px;
+              height: 40px;
+              bottom: ($spacer * 2.5);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+body.single.single-lana_fundraiser {
+  .main {
+    .lana_fundraiser {
+      // post
+      .post-container {
+        .post-row {
+          -webkit-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+          -moz-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+          box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+
+          -webkit-border-radius: ($spacer * .125);
+          -moz-border-radius: ($spacer * .125);
+          border-radius: ($spacer * .125);
+
+          .post-thumbnail-col {
+            .post-thumbnail {
+              -webkit-border-top-left-radius: ($spacer * .125);
+              -webkit-border-top-right-radius: ($spacer * .125);
+              -moz-border-radius-topleft: ($spacer * .125);
+              -moz-border-radius-topright: ($spacer * .125);
+              border-top-left-radius: ($spacer * .125);
+              border-top-right-radius: ($spacer * .125);
+            }
+          }
+
+          .post-col {
+            padding-top: ($spacer * 3.5);
+            padding-bottom: ($spacer * 4);
+
+            // padding mobile optimization
+            @include media-breakpoint-down(sm) {
+              padding: ($spacer * 1.5) ($spacer * 1.25);
+            }
+          }
+
+          .post-title {
+            margin-bottom: ($spacer * 1);
+          }
+
+          .post-content {
+            margin-bottom: ($spacer * 1);
+          }
+
+          .post-meta {
+            &.post-meta-top {
+              margin-bottom: ($spacer * 1.5);
+            }
+
+            &.post-meta-bottom {
+              margin-top: ($spacer * 3);
+
+              // margin mobile optimization
+              @include media-breakpoint-down(sm) {
+                margin-top: ($spacer * 1.5);
+              }
+            }
+          }
+        }
+      }
+
+      // more fundraisers
+      .more-fundraisers-container {
+        .more-fundraisers-row {
+          margin-top: ($spacer * 3);
+        }
+      }
+    }
+  }
+}

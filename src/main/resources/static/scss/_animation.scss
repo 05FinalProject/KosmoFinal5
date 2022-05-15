@@ -1,0 +1,252 @@
+// moveIn animate
+@keyframes moveInUp {
+  from {
+    transform: translateY($spacer);
+    visibility: visible;
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveInDown {
+  from {
+    transform: translateY(-$spacer);
+    visibility: visible;
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveInLeft {
+  from {
+    transform: translateX(-$spacer);
+    visibility: visible;
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveInRight {
+  from {
+    transform: translateX($spacer);
+    visibility: visible;
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.moveInUp {
+  animation-name: moveInUp;
+}
+
+.moveInDown {
+  animation-name: moveInDown;
+}
+
+.moveInLeft {
+  animation-name: moveInLeft;
+}
+
+.moveInRight {
+  animation-name: moveInRight;
+}
+
+// comeIn animate
+@keyframes comeInUp {
+  from {
+    opacity: 0;
+    transform: translateY($spacer);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes comeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-$spacer);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes comeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-$spacer);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes comeInRight {
+  from {
+    opacity: 0;
+    transform: translateX($spacer);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.comeInUp {
+  animation-name: comeInUp;
+}
+
+.comeInDown {
+  animation-name: comeInDown;
+}
+
+.comeInLeft {
+  animation-name: comeInLeft;
+}
+
+.comeInRight {
+  animation-name: comeInRight;
+}
+
+// scroll animate
+:not(.animated) {
+  &[data-scroll-animate*="comeIn"],
+  &[data-scroll-animate*="bounceIn"],
+  &[data-scroll-animate*="fadeIn"],
+  &[data-scroll-animate*="flipIn"],
+  &[data-scroll-animate*="lightSpeedIn"],
+  &[data-scroll-animate*="rotateIn"],
+  &[data-scroll-animate*="jackIn"],
+  &[data-scroll-animate*="rollIn"],
+  &[data-scroll-animate*="zoomIn"] {
+    opacity: 0;
+  }
+}
+
+// main navbar
+#lana-pet-main-navbar {
+
+  // navbar nav
+  .navbar-nav {
+    .nav-link {
+      &::after {
+        transition: all .1s ease-in;
+        transition-duration: .1s;
+      }
+    }
+
+    // active
+    .active > .nav-link,
+    .nav-link.active {
+      @include hover-focus {
+        &::after {
+          -webkit-animation: underlineReload .25s forwards;
+          animation: underlineReload .25s forwards;
+        }
+      }
+    }
+  }
+
+  &.navbar-sticky {
+    &.fixed-top {
+      -webkit-animation: 0.5s navbarIn ease-in;
+      -moz-animation: 0.5s navbarIn ease-in;
+      -o-animation: 0.5s navbarIn ease-in;
+      animation: 0.5s navbarIn ease-in;
+    }
+  }
+}
+
+@-webkit-keyframes navbarIn {
+  0% {
+    top: -150px
+  }
+  100% {
+    top: 0
+  }
+}
+
+@-moz-keyframes navbarIn {
+  0% {
+    top: -150px
+  }
+  100% {
+    top: 0
+  }
+}
+
+@-o-keyframes navbarIn {
+  0% {
+    top: -150px
+  }
+  100% {
+    top: 0
+  }
+}
+
+@keyframes navbarIn {
+  0% {
+    top: -150px
+  }
+  100% {
+    top: 0
+  }
+}
+
+@-webkit-keyframes underlineLoad {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: ($spacer * 1);
+  }
+}
+
+@keyframes underlineLoad {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: ($spacer * 1);
+  }
+}
+
+@-webkit-keyframes underlineReload {
+  0% {
+    width: ($spacer * 1);
+  }
+  25% {
+    width: ($spacer * .25);
+  }
+  100% {
+    width: ($spacer * 1);
+  }
+}
+
+@keyframes underlineReload {
+  0% {
+    width: ($spacer * 1);
+  }
+  25% {
+    width: ($spacer * .25);
+  }
+  100% {
+    width: ($spacer * 1);
+  }
+}

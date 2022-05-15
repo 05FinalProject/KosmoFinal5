@@ -1,0 +1,64 @@
+$theme-prefix: "lana-pet";
+$lana-img-path: "../img";
+
+$lana-img-sizes: (
+        "post-thumbnail": ("width": 530, "height": 400),
+        "thumbnail": ("width": 100, "height": 100),
+        "medium": ("width": 640, "height": 300),
+        "large": ("width": 1110, "height": 520)
+);
+
+// functions
+@import "functions";
+
+// load bootstrap
+@import "bootstrap/variables";
+@import "../bower_components/bootstrap/scss/functions";
+@import "../bower_components/bootstrap/scss/variables";
+
+// mixins
+@import "mixins";
+
+// load theme elements
+@import "theme-elements/icons";
+@import "theme-elements/backgrounds";
+@import "theme-elements/type";
+@import "theme-elements/header";
+@import "theme-elements/navbar";
+@import "theme-elements/pagination";
+@import "theme-elements/attachment";
+@import "theme-elements/post-type";
+@import "theme-elements/post";
+@import "theme-elements/page";
+@import "theme-elements/pet";
+@import "theme-elements/slider";
+@import "theme-elements/service";
+@import "theme-elements/story";
+@import "theme-elements/fundraiser";
+@import "theme-elements/member";
+@import "theme-elements/partner";
+@import "theme-elements/comment";
+@import "theme-elements/search";
+@import "theme-elements/widgets";
+@import "theme-elements/footer";
+@import "theme-elements/carousels";
+@import "theme-elements/information";
+@import "theme-elements/popup";
+
+// load effects
+@import "effects/basic";
+@import "effects/image-overlay";
+@import "effects/image-zoom";
+
+// load theme templates
+@import "theme-templates/main";
+@import "theme-templates/home";
+@import "theme-templates/page";
+@import "theme-templates/archive";
+@import "theme-templates/single";
+@import "theme-templates/search";
+@import "theme-templates/attachment";
+@import "theme-templates/404";
+
+// animation
+@import "animation";

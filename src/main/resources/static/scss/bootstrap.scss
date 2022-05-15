@@ -1,0 +1,19 @@
+// load mixins
+@import "mixins/type";
+
+// load bootstrap overwrite
+@import "bootstrap/variables";
+
+// load bootstrap
+@import "../bower_components/bootstrap/scss/bootstrap";
+
+// load bootstrap elements overwrite
+@import "bootstrap/reboot";
+@import "bootstrap/text";
+@import "bootstrap/forms";
+@import "bootstrap/buttons";
+@import "bootstrap/input-group";
+@import "bootstrap/nav";
+@import "bootstrap/card";
+@import "bootstrap/background";
+@import "bootstrap/borders";

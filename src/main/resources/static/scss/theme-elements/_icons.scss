@@ -1,0 +1,103 @@
+// arrow left svg
+@function lana-arrow-left-svg($fill) {
+  @return "<svg xmlns='http://www.w3.org/2000/svg' width='29.981' height='15.019' viewBox='0 0 47.969 24.03'><defs><style>.cls-1{fill:#{$fill};fill-rule:evenodd}</style></defs><path id='arrow-left' class='cls-1' d='M245.486 7021.15l10.5 10.39a1.661 1.661 0 0 0 2.321 0 1.618 1.618 0 0 0 0-2.3l-7.7-7.61h40.751a1.625 1.625 0 1 0 0-3.25h-40.75l7.7-7.61a1.6 1.6 0 0 0 0-2.29 1.642 1.642 0 0 0-2.32 0l-10.5 10.38a1.6 1.6 0 0 0-.002 2.29z' transform='translate(-245.031 -7008)'/></svg>";
+}
+
+// arrow right svg
+@function lana-arrow-right-svg($fill) {
+  @return "<svg xmlns='http://www.w3.org/2000/svg' width='30' height='15' viewBox='0 0 48 24'><defs><style>.cls-1{fill:#{$fill};fill-rule:evenodd}</style></defs><path id='arrow-right' class='cls-1' d='M1674.51 7018.85l-10.5-10.39a1.66 1.66 0 0 0-2.32 0 1.618 1.618 0 0 0 0 2.3l7.7 7.61h-40.75a1.625 1.625 0 1 0 0 3.25h40.75l-7.7 7.61a1.606 1.606 0 0 0 0 2.29 1.642 1.642 0 0 0 2.32 0l10.5-10.38a1.606 1.606 0 0 0 0-2.29z' transform='translate(-1627 -7008)'/></svg>";
+}
+
+// angle up svg
+@function lana-angle-up-svg($fill) {
+  @return "<svg xmlns='http://www.w3.org/2000/svg' width='9' height='5'><defs><style>.cls-1{fill:#{$fill};fill-rule:evenodd}</style></defs><path id='arrow-up' data-name='arrow-up' class='cls-1' d='M1021 55.979a.957.957 0 0 1-.31.7 1.181 1.181 0 0 1-1.57.036l-2.63-2.283-2.6 2.281a1.2 1.2 0 0 1-1.58-.032.962.962 0 0 1 .04-1.443l3.37-2.954a1.193 1.193 0 0 1 1.54 0l3.39 2.954a.984.984 0 0 1 .35.741z' transform='translate(-1012 -52)'/></svg>";
+}
+
+// angle down svg
+@function lana-angle-down-svg($fill) {
+  @return "<svg xmlns='http://www.w3.org/2000/svg' width='9' height='5'><defs><style>.cls-1{fill:#{$fill};fill-rule:evenodd}</style></defs><path id='arrow-down' data-name='arrow-down' class='cls-1' d='M1012 53.021a.957.957 0 0 1 .31-.7 1.181 1.181 0 0 1 1.57-.037l2.63 2.283 2.6-2.281a1.194 1.194 0 0 1 1.58.032.961.961 0 0 1-.04 1.443l-3.37 2.953a1.193 1.193 0 0 1-1.54 0l-3.39-2.953a.986.986 0 0 1-.35-.74z' transform='translate(-1012 -52)'/></svg>";
+}
+
+// angle left svg
+@function lana-angle-left-svg($fill) {
+  @return "<svg xmlns='http://www.w3.org/2000/svg' width='5' height='9'><defs><style>.cls-1{fill:#{$fill};fill-rule:evenodd}</style></defs><path id='arrow-down' data-name='arrow-right' class='cls-1' d='M4,9C3.7,9,3.4,8.9,3.2,8.6l-3-3.4c-0.4-0.4-0.4-1.1,0-1.5l3-3.4c0,0,0.1-0.1,0.1-0.1 c0.4-0.4,1-0.3,1.4,0c0.4,0.4,0.4,1.1,0,1.6L2.4,4.5l2.3,2.6c0.4,0.5,0.4,1.1,0,1.6C4.5,8.9,4.2,9,4,9L4,9z'/></svg>";
+}
+
+// angle right svg
+@function lana-angle-right-svg($fill) {
+  @return "<svg xmlns='http://www.w3.org/2000/svg' width='5' height='9'><defs><style>.cls-1{fill:#{$fill};fill-rule:evenodd}</style></defs><path id='arrow-down' data-name='arrow-right' class='cls-1' d='M1,9C0.8,9,0.5,8.9,0.3,8.7c-0.4-0.4-0.4-1.1,0-1.6l2.3-2.6L0.3,1.9c-0.4-0.5-0.4-1.1,0-1.6 c0.4-0.4,1-0.4,1.4,0c0,0,0.1,0.1,0.1,0.1l3,3.4c0.4,0.4,0.4,1.1,0,1.5l-3,3.4C1.6,8.9,1.3,9,1,9L1,9z'/></svg>";
+}
+
+.lana-icon-arrow-left,
+.lana-icon-arrow-right {
+  &::before {
+    content: ' ';
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 22px;
+    height: 10px;
+  }
+}
+
+.lana-icon-arrow-left {
+  &::before {
+    background-image: lana-svg-uri(lana-arrow-left-svg($body-color));
+  }
+
+  &.text-white::before {
+    background-image: lana-svg-uri(lana-arrow-left-svg($white));
+  }
+
+  @each $color, $value in $theme-colors {
+    &.text-#{$color}::before {
+      background-image: lana-svg-uri(lana-arrow-left-svg($value));
+    }
+
+    // color bg and white text
+    .bg-#{$color}.text-white & {
+      &.text-#{$color}::before {
+        background-image: lana-svg-uri(lana-arrow-left-svg($white)) !important;
+      }
+    }
+  }
+}
+
+.lana-icon-arrow-right {
+  &::before {
+    background-image: lana-svg-uri(lana-arrow-right-svg($body-color));
+  }
+
+  &.text-white::before {
+    background-image: lana-svg-uri(lana-arrow-right-svg($white));
+  }
+
+  @each $color, $value in $theme-colors {
+    &.text-#{$color}::before {
+      background-image: lana-svg-uri(lana-arrow-right-svg($value));
+    }
+
+    // color bg and white text
+    .bg-#{$color}.text-white & {
+      &.text-#{$color}::before {
+        background-image: lana-svg-uri(lana-arrow-right-svg($white)) !important;
+      }
+    }
+  }
+}
+
+// social icons
+ul.social-icons {
+  li {
+    &:not(:last-child) {
+      margin-right: ($spacer * 2);
+    }
+
+    a.social-icon {
+      &::after {
+        display: none;
+        content: none;
+      }
+    }
+  }
+}

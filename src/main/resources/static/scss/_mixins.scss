@@ -1,0 +1,8 @@
+// load bootstrap mixins
+@import "../bower_components/bootstrap/scss/mixins/breakpoints";
+@import "../bower_components/bootstrap/scss/mixins/hover";
+@import "../bower_components/bootstrap/scss/mixins/border-radius";
+
+@import "../bower_components/bootstrap/scss/vendor/rfs";
+
+@import "mixins/type";

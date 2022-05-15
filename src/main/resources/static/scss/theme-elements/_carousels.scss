@@ -1,0 +1,41 @@
+// pets carousel
+.pets-carousel {
+  .card.pet-grid-card {
+    -webkit-box-shadow: 0 0 ($spacer * 1) 0 rgba($black, 0.06);
+    -moz-box-shadow: 0 0 ($spacer * 1) 0 rgba($black, 0.06);
+    box-shadow: 0 0 ($spacer * 1) 0 rgba($black, 0.06); // this size is the same as the margin
+  }
+}
+
+// latest posts carousel
+.latest-posts-carousel {
+  padding: ($spacer * 3.3) !important; // spacer * scale 1.1
+
+  // slide
+  .swiper-slide {
+    transition: all .1s ease-in-out;
+    border-right: 1px solid $gray-100;
+    padding-bottom: 0;
+
+    // active
+    &.swiper-slide-active {
+      border-left: 1px solid #e5e5e5;
+    }
+
+    // prev
+    &.swiper-slide-prev {
+      border-color: transparent;
+    }
+
+    // hover
+    &:hover {
+      transform: scale(1.1);
+      z-index: 1;
+      border-color: transparent;
+      background: $white;
+      -webkit-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+      -moz-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+      box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    }
+  }
+}

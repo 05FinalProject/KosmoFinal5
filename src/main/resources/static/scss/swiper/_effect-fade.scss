@@ -1,0 +1,13 @@
+// fade
+.swiper-container-fade {
+  // transparent background
+  &.bg-transparent {
+    .swiper-slide {
+      opacity: 0 !important;
+
+      &.swiper-slide-active {
+        opacity: 1 !important;
+      }
+    }
+  }
+}

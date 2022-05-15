@@ -1,0 +1,24 @@
+.attachment {
+  .attachment-caption {
+    font-weight: $font-weight-bold;
+  }
+}
+
+.attachment-placeholder {
+  height: 450px;
+  background: $gray-100;
+  color: $gray-400;
+
+  @include hover-focus {
+    color: $text-muted;
+  }
+
+  i.fas {
+    font-size: 100px;
+  }
+}
+
+.attachment-image-placeholder {
+  min-height: 450px;
+  background-color: $gray-100;
+}

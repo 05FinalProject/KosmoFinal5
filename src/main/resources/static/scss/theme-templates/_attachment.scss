@@ -1,0 +1,48 @@
+body.attachment {
+
+  // header
+  > .header {
+    .main {
+      .attachment-container {
+        .attachment-row {
+          padding-top: ($spacer * 2);
+
+          .title-col {
+            .attachment-title {
+              font-weight: $font-weight-bold;
+            }
+          }
+
+          .attachment-thumbnail-col {
+            margin-top: ($spacer * 1);
+          }
+
+          .attachment-col {
+            padding-top: ($spacer * 2);
+            padding-bottom: ($spacer * 2);
+          }
+        }
+      }
+    }
+  }
+
+  // main
+  > .main {
+    .attachment-container {
+      .attachment-row {
+        -webkit-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+        -moz-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+        box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+
+        -webkit-border-radius: ($spacer * .125);
+        -moz-border-radius: ($spacer * .125);
+        border-radius: ($spacer * .125);
+
+        .attachment-col {
+          padding-top: ($spacer * 3.5);
+          padding-bottom: ($spacer * 4);
+        }
+      }
+    }
+  }
+}

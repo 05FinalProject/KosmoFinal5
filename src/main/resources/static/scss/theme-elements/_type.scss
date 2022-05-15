@@ -1,0 +1,14 @@
+// lana horizontal rule
+.lana-hr {
+  display: inline-block;
+  border-top: .25rem solid $hr-border-color;
+  width: ($spacer * 1);
+}
+
+@each $size, $length in $spacers {
+  @if $size != 0 {
+    .lana-hr-#{$size} {
+      width: ($length*5) !important;
+    }
+  }
+}

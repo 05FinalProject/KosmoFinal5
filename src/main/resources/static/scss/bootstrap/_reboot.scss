@@ -1,0 +1,19 @@
+// focus
+:focus {
+  outline-color: rgba($primary, .75);
+}
+
+button:focus {
+  outline-color: rgba($primary, .75);
+}
+
+// pre
+pre {
+  white-space: pre-wrap;
+}
+
+// form
+legend {
+  font-weight: $font-weight-medium;
+  @include font-size($font-size-lg);
+}

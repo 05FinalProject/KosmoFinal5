@@ -1,0 +1,129 @@
+.lana-overlay-bg-color-dark {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($dark, .9);
+  }
+}
+
+.lana-full-bg-image-golden-large-sitting-dog-body-indoor {
+  background-image: url('#{$lana-img-path}/full-bg-golden-large-sitting-dog-body-indoor.jpg');
+  background-size: cover;
+
+  // bg tablet and mobile optimization
+  @include media-breakpoint-down(lg) {
+    background-position: top center;
+  }
+}
+
+.lana-full-bg-black-and-white-medium-lying-dog-body-outdoor {
+  background-image: url('#{$lana-img-path}/full-bg-black-and-white-medium-lying-dog-body-outdoor.jpg');
+  background-size: cover;
+}
+
+.lana-full-bg-image-black-and-white-medium-staring-dog-body-outdoor {
+  background-image: url('#{$lana-img-path}/full-bg-black-and-white-medium-staring-dog-body-outdoor.jpg');
+  background-size: cover;
+}
+
+.lana-full-bg-black-and-white-medium-staring-dog-face-within-fence {
+  background-image: url('#{$lana-img-path}/full-bg-black-and-white-medium-staring-dog-face-within-fence.jpg');
+  background-size: cover;
+}
+
+.lana-full-bg-image-black-and-white-small-staring-dog-body-indoor {
+  background-image: url('#{$lana-img-path}/full-bg-black-and-white-small-staring-dog-body-indoor.jpg');
+  background-size: cover;
+}
+
+.lana-full-bg-black-big-staring-dog-in-muzzle-face-outdoor {
+  background-image: url('#{$lana-img-path}/full-bg-black-big-staring-dog-in-muzzle-face-outdoor.jpg');
+  background-size: cover;
+}
+
+.lana-full-bg-white-small-staring-dog-face-in-cage {
+  background-image: url('#{$lana-img-path}/full-bg-white-small-staring-dog-face-in-cage.jpg');
+  background-size: cover;
+}
+
+.lana-bg-image-beige-medium-lying-dog-and-cat-body-outdoor {
+  background-image: url('#{$lana-img-path}/bg-beige-medium-lying-dog-and-cat-body-outdoor.jpg');
+  background-size: cover;
+}
+
+.lana-bg-image-beige-medium-staring-dog-body-outdoor {
+  background-image: url('#{$lana-img-path}/bg-beige-medium-staring-dog-body-outdoor.jpg');
+  background-size: cover;
+}
+
+.lana-bg-image-beige-small-sitting-dog-face-outdoor {
+  background-image: url('#{$lana-img-path}/bg-beige-small-sitting-dog-face-outdoor.jpg');
+  background-size: cover;
+}
+
+.lana-bg-image-black-and-white-large-standing-dog-body-outdoor {
+  background-image: url('#{$lana-img-path}/bg-black-and-white-large-standing-dog-body-outdoor.jpg');
+  background-size: cover;
+}
+
+.lana-bg-image-black-large-embracing-dog-and-human-body-outdoor {
+  background-image: url('#{$lana-img-path}/bg-black-large-embracing-dog-and-human-body-outdoor.jpg');
+  background-size: cover;
+}
+
+.lana-bg-image-black-medium-staring-cat-face-indoor {
+  background-image: url('#{$lana-img-path}/bg-black-medium-staring-cat-face-indoor.jpg');
+  background-size: cover;
+}
+
+.lana-bg-image-brown-and-white-medium-lying-dog-body-indoor {
+  background-image: url('#{$lana-img-path}/bg-brown-and-white-medium-lying-dog-body-indoor.jpg');
+  background-size: cover;
+}
+
+.lana-bg-image-brown-and-white-medium-running-dog-body-outdoor {
+  background-image: url('#{$lana-img-path}/bg-brown-and-white-medium-running-dog-body-outdoor.jpg');
+  background-size: cover;
+}
+
+.lana-bg-image-brown-and-white-medium-staring-dog-body-indoor {
+  background-image: url('#{$lana-img-path}/bg-brown-and-white-medium-staring-dog-body-indoor.jpg');
+  background-size: cover;
+}
+
+.lana-bg-image-brown-and-white-small-staring-dog-face-indoor {
+  background-image: url('#{$lana-img-path}/bg-brown-and-white-small-staring-dog-face-indoor.jpg');
+  background-size: cover;
+}
+
+.lana-bg-image-brown-large-lying-dog-body-indoor {
+  background-image: url('#{$lana-img-path}/bg-brown-large-lying-dog-body-indoor.jpg');
+  background-size: cover;
+}
+
+.lana-bg-image-brown-small-lying-dog-body-indoor {
+  background-image: url('#{$lana-img-path}/bg-brown-small-lying-dog-body-indoor.jpg');
+  background-size: cover;
+}
+
+.lana-bg-image-golden-large-sitting-dog-body-outdoor {
+  background-image: url('#{$lana-img-path}/bg-golden-large-sitting-dog-body-outdoor.jpg');
+  background-size: cover;
+}
+
+.lana-bg-image-white-large-staring-cat-body-indoor {
+  background-image: url('#{$lana-img-path}/bg-white-large-staring-cat-body-indoor.jpg');
+  background-size: cover;
+}
+
+.lana-bg-image-white-small-staring-dog-face-indoor {
+  background-image: url('#{$lana-img-path}/bg-white-small-staring-dog-face-indoor.jpg');
+  background-size: cover;
+}

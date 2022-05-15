@@ -1,0 +1,14 @@
+// form grid
+.form-row {
+  > .col,
+  > [class*="col-"] {
+    padding-right: ($spacer * .5);
+    padding-left: ($spacer * .5);
+  }
+}
+
+.row {
+  &.form-group {
+    margin-bottom: $grid-gutter-width;
+  }
+}

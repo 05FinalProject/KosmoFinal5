@@ -1,0 +1,44 @@
+.lana_member.type-lana_member {
+  &.member-card {
+    border: 0;
+    text-align: center;
+
+    .card-img-top {
+      margin-bottom: ($spacer * 3);
+
+      // size tablet and mobile optimization
+      @include media-breakpoint-down(lg) {
+        max-width: 250px;
+      }
+    }
+
+    .card-title {
+      font-weight: $font-weight-medium;
+      margin-bottom: ($spacer * 1.5);
+    }
+
+    .card-subtitle {
+      color: $gray-600;
+      margin-bottom: ($spacer * 1);
+    }
+
+    .card-body {
+      @include media-breakpoint-up(lg) {
+        padding-left: ($spacer * 3);
+        padding-right: ($spacer * 3);
+      }
+    }
+
+    ul.social-icons {
+      li {
+        a.social-icon {
+          color: $body-color;
+
+          @include hover-focus {
+            color: $link-color;
+          }
+        }
+      }
+    }
+  }
+}

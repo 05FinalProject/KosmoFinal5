@@ -1,0 +1,18 @@
+// weight
+.font-weight-medium {
+  font-weight: $font-weight-medium !important;
+}
+
+// text body link
+a.text-body {
+  @include hover-focus {
+    color: $primary !important;
+  }
+}
+
+// text muted link
+a.text-muted {
+  @include hover-focus {
+    color: $primary !important;
+  }
+}

@@ -1,0 +1,52 @@
+.mainLogo{
+    width: 120px; 
+    height: 120px; 
+}
+
+.mainTitle {
+    width: 220px; 
+    height: 100px;
+}
+
+.headColor{
+    background-color:#F8B03A;
+}
+
+.bigCate {
+    font-size: 32px;
+}
+
+.join {
+    width: 48px;
+    height: 48px;
+}
+
+.footerLogo{
+    width: 150px;
+    height: 48px;
+}
+
+.footerFont{
+    font-size: 12px;
+}
+
+.off{
+    display: none;
+}
+
+.subCate{
+    background-color: white;
+    font-weight: bold;
+    border-top: solid gray;
+    border-bottom: solid gray;
+    border-width: 1px;
+    border-color: gray;
+}
+
+.subFont{
+    color:black;
+}
+
+.subFont:hover{
+    color:#F8B03A;
+}

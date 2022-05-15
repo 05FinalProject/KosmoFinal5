@@ -1,0 +1,154 @@
+.lana_fundraiser.type-lana_fundraiser {
+  .post-thumbnail {
+    min-width: 100%;
+  }
+
+  .post-title {
+    font-weight: $font-weight-bold;
+  }
+
+  &.fundraiser-card {
+    border: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+
+    .row {
+      // padding mobile and tablet optimization
+      @include media-breakpoint-down(md) {
+        // image
+        > .col-md-4 {
+          .card-img {
+            margin-bottom: ($spacer * 1);
+          }
+        }
+
+        // content
+        > .col-md-8 {
+          .card-body {
+            padding-left: 0;
+            padding-right: 0;
+          }
+
+          .card-footer {
+            padding-left: 0;
+            padding-right: 0;
+          }
+        }
+      }
+    }
+
+    .card-title {
+      font-weight: $font-weight-bold;
+
+      a {
+        color: $body-color;
+
+        @include hover-focus {
+          color: $link-color;
+        }
+      }
+    }
+
+    .card-body {
+      &.d-flex {
+        .card-text {
+          max-width: 100% !important;
+        }
+      }
+    }
+
+    .status-meta {
+      margin-bottom: ($spacer * 1.25);
+
+      .raised-meta {
+        span {
+          white-space: nowrap;
+        }
+      }
+    }
+
+    .post-meta {
+      @include font-size($font-size-sm);
+    }
+
+    a.more-link {
+      @include font-size($font-size-sm);
+      color: $body-color;
+
+      @include hover-focus {
+        color: $link-color;
+      }
+
+      i.lana-icon-arrow-right {
+        margin-left: ($spacer * .5);
+      }
+    }
+  }
+
+  &.fundraiser-grid-card {
+    border: 0;
+
+    -webkit-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    -moz-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+
+    .card-body {
+      padding-top: ($spacer * 1.5);
+    }
+
+    .card-footer {
+      background: transparent;
+      border: 0;
+      padding-top: 0;
+      padding-bottom: ($spacer * 1.5);
+    }
+
+    .status-meta {
+      margin-bottom: 0;
+
+      .progress {
+        border-radius: 0;
+      }
+
+      .raised-meta {
+        padding: ($spacer * .5) ($spacer * 1.25) 0;
+
+        span {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}
+
+.more-fundraisers-grid-card {
+  min-height: 300px;
+  border: 0;
+
+  -webkit-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+  -moz-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+  box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+
+  .more-icons {
+    display: block;
+    margin-bottom: ($spacer * 4);
+
+    .more-icon {
+      display: inline-block;
+      border: $btn-border-width solid $white;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      width: ($spacer * 1);
+      height: ($spacer * 1);
+      margin-left: ($spacer * .2);
+      margin-right: ($spacer * .2);
+    }
+  }
+
+  a.more-link {
+    color: $white;
+    font-weight: $font-weight-medium;
+  }
+}

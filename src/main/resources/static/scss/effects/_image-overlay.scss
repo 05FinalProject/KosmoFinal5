@@ -1,0 +1,33 @@
+// image overlay
+.lana-img-overlay {
+  position: relative;
+  display: inline-block;
+
+  .overlay-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background: rgba($medium-blue, .9);
+    transition: all .2s ease-in-out;
+  }
+
+  @include hover-focus {
+    .overlay-content {
+      opacity: 1;
+    }
+  }
+
+  // text white
+  &.text-white {
+    a {
+      color: $white;
+
+      @include hover-focus {
+        color: $text-muted;
+      }
+    }
+  }
+}

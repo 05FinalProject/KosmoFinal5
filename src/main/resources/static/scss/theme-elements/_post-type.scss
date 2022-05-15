@@ -1,0 +1,213 @@
+[id^="post-"][class*="type-"] {
+  ul.post-meta {
+    display: -ms-flexbox;
+    display: inline-flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0;
+    list-style-type: none;
+
+    li {
+      + li {
+        padding-left: ($spacer * .25);
+
+        &::before {
+          display: inline-block;
+          padding-right: ($spacer * .25);
+          content: "|";
+        }
+      }
+    }
+  }
+
+  // image placeholder
+  .post-image-placeholder {
+    display: block;
+    position: relative;
+    background: $gray-100;
+    color: $white;
+
+    .post-image-placeholder-inside {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .post-image-placeholder-icon {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    // image placeholder sizes
+    @each $size, $value in $lana-img-sizes {
+      &.#{$size}-size {
+        padding-top: calc(#{map_get($value, "height")} / #{map_get($value, "width")} * 100%);
+      }
+    }
+  }
+
+  .post-content {
+    @include bs-title {
+      font-weight: $font-weight-bold;
+      margin-bottom: ($spacer * 1);
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+
+      li {
+        padding-left: ($spacer * 1);
+
+        &::before {
+          content: "\2022";
+          color: $primary;
+          font-weight: bold;
+          display: inline-block;
+          width: ($spacer * 1.25);
+          margin-left: -($spacer * 1);
+        }
+      }
+    }
+
+    blockquote {
+      font-size: 1.4em;
+      margin: ($spacer * 2) auto;
+      color: $dark;
+      padding: ($spacer * 1.5) ($spacer * 2) ($spacer * 1.5) ($spacer * 5.5);
+      border-left: 8px solid $primary;
+      position: relative;
+      background: $light;
+
+      &::before {
+        content: "\201C";
+        color: $primary;
+        font-size: 4em;
+        position: absolute;
+        left: ($spacer * 1);
+        top: -($spacer * 1);
+      }
+
+      // margin, padding and size mobile optimization
+      @include media-breakpoint-down(sm) {
+        margin: ($spacer * 1.5) auto;
+        padding: ($spacer * 2.5) ($spacer * 1.5) ($spacer * 1.5) ($spacer * 1.5);
+
+        &::before {
+          top: -($spacer * 1.5);
+        }
+      }
+    }
+  }
+
+  &.post-card {
+    border: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+
+    // color bg and white text
+    @each $color, $value in $theme-colors {
+      &.bg-#{$color}.text-white {
+        a {
+          color: $white;
+
+          @include hover-focus {
+            color: $text-muted;
+          }
+        }
+
+        .text-#{$color} {
+          color: $white !important;
+        }
+      }
+    }
+
+    .row {
+      // padding mobile and tablet optimization
+      @include media-breakpoint-down(md) {
+        // image
+        > .col-md-4 {
+          .card-img {
+            margin-bottom: ($spacer * 1);
+          }
+        }
+
+        // content
+        > .col-md-8 {
+          .card-body {
+            padding-left: 0;
+            padding-right: 0;
+          }
+
+          .card-footer {
+            padding-left: 0;
+            padding-right: 0;
+          }
+        }
+      }
+    }
+
+    .card-title {
+      font-weight: $font-weight-bold;
+
+      a {
+        color: $body-color;
+
+        @include hover-focus {
+          color: $link-color;
+        }
+      }
+    }
+
+    .card-body {
+      &.d-flex {
+        .card-text {
+          max-width: 100% !important;
+        }
+      }
+    }
+
+    ul.post-meta {
+      color: $text-muted;
+
+      li {
+        + li {
+          &::before {
+            color: $text-muted;
+          }
+        }
+      }
+    }
+
+    .post-meta {
+      @include font-size($font-size-sm);
+
+      a {
+        color: $text-muted;
+
+        @include hover-focus {
+          color: $link-color;
+        }
+      }
+    }
+
+    a.more-link {
+      @include font-size($font-size-sm);
+      color: $body-color;
+
+      @include hover-focus {
+        color: $link-color;
+      }
+
+      i.lana-icon-arrow-right {
+        margin-left: ($spacer * .5);
+      }
+    }
+  }
+}
+

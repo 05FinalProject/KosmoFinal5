@@ -1,0 +1,75 @@
+body.page {
+
+  .main {
+    // default margin from main.scss
+
+    // margin mobile optimization
+    @include media-breakpoint-down(sm) {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    // post
+    .post-container {
+      -webkit-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+      -moz-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+      box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+
+      padding-top: ($spacer * 6.25);
+      padding-bottom: ($spacer * 6.25);
+
+      @include media-breakpoint-down(lg) {
+        padding-top: ($spacer * 4.5);
+        padding-bottom: ($spacer * 4.5);
+      }
+      @include media-breakpoint-down(md) {
+        padding-top: ($spacer * 3);
+        padding-bottom: ($spacer * 3);
+      }
+      @include media-breakpoint-down(sm) {
+        padding-top: ($spacer * 1.5);
+        padding-bottom: ($spacer * 1.5);
+      }
+
+      .post-row {
+        .post-content {
+          margin-bottom: ($spacer * 1);
+        }
+      }
+    }
+
+    // comments
+    .comments-container {
+      padding-top: ($spacer * 6.25);
+      padding-bottom: ($spacer * 6.25);
+    }
+  }
+}
+
+body.page.page-template-template-lana-editor {
+  .main {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &.py--large {
+    .main {
+      margin-top: ($spacer * 6);
+      margin-bottom: ($spacer * 6);
+    }
+  }
+
+  &.py--normal {
+    .main {
+      margin-top: ($spacer * 4);
+      margin-bottom: ($spacer * 4);
+    }
+  }
+
+  &.py--small {
+    .main {
+      margin-top: ($spacer * 2);
+      margin-bottom: ($spacer * 2);
+    }
+  }
+}

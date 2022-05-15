@@ -1,0 +1,31 @@
+// load bootstrap
+@import "bootstrap/variables";
+@import "../bower_components/bootstrap/scss/functions";
+@import "../bower_components/bootstrap/scss/mixins";
+@import "../bower_components/bootstrap/scss/variables";
+
+// variables
+$themeLightGrayColor: $gray-200;
+$themeDarkGrayColor: $gray-400;
+$themeColor: $primary;
+
+// load swiper
+@import "../bower_components/swiper/src/swiper";
+
+// load swiper components
+@import "../bower_components/swiper/src/components/a11y/a11y";
+@import "../bower_components/swiper/src/components/effect-coverflow/effect-coverflow";
+@import "../bower_components/swiper/src/components/effect-cube/effect-cube";
+@import "../bower_components/swiper/src/components/effect-fade/effect-fade";
+@import "../bower_components/swiper/src/components/effect-flip/effect-flip";
+@import "../bower_components/swiper/src/components/lazy/lazy";
+@import "../bower_components/swiper/src/components/navigation/navigation";
+@import "../bower_components/swiper/src/components/pagination/pagination";
+@import "../bower_components/swiper/src/components/scrollbar/scrollbar";
+@import "../bower_components/swiper/src/components/thumbs/thumbs";
+@import "../bower_components/swiper/src/components/zoom/zoom";
+
+@import "swiper/core";
+@import "swiper/effect-fade";
+@import "swiper/navigation";
+@import "swiper/pagination";

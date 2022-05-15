@@ -1,0 +1,30 @@
+.lana_partner.type-lana_partner {
+  &.partner-card {
+    border: 0;
+    text-align: center;
+
+    .card-img-top {
+      margin-bottom: ($spacer * 1.5);
+
+      // size tablet and mobile optimization
+      @include media-breakpoint-down(lg) {
+        max-width: 250px;
+      }
+    }
+
+    .card-title {
+      font-weight: $font-weight-medium;
+      margin-bottom: ($spacer * 1.5);
+    }
+
+    .card-subtitle {
+      color: $gray-600;
+      margin-bottom: ($spacer * 1);
+    }
+
+    .card-body {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}

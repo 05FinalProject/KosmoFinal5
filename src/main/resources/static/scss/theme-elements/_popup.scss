@@ -1,0 +1,30 @@
+.mfp-content {
+  .mfp-white-popup {
+
+    position: relative;
+    background: $white;
+    padding: ($spacer * 2);
+    width: auto;
+    max-width: 740px;
+    margin: 0 auto;
+
+    // padding mobile and tablet optimization
+    @include media-breakpoint-down(md) {
+      padding: ($spacer * 1);
+    }
+
+    @media (min-width: 600px) and (max-width: 782px) {
+      body.admin-bar & {
+        margin-top: 46px;
+        margin-bottom: 46px;
+      }
+    }
+
+    @media (min-width: 782px) {
+      body.admin-bar & {
+        margin-top: 32px;
+        margin-bottom: 32px;
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+// alternate buttons
+@each $color, $value in $theme-colors {
+  .btn-outline-#{$color} {
+    @include button-outline-variant($value, $value, rgba($value, .1));
+  }
+}
+
+// width buttons and btn block
+@each $prop, $abbrev in (width: w) {
+  @each $size, $length in $sizes {
+    .#{$abbrev}-#{$size}.btn {
+
+      // size mobile optimization
+      @include media-breakpoint-down(sm) {
+        width: 100% !important;
+      }
+    }
+  }
+}

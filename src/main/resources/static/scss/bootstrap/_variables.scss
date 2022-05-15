@@ -1,0 +1,143 @@
+// grayscale colors
+$white: #fff;
+$gray-50: #fafafa;
+$gray-100: #eeeeee;
+$gray-200: #cccccc;
+$gray-300: #b3b3b3;
+$gray-400: #999999;
+$gray-500: #808080;
+$gray-600: #666666;
+$gray-700: #4c4c4c;
+$gray-800: #333333;
+$gray-900: #1a1a1a;
+$black: #000;
+
+$grays: (
+        "50": $gray-50
+);
+
+// custom colors
+$light-orange: #fcfcfb;
+$light-blue: #f8fffe;
+$gray-blue: #65758a;
+$normal-blue: #2a3b52;
+$medium-blue: #272e37;
+$dark-blue: #181c31;
+
+// colors
+$orange: #ff8a00;
+$yellow: #e7af09;
+
+// bootstrap colors
+$primary: $orange;
+$dark: $medium-blue;
+
+// the yiq lightness value
+$yiq-contrasted-threshold: 175;
+
+// options
+$enable-responsive-font-sizes: true;
+
+// spacing
+$spacer: 1rem;
+
+// sizes
+$sizes: (
+        "5x":5rem,
+        "10x":10rem,
+        "15x":15rem,
+        "20x":20rem,
+        "25x":25rem
+);
+
+// body
+$body-bg: $gray-50;
+$body-color: #212121;
+
+// links
+$link-hover-decoration: none;
+
+// components
+$border-width: 1px;
+$border-color: transparent;
+$border-radius: .25rem;
+$border-radius-sm: $border-radius;
+$border-radius-lg: $border-radius;
+
+// fonts
+$font-family-sans-serif: 'Montserrat', sans-serif;
+$font-family-secondary-sans-serif: 'Open Sans', sans-serif;
+$font-size-base: 1rem;
+$font-weight-medium: 500;
+$h1-font-size: $font-size-base * 3.5;
+$h2-font-size: $font-size-base * 2.5;
+$h3-font-size: $font-size-base * 2;
+$headings-font-weight: normal;
+$text-muted: $gray-300;
+
+// buttons + forms
+$input-btn-padding-y: 1rem;
+$input-btn-padding-x: 2rem;
+
+$input-btn-padding-y-sm: .625rem;
+$input-btn-padding-x-sm: $input-btn-padding-x;
+$input-btn-font-size-sm: 1rem;
+
+$input-btn-padding-y-lg: 1.375rem;
+$input-btn-padding-x-lg: $input-btn-padding-x;
+$input-btn-font-size-lg: 1rem;
+
+// buttons
+$btn-border-width: 2px;
+$btn-border-radius: .5rem;
+$btn-border-radius-sm: $btn-border-radius;
+$btn-border-radius-lg: $btn-border-radius;
+
+// forms
+$input-padding-x: 1.5rem;
+$input-padding-x-sm: 1.25rem;
+$input-padding-x-lg: 1.75rem;
+$input-bg: $body-bg;
+$input-disabled-bg: lighten($gray-200, 10%);
+$input-color: $body-color;
+$input-border-color: $input-bg;
+$input-border-width: 1px;
+$input-border-radius: .25rem;
+$input-border-radius-lg: $input-border-radius;
+$input-border-radius-sm: $input-border-radius;
+$input-placeholder-color: $gray-400;
+$input-height-border: $btn-border-width * 2; // since the size is different, so use the larger btn border width
+$input-group-addon-bg: lighten($gray-200, 10%);
+$input-group-addon-border-color: $input-group-addon-bg;
+$custom-file-border-color: $input-group-addon-bg;
+
+// navbar
+$navbar-padding-y: ($spacer * .75);
+$navbar-nav-link-padding-x: ($spacer * 1);
+
+// dropdown
+$dropdown-spacer: .5rem;
+
+// pagination
+$pagination-padding-y: .5rem;
+$pagination-padding-x: .5rem;
+$pagination-color: $body-color;
+$pagination-bg: $white;
+$pagination-border-color: transparent;
+$pagination-hover-color: $primary;
+$pagination-hover-bg: $pagination-bg;
+$pagination-hover-border-color: transparent;
+$pagination-active-color: $primary;
+$pagination-active-bg: $pagination-bg;
+$pagination-active-border-color: transparent;
+$pagination-disabled-bg: $pagination-bg;
+$pagination-disabled-border-color: transparent;
+
+// breadcrumb
+$breadcrumb-bg: transparent;
+$breadcrumb-divider-color: $body-color;
+$breadcrumb-active-color: $body-color;
+$breadcrumb-divider: quote(">");
+
+// code
+$code-color: $yellow;

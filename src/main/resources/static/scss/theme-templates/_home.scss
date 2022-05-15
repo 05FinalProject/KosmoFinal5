@@ -1,0 +1,54 @@
+$lana-home-section-padding-large: ($spacer * 7);
+$lana-home-section-mobile-padding-large: ($spacer * 4);
+$lana-home-section-padding-normal: ($spacer * 5);
+$lana-home-section-mobile-padding-normal: ($spacer * 3);
+$lana-home-section-padding-small: ($spacer * 3);
+$lana-home-section-mobile-padding-small: ($spacer * 2);
+
+html, body {
+  height: 100%;
+}
+
+body.home {
+  #slider-header {
+
+    // size desktop optimization
+    @include media-breakpoint-up(lg) {
+      min-height: 600px;
+      height: 100%;
+    }
+  }
+
+  .section-py--large {
+    padding-top: $lana-home-section-padding-large;
+    padding-bottom: $lana-home-section-padding-large;
+
+    // padding mobile and tablet optimization
+    @include media-breakpoint-down(md) {
+      padding-top: $lana-home-section-mobile-padding-large;
+      padding-bottom: $lana-home-section-mobile-padding-large;
+    }
+  }
+
+  .section-py--normal {
+    padding-top: $lana-home-section-padding-normal;
+    padding-bottom: $lana-home-section-padding-normal;
+
+    // padding mobile and tablet optimization
+    @include media-breakpoint-down(md) {
+      padding-top: $lana-home-section-mobile-padding-normal;
+      padding-bottom: $lana-home-section-mobile-padding-normal;
+    }
+  }
+
+  .section-py--small {
+    padding-top: $lana-home-section-padding-small;
+    padding-bottom: $lana-home-section-padding-small;
+
+    // padding mobile and tablet optimization
+    @include media-breakpoint-down(md) {
+      padding-top: $lana-home-section-mobile-padding-small;
+      padding-bottom: $lana-home-section-mobile-padding-small;
+    }
+  }
+}

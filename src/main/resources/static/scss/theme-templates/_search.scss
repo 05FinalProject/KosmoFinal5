@@ -1,0 +1,76 @@
+body.search {
+
+  .search-row {
+    .search-form {
+      margin-top: ($spacer * 3);
+      margin-bottom: ($spacer * 5);
+
+      // margin mobile optimization
+      @include media-breakpoint-down(sm) {
+        margin-top: ($spacer * 1.5);
+        margin-bottom: ($spacer * 3);
+      }
+    }
+  }
+
+  // search posts with post card
+  .search-posts {
+    background: $white;
+    padding: ($spacer * 2.75) ($spacer * 2.75);
+
+    @include media-breakpoint-down(sm) {
+      padding: ($spacer * 1.5) ($spacer * 1.25);
+    }
+
+    -webkit-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    -moz-box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+    box-shadow: 0 0 ($spacer * 3) 0 rgba($black, 0.06);
+
+    // post card
+    .post-card {
+      margin-bottom: ($spacer * 2.5);
+      padding-bottom: ($spacer * 2.5);
+      border-bottom: 1px solid $gray-100;
+
+      .card-body {
+        padding-top: ($spacer * .5);
+        padding-bottom: ($spacer * .5);
+      }
+    }
+  }
+}
+
+body.search.search-no-results {
+
+  .header {
+    min-height: 100% !important;
+
+    #lana-pet-main-navbar {
+      margin-bottom: ($spacer * 2.5);
+    }
+  }
+
+  .main {
+    margin-top: auto;
+    margin-bottom: $lana-main-padding-y;
+  }
+
+  .title {
+    font-weight: $font-weight-bold;
+    margin-bottom: ($spacer * 2);
+  }
+
+  .subtitle {
+    margin-bottom: ($spacer * 2.5);
+  }
+
+  .search-form {
+    margin-bottom: ($spacer * 5);
+  }
+
+  .error-subtitle {
+    i {
+      margin-right: ($spacer * .5);
+    }
+  }
+}

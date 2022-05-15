@@ -1,0 +1,463 @@
+// white links against a dark background
+$main-navbar-dark-color: $white;
+$main-navbar-dark-hover-color: $white;
+$main-navbar-dark-active-color: $white;
+
+// dark links against a light background
+$main-navbar-light-color: $body-color;
+$main-navbar-light-hover-color: $body-color;
+$main-navbar-light-active-color: $body-color;
+
+$main-navbar-dropdown-link-color: $body-color;
+$main-navbar-dropdown-link-hover-color: $link-color;
+$main-navbar-dropdown-link-hover-bg: transparent;
+$main-navbar-dropdown-link-active-color: $link-color;
+$main-navbar-dropdown-link-active-bg: transparent;
+$main-navbar-dropdown-link-disabled-color: $gray-400;
+
+// main navbar
+#lana-pet-main-navbar {
+  transition: background-color .2s ease-in-out;
+
+  // navbar dark
+  &.navbar-dark {
+
+    // navbar brand
+    .navbar-brand {
+      color: $main-navbar-dark-color;
+
+      @include hover-focus {
+        color: $main-navbar-dark-hover-color;
+      }
+    }
+
+    // navbar toggler buttons
+    .toggler-buttons > button {
+      font-size: ($font-size-lg);
+
+      border: 0;
+      background: 0;
+      padding: .5em;
+    }
+
+    // navbar nav
+    .navbar-nav {
+      .nav-link {
+        color: $main-navbar-dark-color;
+
+        // hover
+        @include hover-focus {
+          color: $main-navbar-dark-hover-color;
+        }
+      }
+
+      // smartmenus - dropdown arrow
+      &:not(.sm-collapsible) .dropdown {
+        .nav-link {
+          .sub-arrow {
+            border: 0;
+            background-image: lana-svg-uri(lana-angle-down-svg($main-navbar-dark-color));
+            width: 9px;
+            height: 5px;
+            margin-left: ($spacer * .5);
+          }
+        }
+
+        &.active {
+          .nav-link {
+            .sub-arrow {
+              border: 0;
+              background-image: lana-svg-uri(lana-angle-down-svg($main-navbar-dark-active-color));
+            }
+          }
+        }
+
+        &.show {
+          .nav-link {
+            .sub-arrow {
+              border: 0;
+              background-image: lana-svg-uri(lana-angle-up-svg($main-navbar-dark-hover-color));
+            }
+          }
+        }
+      }
+
+      // show
+      .show > .nav-link,
+      .nav-link.show {
+        color: $main-navbar-dark-active-color;
+
+        @include hover-focus {
+          color: $main-navbar-dark-active-color;
+        }
+      }
+
+      // active
+      .active > .nav-link,
+      .nav-link.active {
+        color: $main-navbar-dark-active-color;
+        font-weight: $font-weight-medium;
+      }
+    }
+
+    // navbar text
+    .navbar-text {
+      color: $main-navbar-dark-color;
+
+      a {
+        color: $main-navbar-dark-active-color;
+
+        @include hover-focus {
+          color: $main-navbar-dark-active-color;
+        }
+      }
+    }
+  }
+
+  // navbar light
+  &.navbar-light {
+
+    // navbar brand
+    .navbar-brand {
+      color: $main-navbar-light-color;
+
+      @include hover-focus {
+        color: $main-navbar-light-hover-color;
+      }
+    }
+
+    // navbar nav
+    .navbar-nav {
+      .nav-link {
+        color: $main-navbar-light-color;
+
+        // hover
+        @include hover-focus {
+          color: $main-navbar-light-hover-color;
+        }
+      }
+
+      // smartmenus - dropdown arrow
+      &:not(.sm-collapsible) .dropdown {
+        .nav-link {
+          .sub-arrow {
+            border: 0;
+            background-image: lana-svg-uri(lana-angle-down-svg($main-navbar-light-color));
+            width: 9px;
+            height: 5px;
+            margin-left: ($spacer * .5);
+          }
+        }
+
+        &.active {
+          .nav-link {
+            .sub-arrow {
+              border: 0;
+              background-image: lana-svg-uri(lana-angle-down-svg($main-navbar-light-active-color));
+            }
+          }
+        }
+
+        &.show {
+          .nav-link {
+            .sub-arrow {
+              border: 0;
+              background-image: lana-svg-uri(lana-angle-up-svg($main-navbar-light-hover-color));
+            }
+          }
+        }
+      }
+
+      // show
+      .show > .nav-link,
+      .nav-link.show {
+        color: $main-navbar-light-active-color;
+
+        @include hover-focus {
+          color: $main-navbar-light-active-color;
+        }
+      }
+
+      // active
+      .active > .nav-link,
+      .nav-link.active {
+        color: $main-navbar-light-active-color;
+        font-weight: $font-weight-medium;
+      }
+    }
+
+    // navbar text
+    .navbar-text {
+      color: $main-navbar-light-color;
+
+      a {
+        color: $main-navbar-light-active-color;
+
+        @include hover-focus {
+          color: $main-navbar-light-active-color;
+        }
+      }
+    }
+  }
+
+  // custom logo
+  .custom-logo-link {
+    .custom-logo {
+      width: auto;
+      max-width: 100%;
+      max-height: 50px;
+    }
+  }
+
+  // dropdown
+  .dropdown {
+    .dropdown-item {
+      color: $main-navbar-dropdown-link-color;
+
+      @include hover-focus {
+        color: $main-navbar-dropdown-link-hover-color;
+        background-color: $main-navbar-dropdown-link-hover-bg;
+      }
+
+      &.active,
+      &:active {
+        color: $main-navbar-dropdown-link-active-color;
+        background-color: $main-navbar-dropdown-link-active-bg;
+      }
+
+      &.disabled,
+      &:disabled {
+        color: $main-navbar-dropdown-link-disabled-color;
+      }
+
+      // smartmenus - bootstrap highlight classes
+      &.highlighted {
+        color: $main-navbar-dropdown-link-active-color !important;
+        background-color: $main-navbar-dropdown-link-active-bg !important;
+      }
+    }
+  }
+
+  // navbar nav
+  .navbar-nav {
+
+    // smartmenus dropdown
+    &:not(.sm-collapsible) .dropdown {
+      .dropdown-item {
+
+        // smartmenus - sub arrow
+        .sub-arrow {
+          border: 0;
+          background-image: lana-svg-uri(lana-angle-right-svg($main-navbar-dropdown-link-color));
+          width: 5px;
+          height: 9px;
+          margin-left: ($spacer * .5);
+        }
+
+        @include hover-focus {
+          .sub-arrow {
+            background-image: lana-svg-uri(lana-angle-right-svg($main-navbar-dropdown-link-hover-color));
+          }
+        }
+
+        &.active,
+        &:active {
+          .sub-arrow {
+            background-image: lana-svg-uri(lana-angle-right-svg($main-navbar-dropdown-link-active-color));
+          }
+        }
+
+        &.disabled,
+        &:disabled {
+          .sub-arrow {
+            background-image: lana-svg-uri(lana-angle-right-svg($main-navbar-dropdown-link-disabled-color));
+          }
+        }
+
+        // smartmenus - bootstrap highlight classes
+        &.highlighted {
+          .sub-arrow {
+            background-image: lana-svg-uri(lana-angle-right-svg($main-navbar-dropdown-link-active-color));
+          }
+        }
+      }
+    }
+  }
+
+  // button nav
+  .button-nav {
+    margin-left: ($spacer * 2);
+
+    .nav-item {
+      margin-top: ($spacer * .25);
+      margin-bottom: ($spacer * .25);
+      padding-left: ($spacer * .5);
+      padding-right: ($spacer * .5);
+    }
+  }
+
+  // navbar expand with grid breakpoints
+  &.navbar-expand {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+      $next: breakpoint-next($breakpoint, $grid-breakpoints);
+      $infix: breakpoint-infix($next, $grid-breakpoints);
+
+      &#{$infix} {
+        @include media-breakpoint-up($next) {
+
+          // toggler buttons
+          .toggler-buttons {
+            display: none !important;
+          }
+
+          // navbar nav
+          .navbar-nav {
+            .nav-link {
+
+              // underline
+              &::after {
+                display: block;
+                content: "";
+                position: absolute;
+                margin-top: $navbar-padding-y;
+                background: $secondary;
+                width: 0;
+                height: 2px;
+              }
+
+              // hover
+              @include hover-focus {
+                &::after {
+                  background: $primary;
+                  width: ($spacer * 1);
+                }
+              }
+            }
+
+            // active
+            .active > .nav-link,
+            .nav-link.active {
+
+              // underline
+              &::after {
+                display: block;
+                content: "";
+                position: absolute;
+                margin-top: $navbar-padding-y;
+                background: $primary;
+                width: ($spacer * 1);
+                height: 2px;
+              }
+            }
+
+            // dropdown
+            .dropdown > .nav-link {
+              &::after {
+                display: none !important;
+                content: none;
+              }
+            }
+          }
+
+          // navbar only
+          &.navbar-only {
+            .navbar-nav {
+              .nav-link {
+                // underline
+                &::after {
+                  margin-top: 0;
+                  bottom: 0;
+                }
+              }
+
+              // active
+              .active > .nav-link,
+              .nav-link.active {
+                // underline
+                &::after {
+                  margin-top: 0;
+                  bottom: 0;
+                }
+              }
+            }
+          }
+
+          // js collapse bg
+          &[data-lana-collapse-bg],
+          &[data-lana-collapse-bg-transparent="true"] {
+            background: transparent !important;
+          }
+        }
+      }
+    }
+  }
+
+  &.navbar-sticky {
+    &.navbar-scroll {
+      overflow-y: scroll !important;
+      max-height: 100%;
+    }
+  }
+
+  &.bg-transparent {
+
+    // navbar nav
+    .navbar-nav {
+      // smartmenus - dropdown arrow
+      &.sm-collapsible .dropdown {
+        .nav-link {
+          .sub-arrow {
+            background: $dark;
+          }
+        }
+      }
+    }
+  }
+
+  @each $color, $value in $theme-colors {
+    &.bg-#{$color} {
+
+      // navbar nav
+      .navbar-nav {
+        // smartmenus - dropdown arrow
+        &.sm-collapsible .dropdown {
+          .nav-link {
+            .sub-arrow {
+              border: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.bg-primary {
+    // navbar nav
+    .navbar-nav {
+      .nav-link {
+
+        // underline
+        &::after {
+          background: $white;
+        }
+
+        // hover
+        @include hover-focus {
+          &::after {
+            background: $light;
+          }
+        }
+      }
+
+      // active
+      .active > .nav-link,
+      .nav-link.active {
+
+        // underline
+        &::after {
+          background: $light;
+        }
+      }
+    }
+  }
+}

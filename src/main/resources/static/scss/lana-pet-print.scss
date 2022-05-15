@@ -1,0 +1,78 @@
+@media print {
+
+  // change header
+  .header {
+    background: #fff;
+    color: #000;
+
+    // hide navbar
+    .navbar {
+      display: none;
+    }
+
+    // hide back widget
+    .back-row {
+      display: none;
+    }
+
+    // change title
+    .title-row {
+      margin-top: 0;
+      color: #000;
+    }
+
+    // change breadcrumb
+    .breadcrumb-row {
+      color: #000;
+    }
+  }
+
+  // change post
+  [id^="post-"][class*="type-"] {
+    a.more-link {
+      display: none;
+    }
+  }
+
+  // hide sidebar
+  .widget-sidebar {
+    display: none;
+  }
+
+  // hide pagination
+  .pagination {
+    display: none;
+  }
+
+  // change comment
+  .comment-list {
+    .comment-meta {
+      display: none;
+    }
+  }
+
+  .comment-pagination {
+    display: none;
+  }
+
+  .comment-respond {
+    display: none;
+  }
+
+  // change swiper
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
+
+  // hide pre footer
+  .pre-footer {
+    display: none;
+  }
+
+  // change footer
+  .footer {
+    background: #fff;
+    color: #000;
+  }
+}

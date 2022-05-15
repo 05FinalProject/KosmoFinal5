@@ -1,0 +1,19 @@
+// image zoom
+.lana-img-zoom {
+  position: relative;
+  overflow: hidden;
+
+  .card-img-top {
+    transition: all .1s ease-in-out;
+  }
+
+  .card:hover & {
+    .card-img-top {
+      -moz-transform: scale(1.1);
+      -webkit-transform: scale(1.1);
+      -o-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+  }
+}

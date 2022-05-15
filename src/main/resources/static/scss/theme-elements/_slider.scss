@@ -1,0 +1,26 @@
+.lana_slider.type-lana_slider {
+  &.slider-card {
+    background: transparent;
+    border: 0;
+
+    .card-title {
+      font-weight: $font-weight-bold;
+      margin-bottom: ($spacer * 1.5);
+    }
+
+    .card-text {
+      margin-bottom: ($spacer * 1.5);
+    }
+
+    .card-body {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .card-footer {
+      background: transparent;
+      border: 0;
+      padding: 0 0 ($spacer * 1.5);
+    }
+  }
+}
