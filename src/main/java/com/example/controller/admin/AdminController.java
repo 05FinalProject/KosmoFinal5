@@ -47,5 +47,49 @@ public class AdminController {
 	public void Blacklist() {
 		
 	}
+	
+	//시설관리(보호소)
+	@RequestMapping("/adminShelter")
+	public void adminShelter() {
+			
+	}
+	
+	//시설관리(동물병원)
+	@RequestMapping("/adminHospital")
+	public void adminHospital() {
+				
+	}
+	
+	//시설관리(애견호텔)
+	@RequestMapping("/adminHotel")
+	public void adminHotel() {
+						
+	}
+	
+	//시설관리(장례식장)
+	@RequestMapping("/adminFuneralhall")
+	public void adminFuneralhall() {
+						
+	}
+	
+	//시설관리(애견카페)
+	@RequestMapping("/adminCafe")
+	public void adminCafe() {
+							
+	}
+		
+	//시설관리(애견카페)
+	@RequestMapping("/adminDog")
+	public void adminDog() {
+									
+	}
+	
+	//시설추가
+	@RequestMapping("/adminAddFacilities")
+	public void adminAddFacilities() {
+										
+	}
+	
+
 
 }
