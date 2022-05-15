@@ -69,22 +69,23 @@
               <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
-                  <tr>
-                    <th>이메일</th>
-                    <th>리뷰내용</th>
-                    <th>신고사유</th>
-                    <th>신고날짜</th>
-                    <th>신고횟수</th>
+                  <tr>                 
+                    <th>이름</th>
+                    <th>몸무게</th>
+                    <th>중성화</th>
+                    <th>성별</th>
+                    <th>생년월일</th>
+                    <th>성격</th>
                   </tr>
                   </thead>
                   <tbody>
                   <tr>
-                    <td>tt@naver.com</td>
-                    <td>최악이예요
-                    </td>
-                    <td>욕설</td>
-                    <td>2022-05-13</td>
-                    <td>5</td>
+                    <td>뚱이</td>
+                    <td>15kg</td>
+                    <td>완료</td>
+                    <td>남</td>
+                    <td>2022-04-01</td>
+                    <td>사나움</td>
                   </tr>
                   <tr>
                     <td>Trident</td>
@@ -93,6 +94,7 @@
                     </td>
                     <td>Win 95+</td>
                     <td>5</td>
+                    <td>C</td>
                     <td>C</td>
                   </tr>
                   <tr>
@@ -103,6 +105,7 @@
                     <td>Win 95+</td>
                     <td>5.5</td>
                     <td>A</td>
+                    <td>C</td>
                   </tr>
                   </tbody>                                       
                   </tfoot>
@@ -153,14 +156,13 @@
 						"responsive" : true,
 						"lengthChange" : false,
 						"autoWidth" : false,
-						 "info": false,
 					}),
 			$('#example2').DataTable({
 				"paging" : true,
 				"lengthChange" : false,
 				"searching" : true,
 				"ordering" : true,
-				"info" : false,
+				"info" : true,
 				"autoWidth" : false,
 				"responsive" : true,
 			});

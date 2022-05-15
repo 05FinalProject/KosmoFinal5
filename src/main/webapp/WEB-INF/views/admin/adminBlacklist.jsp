@@ -22,6 +22,8 @@
 	href="/admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 <!-- Theme style -->
 <link rel="stylesheet" href="/admin/dist/css/adminlte.min.css">
+
+
 </head>
 <body class="hold-transition sidebar-mini">
 	<div class="wrapper">

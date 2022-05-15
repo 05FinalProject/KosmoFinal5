@@ -117,51 +117,33 @@
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview">           
               <li class="nav-item">
-                <a href="pages/forms/general.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>훈련소</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/forms/advanced.html" class="nav-link">
+                <a href="/admin/adminShelter" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>보호소</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/forms/editors.html" class="nav-link">
+                <a href="/admin/adminHospital" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>동물병원</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/forms/validation.html" class="nav-link">
+                <a href="/admin/adminHotel" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>애견호텔</p>
                 </a>
-              </li>
+              </li>            
               <li class="nav-item">
-                <a href="pages/forms/validation.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>유치원</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/forms/validation.html" class="nav-link">
+                <a href="/admin/adminFuneralhall" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>장례식장</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/forms/validation.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>공원</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/forms/validation.html" class="nav-link">
+                <a href="/admin/adminCafe" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>애견카페</p>
                 </a>
