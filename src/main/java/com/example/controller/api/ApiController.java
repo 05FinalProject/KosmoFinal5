@@ -1,11 +1,9 @@
 package com.example.controller.api;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.dao.DogDAO;
 import com.example.domain.Room;
 
 @Controller
@@ -13,8 +11,7 @@ import com.example.domain.Room;
 @ResponseBody
 public class ApiController {
 	
-	@Autowired
-	private DogDAO dao;
+	
 	
 	@RequestMapping(value = "/members",produces = "application/text; charset=UTF-8")
 	public String members(Room room) {
