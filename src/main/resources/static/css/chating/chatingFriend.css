@@ -223,3 +223,10 @@ body,html{
 		margin-bottom: 15px !important;
 	}
 	}
+	
+	::-webkit-scrollbar {
+	width: 7px;
+}
+::-webkit-scrollbar-thumb {
+	background-color: #acacbb;
+	border-radius: 2px;
