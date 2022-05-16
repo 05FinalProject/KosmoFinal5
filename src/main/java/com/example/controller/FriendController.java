@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/include")
 public class FriendController {
 
-	@RequestMapping("/friends/friend")
+	@RequestMapping("/friend/friendList")
 	public void friend() {
 		
 	}
