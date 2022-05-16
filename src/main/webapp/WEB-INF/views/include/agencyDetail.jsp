@@ -32,6 +32,8 @@
           media="print">
 
     <link rel="stylesheet" href="/css/HeadFootPage.css" type="text/css">
+    
+    
 </head>
 
 
@@ -282,7 +284,7 @@
        <!--**************리뷰 작성 테이블 끝*********************************************-->
                     
        
-                <hr/>
+                
                     <nav class="navigation pagination comment-pagination justify-content-between text-uppercase"
                          role="navigation">
                         <a class="prev disabled" href="#">
