@@ -103,12 +103,12 @@
 						<div class="card-header msg_head">
 							<div class="d-flex bd-highlight">
 								<div class="img_cont">
-									<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img">
+									<img id="friendImg" src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img">
 									<span class="online_icon"></span>
 								</div>
 								<div class="user_info">
-									<span id="friendName">Chat with Khalid</span>
-									<p>1767 Messages</p>
+									<span id="friendName">Khalid</span>
+									<p></p>
 								</div>
 								
 							</div>
@@ -208,7 +208,8 @@
 			$('.contacts > .friend').removeClass('active')
 			$(this).addClass('active')
 			console.log($(this).filter('.user_info').filter('span'))
-			$('#friendName').text('Chat with '+ $(this).filter('.user_info').filter('span').text())
+			$('#friendName').text( $(this).find('span').text())
+			$('#friendImg').attr('src',$(this).find('img').attr('src'))
 			
 		})
 		
