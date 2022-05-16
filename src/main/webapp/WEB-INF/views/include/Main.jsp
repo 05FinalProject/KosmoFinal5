@@ -41,98 +41,20 @@
 </head>
 <body class="home page page-template-template-lana-editor">
 	<%@include file="./Header.jsp"%>
-	
-	
+
+
 
 	<main class="main">
 
-		<!-- 이벤트  -->
-		<div id="our-partners-container"
-			class="container-fluid bg-white section-py--large">
+		<!-- 일상공유 인기글 -->
+		<div id="stories-container"
+			class="container-fluid bg-light-blue section-py--large">
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-12 col-md-10 col-lg-6 text-center">
-						<h1 class="mb-4 font-weight-bold" data-scroll-animate="fadeInDown">행사</h1>
-						<div class="lana-hr lana-hr-4 border-primary mt-4 mb-4"
-							data-scroll-animate="zoomIn"></div>
-					</div>
-				</div>
-				<div class="row mt-5">
-					<div class="col-12 px-0">
-						<div
-							class="partners-carousel swiper-container swiper-container-items h-100 text-center">
-							<div class="swiper-wrapper">
-								<div class="swiper-slide">
-									<div class="lana_partner type-lana_partner mx-0 mx-md-3 h-100"
-										data-scroll-animate="fadeIn">
-										<img src="../pictures/placeholder/250x125.svg"
-											class="img-fluid" alt="Partner">
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="lana_partner type-lana_partner mx-0 mx-md-3 h-100"
-										data-scroll-animate="fadeIn">
-										<img src="../pictures/placeholder/250x125.svg"
-											class="img-fluid" alt="Partner">
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="lana_partner type-lana_partner mx-0 mx-md-3 h-100"
-										data-scroll-animate="fadeIn">
-										<img src="../pictures/placeholder/250x125.svg"
-											class="img-fluid" alt="Partner">
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="lana_partner type-lana_partner mx-0 mx-md-3 h-100"
-										data-scroll-animate="fadeIn">
-										<img src="../pictures/placeholder/250x125.svg"
-											class="img-fluid" alt="Partner">
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="lana_partner type-lana_partner mx-0 mx-md-3 h-100"
-										data-scroll-animate="fadeIn">
-										<img src="../pictures/placeholder/250x125.svg"
-											class="img-fluid" alt="Partner">
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="lana_partner type-lana_partner mx-0 mx-md-3 h-100"
-										data-scroll-animate="fadeIn">
-										<img src="../pictures/placeholder/250x125.svg"
-											class="img-fluid" alt="Partner">
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="lana_partner type-lana_partner mx-0 mx-md-3 h-100"
-										data-scroll-animate="fadeIn">
-										<img src="../pictures/placeholder/250x125.svg"
-											class="img-fluid" alt="Partner">
-									</div>
-								</div>
+						<h1 class="mb-4 font-weight-bold" data-scroll-animate="fadeInDown">인기
+							게시글</h1>
 
-
-
-							</div>
-							<div class="swiper-button-next swiper-button-arrow"
-								data-scroll-animate="fadeInLeft"></div>
-							<div class="swiper-button-prev swiper-button-arrow"
-								data-scroll-animate="fadeInRight"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-		<!-- 일상공유 인기글 -->
-		<div id="stories-container"
-			class="container-fluid bg-dark lana-bg-image-brown-and-white-small-staring-dog-face-indoor section-py--large">
-			<div class="container">
-				<div class="row justify-content-center text-white">
-					<div class="col-12 col-md-10 col-lg-6 text-center">
-						<h1 class="mb-4 font-weight-bold" data-scroll-animate="fadeInDown">일상공유</h1>
 						<p data-scroll-animate="fadeInUp">너와 함개하는 커뮤니티에 오신 것을 환영합니다.</p>
 						<div class="lana-hr lana-hr-4 border-primary mt-4"
 							data-scroll-animate="zoomIn"></div>
@@ -145,7 +67,7 @@
 						<div
 							class="stories-carousel swiper-container swiper-container-items h-100">
 							<div class="swiper-wrapper">
-
+								<!-- 슬라이드  -->
 								<div class="swiper-slide">
 									<div
 										class="lana_story type-lana_story card story-slide-card mx-0 mx-md-3 h-100"
@@ -164,6 +86,7 @@
 										</div>
 									</div>
 								</div>
+
 								<div class="swiper-slide">
 									<div
 										class="lana_story type-lana_story card story-slide-card mx-0 mx-md-3 h-100"
@@ -249,13 +172,15 @@
 			</div>
 		</div>
 
-		<div id="gallery-container"
-			class="container-fluid bg-dark text-white section-py--large">
+
+
+		<!-- 반려견에 대한 설명(가장 등록이 많이 된 반려견 6개 띄워주기) -->
+		<div id="gallery-container" class="container-fluid section-py--large">
 			<div class="row justify-content-center">
 				<div class="col-12 col-md-10 col-lg-6 text-center">
-					<h1 class="mb-4 font-weight-bold" data-scroll-animate="fadeInDown">Gallery</h1>
-					<p data-scroll-animate="fadeInUp">We have wonderful cats and
-						dogs ready for adoption.</p>
+					<h1 class="mb-4 font-weight-bold" data-scroll-animate="fadeInDown">인기
+						많은 반려견 종류</h1>
+					<p data-scroll-animate="fadeInUp">가장 많이 등록된 반려견이에요!</p>
 					<div class="lana-hr lana-hr-4 border-primary mt-4"
 						data-scroll-animate="zoomIn"></div>
 				</div>
@@ -379,7 +304,7 @@
 			</div>
 		</div>
 
-		
+
 	</main>
 	<%@include file="./Footer.jsp"%>
 
