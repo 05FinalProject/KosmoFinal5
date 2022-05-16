@@ -33,10 +33,28 @@
 
     <link rel="stylesheet" href="/css/HeadFootPage.css" type="text/css">
     
+     
+    <style type="text/css">
     
-</head>
-
-
+  
+    #pic1 {width: 100%; height: 100%; border: 1px solid #F3E2A9;}
+    
+    #pic2 {width: 100%; height: 100%; border: 1px solid #F3E2A9;}
+    
+    #pic3 {width: 100%; height: 100%; border: 1px solid #F3E2A9;}
+    
+    #managers-container {
+      justify-content: space-around;
+    }
+   
+    </style>
+  
+    
+   
+   <!--  #employees-container {width: 250px; height: 400px; background: #F8B03A;}-->
+   
+    
+  </head>
 
 
 <body class="home page page-template-template-lana-editor">
@@ -193,122 +211,203 @@
                 </div>
                 
                 
-
+                
+ <!-- ******* main 시작  ******************************************************************* --> 
+ 
+ 
 <main class="main">
-    <div id="post-1" class="post type-post post-1 has-post-thumbnail comment-open">
-        <div class="container post-container bg-white">
-            <div class="row justify-content-center post-row no-gutters">
-                <div class="col-12 col-sm-11 col-md-10 post-thumbnail-col">
-                    <img class="img-fluid post-thumbnail" src="../pictures/placeholder/1110x520.svg" alt="Post">
+    <div id="post-1" class="page type-page post-1">
+        <div id="managers-container" class="container my-5">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-6 text-center">
+                    <h1 class="mb-4 font-weight-bold" data-scroll-animate="fadeInDown">애견호텔</h1>
+                    <div class="lana-hr lana-hr-4 border-primary mt-4"></div>
                 </div>
-                <div class="col-12 col-sm-11 col-md-10 col-lg-8 post-col">
-                    
-    <!--*********** 정보기관 리스트 상세보기  ******************************** -->
-    <!-- ***********상세보기 사진 출력 시작***********************************************-->
-
-        <div>
-            <p>
-                정보입력
-            </p>
-            <p>
-            주소
-            </p>
-        </div>
-
-                   <div class="post-pages">
-                        <nav class="navigation pagination post-pages-pagination justify-content-between text-uppercase">
+            </div>
+            
+                    <!--************ 1번째 칸 테이블 시작 ***********************************-->
+            <div class="row mt-5" >
+                <div class="col-12 col-md-4 col-lg-4" >
+                    <div class="lana_member type-lana_member card member-card bg-transparent">
+                        <div class="card-body" id="pic1">
+                            <img src="../pictures/placeholder/250x250.svg"
+                                 class="card-img-top img-fluid rounded-circle" alt="Team Member"
+                                 data-scroll-animate="zoomIn">
+                            <h5 class="post-title card-title" data-scroll-animate="fadeInDown">
+                                호텔 이름
+                            </h5>
+                            <h6 class="card-subtitle" data-scroll-animate="fadeInUp">
+                                지역
+                            </h6>
+                            <p class="post-text card-text" data-scroll-animate="fadeIn">
+                                정보
+                            </p>
                             
-                            <a class="prev disabled" href="#">
-                                Prev
-                            </a>
-                            <div class="nav-links">
-                                <ul class="page-numbers">
-                                    <li><span class="post-page-numbers current">1</span></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                </ul>
-                            </div>
-                            <a class="next" href="#">
-                                Next
-                            </a>
-                        </nav>
+                          </div>
                     </div>
                 </div>
-            </div>
-        </div>
-     <!--**********상세보기 사진 출력 끝 **************************************************-->
-
-
-     <!--******* 방문자 리뷰 작성 *********************************************************-->  
-       
-     <div class="container comments-container bg-white">
-            <div class="row justify-content-center comments-row no-gutters">
-                <div class="col-12 col-sm-11 col-md-10 col-lg-8">
-                    <h4 class="comments-title font-weight-bold">
-                        방문자 리뷰 <span class="comments-number"></span>
-                    </h4>
-
-    
-     <!-- *********리뷰 작성 테이블 시작 *******************************************************-->
-                    <ul class="comment-list list-unstyled">
-                        <li class="media">
-                            <img class="avatar photo rounded-circle mr-2 mr-sm-3 mr-md-4"
-                                 src="../pictures/placeholder/65x65.svg" alt="Avatar">
-                          <div>
-                              <p>
-                                  리뷰 작성
-                              </p>
-                          </div>
-
-
-                        </li>
-                        <li class="media">
-                            <img class="avatar photo rounded-circle mr-2 mr-sm-3 mr-md-4"
-                                 src="../pictures/placeholder/65x65.svg" alt="Avatar">
-                                 
-                             <div>
-                                 
-                                <p>
-                                    리뷰
-                                </p>
-
-                             </div>    
-                          
-                        </li>
-                        <li class="media">
-                            <img class="avatar photo rounded-circle mr-2 mr-sm-3 mr-md-4"
-                                 src="../pictures/placeholder/65x65.svg" alt="Avatar">
-                           
-                        </li>
-                    </ul>
-       <!--**************리뷰 작성 테이블 끝*********************************************-->
-                    
-       
                 
-                    <nav class="navigation pagination comment-pagination justify-content-between text-uppercase"
-                         role="navigation">
-                        <a class="prev disabled" href="#">
-                            Prev
-                        </a>
-                        <div class="nav-links">
-                            <ul class="page-numbers">
-                                <li><span aria-current="page" class="page-numbers current">1</span></li>
-                                <li><a class="page-numbers" href="#">2</a></li>
-                                <li><a class="page-numbers" href="#">3</a></li>
-                            </ul>
+                <!--  ************ 1번째 칸 테이블 끝 *********************************** -->
+                 
+                
+                
+                    <!--  ************ 2번째 칸 테이블 시작 *********************************** -->
+                <div class="col-12 col-md-4 col-lg-4" >
+                    <div class="lana_member type-lana_member card member-card bg-transparent">
+                        <div class="card-body" id="pic2">
+                            <img src="../pictures/placeholder/250x250.svg"
+                                 class="card-img-top img-fluid rounded-circle" alt="Team Member"
+                                 data-scroll-animate="zoomIn">
+                            <h5 class="post-title card-title" data-scroll-animate="fadeInDown">
+                                호텔이름
+                            </h5>
+                            <h6 class="card-subtitle" data-scroll-animate="fadeInUp">
+                                지역
+                            </h6>
+                            <p class="post-text card-text" data-scroll-animate="fadeIn">
+                                정보
+                            </p>
+                           
+                          
                         </div>
-                        <a class="next" href="#">
-                            Next
-                        </a>
-                    </nav>
-
-                    
+                    </div>
                 </div>
+                    <!--  ************ 2번째 칸 테이블 끝 *********************************** -->
+                 
+                
+                    <!--  ************ 3번째 칸 테이블 시작 *********************************** -->
+           <div class="col-12 col-md-4 col-lg-4" >
+                    <div class="lana_member type-lana_member card member-card bg-transparent">
+                        <div class="card-body" id="pic3">
+                            <img src="../pictures/placeholder/250x250.svg"
+                                 class="card-img-top img-fluid rounded-circle" alt="Team Member"
+                                 data-scroll-animate="zoomIn">
+                            <h5 class="post-title card-title" data-scroll-animate="fadeInDown">
+                                호텔이름
+                            </h5>
+                            <h6 class="card-subtitle" data-scroll-animate="fadeInUp">
+                                지역
+                            </h6>
+                            <p class="post-text card-text" data-scroll-animate="fadeIn">
+                               정보
+                            </p>
+                          
+                         
+                        </div>
+                    </div>
+                </div>
+           
             </div>
         </div>
+            <!--  ************ 3번째 칸 테이블 끝 *********************************** -->
+        
+        
+        
+        <!--************ 2번째 칸 테이블 시작 ***********************************-->
+
+        <div id="employees-container" class="container my-5">
+        
+            <div class="row mt-5">
+                <div class="col-12 col-md-4 col-lg-4">
+                    <div class="lana_member type-lana_member card member-card bg-transparent">
+                        <div class="card-body" id="pic1">
+                            <img src="../pictures/placeholder/250x250.svg"
+                                 class="card-img-top img-fluid rounded-circle" alt="Team Member"
+                                 data-scroll-animate="zoomIn">
+                            <h5 class="post-title card-title" data-scroll-animate="fadeInDown">
+                                호텔이름
+                            </h5>
+                            <h6 class="card-subtitle" data-scroll-animate="fadeInUp">
+                                지역
+                            </h6>
+                            <p class="post-text card-text" data-scroll-animate="fadeIn">
+                                정보
+                            </p>
+                          
+                           
+                        </div>
+                    </div>
+                </div>
+                <!-- ***********  테이블 끝  ********************************** -->
+                
+                
+                <!--  *********  테이블 시작 ******************************** -->
+                <div class="col-12 col-md-4 col-lg-4">
+                    <div class="lana_member type-lana_member card member-card bg-transparent">
+                        <div class="card-body" id="pic1">
+                            <img src="../pictures/placeholder/250x250.svg"
+                                 class="card-img-top img-fluid rounded-circle" alt="Team Member"
+                                 data-scroll-animate="zoomIn">
+                            <h5 class="post-title card-title" data-scroll-animate="fadeInDown">
+                                호텔이름
+                            </h5>
+                            <h6 class="card-subtitle" data-scroll-animate="fadeInUp">
+                                지역
+                            </h6>
+                            <p class="post-text card-text" data-scroll-animate="fadeIn">
+                                정보
+                            </p>
+                           
+                         
+                        </div>
+                    </div>
+                </div>
+                
+                <!--  *************** 테이블 끝 ************************ -->
+                
+                <!--   ************** 테이블 시작 ************************** -->
+                <div class="col-12 col-md-4 col-lg-4">
+                    <div class="lana_member type-lana_member card member-card bg-transparent">
+                        <div class="card-body" id="pic1">
+                            <img src="../pictures/placeholder/250x250.svg"
+                                 class="card-img-top img-fluid rounded-circle" alt="Team Member"
+                                 data-scroll-animate="zoomIn">
+                            <h5 class="post-title card-title" data-scroll-animate="fadeInDown">
+                                호텔이름
+                            </h5>
+                            <h6 class="card-subtitle" data-scroll-animate="fadeInUp">
+                                지역
+                            </h6>
+                            <p class="post-text card-text" data-scroll-animate="fadeIn">
+                              정보
+                            </p>
+                          
+                           
+                        </div>
+                    </div>
+                </div>
+                <!--   *************** 테이블 끝 ******************* -->
+                
+            </div>
+        </div>
+        
+        <!--************ 2번째 칸 테이블 끝 ***********************************-->
+        
+        
+        <!--******** 페이지 테이블  *****************************************  -->
+        
+        <nav class="navigation pagination justify-content-between text-uppercase" role="navigation">
+                    <a class="prev disabled" href="#">
+                        Prev
+                    </a>
+                    <div class="nav-links">
+                        <ul class="page-numbers">
+                            <li><span aria-current="page" class="page-numbers current">1</span></li>
+                            <li><a class="page-numbers" href="#">2</a></li>
+                            <li><span class="page-numbers dots">…</span></li>
+                            <li><a class="page-numbers" href="#">4</a></li>
+                        </ul>
+                    </div>
+                    <a class="next" href="#">
+                        Next
+                    </a>
+                </nav>
     </div>
 </main>
-    
+                
+                
+
+
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services,clusterer,drawing"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services"></script>
