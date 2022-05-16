@@ -16,6 +16,9 @@ public class CommunityController {
 
 	}
 	
-	
+	@RequestMapping("/community/writeDaily")
+	public void writeDaily() {
+		
+	}
 	
 }
