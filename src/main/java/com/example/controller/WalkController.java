@@ -8,6 +8,6 @@ import org.springframework.stereotype.Controller;
 public class WalkController {
 	
 
-	
+	//테스트
 	
 }
