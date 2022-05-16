@@ -2,6 +2,7 @@ package com.example.controller.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/admin")
@@ -10,6 +11,7 @@ public class AdminMainController {
 	
 	@RequestMapping("/indexAdmin")
 	public void adminPage() {
+		
 	}
 	
 	//차트
@@ -88,6 +90,18 @@ public class AdminMainController {
 	@RequestMapping("/facilities/adminAddFacilities")
 	public void adminAddFacilities() {
 										
+	}
+	
+	//커뮤 관리
+	@RequestMapping("/adminCommunities")
+	public void adminCommunities() {
+		
+	}
+	
+	//커뮤 일상
+	@RequestMapping("/adminDaily")
+	public void adminDaily() {
+		
 	}
 	
 

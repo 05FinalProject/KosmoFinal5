@@ -171,6 +171,8 @@
 				"responsive" : true,
 			});
 		});
+		
+		$('#member').addClass('active')
 	</script>
 </body>
 </html>

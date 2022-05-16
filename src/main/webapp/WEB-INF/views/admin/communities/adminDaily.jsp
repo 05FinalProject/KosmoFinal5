@@ -44,7 +44,7 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1 class="m-0">리뷰신고</h1>
+							<h1 class="m-0">커뮤니티관리</h1>
 						</div>
 						<!-- /.col -->
 						<div class="col-sm-6">
@@ -63,42 +63,34 @@
 
    <div class="card">
               <div class="card-header">
-                <h3 class="card-title">신고목록</h3>
+                <h3 class="card-title">일상공유</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                  	<th width="70">리뷰번호</th>
-                    <th>이메일</th>
-                    <th>리뷰내용</th>
-                    <th>신고사유</th>
-                    <th width="80">신고날짜</th>
-                    <th width="70">신고횟수</th>
-                    <th width="50">삭제</th>
+                  	<th width="70">제목</th>
+                    <th>작성자</th>
+                    <th>내용</th>
+                    <th>날짜</th>
+                    <th>삭제</th>
                   </tr>
                   </thead>
                   <tbody>
                   <tr>
                  	<td text-align="center">1</td>
                     <td>tt@naver.com</td>
-                    <td>최악이예요
-                    </td>
+                    <td>최악이예요</td>
                     <td>욕설</td>
-                    <td>2022-05-13</td>
-                    <td>5</td>
                     <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
                   </tr>
                   <tr>
                   	<td text-align="center">2</td>
                     <td>Trident</td>
                     <td>Internet
-                      Explorer 5.0
-                    </td>
+                      Explorer 5.0</td>
                     <td>Win 95+</td>
-                    <td>5</td>
-                    <td>C</td>
                     <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
                   </tr>
                   <tr>
@@ -108,8 +100,6 @@
                       Explorer 5.5
                     </td>
                     <td>Win 95+</td>
-                    <td>5.5</td>
-                    <td>A</td>
                     <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
                   </tr>
                   </tbody>     
@@ -177,9 +167,9 @@
 			});
 		});
 		
-		  $('#report').addClass('menu-is-opening')
-		  $('#report').addClass('menu-open')
-		  $('#review').addClass('active')
+		  $('#communities').addClass('menu-is-opening')
+		  $('#communities').addClass('menu-open')
+		  $('#daily').addClass('active')
 	</script>
 </body>
 </html>

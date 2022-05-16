@@ -176,6 +176,10 @@
 				"responsive" : true,
 			});
 		});
+		
+		 $('#report').addClass('menu-is-opening')
+		 $('#report').addClass('menu-open')	
+		 $('#board').addClass('active')
 	</script>
 </body>
 </html>

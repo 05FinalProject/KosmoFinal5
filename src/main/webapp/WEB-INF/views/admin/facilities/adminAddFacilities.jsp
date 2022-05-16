@@ -51,45 +51,19 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1>Contacts</h1>
+							<h1>보호소</h1>							
 						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
-								<li class="breadcrumb-item"><a href="#">Home</a></li>
-								<li class="breadcrumb-item active">Contacts</li>
+								<a href="adminAddFacilities"><button type="button" class="btn btn-primary" id="regi">시설등록</button> </a> 
 							</ol>
 						</div>
 					</div>
 				</div>
 				<!-- /.container-fluid -->
 			</section>
-
-			<!-- general form elements disabled -->
-            <div class="card card-secondary">
-              <div class="card-header">
-                <h3 class="card-title">시설등록</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <form>
-                  <div class="form-group row">               		
-							<label class="col-sm-12 col-md-2 col-form-label">Text</label>
-							<div class="col-sm-12 col-md-10">
-								<input class="form-control" type="text" placeholder="Johnny Brown">
-							</div>
-						</div>
-						</div>
-                     
-                </form>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!--/.col (right) -->
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
+			
+			
 
 		<%@ include file="../../admin/common/adminFooter.jsp"%>
 
@@ -144,6 +118,11 @@
 <script src="/admin/dist/js/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/admin/dist/js/pages/dashboard.js"></script>
+<script type="text/javascript">
+$('#facilities').addClass('menu-is-opening')
+$('#facilities').addClass('menu-open')
+$('#shelter').addClass('active')
+</script>
 </body>
 </html>
 
