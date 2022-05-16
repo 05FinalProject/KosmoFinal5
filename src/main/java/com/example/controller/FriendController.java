@@ -8,7 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class FriendController {
 
 	@RequestMapping("/friend/friendList")
-	public void friend() {
+	public void friendList() {
+		
+	}
+	
+	@RequestMapping("/friend/friendBlockList")
+	public void friendBlockList() {
 		
 	}
 }
