@@ -28,7 +28,11 @@
 }
 
 #title {
-	margin-bottom:50px;
+	margin-bottom:30px;
+}
+
+.text {
+	margin-top:15px;
 }
 
 </style>
@@ -43,6 +47,7 @@
                 <div class="all-notifications-body">
                     <div class="all-notifications-header d-flex justify-content-between align-items-center" id="title">
                         <h3 class="font-weight-bold">친구차단목록</h3>
+                                               
                         
                     <!--     <div class="dropdown">
                             <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flaticon-menu"></i></button>
@@ -53,13 +58,13 @@
                             </ul>
                         </div> -->
                     </div>
+                    
                     <div class="item d-flex justify-content-between align-items-center">
                         <div class="figure">
                             <a href="my-profile.html"><img src="/community/images/user/user-55.jpg" class="rounded-circle" alt="image"></a>
                         </div>
                         <div class="text">
                             <h4><a href="my-profile.html">닉네임</a></h4>
-                            <span>Posted A Comment On Your Status</span>
                             <span >차단 일시</span>
                             
                         </div>
@@ -67,73 +72,60 @@
                             <a href="#"><i class="flaticon-x-mark"></i></a>
                         </div>
                     </div>
-                    <div class="item d-flex justify-content-between align-items-center">
+                     <div class="item d-flex justify-content-between align-items-center">
                         <div class="figure">
-                            <a href="my-profile.html"><img src="/community/images/user/user-45.jpg" class="rounded-circle" alt="image"></a>
+                            <a href="my-profile.html"><img src="/community/images/user/user-55.jpg" class="rounded-circle" alt="image"></a>
                         </div>
                         <div class="text">
-                            <h4><a href="my-profile.html">Dwight Schoolcraft</a></h4>
-                            <span>Sent You a Friend Request</span>
-                            <span class="main-color">35 Minites Ago</span>
+                            <h4><a href="my-profile.html">닉네임</a></h4>
+                            <span >차단 일시</span>
+                            
+                        </div>
+                        <div class="icon">
+                            <a href="#"><i class="flaticon-x-mark"></i></a>
+                        </div>
+                    </div>
+                     <div class="item d-flex justify-content-between align-items-center">
+                        <div class="figure">
+                            <a href="my-profile.html"><img src="/community/images/user/user-55.jpg" class="rounded-circle" alt="image"></a>
+                        </div>
+                        <div class="text">
+                            <h4><a href="my-profile.html">닉네임</a></h4>
+                            <span >차단 일시</span>
+                            
+                        </div>
+                        <div class="icon">
+                            <a href="#"><i class="flaticon-x-mark"></i></a>
+                        </div>
+                    </div>
+                     <div class="item d-flex justify-content-between align-items-center">
+                        <div class="figure">
+                            <a href="my-profile.html"><img src="/community/images/user/user-55.jpg" class="rounded-circle" alt="image"></a>
+                        </div>
+                        <div class="text">
+                            <h4><a href="my-profile.html">닉네임</a></h4>
+                            <span >차단 일시</span>
+                            
+                        </div>
+                        <div class="icon">
+                            <a href="#"><i class="flaticon-x-mark"></i></a>
+                        </div>
+                    </div>
+                     <div class="item d-flex justify-content-between align-items-center">
+                        <div class="figure">
+                            <a href="my-profile.html"><img src="/community/images/user/user-55.jpg" class="rounded-circle" alt="image"></a>
+                        </div>
+                        <div class="text">
+                            <h4><a href="my-profile.html">닉네임</a></h4>
+                            <span >차단 일시</span>
+                            
                         </div>
                         <div class="icon">
                             <a href="#"><i class="flaticon-x-mark"></i></a>
                         </div>
                     </div>
                     
-                    <div class="item d-flex justify-content-between align-items-center">
-                        <div class="figure">
-                            <a href="my-profile.html"><img src="/community/images/user/user-50.jpg" class="rounded-circle" alt="image"></a>
-                        </div>
-                        <div class="text">
-                            <h4><a href="my-profile.html">Francis L. Tay</a></h4>
-                            <span>Like Your Comment</span>
-                            <span class="main-color">5 Hours Ago</span>
-                        </div>
-                        <div class="icon">
-                            <a href="#"><i class="flaticon-x-mark"></i></a>
-                        </div>
-                    </div>
-                   
-                    <div class="item d-flex justify-content-between align-items-center">
-                        <div class="figure">
-                            <a href="my-profile.html"><img src="/community/images/user/user-53.jpg" class="rounded-circle" alt="image"></a>
-                        </div>
-                        <div class="text">
-                            <h4><a href="my-profile.html">Howard Harris</a></h4>
-                            <span>Added a Photo in Graphic Design Group</span>
-                            <span class="main-color">7 Days Ago</span>
-                        </div>
-                        <div class="icon">
-                            <a href="#"><i class="flaticon-x-mark"></i></a>
-                        </div>
-                    </div>
-                    <div class="item d-flex justify-content-between align-items-center">
-                        <div class="figure">
-                            <a href="my-profile.html"><img src="/community/images/user/user-54.jpg" class="rounded-circle" alt="image"></a>
-                        </div>
-                        <div class="text">
-                            <h4><a href="my-profile.html">Martha Wilkes</a></h4>
-                            <span>Added a Photo in Graphic Design Group</span>
-                            <span class="main-color">7 Days Ago</span>
-                        </div>
-                        <div class="icon">
-                            <a href="#"><i class="flaticon-x-mark"></i></a>
-                        </div>
-                    </div>
-                    <div class="item d-flex justify-content-between align-items-center">
-                        <div class="figure">
-                            <a href="my-profile.html"><img src="/community/images/user/user-30.jpg" class="rounded-circle" alt="image"></a>
-                        </div>
-                        <div class="text">
-                            <h4><a href="my-profile.html">David Gibson</a></h4>
-                            <span>Commented on Your Newstatus</span>
-                            <span class="main-color">1 Month Ago</span>
-                        </div>
-                        <div class="icon">
-                            <a href="#"><i class="flaticon-x-mark"></i></a>
-                        </div>
-                    </div>
+              
                 </div>
             </div>
 
