@@ -15,7 +15,7 @@ public class HomeController {
 	public void FooterPage() {
 	}
 	
-	@RequestMapping("login")
+	@RequestMapping("/Login")
 	public void loginPage() {
 	}
 	
@@ -23,5 +23,9 @@ public class HomeController {
 	public void MainPage() {
 	}
 	
+	@RequestMapping("/signUp")
+	public void signUpPage() {
+		
+	}
 	
 }
