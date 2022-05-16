@@ -33,9 +33,9 @@
 				alt="AdminLTELogo" height="60" width="60">
 		</div>
 
-		<%@ include file="../admin/adminNavbar.jsp"%>
+		<%@ include file="../../admin/common/adminNavbar.jsp"%>
 
-		<%@ include file="../admin/adminSidebar.jsp"%>
+		<%@ include file="../../admin/common/adminSidebar.jsp"%>
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
@@ -44,7 +44,7 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1 class="m-0">게시글신고</h1>
+							<h1 class="m-0">리뷰신고</h1>
 						</div>
 						<!-- /.col -->
 						<div class="col-sm-6">
@@ -67,27 +67,31 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
+                  	<th width="40">리뷰번호</th>
+                    <th>이메일</th>
+                    <th>리뷰내용</th>
+                    <th>신고사유</th>
+                    <th>신고날짜</th>
+                    <th>신고횟수</th>
+                    <th width="50">삭제</th>
                   </tr>
                   </thead>
                   <tbody>
                   <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
+                 	<td text-align="center">1</td>
+                    <td>tt@naver.com</td>
+                    <td>최악이예요
                     </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td>X</td>
+                    <td>욕설</td>
+                    <td>2022-05-13</td>
+                    <td>5</td>
+                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
                   </tr>
                   <tr>
+                  	<td text-align="center">2</td>
                     <td>Trident</td>
                     <td>Internet
                       Explorer 5.0
@@ -95,8 +99,10 @@
                     <td>Win 95+</td>
                     <td>5</td>
                     <td>C</td>
+                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
                   </tr>
                   <tr>
+                  	<td text-align="center">3</td>
                     <td>Trident</td>
                     <td>Internet
                       Explorer 5.5
@@ -104,17 +110,21 @@
                     <td>Win 95+</td>
                     <td>5.5</td>
                     <td>A</td>
+                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
                   </tr>
-                  </tbody>                                       
-                  </tfoot>
-                </table>
+                  </tbody>     
+             
+                </table>              
+                  
               </div>
+  
               <!-- /.card-body -->
-            </div>
-           
-		</div>
-		<!-- /.content-wrapper -->
-		<%@ include file="../admin/adminFooter.jsp"%>
+            </div>         
+		</div>    
+		 
+		<!-- Main content -->
+
+		<%@ include file="../../admin/common/adminFooter.jsp"%>
 		<!-- Control Sidebar -->
 		<aside class="control-sidebar control-sidebar-dark">
 			<!-- Control sidebar content goes here -->
@@ -154,13 +164,14 @@
 						"responsive" : true,
 						"lengthChange" : false,
 						"autoWidth" : false,
+						 "info": false,
 					}),
 			$('#example2').DataTable({
 				"paging" : true,
 				"lengthChange" : false,
-				"searching" : false,
+				"searching" : true,
 				"ordering" : true,
-				"info" : true,
+				"info" : false,
 				"autoWidth" : false,
 				"responsive" : true,
 			});

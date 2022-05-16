@@ -17,8 +17,8 @@
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
-<%@ include file="../../adminNavbar.jsp"%>
-<%@ include file="../../adminSidebar.jsp"%>
+<%@ include file="../admin/common/adminNavbar.jsp"%>
+<%@ include file="../admin/common/adminSidebar.jsp"%>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

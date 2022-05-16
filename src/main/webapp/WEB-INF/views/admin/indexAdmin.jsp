@@ -37,9 +37,9 @@
     <img class="animation__shake" src="/admin/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
   </div>
 
-  <%@ include file="../admin/adminNavbar.jsp" %>
+  <%@ include file="../admin/common/adminNavbar.jsp" %>
   
-  <%@ include file="../admin/adminSidebar.jsp" %>
+  <%@ include file="../admin/common/adminSidebar.jsp" %>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -646,7 +646,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <%@ include file="../admin/adminFooter.jsp" %>
+  <%@ include file="../admin/common/adminFooter.jsp" %>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
