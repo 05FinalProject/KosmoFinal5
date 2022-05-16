@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +13,31 @@
   <link rel="stylesheet" href="/admin/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/admin/dist/css/adminlte.min.css">
+  <script src="https://kit.fontawesome.com/23b331c6f8.js" crossorigin="anonymous"></script>
+  
+  <style type="text/css">
+  
+  .content {
+  	padding-top:80px;
+  	padding-bottom:80px;
+  	padding-left:220px;
+  	padding-right:220px;
+  }
+  
+  .col-7 {
+  	margin-top:25px;
+  }
+  
+  
+  
+  </style>
+  
+  
 </head>
 <body class="hold-transition sidebar-mini">
+
+<%@include file="../Header.jsp" %>
+
 <!-- Site wrapper -->
 <div class="wrapper">
 
@@ -23,6 +48,49 @@
       <div class="card card-solid">
         <div class="card-body pb-0">
           <div class="row">
+          
+          <!-- 사용자 프로필 -->
+            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
+              <div class="card bg-light d-flex flex-fill">
+                <!-- <div class="card-header text-muted border-bottom-0">
+                  Digital Strategist
+                </div> -->
+                <div class="card-body pt-0">
+                  <div class="row">
+                    <div class="col-7">
+                      <h2 class="lead"><b>닉네임</b></h2>
+                      <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                      <ul class="ml-4 mb-0 fa-ul text-muted">
+                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
+                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                      </ul>
+                    </div>
+                    <div class="col-5 profile-img" style="padding-top:25px;">
+                      <img src="/admin/dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="text-right">
+                    <a href="#" class="btn btn-sm" style="background:#fbe4c2">
+                      <i class="fas fa-comments"></i>
+                    </a>
+                     <a href="#" class="btn btn-sm" style="background:#ffdd7c">
+                      <i class="fa-solid fa-xmark"></i>
+                    </a>
+                     <a href="#" class="btn btn-sm" style="background:#f8b03a">
+                      <i class="fa-solid fa-ban"></i>
+                    </a>
+                    <a href="#" class="btn btn-sm btn-primary">
+                      <i class="fas fa-user"></i>상세보기
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 사용자 프로필 끝 -->
+            
+            <!-- 사용자 프로필 -->
             <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
               <div class="card bg-light d-flex flex-fill">
                 <div class="card-header text-muted border-bottom-0">
@@ -55,6 +123,8 @@
                 </div>
               </div>
             </div>
+            <!-- 사용자 프로필 끝 -->
+            <!-- 사용자 프로필 -->
             <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
               <div class="card bg-light d-flex flex-fill">
                 <div class="card-header text-muted border-bottom-0">
@@ -71,7 +141,7 @@
                       </ul>
                     </div>
                     <div class="col-5 text-center">
-                      <img src="../../dist/img/user2-160x160.jpg" alt="user-avatar" class="img-circle img-fluid">
+                      <img src="/admin/dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
                     </div>
                   </div>
                 </div>
@@ -87,6 +157,8 @@
                 </div>
               </div>
             </div>
+            <!-- 사용자 프로필 끝 -->
+            <!-- 사용자 프로필 -->
             <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
               <div class="card bg-light d-flex flex-fill">
                 <div class="card-header text-muted border-bottom-0">
@@ -103,7 +175,7 @@
                       </ul>
                     </div>
                     <div class="col-5 text-center">
-                      <img src="../../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
+                      <img src="/admin/dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
                     </div>
                   </div>
                 </div>
@@ -119,6 +191,8 @@
                 </div>
               </div>
             </div>
+            <!-- 사용자 프로필 끝 -->
+            <!-- 사용자 프로필 -->
             <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
               <div class="card bg-light d-flex flex-fill">
                 <div class="card-header text-muted border-bottom-0">
@@ -135,7 +209,7 @@
                       </ul>
                     </div>
                     <div class="col-5 text-center">
-                      <img src="../../dist/img/user2-160x160.jpg" alt="user-avatar" class="img-circle img-fluid">
+                      <img src="/admin/dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
                     </div>
                   </div>
                 </div>
@@ -151,37 +225,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-              <div class="card bg-light d-flex flex-fill">
-                <div class="card-header text-muted border-bottom-0">
-                  Digital Strategist
-                </div>
-                <div class="card-body pt-0">
-                  <div class="row">
-                    <div class="col-7">
-                      <h2 class="lead"><b>Nicole Pearson</b></h2>
-                      <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                      <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
-                      </ul>
-                    </div>
-                    <div class="col-5 text-center">
-                      <img src="../../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <div class="text-right">
-                    <a href="#" class="btn btn-sm bg-teal">
-                      <i class="fas fa-comments"></i>
-                    </a>
-                    <a href="#" class="btn btn-sm btn-primary">
-                      <i class="fas fa-user"></i> View Profile
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <!-- 사용자 프로필 끝 -->
+            <!-- 사용자 프로필 -->
             <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
               <div class="card bg-light d-flex flex-fill">
                 <div class="card-header text-muted border-bottom-0">
@@ -198,7 +243,7 @@
                       </ul>
                     </div>
                     <div class="col-5 text-center">
-                      <img src="../../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
+                      <img src="/admin/dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
                     </div>
                   </div>
                 </div>
@@ -214,37 +259,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-              <div class="card bg-light d-flex flex-fill">
-                <div class="card-header text-muted border-bottom-0">
-                  Digital Strategist
-                </div>
-                <div class="card-body pt-0">
-                  <div class="row">
-                    <div class="col-7">
-                      <h2 class="lead"><b>Nicole Pearson</b></h2>
-                      <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                      <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                      </ul>
-                    </div>
-                    <div class="col-5 text-center">
-                      <img src="../../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <div class="text-right">
-                    <a href="#" class="btn btn-sm bg-teal">
-                      <i class="fas fa-comments"></i>
-                    </a>
-                    <a href="#" class="btn btn-sm btn-primary">
-                      <i class="fas fa-user"></i> View Profile
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <!-- 사용자 프로필 끝 -->
+            <!-- 사용자 프로필 -->
             <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
               <div class="card bg-light d-flex flex-fill">
                 <div class="card-header text-muted border-bottom-0">
@@ -261,7 +277,7 @@
                       </ul>
                     </div>
                     <div class="col-5 text-center">
-                      <img src="../../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
+                      <img src="/admin/dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
                     </div>
                   </div>
                 </div>
@@ -277,6 +293,8 @@
                 </div>
               </div>
             </div>
+            <!-- 사용자 프로필 끝 -->
+            <!-- 사용자 프로필 -->
             <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
               <div class="card bg-light d-flex flex-fill">
                 <div class="card-header text-muted border-bottom-0">
@@ -293,7 +311,7 @@
                       </ul>
                     </div>
                     <div class="col-5 text-center">
-                      <img src="../../dist/img/user2-160x160.jpg" alt="user-avatar" class="img-circle img-fluid">
+                      <img src="/admin/dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
                     </div>
                   </div>
                 </div>
@@ -309,6 +327,43 @@
                 </div>
               </div>
             </div>
+            <!-- 사용자 프로필 끝 -->
+            <!-- 사용자 프로필 -->
+            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
+              <div class="card bg-light d-flex flex-fill">
+                <div class="card-header text-muted border-bottom-0">
+                  Digital Strategist
+                </div>
+                <div class="card-body pt-0">
+                  <div class="row">
+                    <div class="col-7">
+                      <h2 class="lead"><b>Nicole Pearson</b></h2>
+                      <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                      <ul class="ml-4 mb-0 fa-ul text-muted">
+                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
+                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                      </ul>
+                    </div>
+                    <div class="col-5 text-center">
+                      <img src="/admin/dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="text-right">
+                    <a href="#" class="btn btn-sm bg-teal">
+                      <i class="fas fa-comments"></i>
+                    </a>
+                    <a href="#" class="btn btn-sm btn-primary">
+                      <i class="fas fa-user"></i> View Profile
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 사용자 프로필 끝 -->
+ 
+         
           </div>
         </div>
         <!-- /.card-body -->
@@ -336,6 +391,10 @@
 
 </div>
 <!-- ./wrapper -->
+
+
+<%@include file="../Footer.jsp" %>
+
 
 <!-- jQuery -->
 <script src="../../plugins/jquery/jquery.min.js"></script>
