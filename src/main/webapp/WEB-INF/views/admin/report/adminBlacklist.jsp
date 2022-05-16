@@ -33,9 +33,9 @@
 				alt="AdminLTELogo" height="60" width="60">
 		</div>
 
-		<%@ include file="../admin/adminNavbar.jsp"%>
+		<%@ include file="../../admin/common/adminNavbar.jsp"%>
 
-		<%@ include file="../admin/adminSidebar.jsp"%>
+		<%@ include file="../../admin/common/adminSidebar.jsp"%>
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
@@ -63,7 +63,7 @@
 
    <div class="card">
               <div class="card-header">
-                <h3 class="card-title">블랙리스트목록</h3> <button type="button" class="btn btn-info">추가</button>   
+                <h3 class="card-title">블랙리스트목록</h3> 
               </div>
               <!-- /.card-header -->            
               <div class="card-body">            
@@ -113,19 +113,18 @@
                     <td>A</td>
                     <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
                   </tr>
-                  </tbody>     
-             
-                </table>              
-                  
+                  </tbody>                
+                </table>                            
               </div>
-  
+       
               <!-- /.card-body -->
-            </div>         
+            </div>      
+            <button type="button" class="btn btn-info" style="float:right">블랙리스트등록</button>    
 		</div>    
 		 
 		<!-- Main content -->
 
-		<%@ include file="../admin/adminFooter.jsp"%>
+		<%@ include file="../../admin/common/adminFooter.jsp"%>
 		<!-- Control Sidebar -->
 		<aside class="control-sidebar control-sidebar-dark">
 			<!-- Control sidebar content goes here -->

@@ -33,9 +33,9 @@
 				alt="AdminLTELogo" height="60" width="60">
 		</div>
 
-		<%@ include file="../admin/adminNavbar.jsp"%>
+		<%@ include file="../../admin/common/adminNavbar.jsp"%>
 
-		<%@ include file="../admin/adminSidebar.jsp"%>
+		<%@ include file="../../admin/common/adminSidebar.jsp"%>
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
@@ -44,7 +44,7 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1 class="m-0">리뷰신고</h1>
+							<h1 class="m-0">게시글신고</h1>
 						</div>
 						<!-- /.col -->
 						<div class="col-sm-6">
@@ -70,9 +70,9 @@
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                  	<th width="40">리뷰번호</th>
-                    <th>이메일</th>
-                    <th>리뷰내용</th>
+                  	<th width="40">게시글번호</th>
+                    <th>게시글제목</th>
+                    <th>닉네임</th>
                     <th>신고사유</th>
                     <th>신고날짜</th>
                     <th>신고횟수</th>
@@ -124,7 +124,7 @@
 		 
 		<!-- Main content -->
 
-		<%@ include file="../admin/adminFooter.jsp"%>
+		<%@ include file="../../admin/common/adminFooter.jsp"%>
 		<!-- Control Sidebar -->
 		<aside class="control-sidebar control-sidebar-dark">
 			<!-- Control sidebar content goes here -->

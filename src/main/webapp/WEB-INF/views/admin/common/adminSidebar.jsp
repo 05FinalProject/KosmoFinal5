@@ -38,7 +38,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/admin/pages/charts/chartsjs" class="nav-link">
+                <a href="/admin/chartsjs" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>ChartJS</p>
                 </a>
@@ -83,25 +83,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/admin/adminRpReview" class="nav-link">
+                <a href="/admin/report/adminRpReview" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>리뷰</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/adminRpComment" class="nav-link">
+                <a href="/admin/report/adminRpComment" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>댓글</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/adminRpBoard" class="nav-link">
+                <a href="/admin/report/adminRpBoard" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>게시글</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/adminBlacklist" class="nav-link">
+                <a href="/admin/reportadminBlacklist" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>블랙리스트</p>
                 </a>
@@ -119,31 +119,31 @@
             </a>
             <ul class="nav nav-treeview">           
               <li class="nav-item">
-                <a href="/admin/adminShelter" class="nav-link">
+                <a href="/admin/facilities/adminShelter" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>보호소</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/adminHospital" class="nav-link">
+                <a href="/admin/facilities/adminHospital" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>동물병원</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/adminHotel" class="nav-link">
+                <a href="/admin/facilities/adminHotel" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>애견호텔</p>
                 </a>
               </li>            
               <li class="nav-item">
-                <a href="/admin/adminFuneralhall" class="nav-link">
+                <a href="/admin/facilities/adminFuneralhall" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>장례식장</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/adminCafe" class="nav-link">
+                <a href="/admin/facilities/adminCafe" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>애견카페</p>
                 </a>
