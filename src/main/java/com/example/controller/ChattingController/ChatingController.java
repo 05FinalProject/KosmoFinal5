@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.dao.DogDAO;
+import com.example.dao.ChatingRoomRepository;
 import com.example.dao.JpaRepository;
 import com.example.domain.ChatingRoomVO;
 import com.example.domain.Room;
@@ -23,11 +23,13 @@ import com.example.domain.Room;
 @RequestMapping("/chating")
 public class ChatingController {
 	
-	@Autowired
-	private DogDAO dao;
+	
 	
 	@Autowired
 	private JpaRepository jpa;
+	
+	@Autowired
+	private ChatingRoomRepository chatingRoomJpa;
 	
 	
 	List<Room> roomList = new ArrayList<Room>();
@@ -67,7 +69,14 @@ public class ChatingController {
 	@RequestMapping("/friend")
 	public void friend(ChatingRoomVO vo) {
 		
-		 if(vo != null) { dao.deleteRoomMember(vo); }
+		// if(vo != null) { chatingRoomJpa.deleteById(vo.getRoomNumber());  }
+	
+		if(vo.getCount() != 1) { 
+			
+			
+			
+		}	
+		
 		 
 		
 	}
@@ -104,7 +113,7 @@ public class ChatingController {
 	 * @return
 	 */
 	@RequestMapping("/moveChating")
-	public ModelAndView chating(@RequestParam HashMap<Object, Object> params ,Room room) {
+	public ModelAndView chating(@RequestParam HashMap<Object, Object> params ,ChatingRoomVO vo) {
 		ModelAndView mv = new ModelAndView();
 		int roomNumber = Integer.parseInt((String) params.get("roomNumber"));
 		
@@ -115,14 +124,20 @@ public class ChatingController {
 		 * params.get("roomNumber")); mv.setViewName("chat"); }else {
 		 * mv.setViewName("room"); }
 		 */
-		ChatingRoomVO vo = new ChatingRoomVO(room.getRoomNumber(),room.getRoomName(),room.getId());
-		dao.insertRoomMember(vo);
-		mv.addObject("id",room.getId());
+		
+		chatingRoomJpa.save(vo);
+//		chatingRoomJpa.insertRoomMem(vo.getRoomNumber(),vo.getRoomName(),vo.getRoomMember());
+		mv.addObject("id",vo.getId());
 		mv.addObject("roomName", params.get("roomName"));
 		mv.addObject("roomNumber", params.get("roomNumber"));
-		mv.addObject("getRoomNum",dao.getRoomNum(room));
+		
+		/* mv.addObject("getRoomNum",dao.getRoomNum(room)); */
+		;
+		
+		mv.addObject("getRoomNum",chatingRoomJpa.findByRoomName(vo.getRoomName()).size());
+		
 		mv.setViewName("/chating/chat");
-		mv.setViewName("/chating/chat");
+		
 		
 		return mv;
 	}

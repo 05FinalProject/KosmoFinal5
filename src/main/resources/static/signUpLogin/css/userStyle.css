@@ -1,0 +1,239 @@
+@charset "UTF-8";
+.form-group .error_box {
+	font-size: 12px;
+} 
+
+.btn_text{
+	font-size: 12px;
+}
+input[type=date]:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+}
+input[type=date]:focus::-webkit-datetime-edit {
+    color: black !important;
+}
+
+.email_check {
+	display: inline-block;
+	margin-left: -15px;
+}
+
+.btn_check{
+ 	border: 1px solid transparent;
+}
+
+form-group .form-control.form-nickname {
+	width : 80%;
+}
+
+.error_box{
+	color:#ED7A64;
+}
+
+.errorBox{
+	text-align: center;
+}
+
+.formBlock{
+	margin-top : 150px;
+	margin-right : 300px;
+	margin-left : 300px;
+	margin-bottom: 100px;
+	border-radius: 20px;
+	padding-left: 150px;
+	padding-right: 150px;
+}
+
+.box {
+    width: 150px;
+    height: 150px; 
+    border-radius: 70%;
+    overflow: hidden;
+    border: 5px solid #f8fafb;
+	display:block;
+	margin:auto;
+}
+
+.filter__title{
+    position: absolute;
+  	top: 25%;
+  	left: 50%;
+  	transform: translate(-50%,-50%);
+}
+
+.memberFile {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#memberFile{
+	margin-left: 30px;
+}
+input[type="file"]{
+	position: absolute; 
+	width: 1px; 
+	height: 1px; 
+	padding: 0; 
+	margin: -1px; 
+	overflow: hidden; 
+	clip:rect(0,0,0,0); 
+	border: 0;
+
+}
+.label.mFile{
+	display: inline-block; 
+	padding: .5em .75em; 
+	color: #fdfdfd; 
+	font-size: inherit; 
+	line-height: normal; 
+	vertical-align: middle; 
+	cursor: pointer; 
+	border: 1px solid #ebebeb; 
+	border-bottom-color: #e2e2e2; 
+	border-radius: .25em;
+
+}
+.memberFileForm, .memberFile{
+	text-align : center;
+}
+
+.formInt{
+	border-bottom: 1px solid #ccc;
+}
+
+.memberTitle{
+	margin-bottom: 80px;
+	text-align: center;
+	font-weight : bold;
+}
+
+.nick{
+	margin-top:20px;
+	text-align: center;
+}
+.btnMemberDelete{
+	position:relative;
+}
+
+#btnMemberDelete{
+	color : #d3d3d3;
+	border: 1px solid transparent;
+	background-color: white;
+	position:absolute; 
+	bottom:0;
+	right:0;
+}
+
+#btnMemberUpdate{
+	margin-top: 70px;
+	margin-bottom : 100px;
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.label{
+	 font-weight: bold;
+}
+.form-group.first {
+	margin-bottom: 30px;
+}
+
+.categori{
+	text-align: center;
+	
+}
+.categori h4 a{
+	color : black;
+}
+.categori h4 a:hover{
+	color: #ED7A64;
+}
+
+#check h4 a{
+	color: #ED7A64;
+}
+
+#realNav{
+	padding-top: 230px;
+}
+
+#outlog{
+	padding-top: 315px;
+}
+#outlog>a{
+	color: black;
+}
+#agree{
+	margin-bottom: -48px;
+}
+
+#agreeForm{
+	height: 170px; 
+	display:none;
+	padding:0 20px 20px 20px; 
+	overflow-y : auto; 
+	width: 98%;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	margin-top : -30px; 
+	margin-bottom : 50px;
+	line-height: 20px;
+	font-size: 12px;
+}
+#btnAgree{
+	background-color : white;
+	color : #888888;
+	border: 0;
+	outline: 0;
+}
+
+.header__logo {
+	padding : 1%;
+}
+
+.btn-orange {
+  color: #fff;
+  background-color: #F8b03a;
+  border-color: #F8b03a;
+}
+.btn-orange:hover {
+  color: #fff;
+  background-color: #dc6721;
+  border-color: #dc6721;
+}
+header.header--normal{
+	padding-left: 1%;
+}
+.control input:checked ~ .control__indicator{
+  background: #F8b03a;
+}
+
+.control:hover input:not([disabled]):checked ~ .control__indicator,
+.control input:checked:focus ~ .control__indicator {
+  background: #F8b03a; }
+ 
+#titleCenter{
+	text-align: center;
+	color: #F8b03a;
+}
+#homeGO{
+	margin-left: -30px;
+	margin-top: 10px;
+	margin-bottom: -40px;
+}
+.colorChange{
+	color : #888888;
+}
+
+.jo{
+	font-weight: bold;
+	font-size: 13px;
+}
+
+::placeholder{
+	font-size:12px;
+}
+
+.footerFont{
+	color:white;
+}
