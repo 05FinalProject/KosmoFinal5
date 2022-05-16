@@ -40,9 +40,9 @@
 	<!-- Site wrapper -->
 	<div class="wrapper">
 
-		<%@ include file="../admin/adminNavbar.jsp"%>
+		<%@ include file="../../admin/common/adminNavbar.jsp"%>
 
-		<%@ include file="../admin/adminSidebar.jsp"%>
+		<%@ include file="../../admin/common/adminSidebar.jsp"%>
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
@@ -51,12 +51,11 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1>Contacts</h1>
+							<h1>Contacts</h1>							
 						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
-								<li class="breadcrumb-item"><a href="#">Home</a></li>
-								<li class="breadcrumb-item active">Contacts</li>
+								<a href="adminAddFacilities"><button type="button" class="btn btn-info" style="float:right">시설등록</button></a> 
 							</ol>
 						</div>
 					</div>
@@ -104,9 +103,9 @@
 									<div class="card-footer">
 										<div class="text-right">
 											<a href="#" class="btn btn-sm bg-teal"> <i
-												class="fas fa-comments"></i>
+												class="fas fa-comments"></i>수정
 											</a> <a href="#" class="btn btn-sm btn-primary"> <i
-												class="fas fa-user"></i> View Profile
+												class="fas fa-user"></i> 삭제
 											</a>
 										</div>
 									</div>
@@ -460,7 +459,7 @@
 		</div>
 		<!-- /.content-wrapper -->
 
-		<%@ include file="../admin/adminFooter.jsp"%>
+		<%@ include file="../../admin/common/adminFooter.jsp"%>
 
 		<!-- Control Sidebar -->
 		<aside class="control-sidebar control-sidebar-dark">
