@@ -12,7 +12,7 @@
 
 
 
-<a href='admin/indexAdmin'>admin페이지</a><br/><br/>
+<a href='/admin'>admin페이지</a><br/><br/>
 <a href='include/Footer'>하단페이지</a><br/><br/>
 <a href='include/Header'>상단페이지</a><br/><br/>
 <a href='include/login'>로그인페이지</a><br/><br/>

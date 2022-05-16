@@ -20,10 +20,10 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="/admin/indexAdmin" class="nav-link" id="dashboard">
+            <a href="/admin" class="nav-link" id="dashboard">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard              
+                Dashboard
               </p>
             </a>
           </li>
@@ -65,7 +65,7 @@
           </li>
           
         <li class="nav-item">
-            <a href="/admin/adminMember" class="nav-link" id="member">
+            <a href="/admin/member" class="nav-link" id="member">
               <i class="nav-icon fa-solid fa-user"></i>
               <p>
                 회원관리
@@ -83,25 +83,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item" >
-                <a href="/admin/report/adminRpReview" class="nav-link" id="review">
+                <a href="/admin/review" class="nav-link" id="review">
                   <i class="far fa-circle nav-icon"></i>
                   <p>리뷰</p>
                 </a>
               </li>
               <li class="nav-item" >
-                <a href="/admin/report/adminRpComment" class="nav-link" id="comment">
+                <a href="/admin/comment" class="nav-link" id="comment">
                   <i class="far fa-circle nav-icon"></i>
                   <p>댓글</p>
                 </a>
               </li>
               <li class="nav-item" >
-                <a href="/admin/report/adminRpBoard" class="nav-link" id="board">
+                <a href="/admin/board" class="nav-link" id="board">
                   <i class="far fa-circle nav-icon"></i>
                   <p>게시글</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/report/adminBlacklist" class="nav-link" id="blacklist">
+                <a href="/admin/blacklist" class="nav-link" id="blacklist">
                   <i class="far fa-circle nav-icon"></i>
                   <p>블랙리스트</p>
                 </a>
@@ -119,31 +119,31 @@
             </a>
             <ul class="nav nav-treeview">           
               <li class="nav-item">
-                <a href="/admin/facilities/adminShelter" class="nav-link" id="shelter">
+                <a href="/admin/shelter" class="nav-link" id="shelter">
                   <i class="far fa-circle nav-icon"></i>
                   <p>보호소</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/facilities/adminHospital" class="nav-link" id="hospital">
+                <a href="/admin/hospital" class="nav-link" id="hospital">
                   <i class="far fa-circle nav-icon"></i>
                   <p>동물병원</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/facilities/adminHotel" class="nav-link" id="hotel">
+                <a href="/admin/hotel" class="nav-link" id="hotel">
                   <i class="far fa-circle nav-icon"></i>
                   <p>애견호텔</p>
                 </a>
               </li>            
               <li class="nav-item">
-                <a href="/admin/facilities/adminFuneralhall" class="nav-link" id="funeralhall">
+                <a href="/admin/funeralhall" class="nav-link" id="funeralhall">
                   <i class="far fa-circle nav-icon"></i>
                   <p>장례식장</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/facilities/adminCafe" class="nav-link" id="cafe">
+                <a href="/admin/cafe" class="nav-link" id="cafe">
                   <i class="far fa-circle nav-icon"></i>
                   <p>애견카페</p>
                 </a>
@@ -162,7 +162,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/admin/communities/adminDaily" class="nav-link" id="daily">
+                <a href="/admin/daily" class="nav-link" id="daily">
                   <i class="far fa-circle nav-icon"></i>
                   <p>일상공유</p>
                 </a>
