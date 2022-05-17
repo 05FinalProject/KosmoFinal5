@@ -29,7 +29,7 @@
 		<div class="content">
 			<div class="container">
 				<div class="row justify-content-center">
-					<div class="col-md-6 contents">
+					<div class="col-md-10 contents">
 						<div class="row justify-content-center">
 							<div class="col-md-12">
 								<div class="form-block" style="border-radius:20px;">
@@ -100,7 +100,7 @@
 										<div class="AddrAdd">
 											<div class="form-group">
 												<input class="form-control" style="width: 40%; display: inline;" placeholder="우편번호" name="addr1" id="addr1" type="text" readonly="readonly" >
-													<button type="button" class="btn btn-orange" onclick="execPostCode();" style="background-color:#F8b03a; color:white;"><i class="fa fa-search"></i> 우편번호 찾기</button>                               
+													<button type="button" class="btn btn-orange Addr" onclick="execPostCode();" style="background-color:#F8b03a; color:white;"><i class="fa fa-search"></i> 우편번호 찾기</button>                               
 												</div>
 												<div class="form-group">
 													<input class="form-control" style="top: 5px;" placeholder="도로명 주소" name="addr2" id="addr2" type="text" readonly="readonly" />
@@ -486,6 +486,26 @@
 					} else {
 						$("#agreeForm").css("display", "none")
 					}
+				});
+				$("#btn_signUp").mouseover(function(){
+					$("#btn_signUp").css("background-color","#dc6721");
+				});
+				$(".btn-orange").mouseout(function(){
+					$(".btn-orange").css("background-color","#F8b03a");
+				});
+				
+				$(".Addr").mouseover(function(){
+					$(".Addr").css("background-color","#dc6721");
+				});
+				$(".Addr").mouseout(function(){
+					$(".Addr").css("background-color","#F8b03a");
+				});
+				
+				$("#btn_emailCheak").mouseover(function(){
+					$("#btn_emailCheak").css("background-color","#dc6721");
+				});
+				$("#btn_emailCheak").mouseout(function(){
+					$("#btn_emailCheak").css("background-color","#F8b03a");
 				});
 
 			});
