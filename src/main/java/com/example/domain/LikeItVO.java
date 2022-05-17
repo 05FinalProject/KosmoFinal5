@@ -17,7 +17,7 @@ public class LikeItVO {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int like_num;
+	private Integer like_num;
 	
 	@ManyToOne
 	@JoinColumn(name="u_email")

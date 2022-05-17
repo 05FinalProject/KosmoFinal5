@@ -22,7 +22,7 @@ public class CommunityVO {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int c_num;
+	private Integer c_num;
 	
 	@Column(length = 200)
 	private String c_title;
