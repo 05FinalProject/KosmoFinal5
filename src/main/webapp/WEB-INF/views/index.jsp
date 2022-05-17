@@ -15,9 +15,11 @@
 <a href='/admin'>admin페이지</a><br/><br/>
 <a href='include/Footer'>하단페이지</a><br/><br/>
 <a href='include/Header'>상단페이지</a><br/><br/>
-<a href='include/login'>로그인페이지</a><br/><br/>
+<a href='include/Login'>로그인페이지</a><br/><br/>
 <a href='include/Main'>메인페이지</a><br/><br/>
-<a href='/chating/friend?room_member=1&room_num=1'>test</a><br/><br/>
+<a href="include/signUp">회원가입페이지</a><br/><br/>
+<!-- <a href='/chating/friend?room_member=1&roomNumber=1'>test</a><br/><br/> -->
+<a href='/chating/friend?count=1'>test</a><br/><br/>
 <a href='include/community/daily'>일상공유페이지</a><br/><br/>
 <a href='include/community/dailyDetail'>일상공유상세페이지</a><br/><br/>
 <a href='include/community/writeDaily'>일상공유작성페이지</a><br/><br/>
