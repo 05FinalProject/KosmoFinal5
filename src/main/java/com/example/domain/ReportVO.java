@@ -17,7 +17,7 @@ public class ReportVO {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int r_num;
+	private Integer r_num;
 	
 	@ManyToOne
 	@JoinColumn(name="user_email")

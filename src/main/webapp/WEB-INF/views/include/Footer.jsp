@@ -41,7 +41,7 @@
 </head>
 <body class="home page page-template-template-lana-editor">
 
-	<footer class="footer bg-dark text-white">
+	<footer class="footer text-white" style="background-color:#F8B03A;">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-2">

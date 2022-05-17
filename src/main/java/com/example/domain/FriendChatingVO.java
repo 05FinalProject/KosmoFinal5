@@ -22,7 +22,7 @@ public class FriendChatingVO {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int chating_no;
+	private Integer chating_no;
 	
 	@Column(length = 500)
 	private String chating_message;

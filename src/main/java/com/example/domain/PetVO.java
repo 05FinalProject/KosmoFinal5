@@ -18,7 +18,7 @@ public class PetVO {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int pet_num;
+	private Integer pet_num;
 	
 	@ManyToOne
 	@JoinColumn(name="user_email")
