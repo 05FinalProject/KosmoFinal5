@@ -24,10 +24,10 @@
 <a href='include/community/dailyDetail'>일상공유상세페이지</a><br/><br/>
 <a href='include/community/writeDaily'>일상공유작성페이지</a><br/><br/>
 <a href='include/friends/friend'>친구관리페이지</a><br/><br/>
-<a href='include/agency'>정보기관페이지</a><br/><br/>
-<a href='include/agencyDetail'>정보기관상세페이지</a><br/><br/>
-<a href='include/agencyHotel'>정보기관애견페이지</a><br/><br/>
-<a href='include/agencyHotelDetail'>정보기관애견상세페이지</a><br/><br/>
+<a href='/include/agency'>정보기관페이지</a><br/><br/>
+<a href='/include/agencyDetail'>정보기관상세페이지</a><br/><br/>
+<a href='/include/agencyHotel'>정보기관애견페이지</a><br/><br/>
+<a href='/include/agencyHotelDetail'>정보기관애견상세페이지</a><br/><br/>
 
 
 
