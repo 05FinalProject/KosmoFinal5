@@ -39,5 +39,5 @@ public class ReviewVO {
 	private Date review_insertdate;
 	
 	@Column(length = 10)
-	private String aa;
+	private String review_star;
 }
