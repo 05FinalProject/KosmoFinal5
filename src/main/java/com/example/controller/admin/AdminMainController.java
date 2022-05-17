@@ -1,13 +1,22 @@
 package com.example.controller.admin;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.example.dao.AgencyRepository;
+import com.example.domain.AgencyVO;
+
+import antlr.collections.List;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminMainController {
 	
+	@Autowired
+	private AgencyRepository a;
 	
 	@RequestMapping(value="", method=RequestMethod.GET)
 	public String adminPage() {
@@ -23,7 +32,10 @@ public class AdminMainController {
 	
 	//회원관리
 	@RequestMapping(value="/adminMember", method=RequestMethod.GET)
-	public String memberPage() {
+	public String memberPage(Model m) {
+		
+		m.addAttribute("list", a.findAll());
+		
 		return "/admin/adminMember";
 	}
 	
