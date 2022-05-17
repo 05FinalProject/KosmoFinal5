@@ -52,12 +52,27 @@
 
 .bx_slider img {
 	width: 100%;
-	height: 25em;
 }
 
 #wrapper {
-	width: 105em;
+	width: 100%;
 	margin: 0 auto;
+}
+
+.agency {
+	text-align: center;
+}
+
+.agency img {
+	height: 70%;
+	width: 70%;
+}
+
+.agency li {
+	list-style-type: none;
+	margin-right: 2em; margin-left : 2em;
+	display: inline-block;
+	margin-left: 2em;
 }
 </style>
 <script
@@ -65,101 +80,89 @@
 
 
 <script>
-      $(document).ready(function () {
-        var $slider;
-        function buildSliderConfiguration() {
-          var deviceWidth = $(window).width();
-          /* 반응형으로 설정할 옵션 정의 */ var slideNum;
-          var slideMargin;
-          /* 화면 사이즈별 슬라이드 갯수, 마진 설정, 기타 옵션도 설정 가능 */ if (
-            deviceWidth < 480
-          ) {
-            slideNum = 1;
-            slideMargin = 30;
-          } else if (deviceWidth < 991) {
-            slideNum = 2;
-            slideMargin = 40;
-          } else if (deviceWidth < 1200) {
-            slideNum = 3;
-            slideMargin = 50;
-          } else {
-            slideNum = 4;
-            slideMargin = 60;
-          }
-          return {
-            slideWidth: 1000,
-            autoControls: true,
-            auto: true,
-            autoHover: true,
-            adaptiveHeight: true,
-            pager: false,
-            moveSlides: 1,
-            slideMargin: slideMargin,
-            /*반응형 옵션*/ minSlides: slideNum,
-            /*반응형 옵션*/ maxSlides: slideNum /*반응형 옵션*/,
-          };
-        }
-        function configureSlider() {
-          var config = buildSliderConfiguration();
-          if ($slider && $slider.reloadSlider) {
-            $slider.reloadSlider(config);
-          } else {
-            $slider = $(".bx_slider").bxSlider({
-              slideWidth: 2500,
-              auto: true,
-              minSlides: 1,
-              maxSlides: 1,
-              controls : false,
-              pager : false,
-              speed:500,
-              config,
-            }); /* 슬라이더 클래스 또는 아이디 입력 */
-          }
-        }
-        $(".slider-prev").click(function () {
-          var current = $slider.getCurrentSlide();
-          $slider.goToPrevSlide(current) - 1;
-        });
-        $(".slider-next").click(function () {
-          var current = $slider.getCurrentSlide();
-          $slider.goToNextSlide(current) + 1;
-        });
-        $(window).on("orientationchange resize", configureSlider);
-        configureSlider();
-      });
-    </script>
+	$(document).ready(function() {
+		$(".bx_slider").bxSlider({
+			slideWidth : 2500,
+			auto : true,
+			minSlides : 1,
+			maxSlides : 1,
+			controls : false,
+			pager : false,
+			speed : 500,
+		}); /* 슬라이더 클래스 또는 아이디 입력 */
+	});
+</script>
 </head>
 <body class="home page page-template-template-lana-editor">
-	<%@include file="./Header.jsp"%>
+
 
 
 
 	<main class="main">
 		<!-- 메인페이지 이벤트 배너 -->
-		<div id="wrapper">
-			<div class="bx_slider">
-				<div>
-					<img src="/img/mainpage/event_mobile_banner_1644203927.png"
-						alt="슬라이드 이미지1" />
+		<div class="container">
+		<%@include file="./Header.jsp"%>
+			<div id="wrapper" class="mt-3">
+				<div class="bx_slider">
+					<div>
+						<img src="/img/mainpage/event_mobile_banner_1644203927.png"
+							alt="배너1" />
+					</div>
+					<div>
+						<img src="/img/mainpage/event_mobile_banner_1646369654.png"
+							alt="배너2" />
+					</div>
+					<div>
+						<img src="/img/mainpage/event_mobile_banner_1648689579.png"
+							alt="베너3" />
+					</div>
+					<div>
+						<img src="/img/mainpage/event_mobile_banner_1651036825.png"
+							alt="배너4" />
+					</div>
 				</div>
-				<div>
-					<img src="/img/mainpage/event_mobile_banner_1646369654.png"
-						alt="슬라이드 이미지2" />
-				</div>
-				<div>
-					<img src="/img/mainpage/event_mobile_banner_1648689579.png"
-						alt="슬라이드 이미지3" />
-				</div>
-				<div>
-					<img src="/img/mainpage/event_mobile_banner_1651036825.png"
-						alt="슬라이드 이미지4" />
-				</div>
-
-
 			</div>
 		</div>
 
-
+		<div class="container">
+			<div class="agency">
+				<nav>
+					<ul>
+						<li>
+							<div>
+								<img src="/img/mainpage/premium-icon-hotel-3009487.png" />
+							</div>
+							<div class="agency-name mt-2">호텔</div>
+						</li>
+						<li>
+							<div>
+								<img src="/img/mainpage/premium-icon-cafe-3361447.png" />
+							</div>
+							<div class="agency-name mt-2">카페</div>
+						</li>
+						<li>
+							<div>
+								<img
+									src="/img/mainpage/premium-icon-hospital-building-2749678.png" />
+							</div>
+							<div class="agency-name mt-2">병원</div>
+						</li>
+						<li>
+							<div>
+								<img src="/img/mainpage/premium-icon-animal-shelter-5871573.png" />
+							</div>
+							<div class="agency-name mt-2">보호소</div>
+						</li>
+						<li>
+							<div>
+								<img src="/img/mainpage/free-icon-death-3455284.png" />
+							</div>
+							<div class="agency-name mt-2">장례식장</div>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
 
 		<!-- 일상공유 인기글 -->
 		<div id="stories-container"

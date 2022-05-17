@@ -1,0 +1,144 @@
+.filter-modal {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* display: none; */
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal_body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  z-index: 10;
+  padding: 30px;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+#closeImg {
+  display: block;
+  width: 5%;
+  height: 5%;
+  float: right;
+}
+
+.food_kind {
+  width: 8ex;
+}
+
+.gyeonggido {
+  display: none;
+}
+.incheon {
+  display: none;
+}
+.daegu {
+  display: none;
+}
+.busan {
+  display: none;
+}
+.jeju {
+  display: none;
+}
+.daejeon {
+  display: none;
+}
+.gwangju {
+  display: none;
+}
+.gangwondo {
+  display: none;
+}
+.gyeongsangnamdo {
+  display: none;
+}
+.gyeongsangbukdo {
+  display: none;
+}
+.jeollanamdo {
+  display: none;
+}
+.jeollabukdo {
+  display: none;
+}
+.chungcheongnamdo {
+  display: none;
+}
+.chungcheongbukdo {
+  display: none;
+}
+.ulsan {
+  display: none;
+}
+.sejong {
+  display: none;
+}
+
+#pop-up-filter {
+  position: fixed;
+  /* z-index: 999; */
+}
+
+.pop-up-area-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btn-pop-up {
+  border-width: 0px;
+  color: #ffffff;
+  box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
+  background-color: #ed7a64;
+  border-color: #ed7a64;
+}
+
+.btn-pop-up:hover {
+  background-color: #d6524f;
+  border-color: #d6524f;
+}
+
+/* .btn-pop-up-area:focus {
+  border-color:  RGB(215, 67, 82);
+  top: 2px;
+} */
+
+.pop-up-dongnae {
+  margin-bottom: 5px;
+}
+
+.pop-up-search {
+  width: 50%;
+}
+
+.foodPrice > img {
+  width: 70px;
+  height: 70px;
+  margin-inline: 20px;
+}
+
+.addressSi > div > input {
+  width: 100px;
+}
+
+.addressGu > div > input {
+  width: 150px;
+}
+
+.addressGu {
+  height: 330px;
+}
+
+.btnClcik {
+  background-color: #d6524f;
+}
