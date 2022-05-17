@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.example.domain.CommentVO;
 
 @Repository
-public interface CommentVORepository extends CrudRepository<CommentVO, Integer> {
+public interface CommentRepository extends CrudRepository<CommentVO, Integer> {
 	
 	
 	 
