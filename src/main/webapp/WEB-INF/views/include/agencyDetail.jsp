@@ -33,6 +33,53 @@
 
     <link rel="stylesheet" href="/css/HeadFootPage.css" type="text/css">
     
+    <style type="text/css">
+    
+    .star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  justify-content: space-around;
+  padding: 0 0.2em;
+  text-align: center;
+  width: 5em;
+}
+ 
+.star-rating input {
+  display: none;
+}
+ 
+.star-rating label {
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 2.3px;
+  -webkit-text-stroke-color: #2b2a29;
+  cursor: pointer;
+}
+ 
+.star-rating :checked ~ label {
+  -webkit-text-fill-color: gold;
+}
+ 
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  -webkit-text-fill-color: #fff58c;
+}
+    
+    
+    .swiper-slide {
+    border: 1px solid #F3E2A9;
+    }
+    
+    
+    .container comments-container bg-white{
+    border: 1px solid #F3E2A9;
+    }
+    
+    
+    </style>
+    
+    
     
 </head>
 
@@ -215,24 +262,7 @@
             </p>
         </div>
 
-                   <div class="post-pages">
-                        <nav class="navigation pagination post-pages-pagination justify-content-between text-uppercase">
-                            
-                            <a class="prev disabled" href="#">
-                                Prev
-                            </a>
-                            <div class="nav-links">
-                                <ul class="page-numbers">
-                                    <li><span class="post-page-numbers current">1</span></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                </ul>
-                            </div>
-                            <a class="next" href="#">
-                                Next
-                            </a>
-                        </nav>
-                    </div>
+                 
                 </div>
             </div>
         </div>
@@ -249,7 +279,7 @@
                     </h4>
 
     
-     <!-- *********리뷰 작성 테이블 시작 *******************************************************-->
+     <!-- *********리뷰 작성  1번째 테이블 시작 *******************************************************-->
                     <ul class="comment-list list-unstyled">
                         <li class="media">
                             <img class="avatar photo rounded-circle mr-2 mr-sm-3 mr-md-4"
@@ -258,10 +288,54 @@
                               <p>
                                   리뷰 작성
                               </p>
+                                                      <div class="star-rating space-x-4 mx-auto">
+	<input type="radio" id="5-stars" name="rating" value="5" v-model="ratings"/>
+	<label for="5-stars" class="star pr-4">★</label>
+	<input type="radio" id="4-stars" name="rating" value="4" v-model="ratings"/>
+	<label for="4-stars" class="star">★</label>
+	<input type="radio" id="3-stars" name="rating" value="3" v-model="ratings"/>
+	<label for="3-stars" class="star">★</label>
+	<input type="radio" id="2-stars" name="rating" value="2" v-model="ratings"/>
+	<label for="2-stars" class="star">★</label>
+	<input type="radio" id="1-star" name="rating" value="1" v-model="ratings" />
+	<label for="1-star" class="star">★</label>
+</div>
                           </div>
+                   </li>
+<!-- ******* 리뷰 작성 1번째 테이블 끝 ********************************* -->                   
+                   
 
+ 
+ <!-- ******** 리뷰 작성 2번째 테이블 시작 **************************** -->     
+                  <li class="media">
+                            <img class="avatar photo rounded-circle mr-2 mr-sm-3 mr-md-4"
+                                 src="../pictures/placeholder/65x65.svg" alt="Avatar">
+                                 
+                             <div>
+                                 
+                                <p>
+                                    리뷰
+                                </p>
+                                 <div class="star-rating space-x-4 mx-auto">
+	<input type="radio" id="5-stars" name="rating" value="5" v-model="ratings"/>
+	<label for="5-stars" class="star pr-4">★</label>
+	<input type="radio" id="4-stars" name="rating" value="4" v-model="ratings"/>
+	<label for="4-stars" class="star">★</label>
+	<input type="radio" id="3-stars" name="rating" value="3" v-model="ratings"/>
+	<label for="3-stars" class="star">★</label>
+	<input type="radio" id="2-stars" name="rating" value="2" v-model="ratings"/>
+	<label for="2-stars" class="star">★</label>
+	<input type="radio" id="1-star" name="rating" value="1" v-model="ratings" />
+	<label for="1-star" class="star">★</label>
+</div>
 
-                        </li>
+                             </div>    
+                      </li>
+    
+   <!--  ********** 리뷰 2번째 테이블 끝 **************************************** --> 
+                             
+                
+   <!-- ************ 리뷰 3번째 테이블 시작 ************************************* -->                       
                         <li class="media">
                             <img class="avatar photo rounded-circle mr-2 mr-sm-3 mr-md-4"
                                  src="../pictures/placeholder/65x65.svg" alt="Avatar">
@@ -271,21 +345,29 @@
                                 <p>
                                     리뷰
                                 </p>
+                                 <div class="star-rating space-x-4 mx-auto">
+	<input type="radio" id="5-stars" name="rating" value="5" v-model="ratings"/>
+	<label for="5-stars" class="star pr-4">★</label>
+	<input type="radio" id="4-stars" name="rating" value="4" v-model="ratings"/>
+	<label for="4-stars" class="star">★</label>
+	<input type="radio" id="3-stars" name="rating" value="3" v-model="ratings"/>
+	<label for="3-stars" class="star">★</label>
+	<input type="radio" id="2-stars" name="rating" value="2" v-model="ratings"/>
+	<label for="2-stars" class="star">★</label>
+	<input type="radio" id="1-star" name="rating" value="1" v-model="ratings" />
+	<label for="1-star" class="star">★</label>
+</div>
 
                              </div>    
-                          
-                        </li>
-                        <li class="media">
-                            <img class="avatar photo rounded-circle mr-2 mr-sm-3 mr-md-4"
-                                 src="../pictures/placeholder/65x65.svg" alt="Avatar">
-                           
-                        </li>
+                      </li>
+      <!-- *******3번째 테이블 작성 끝 ********************************** -->                
+                      
+                      
                     </ul>
        <!--**************리뷰 작성 테이블 끝*********************************************-->
                     
        
-                
-                    <nav class="navigation pagination comment-pagination justify-content-between text-uppercase"
+          <nav class="navigation pagination comment-pagination justify-content-between text-uppercase"
                          role="navigation">
                         <a class="prev disabled" href="#">
                             Prev
