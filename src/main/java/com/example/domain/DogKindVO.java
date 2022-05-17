@@ -17,7 +17,7 @@ public class DogKindVO {
 	@Id
 	@Column(length = 200)
 	private String dog_kind;
-	
+
 	@Column(length = 50)
 	private String dog_local;
 	

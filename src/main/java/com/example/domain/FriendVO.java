@@ -18,7 +18,7 @@ public class FriendVO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int friend_no;
-	
+
 	@Column(length = 10)
 	private String user_sign;
 	
@@ -27,6 +27,6 @@ public class FriendVO {
 	private UserVO user1;
 	
 	@ManyToOne
-	@JoinColumn(name = "user_email1")
+	@JoinColumn(name = "user_email2")
 	private UserVO user2;
 }

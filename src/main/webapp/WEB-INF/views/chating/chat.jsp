@@ -36,6 +36,7 @@ function wsEvt() {
 	ws.onmessage = function(data) {
 		//메시지를 받으면 동작
 		var msg = data.data;
+		console.log(msg)
 		if(msg != null && msg.type != ''){
 			//파일 업로드가 아닌 경우 메시지를 뿌려준다.
 			var d = JSON.parse(msg);

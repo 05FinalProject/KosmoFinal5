@@ -17,7 +17,7 @@
 	<a href="/chating/moveChating?roomName=하윙1&roomNumber=1&roomMember=333">하윙1 채팅방</a><br/>	
 	<a href="/chating/moveChating?roomName=하윙2&roomNumber=2&roomMember=333">하윙2 채팅방</a><br/><br/><br/>
 	
-	
+	<a href="/chating/friendChat">친구리스트</a>
 	
 	
 </body>
