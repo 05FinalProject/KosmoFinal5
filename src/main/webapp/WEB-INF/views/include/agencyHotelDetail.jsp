@@ -312,9 +312,9 @@
                     <div class="swiper-button-prev swiper-button-outside-md"></div>
                 </div>
                 <div class="col-12 col-md-10 col-lg-8 post-col">
-                    <h2 class="post-title">
+                    <div class="post-title">
                         호텔이름
-                    </h2>
+                    </div>
                     <div class="d-md-flex justify-content-between align-items-center post-meta post-meta-top">
                         <div class="age-meta">
                             <span class="age-text">지역</span>
@@ -328,14 +328,6 @@
                         
                     </div>
 
-                    <div class="d-md-flex justify-content-between align-items-center post-meta post-meta-bottom">
-                        <div class="apodt">
-                            <a href="#adopt-a-pet" class="btn btn-primary btn-lg font-weight-bold text-uppercase w-15x">
-                                리뷰작성
-                            </a>
-                        </div>
-                       
-                    </div>
                 </div>
             </div>
         </div>
@@ -351,7 +343,9 @@
 
     
      <!-- *********리뷰 작성 1번째 테이블 시작 *******************************************************-->
-                    <ul class="comment-list list-unstyled">
+                           
+             
+                      <ul class="comment-list list-unstyled">
                         <li class="media">
                             <img class="avatar photo rounded-circle mr-2 mr-sm-3 mr-md-4"
                                  src="../pictures/placeholder/65x65.svg" alt="Avatar">
@@ -377,8 +371,19 @@
     <!-- ******** 리뷰 별점 끝 *********************************************-->     
                               
                           </div>
-                          </li>
+                           </li>
                         </ul>
+                     
+                     
+                                    
+
+    <!-- ******** 리뷰 별점 끝 *********************************************-->     
+                                
+                                 
+                             <!--  
+                          
+                           -->    
+                        
 
  <!-- 리뷰 1번째 테이블 끝 **************************************************** -->
 
@@ -418,6 +423,44 @@
  
     </div>
     </div>
+    
+    <!--***************** 리뷰 작성   *************************************-->  
+        <div id="adopt-a-pet" class="container adopt-container">
+            <div class="row justify-content-center adopt-row bg-white no-gutters">
+                <div class="col-12 col-md-10 col-lg-8">
+                    <h4 class="font-weight-bold mb-4">리뷰 작성</h4>
+                    <form id="adoptform" class="adopt-form">
+                        <div class="form-row">
+                          
+                            <div class="form-group col-md-6">
+                                <input type="email" class="form-control" placeholder="아이디" aria-required="true"
+                                       aria-label="Email" required="required">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="제목" aria-required="true"
+                                       aria-label="Subject" required="required">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col">
+                                    <textarea class="form-control" name="message" rows="8" placeholder="내용"
+                                              aria-required="true" aria-label="Message" required="required"></textarea>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col">
+                                <input name="submit" type="submit" id="submit"
+                                       class="btn btn-primary btn-lg text-uppercase font-weight-bold w-15x"
+                                       value="작성">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    
      
         <nav class="navigation pagination justify-content-between text-uppercase" role="navigation">
                     <a class="prev disabled" href="#">
