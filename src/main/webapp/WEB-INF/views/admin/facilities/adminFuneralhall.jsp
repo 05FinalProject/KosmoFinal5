@@ -51,12 +51,11 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1>Contacts</h1>
+							<h1>보호소</h1>							
 						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
-								<li class="breadcrumb-item"><a href="#">Home</a></li>
-								<li class="breadcrumb-item active">Contacts</li>
+								<a href="/admin/adminFacilities"><button type="button" class="btn btn-primary" id="regi">시설등록</button> </a> 
 							</ol>
 						</div>
 					</div>
@@ -104,9 +103,9 @@
 									<div class="card-footer">
 										<div class="text-right">
 											<a href="#" class="btn btn-sm bg-teal"> <i
-												class="fas fa-comments"></i>
+												class="fas fa-comments"></i>수정
 											</a> <a href="#" class="btn btn-sm btn-primary"> <i
-												class="fas fa-user"></i> View Profile
+												class="fas fa-user"></i> 삭제
 											</a>
 										</div>
 									</div>
@@ -513,6 +512,11 @@
 <script src="/admin/dist/js/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/admin/dist/js/pages/dashboard.js"></script>
+<script type="text/javascript">
+$('#facilities').addClass('menu-is-opening')
+$('#facilities').addClass('menu-open')
+$('#funeralhall').addClass('active')
+</script>
 </body>
 </html>
 
