@@ -4,9 +4,14 @@
 <html lang="ko">
 <head>
     <meta charset="utf-8">
+    <meta name="description" content="Directing Template" />
+    <meta name="keywords" content="Directing, unica, creative, html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>너와 함개</title>
     
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -32,6 +37,14 @@
           media="print">
 
     <link rel="stylesheet" href="/css/HeadFootPage.css" type="text/css">
+    
+    <style type="text/css">
+    
+    #post-1 {border: 1px solid #F3E2A9; }
+    
+    </style>
+    
+    
 </head>
 
 
@@ -196,7 +209,7 @@
 
 <!--*********** 검색창 화면************************************************************************************-->    
     
-<div class="row search-row">
+<div class="row search-row" >
         <div class="col-12 col-md-9 col-lg-8 col-xl-7">
             <form method="get" class="search-form">
                 <div class="input-group input-group-lg search">
@@ -212,201 +225,306 @@
         </div>
     </div> 
     
-
-    <div class="row">
-        <div class="col-12">
-            <div class="search-posts">
-
-<!-- *********** 1번째 칸 *****************************************-->                
-                <div id="post-1" class="post type-post search post-1 card post-card">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img class="card-img img-fluid" src="../pictures/placeholder/530x400.svg" alt="Post">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body h-100 d-flex align-items-start flex-column">
-                             
-
-
-<!--********* 상호명 **********************************-->
-    
-        <div class="card-body h-100 d-flex align-items-start flex-column">
-            <h3 class="post-title card-title"><a href="single.html">상호명</a></h3>
-        </div>   
-        
-
- <!--********* 별점 ************************************-->       
-        <div class="review">
+<section class="listing nice-scroll">
       
-      
-            <div class="rating" data-rate="3">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>	
-            </div>
-            </div>   
- 
-        
-<!--********* 주소 **********************************-->                          
-         <div>
-        <tr>
-        <td>주소</td>
-        </tr>
-        </div> 
-        
-<!--********* 전화번호 **********************************-->
-        <div>
-        <tr>
-        <td>전화번호</td>
-        </tr>
-        </div> 
- <!--**********상세보기**********************************-->   
- <a href="single.html" class="more-link card-link mt-auto">
-    상세보기 <i class="lana-icon-arrow-right text-primary"></i>
-</a>   
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-<!-- *********** 2번째 칸 *****************************************-->
-                <div id="post-2" class="post type-post search post-2 card post-card">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img class="card-img img-fluid" src="../pictures/placeholder/530x400.svg" alt="Post">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body h-100 d-flex align-items-start flex-column">
-                             
-
-
-<!--********* 상호명 **********************************-->
-    
-        <div class="card-body h-100 d-flex align-items-start flex-column">
-            <h3 class="post-title card-title"><a href="single.html">상호명</a></h3>
-        </div>   
-        
-
- <!--********* 별점 ************************************-->       
-        <div class="review">
-      
-      
-            <div class="rating" data-rate="3">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>	
-            </div>
-            </div>   
- 
-        
-<!--********* 주소 **********************************-->                          
-         <div>
-        <tr>
-        <td>주소</td>
-        </tr>
-        </div> 
-        
-<!--********* 전화번호 **********************************-->
-        <div>
-        <tr>
-        <td>전화번호</td>
-        </tr>
-        </div> 
- <!--**********상세보기**********************************-->   
- <a href="single.html" class="more-link card-link mt-auto">
-    상세보기 <i class="lana-icon-arrow-right text-primary"></i>
-</a>   
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
- <!--************3번째 칸 **********************************-->
-
-                <div id="post-3" class="post type-post search post-3 card post-card">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img class="card-img img-fluid" src="../pictures/placeholder/530x400.svg" alt="Post">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body h-100 d-flex align-items-start flex-column">
-                             
-
-
-<!--********* 상호명 **********************************-->
-    
-        <div class="card-body h-100 d-flex align-items-start flex-column">
-            <h3 class="post-title card-title"><a href="single.html">상호명</a></h3>
-        </div>   
-        
-
- <!--********* 별점 ************************************-->       
-        <div class="review">
-      
-      
-            <div class="rating" data-rate="3">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>	
-            </div>
-            </div>   
- 
-        
-<!--********* 주소 **********************************-->                          
-         <div>
-        <tr>
-        <td>주소</td>
-        </tr>
-        </div> 
-        
-<!--********* 전화번호 **********************************-->
-        <div>
-        <tr>
-        <td>전화번호</td>
-        </tr>
-        </div> 
- <!--**********상세보기**********************************-->   
- <a href="single.html" class="more-link card-link mt-auto">
-    상세보기 <i class="lana-icon-arrow-right text-primary"></i>
-</a>   
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <nav class="navigation pagination justify-content-between text-uppercase" role="navigation">
-                    <a class="prev disabled" href="#">
-                        Prev
-                    </a>
-                    <div class="nav-links">
-                        <ul class="page-numbers">
-                            <li><span aria-current="page" class="page-numbers current">1</span></li>
-                            <li><a class="page-numbers" href="#">2</a></li>
-                            <li><span class="page-numbers dots">…</span></li>
-                            <li><a class="page-numbers" href="#">4</a></li>
-                        </ul>
-                    </div>
-                    <a class="next" href="#">
-                        Next
-                    </a>
-                </nav>
-            </div>
+      <div class="listing__text__top">
+        <div class="listing__text__top__left">
+          <h5>Restaurants</h5>
+          <span>18 Results Found</span>
         </div>
+        <div class="listing__text__top__right">
+          Nearby <i class="fa fa-sort-amount-asc"></i>
+        </div>
+      </div>
+
+      <div class="listing__list">
+        <div class="listing__item">
+          <!-- 여기에 img값 가지고와야함 동적으로 -->
+          <div
+            class="listing__item__pic set-bg"
+            data-setbg="./resources/img/listing/list-1.jpg"
+          >
+            <div class="listing__item__pic__btns">
+              <a href="#"><span class="icon_zoom-in_alt"></span></a>
+              <a href="#"><span class="icon_heart_alt"></span></a>
+            </div>
+          </div>
+          <div class="listing__item__text">
+            <div class="listing__item__text__inside">
+              <h5>Chinese Sausage Restaurant</h5>
+              <div class="listing__item__text__rating">
+                <!-- 이쪽에 별 대신 맛평가 들어가야함-->
+                <div class="listing__item__rating__star">
+                  <span class="icon_star"></span>
+                  <span class="icon_star"></span>
+                  <span class="icon_star"></span>
+                  <span class="icon_star"></span>
+                  <span class="icon_star-half_alt"></span>
+                </div>
+                <!-- 가격대 가지고와야함-->
+                <h6>$40 - $70</h6>
+              </div>
+              <ul>
+                <!--주소 이름 가지고와야함 ㅅㅂ-->
+                <li><span class="icon_pin_alt"></span> 서울시 강남구 일원동</li>
+                <li><span class="icon_phone"></span> 123-4567</li>
+              </ul>
+            </div>
+            <div class="listing__item__text__info">
+              <div class="listing__item__text__info__left">
+                <img
+                  src="./resources/img/listing/list_small_icon-1.png"
+                  alt=""
+                />
+                <span>Restaurant</span>
+              </div>
+              <div class="listing__item__text__info__right">Open Now</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="listing__item">
+          <div
+            class="listing__item__pic set-bg"
+            data-setbg="./resources/img/listing/list-2.jpg"
+          >
+            <img src="./resources/img/listing/list_icon-2.png" alt="" />
+            <div class="listing__item__pic__tag top_rate">Top Rate</div>
+            <div class="listing__item__pic__btns">
+              <a href="#"><span class="icon_zoom-in_alt"></span></a>
+              <a href="#"><span class="icon_heart_alt"></span></a>
+            </div>
+          </div>
+          <div class="listing__item__text">
+            <div class="listing__item__text__inside">
+              <h5>Shrimp floured and fried</h5>
+              <div class="listing__item__text__rating">
+                <div class="listing__item__rating__star">
+                  <span class="icon_star"></span>
+                  <span class="icon_star"></span>
+                  <span class="icon_star"></span>
+                  <span class="icon_star"></span>
+                  <span class="icon_star-half_alt"></span>
+                </div>
+                <h6>$40 - $70</h6>
+              </div>
+              <ul>
+                <li>
+                  <span class="icon_pin_alt"></span> 1012 Vesper Dr. Columbus,
+                  Georgia(GA), United States
+                </li>
+                <li><span class="icon_phone"></span> (+12) 345-678-910</li>
+              </ul>
+            </div>
+            <div class="listing__item__text__info">
+              <div class="listing__item__text__info__left">
+                <img
+                  src="./resources/img/listing/list_small_icon-2.png"
+                  alt=""
+                />
+                <span>Food & Drink</span>
+              </div>
+              <div class="listing__item__text__info__right closed">Closed</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="listing__item">
+          <div
+            class="listing__item__pic set-bg"
+            data-setbg="./resources/img/listing/list-4.jpg"
+          >
+            <img src="./resources/img/listing/list_icon-4.png" alt="" />
+            <div class="listing__item__pic__tag">Popular</div>
+            <div class="listing__item__pic__btns">
+              <a href="#"><span class="icon_zoom-in_alt"></span></a>
+              <a href="#"><span class="icon_heart_alt"></span></a>
+            </div>
+          </div>
+          <div class="listing__item__text">
+            <div class="listing__item__text__inside">
+              <h5>Crab fried with tamarind</h5>
+              <div class="listing__item__text__rating">
+                <div class="listing__item__rating__star">
+                  <span class="icon_star"></span>
+                  <span class="icon_star"></span>
+                  <span class="icon_star"></span>
+                  <span class="icon_star"></span>
+                  <span class="icon_star-half_alt"></span>
+                </div>
+                <h6>$40 - $70</h6>
+              </div>
+              <ul>
+                <li>
+                  <span class="icon_pin_alt"></span> 14320 Keenes Mill Rd.
+                  Cottondale, Alabama(AL), United States
+                </li>
+                <li><span class="icon_phone"></span> (+12) 345-678-910</li>
+              </ul>
+            </div>
+            <div class="listing__item__text__info">
+              <div class="listing__item__text__info__left">
+                <img
+                  src="./resources/img/listing/list_small_icon-3.png"
+                  alt=""
+                />
+                <span>Hotel</span>
+              </div>
+              <div class="listing__item__text__info__right closed">Closed</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="listing__item">
+          <div
+            class="listing__item__pic set-bg"
+            data-setbg="./resources/img/listing/list-3.jpg"
+          >
+            <img src="./resources/img/listing/list_icon-3.png" alt="" />
+            <div class="listing__item__pic__tag">Popular</div>
+            <div class="listing__item__pic__btns">
+              <a href="#"><span class="icon_zoom-in_alt"></span></a>
+              <a href="#"><span class="icon_heart_alt"></span></a>
+            </div>
+          </div>
+          <div class="listing__item__text">
+            <div class="listing__item__text__inside">
+              <h5>Sweet and sour pork ribs</h5>
+              <div class="listing__item__text__rating">
+                <div class="listing__item__rating__star">
+                  <span class="icon_star"></span>
+                  <span class="icon_star"></span>
+                  <span class="icon_star"></span>
+                  <span class="icon_star"></span>
+                  <span class="icon_star-half_alt"></span>
+                </div>
+                <h6>$40 - $70</h6>
+              </div>
+              <ul>
+                <li>
+                  <span class="icon_pin_alt"></span> 251 Wiley St. Forks,
+                  Washington(WA), United States
+                </li>
+                <li><span class="icon_phone"></span> (+12) 345-678-910</li>
+              </ul>
+            </div>
+            <div class="listing__item__text__info">
+              <div class="listing__item__text__info__left">
+                <img
+                  src="./resources/img/listing/list_small_icon-1.png"
+                  alt=""
+                />
+                <span>Restaurant</span>
+              </div>
+              <div class="listing__item__text__info__right">Open Now</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="listing__item">
+          <div
+            class="listing__item__pic set-bg"
+            data-setbg="./resources/img/listing/list-5.jpg"
+          >
+            <img src="./resources/img/listing/list_icon-5.png" alt="" />
+            <div class="listing__item__pic__tag hot_deal">Hot Deal</div>
+            <div class="listing__item__pic__btns">
+              <a href="#"><span class="icon_zoom-in_alt"></span></a>
+              <a href="#"><span class="icon_heart_alt"></span></a>
+            </div>
+          </div>
+          <div class="listing__item__text">
+            <div class="listing__item__text__inside">
+              <h5>Tortoise grilled on salt</h5>
+              <div class="listing__item__text__rating">
+                <div class="listing__item__rating__star">
+                  <span class="icon_star"></span>
+                  <span class="icon_star"></span>
+                  <span class="icon_star"></span>
+                  <span class="icon_star"></span>
+                  <span class="icon_star-half_alt"></span>
+                </div>
+                <h6>$40 - $70</h6>
+              </div>
+              <ul>
+                <li>
+                  <span class="icon_pin_alt"></span> 236 Littleton St. New
+                  Philadelphia, Ohio, United States
+                </li>
+                <li><span class="icon_phone"></span> (+12) 345-678-910</li>
+              </ul>
+            </div>
+            <div class="listing__item__text__info">
+              <div class="listing__item__text__info__left">
+                <img
+                  src="./resources/img/listing/list_small_icon-4.png"
+                  alt=""
+                />
+                <span>Shopping</span>
+              </div>
+              <div class="listing__item__text__info__right">Open Now</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="listing__item">
+          <div
+            class="listing__item__pic set-bg"
+            data-setbg="./resources/img/listing/list-6.jpg"
+          >
+            <img src="./resources/img/listing/list_icon-6.png" alt="" />
+            <div class="listing__item__pic__tag">Popular</div>
+            <div class="listing__item__pic__btns">
+              <a href="#"><span class="icon_zoom-in_alt"></span></a>
+              <a href="#"><span class="icon_heart_alt"></span></a>
+            </div>
+          </div>
+          <div class="listing__item__text">
+            <div class="listing__item__text__inside">
+              <h5>Fish cooked with fishsauce</h5>
+              <div class="listing__item__text__rating">
+                <div class="listing__item__rating__star">
+                  <span class="icon_star"></span>
+                  <span class="icon_star"></span>
+                  <span class="icon_star"></span>
+                  <span class="icon_star"></span>
+                  <span class="icon_star-half_alt"></span>
+                </div>
+                <h6>$40 - $70</h6>
+              </div>
+              <ul>
+                <li>
+                  <span class="icon_pin_alt"></span> 2604 E Drachman St. Tucson,
+                  Arizona, United States
+                </li>
+                <li><span class="icon_phone"></span> (+12) 345-678-910</li>
+              </ul>
+            </div>
+            <div class="listing__item__text__info">
+              <div class="listing__item__text__info__left">
+                <img
+                  src="./resources/img/listing/list_small_icon-3.png"
+                  alt=""
+                />
+                <span>Hotel</span>
+              </div>
+              <div class="listing__item__text__info__right">Open Now</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+     <!--카카오 지도 연결-->
+    <!-- Map Begin -->
+    <div class="listing__map">
+      <div id="map" style="width: 100%; height: 60em"></div>
     </div>
-</main>
+    <!-- Map End -->
+     </main>
+ 
+  
     
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services,clusterer,drawing"></script>
@@ -422,6 +540,21 @@
 <script type="text/javascript" src="/js/magnific-popup.min.js?ver=1.1.0"></script>
 <script type="text/javascript" src="/js/custom-theme.js?ver=1.0.0"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5a0a025e110dde0902210e297400a7be"></script>
+<!-- Js Plugins -->
+    <script src="./resources/js/jquery-3.3.1.min.js"></script>
+    <script src="./resources/js/bootstrap.min.js"></script>
+    <script src="./resources/js/jquery.nice-select.min.js"></script>
+    <script src="./resources/js/jquery-ui.min.js"></script>
+    <script src="./resources/js/jquery.nicescroll.min.js"></script>
+    <script src="./resources/js/jquery.barfiller.js"></script>
+    <script src="./resources/js/jquery.magnific-popup.min.js"></script>
+    <script src="./resources/js/jquery.slicknav.js"></script>
+    <script src="./resources/js/owl.carousel.min.js"></script>
+    <script src="./resources/js/main.js"></script>
+    
+    <script src="./resources/js/yang.js"></script>
+    <script src="./resources/js/slide.js"></script>
+
 <script>
 		var container = document.getElementById('map');
 		var options = {
