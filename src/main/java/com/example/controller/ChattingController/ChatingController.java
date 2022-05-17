@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,15 +36,14 @@ public class ChatingController {
 	List<Room> roomList = new ArrayList<Room>();
 	static int roomNumber = 0;
 	
-	@RequestMapping("/chat")
+	@GetMapping("/chat")
 	public ModelAndView chat(Room room) {
 		ModelAndView mv = new ModelAndView();
-		
-		
+
 		return mv;
 	}
 	
-	@RequestMapping("/chat1")
+	@GetMapping("/friendChat")
 	public ModelAndView chat1(Room room) {
 		ModelAndView mv = new ModelAndView();
 		
@@ -51,16 +51,6 @@ public class ChatingController {
 		return mv;
 	}
 	
-	/**
-	 * 방 페이지
-	 * @return
-	 */
-	@RequestMapping("/room")
-	public ModelAndView room() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/chating/room");
-		return mv;
-	}
 	
 	/**
 	 * 방 페이지
@@ -72,41 +62,10 @@ public class ChatingController {
 		// if(vo != null) { chatingRoomJpa.deleteById(vo.getRoomNumber());  }
 	
 		if(vo.getCount() != 1) { 
-			
-			
-			
-		}	
-		
-		 
-		
+			chatingRoomJpa.deleteByRoomMember(vo.getRoomMember());
+		}	 	
 	}
 	
-	/**
-	 * 방 생성하기
-	 * @param params
-	 * @return
-	 */
-	@RequestMapping("/createRoom")
-	public @ResponseBody List<Room> createRoom(@RequestParam HashMap<Object, Object> params){
-		String roomName = (String) params.get("roomName");
-		if(roomName != null && !roomName.trim().equals("")) {
-			Room room = new Room();
-			room.setRoomNumber(++roomNumber);
-			room.setRoomName(roomName);
-			roomList.add(room);
-		}
-		return roomList;
-	}
-	
-	/**
-	 * 방 정보가져오기
-	 * @param params
-	 * @return
-	 */
-	@RequestMapping("/getRoom")
-	public @ResponseBody List<Room> getRoom(@RequestParam HashMap<Object, Object> params){
-		return roomList;
-	}
 	
 	/**
 	 * 채팅방
@@ -118,26 +77,16 @@ public class ChatingController {
 		int roomNumber = Integer.parseInt((String) params.get("roomNumber"));
 		
 		List<Room> new_list = roomList.stream().filter(o->o.getRoomNumber()==roomNumber).collect(Collectors.toList());
-		/*
-		 * if(new_list != null && new_list.size() > 0) { mv.addObject("roomName",
-		 * params.get("roomName")); mv.addObject("roomNumber",
-		 * params.get("roomNumber")); mv.setViewName("chat"); }else {
-		 * mv.setViewName("room"); }
-		 */
 		
 		chatingRoomJpa.save(vo);
-//		chatingRoomJpa.insertRoomMem(vo.getRoomNumber(),vo.getRoomName(),vo.getRoomMember());
-		mv.addObject("id",vo.getId());
+
+		mv.addObject("id",vo.getRoomMember());
 		mv.addObject("roomName", params.get("roomName"));
 		mv.addObject("roomNumber", params.get("roomNumber"));
-		
-		/* mv.addObject("getRoomNum",dao.getRoomNum(room)); */
-		;
 		
 		mv.addObject("getRoomNum",chatingRoomJpa.findByRoomName(vo.getRoomName()).size());
 		
 		mv.setViewName("/chating/chat");
-		
 		
 		return mv;
 	}

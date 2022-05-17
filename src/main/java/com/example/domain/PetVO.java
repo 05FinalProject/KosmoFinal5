@@ -13,20 +13,29 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "friend")
-public class FriendVO {
+@Table(name="pet")
+public class PetVO {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int friend_no;
+	private int pet_num;
+	
+	@ManyToOne
+	@JoinColumn(name="user_email")
+	private UserVO user;
 
-	@Column(length = 10)
-	private String user_sign;
+	@Column(length = 100)
+	private String pet_name;
 	
-	@ManyToOne
-	@JoinColumn(name = "user_email")
-	private UserVO user1;
+	private int pet_age;
 	
-	@ManyToOne
-	@JoinColumn(name = "user_email1")
-	private UserVO user2;
+	@Column(length = 100)
+	private String pet_gender;
+	
+	@Column(length = 100)
+	private String pet_variety;
+	
+	@Column(length = 300)
+	private String pet_qr;
+
 }

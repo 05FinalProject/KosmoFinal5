@@ -16,18 +16,25 @@ import lombok.Data;
 @Entity
 @Table(name = "chating_room")
 public class ChatingRoomVO {
+	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "room_seq")
 	private Integer roomSeq;
+	
 	@Column(name = "room_num")
 	private int roomNumber;
-	@Column(name = "room_name")
+	
+	@Column(name = "room_name", length = 100)
 	private String roomName;
-	@Column(name = "room_member")
+	
+	@Column(name = "room_member", length = 100)
 	private String roomMember;
+	
 	@Transient
 	private String id;
+	
 	@Transient
 	private int count;
 	
