@@ -15,12 +15,22 @@ import lombok.Data;
 @Table(name = "dog_kind")
 public class DogKindVO {
 	@Id
+	@Column(length = 200)
 	private String dog_kind;
+
 	@Column(length = 50)
 	private String dog_local;
+	
+	@Column(length = 30)
 	private String dog_height;
+	
+	@Column(length = 30)
 	private String dog_weight;
+	
+	@Column(length = 5000)
 	private String dog_information;
+	
+	@Column(length = 100)
 	private String dog_image;
 	
 }

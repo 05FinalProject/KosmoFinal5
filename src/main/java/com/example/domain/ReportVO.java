@@ -1,6 +1,5 @@
 package com.example.domain;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,20 +12,28 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "friend")
-public class FriendVO {
+@Table(name="report")
+public class ReportVO {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int friend_no;
+	private int r_num;
+	
+	@ManyToOne
+	@JoinColumn(name="user_email")
+	private UserVO user;
+	
+	@ManyToOne
+	@JoinColumn(name="c_num")
+	private CommunityVO community;
+	
+	@ManyToOne
+	@JoinColumn(name="comment_num")
+	private CommentVO comment;
+	
+	@ManyToOne
+	@JoinColumn(name="review_num")
+	private ReviewVO review;
+	
 
-	@Column(length = 10)
-	private String user_sign;
-	
-	@ManyToOne
-	@JoinColumn(name = "user_email")
-	private UserVO user1;
-	
-	@ManyToOne
-	@JoinColumn(name = "user_email2")
-	private UserVO user2;
 }
