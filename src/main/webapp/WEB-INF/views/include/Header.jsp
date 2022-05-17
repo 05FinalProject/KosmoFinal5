@@ -85,8 +85,8 @@
 
             <!-- 상단 Nav bar 서브 카테고리 -->
                                 <!-- 서브 Nav bar 카테고리 - 커뮤니티 -->
-                <div class="subCate comunity">
-                    <nav class="navbar navbar-expand-lg navbar-dark" id="lana-pet-main-navbar">
+                <div class="subCate comunity" style="background-color:white;">
+                    <nav class="navbar navbar-expand-lg " id="lana-pet-main-navbar">
                         <div class="collapse navbar-collapse" id="lana-navbar">
                             <ul class="navbar-nav mx-auto">
                                 <li class="nav-item">

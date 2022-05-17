@@ -18,6 +18,7 @@
 <a href='include/Login'>로그인페이지</a><br/><br/>
 <a href='include/Main'>메인페이지</a><br/><br/>
 <a href="include/signUp">회원가입페이지</a><br/><br/>
+<a href="include/findPassword">비밀번호찾기 페이지</a><br/><br/>
 <!-- <a href='/chating/friend?room_member=1&roomNumber=1'>test</a><br/><br/> -->
 <a href='/chating/friend?count=1'>test</a><br/><br/>
 <a href='include/community/daily'>일상공유페이지</a><br/><br/>
