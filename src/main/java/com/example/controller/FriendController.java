@@ -25,6 +25,10 @@ public class FriendController {
 	@RequestMapping("/friend/friendlist")
 	public void friendlist() {
 
+	}
+	
+	@RequestMapping("/friend/friendFind")
+	public void friendFind() {
 		
 	}
 }
