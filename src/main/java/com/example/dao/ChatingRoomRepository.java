@@ -25,5 +25,7 @@ public interface ChatingRoomRepository extends CrudRepository<ChatingRoomVO, Int
 	 @Query("SELECT count(c) as count FROM ChatingRoomVO c WHERE c.roomName=?1")
 	 long getRoomMemCnt(String roomName);
 	 
+	 
+	 
 	
 }

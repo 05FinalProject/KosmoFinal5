@@ -10,11 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.dao.ChatingRoomRepository;
-import com.example.dao.JpaRepository;
 import com.example.domain.ChatingRoomVO;
 import com.example.domain.Room;
 
@@ -26,8 +24,7 @@ public class ChatingController {
 	
 	
 	
-	@Autowired
-	private JpaRepository jpa;
+	
 	
 	@Autowired
 	private ChatingRoomRepository chatingRoomJpa;
