@@ -22,6 +22,8 @@
 	href="/admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 <!-- Theme style -->
 <link rel="stylesheet" href="/admin/dist/css/adminlte.min.css">
+
+<link rel="stylesheet" href="/admin/dist/css/admin.css">
 </head>
 <body class="hold-transition sidebar-mini">
 	<div class="wrapper">
@@ -72,11 +74,10 @@
                   <thead>
                   <tr>
                   	<th width="40">번호</th>
-                    <th>이메일</th>
-                    <th>리뷰내용</th>
-                    <th>신고사유</th>
-                    <th>신고날짜</th>
-                    <th>신고횟수</th>
+                    <th  width="200">이메일</th>
+                    <th  width="150">닉네임</th>
+                    <th>사유</th>
+                    <th width="150">등록날짜</th>
                     <th width="50">삭제</th>
                   </tr>
                   </thead>
@@ -88,7 +89,6 @@
                     </td>
                     <td>욕설</td>
                     <td>2022-05-13</td>
-                    <td>5</td>
                     <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
                   </tr>
                   <tr>
@@ -99,7 +99,6 @@
                     </td>
                     <td>Win 95+</td>
                     <td>5</td>
-                    <td>C</td>
                     <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
                   </tr>
                   <tr>
@@ -110,7 +109,6 @@
                     </td>
                     <td>Win 95+</td>
                     <td>5.5</td>
-                    <td>A</td>
                     <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
                   </tr>
                   </tbody>                
@@ -119,7 +117,7 @@
        
               <!-- /.card-body -->
             </div>      
-            <button type="button" class="btn btn-info" style="float:right">블랙리스트등록</button>    
+            <button type="button" class="btn btn-primary" id="black">블랙리스트등록</button>    
 		</div>    
 		 
 		<!-- Main content -->
@@ -177,6 +175,11 @@
 				"responsive" : true,
 			});
 		});
+		
+		 $('#report').addClass('menu-is-opening')
+		 $('#report').addClass('menu-open')	
+		 $('#blacklist').addClass('active')
+		  
 	</script>
 </body>
 </html>

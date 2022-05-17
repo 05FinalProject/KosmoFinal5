@@ -397,6 +397,13 @@
       options: stackedBarChartOptions
     })
   })
+  
+  $('#charts').addClass('menu-is-opening')
+  $('#charts').addClass('menu-open')
+  $('#chartsjs').addClass('active')
+  
+  
 </script>
+
 </body>
 </html>
