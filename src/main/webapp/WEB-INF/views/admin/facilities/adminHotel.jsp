@@ -55,7 +55,7 @@
 						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
-								<a href="adminAddFacilities"><button type="button" class="btn btn-primary" id="regi">시설등록</button> </a> 
+								<a href="/admin/adminFacilities"><button type="button" class="btn btn-primary" id="regi">시설등록</button> </a> 
 							</ol>
 						</div>
 					</div>
