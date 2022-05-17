@@ -28,6 +28,12 @@
 	padding-bottom: 50px;
 }
 
+.aaa {
+   display: flex;
+   
+   /* display: inline-flex; */
+}
+
 .form-check {
 	display:flex;
 	flex-direction:row;
@@ -43,8 +49,24 @@
     width: 120px;
     border-radius: 4px;
     font-weight: bold;
+    margin-right:10px;
 }
 
+
+.back-btn {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#back-btn {
+	margin-top:60px;
+	
+}
+.select {
+	width:70%;
+}
 </style>
 
 </head>
@@ -82,14 +104,15 @@
 
 			
 						<!-- 111111111111111111111111111111111111111111111111111111 -->
-							<div class="form-group">
-							<label style="font-weight:bold">견종</label>
-								<div class="input-group">
-									<span class="input-group-text"><i
-										class="fa-solid fa-bone"></i></span>
-								</div>
-								<select class="form-control">
-									<option>option 1</option>
+						<div class="form-group">
+						<div class="row">
+							<label style="font-weight: bold">견종</label>
+							<div class="aaa">
+							<div class="input-group" style="float: left;">
+								<span class="input-group-text"><i
+									class="fa-solid fa-bone"></i></span>
+									<select class="form-control" style="float: left;">
+									<option>=== 견종 선택 ===</option>
 									<option>option 2</option>
 									<option>option 3</option>
 									<option>option 4</option>
@@ -97,19 +120,12 @@
 								</select>
 							</div>
 							
-							<!-- 111111111111111111111111111111111111111111111111111111 -->
-						<div class="form-group">
-                        <label>Select</label>
-                        <select class="form-control">
-                          <option>option 1</option>
-                          <option>option 2</option>
-                          <option>option 3</option>
-                          <option>option 4</option>
-                          <option>option 5</option>
-                        </select>
-                      </div>
-						
-						
+							</div>
+						</div>
+						</div>
+
+
+
 						<!-- /.form group -->
 
 						<!-- phone mask -->
@@ -172,8 +188,8 @@
 
 					</div>
 					
-					<div>
-						<button>취소</button>
+					<div class="back-btn">
+						<button class="check-btn" id="back-btn">뒤로가기</button>
 					</div>
 					<!-- /.card-body -->
 				</div>
