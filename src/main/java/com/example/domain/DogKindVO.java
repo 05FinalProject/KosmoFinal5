@@ -2,6 +2,7 @@ package com.example.domain;
 
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -15,6 +16,7 @@ import lombok.Data;
 public class DogKindVO {
 	@Id
 	private String dog_kind;
+	@Column(length = 50)
 	private String dog_local;
 	private String dog_height;
 	private String dog_weight;
