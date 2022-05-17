@@ -21,7 +21,7 @@
 <a href='include/community/daily'>일상공유페이지</a><br/><br/>
 <a href='include/community/dailyDetail'>일상공유상세페이지</a><br/><br/>
 <a href='include/community/writeDaily'>일상공유작성페이지</a><br/><br/>
-<a href='include/friend/friendList'>친구관리페이지</a><br/><br/>
+<a href='include/friend/friendList'>친구목록페이지</a><br/><br/>
 <a href='include/friend/friendBlockList'>친구차단페이지</a><br/><br/>
 <a href='include/agency'>정보기관페이지</a><br/><br/>
 <a href='include/agencyDetail'>정보기관상세페이지</a><br/><br/>

@@ -28,8 +28,11 @@
   	margin-top:25px;
   }
   
+  .card-body .pt-0 {
+  	height:180px;
+  }
   
-  
+ 
   </style>
   
   
@@ -58,11 +61,11 @@
                 <div class="card-body pt-0">
                   <div class="row">
                     <div class="col-7">
-                      <h2 class="lead"><b>닉네임</b></h2>
-                      <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                      <h2 class="lead" style="font-weight:bold;"><b>닉네임</b></h2><br/>
+                      <!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p> -->
                       <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                        <li class="small"><span class="fa-li"><i class="fa-solid fa-paw"></i></span>접속상태 : 접속중</li><br/>
+                        <li class="small"><span class="fa-li"><i class="fa-solid fa-paw"></i></span>마지막 접속 : 2022/05/17</li>
                       </ul>
                     </div>
                     <div class="col-5 profile-img" style="padding-top:25px;">
@@ -72,13 +75,13 @@
                 </div>
                 <div class="card-footer">
                   <div class="text-right">
-                    <a href="#" class="btn btn-sm" style="background:#fbe4c2">
+                    <a href="#" class="btn btn-sm bg-teal">
                       <i class="fas fa-comments"></i>
                     </a>
-                     <a href="#" class="btn btn-sm" style="background:#ffdd7c">
+                     <a href="#" class="btn btn-sm bg-teal" >
                       <i class="fa-solid fa-xmark"></i>
                     </a>
-                     <a href="#" class="btn btn-sm" style="background:#f8b03a">
+                     <a href="#" class="btn btn-sm bg-teal">
                       <i class="fa-solid fa-ban"></i>
                     </a>
                     <a href="#" class="btn btn-sm btn-primary">
@@ -90,23 +93,23 @@
             </div>
             <!-- 사용자 프로필 끝 -->
             
-            <!-- 사용자 프로필 -->
+               <!-- 사용자 프로필 -->
             <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
               <div class="card bg-light d-flex flex-fill">
-                <div class="card-header text-muted border-bottom-0">
+                <!-- <div class="card-header text-muted border-bottom-0">
                   Digital Strategist
-                </div>
+                </div> -->
                 <div class="card-body pt-0">
                   <div class="row">
                     <div class="col-7">
-                      <h2 class="lead"><b>Nicole Pearson</b></h2>
-                      <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                      <h2 class="lead" style="font-weight:bold;"><b>닉네임</b></h2><br/>
+                      <!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p> -->
                       <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                        <li class="small"><span class="fa-li"><i class="fa-solid fa-paw"></i></span>접속상태 : 접속중</li><br/>
+                        <li class="small"><span class="fa-li"><i class="fa-solid fa-paw"></i></span>마지막 접속 : 2022/05/17</li>
                       </ul>
                     </div>
-                    <div class="col-5 text-center">
+                    <div class="col-5 profile-img" style="padding-top:25px;">
                       <img src="/admin/dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
                     </div>
                   </div>
@@ -116,31 +119,38 @@
                     <a href="#" class="btn btn-sm bg-teal">
                       <i class="fas fa-comments"></i>
                     </a>
+                     <a href="#" class="btn btn-sm bg-teal" >
+                      <i class="fa-solid fa-xmark"></i>
+                    </a>
+                     <a href="#" class="btn btn-sm bg-teal">
+                      <i class="fa-solid fa-ban"></i>
+                    </a>
                     <a href="#" class="btn btn-sm btn-primary">
-                      <i class="fas fa-user"></i> View Profile
+                      <i class="fas fa-user"></i>상세보기
                     </a>
                   </div>
                 </div>
               </div>
             </div>
             <!-- 사용자 프로필 끝 -->
-            <!-- 사용자 프로필 -->
+            
+               <!-- 사용자 프로필 -->
             <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
               <div class="card bg-light d-flex flex-fill">
-                <div class="card-header text-muted border-bottom-0">
+                <!-- <div class="card-header text-muted border-bottom-0">
                   Digital Strategist
-                </div>
+                </div> -->
                 <div class="card-body pt-0">
                   <div class="row">
                     <div class="col-7">
-                      <h2 class="lead"><b>Nicole Pearson</b></h2>
-                      <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                      <h2 class="lead" style="font-weight:bold;"><b>닉네임</b></h2><br/>
+                      <!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p> -->
                       <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                        <li class="small"><span class="fa-li"><i class="fa-solid fa-paw"></i></span>접속상태 : 접속중</li><br/>
+                        <li class="small"><span class="fa-li"><i class="fa-solid fa-paw"></i></span>마지막 접속 : 2022/05/17</li>
                       </ul>
                     </div>
-                    <div class="col-5 text-center">
+                    <div class="col-5 profile-img" style="padding-top:25px;">
                       <img src="/admin/dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
                     </div>
                   </div>
@@ -150,31 +160,38 @@
                     <a href="#" class="btn btn-sm bg-teal">
                       <i class="fas fa-comments"></i>
                     </a>
+                     <a href="#" class="btn btn-sm bg-teal" >
+                      <i class="fa-solid fa-xmark"></i>
+                    </a>
+                     <a href="#" class="btn btn-sm bg-teal">
+                      <i class="fa-solid fa-ban"></i>
+                    </a>
                     <a href="#" class="btn btn-sm btn-primary">
-                      <i class="fas fa-user"></i> View Profile
+                      <i class="fas fa-user"></i>상세보기
                     </a>
                   </div>
                 </div>
               </div>
             </div>
             <!-- 사용자 프로필 끝 -->
-            <!-- 사용자 프로필 -->
+            
+               <!-- 사용자 프로필 -->
             <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
               <div class="card bg-light d-flex flex-fill">
-                <div class="card-header text-muted border-bottom-0">
+                <!-- <div class="card-header text-muted border-bottom-0">
                   Digital Strategist
-                </div>
+                </div> -->
                 <div class="card-body pt-0">
                   <div class="row">
                     <div class="col-7">
-                      <h2 class="lead"><b>Nicole Pearson</b></h2>
-                      <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                      <h2 class="lead" style="font-weight:bold;"><b>닉네임</b></h2><br/>
+                      <!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p> -->
                       <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                        <li class="small"><span class="fa-li"><i class="fa-solid fa-paw"></i></span>접속상태 : 접속중</li><br/>
+                        <li class="small"><span class="fa-li"><i class="fa-solid fa-paw"></i></span>마지막 접속 : 2022/05/17</li>
                       </ul>
                     </div>
-                    <div class="col-5 text-center">
+                    <div class="col-5 profile-img" style="padding-top:25px;">
                       <img src="/admin/dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
                     </div>
                   </div>
@@ -184,31 +201,38 @@
                     <a href="#" class="btn btn-sm bg-teal">
                       <i class="fas fa-comments"></i>
                     </a>
+                     <a href="#" class="btn btn-sm bg-teal" >
+                      <i class="fa-solid fa-xmark"></i>
+                    </a>
+                     <a href="#" class="btn btn-sm bg-teal">
+                      <i class="fa-solid fa-ban"></i>
+                    </a>
                     <a href="#" class="btn btn-sm btn-primary">
-                      <i class="fas fa-user"></i> View Profile
+                      <i class="fas fa-user"></i>상세보기
                     </a>
                   </div>
                 </div>
               </div>
             </div>
             <!-- 사용자 프로필 끝 -->
-            <!-- 사용자 프로필 -->
+            
+               <!-- 사용자 프로필 -->
             <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
               <div class="card bg-light d-flex flex-fill">
-                <div class="card-header text-muted border-bottom-0">
+                <!-- <div class="card-header text-muted border-bottom-0">
                   Digital Strategist
-                </div>
+                </div> -->
                 <div class="card-body pt-0">
                   <div class="row">
                     <div class="col-7">
-                      <h2 class="lead"><b>Nicole Pearson</b></h2>
-                      <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                      <h2 class="lead" style="font-weight:bold;"><b>닉네임</b></h2><br/>
+                      <!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p> -->
                       <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                        <li class="small"><span class="fa-li"><i class="fa-solid fa-paw"></i></span>접속상태 : 접속중</li><br/>
+                        <li class="small"><span class="fa-li"><i class="fa-solid fa-paw"></i></span>마지막 접속 : 2022/05/17</li>
                       </ul>
                     </div>
-                    <div class="col-5 text-center">
+                    <div class="col-5 profile-img" style="padding-top:25px;">
                       <img src="/admin/dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
                     </div>
                   </div>
@@ -218,31 +242,38 @@
                     <a href="#" class="btn btn-sm bg-teal">
                       <i class="fas fa-comments"></i>
                     </a>
+                     <a href="#" class="btn btn-sm bg-teal" >
+                      <i class="fa-solid fa-xmark"></i>
+                    </a>
+                     <a href="#" class="btn btn-sm bg-teal">
+                      <i class="fa-solid fa-ban"></i>
+                    </a>
                     <a href="#" class="btn btn-sm btn-primary">
-                      <i class="fas fa-user"></i> View Profile
+                      <i class="fas fa-user"></i>상세보기
                     </a>
                   </div>
                 </div>
               </div>
             </div>
             <!-- 사용자 프로필 끝 -->
-            <!-- 사용자 프로필 -->
+            
+               <!-- 사용자 프로필 -->
             <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
               <div class="card bg-light d-flex flex-fill">
-                <div class="card-header text-muted border-bottom-0">
+                <!-- <div class="card-header text-muted border-bottom-0">
                   Digital Strategist
-                </div>
+                </div> -->
                 <div class="card-body pt-0">
                   <div class="row">
                     <div class="col-7">
-                      <h2 class="lead"><b>Nicole Pearson</b></h2>
-                      <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                      <h2 class="lead" style="font-weight:bold;"><b>닉네임</b></h2><br/>
+                      <!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p> -->
                       <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                        <li class="small"><span class="fa-li"><i class="fa-solid fa-paw"></i></span>접속상태 : 접속중</li><br/>
+                        <li class="small"><span class="fa-li"><i class="fa-solid fa-paw"></i></span>마지막 접속 : 2022/05/17</li>
                       </ul>
                     </div>
-                    <div class="col-5 text-center">
+                    <div class="col-5 profile-img" style="padding-top:25px;">
                       <img src="/admin/dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
                     </div>
                   </div>
@@ -252,31 +283,38 @@
                     <a href="#" class="btn btn-sm bg-teal">
                       <i class="fas fa-comments"></i>
                     </a>
+                     <a href="#" class="btn btn-sm bg-teal" >
+                      <i class="fa-solid fa-xmark"></i>
+                    </a>
+                     <a href="#" class="btn btn-sm bg-teal">
+                      <i class="fa-solid fa-ban"></i>
+                    </a>
                     <a href="#" class="btn btn-sm btn-primary">
-                      <i class="fas fa-user"></i> View Profile
+                      <i class="fas fa-user"></i>상세보기
                     </a>
                   </div>
                 </div>
               </div>
             </div>
             <!-- 사용자 프로필 끝 -->
-            <!-- 사용자 프로필 -->
+            
+               <!-- 사용자 프로필 -->
             <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
               <div class="card bg-light d-flex flex-fill">
-                <div class="card-header text-muted border-bottom-0">
+                <!-- <div class="card-header text-muted border-bottom-0">
                   Digital Strategist
-                </div>
+                </div> -->
                 <div class="card-body pt-0">
                   <div class="row">
                     <div class="col-7">
-                      <h2 class="lead"><b>Nicole Pearson</b></h2>
-                      <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                      <h2 class="lead" style="font-weight:bold;"><b>닉네임</b></h2><br/>
+                      <!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p> -->
                       <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                        <li class="small"><span class="fa-li"><i class="fa-solid fa-paw"></i></span>접속상태 : 접속중</li><br/>
+                        <li class="small"><span class="fa-li"><i class="fa-solid fa-paw"></i></span>마지막 접속 : 2022/05/17</li>
                       </ul>
                     </div>
-                    <div class="col-5 text-center">
+                    <div class="col-5 profile-img" style="padding-top:25px;">
                       <img src="/admin/dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
                     </div>
                   </div>
@@ -286,31 +324,38 @@
                     <a href="#" class="btn btn-sm bg-teal">
                       <i class="fas fa-comments"></i>
                     </a>
+                     <a href="#" class="btn btn-sm bg-teal" >
+                      <i class="fa-solid fa-xmark"></i>
+                    </a>
+                     <a href="#" class="btn btn-sm bg-teal">
+                      <i class="fa-solid fa-ban"></i>
+                    </a>
                     <a href="#" class="btn btn-sm btn-primary">
-                      <i class="fas fa-user"></i> View Profile
+                      <i class="fas fa-user"></i>상세보기
                     </a>
                   </div>
                 </div>
               </div>
             </div>
             <!-- 사용자 프로필 끝 -->
-            <!-- 사용자 프로필 -->
+            
+               <!-- 사용자 프로필 -->
             <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
               <div class="card bg-light d-flex flex-fill">
-                <div class="card-header text-muted border-bottom-0">
+                <!-- <div class="card-header text-muted border-bottom-0">
                   Digital Strategist
-                </div>
+                </div> -->
                 <div class="card-body pt-0">
                   <div class="row">
                     <div class="col-7">
-                      <h2 class="lead"><b>Nicole Pearson</b></h2>
-                      <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                      <h2 class="lead" style="font-weight:bold;"><b>닉네임</b></h2><br/>
+                      <!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p> -->
                       <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                        <li class="small"><span class="fa-li"><i class="fa-solid fa-paw"></i></span>접속상태 : 접속중</li><br/>
+                        <li class="small"><span class="fa-li"><i class="fa-solid fa-paw"></i></span>마지막 접속 : 2022/05/17</li>
                       </ul>
                     </div>
-                    <div class="col-5 text-center">
+                    <div class="col-5 profile-img" style="padding-top:25px;">
                       <img src="/admin/dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
                     </div>
                   </div>
@@ -320,31 +365,38 @@
                     <a href="#" class="btn btn-sm bg-teal">
                       <i class="fas fa-comments"></i>
                     </a>
+                     <a href="#" class="btn btn-sm bg-teal" >
+                      <i class="fa-solid fa-xmark"></i>
+                    </a>
+                     <a href="#" class="btn btn-sm bg-teal">
+                      <i class="fa-solid fa-ban"></i>
+                    </a>
                     <a href="#" class="btn btn-sm btn-primary">
-                      <i class="fas fa-user"></i> View Profile
+                      <i class="fas fa-user"></i>상세보기
                     </a>
                   </div>
                 </div>
               </div>
             </div>
             <!-- 사용자 프로필 끝 -->
-            <!-- 사용자 프로필 -->
+            
+               <!-- 사용자 프로필 -->
             <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
               <div class="card bg-light d-flex flex-fill">
-                <div class="card-header text-muted border-bottom-0">
+                <!-- <div class="card-header text-muted border-bottom-0">
                   Digital Strategist
-                </div>
+                </div> -->
                 <div class="card-body pt-0">
                   <div class="row">
                     <div class="col-7">
-                      <h2 class="lead"><b>Nicole Pearson</b></h2>
-                      <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                      <h2 class="lead" style="font-weight:bold;"><b>닉네임</b></h2><br/>
+                      <!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p> -->
                       <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                        <li class="small"><span class="fa-li"><i class="fa-solid fa-paw"></i></span>접속상태 : 접속중</li><br/>
+                        <li class="small"><span class="fa-li"><i class="fa-solid fa-paw"></i></span>마지막 접속 : 2022/05/17</li>
                       </ul>
                     </div>
-                    <div class="col-5 text-center">
+                    <div class="col-5 profile-img" style="padding-top:25px;">
                       <img src="/admin/dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
                     </div>
                   </div>
@@ -354,15 +406,21 @@
                     <a href="#" class="btn btn-sm bg-teal">
                       <i class="fas fa-comments"></i>
                     </a>
+                     <a href="#" class="btn btn-sm bg-teal" >
+                      <i class="fa-solid fa-xmark"></i>
+                    </a>
+                     <a href="#" class="btn btn-sm bg-teal">
+                      <i class="fa-solid fa-ban"></i>
+                    </a>
                     <a href="#" class="btn btn-sm btn-primary">
-                      <i class="fas fa-user"></i> View Profile
+                      <i class="fas fa-user"></i>상세보기
                     </a>
                   </div>
                 </div>
               </div>
             </div>
             <!-- 사용자 프로필 끝 -->
- 
+  
          
           </div>
         </div>
