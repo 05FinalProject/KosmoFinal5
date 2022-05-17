@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.dao.ChatingRoomRepository;
 import com.example.domain.ChatingRoomVO;
 import com.example.domain.Room;
+import com.example.service.chatingService.ChatingService;
 
 
 
@@ -22,26 +23,14 @@ import com.example.domain.Room;
 @RequestMapping("/chating")
 public class ChatingController {
 	
-	
-	
-	
-	
 	@Autowired
-	private ChatingRoomRepository chatingRoomJpa;
-	
+	private ChatingService service;
 	
 	List<Room> roomList = new ArrayList<Room>();
 	static int roomNumber = 0;
 	
 	@GetMapping("/chat")
 	public ModelAndView chat(Room room) {
-		ModelAndView mv = new ModelAndView();
-
-		return mv;
-	}
-	
-	@GetMapping("/chat2")
-	public ModelAndView chat2(Room room) {
 		ModelAndView mv = new ModelAndView();
 
 		return mv;
@@ -63,10 +52,11 @@ public class ChatingController {
 	@RequestMapping("/friend")
 	public void friend(ChatingRoomVO vo) {
 		
-		// if(vo != null) { chatingRoomJpa.deleteById(vo.getRoomNumber());  }
+		
 	
 		if(vo.getCount() != 1) { 
-			chatingRoomJpa.deleteByRoomMember(vo.getRoomMember());
+			
+			service.deleteByRoomMember(vo);
 		}	 	
 	}
 	
@@ -82,18 +72,17 @@ public class ChatingController {
 		
 		List<Room> new_list = roomList.stream().filter(o->o.getRoomNumber()==roomNumber).collect(Collectors.toList());
 		
-		chatingRoomJpa.save(vo);
+		service.insertRoomMember(vo);
 
 		mv.addObject("id",vo.getRoomMember());
 		mv.addObject("roomName", params.get("roomName"));
 		mv.addObject("roomNumber", params.get("roomNumber"));
 		
-		mv.addObject("getRoomNum",chatingRoomJpa.findByRoomName(vo.getRoomName()).size());
+		mv.addObject("getRoomNum",service.findByRoomName(vo).size());
 		
 		mv.setViewName("/chating/chat");
 		
 		return mv;
 	}
-	
 	
 }
