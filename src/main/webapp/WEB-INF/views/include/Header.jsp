@@ -52,9 +52,12 @@
                 <li class="nav-item comu">
                     <span class="nav-link"><span id="comu">커뮤니티</span></span>
                 </li>
+                
+                <!-- 추후 기관 버튼 삭제 예정 -->
                 <li class="nav-item organi">
                     <span class="nav-link"><span id="organi">기관</span></span>
                 </li>
+                
                 <li class="nav-item info">
                     <span class="nav-link"><span id="info">정보나눔</span></span>
                 </li>

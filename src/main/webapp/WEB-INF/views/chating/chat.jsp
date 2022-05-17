@@ -147,7 +147,7 @@ function goout(){
 		}
 	ws.send(JSON.stringify(option))
 	
-	location.href = "friend?room_member="+$("#userName").val()+"&room_num="+$("#roomNumber").val();
+	location.href = "friend?roomMember="+$("#userName").val()+"&roomNumber="+$("#roomNumber").val()+"&count=0";
 	
 }
 
@@ -186,14 +186,14 @@ function send() {
 </head>
 <body>
 
-	<input type="hidden" id="members" value="${getRoomNum.count }">
+	<input type="hidden" id="members" value="${getRoomNum}">
 	<input type="hidden" id="sessionId" value="">
 	<input type="hidden" id="roomName" value="${roomName}">
 	<input type="hidden" id="roomNumber" value="${roomNumber}"> 
 	<input type="hidden" name="userName" id="userName" value="${id}" />
 	
 	
-	<h1 id="room">${roomName}(${getRoomNum.count-1 })</h1>
+	<h1 id="room">${roomName}(${getRoomNum-1 })</h1>
 	
 	
 	<section class="chatbox">
