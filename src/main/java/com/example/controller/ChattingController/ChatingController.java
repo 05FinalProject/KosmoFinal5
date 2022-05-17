@@ -40,6 +40,13 @@ public class ChatingController {
 		return mv;
 	}
 	
+	@GetMapping("/chat2")
+	public ModelAndView chat2(Room room) {
+		ModelAndView mv = new ModelAndView();
+
+		return mv;
+	}
+	
 	@GetMapping("/friendChat")
 	public ModelAndView chat1(Room room) {
 		ModelAndView mv = new ModelAndView();
