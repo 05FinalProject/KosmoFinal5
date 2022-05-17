@@ -17,13 +17,35 @@
 <link rel="stylesheet" href="/community/css/owl.theme.default.min.css">
 <link rel="stylesheet" href="/community/css/style.css">
 <link rel="stylesheet" href="/community/css/responsive.css">
+<script src="https://kit.fontawesome.com/23b331c6f8.js"
+	crossorigin="anonymous"></script>
 
 <title>너와 함개</title>
 
 <style type="text/css">
+.container {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.form-check {
+	display:flex;
+	flex-direction:row;
+	justify-content:flex-start;
+	margin-right:30px;
+}
+
+.check-btn {
+	background: #f8b03a;
+    border: #f8b03a;
+    color: white;
+    height: 33px;
+    width: 120px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
 </style>
-
-
 
 </head>
 
@@ -32,100 +54,134 @@
 	<%@include file="../Header.jsp"%>
 	<div class="container">
 		<div class="row">
-		<div class="col-md-1"></div>
-		<div class="col-md-10 ">
-			<div class="card card-danger " id="box">
-				<div class="card-header">
-					<h3 class="card-title">친구 프로필</h3>
+			<div class="col-md-1"></div>
+			<div class="col-md-10">
+				<div class="card card-danger " id="box">
+					<div class="card-header">
+						<h4 class="card-title">친구 프로필</h4>
+					</div>
+					<div class="card-body">
+						<!-- Date dd/mm/yyyy -->
+						<div class="form-group">
+							<label style="font-weight:bold">닉네임</label>
+
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i
+										class="fa-solid fa-user"></i></span>
+								</div>
+								<input type="text" class="form-control"
+									data-inputmask-alias="datetime"
+									data-inputmask-inputformat="dd/mm/yyyy" data-mask=""
+									inputmode="numeric">
+							</div>
+							<!-- /.input group -->
+						</div>
+						<!-- /.form group -->
+
+
+			
+						<!-- 111111111111111111111111111111111111111111111111111111 -->
+							<div class="form-group">
+							<label style="font-weight:bold">견종</label>
+								<div class="input-group">
+									<span class="input-group-text"><i
+										class="fa-solid fa-bone"></i></span>
+								</div>
+								<select class="form-control">
+									<option>option 1</option>
+									<option>option 2</option>
+									<option>option 3</option>
+									<option>option 4</option>
+									<option>option 5</option>
+								</select>
+							</div>
+							
+							<!-- 111111111111111111111111111111111111111111111111111111 -->
+						<div class="form-group">
+                        <label>Select</label>
+                        <select class="form-control">
+                          <option>option 1</option>
+                          <option>option 2</option>
+                          <option>option 3</option>
+                          <option>option 4</option>
+                          <option>option 5</option>
+                        </select>
+                      </div>
+						
+						
+						<!-- /.form group -->
+
+						<!-- phone mask -->
+						<div class="form-group">
+							<label style="font-weight:bold">반려견 이름</label>
+
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i
+										class="fa-solid fa-dog"></i></span>
+								</div>
+								<input type="text" class="form-control"
+									data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']"
+									data-mask="" inputmode="text">
+							</div>
+							<!-- /.input group -->
+						</div>
+						<!-- /.form group -->
+
+						<!-- IP mask -->
+						<div class="form-group">
+							<label style="font-weight:bold">반려견 몸무게</label>
+
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i
+										class="fa-solid fa-weight-scale"></i></span>
+								</div>
+								<input type="text" class="form-control"
+									data-inputmask="'alias': 'ip'" data-mask="" inputmode="decimal">
+							</div>
+							<!-- /.input group -->
+						</div>
+						<!-- /.form group -->
+
+						<!-- 성별 선택란 -->
+						<div class="form-group">
+							<label style="font-weight:bold">반려견 성별</label>
+							<div>
+								<button class="check-btn">남아</button>
+								<button class="check-btn">여아</button>
+							</div>
+						</div>
+						
+						<!-- 중성화 여부 선택란 -->
+						<div class="form-group">
+							<label style="font-weight:bold">중성화 여부</label>
+							<div>
+								<button class="check-btn">했어요</button>
+								<button class="check-btn">안했어요</button>
+							</div>
+						</div>
+						
+                      </div>
+                    </div>
+          
+                  </div>
+						
+					
+
+					</div>
+					
+					<div>
+						<button>취소</button>
+					</div>
+					<!-- /.card-body -->
 				</div>
-				<div class="card-body">
-					<!-- Date dd/mm/yyyy -->
-					<div class="form-group">
-						<label>Date masks:</label>
-
-						<div class="input-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i
-									class="far fa-calendar-alt"></i></span>
-							</div>
-							<input type="text" class="form-control"
-								data-inputmask-alias="datetime"
-								data-inputmask-inputformat="dd/mm/yyyy" data-mask=""
-								inputmode="numeric">
-						</div>
-						<!-- /.input group -->
-					</div>
-					<!-- /.form group -->
-
-					<!-- Date mm/dd/yyyy -->
-					<div class="form-group">
-						<div class="input-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i
-									class="far fa-calendar-alt"></i></span>
-							</div>
-							<input type="text" class="form-control"
-								data-inputmask-alias="datetime"
-								data-inputmask-inputformat="mm/dd/yyyy" data-mask=""
-								inputmode="numeric">
-						</div>
-						<!-- /.input group -->
-					</div>
-					<!-- /.form group -->
-
-					<!-- phone mask -->
-					<div class="form-group">
-						<label>US phone mask:</label>
-
-						<div class="input-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-phone"></i></span>
-							</div>
-							<input type="text" class="form-control"
-								data-inputmask="&quot;mask&quot;: &quot;(999) 999-9999&quot;"
-								data-mask="" inputmode="text">
-						</div>
-						<!-- /.input group -->
-					</div>
-					<!-- /.form group -->
-
-					<!-- phone mask -->
-					<div class="form-group">
-						<label>Intl US phone mask:</label>
-
-						<div class="input-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-phone"></i></span>
-							</div>
-							<input type="text" class="form-control"
-								data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']"
-								data-mask="" inputmode="text">
-						</div>
-						<!-- /.input group -->
-					</div>
-					<!-- /.form group -->
-
-					<!-- IP mask -->
-					<div class="form-group">
-						<label>IP mask:</label>
-
-						<div class="input-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-laptop"></i></span>
-							</div>
-							<input type="text" class="form-control"
-								data-inputmask="'alias': 'ip'" data-mask="" inputmode="decimal">
-						</div>
-						<!-- /.input group -->
-					</div>
-					<!-- /.form group -->
-
-				</div>
-				<!-- /.card-body -->
 			</div>
 		</div>
-		</div>
+		
 	</div>
+
 
 </body>
 
