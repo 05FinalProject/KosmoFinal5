@@ -52,7 +52,6 @@
 
 .bx_slider img {
 	width: 100%;
-	height: 5%;
 }
 
 #wrapper {
@@ -65,15 +64,15 @@
 }
 
 .agency img {
-	height: 8em;
-	width: 8em;
+	height: 70%;
+	width: 70%;
 }
 
 .agency li {
 	list-style-type: none;
-	margin-right: 2em;
-	margin-left: 2em; 
+	margin-right: 2em; margin-left : 2em;
 	display: inline-block;
+	margin-left: 2em;
 }
 </style>
 <script
@@ -81,84 +80,88 @@
 
 
 <script>
-$(document).ready(function () {
-    $(".bx_slider").bxSlider({
-      slideWidth: 2500,
-      auto: true,
-      minSlides: 1,
-      maxSlides: 1,
-      controls: false,
-      pager: false,
-      speed: 500,
-    }); /* 슬라이더 클래스 또는 아이디 입력 */
-  });
-    </script>
+	$(document).ready(function() {
+		$(".bx_slider").bxSlider({
+			slideWidth : 2500,
+			auto : true,
+			minSlides : 1,
+			maxSlides : 1,
+			controls : false,
+			pager : false,
+			speed : 500,
+		}); /* 슬라이더 클래스 또는 아이디 입력 */
+	});
+</script>
 </head>
 <body class="home page page-template-template-lana-editor">
-	<%@include file="./Header.jsp"%>
+
 
 
 
 	<main class="main">
 		<!-- 메인페이지 이벤트 배너 -->
-		<div id="wrapper" class="container-fluid">
-			<div class="bx_slider">
-				<div>
-					<img src="/img/mainpage/event_mobile_banner_1644203927.png"
-						alt="슬라이드 이미지1" />
-				</div>
-				<div>
-					<img src="/img/mainpage/event_mobile_banner_1646369654.png"
-						alt="슬라이드 이미지2" />
-				</div>
-				<div>
-					<img src="/img/mainpage/event_mobile_banner_1648689579.png"
-						alt="슬라이드 이미지3" />
-				</div>
-				<div>
-					<img src="/img/mainpage/event_mobile_banner_1651036825.png"
-						alt="슬라이드 이미지4" />
+		<div class="container">
+		<%@include file="./Header.jsp"%>
+			<div id="wrapper" class="mt-3">
+				<div class="bx_slider">
+					<div>
+						<img src="/img/mainpage/event_mobile_banner_1644203927.png"
+							alt="배너1" />
+					</div>
+					<div>
+						<img src="/img/mainpage/event_mobile_banner_1646369654.png"
+							alt="배너2" />
+					</div>
+					<div>
+						<img src="/img/mainpage/event_mobile_banner_1648689579.png"
+							alt="베너3" />
+					</div>
+					<div>
+						<img src="/img/mainpage/event_mobile_banner_1651036825.png"
+							alt="배너4" />
+					</div>
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="container">
-		<div class="agency">
-			<nav>
-				<ul>
-					<li>
-						<div>
-							<img src="/img/mainpage/premium-icon-hotel-3009487.png" />
-						</div>
-						<div class="agency-name mt-2">호텔</div>
-					</li>
-					<li>
-						<div>
-							<img src="/img/mainpage/premium-icon-cafe-3361447.png" />
-						</div>
-						<div class="agency-name mt-2">카페</div>
-					</li>
-					<li>
-						<div>
-							<img src="/img/mainpage/premium-icon-hospital-building-2749678.png" />
-						</div>
-						<div class="agency-name mt-2">병원</div>
-					</li>
-					<li>
-						<div>
-							<img src="/img/mainpage/premium-icon-animal-shelter-5871573.png" />
-						</div>
-						<div class="agency-name mt-2">보호소</div>
-					</li>
-					<li>
-						<div>
-							<img src="/img/mainpage/free-icon-death-3455284.png" />
-						</div>
-						<div class="agency-name mt-2">장례식장</div>
-					</li>
-				</ul>
-			</nav>
-		</div>
+			<div class="agency">
+				<nav>
+					<ul>
+						<li>
+							<div>
+								<img src="/img/mainpage/premium-icon-hotel-3009487.png" />
+							</div>
+							<div class="agency-name mt-2">호텔</div>
+						</li>
+						<li>
+							<div>
+								<img src="/img/mainpage/premium-icon-cafe-3361447.png" />
+							</div>
+							<div class="agency-name mt-2">카페</div>
+						</li>
+						<li>
+							<div>
+								<img
+									src="/img/mainpage/premium-icon-hospital-building-2749678.png" />
+							</div>
+							<div class="agency-name mt-2">병원</div>
+						</li>
+						<li>
+							<div>
+								<img src="/img/mainpage/premium-icon-animal-shelter-5871573.png" />
+							</div>
+							<div class="agency-name mt-2">보호소</div>
+						</li>
+						<li>
+							<div>
+								<img src="/img/mainpage/free-icon-death-3455284.png" />
+							</div>
+							<div class="agency-name mt-2">장례식장</div>
+						</li>
+					</ul>
+				</nav>
+			</div>
 		</div>
 
 		<!-- 일상공유 인기글 -->
