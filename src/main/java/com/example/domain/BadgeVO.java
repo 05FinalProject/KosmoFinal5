@@ -1,6 +1,5 @@
 package com.example.domain;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,21 +11,17 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Data
-@Entity
-@Table(name = "friend")
-public class FriendVO {
+public class BadgeVO {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int friend_no;
-
-	@Column(length = 10)
-	private String user_sign;
+	private int b_id;
+	private String b_log;
+	private String b_first;
+	private String b_fwalk;
+	private String b_pet;
 	
 	@ManyToOne
-	@JoinColumn(name = "user_email")
-	private UserVO user1;
-	
-	@ManyToOne
-	@JoinColumn(name = "user_email2")
-	private UserVO user2;
+	@JoinColumn(name="user_email")
+	private UserVO user;
 }

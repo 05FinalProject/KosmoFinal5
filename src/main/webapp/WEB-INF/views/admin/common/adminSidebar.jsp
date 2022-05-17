@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<script src="https://kit.fontawesome.com/23b331c6f8.js" crossorigin="anonymous"></script>                                                                              
+<script src="https://kit.fontawesome.com/23b331c6f8.js" crossorigin="anonymous"></script>                                                                        
 
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -19,16 +19,16 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-            <a href="/admin/indexAdmin" class="nav-link">
+          <li class="nav-item">
+            <a href="/admin" class="nav-link" id="dashboard">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard              
+                Dashboard
               </p>
             </a>
           </li>
           
-          <li class="nav-item">
+          <li class="nav-item" id="charts">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
@@ -38,7 +38,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/admin/chartsjs" class="nav-link">
+                <a href="/admin/adminChartsjs" class="nav-link" id="chartsjs">
                   <i class="far fa-circle nav-icon"></i>
                   <p>ChartJS</p>
                 </a>
@@ -65,7 +65,7 @@
           </li>
           
         <li class="nav-item">
-            <a href="/admin/adminMember" class="nav-link">
+            <a href="/admin/adminMember" class="nav-link" id="member">
               <i class="nav-icon fa-solid fa-user"></i>
               <p>
                 회원관리
@@ -73,7 +73,7 @@
             </a>
           </li>
           
-        <li class="nav-item">
+        <li class="nav-item" id="report">
             <a href="#" class="nav-link">
               <i class="nav-icon fa-solid fa-ban"></i>
               <p>
@@ -82,26 +82,26 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/admin/report/adminRpReview" class="nav-link">
+              <li class="nav-item" >
+                <a href="/admin/adminReview" class="nav-link" id="review">
                   <i class="far fa-circle nav-icon"></i>
                   <p>리뷰</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="/admin/report/adminRpComment" class="nav-link">
+              <li class="nav-item" >
+                <a href="/admin/adminComment" class="nav-link" id="comment">
                   <i class="far fa-circle nav-icon"></i>
                   <p>댓글</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="/admin/report/adminRpBoard" class="nav-link">
+              <li class="nav-item" >
+                <a href="/admin/adminBoard" class="nav-link" id="board">
                   <i class="far fa-circle nav-icon"></i>
                   <p>게시글</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/reportadminBlacklist" class="nav-link">
+                <a href="/admin/adminBlacklist" class="nav-link" id="blacklist">
                   <i class="far fa-circle nav-icon"></i>
                   <p>블랙리스트</p>
                 </a>
@@ -109,7 +109,7 @@
             </ul>
           </li>
           
-          <li class="nav-item">
+          <li class="nav-item" id="facilities">
             <a href="#" class="nav-link">
               <i class="nav-icon fa-solid fa-house"></i>
               <p>
@@ -119,31 +119,31 @@
             </a>
             <ul class="nav nav-treeview">           
               <li class="nav-item">
-                <a href="/admin/facilities/adminShelter" class="nav-link">
+                <a href="/admin/adminShelter" class="nav-link" id="shelter">
                   <i class="far fa-circle nav-icon"></i>
                   <p>보호소</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/facilities/adminHospital" class="nav-link">
+                <a href="/admin/adminHospital" class="nav-link" id="hospital">
                   <i class="far fa-circle nav-icon"></i>
                   <p>동물병원</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/facilities/adminHotel" class="nav-link">
+                <a href="/admin/adminHotel" class="nav-link" id="hotel">
                   <i class="far fa-circle nav-icon"></i>
                   <p>애견호텔</p>
                 </a>
               </li>            
               <li class="nav-item">
-                <a href="/admin/facilities/adminFuneralhall" class="nav-link">
+                <a href="/admin/adminFuneralhall" class="nav-link" id="funeralhall">
                   <i class="far fa-circle nav-icon"></i>
                   <p>장례식장</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/facilities/adminCafe" class="nav-link">
+                <a href="/admin/adminCafe" class="nav-link" id="cafe">
                   <i class="far fa-circle nav-icon"></i>
                   <p>애견카페</p>
                 </a>
@@ -152,7 +152,7 @@
               </li>
               
                     
-            <li class="nav-item">
+            <li class="nav-item" id="communities">
             <a href="#" class="nav-link">
               <i class="nav-icon fa-solid fa-comment-dots"></i>
               <p>
@@ -162,7 +162,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/forms/general.html" class="nav-link">
+                <a href="/admin/adminDaily" class="nav-link" id="daily">
                   <i class="far fa-circle nav-icon"></i>
                   <p>일상공유</p>
                 </a>
