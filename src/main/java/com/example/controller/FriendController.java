@@ -16,4 +16,9 @@ public class FriendController {
 	public void friendBlockList() {
 		
 	}
+	
+	@RequestMapping("/friend/friendProfile")
+	public void friendProfile() {
+		
+	}
 }
