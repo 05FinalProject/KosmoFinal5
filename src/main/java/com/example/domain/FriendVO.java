@@ -27,6 +27,6 @@ public class FriendVO {
 	private UserVO user1;
 	
 	@ManyToOne
-	@JoinColumn(name = "user_email2")
+	@JoinColumn(name = "user_email1")
 	private UserVO user2;
 }
