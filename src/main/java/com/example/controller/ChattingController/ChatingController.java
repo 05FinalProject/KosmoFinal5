@@ -36,6 +36,10 @@ public class ChatingController {
 		return mv;
 	}
 	
+	@GetMapping("/room")
+	public void room() {
+	}
+	
 	@GetMapping("/friendChat")
 	public ModelAndView chat1(Room room) {
 		ModelAndView mv = new ModelAndView();
