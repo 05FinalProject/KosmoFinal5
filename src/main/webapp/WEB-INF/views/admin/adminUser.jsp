@@ -69,14 +69,14 @@
 	                  </tr>
                   </thead>
                   <tbody>
-                 <c:forEach items="${list}" var="vo">        
+                 <c:forEach items="${userList}" var="user">        
 	                  <tr>
-	                    <td>${vo.a_num}</td>
-	                    <td>${vo.a_category_num}</td>
-	                    <td>${vo.a_name}</td>
-	                    <td>${vo.a_content}</td>
-	                    <td>${vo.a_address}</td>
-	                    <td>${vo.a_tel}</td>                  
+	                    <td>${user.user_email}</td>
+	                    <td>${user.user_nickname}</td>
+	                    <td>${user.user_name}</td>
+	                    <td>${user.user_phone}</td>
+	                    <td>${user.user_address}</td>
+	                    <td>${user.user_signup}</td>                  
 	                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
 	                  </tr>      
                 </c:forEach>

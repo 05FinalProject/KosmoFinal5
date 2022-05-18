@@ -1,5 +1,9 @@
 package com.example.controller.admin;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,16 +11,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.dao.AgencyRepository;
-import com.example.domain.AgencyVO;
+import com.example.dao.ReportRepository;
+import com.example.domain.UserVO;
+import com.example.service.admin.AdminUserService;
 
-import antlr.collections.List;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminMainController {
 	
 	@Autowired
-	private AgencyRepository a;
+	private AdminUserService adminUserService;
 	
 	@RequestMapping(value="", method=RequestMethod.GET)
 	public String adminPage() {
@@ -31,19 +36,33 @@ public class AdminMainController {
 	}	
 	
 	//회원관리
-	@RequestMapping(value="/adminMember", method=RequestMethod.GET)
-	public String memberPage(Model m) {
+	@RequestMapping(value="/adminUser", method=RequestMethod.GET)
+	public String userList(Model m) {
+		UserVO vo = new UserVO();
+		List<UserVO> list = adminUserService.userList(vo);
+		m.addAttribute("userList", list);
 		
-		m.addAttribute("list", a.findAll());
-		
-		return "/admin/adminMember";
+		return "/admin/adminUser";
 	}
 	
 	//리뷰신고
-	@RequestMapping(value="adminReview", method=RequestMethod.GET)
-	public String reportReview() {
-		return "/admin/report/adminRpReview";
-	}
+//	@RequestMapping(value="adminReview", method=RequestMethod.GET)
+//	public String reportReview(Model m) {
+//		List<HashMap> llist= new ArrayList<>();
+//		List<Object[]> list = r.reportReview();
+//		
+//		for(Object[] o : list) {
+//			HashMap hm = new HashMap<>();
+//			hm.put("r_num",(int)o[0] );
+//			hm.put("user_email",(String)o[1] );
+//			hm.put("review_content",(String)o[2] );
+//			hm.put("r_reason",(String)o[3] );
+//			llist.add(hm);
+//		}		
+//		m.addAttribute("list", llist);
+//						
+//		return "/admin/report/adminRpReview";
+//	}
 	
 	//댓글신고
 	@RequestMapping(value="adminComment", method=RequestMethod.GET)
@@ -116,6 +135,7 @@ public class AdminMainController {
 	public String adminDaily() {
 		return "/admin/communities/adminDaily";
 	}
+	
 	
 
 
