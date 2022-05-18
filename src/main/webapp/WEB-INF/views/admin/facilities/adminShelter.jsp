@@ -41,7 +41,6 @@
 	<div class="wrapper">
 
 		<%@ include file="../../admin/common/adminNavbar.jsp"%>
-
 		<%@ include file="../../admin/common/adminSidebar.jsp"%>
 
 		<!-- Content Wrapper. Contains page content -->

@@ -65,7 +65,7 @@
           </li>
           
         <li class="nav-item">
-            <a href="/admin/adminMember" class="nav-link" id="member">
+            <a href="/admin/adminUser" class="nav-link" id="user">
               <i class="nav-icon fa-solid fa-user"></i>
               <p>
                 회원관리

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,7 +62,7 @@
 			</div>
 			<!-- /.content-header -->
 
-   <div class="card">
+   		<div class="card">
               <div class="card-header">
                 <h3 class="card-title">신고목록</h3>
               </div>
@@ -74,50 +75,24 @@
                     <th>이메일</th>
                     <th>리뷰내용</th>
                     <th>신고사유</th>
-                    <th width="80">신고날짜</th>
-                    <th width="70">신고횟수</th>
+                    <th width="80">신고날짜</th>                
                     <th width="50">삭제</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                 	<td text-align="center">1</td>
-                    <td>tt@naver.com</td>
-                    <td>최악이예요
-                    </td>
-                    <td>욕설</td>
-                    <td>2022-05-13</td>
-                    <td>5</td>
-                    <td><button type="button" class="btn btn-danger">삭제</button></td>
-                  </tr>
-                  <tr>
-                  	<td text-align="center">2</td>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td>5</td>
-                    <td>C</td>
-                    <td><button type="button" class="btn btn-danger">삭제</button></td>
-                  </tr>
-                  <tr>
-                  	<td text-align="center">3</td>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.5
-                    </td>
-                    <td>Win 95+</td>
-                    <td>5.5</td>
-                    <td>A</td>
-                    <td><button type="button" class="btn btn-danger">삭제</button></td>
-                  </tr>
-                  </tbody>     
-             
-                </table>              
-                  
-              </div>
-  
+                  <c:forEach var="vo" items="${list}" >
+	                  <tr>
+	                  	<td>${vo.r_num }</td>
+	                    <td>${vo.user_email }</td>
+	                    <td>${vo.review_content }</td>
+	                    <td>${vo.r_reason }</td>
+	                    <td>${vo.r_date }</td>
+	                    <td><button type="button" class="btn btn-danger">삭제</button></td>
+	                   </tr>
+                  </c:forEach>                                               
+                  </tbody>                  
+                </table>                               
+              </div> 
               <!-- /.card-body -->
             </div>         
 		</div>    

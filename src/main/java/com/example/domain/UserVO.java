@@ -44,5 +44,9 @@ public class UserVO {
 	@Temporal(TemporalType.DATE)
 	private Date user_logout_time;
 	
+	@Column(insertable = false,updatable = false, columnDefinition = "date default (current_date)")
+	@Temporal(TemporalType.DATE)
+	private Date user_signup;
+	
 	
 }
