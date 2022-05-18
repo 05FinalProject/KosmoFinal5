@@ -42,8 +42,8 @@
 }
 
 .check-btn {
-	background: #f8b03a;
-	border: #f8b03a;
+	background: #e6e6e6;
+	border: #e6e6e6;
 	color: white;
 	height: 33px;
 	width: 120px;
@@ -61,10 +61,12 @@
 
 #back-btn {
 	margin-top: 60px;
+	background-color:#f8b03a;
 }
 
 .select {
 	width: 70%;
+	text-align: center;
 }
 
 #friend-add {
@@ -72,13 +74,14 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin-bottom: 40px;
+	margin-bottom: 10%;
+	
 }
 
 .profile-img-size {
 	width: 25%;
-	margin-top: 40px;
-	margin-bottom: 50px;
+	margin-top: 5%;
+	margin-bottom: 5%;
 }
 
 #profile-img-size {
@@ -87,6 +90,25 @@
 	justify-content: center;
 	align-items: center;
 }
+
+.form-group {
+	width:80%;
+}
+.group-group {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.on{
+	background-color:#f8b03a;
+}
+
+#friend-add-btn {
+	background-color:#f8b03a;
+}
+
 </style>
 
 </head>
@@ -105,17 +127,18 @@
 					<div class="card-body">
 
 						<!-- 친구 프로필 이미지 -->
-						<div  id="profile-img-size">
+						<div id="profile-img-size">
 						<div class="profile-img-size">
 							<img src="../../pictures/placeholder/250x250.svg"
 								class="card-img-top img-fluid rounded-circle" alt="Team Member">
 						</div>
 						</div>
 						<div id="friend-add">
-							<button class="check-btn">친구추가</button>
+							<button class="check-btn" id="friend-add-btn" type="button">친구추가</button>
+							
 						</div>
 
-						<!-- Date dd/mm/yyyy -->
+						<div class="group-group">
 						<div class="form-group">
 							<label style="font-weight: bold">닉네임</label>
 
@@ -197,8 +220,8 @@
 						<div class="form-group">
 							<label style="font-weight: bold">반려견 성별</label>
 							<div>
-								<button class="check-btn">남아</button>
-								<button class="check-btn">여아</button>
+								<button class="check-btn boy">남아</button>
+								<button class="check-btn girl">여아</button>
 							</div>
 						</div>
 
@@ -206,9 +229,10 @@
 						<div class="form-group">
 							<label style="font-weight: bold">중성화 여부</label>
 							<div>
-								<button class="check-btn">했어요</button>
-								<button class="check-btn">안했어요</button>
+								<button class="check-btn yes">했어요</button>
+								<button class="check-btn no">안했어요</button>
 							</div>
+						</div>
 						</div>
 
 					</div>
@@ -244,4 +268,28 @@
 <script src="/community/js/owl.carousel.min.js"></script>
 <script src="/community/js/wow.min.js"></script>
 <script src="/community/js/main.js"></script>
+
+<script type="text/javascript">
+		$(document).ready(function(){
+			$(".boy").click(function(){
+				$(".boy").addClass("on");
+				$(".girl").removeClass("on");
+			});
+			$(".girl").click(function(){
+				$(".girl").addClass("on");
+				$(".boy").removeClass("on");
+			});
+			$(".yes").click(function(){
+				$(".yes").addClass("on");
+				$(".no").removeClass("on");
+			});
+			$(".no").click(function(){
+				$(".no").addClass("on");
+				$(".yes").removeClass("on");
+			});
+			
+		});
+	</script>
+	
+	
 </html>
