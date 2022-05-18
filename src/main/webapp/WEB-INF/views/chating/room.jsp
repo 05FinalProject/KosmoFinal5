@@ -9,7 +9,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+	 
     <link rel="stylesheet" id="montserrat-css"
           href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link rel="stylesheet" id="open-sans-css"
@@ -33,11 +33,46 @@
           <script src="https://kit.fontawesome.com/23b331c6f8.js"
    crossorigin="anonymous"></script>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   
 </head>
 <body class="archive post-type-archive post-type-archive-lana_pet">
 
 <%@ include file="../include/Header.jsp" %>
 <legend class="fontLarge">채팅방</legend>
+<div class="container col-12 col-lg-4 ">
+  
+
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title fontLarge"> </h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body font1">
+         	비밀번호
+        </div>
+        <input type="text" class="form-control col-8 inputCenter" placeholder="Search" aria-label="Search">
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+        	<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
+
 <main class="main container">
     <div class="row">
         <div class="col-12 col-lg-8">
@@ -54,9 +89,10 @@
                             </div>
                             <div class="card-footer">
                                 <p class="card-text">
-                                    <a href="#" class="more-link card-link">
+                                    <a class="more-link card-link" data-toggle="modal" data-target="#myModal" content="Pet #1">
                                         들어가기 <i class="lana-icon-arrow-right text-primary"></i>
                                     </a>
+                                    
                                 </p>
                             </div>
                         </div>
@@ -189,13 +225,13 @@
                 </div>
                 
                 <div class="widget widget_tag_cloud">
-                    <div class="tagcloud">
-                        <a id="makeRoom" class="tag-cloud-link" >채팅방만들기</a>
+                    <div class="tagcloud text-center">
+                        <a id="makeRoom" class="tag-cloud-link "  >채팅방만들기</a>
                     </div>
                 </div>
                 <form class="pet-filter-form" id="frm">
                 <div id="insertRoom" >
-                <div class="widget">
+                <div class="widget1">
                 	<div>
                     <legend class="font">방이름</legend>
                     </div>
@@ -207,11 +243,13 @@
                     <div>
                     <legend class="font">비밀번호</legend>
                     </div>
-                 <div class="input-group">
+                 	<div class="input-group">
                        <input type="text" class="form-control in"  name="roomPass" required >
                     </div>
-                  <button type="button" class="btn btn-outline-warning right">확인</button>
-                   <button type="button" id="up" class="btn btn-danger right">취소</button>
+                  
+                   <input type="button" id="up" class="btn1 btn-secondary" value="취소" />
+                   <input type="submit"  class="btn1 btn-primary" value="확인" />
+                  
                     <!-- <br/>
                     <div class="widget widget_tag_cloud">
                     <div class="tagcloud right" >
@@ -243,13 +281,18 @@
 <script type="text/javascript">
 
 $('#makeRoom').click(function(){
-	//$('#insertRoom').css('display','block')
+	
 	$('#insertRoom').slideDown()
 })
 
 $('#up').click(function(){
 	$('#insertRoom').slideUp()
 	$('.in').val('')
+})
+
+$('.card-link').click(function(){
+	//alert('1')
+	$('h4.modal-title').text($(this).attr('content'))
 })
 
 
