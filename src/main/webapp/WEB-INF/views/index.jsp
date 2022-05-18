@@ -32,6 +32,7 @@
 <a href='include/agencyDetail'>정보기관상세페이지</a><br/><br/>
 <a href='include/agencyHotel'>정보기관애견페이지</a><br/><br/>
 <a href='include/agencyHotelDetail'>정보기관애견상세페이지</a><br/><br/>
+<a href='include/yootest'>testyoo페이지</a><br/><br/>
 
 
 
