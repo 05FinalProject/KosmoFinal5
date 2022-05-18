@@ -22,18 +22,18 @@ Theme style
 
 <style type="text/css">
 .content {
-	padding-top: 80px;
-	padding-bottom: 80px;
-	padding-left: 220px;
-	padding-right: 220px;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	padding-left: 10%;
+	padding-right: 10%;
 }
 
 .col-7 {
-	margin-top: 25px;
+	margin-top: 7%;
 }
 
 .card-body .pt-0 {
-	height: 180px;
+	height: 10%;
 }
 </style>
 
