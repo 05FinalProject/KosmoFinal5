@@ -39,7 +39,7 @@ public class ImgVO {
 	private CommentVO comment;
 	
 	@ManyToOne
-	@JoinColumn(name="f_num")
+	@JoinColumn(name="a_num")
 	private AgencyVO agency;
 	
 	@ManyToOne
