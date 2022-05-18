@@ -47,6 +47,8 @@
 	color: white;
 	float: right;
 	border: #f8b03a;
+	padding-top:10px;
+	padding-bottom:10px;
 }
 
 #siren {
@@ -67,6 +69,8 @@
 information-content {
 	margin-top: 30px;
 }
+
+
 </style>
 
 </head>
@@ -130,7 +134,7 @@ information-content {
 							<label></label> 
 							<input type="text" class="form-control"
 								placeholder="댓글을 입력해주세요">
-							<span><button type="submit" id="comment-insert-btn">등록</button></span>
+							<span><button type="submit" class="btn btn-primary" id="comment-insert-btn">등록</button></span>
 							</div>
 						</form>
 						</div>

@@ -25,7 +25,10 @@ public class HomeController {
 	
 	@RequestMapping("/signUp")
 	public void signUpPage() {
-		
 	}
 	
+	@RequestMapping("/findPassword")
+	public void findPass() {
+		
+	}
 }
