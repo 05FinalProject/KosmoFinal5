@@ -293,11 +293,11 @@
 
 
 		<!-- 반려견에 대한 설명(가장 등록이 많이 된 반려견 6개 띄워주기) -->
-		<div id="gallery-container" class="container-fluid section-py--large">
+		<div id="gallery-container" class="container section-py--large">
 			<div class="row justify-content-center">
 				<div class="col-12 col-md-10 col-lg-6 text-center">
 					<h1 class="mb-4 font-weight-bold" data-scroll-animate="fadeInDown">인기
-						많은 반려견 종류</h1>
+						많은 반려견</h1>
 					<p data-scroll-animate="fadeInUp">가장 많이 등록된 반려견이에요!</p>
 					<div class="lana-hr lana-hr-4 border-primary mt-4"
 						data-scroll-animate="zoomIn"></div>
@@ -413,13 +413,13 @@
 					</a>
 				</div>
 			</div>
-			<div class="row">
+		<!-- 	<div class="row">
 				<div class="col-12 text-center">
 					<a href="#"
 						class="btn btn-primary btn-lg text-uppercase font-weight-bold w-15x">Show
 						More</a>
 				</div>
-			</div>
+			</div> -->
 		</div>
 
 

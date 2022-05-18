@@ -28,7 +28,7 @@ public class ReviewVO {
 	private UserVO user;
 	
 	@ManyToOne
-	@JoinColumn(name = "f_num")
+	@JoinColumn(name = "a_num")
 	private AgencyVO agency;
 	
 	@Column(length = 500)
