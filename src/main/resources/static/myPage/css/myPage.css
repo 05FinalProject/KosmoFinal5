@@ -1,0 +1,77 @@
+.selectKind{
+    color:white;
+    background-color: #f8b03a;
+    transition:all .3s;
+    text-align: center;
+    width: 180px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.selectKind:hover{
+    background-color: #dc6721;
+    font-size: 18px;
+}
+
+.box{
+    height: auto;
+}
+
+.content-header{
+    padding:1px;
+    margin-left: 5%;
+}
+
+.profileHead{
+    margin-top: 20px;
+}
+
+.context{
+    margin-left: 5%;
+}
+
+.myPage-sidebar{
+	bottom: 0;
+    float: none;
+    left: 0;
+    top: 0;
+	position: absolute;
+}
+
+.asidebar{
+    width: 12%;
+    height: auto;
+    background-color: white;
+}
+
+li.nav-item:hover{
+	color: #f8b03a;
+}
+
+.nav-pills .nav-link{
+	color: black;
+}
+
+.btn-add{
+    border-style: none;
+    color:white;
+    background-color:#f8b03a;
+    padding: 0.5%; 
+    margin-top: 1%
+}
+
+.btn-add:hover{
+    color:white;
+    background-color: #dc6721;
+}
+
+.btn-modify{
+    border-style: none;
+    color:white;
+    background-color:#f8b03a;
+}
+
+.btn-modify:hover{
+    color:white;
+    background-color: #dc6721;
+}
