@@ -58,26 +58,26 @@
               <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
-                  <tr>
-                    <th>이메일</th>
-                    <th>닉네임</th>
-                    <th>이름</th>
-                    <th>전화번호</th>
-                    <th>주소</th>
-                    <th>가입날짜</th>
-                    <th>삭제</th>
-                  </tr>
+	                  <tr>
+	                    <th>이메일</th>
+	                    <th>닉네임</th>
+	                    <th>이름</th>
+	                    <th>전화번호</th>
+	                    <th>주소</th>
+	                    <th>가입날짜</th>
+	                    <th width="50">삭제</th>
+	                  </tr>
                   </thead>
                   <tbody>
                  <c:forEach items="${list}" var="vo">        
 	                  <tr>
-	                    <th>${vo.a_num }</th>
-	                    <th>${vo.a_category_num }</th>
-	                    <th>${vo.a_name }</th>
-	                    <th>${vo.a_content }</th>
-	                    <th>${vo.a_address }</th>
-	                    <th>${vo.a_tel }</th>                  
-	                    <th><button type="button" class="btn btn-outline-danger">삭제</button></th>
+	                    <td>${vo.a_num}</td>
+	                    <td>${vo.a_category_num}</td>
+	                    <td>${vo.a_name}</td>
+	                    <td>${vo.a_content}</td>
+	                    <td>${vo.a_address}</td>
+	                    <td>${vo.a_tel}</td>                  
+	                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
 	                  </tr>      
                 </c:forEach>
                   </tbody>
