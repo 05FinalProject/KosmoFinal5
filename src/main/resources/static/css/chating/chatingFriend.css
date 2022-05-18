@@ -226,6 +226,12 @@ body,html{
 		margin-bottom: 15px !important;
 	}
 	}
+.roomName {
+    font-size: x-large; 
+    text-align: center; 
+    color: #c1c8c7; 
+    font-family: serif;
+}
 	
 	::-webkit-scrollbar {
 	width: 7px;
