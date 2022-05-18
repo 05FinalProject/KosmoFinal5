@@ -14,6 +14,7 @@
 		<!------ Include the above in your HEAD tag ---------->
 		<link rel="stylesheet" href="/css/chating/chatingFriend.css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://kit.fontawesome.com/23b331c6f8.js" crossorigin="anonymous"></script>
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 <!-- 		<link href="/css/chating/chating.css" rel="stylesheet"> -->
 		<script type="text/javascript">
@@ -208,11 +209,12 @@
 	<input type="hidden" id="roomNumber" value="${roomNumber}"> 
 	<input type="hidden" name="userName" id="userName" value="${id}" />
 	
-	<h1 id="room">${roomName}(${getRoomNum-1 })</h1>
+	
 		
 		<div class="container-fluid h-100">
 			<div class="row justify-content-center h-100">
 				<div class="col-md-4 col-xl-3 chat"><div class="card mb-sm-3 mb-md-0 contacts_card">
+				<h1 id="room" class="roomName">${roomName}(${getRoomNum-1 })</h1>
 					<div class="card-header">
 						<div class="input-group">
 							<input type="text" placeholder="Search..." name="" class="form-control search">
@@ -273,7 +275,7 @@
 									<li><i class="fas fa-user-circle"></i> View profile</li>
 									<li><i class="fas fa-users"></i> Add to close friends</li>
 									<li><i class="fas fa-plus"></i> Add to group</li>
-									<li><i class="fas fa-ban"></i> 친구차단</li>
+									<li onclick="goout()"><i class="fa-solid fa-person-walking-arrow-right"></i>채팅방나가기</li>
 								</ul>
 							</div>
 						</div>
@@ -292,10 +294,11 @@
 							</div>
 						</div>
 					</div>
+					
 				</div>
 			</div>
 		</div>
-		<button onclick="goout()">나가기</button>
+		
 		<script type="text/javascript">
 		
 		$('.friend').click(function(){
