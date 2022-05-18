@@ -84,12 +84,13 @@
                                     Pethome for allowing us adopt him!
                                 </p> -->
                                 <div class="btn-group">
-                                	<button class="btn btn-sm bg-teal"><i
-											class="fa-solid fa-ban" style="color:white"></i></button>
+                                	<button class="btn btn-sm bg-teal">
+                                		<i class="fa-solid fa-plus" style="color:white"></i>
+                                	</button>
                                 </div>
                                 <div class="btn-group">
-                                	<button class="btn btn-sm btn-primary"><i
-											class="fas fa-comments" style="color:white"></i></button>
+                                	<button class="btn btn-sm btn-primary">
+                                	<i class="fa-solid fa-ban" style="color:white"></i></button>
                                 </div>
                             </div>                            
                         </a>
@@ -340,7 +341,7 @@
                     
                     
 
-                <nav class="navigation pagination justify-content-between bg-transparent text-uppercase"
+                		 <nav class="navigation pagination justify-content-between bg-transparent text-uppercase"
                      role="navigation">
                     <a class="prev disabled" href="#">
                         Prev
@@ -348,9 +349,13 @@
                     <div class="nav-links">
                         <ul class="page-numbers">
                             <li><span aria-current="page" class="page-numbers current">1</span></li>
-                            <li><a class="page-numbers" href="#">2</a></li>
-                            <li><span class="page-numbers dots">…</span></li>
+                            <li><a class="page-numbers" href="#">2</a></li>                            
+                            <li><a class="page-numbers" href="#">3</a></li>
                             <li><a class="page-numbers" href="#">4</a></li>
+                            <li><a class="page-numbers" href="#">5</a></li>
+                            <li><a class="page-numbers" href="#">6</a></li>
+                            <li><a class="page-numbers" href="#">7</a></li>
+                            <li><a class="page-numbers" href="#">8</a></li>
                         </ul>
                     </div>
                     <a class="next" href="#">

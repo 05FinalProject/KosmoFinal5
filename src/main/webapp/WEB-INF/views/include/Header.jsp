@@ -40,17 +40,17 @@
 	<header
 		class="header head-color lana-full-bg-image-golden-large-sitting-dog-body-indoor d-flex flex-column"
 		id="slider-header">
-		
-	<!-- 상단 네비바 -->
+
+		<!-- 상단 네비바 -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-transparent"
 			id="lana-pet-main-navbar">
 			<!-- 상단 네비바 로고 -->
-			<a class="navbar-brand" href="#"> <img
-				class="mainLogo mx-auto" src="/img/그림3.png"
-				alt="Navbar Logo">
+			<a class="navbar-brand col-md-2" href="#"> <img class="mainLogo mx-auto"
+				src="/img/그림3.png" alt="Navbar Logo">
 			</a>
 			<!-- 상단 네비바 반응형 시 아이콘 생성 -->
-			<div class="toggler-buttons d-flex flex-fill justify-content-end head-color">
+			<div
+				class="toggler-buttons d-flex flex-fill justify-content-end head-color">
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#lana-navbar" aria-controls="lana-navbar"
 					aria-expanded="false" aria-label="Toggle navigation">
@@ -59,24 +59,28 @@
 			</div>
 
 			<!--상단 Nav bar 대 카테고리-->
-			<div class="collapse navbar-collapse" id="lana-navbar">
-				<ul class="navbar-nav mx-auto bigCate">
+			<div class="collapse navbar-collapse bigCate" id="lana-navbar">
+				<ul class="navbar-nav col-md-2">
 					<li class="nav-item comu"><span class="nav-link"><span
 							id="comu">커뮤니티</span></span></li>
+				</ul>
 
-					<!-- 추후 기관 버튼 삭제 예정 -->
+				<!-- 추후 기관 버튼 삭제 예정 -->
+				<ul class="navbar-nav col-md-2">
 					<li class="nav-item organi"><span class="nav-link"><span
 							id="organi">기관</span></span></li>
+				</ul>
 
+				<ul class="navbar-nav col-md-2">
 					<li class="nav-item info"><span class="nav-link"><span
 							id="info">정보나눔</span></span></li>
 				</ul>
-				<ul class="navbar-nav mx-auto">
-					<li class="nav-item"><a class="nav-link" href="#">날씨 적용할 칸</a>
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" href="#">날씨</a>
 					</li>
 				</ul>
 				<!--íìê°ì ë²í¼-->
-				<div class="button-nav-widget d-xl-inline-flex">
+				<div class="button-nav-widget d-xl-inline-flex mx-auto">
 					<ul class="nav button-nav">
 						<li class="nav-item"><a href="#" class="btn joinbutton">
 								<img src="/img/Guest.png" class="join">
@@ -112,7 +116,7 @@
 		</nav>
 	</div>
 	<!-- 서브 Nav bar 카테고리 - 기관 -->
-	<div class="subCate organization off">
+	<div class="subCate organization off" style="background-color: white;">
 		<nav class="navbar navbar-expand-lg navbar-dark"
 			id="lana-pet-main-navbar">
 			<div class="collapse navbar-collapse" id="lana-navbar">
@@ -138,7 +142,7 @@
 		</nav>
 	</div>
 	<!-- 서브 Nav bar 카테고리 - 정보나눔 -->
-	<div class="subCate information off">
+	<div class="subCate information off" style="background-color: white;">
 		<nav class="navbar navbar-expand-lg navbar-dark"
 			id="lana-pet-main-navbar">
 			<div class="collapse navbar-collapse" id="lana-navbar">
@@ -150,7 +154,7 @@
 		</nav>
 	</div>
 	<!-- 서브 Nav bar 카테고리 - 마이페이지 -->
-	<div class="subCate myPage off">
+	<div class="subCate myPage off" style="background-color: white;">
 		<nav class="navbar navbar-expand-lg navbar-dark"
 			id="lana-pet-main-navbar">
 			<div class="collapse navbar-collapse" id="lana-navbar">
@@ -184,38 +188,40 @@
 		src="/js/magnific-popup.min.js?ver=1.1.0"></script>
 	<script type="text/javascript" src="/js/custom-theme.js?ver=1.0.0"></script>
 	<script type="text/javascript">
-    //eq(0) = ì»¤ë®¤ëí°
-	$(document).ready(function(){
-        $(".bigCate li.comu").click(function(){
-            $(".comunity").removeClass("off");
-			$(".organization").addClass("off");
-            $(".information").addClass("off");
-            $(".myPage").addClass("off");
-		});
+		//eq(0) = ì»¤ë®¤ëí°
+		$(document).ready(function() {
+			$(".bigCate li.comu").click(function() {
+				$(".comunity").removeClass("off");
+				$(".organization").addClass("off");
+				$(".information").addClass("off");
+				$(".myPage").addClass("off");
+			});
 
-		$(".bigCate li.organi").click(function(){
-            $(".organization").removeClass("off");
-			$(".comunity").addClass("off");
-            $(".information").addClass("off");
-            $(".myPage").addClass("off");
-		});
+			$(".bigCate li.organi").click(function() {
+				$(".organization").removeClass("off");
+				$(".comunity").addClass("off");
+				$(".information").addClass("off");
+				$(".myPage").addClass("off");
+			});
 
-        $(".bigCate li.info").click(function(){
-            $(".information").removeClass("off");
-			$(".comunity").addClass("off");
-            $(".organization").addClass("off");
-            $(".myPage").addClass("off");
-		});
+			$(".bigCate li.info").click(function() {
+				$(".information").removeClass("off");
+				$(".comunity").addClass("off");
+				$(".organization").addClass("off");
+				$(".myPage").addClass("off");
+			});
 
-        $(".bigCate li.myPage").click(function(){
-            $(".myPage").removeClass("off");
-			$(".comunity").addClass("off");
-            $(".information").addClass("off");
-            $(".myPage").addClass("off");
-		});
+			$(".bigCate li.myPage").click(function() {
+				$(".myPage").removeClass("off");
+				$(".comunity").addClass("off");
+				$(".information").addClass("off");
+				$(".myPage").addClass("off");
+			});
 
-	});
-</script>
+			$(".")
+
+		});
+	</script>
 
 </body>
 </html>

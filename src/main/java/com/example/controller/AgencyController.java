@@ -29,4 +29,9 @@ public class AgencyController {
 		return "/include/agencyHotelDetail";
 	}
 
+	
+	@RequestMapping(value ="/yootest", method=RequestMethod.GET)
+	public String yootest() {
+		return "/include/yootest";
+	}
 }
