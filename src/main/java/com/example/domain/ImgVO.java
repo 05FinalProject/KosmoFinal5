@@ -17,7 +17,8 @@ import lombok.Data;
 public class ImgVO {
 	
 	@Id
-	private int p_imgnum;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer p_imgnum;
 	
 	@Column(length = 200)
 	private String p_imgname;

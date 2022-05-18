@@ -21,7 +21,7 @@ import lombok.Data;
 public class ReviewVO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int review_num;
+	private Integer review_num;
 	
 	@ManyToOne
 	@JoinColumn(name = "u_email")

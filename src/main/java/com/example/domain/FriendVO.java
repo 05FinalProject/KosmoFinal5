@@ -17,7 +17,7 @@ import lombok.Data;
 public class FriendVO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int friend_no;
+	private Integer friend_no;
 
 	@Column(length = 10)
 	private String user_sign;

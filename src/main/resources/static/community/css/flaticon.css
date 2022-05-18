@@ -1,10 +1,10 @@
 @font-face {
     font-family: "flaticon";
-    src: url("../../assets/fonts/flaticon.ttf?6085b488da160cd4b3fe0f59dc016157") format("truetype"),
-url("../../assets/fonts/flaticon.woff?6085b488da160cd4b3fe0f59dc016157") format("woff"),
-url("../../assets/fonts/flaticon.woff2?6085b488da160cd4b3fe0f59dc016157") format("woff2"),
-url("../../assets/fonts/flaticon.eot?6085b488da160cd4b3fe0f59dc016157#iefix") format("embedded-opentype"),
-url("../../assets/fonts/flaticon.svg?6085b488da160cd4b3fe0f59dc016157#flaticon") format("svg");
+    src: url("/community/fonts/flaticon.ttf?6085b488da160cd4b3fe0f59dc016157") format("truetype"),
+url("/community/assets/fonts/flaticon.woff?6085b488da160cd4b3fe0f59dc016157") format("woff"),
+url("/community/assets/fonts/flaticon.woff2?6085b488da160cd4b3fe0f59dc016157") format("woff2"),
+url("/community/assets/fonts/flaticon.eot?6085b488da160cd4b3fe0f59dc016157#iefix") format("embedded-opentype"),
+url("/community/assets/fonts/flaticon.svg?6085b488da160cd4b3fe0f59dc016157#flaticon") format("svg");
 }
 i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
     font-family: flaticon !important;

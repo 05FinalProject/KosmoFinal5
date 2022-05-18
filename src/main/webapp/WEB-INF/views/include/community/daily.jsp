@@ -87,7 +87,7 @@
                             <div class="card-body">
                                 <ul class="post-meta">
                                     <li><a href="single.html">May 24, 2017</a></li>
-                                    <li><a href="#">News</a></li>
+                                    
                                 </ul>
                                 <span><img class="siren" src="../../img/siren.png"></span>
                                 <h5 class="post-title card-title"><a href="single.html">Post #2</a></h5>
@@ -106,7 +106,7 @@
                             <div class="card-body">
                                 <ul class="post-meta">
                                     <li><a href="single.html">May 24, 2017</a></li>
-                                    <li><a href="#">News</a></li>
+                                    
                                 </ul>
                                 <span><img class="siren" src="../../img/siren.png"></span>
                                 <h5 class="post-title card-title"><a href="single.html">Post #3</a></h5>
@@ -163,7 +163,7 @@
                             <div class="card-body">
                                 <ul class="post-meta">
                                     <li><a href="single.html">May 24, 2017</a></li>
-                                    <li><a href="#">News</a></li>
+                                    
                                 </ul>
                                 <span><img class="siren" src="../../img/siren.png"></span>
                                 <h5 class="post-title card-title"><a href="single.html">Post #6</a></h5>
@@ -182,7 +182,7 @@
                             <div class="card-body">
                                 <ul class="post-meta">
                                     <li><a href="single.html">May 24, 2017</a></li>
-                                    <li><a href="#">News</a></li>
+                                    
                                 </ul>
                                 <span><img class="siren" src="../../img/siren.png"></span>
                                 <h5 class="post-title card-title"><a href="single.html">Post #7</a></h5>
@@ -201,7 +201,7 @@
                             <div class="card-body">
                                 <ul class="post-meta">
                                     <li><a href="single.html">May 24, 2017</a></li>
-                                    <li><a href="#">News</a></li>
+                                    
                                 </ul>
                                 <span><img class="siren" src="../../img/siren.png"></span>
                                 <h5 class="post-title card-title"><a href="single.html">Post #8</a></h5>
