@@ -82,11 +82,12 @@
 						}else{
 							/* $("#chating").append("<p class='others'>" + d.userName + " :" + d.msg + "</p>"); */
 							$(".msg_card_body").append('<div class="d-flex justify-content-start mb-4">'+
+									'<span class="msg_time">' + d.userName + '</span>'+
 								'<div class="img_cont_msg">'+
 									'<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">'+
 								'</div>'+
 								'<div class="msg_cotainer">'+
-								d.userName + " :" + d.msg + 
+								 d.msg + 
 									'<span class="msg_time">'+ today.getHours()+':'+ today.getMinutes()+' '+noon+' , Today' +'</span>'+
 								'</div>'+
 							'</div>');	
@@ -230,11 +231,11 @@
 								</div>
 								<div class="user_info">
 									<span >Khalid</span>
-									<p>Kalid is online</p>
+									<p>online</p>
 								</div>
 							</div>
 						</li>
-						<!-- <li class="active"> -->
+						<!-- <li class="active">
 						<li class="friend" >
 							<div class="d-flex bd-highlight">
 								<div class="img_cont">
@@ -246,7 +247,7 @@
 									<p>Taherah left 7 mins ago</p>
 								</div>
 							</div>
-						</li>
+						</li> -->
 						
 						</ui>
 					</div>
