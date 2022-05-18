@@ -84,12 +84,13 @@
                                     Pethome for allowing us adopt him!
                                 </p> -->
                                 <div class="btn-group">
-                                	<button class="btn btn-sm bg-teal"><i
-											class="fa-solid fa-ban" style="color:white"></i></button>
+                                	<button class="btn btn-sm bg-teal">
+                                		<i class="fa-solid fa-plus" style="color:white"></i>
+                                	</button>
                                 </div>
                                 <div class="btn-group">
-                                	<button class="btn btn-sm btn-primary"><i
-											class="fas fa-comments" style="color:white"></i></button>
+                                	<button class="btn btn-sm btn-primary">
+                                	<i class="fa-solid fa-ban" style="color:white"></i></button>
                                 </div>
                             </div>                            
                         </a>

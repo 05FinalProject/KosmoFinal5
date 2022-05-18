@@ -109,10 +109,12 @@
 									<div class="col">
 										<label for="input-file" class="font-weight-bold">사진등록<span
 											style="color: red">*</span></label> 
-										<input type="file" id="input-file" class="form-control" aria-required="true"
+										<input type="text" id="input-file" class="form-control" aria-required="true"
 											aria-label="Subject">
-										<button id="writeDaily-imgupload" type="submit"
+
+											<button id="writeDaily-imgupload" type="button"
 											style="float: right">사진첨부</button>
+											<input type="file" id="file" style="display:none;">
 									</div>
 
 								</div>
@@ -154,6 +156,14 @@
 	<script type="text/javascript"
 		src="../js/magnific-popup.min.js?ver=1.1.0"></script>
 	<script type="text/javascript" src="../js/custom-theme.js?ver=1.0.0"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#writeDaily-imgupload").click(function(e){
+				e.preventDefault();
+				$("#file").click();
+			});
+		});
+	</script>
 
 </body>
 </html>
