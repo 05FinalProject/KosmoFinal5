@@ -28,7 +28,10 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/findPassword")
-	public void findPass() {
-		
+	public void findPass() {	
+	}
+	
+	@RequestMapping("/myPage/myPageProfile")
+	public void myPageProfile() {
 	}
 }
