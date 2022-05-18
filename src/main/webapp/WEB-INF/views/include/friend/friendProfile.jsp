@@ -24,8 +24,8 @@
 
 <style type="text/css">
 .container {
-	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-top: 5%;
+	padding-bottom: 5%;
 }
 
 .aaa {

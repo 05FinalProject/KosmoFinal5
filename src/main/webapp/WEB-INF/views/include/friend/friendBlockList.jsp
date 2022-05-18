@@ -23,17 +23,25 @@
 <style type="text/css">
 
 .all-notifications-body {
-	margin-top:50px;
-	margin-bottom:50px;
+	margin-top:5%;
+	margin-bottom:5%;
 }
 
 #title {
-	margin-bottom:30px;
+	margin-bottom:5%;
 }
 
 .text {
-	margin-top:15px;
+	margin-top:2%;
 }
+
+.blockList-paging {
+	margin:3%;
+	margin-left:25%;
+	margin-right:25%;
+	align-items: center;
+}
+
 
 </style>
 
@@ -127,6 +135,30 @@
                     
               
                 </div>
+            	<div class="blockList-paging">
+            		 <nav class="navigation pagination justify-content-between bg-transparent text-uppercase"
+                     role="navigation">
+                    <a class="prev disabled" href="#">
+                        Prev
+                    </a>
+                    <div class="nav-links">
+                        <ul class="page-numbers">
+                            <li><span aria-current="page" class="page-numbers current">1</span></li>
+                            <li><a class="page-numbers" href="#">2</a></li>                            
+                            <li><a class="page-numbers" href="#">3</a></li>
+                            <li><a class="page-numbers" href="#">4</a></li>
+                            <li><a class="page-numbers" href="#">5</a></li>
+                            <li><a class="page-numbers" href="#">6</a></li>
+                            <li><a class="page-numbers" href="#">7</a></li>
+                            <li><a class="page-numbers" href="#">8</a></li>
+                        </ul>
+                    </div>
+                    <a class="next" href="#">
+                        Next
+                    </a>
+                </nav>
+                </div>
+            
             </div>
 
 </body>

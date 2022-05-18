@@ -10,10 +10,10 @@
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-Font Awesome
+
 <link rel="stylesheet"
 	href="/admin/plugins/fontawesome-free/css/all.min.css">
-Theme style
+
 <link rel="stylesheet" href="/admin/dist/css/adminlte.min.css">
 <script src="https://kit.fontawesome.com/23b331c6f8.js"
 	crossorigin="anonymous"></script>
@@ -472,7 +472,9 @@ Theme style
 					</div>
 				</div>
 				<!-- /.card-body -->
-				<div class="card-footer">
+				
+				
+				<!-- <div class="card-footer">
 					<nav aria-label="Contacts Page Navigation">
 						<ul class="pagination justify-content-center m-0">
 							<li class="page-item active"><a class="page-link" href="#">1</a></li>
@@ -485,10 +487,34 @@ Theme style
 							<li class="page-item"><a class="page-link" href="#">8</a></li>
 						</ul>
 					</nav>
-				</div>
+				</div> -->
 				<!-- /.card-footer -->
+				
+				
 			</div>
 			<!-- /.card -->
+			
+			 <nav class="navigation pagination justify-content-between bg-transparent text-uppercase"
+                     role="navigation">
+                    <a class="prev disabled" href="#">
+                        Prev
+                    </a>
+                    <div class="nav-links">
+                        <ul class="page-numbers">
+                            <li><span aria-current="page" class="page-numbers current">1</span></li>
+                            <li><a class="page-numbers" href="#">2</a></li>                            
+                            <li><a class="page-numbers" href="#">3</a></li>
+                            <li><a class="page-numbers" href="#">4</a></li>
+                            <li><a class="page-numbers" href="#">5</a></li>
+                            <li><a class="page-numbers" href="#">6</a></li>
+                            <li><a class="page-numbers" href="#">7</a></li>
+                            <li><a class="page-numbers" href="#">8</a></li>
+                        </ul>
+                    </div>
+                    <a class="next" href="#">
+                        Next
+                    </a>
+                </nav>
 
 		</section>
 		<!-- /.content -->
