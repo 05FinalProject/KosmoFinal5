@@ -115,6 +115,10 @@ button{ position:absolute; top:50%; left:50%;
   transform: translate(-50%, -50%);
    
 }
+
+.siren {
+    	width:24px;
+    }
     
     </style>
     
@@ -152,6 +156,10 @@ button{ position:absolute; top:50%; left:50%;
                     <div class="card-body">
                         <ul class="post-meta">
                             <li><a href="single.html">작성일</a></li>
+                            
+                            <!-- **** 신고 버튼 ****************** -->
+                            <span><img class="siren" src="../../img/siren.png"></span>
+                            
                        </ul>
                         <h3 class="post-title card-title"><a href="single.html">내용</a></h3>
                         <div class="star-rating space-x-4 mx-auto" style="float: left">
@@ -186,6 +194,9 @@ button{ position:absolute; top:50%; left:50%;
                     <div class="card-body">
                         <ul class="post-meta">
                             <li><a href="single.html">작성일</a></li>
+                            
+                             <!-- **** 신고 버튼 ****************** -->
+                            <span><img class="siren" src="../../img/siren.png"></span>
                        </ul>
                         <h3 class="post-title card-title"><a href="single.html">내용</a></h3>
                           <!-- ******** 리뷰 별점 시작 *********************************************-->                         
@@ -224,6 +235,9 @@ button{ position:absolute; top:50%; left:50%;
                     <div class="card-body">
                         <ul class="post-meta">
                             <li><a href="single.html">작성일</a></li>
+                            
+                             <!-- **** 신고 버튼 ****************** -->
+                            <span><img class="siren" src="../../img/siren.png"></span>
                        </ul>
                         <h3 class="post-title card-title"><a href="single.html">내용</a></h3>
                         <div class="star-rating space-x-4 mx-auto" style="float: left">
@@ -258,6 +272,9 @@ button{ position:absolute; top:50%; left:50%;
                     <div class="card-body">
                         <ul class="post-meta">
                             <li><a href="single.html">작성일</a></li>
+                            
+                             <!-- **** 신고 버튼 ****************** -->
+                            <span><img class="siren" src="../../img/siren.png"></span>
                        </ul>
                         <h3 class="post-title card-title"><a href="single.html">내용</a></h3>
                         <div class="star-rating space-x-4 mx-auto" style="float: left">
@@ -289,9 +306,8 @@ button{ position:absolute; top:50%; left:50%;
     
     
     
- <button>모달창</button>
-
-<div class="modal">
+ <!--  **********  모달창 띄우기 ****************************************** -->   
+ <div class="modal">
   <div class="modal_content" 
        title="클릭하면 창이 닫힙니다.">
        
@@ -305,7 +321,7 @@ button{ position:absolute; top:50%; left:50%;
 	<button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
 
 </div>
-     <h3>회원신고하기</h3>
+     <h3>회원 신고하기</h3>
             <div class="widget-sidebar pet-sidebar">
                 <form class="pet-filter-form">
                     
@@ -387,6 +403,7 @@ button{ position:absolute; top:50%; left:50%;
   </div>
 </div>   
 
+<!-- ********* 모달창 끝 ***************************************** -->
     
     
     
@@ -491,11 +508,11 @@ button{ position:absolute; top:50%; left:50%;
     
 	$(function(){ 
 
-		  $("button").click(function(){
+		  $(".siren").click(function(){
 		    $(".modal").fadeIn();
 		  });
 		  
-		  $(".modal_content").click(function(){
+		  $(".close").click(function(){
 		    $(".modal").fadeOut();
 		  });
 		  
