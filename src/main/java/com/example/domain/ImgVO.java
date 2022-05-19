@@ -31,10 +31,6 @@ public class ImgVO {
 	private CommunityVO community;
 	
 	@ManyToOne
-	@JoinColumn(name="dog_kind")
-	private DogKindVO dogKind;
-	
-	@ManyToOne
 	@JoinColumn(name="comment_num")
 	private CommentVO comment;
 	
