@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/include")
 public class CommunityController {
+	
+	
 
 
 	
