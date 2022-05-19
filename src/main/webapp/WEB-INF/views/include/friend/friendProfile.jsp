@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -167,11 +168,12 @@
 										<span class="input-group-text"><i
 											class="fa-solid fa-bone"></i></span> <select class="form-control"
 											style="float: left;">
-											<option>=== 견종 선택 ===</option>
-											<option>option 2</option>
-											<option>option 3</option>
-											<option>option 4</option>
-											<option>option 5</option>
+											<option>견종 선택</option>
+											<c:forEach var="vo" items="${kindList}">
+											<option>${vo.dog_kind}</option>
+											</c:forEach>
+											
+											
 										</select>
 									</div>
 
