@@ -10,7 +10,5 @@ public interface CommunityRepository extends CrudRepository<CommunityVO, Integer
 	
 	 
 	 
-	 
-	 
 	
 }
