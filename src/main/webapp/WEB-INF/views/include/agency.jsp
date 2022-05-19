@@ -207,7 +207,7 @@ border: 1px solid #008000;
                 <!-- 가격대 가지고와야함-->
                 </div>
               <ul>
-                <!--주소 이름 가지고와야함 ㅅㅂ-->
+                <!--주소 이름 가지고와야함 -->
                 <li><span class="icon_pin_alt"></span> 서울시 강남구 일원동</li>
                 <li><span class="icon_phone"></span> 123-4567</li>
               </ul>
