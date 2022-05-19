@@ -15,9 +15,6 @@ public class HomeController {
 	public void FooterPage() {
 	}
 	
-	@RequestMapping("/Login")
-	public void loginPage() {
-	}
 	
 	@RequestMapping("/Main")
 	public void MainPage() {

@@ -62,7 +62,7 @@
         <!-- Modal footer -->
         <div class="modal-footer">
         	<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+          <button type="button" class="btn btn-secondary" id="none" data-dismiss="modal">취소</button>
         </div>
         
       </div>
@@ -288,12 +288,19 @@ $('#makeRoom').click(function(){
 $('#up').click(function(){
 	$('#insertRoom').slideUp()
 	$('.in').val('')
+	
 })
 
-$('.card-link').click(function(){
-	//alert('1')
-	$('h4.modal-title').text($(this).attr('content'))
+
+
+$('#none').click(function(){
+	$('.inputCenter').val('')
 })
+
+
+
+
+
 
 
 
