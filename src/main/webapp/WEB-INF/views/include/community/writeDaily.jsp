@@ -36,7 +36,61 @@
 <link rel="stylesheet" id="lana-pet-print-css"
 	href="/css/lana-pet-print.min.css?ver=1.0.0" type="text/css"
 	media="print">
+	
+	<!-- ---------------------------- 위트에서 따옴 --------------------------------------- -->
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" /> <!-- viewport-fit=cover -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
 
+    <!-- 페이스북 태그 추가 20220105 JHJ-->
+    <meta name="facebook-domain-verification" content="hndmhxj5x6cet5vhwdb27myk1g5zzg" />
+    
+    <!-- 구글 검색관련 보유 인증태그 20200611 #jsh -->
+    <!-- <meta name="naver-site-verification" content="45fff12346254a119d5ab98dbefdbba6062ffa8d" /> -->
+    <meta name="google-site-verification" content="QiNuiqgUJ8C1vIYRSjc8bTmFlxPIPeo8sMdAScIfFr4" />
+	
+	<!-- 네이버 검색관련 보유 인증태그 20210422 HUBDNC_JHM -->
+	<meta name="naver-site-verification" content="b44f9f3908832c8466c3222c55c779e459afd84f" />
+	<meta name="naver-site-verification" content="e7d78a61775134bcf5143b18aa9257d1eb118272" />
+
+    <!-- 검색관련 태그 추가 20200611 #jsh -->
+    <meta name="Robots" content="index,follow" />
+    <meta name="title" content="위트" />
+    <meta name="author" content="위트" />
+    <meta name="description" content="위트있는 반려동물의 일상이야기" />
+    <meta name="keywords" content="위트,위트코리아,반려동물,커뮤니티,반려동물용품,댕댕이,냥냥이,멍멍이,강아지,고양이,냥이,집사,SNS,댕냥" />
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="fMPSQgYIY4OkEdKqIksxvzPHnfeXqXy7cXzLZJH7">
+            <!-- SNS관련 태그 추가 20200611 #jsh -->
+        <meta property="og:url" content="https://witkorea.kr/" />
+        <meta property="og:site_name" content="위트" />
+        <meta property="og:title" content="위트(wit)" />
+        <meta property="og:description" content="위트있는 반려동물의 일상이야기" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.witkorea.kr/web/img/open_graph_icon_2_800.png" />
+    
+    
+    <script type="text/javascript" src=https://www.witkorea.kr/lib/jquery/dist/jquery.min.js?20200418></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+
+            <!-- Styles -->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" type="text/css" href="https://www.witkorea.kr/web/plugin/vendor.min.css?20200811">
+        <link rel="stylesheet" type="text/css" href="https://www.witkorea.kr/web/css/reset.css?20200811">
+        <link rel="stylesheet" type="text/css" href="https://www.witkorea.kr/web/css/common.css?ver=1652864783">
+        <link rel="stylesheet" type="text/css" href="https://www.witkorea.kr/web/css/style.css?ver=1652864783">
+		<link rel="stylesheet" type="text/css" href="https://www.witkorea.kr/web/css/style2.css?ver=1652864783">
+        <!-- Scripts -->
+        <script type="text/javascript" src=https://www.witkorea.kr/web/plugin/vendor.min.js?20200811></script>
+		<script type="text/javascript" src=https://www.witkorea.kr/web/js/common.js?20200811></script>
+<style>
+	header .mainHeader .headerInner .link_ul li {line-height:80px;}
+	header .mainHeader .headerInner .link_ul li:first-child {margin:0;}
+	header .mainHeader .headerInner .link_ul li {padding:0 22.5px;}
+	header .subHeader .headerInner .gnb-bar .gnb-list.hover_menu {display:none;}
+	header .subHeader .headerInner .gnb-bar .gnb-list.hover_menu.on {display:flex;}
+</style>
 
 <style type="text/css">
 #post-1 {
@@ -79,10 +133,6 @@
 #btn-group {
 	margin-top: 30px;
 }
-
-
-
-
 </style>
 
 
@@ -108,13 +158,45 @@
 								<div class="form-group row">
 									<div class="col">
 										<label for="input-file" class="font-weight-bold">사진등록<span
-											style="color: red">*</span></label> 
-										<input type="text" id="input-file" class="form-control" aria-required="true"
-											aria-label="Subject">
+											style="color: red">*</span></label>
+										<!-- 	<input multiple="multiple" type="file" name="files" id="input-file" class="form-control" aria-required="true"
+											aria-label="Subject"> -->
+											
+										<!-- 첨부한 이미지 목록 출력 -->	
+										<div class="write-change-crob-img">
+											<ul class="write-crob-img-wrapper clearfix ui-sortable">
+												<!-- 썸네일 정보 -->
+												<li data-type="image" data-ori_preview="file0"
+													data-preview="news0" data-thumb_crob="1"
+													data-crob="crob_img1"><div
+														class="click-item thumb_btn">
+														<input type="radio" name="crob_thumb_img" id="crob_img1"><label
+															class="write-crob-radio" for="crob_img1"
+															style="background: url(&quot;/web/img/change_icon_chi.png&quot;) center center no-repeat;">1</label>
+													</div>
+													<img class="write-crob-thumb" id="crob_main_thumb1"
+													src="blob:https://www.witkorea.kr/8e6b7a5a-2e66-4637-a59b-b3cd00fa3cd0">
+												<div class="tag-item" hidden=""></div>												
+													<button type="button" class="util_btn del_util"
+														onclick="pageSnsWrite.deleteImage('file0',0)"></button></li>
+												<li data-type="image" data-ori_preview="file1"
+													data-preview="news1" data-thumb_crob="2"
+													data-crob="crob_img2"><div
+														class="click-item thumb_btn">
+														<input type="radio" name="crob_thumb_img" id="crob_img2"><label
+															class="write-crob-radio" for="crob_img2"></label>
+													</div>
+													<img class="write-crob-thumb" id="crob_main_thumb2"
+													src="blob:https://www.witkorea.kr/8fe521ea-d001-4d4e-9c27-c9ae98e202aa">
+												<div class="tag-item" hidden=""></div>													
+													<button type="button" class="util_btn del_util"
+														onclick="pageSnsWrite.deleteImage('file1',1)"></button></li>
+											</ul>
+										</div>
 
-											<button id="writeDaily-imgupload" type="button"
+										<button id="writeDaily-imgupload" type="button"
 											style="float: right">사진첨부</button>
-											<input type="file" id="file" style="display:none;">
+										<input type="file" id="file" style="display: none;">
 									</div>
 
 								</div>

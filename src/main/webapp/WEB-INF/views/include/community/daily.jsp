@@ -69,7 +69,7 @@
                                     <li><a href="single.html">May 24, 2017</a></li>
                                 </ul>
 	                            <span><img class="siren" src="../../img/siren.png"></span>
-                                <h5 class="post-title card-title"><a href="single.html">Post #1</a></h5>
+                                <h5 class="post-title card-title"><a href="single.html">게시글 제목</a></h5>
                                 <p class="post-text card-text">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                 </p>
