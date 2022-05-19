@@ -69,7 +69,20 @@
 information-content {
 	margin-top: 30px;
 }
+.comment-input {
+	border:solid #e6e6e6;
+	border-radius:8px;
+	width:80%;
+	
+}
+.comment-btn {
+	width:18%;
+	float:right;
+}
 
+.total-comment {
+	
+}
 
 </style>
 
@@ -127,17 +140,21 @@ information-content {
 
 						</div>
 					</div>
+					<br/>
 
 					<div class="write-comment">
 						<form>
-						<div>
-							<label></label> 
-							<input type="text" class="form-control"
-								placeholder="댓글을 입력해주세요">
-							<span><button type="submit" class="btn btn-primary" id="comment-insert-btn">등록</button></span>
+						<div class="total-comment">
+							<label>댓글</label> 
+							<div class="comment-input">
+								<input type="text" class="form-control" placeholder="댓글을 입력해주세요">
 							</div>
-						</form>
+							<!-- <div class="comment-btn"> -->
+								<button type="submit" class="btn btn-primary" id="comment-insert-btn">등록</button>
+							<!-- </div> -->
 						</div>
+						</form>
+					</div>
 					</div>
 
 					
