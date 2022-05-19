@@ -71,6 +71,29 @@
     }
     
     
+    .modal{ 
+  position:fixed; width:100%; height:100%; z-index: 1000; background: rgba(0,0,0,0.8); top:0; left:0; display:none;
+}
+
+.modal_content{
+  width:40%; height:auto;
+  background:#fff; border-radius:10px;
+  position:fixed; top:50%; left:50%;
+  
+  text-align:center;
+  box-sizing:border-box; padding:74px 0;
+  line-height:23px; cursor:pointer;
+  display:flex;
+  position: absolute;
+  transform: translate(-50%, -50%);
+   
+}
+
+.siren {
+    	width:24px;
+    }
+    
+    
     </style>
     
     
@@ -193,17 +216,16 @@
      <!-- *********리뷰 작성 1번째 테이블 시작 *******************************************************-->
                            
              
-                      <ul class="comment-list list-unstyled">
-                        <li class="media">
-                            <img class="avatar photo rounded-circle mr-2 mr-sm-3 mr-md-4"
-                                 src="../pictures/placeholder/65x65.svg" alt="Avatar">
-                          <div>
-                              <p>
-                                  리뷰 작성
-                              </p>
-                              
-     <!-- ******** 리뷰 별점 시작 *********************************************-->                         
-                              <div class="star-rating space-x-4 mx-auto">
+                     <div id="post-2" class="post type-post post-2 card post-card">
+                    <div class="card-body">
+                        <ul class="post-meta">
+                            <li><a href="single.html">작성일</a></li>
+                            
+                              <!-- **** 신고 버튼 ****************** -->
+                            <span><img class="siren" src="../../img/siren.png"></span>
+                       </ul>
+                        <h3 class="post-title card-title"><a href="single.html">내용</a></h3>
+                        <div class="star-rating space-x-4 mx-auto" style="float: left">
 	<input type="radio" id="5-stars" name="rating" value="5" v-model="ratings"/>
 	<label for="5-stars" class="star pr-4">★</label>
 	<input type="radio" id="4-stars" name="rating" value="4" v-model="ratings"/>
@@ -215,40 +237,35 @@
 	<input type="radio" id="1-star" name="rating" value="1" v-model="ratings" />
 	<label for="1-star" class="star">★</label>
 </div>
-
-    <!-- ******** 리뷰 별점 끝 *********************************************-->     
-                              
-                          </div>
-                           </li>
-                        </ul>
+                        <p class="post-text card-text">
+                            시설이 좋아~
+                        </p>
+                        <div class="d-flex justify-content-between post-meta mt-4">
+                            <div class="author-meta">
+                                <img src="../pictures/placeholder/32x32.svg" class="img-fluid rounded-circle mr-1 w-auto" alt="Author">
+                                By: <a href="#" class="author-link card-link">작성자</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
                      
                      
-                                    
-
-    <!-- ******** 리뷰 별점 끝 *********************************************-->     
-                                
-                                 
-                             <!--  
-                          
-                           -->    
-                        
-
  <!-- 리뷰 1번째 테이블 끝 **************************************************** -->
 
    
  <!-- ************* 리뷰 2번째 테이블 시작 *************************************** -->
                         
-                         <ul class="comment-list list-unstyled">
-                        <li class="media">
-                            <img class="avatar photo rounded-circle mr-2 mr-sm-3 mr-md-4"
-                                 src="../pictures/placeholder/65x65.svg" alt="Avatar">
-                          <div>
-                              <p>
-                                  리뷰 작성
-                              </p>
-                              
-     <!-- ******** 리뷰 별점 시작 *********************************************-->                         
-                              <div class="star-rating space-x-4 mx-auto">
+                    <div id="post-2" class="post type-post post-2 card post-card">
+                    <div class="card-body">
+                        <ul class="post-meta">
+                            <li><a href="single.html">작성일</a></li>
+                            
+                              <!-- **** 신고 버튼 ****************** -->
+                            <span><img class="siren" src="../../img/siren.png"></span>
+                       </ul>
+                        <h3 class="post-title card-title"><a href="single.html">내용</a></h3>
+                        <div class="star-rating space-x-4 mx-auto" style="float: left">
 	<input type="radio" id="5-stars" name="rating" value="5" v-model="ratings"/>
 	<label for="5-stars" class="star pr-4">★</label>
 	<input type="radio" id="4-stars" name="rating" value="4" v-model="ratings"/>
@@ -260,15 +277,57 @@
 	<input type="radio" id="1-star" name="rating" value="1" v-model="ratings" />
 	<label for="1-star" class="star">★</label>
 </div>
-
-    <!-- ******** 리뷰 별점 끝 *********************************************-->     
-                              
-                          </div>
-                           </li>
-                        </ul>
+                        <p class="post-text card-text">
+                            시설이 좋아~
+                        </p>
+                        <div class="d-flex justify-content-between post-meta mt-4">
+                            <div class="author-meta">
+                                <img src="../pictures/placeholder/32x32.svg" class="img-fluid rounded-circle mr-1 w-auto" alt="Author">
+                                By: <a href="#" class="author-link card-link">작성자</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
                         
    <!--  *********** 리뷰 2번째 테이블 끝 ********************************** --> 
  
+   <!-- ********** 리뷰 3번째 테이블 시작 -->
+  <div id="post-2" class="post type-post post-2 card post-card">
+                    <div class="card-body">
+                        <ul class="post-meta">
+                            <li><a href="single.html">작성일</a></li>
+                            
+                              <!-- **** 신고 버튼 ****************** -->
+                            <span><img class="siren" src="../../img/siren.png"></span>
+                       </ul>
+                        <h3 class="post-title card-title"><a href="single.html">내용</a></h3>
+                        <div class="star-rating space-x-4 mx-auto" style="float: left">
+	<input type="radio" id="5-stars" name="rating" value="5" v-model="ratings"/>
+	<label for="5-stars" class="star pr-4">★</label>
+	<input type="radio" id="4-stars" name="rating" value="4" v-model="ratings"/>
+	<label for="4-stars" class="star">★</label>
+	<input type="radio" id="3-stars" name="rating" value="3" v-model="ratings"/>
+	<label for="3-stars" class="star">★</label>
+	<input type="radio" id="2-stars" name="rating" value="2" v-model="ratings"/>
+	<label for="2-stars" class="star">★</label>
+	<input type="radio" id="1-star" name="rating" value="1" v-model="ratings" />
+	<label for="1-star" class="star">★</label>
+</div>
+                        <p class="post-text card-text">
+                            시설이 좋아~
+                        </p>
+                        <div class="d-flex justify-content-between post-meta mt-4">
+                            <div class="author-meta">
+                                <img src="../pictures/placeholder/32x32.svg" class="img-fluid rounded-circle mr-1 w-auto" alt="Author">
+                                By: <a href="#" class="author-link card-link">작성자</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+  
+<!-- ******** 리뷰 3번째 테이블 끝 ******************* -->
     </div>
     </div>
     
@@ -308,6 +367,108 @@
                 </div>
             </div>
         </div>
+        
+        
+           
+ <!--  **********  모달창 띄우기 ****************************************** -->   
+ <div class="modal">
+  <div class="modal_content" 
+       title="클릭하면 창이 닫힙니다." style="padding-top: 20px;padding-bottom: 20px;">
+       
+      
+    
+    <div class="col-12 mt-4 mt-lg-0">
+    
+    <button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+    
+    <div class="container">
+
+	 
+	
+
+</div>
+<h3>회원 신고하기</h3>
+    
+            <div class="widget-sidebar pet-sidebar">
+                <form class="pet-filter-form">
+                    
+                   
+                    <fieldset class="form-group">
+                    
+                      
+                    </fieldset>
+                    <fieldset class="form-group">
+                    
+                        <h4>신고사유</h4>
+                        <div class="form-row">
+                            <div class="col-lg">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="adult" checked>
+                                    <label class="custom-control-label" for="adult">게시글 도배</label>
+                                </div>
+                            </div>
+                            <div class="col-lg">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="baby">
+                                    <label class="custom-control-label" for="baby">욕설/비방</label>
+                                </div>
+                            </div>
+                            <div class="col-lg">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="senior">
+                                    <label class="custom-control-label" for="senior">음란성</label>
+                                </div>
+                            </div>
+                            <div class="col-lg">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="young">
+                                    <label class="custom-control-label" for="young">광고/홍보성</label>
+                                </div>
+                            </div>
+                            <div class="col-lg">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="female">
+                                    <label class="custom-control-label" for="female">개인정보 유출</label>
+                                </div>
+                            </div>
+                            <div class="col-lg">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="male">
+                                    <label class="custom-control-label" for="male">저작권 불법 도용</label>
+                                </div>
+                            </div>
+                            <div class="col-lg">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="male">
+                                    <label class="custom-control-label" for="male">기타</label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                   
+                    <fieldset class="form-group">
+                        <legend>신고 상세사유 작성 </legend>
+
+                        <div class="form-group row">
+                            <div class="col">
+                                    <textarea class="form-control" name="message" rows="8" placeholder="내용"
+                                              aria-required="true" aria-label="Message" required="required"></textarea>
+                            </div>
+                        </div>
+                        
+                    </fieldset>
+                    <button type="submit" class="btn btn-primary btn-block font-weight-bold text-uppercase">
+                        신고하기
+                    </button>
+                </form>
+            </div>
+        </div>
+    
+    </div>
+</div>   
+
+<!-- ********* 모달창 끝 ***************************************** -->
+        
     
      
         <nav class="navigation pagination justify-content-between text-uppercase" role="navigation">
@@ -388,6 +549,18 @@
 		});
 
 	});
+    
+	$(function(){ 
+
+		  $(".siren").click(function(){
+		    $(".modal").fadeIn();
+		  });
+		  
+		  $(".close").click(function(){
+		    $(".modal").fadeOut();
+		  });
+		  
+		});
 </script>
 
 
