@@ -88,7 +88,7 @@
                     <td>욕설</td>
                     <td>2022-05-13</td>
                     <td>5</td>
-                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
+                    <td><button type="button" class="btn btn-danger">삭제</button></td>
                   </tr>
                   <tr>
                   	<td text-align="center">2</td>
@@ -99,7 +99,7 @@
                     <td>Win 95+</td>
                     <td>5</td>
                     <td>C</td>
-                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
+                    <td><button type="button" class="btn btn-danger">삭제</button></td>
                   </tr>
                   <tr>
                   	<td text-align="center">3</td>
@@ -110,7 +110,7 @@
                     <td>Win 95+</td>
                     <td>5.5</td>
                     <td>A</td>
-                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
+                    <td><button type="button" class="btn btn-danger">삭제</button></td>
                   </tr>
                   </tbody>     
              

@@ -91,32 +91,116 @@
     }
     
     
-HTML CSS JSResult Skip Results Iframe
+    HTML CSS JSResult Skip Results Iframe
 EDIT ON
 button{ position:absolute; top:50%; left:50%;
   width:120px; height:30px; margin-top:-15px; margin-left:-60px;
   line-height:15px; cursor:pointer;
 }
 
-.modal{ 
-  position:fixed; width:100%; height:100%; z-index: 1000; background: rgba(0,0,0,0.8); top:0; left:0; display:none;
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+p{
+  margin-top:10px;
+}
+.container{
+  width:100%;
+ 
+}
+.modal-btn-box{
+  width:100%;
+  text-align:center;
+}
+.modal-btn-box button{
+  display:inline-block;
+  width:150px;
+  height:50px;
+  background-color:#ffffff;
+  border:1px solid #e1e1e1;
+  cursor:pointer;
+  padding-top:8px;
+}
+.popup-wrap{
+  background-color:rgba(0,0,0,.3);
+  justify-content:center;
+  align-items:center;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  display:none;
+  padding:15px;
+}
+.popup{
+  width:100%;
+  max-width:600px;
+  background-color:#ffffff;
+  border-radius:10px;
+  overflow:hidden;
+  background-color:#264db5;
+  box-shadow: 5px 10px 10px 1px rgba(0,0,0,.3);
+}
+.popup-head{
+  width:100%;
+  height:50px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.head-title {
+    font-size: 38px;
+    font-style: italic;
+    font-weight: 700;
+    letter-spacing: -3px;
+    text-align: center;
+}
+.popup-body{
+  width:100%;
+  background-color:#ffffff;
+}
+.body-content{
+  width:100%;
+  padding:30px;
+}
+.body-titlebox{
+  text-align:center;
+  width:100%;
+  height:40px;
+  margin-bottom:10px;
+}
+.body-contentbox{
+  word-break:break-word;
+  overflow-y:auto;
+  min-height:100px;
+  max-height:200px;
+}
+.popup-foot{
+  width:100%;
+  height:50px;
+}
+.pop-btn{
+  display:inline-flex;
+  width:50%;
+  height:100%;
+  float:left;
+  justify-content:center;
+  align-items:center;
+  color:#ffffff;
+  cursor:pointer;
+}
+.pop-btn.confirm{
+  border-right:1px solid #3b5fbf;
 }
 
-.modal_content{
-  width:40%; height:auto;
-  background:#fff; border-radius:10px;
-  position:fixed; top:50%; left:50%;
-  
-  text-align:center;
-  box-sizing:border-box; padding:74px 0;
-  line-height:23px; cursor:pointer;
-  display:flex;
-  position: absolute;
-  transform: translate(-50%, -50%);
-   
-}
-    
-    </style>
+Resources
+
+
+</style>
     
 </head>
 
@@ -178,183 +262,79 @@ button{ position:absolute; top:50%; left:50%;
                         </div>
                     </div>
                 </div>
-          <!--*******************리뷰 1번째테이블 끝  *************************-->      
                 
-                
-                
-                 <div id="post-2" class="post type-post post-2 card post-card">
-                    <div class="card-body">
-                        <ul class="post-meta">
-                            <li><a href="single.html">작성일</a></li>
-                       </ul>
-                        <h3 class="post-title card-title"><a href="single.html">내용</a></h3>
-                          <!-- ******** 리뷰 별점 시작 *********************************************-->                         
-                              <div class="star-rating space-x-4 mx-auto" style="float: left">
-	<input type="radio" id="5-stars" name="rating" value="5" v-model="ratings"/>
-	<label for="5-stars" class="star pr-4">★</label>
-	<input type="radio" id="4-stars" name="rating" value="4" v-model="ratings"/>
-	<label for="4-stars" class="star">★</label>
-	<input type="radio" id="3-stars" name="rating" value="3" v-model="ratings"/>
-	<label for="3-stars" class="star">★</label>
-	<input type="radio" id="2-stars" name="rating" value="2" v-model="ratings"/>
-	<label for="2-stars" class="star">★</label>
-	<input type="radio" id="1-star" name="rating" value="1" v-model="ratings" />
-	<label for="1-star" class="star">★</label>
-</div>
-
-    <!-- ******** 리뷰 별점 끝 *********************************************--> 
-                        <p class="post-text card-text">
-                            시설이 좋아~
-                        </p>
-                        <div class="d-flex justify-content-between post-meta mt-4">
-                            <div class="author-meta">
-                                <img src="../pictures/placeholder/32x32.svg" class="img-fluid rounded-circle mr-1 w-auto" alt="Author">
-                                By: <a href="#" class="author-link card-link">작성자</a>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-                
-                <!--*******************리뷰 2번째테이블 끝  *************************-->
-    
-    
-    
-                 <div id="post-2" class="post type-post post-2 card post-card">
-                    <div class="card-body">
-                        <ul class="post-meta">
-                            <li><a href="single.html">작성일</a></li>
-                       </ul>
-                        <h3 class="post-title card-title"><a href="single.html">내용</a></h3>
-                        <div class="star-rating space-x-4 mx-auto" style="float: left">
-	<input type="radio" id="5-stars" name="rating" value="5" v-model="ratings"/>
-	<label for="5-stars" class="star pr-4">★</label>
-	<input type="radio" id="4-stars" name="rating" value="4" v-model="ratings"/>
-	<label for="4-stars" class="star">★</label>
-	<input type="radio" id="3-stars" name="rating" value="3" v-model="ratings"/>
-	<label for="3-stars" class="star">★</label>
-	<input type="radio" id="2-stars" name="rating" value="2" v-model="ratings"/>
-	<label for="2-stars" class="star">★</label>
-	<input type="radio" id="1-star" name="rating" value="1" v-model="ratings" />
-	<label for="1-star" class="star">★</label>
-</div>
-                        <p class="post-text card-text">
-                            시설이 좋아~
-                        </p>
-                        <div class="d-flex justify-content-between post-meta mt-4">
-                            <div class="author-meta">
-                                <img src="../pictures/placeholder/32x32.svg" class="img-fluid rounded-circle mr-1 w-auto" alt="Author">
-                                By: <a href="#" class="author-link card-link">작성자</a>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-                
-                <!--*******************리뷰 3번째테이블 끝  *************************-->
-    
-    
-                 <div id="post-2" class="post type-post post-2 card post-card">
-                    <div class="card-body">
-                        <ul class="post-meta">
-                            <li><a href="single.html">작성일</a></li>
-                       </ul>
-                        <h3 class="post-title card-title"><a href="single.html">내용</a></h3>
-                        <div class="star-rating space-x-4 mx-auto" style="float: left">
-	<input type="radio" id="5-stars" name="rating" value="5" v-model="ratings"/>
-	<label for="5-stars" class="star pr-4">★</label>
-	<input type="radio" id="4-stars" name="rating" value="4" v-model="ratings"/>
-	<label for="4-stars" class="star">★</label>
-	<input type="radio" id="3-stars" name="rating" value="3" v-model="ratings"/>
-	<label for="3-stars" class="star">★</label>
-	<input type="radio" id="2-stars" name="rating" value="2" v-model="ratings"/>
-	<label for="2-stars" class="star">★</label>
-	<input type="radio" id="1-star" name="rating" value="1" v-model="ratings" />
-	<label for="1-star" class="star">★</label>
-</div>
-                        <p class="post-text card-text">
-                            시설이 좋아~
-                        </p>
-                        <div class="d-flex justify-content-between post-meta mt-4">
-                            <div class="author-meta">
-                                <img src="../pictures/placeholder/32x32.svg" class="img-fluid rounded-circle mr-1 w-auto" alt="Author">
-                                By: <a href="#" class="author-link card-link">작성자</a>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-                
-                <!--*******************리뷰 4번째테이블 끝  *************************-->
-    
-    
-    
- <button>모달창</button>
-
-<div class="modal">
-  <div class="modal_content" 
-       title="클릭하면 창이 닫힙니다.">
-       
-       
-    
-    <div class="col-12 mt-4 mt-lg-0">
-    
-    <div class="container">
-
-	
-	<button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-
-</div>
-     <h3>회원신고하기</h3>
+                <div class="container">
+  <div class="modal-btn-box">
+  <button type="button" id="modal-open">모달창 열기</button>  
+  </div>
+  
+  <div class="popup-wrap" id="popup">
+    <div class="popup">
+      <div class="popup-head">
+          <span class="head-title text-white">
+            회원 신고하기</span>
+      </div>
+      <div class="popup-body">
+        <div class="body-content">
+          
+          <div class="body-contentbox">
+            <!-- 모달 -->
+            <div class="container-fluid">
+        <div class="col-12 mt-4 mt-lg-0">
             <div class="widget-sidebar pet-sidebar">
                 <form class="pet-filter-form">
-                    
-                   
                     <fieldset class="form-group">
-                    
-                      
+                        <legend>신고 카테고리</legend>
+                        <div class="form-group">
+                            <label for="species" class="sr-only">Species</label>
+                            <select id="species" class="custom-select">
+                                <option value="">All species</option>
+                                <option value="dog">Dog</option>
+                                <option value="cat">Cat</option>
+                            </select>
+                        </div>
+                        
                     </fieldset>
                     <fieldset class="form-group">
-                    
-                        <h4>신고사유</h4>
+                        <legend>신고사유</legend>
                         <div class="form-row">
-                            <div class="col-lg">
+                            <div class="col-6">
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="adult" checked>
                                     <label class="custom-control-label" for="adult">게시글 도배</label>
                                 </div>
                             </div>
-                            <div class="col-lg">
+                            <div class="col-6">
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="baby">
                                     <label class="custom-control-label" for="baby">욕설/비방</label>
                                 </div>
                             </div>
-                            <div class="col-lg">
+                            <div class="col-6">
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="senior">
                                     <label class="custom-control-label" for="senior">음란성</label>
                                 </div>
                             </div>
-                            <div class="col-lg">
+                            <div class="col-6">
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="young">
                                     <label class="custom-control-label" for="young">광고/홍보성</label>
                                 </div>
                             </div>
-                            <div class="col-lg">
+                            <div class="col-6">
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="female">
                                     <label class="custom-control-label" for="female">개인정보 유출</label>
                                 </div>
                             </div>
-                            <div class="col-lg">
+                            <div class="col-6">
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="male">
                                     <label class="custom-control-label" for="male">저작권 불법 도용</label>
                                 </div>
                             </div>
-                            <div class="col-lg">
+                            <div class="col-6">
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="male">
                                     <label class="custom-control-label" for="male">기타</label>
@@ -374,18 +354,50 @@ button{ position:absolute; top:50%; left:50%;
                         </div>
                         
                     </fieldset>
-                    <button type="submit" class="btn btn-primary btn-block font-weight-bold text-uppercase">
+                    <button class="btn btn-primary btn-block font-weight-bold text-uppercase">
                         신고하기
                     </button>
                 </form>
             </div>
         </div>
+        <!-- 모달 -->
+        
+        </div>
+          </div>
+          
+          
+        </div>
+      </div>
+      <div class="popup-foot">
+        <span class="pop-btn confirm" id="confirm">확인</span>
+        <span class="pop-btn close" id="close">창 닫기</span>
+      </div>
+    </div>
+</div>
+</div>
+
+Resources
+         
+        
     
     
     
     
-  </div>
-</div>   
+   
+        
+       
+        
+        
+        
+        
+        <!-- modal close button -->
+      
+    
+    
+    
+    
+
+
 
     
     
@@ -485,21 +497,28 @@ button{ position:absolute; top:50%; left:50%;
             $(".myPage").addClass("off");
 		});
 
+        
+        
 	});
     
-    
-    
-	$(function(){ 
-
-		  $("button").click(function(){
-		    $(".modal").fadeIn();
+	$(function(){
+		  $("#confirm").click(function(){
+		      modalClose();
+		      //컨펌 이벤트 처리
 		  });
-		  
-		  $(".modal_content").click(function(){
-		    $(".modal").fadeOut();
+		  $("#modal-open").click(function(){        $("#popup").css('display','flex').hide().fadeIn();
 		  });
-		  
+		  $("#close").click(function(){
+		      modalClose();
+		  });
+		  function modalClose(){
+		    $("#popup").fadeOut();
+		  }
 		});
+
+	
+    
+    
 </script>
 </body>
 </html>

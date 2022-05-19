@@ -7,18 +7,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-	id=111<br/>
+	<p> 닉네임=홍홍</p><br/>
 	<a href="/chating/moveChating?roomName=하윙1&roomNumber=1&roomMember=111">하윙1 채팅방</a><br/>
 	<a href="/chating/moveChating?roomName=하윙2&roomNumber=2&roomMember=111">하윙2 채팅방</a><br/><br/><br/>
-	id=222<br/>
+	<p> 닉네임=홍홍1</p><br/>
 	<a href="/chating/moveChating?roomName=하윙1&roomNumber=1&roomMember=222">하윙1 채팅방</a><br/>	
 	<a href="/chating/moveChating?roomName=하윙2&roomNumber=2&roomMember=222">하윙2 채팅방</a><br/><br/><br/>	
-	id=333<br/>
+	<p> 닉네임=홍홍3</p><br/>
 	<a href="/chating/moveChating?roomName=하윙1&roomNumber=1&roomMember=333">하윙1 채팅방</a><br/>	
 	<a href="/chating/moveChating?roomName=하윙2&roomNumber=2&roomMember=333">하윙2 채팅방</a><br/><br/><br/>
 	
-	<a href="/chating/friendChat">친구리스트</a>
+	<a href="/chating/friendChat">친구리스트</a><br/><br/>
 	
-	
+	<a href="/chating/room">채팅방리스트</a><br/><br/>
 </body>
 </html>
