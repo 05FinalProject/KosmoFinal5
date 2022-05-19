@@ -70,7 +70,6 @@
                   <div class="d-flex mb-5 align-items-center" id="homeGO">
                     <label class="control control--checkbox mb-0"><span class="caption"></span>
                     </label>
-                    <span class=""><a href="main.do" class="forgot-pass">홈 화면으로 가기</a></span> 
                     <span class="ml-auto"><a href="signupForm.do" class="forgot-pass">회원가입 하기</a></span> 
                     &nbsp;&nbsp;<span class="colorChange">|</span>&nbsp;&nbsp;
                     <span class=""><a href="pwSearchForm.do" class="forgot-pass">비밀번호 찾기</a></span> 
