@@ -45,6 +45,7 @@ public class AdminMainController {
 		return "/admin/adminUser";
 	}
 	
+
 	//리뷰신고
 //	@RequestMapping(value="adminReview", method=RequestMethod.GET)
 //	public String reportReview(Model m) {
@@ -134,6 +135,13 @@ public class AdminMainController {
 	@RequestMapping(value="adminDaily", method=RequestMethod.GET)
 	public String adminDaily() {
 		return "/admin/communities/adminDaily";
+	}
+	
+	//회원삭제
+	@RequestMapping(value = "{user_email}", method = RequestMethod.DELETE)
+	public String deleteUser(UserVO vo) {
+		adminUserService.deleteUser(vo);
+		return "redirect:/adminUser";
 	}
 	
 	
