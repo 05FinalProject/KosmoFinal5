@@ -87,7 +87,7 @@
 	                    <td>${vo.review_content }</td>
 	                    <td>${vo.r_reason }</td>
 	                    <td>${vo.r_date }</td>
-	                    <td><button type="button" class="btn btn-danger">삭제</button></td>
+	                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
 	                   </tr>
                   </c:forEach>                                               
                   </tbody>                  
