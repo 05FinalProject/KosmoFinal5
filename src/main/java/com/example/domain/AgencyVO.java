@@ -18,6 +18,7 @@ public class AgencyVO {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer a_num;
 	
+	@Id
 	private int a_category_num;	
 	
 	@Column(length = 200)
@@ -37,5 +38,8 @@ public class AgencyVO {
 	
 	@Column(length = 30)
 	private String a_lon;
+	
+	@Column(length = 300)
+	private String a_image;
 
 }

@@ -20,6 +20,7 @@ public class ImgVO {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer p_imgnum;
 	
+	
 	@Column(length = 200)
 	private String p_imgname;
 	
@@ -33,10 +34,6 @@ public class ImgVO {
 	@ManyToOne
 	@JoinColumn(name="comment_num")
 	private CommentVO comment;
-	
-	@ManyToOne
-	@JoinColumn(name="a_num")
-	private AgencyVO agency;
 	
 	@ManyToOne
 	@JoinColumn(name="review_num")
