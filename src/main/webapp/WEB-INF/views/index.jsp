@@ -15,6 +15,7 @@
 <a href='/admin'>admin페이지</a><br/><br/>
 <a href='include/Footer'>하단페이지</a><br/><br/>
 <a href='include/Header'>상단페이지</a><br/><br/>
+<a href='include/header-style-3'>상단교체예정 페이지</a><br/><br/>
 <a href='include/Login'>로그인페이지</a><br/><br/>
 <a href='include/Main'>메인페이지</a><br/><br/>
 <a href="include/signUp">회원가입페이지</a><br/><br/>

@@ -9,7 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
+<link rel="stylesheet" id="montserrat-css"
+	href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+<link rel="stylesheet" id="open-sans-css"
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i">
 
 <link rel="stylesheet" id="animate-css"
 	href="/css/animate.min.css?ver=3.7.2" type="text/css" media="all">
@@ -33,127 +36,90 @@
 <link rel="stylesheet" id="lana-pet-print-css"
 	href="/css/lana-pet-print.min.css?ver=1.0.0" type="text/css"
 	media="print">
-
-<link rel="stylesheet" href="/css/HeadFootPage.css" type="text/css">
+	<style>
+	.headlogo{
+		width:200px;
+		height:100px;
+	}
+	.signUplogo{
+		width:100px;
+		height:100px;
+	}
+	
+	.btn-light{
+		border-style:none;
+	}
+	
+	.btn-light:hover{
+		color:#f8b03a;
+		background-color:#f8b03a;
+	}
+	</style>
 </head>
 <body class="home page page-template-template-lana-editor">
-	<header
-		class="header head-color lana-full-bg-image-golden-large-sitting-dog-body-indoor d-flex flex-column"
-		id="slider-header">
 
-		<!-- 상단 네비바 -->
-		<nav class="navbar navbar-expand-lg navbar-dark bg-transparent"
-			id="lana-pet-main-navbar">
-			<!-- 상단 네비바 로고 -->
-			<a class="navbar-brand  mx-auto" href="#"> <img class="mainLogo mx-auto"
-				src="/img/그림3.png" alt="Navbar Logo">
+	<header class="header bg-dark">
+		<nav class="navbar navbar-expand-lg navbar-dark navbar-only"
+			id="lana-pet-main-navbar" style="font-size:28px;">
+			<a class="navbar-brand" href="#" style="margin-left:3%;"> <img
+				class="navbar-logo headlogo" src="/img/그림3.png"
+				alt="Navbar Logo">
 			</a>
-			<!-- 상단 네비바 반응형 시 아이콘 생성 -->
-			<div
-				class="toggler-buttons d-flex flex-fill justify-content-end head-color">
+						<!-- 반응형 웹 작동 시 나타남 -->
+			<div class="toggler-buttons d-flex flex-fill justify-content-end">
+				<button class="search-toggler" type="button" data-toggle="collapse"
+					data-target="#lana-search" aria-controls="lana-search"
+					aria-expanded="false" aria-label="Toggle search">
+					<i><h2 style="color:white;">날씨</h2></i>
+				</button>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#lana-navbar" aria-controls="lana-navbar"
 					aria-expanded="false" aria-label="Toggle navigation">
 					<i class="fas fa-bars fa-lg fa-fw text-light"></i>
 				</button>
 			</div>
+						<!-- 반응형 커팅선 -->
 
-			<!--상단 Nav bar 대 카테고리-->
-			<div class="collapse navbar-collapse bigCate" id="lana-navbar">
-				<ul class="navbar-nav col-md-2 mx-auto">
-					<li class="nav-item comu"><span class="nav-link"><span
-							id="comu">커뮤니티</span></span></li>
-							<!-- 반응형 서브 카테고리 -->
-							<li class="nav-item subcomu "><a href="#">일상공유</a></li>
-							<li class="nav-item subcomu "><a href="#">자원봉사</a></li>
-							<li class="nav-item subcomu "><a href="#">가정봉사</a></li>
-							<li class="nav-item subcomu "><a href="#">물품나눔</a></li>
-							<li class="nav-item subcomu "><a href="#">행사</a></li>
-							<li class="nav-item subcomu "><a href="#">산책로</a></li>
-				</ul>
-				<ul class="navbar-nav col-md-2 mx-auto">
-					<li class="nav-item info"><span class="nav-link"><span
-							id="info">정보나눔</span></span>
-							<button class="button subinfo" type="hidden" value="클릭"></button></li>
-							<!-- 반응형 서브 카테고리 -->
-							<div class="dropdown">백과사전</div>
-							
-							
-							<!-- <ul>
-							<li class="nav-item subinfo"><a href="#">백과사전</a></li>
-							</ul> -->
-				</ul>
-				<ul class="navbar-nav mx-auto circle">
-					<li class="nav-item"><a class="nav-link" href="#">날씨</a>
-					</li>
-				</ul>
+			<div class="collapse navbar-collapse" id="lana-navbar">
 				<ul class="navbar-nav mx-auto">
-					<li class="nav-item">
-								<a class="navbar-brand mx-auto joinbutton" href="#"> 
-				<img class="mainLogo mx-auto join" src="/img/Guest.png">
-			</a>
-			</li>
+					<li class="nav-item"><a class="nav-link mp" href="#">메인페이지</a></li>
+
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle comu" href="page.html"
+						id="page-dropdown" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false">커뮤니티</a>
+						<ul class="dropdown-menu" aria-labelledby="page-dropdown">
+							<li><a class="dropdown-item" href="page.html">일상공유</a></li>
+							<li><a class="dropdown-item"
+								href="template-our-services.html">자원봉사</a></li>
+							<li><a class="dropdown-item"
+								href="template-our-partners.html">가정분양</a></li>
+							<li><a class="dropdown-item" href="template-our-team.html">물품나눔</a></li>
+							<li><a class="dropdown-item" href="template-contact.html">행사</a></li>
+							<li><a class="dropdown-item" href="template-contact.html">산책로</a></li>
+						</ul></li>
+
+
+					<li class="nav-item"><a class="nav-link info"
+						href="attachment.html">반려견 사전</a></li>
+
 				</ul>
+				<form class="search-widget d-none d-xl-inline-flex ">
+					<h1 style="color:white; width:180px;">날씨</h1>
+				</form>
+				
+				<div class="button-nav-widget d-none d-xl-inline-flex" style="margin-right:3%;">
+					<ul class="nav button-nav">
+						<li class="nav-item"><a href="#"
+							class="btn btn-sm btn-light text-uppercase font-weight-bold my-auto">
+								<img class="signUplogo" src="/img/Guest.png"/> </a></li>
+					</ul>
+				</div>
 			</div>
+
 		</nav>
 	</header>
-	<!-- 상단 Nav bar 대 카테고리 끝-->
 
-	<!-- 상단 Nav bar 서브 카테고리 -->
-	<!-- 서브 Nav bar 카테고리 - 커뮤니티 -->
-	<div class="subCate comunity" style="background-color: white;">
-		<nav class="navbar navbar-expand-lg navbar-dark" id="lana-pet-sub-navbar">
-			<div class="collapse navbar-collapse" id="lana-sub-navbar">
-				<ul class="navbar-nav" style="margin-left:8%;">
-					<li class="nav-item"><a class="nav-link sub" href="#"><span
-							class="subFont">일상공유</span></a></li>
-					<li class="nav-item"><a class="nav-link sub" href="#"><span
-							class="subFont">자원봉사</span></a></li>
-					<li class="nav-item"><a class="nav-link sub" href="#"><span
-							class="subFont">가정분양</span></a></li>
-					<li class="nav-item"><a class="nav-link sub" href="#"><span
-							class="subFont">물품나눔</span></a></li>
-					<li class="nav-item"><a class="nav-link sub" href="#"><span
-							class="subFont">행사</span></a></li>
-					<li class="nav-item"><a class="nav-link sub" href="#"><span
-							class="subFont">산책로</span></a></li>
-				</ul>
-			</div>
-		</nav>
-	</div>
-	<!-- 서브 Nav bar 카테고리 - 정보나눔 -->
-	<div class="subCate information off" style="background-color: white;">
-		<nav class="navbar navbar-expand-lg navbar-dark" id="lana-pet-sub-navbar">
-			<div class="collapse navbar-collapse" id="lana-sub-navbar">
-				<ul class="navbar-nav" style="margin-left:50%;">
-					<li class="nav-item"><a class="nav-link sub" href="#"><span
-							class="subFont">백과사전</span></a></li>
-				</ul>
-			</div>
-		</nav>
-	</div>
-	<!-- 서브 Nav bar 카테고리 - 마이페이지 -->
-	<div class="subCate myPage off" style="background-color: white;">
-		<nav class="navbar navbar-expand-lg navbar-dark"
-			id="lana-pet-sub-navbar">
-			<div class="collapse navbar-collapse" id="lana-pet-sub-navbar">
-				<ul class="navbar-nav mx-auto">
-					<li class="nav-item"><a class="nav-link" href="#"><span
-							class="subFont">프로필</span></a></li>
-					<li class="nav-item"><a class="nav-link sub" href="#"><span
-							class="subFont">나의 게시글</span></a></li>
-					<li class="nav-item"><a class="nav-link sub" href="#"><span
-							class="subFont">반려동물</span></a></li>
-					<li class="nav-item"><a class="nav-link sub" href="#"><span
-							class="subFont">펫친관리</span></a></li>
-					<li class="nav-item"><a class="nav-link sub" href="#"><span
-							class="subFont">펫친찾기</span></a></li>
-					<li class="nav-item"><a class="nav-link sub" href="#"><span
-							class="subFont">나의 산책로</span></a></li>
-				</ul>
-			</div>
-		</nav>
-	</div>
 
 	<script type="text/javascript" src="/js/jquery.min.js?ver=3.6.0"></script>
 	<script type="text/javascript" src="/js/popper.min.js?ver=1.16.1"></script>
@@ -167,56 +133,36 @@
 		src="/js/magnific-popup.min.js?ver=1.1.0"></script>
 	<script type="text/javascript" src="/js/custom-theme.js?ver=1.0.0"></script>
 	<script type="text/javascript">
-		$(document).ready(function() {
-			/* 카테고리 */
-			$(".bigCate li.comu").click(function() {
-				$(".comunity").removeClass("off");
-				$(".information").addClass("off");
-				$(".myPage").addClass("off");
+		$(document).ready(function(){
+			$(".mp").mouseover(function(){
+				$(".mp").css("color","#f8b03a");
 			});
-
-			$(".bigCate li.info").click(function() {
-				$(".information").removeClass("off");
-				$(".comunity").addClass("off");
-				$(".myPage").addClass("off");
+			$(".mp").mouseleave(function(){
+				$(".mp").css("color","white");
 			});
-
-			$(".bigCate li.myPage").click(function() {
-				$(".myPage").removeClass("off");
-				$(".comunity").addClass("off");
-				$(".information").addClass("off");
+			$(".comu").mouseover(function(){
+				$(".comu").css("color","#f8b03a");
 			});
-
-			//$("li.comu").on("click", function(){
-			//	$("this").closest(".show").children(".navbar-nav").children(".comu").children(".nav-link").css("color","black");
-			//});
-
-			//$(".comu").on("click",function(){
-			//	$(this).closest(".show").children(".navbar-nav").children(".subcomu").css("display","block");
-			//	$(this).closest(".show").children(".navbar-nav").children(".subinfo").css("display","none");
-			//});
-			//$(".info").on("click",function(){
-			//	$(this).closest(".show").children(".navbar-nav").children(".subinfo").css("display","block");
-			//	$(this).closest(".show").children(".navbar-nav").children(".subcomu").css("display","none");
-			//});c
+			$(".comu").mouseleave(function(){
+				$(".comu").css("color","white");
+			});
+			$(".info").mouseover(function(){
+				$(".info").css("color","#f8b03a");
+			});
+			$(".info").mouseleave(function(){
+				$(".info").css("color","white");
+			});
+			
+			$(".btn-light").mouseover(function(){
+				$(".btn-light").css("color","#f8b03a");
+			});
+			$(".btn-light").mouseleave(function(){
+				$(".btn-light").css("color","white");
+			});
+			
 		});
-		
-		const button = document.querySelector('.button');
-
-		button.addEventListener('click', () => {
-		  const dropdown = document.querySelector('.dropdown');
-		  dropdown.style.display = 'block';
-		});
-
-		button.addEventListener('blur', () => {
-			  const dropdown = document.querySelector('.dropdown');
-			  
-			  // 0.2초 뒤에 실행
-			  setTimeout(() => {
-			    dropdown.style.display = '';
-			  }, 50);
-			});
 	</script>
+
 
 </body>
 </html>
