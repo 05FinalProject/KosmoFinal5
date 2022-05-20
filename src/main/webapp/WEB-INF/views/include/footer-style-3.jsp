@@ -34,20 +34,31 @@
 
 <footer class="footer bg-dark text-white">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6">
-                <p class="footer-text text-center text-md-left">
-                    Lana Pet theme by <a href="http://lana.codes/" target="_blank">Lana Codes</a> Â© 2020 All Rights
-                    Reserved.
-                </p>
-            </div>
-            <div class="col-md-6">
-                <ul class="nav justify-content-center justify-content-md-end">
-                    <li class="nav-item"><a href="#" class="nav-link">Terms of Use</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Privacy Policy</a></li>
-                </ul>
-            </div>
-        </div>
+			<div class="row">
+				<div class="col-md-2">
+					<ul class="nav">
+						<img href="#" src="/img/WithYouTitle.png" class="footerLogo">
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<ul class="nav justify-content-center">
+						<li class="nav-item footerFont"><p class="nav-link"
+								style="color: white;">주소 : 서울특별시 금천구 가산디지털2로 123 2차) 월드 메르디앙</p></li>
+					</ul>
+				</div>
+				<div class="col-md-3">
+					<ul class="nav justify-content-center">
+						<li class="nav-item footerFont"><p class="nav-link"
+								style="color: white;">고객센터: 02-2005-8523</p></li>
+					</ul>
+				</div>
+				<div class="col-md-3">
+					<ul class="nav justify-content-center">
+						<li class="nav-item footerFont"><p class="nav-link"
+								style="color: white;">이메일: swkosmo@daum.net</p></li>
+					</ul>
+				</div>
+			</div>
     </div>
 </footer>
 
