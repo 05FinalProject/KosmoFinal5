@@ -31,30 +31,30 @@
 				<div class="row justify-content-center">
 					<div class="col-md-10 contents">
 						<div class="row justify-content-center">
-							<div class="col-md-12">
+							<div class="col-md-10">
 								<div class="form-block" style="border-radius:20px;">
 									<div class="mb-4">
 										<h3 id="titleCenter"><strong>SIGN UP</strong></h3>
 									</div>
 
 									<!-- FORM -->
-									<form id="member_frm" action="memberInsert.do" method="post" name="member_frm">
-
+									<form id="member_frm" action="Main" method="post" name="member_frm">
+										
 										<!-- NICKNAME -->
 										<div class="form-group first field--not-empty">
-											<label for="memberNickname">닉네임&nbsp; &nbsp; &nbsp; &nbsp;<span
+											<label for="user_nickname">닉네임&nbsp; &nbsp; &nbsp; &nbsp;<span
 													class="error_box"></span></label>
-											<input type="text" class="form-control form_nick" id="memberNickname"
-												name="memberNickname" autofocus>
+											<input type="text" class="form-control form_nick" id="user_nickname"
+												name="user_nickname" autofocus>
 										</div>
 
 										<!-- EMAIL -->
 										<div class="form-group first field--not-empty">
 											<div class="email_check col-md-9">
-												<label for="memberEmail">이메일&nbsp; &nbsp; &nbsp; &nbsp;<span
+												<label for="user_email">이메일&nbsp; &nbsp; &nbsp; &nbsp;<span
 														class="error_box"></span></label>
-												<input type="email" class="form-control" id="memberEmail"
-													name="memberEmail">
+												<input type="email" class="form-control" id="user_email"
+													name="user_email">
 											</div>
 
 											<div class='email_check col-md-3'>
@@ -65,39 +65,57 @@
 
 										<!-- PW -->
 										<div class="form-group first field--not-empty">
-											<label for="memberPassword">비밀번호&nbsp; &nbsp; &nbsp; &nbsp;<span
+											<label for="user_pass">비밀번호&nbsp; &nbsp; &nbsp; &nbsp;<span
 													class="error_box"></span></label>
-											<input type="password" class="form-control" id="memberPassword"
-												name="memberPassword">
+											<input type="password" class="form-control" id="user_pass"
+												name="user_pass">
 										</div>
 
 										<!-- PW CHECK -->
 										<div class="form-group first field--not-empty">
-											<label for="passwordCheck">비밀번호 재확인 &nbsp; &nbsp; &nbsp; &nbsp;<span
+											<label for="user_passCheck">비밀번호 재확인 &nbsp; &nbsp; &nbsp; &nbsp;<span
 													class="error_box"></span></label>
-											<input type="password" class="form-control" id="passwordCheck">
+											<input type="password" class="form-control" id="user_passCheck">
 										</div>
 
 										<!-- NAME -->
 										<div class="form-group first field--not-empty">
-											<label for="memberName">이름&nbsp; &nbsp; &nbsp; &nbsp;<span
+											<label for="user_name">이름&nbsp; &nbsp; &nbsp; &nbsp;<span
 													class="error_box"></span></label>
-											<input type="text" class="form-control" id="memberName" name="memberName">
+											<input type="text" class="form-control" id="user_name" name="user_name">
 										</div>
 
 										<!-- TEL -->
 										<div class="form-group first field--not-empty">
-											<label for="memberTel">휴대전화&nbsp; &nbsp; &nbsp; &nbsp;<span
+											<label for="user_phone">휴대전화&nbsp; &nbsp; &nbsp; &nbsp;<span
 													class="error_box"></span></label>
-											<input type="tel" class="form-control" id="memberTel" name="memberTel">
+											<input type="tel" class="form-control" id="user_phone" name="user_phone">
 										</div>
-
+										<br/>
+										<!-- 성별 -->
+										<div class="form-group">
+											<label for="user_gender">성별&nbsp; &nbsp; &nbsp; &nbsp;<span
+													class="error_box"></span>													
+													</label>
+										</div>
+										<div class="form_toggle row-vh d-flex flex-row justify-content-between" >
+											<div class="form_radio_btn radio_male">
+												<input id="radio-1" type="radio" name="user_gender" value="남" checked>
+												<label for="radio-1">남자</label>
+											</div>							 
+											<div class="form_radio_btn">
+												<input id="radio-2" type="radio" name="user_gender" value="여">
+												<label for="radio-2">여자</label>
+											</div>
+										</div>
+										
 										<!-- Address -->
-										<div class="form-group first field--not-empty" style="margin-top:15%">
+										<div class="form-group first field--not-empty" style="margin-top:10%">
 											<label for="memberAddr">주소&nbsp; &nbsp; &nbsp; &nbsp;<span
 													class="error_box"></span></label>
 										</div>
-										<div class="AddrAdd">
+										
+										<div class="AddrAdd" >
 											<div class="form-group">
 												<input class="form-control" style="width: 40%; display: inline;" placeholder="우편번호" name="addr1" id="addr1" type="text" readonly="readonly" >
 													<button type="button" class="btn btn-orange Addr" onclick="execPostCode();" style="background-color:#F8b03a; color:white;"><i class="fa fa-search"></i> 우편번호 찾기</button>                               
@@ -108,7 +126,6 @@
 												<div class="form-group">
 													<input class="form-control" placeholder="상세주소" name="addr3" id="addr3" type="text"  />
 												</div>
-												
 										</div>
 
 										<div class="d-flex mb-5 align-items-center" id="agree">
@@ -455,7 +472,7 @@
 											▶ 이전 이용 약관 보기 (0000년 00월 00일 ~ 0000년 00월 00일)
 										</div>
 										
-										<input type="button" value="가입하기" id="btn_signUp" class="btn btn-pill btn-block text-white btn-orange" style="background-color:#F8b03a; color:white;">
+										<input type="submit" value="가입하기" id="btn_signUp" class="btn btn-pill btn-block text-white btn-orange" style="background-color:#F8b03a; color:white;">
 										<div class="d-flex mb-5 align-items-center" id="homeGO">
 											<label class="control control--checkbox mb-0"><span class="caption"></span>
 											</label>
@@ -549,9 +566,6 @@
                 $("[name=addr1]").val(data.zonecode);
                 $("[name=addr2]").val(fullRoadAddr);
                 
-                /* document.getElementById('signUpUserPostNo').value = data.zonecode; //5자리 새우편번호 사용
-                document.getElementById('signUpUserCompanyAddress').value = fullRoadAddr;
-                document.getElementById('signUpUserCompanyAddressDetail').value = data.jibunAddress; */
             }
         }).open();
     }

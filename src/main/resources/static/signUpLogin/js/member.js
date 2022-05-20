@@ -21,20 +21,20 @@ var emailCheak = false;
 $('#btn_emailCheak').click(function(){
 	// 이메일 중복검사 확인 여부
 	
-	$('label[for="memberEmail"] .error_box').html("");
-	var memberEmail = $.trim($("#memberEmail").val());
+	$('label[for="user_email"] .error_box').html("");
+	var user_email = $.trim($("#user_email").val());
 	
 	// 입력값이 없을 때 에러박스
-	if(memberEmail == ''){
+	if(user_email == ''){
 
-		$('label[for="memberEmail"] .error_box').html(blank);
+		$('label[for="user_email"] .error_box').html(blank);
 		return false;
 
 	}
 	// 형식에 맞지 않을 때 나오는 에러박스
-	if( !RegexEmail.test(memberEmail) ){
-		$('label[for="memberEmail"] .error_box').css('color','#ED7A64');
-		$('label[for="memberEmail"] .error_box').html("이메일 형식이 올바르지 않습니다.");
+	if( !RegexEmail.test(user_email) ){
+		$('label[for="user_email"] .error_box').css('color','#ED7A64');
+		$('label[for="user_email"] .error_box').html("이메일 형식이 올바르지 않습니다.");
 		return;
 	}
 	
@@ -42,18 +42,18 @@ $('#btn_emailCheak').click(function(){
  	  $.ajax({
     	type : 'post',
     	url : 'emailCheck.do',
-    	data : { memberEmail : $('#memberEmail').val() },
+    	data : { memberEmail : $('#user_email').val() },
     	contentType : 'application/x-www-form-urlencoded;charset=utf-8',
     	success : function(result){
     		
     		// 중복 검사 후 나오는 결과 에러박스에 출력
     		if(result == 'Y'){
-	        		$('label[for="memberEmail"] .error_box').css('color','#4ABA99');
-	        		$('label[for="memberEmail"] .error_box').html("사용 가능한 이메일입니다.");
+	        		$('label[for="user_email"] .error_box').css('color','#4ABA99');
+	        		$('label[for="user_email"] .error_box').html("사용 가능한 이메일입니다.");
 	        		emailCheak = true;
 				}else{
-	        		$('label[for="memberEmail"] .error_box').css('color','#ED7A64');
-	        		$('label[for="memberEmail"] .error_box').html("사용할 수 없는 이메일입니다.");
+	        		$('label[for="user_email"] .error_box').css('color','#ED7A64');
+	        		$('label[for="user_email"] .error_box').html("사용할 수 없는 이메일입니다.");
 	        		emailCheak = false;
 				}
     	},
@@ -71,134 +71,123 @@ $('#btn_emailCheak').click(function(){
 $('#btn_signUp').click(function(){
 
 	// input에 입력된 값을 공백제거하고 변수에 담기
-	var memberNickname = $.trim($("#memberNickname").val());
-	var memberEmail = $.trim($("#memberEmail").val());
-	var memberPassword = $.trim($("#memberPassword").val());
-	var passwordCheck = $.trim($("#passwordCheck").val());
-	var memberName = $.trim($("#memberName").val());
-	var memberBirth = $.trim($("#memberBirth").val());
-	var memberTel = $.trim($("#memberTel").val());
+	var user_nickname = $.trim($("#user_nickname").val());
+	var user_email = $.trim($("#user_email").val());
+	var user_pass = $.trim($("#user_pass").val());
+	var user_passCheck = $.trim($("#user_passCheck").val());
+	var user_name = $.trim($("#user_name").val());
+	var user_gender = $.trim($("#user_gender").val());
+	var user_phone = $.trim($("#user_phone").val());
 	
 	/* 닉네임 */
-	if(memberNickname == ''){
-		$('label[for="memberNickname"] .error_box').html(blank);
-		$('#memberNickname').focus();
+	if(user_nickname == ''){
+		$('label[for="user_nickname"] .error_box').html(blank);
+		$('#user_nickname').focus();
     		return;
 		}else{
-		$('label[for="memberNickname"] .error_box').html("");
+		$('label[for="user_nickname"] .error_box').html("");
 		}		
 	
-	if( !RegexNick.test(memberNickname) ){
+	if( !RegexNick.test(user_ncickname) ){
 
-		$('label[for="memberNickname"] .error_box').html("한글, 영문 그리고 숫자만 입력 가능합니다.");
+		$('label[for="user_nickname"] .error_box').html("한글, 영문 그리고 숫자만 입력 가능합니다.");
 		return;
 	}else{
-		$('label[for="memberNickname"] .error_box').html("");
+		$('label[for="user_nickname"] .error_box').html("");
 		}
 	
 	
 	/* 이메일 */
-	if(memberEmail == ''){
-		$('label[for="memberEmail"] .error_box').html(blank);
-		$('#memberEmail').focus();
+	if(user_email == ''){
+		$('label[for="user_email"] .error_box').html(blank);
+		$('#user_email').focus();
     		return;
 		}else{
-		$('label[for="memberEmail"] .error_box').html("");
+		$('label[for="user_email"] .error_box').html("");
 		}	
 	
-	if( !RegexEmail.test(memberEmail) ){
+	if( !RegexEmail.test(user_email) ){
 
-		$('label[for="memberEmail"] .error_box').html("이메일 형식이 올바르지 않습니다.");
+		$('label[for="user_email"] .error_box').html("이메일 형식이 올바르지 않습니다.");
 		return;
 	}else{
-		$('label[for="memberEmail"] .error_box').html("");
+		$('label[for="user_email"] .error_box').html("");
 		}
 	
 	/* 비밀번호 */
-	if(memberPassword == ''){
-		$('label[for="memberPassword"] .error_box').html(blank);
-		$('#memberPassword').focus();
+	if(user_pass == ''){
+		$('label[for="user_pass"] .error_box').html(blank);
+		$('#user_pass').focus();
     		return;
 		}else{
-		$('label[for="memberPassword"] .error_box').html("");
+		$('label[for="user_pass"] .error_box').html("");
 		}
 	
-	if( !RegexPW.test(memberPassword) ){
+	if( !RegexPW.test(user_pass) ){
 
-		$('label[for="memberPassword"] .error_box').html("비밀번호는 영문자와 숫자를 사용하여 6~15자로 작성해 주십시오.");
+		$('label[for="user_pass"] .error_box').html("비밀번호는 영문자와 숫자를 사용하여 6~15자로 작성해 주십시오.");
 		return;
 	}else{
-		$('label[for="memberPassword"] .error_box').html("");
+		$('label[for="user_pass"] .error_box').html("");
 		}
 	
 	/* 비밀번호 재확인 */
-	if(passwordCheck == ''){
-		$('label[for="passwordCheck"] .error_box').html("필수 입력 사항입니다.");
-		$('#passwordCheck').focus();
+	if(user_passCheck == ''){
+		$('label[for="user_passCheck"] .error_box').html("필수 입력 사항입니다.");
+		$('#user_passCheck').focus();
     		return;
 		}else{
-		$('label[for="passwordCheck"] .error_box').html("");
+		$('label[for="user_passCheck"] .error_box').html("");
 		}
 	
 	
 	/* 비밀번호 일치 여부 확인 */
-	if(memberPassword != passwordCheck){
-		$('label[for="passwordCheck"] .error_box').html("비밀번호가 일치하지 않습니다.");
-		$('#passwordCheck').focus();
+	if(user_pass != user_passCheck){
+		$('label[for="user_passCheck"] .error_box').html("비밀번호가 일치하지 않습니다.");
+		$('#user_passCheck').focus();
 		return;
 	}
 	
 	/* 이름 */
-	if(memberName == ''){
-		$('label[for="memberName"] .error_box').html(blank);
-		$('#memberName').focus();
+	if(user_name == ''){
+		$('label[for="user_name"] .error_box').html(blank);
+		$('#user_name').focus();
     		return;
 		}else{
-		$('label[for="memberName"] .error_box').html("");
+		$('label[for="user_name"] .error_box').html("");
 		}
-	if( !RegexName.test(memberName) ){
+	if( !RegexName.test(user_name) ){
 
-		$('label[for="memberName"] .error_box').html("한글만 입력 가능합니다.");
+		$('label[for="user_name"] .error_box').html("한글만 입력 가능합니다.");
 		return;
 	}else{
-		$('label[for="memberName"] .error_box').html("");
+		$('label[for="user_name"] .error_box').html("");
 		}
-		
-		
-	/* 생년월일 */
-	if(memberBirth == ''){
-		$('label[for="memberBirth"] .error_box').html(blank);
-		$('#memberBirth').focus();
-    		return;
-		}else{
-		$('label[for="memberBirth"] .error_box').html("");
-		}
-	
 		
 	
 	/* 휴대전화 */
-	if(memberTel == ''){
-		$('label[for="memberTel"] .error_box').html(blank);
-		$('#memberTel').focus();
+	if(user_phone == ''){
+		$('label[for="user_phone"] .error_box').html(blank);
+		$('#user_phone').focus();
     		return false;
 		}else{
-		$('label[for="memberTel"] .error_box').html("");
+		$('label[for="user_phone"] .error_box').html("");
 		}
 	if( !RegexTel.test(memberTel) ){
 
-		$('label[for="memberTel"] .error_box').html("전화번호 형식이 올바르지 않습니다. ex)010-000~0-000~0");
+		$('label[for="user_phone"] .error_box').html("전화번호 형식이 올바르지 않습니다. ex)010-000~0-000~0");
 		return;
 	}else{
-		$('label[for="memberTel"] .error_box').html("");
+		$('label[for="user_phone"] .error_box').html("");
 		}
 	
 	
 	// 이메일 중복 여부 체크 했는지 확인
 	if( !emailCheak ){
-		$('label[for="memberEmail"] .error_box').html("이메일 중복 여부를 확인해주세요.");
+		$('label[for="user_email"] .error_box').html("이메일 중복 여부를 확인해주세요.");
 		return;
 	}else {
-		$('label[for="memberEmail"] .error_box').html("");
+		$('label[for="user_email"] .error_box').html("");
 	}
 	
 	
@@ -213,17 +202,17 @@ $('#btn_signUp').click(function(){
 		$.ajax({
 			    	type : 'post',
 			    	url : 'emailCheck.do',
-			    	data : { memberEmail : $('#memberEmail').val() },
+			    	data : { user_email : $('#user_email').val() },
 			    	contentType : 'application/x-www-form-urlencoded;charset=utf-8',
 			    	success : function(result){
 			    		// 중복 검사 후 나오는 결과 에러박스에 출력
 			    		if(result == 'Y'){
-			    			$('label[for="memberEmail"] .error_box').html("");
+			    			$('label[for="user_email"] .error_box').html("");
 				        		document.member_frm.submit();
 				        		alert("회원가입이 되었습니다.");
 							}else{
-				        		$('label[for="memberEmail"] .error_box').css('color','#ED7A64');
-								$('label[for="memberEmail"] .error_box').html("이메일 중복 여부를 확인해주세요.");
+				        		$('label[for="user_email"] .error_box').css('color','#ED7A64');
+								$('label[for="user_email"] .error_box').html("이메일 중복 여부를 확인해주세요.");
 				        		emailCheak = false;
 				        		return;
 							}
@@ -244,38 +233,38 @@ $('#btn_signUp').click(function(){
 
 $('#btnLogin').click(function(){
 
-	var memberEmail = $.trim($("#memberEmail").val());
-	var memberPassword = $.trim($("#memberPassword").val());
+	var user_email = $.trim($("#user_email").val());
+	var user_pass = $.trim($("#user_pass").val());
 	var rememberEmail = false;
 
 	/* 이메일 */
-	if(memberEmail == ''){
-		$('label[for="memberEmail"] .error_box').html(blank);
-		$('#memberEmail').focus();
+	if(user_email == ''){
+		$('label[for="user_email"] .error_box').html(blank);
+		$('#user_email').focus();
     		return;
 		}else{
-		$('label[for="memberEmail"] .error_box').html("");
+		$('label[for="user_email"] .error_box').html("");
 		}	
 	
 	/* 비밀번호 */
-	if(memberPassword == ''){
-		$('label[for="memberPassword"] .error_box').html(blank);
-		$('#memberPassword').focus();
+	if(user_pass == ''){
+		$('label[for="user_pass"] .error_box').html(blank);
+		$('#user_pass').focus();
     		return;
 		}else{
-		$('label[for="memberPassword"] .error_box').html("");
+		$('label[for="user_pass"] .error_box').html("");
 		}
 	
 	/* 이메일 기억하기 체크 박스*/
-	if( $("#rememberEmail").is(':checked') ){
+	if( $("#user_email").is(':checked') ){
 		rememberEmail = true;
 		}//end of if
 	
   $.ajax({
 	type : 'post',
 	url : 'loginCheck.do',
-	data : { memberEmail : $("#memberEmail").val(),
-			memberPassword : $("#memberPassword").val(),
+	data : { user_email : $("#user_email").val(),
+			user_pass : $("#user_pass").val(),
 			rememberEmail : rememberEmail
 	 		},
 	contentType : 'application/x-www-form-urlencoded;charset=utf-8',
@@ -302,21 +291,21 @@ $('#btnLogin').click(function(){
 	[ 비밀번호 재설정 페이지(1) ]
 	비밀번호 찾기 버튼 클릭
 */
-
+/* 비밀번호 찾기*/
 $('#btnPwSearch').click(function(){
 	
 	// input에 입력된 값을 공백제거하고 변수에 담기
-	var memberEmail = $.trim($("#memberEmail").val());
-	var memberTel = $.trim($("#memberTel").val());	
-	var memberName = $.trim($("#memberName").val());
+	var user_email = $.trim($("#user_email").val());
+	var user_phone = $.trim($("#user_phone").val());	
+	var user_name = $.trim($("#user_name").val());
 	
 	// 회원 정보가 있는지 확인
  	  $.ajax({
     	type : 'post',
     	url : 'pwSearch.do',
-    	data : { memberEmail : $('#memberEmail').val(),
-    			memberTel : $('#memberTel').val(),
-    			memberName : $('#memberName').val(),
+    	data : { user_email : $('#user_email').val(),
+    			user_phone : $('#user_phone').val(),
+    			user_name : $('#user_name').val(),
     	 		},
     	contentType : 'application/x-www-form-urlencoded;charset=utf-8',
     	success : function(result){
@@ -339,40 +328,40 @@ $('#btnPwSearch').click(function(){
 
 // [ 비밀번호 재설정 페이지(2) ]
 $('#btnPwChange').click(function(){
-	var memberPassword = $.trim($("#memberPassword").val());
-	var passwordCheck = $.trim($("#passwordCheck").val());
+	var user_pass = $.trim($("#user_pass").val());
+	var user_passCheck = $.trim($("#user_passCheck").val());
 	
 	/* 비밀번호 */
-	if(memberPassword == ''){
-		$('label[for="memberPassword"] .error_box').html(blank);
-		$('#memberPassword').focus();
+	if(user_pass == ''){
+		$('label[for="user_pass"] .error_box').html(blank);
+		$('#user_pass').focus();
     		return;
 		}else{
-		$('label[for="memberPassword"] .error_box').html("");
+		$('label[for="user_pass"] .error_box').html("");
 		}
 	
-	if( !RegexPW.test(memberPassword) ){
+	if( !RegexPW.test(user_pass) ){
 
-		$('label[for="memberPassword"] .error_box').html("비밀번호는 영문자와 숫자를 사용하여 6~15자로 작성해 주십시오.");
+		$('label[for="user_pass"] .error_box').html("비밀번호는 영문자와 숫자를 사용하여 6~15자로 작성해 주십시오.");
 		return;
 	}else{
-		$('label[for="memberPassword"] .error_box').html("");
+		$('label[for="user_pass"] .error_box').html("");
 		}
 	
 	/* 비밀번호 재확인 */
-	if(passwordCheck == ''){
-		$('label[for="passwordCheck"] .error_box').html("필수 입력 사항입니다.");
-		$('#passwordCheck').focus();
+	if(user_passCheck == ''){
+		$('label[for="user_passCheck"] .error_box').html("필수 입력 사항입니다.");
+		$('#user_passCheck').focus();
     		return;
 		}else{
-		$('label[for="passwordCheck"] .error_box').html("");
+		$('label[for="user_passCheck"] .error_box').html("");
 		}
 	
 	
 	/* 비밀번호 일치 여부 확인 */
-	if(memberPassword != passwordCheck){
-		$('label[for="passwordCheck"] .error_box').html("비밀번호가 일치하지 않습니다.");
-		$('#passwordCheck').focus();
+	if(user_pass != user_passCheck){
+		$('label[for="user_passCheck"] .error_box').html("비밀번호가 일치하지 않습니다.");
+		$('#user_passCheck').focus();
 		return;
 	}
 	document.pwChangeForm.submit();
@@ -380,110 +369,88 @@ $('#btnPwChange').click(function(){
 	
 }); // end of #btnPwChange
 
-
+/* 회원 정보 수정*/
 $('#btnMemberUpdate').click(function(){
 	
 	// input에 입력된 값을 공백제거하고 변수에 담기
-	var memberNickname = $.trim($("#memberNickname").val());
-	var memberPassword = $.trim($("#memberPassword").val());
-	var passwordCheck = $.trim($("#passwordCheck").val());
-	var memberName = $.trim($("#memberName").val());
-	var memberBirth = $.trim($("#memberBirth").val());
-	var memberTel = $.trim($("#memberTel").val());
+	var user_nickname = $.trim($("#user_nickname").val());
+	var user_pass = $.trim($("#user_pass").val());
+	var user_passCheck = $.trim($("#user_passCheck").val());
+	var user_name = $.trim($("#user_name").val());
+	var user_gender = $.trim($("#user_gender").val());
+	var user_phone = $.trim($("#user_phone").val());
 	
 	
 	/* 닉네임 */
-	if(memberNickname == ''){
-		$('label[for="memberNickname"] .error_box').html(blank);
-		$('#memberNickname').focus();
+	if(user_nickname == ''){
+		$('label[for="user_nickname"] .error_box').html(blank);
+		$('#user_nickname').focus();
     		return;
 		}else{
-		$('label[for="memberNickname"] .error_box').html("");
+		$('label[for="user_nickname"] .error_box').html("");
 		}		
 	
-	if( !RegexNick.test(memberNickname) ){
+	if( !RegexNick.test(user_nickname) ){
 
-		$('label[for="memberNickname"] .error_box').html("닉네임 형식이 올바르지 않습니다.");
+		$('label[for="user_nickname"] .error_box').html("닉네임 형식이 올바르지 않습니다.");
 		return;
 	}else{
-		$('label[for="memberNickname"] .error_box').html("");
+		$('label[for="user_nickname"] .error_box').html("");
 		}
 	
-	if(memberPassword != ""){
+	if(user_pass != ""){
 	
 	/* 비밀번호 */
 
-	if( !RegexPW.test(memberPassword) ){
+	if( !RegexPW.test(user_pass) ){
 
-		$('label[for="memberPassword"] .error_box').html("비밀번호는 영문자와 숫자를 사용하여 6~15자로 작성해 주십시오.");
+		$('label[for="user_pass"] .error_box').html("비밀번호는 영문자와 숫자를 사용하여 6~15자로 작성해 주십시오.");
 		return;
 	}else{
-		$('label[for="memberPassword"] .error_box').html("");
+		$('label[for="user_pass"] .error_box').html("");
 		}
 	
 	/* 비밀번호 재확인 */
 
 	/* 비밀번호 일치 여부 확인 */
-	if(memberPassword != passwordCheck){
-		$('label[for="passwordCheck"] .error_box').html("비밀번호가 일치하지 않습니다.");
-		$('#passwordCheck').focus();
+	if(user_pass != user_passCheck){
+		$('label[for="user_passCheck"] .error_box').html("비밀번호가 일치하지 않습니다.");
+		$('#user_passCheck').focus();
 		return;
 	}
 	}// end of if(비밀번호 입력 여부)
 	
 	/* 이름 */
-	if(memberName == ''){
-		$('label[for="memberName"] .error_box').html(blank);
-		$('#memberName').focus();
+	if(user_name == ''){
+		$('label[for="user_name"] .error_box').html(blank);
+		$('#user_name').focus();
     		return;
 		}else{
-		$('label[for="memberName"] .error_box').html("");
+		$('label[for="user_name"] .error_box').html("");
 		}
-	if( !RegexName.test(memberName) ){
+	if( !RegexName.test(user_name) ){
 
-		$('label[for="memberName"] .error_box').html("이름 형식이 올바르지 않습니다.");
+		$('label[for="user_name"] .error_box').html("이름 형식이 올바르지 않습니다.");
 		return;
 	}else{
-		$('label[for="memberName"] .error_box').html("");
+		$('label[for="user_name"] .error_box').html("");
 		}
-		
-	// 생년월일 max를 오늘 날짜로 지정하기
- 	var today = new Date();
- 	var day = today.getDate();
- 	var monty = today.getMonth()+1;
- 	var year = today.getFullYear();
-
-	if(day<10){ day = '0'+ day}
-	if(monty<10){ monty = '0' + monty}
-	today = year + "-" + monty + "-" + day;
-	document.getElementById('memberBirth').setAttribute("max", today);
-	
-	
-	/* 생년월일 */
-	if(memberBirth == ''){
-		$('label[for="memberBirth"] .error_box').html(blank);
-		$('#memberBirth').focus();
-    		return;
-		}else{
-		$('label[for="memberBirth"] .error_box').html("");
-		}
-	
 		
 	/* 휴대전화 */
-	if(memberTel == ''){
-		$('label[for="memberTel"] .error_box').html(blank);
-		$('#memberTel').focus();
+	if(user_phone == ''){
+		$('label[for="user_phone"] .error_box').html(blank);
+		$('#user_phone').focus();
     		return false;
 		}else{
-		$('label[for="memberTel"] .error_box').html("");
+		$('label[for="user_phone"] .error_box').html("");
 		}
 		
-	if( !RegexTel.test(memberTel) ){
+	if( !RegexTel.test(user_phone) ){
 
-		$('label[for="memberTel"] .error_box').html("전화번호 형식이 올바르지 않습니다. ex)010-000~0-000~0");
+		$('label[for="user_phone"] .error_box').html("전화번호 형식이 올바르지 않습니다. ex)010-000~0-000~0");
 		return;
 	}else{
-		$('label[for="memberTel"] .error_box').html("");
+		$('label[for="user_phone"] .error_box').html("");
 		}
 	
 	
@@ -496,21 +463,8 @@ $('#btnAgree').click(function(){
 $('#btnMemberDelete').click(function(){
 	var result = confirm("정말 탈퇴하시겠습니까?");
 	if(result){
-		document.memberDelete.submit();
+		document.user_delete.submit();
 	}
 
 })
-
-
-// 생년월일 max를 오늘 날짜로 지정하기
- 	var date = new Date();
- 	var day = date.getDate();
- 	var month = date.getMonth()+1;
- 	var year = date.getFullYear();
-
-	if(day<10){ day = '0'+ day}
-	if(month<10){ month = '0' + month}
-	var today = year + "-" + month + "-" + day;
-	document.getElementById('memberBirth').setAttribute("max", today);
-
 

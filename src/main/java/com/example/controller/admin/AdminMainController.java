@@ -10,9 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.example.dao.AgencyRepository;
-import com.example.dao.ReportRepository;
+import com.example.domain.ReportVO;
 import com.example.domain.UserVO;
+import com.example.service.admin.AdminReportService;
 import com.example.service.admin.AdminUserService;
 
 
@@ -22,6 +22,9 @@ public class AdminMainController {
 	
 	@Autowired
 	private AdminUserService adminUserService;
+	
+	@Autowired
+	private AdminReportService adminReportService;
 	
 	@RequestMapping(value="", method=RequestMethod.GET)
 	public String adminPage() {
@@ -64,6 +67,27 @@ public class AdminMainController {
 //						
 //		return "/admin/report/adminRpReview";
 //	}
+	
+	//리뷰신고
+	@RequestMapping(value="adminReview", method=RequestMethod.GET)
+	public String reportReview(Model m) {
+		List<HashMap> llist= new ArrayList<>();
+		List<Object[]> list = adminReportService.reportReviewList(new ReportVO());
+		
+		for(Object[] o : list) {
+			HashMap hm = new HashMap<>();
+			hm.put("r_num",(int)o[0] );
+			hm.put("user_email",(String)o[1] );
+			hm.put("review_content",(String)o[2] );
+			hm.put("r_reason",(String)o[3] );
+			llist.add(hm);
+		}		
+		m.addAttribute("list", llist);
+						
+		return "/admin/report/adminRpReview";
+	}
+	
+	
 	
 	//댓글신고
 	@RequestMapping(value="adminComment", method=RequestMethod.GET)

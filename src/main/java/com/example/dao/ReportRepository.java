@@ -15,8 +15,6 @@ public interface ReportRepository extends CrudRepository<ReportVO, Integer>{
 			+ "from report rp      "
 			+ "inner join review rv        "
 			+ "on rp.review_num = rv.review_num    ", nativeQuery = true)
-	public List<Object[]> reportReview();
-
-
+	 List<Object[]> reportReview();
 	
 }
