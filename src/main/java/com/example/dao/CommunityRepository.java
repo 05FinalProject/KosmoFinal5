@@ -10,7 +10,7 @@ import com.example.domain.CommunityVO;
 @Repository
 public interface CommunityRepository extends CrudRepository<CommunityVO, Integer> {
 	
-	/* public List<CommunityVO> findByc_num() */
+	
 	 
 	
 }
