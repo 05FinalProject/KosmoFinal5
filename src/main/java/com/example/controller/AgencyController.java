@@ -29,6 +29,15 @@ public class AgencyController {
 		return "/include/agencyHotelDetail";
 	}
 
+	@RequestMapping(value ="/agencyShelter", method=RequestMethod.GET)
+	public String agencyShelter() {
+		return "/include/agencyShelter";
+	}
+	
+	@RequestMapping(value ="/agencyShelterDetail", method=RequestMethod.GET)
+	public String agencyShelterDetail() {
+		return "/include/agencyShelterDetail";
+	}
 	
 	@RequestMapping(value ="/yootest", method=RequestMethod.GET)
 	public String yootest() {

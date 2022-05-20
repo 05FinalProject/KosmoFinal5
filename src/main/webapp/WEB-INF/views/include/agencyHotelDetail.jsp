@@ -93,6 +93,13 @@
     	width:24px;
     }
     
+    form-control2{
+    
+         width:100%;
+         height:100%;
+         background:#fff58c; 
+    }
+    
     
     </style>
     
@@ -381,82 +388,49 @@
     
     <button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
     
-    <div class="container">
+   
 
-	 
-	
-
-</div>
-<h3>회원 신고하기</h3>
+<h4>회원 신고하기</h4>
     
             <div class="widget-sidebar pet-sidebar">
-                <form class="pet-filter-form">
-                    
-                   
-                    <fieldset class="form-group">
-                    
-                      
-                    </fieldset>
-                    <fieldset class="form-group">
-                    
-                        <h4>신고사유</h4>
-                        <div class="form-row">
-                            <div class="col-lg">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="adult" checked>
-                                    <label class="custom-control-label" for="adult">게시글 도배</label>
-                                </div>
-                            </div>
-                            <div class="col-lg">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="baby">
-                                    <label class="custom-control-label" for="baby">욕설/비방</label>
-                                </div>
-                            </div>
-                            <div class="col-lg">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="senior">
-                                    <label class="custom-control-label" for="senior">음란성</label>
-                                </div>
-                            </div>
-                            <div class="col-lg">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="young">
-                                    <label class="custom-control-label" for="young">광고/홍보성</label>
-                                </div>
-                            </div>
-                            <div class="col-lg">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="female">
-                                    <label class="custom-control-label" for="female">개인정보 유출</label>
-                                </div>
-                            </div>
-                            <div class="col-lg">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="male">
-                                    <label class="custom-control-label" for="male">저작권 불법 도용</label>
-                                </div>
-                            </div>
-                            <div class="col-lg">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="male">
-                                    <label class="custom-control-label" for="male">기타</label>
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                   
-                    <fieldset class="form-group">
-                        <legend>신고 상세사유 작성 </legend>
+                
+                <form>
+                 <div class="padding-6">
+                  <div class="gen-after-report">
+                     <div class="gen-extra-report">
 
-                        <div class="form-group row">
-                            <div class="col">
-                                    <textarea class="form-control" name="message" rows="8" placeholder="내용"
-                                              aria-required="true" aria-label="Message" required="required"></textarea>
-                            </div>
-                        </div>
-                        
-                    </fieldset>
+                   <ul>
+                    <li>
+                    <div style="float: left">신고 작성자:</div>
+                    <div style="float: left">홍길동</div>
+                        </li>
+                     
+                    
+                    <li>
+                     <div style="float: left">신고 내용:</div>
+                     <div style="float: left">호로 자식들을 신고</div>
+                     
+                    </li>   
+                   </ul>
+                   </div> 
+</div>
+</div>
+
+<div id="water" >
+   <div class="form-group">
+
+<select class="form-control2">
+<option >게시글 도배</option>
+<option>욕설/비방</option>
+<option>음란성</option>
+<option>광고/홍보성</option>
+<option>개인정보 유출</option>
+<option>저작권 불법 도용</option>
+<option>기타</option>
+</select>
+</div>
+</div>                    
+                   
                     <button type="submit" class="btn btn-primary btn-block font-weight-bold text-uppercase">
                         신고하기
                     </button>
@@ -561,6 +535,20 @@
 		  });
 		  
 		});
+	
+	$(document).ready(function() {
+		   $('#select').css('color','gray');
+		   $('#select').change(function() {
+		      var current = $('#select').val();
+		      if (current != 'null') {
+		          $('#select').css('color','black');
+		      } else {
+		          $('#select').css('color','gray');
+		      }
+		   }); 
+		});
+	
+	
 </script>
 
 
