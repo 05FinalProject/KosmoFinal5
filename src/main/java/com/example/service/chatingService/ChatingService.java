@@ -12,4 +12,6 @@ public interface ChatingService {
 	
 	public List<ChatingRoomVO> findByRoomName(ChatingRoomVO vo);
 	
+	public List<ChatingRoomVO> getAllRooms();
+	
 }

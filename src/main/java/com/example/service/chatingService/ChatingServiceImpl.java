@@ -1,5 +1,6 @@
 package com.example.service.chatingService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,22 @@ public class ChatingServiceImpl implements ChatingService {
 	//채팅방인원수검색
 	public List<ChatingRoomVO> findByRoomName(ChatingRoomVO vo){
 		return ch.findByRoomName(vo.getRoomName());
+	}
+	
+	//채팅방리스트
+	public List<ChatingRoomVO> getAllRooms(){
+		List<ChatingRoomVO> rList = new ArrayList();
+		List<Object[]> list = ch.getAllRooms();
+		
+		for( Object[] o:list) {
+			ChatingRoomVO vo = new ChatingRoomVO();
+			vo.setRoomName((String)o[0]);
+			vo.setRoomNumber((int)o[1]);
+			rList.add(vo);
+		}
+		
+		
+		return rList;
 	}
 	
 }
