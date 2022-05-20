@@ -107,6 +107,7 @@
 	width: 120px;
 	border-radius: 4px;
 	font-weight: bold;
+	text-align: center;
 }
 
 #wrtieDaily-cancle {
@@ -153,19 +154,21 @@
 						<div class="post-content">
 							<h3 class="font-weight-bold">일상공유</h3>
 
-							<form id="contactform" class="contact-form mt-5">
+							<form id="contactform" class="contact-form mt-5" action="dailyDetail" enctype="multipart/form-data">
 
-								<div class="form-group row">
+							<!-- 	<div class="form-group row">
 									<div class="col">
 										<label for="input-file" class="font-weight-bold">사진등록<span
 											style="color: red">*</span></label>
-										<!-- 	<input multiple="multiple" type="file" name="files" id="input-file" class="form-control" aria-required="true"
-											aria-label="Subject"> -->
+											<input multiple="multiple" type="file" name="files" id="input-file" class="form-control" aria-required="true"
+											aria-label="Subject">
 											
-										<!-- 첨부한 이미지 목록 출력 -->	
-										<div class="write-change-crob-img">
+										첨부한 이미지 목록 출력	
+										<div>
+										<div class="imgs_wrap">
+											<img id="writeDetail-img" alt="" src="">
 											<ul class="write-crob-img-wrapper clearfix ui-sortable">
-												<!-- 썸네일 정보 -->
+												썸네일 정보
 												<li data-type="image" data-ori_preview="file0"
 													data-preview="news0" data-thumb_crob="1"
 													data-crob="crob_img1"><div
@@ -179,27 +182,34 @@
 												<div class="tag-item" hidden=""></div>												
 													<button type="button" class="util_btn del_util"
 														onclick="pageSnsWrite.deleteImage('file0',0)"></button></li>
-												<li data-type="image" data-ori_preview="file1"
-													data-preview="news1" data-thumb_crob="2"
-													data-crob="crob_img2"><div
-														class="click-item thumb_btn">
-														<input type="radio" name="crob_thumb_img" id="crob_img2"><label
-															class="write-crob-radio" for="crob_img2"></label>
-													</div>
-													<img class="write-crob-thumb" id="crob_main_thumb2"
-													src="blob:https://www.witkorea.kr/8fe521ea-d001-4d4e-9c27-c9ae98e202aa">
-												<div class="tag-item" hidden=""></div>													
-													<button type="button" class="util_btn del_util"
-														onclick="pageSnsWrite.deleteImage('file1',1)"></button></li>
+											
 											</ul>
 										</div>
+										</div>
 
-										<button id="writeDaily-imgupload" type="button"
-											style="float: right">사진첨부</button>
-										<input type="file" id="file" style="display: none;">
+										<a href="javascript:" id="writeDaily-imgupload" onclick="fileUploadAction();" style="float: right">사진첨부</a>
+										<input type="file" id="file" style="display: none;" multiple />
 									</div>
 
-								</div>
+								</div> -->
+								
+								<div>
+        <h2><b>이미지 미리보기</b></h2>
+        <div class="input_wrap">
+            <a href="javascript:" onclick="fileUploadAction();" class="my_button">파일 업로드</a>
+            <input type="file" id="input_imgs" multiple/>
+        </div>
+    </div>
+ 
+    <div>
+        <div class="imgs_wrap">
+            <img id="img" />
+        </div>
+    </div>
+ 
+    <a href="javascript:" class="my_button" onclick="submitAction();">업로드</a>
+    
+    
 								<div class="form-group row">
 									<div class="col">
 										<label class="font-weight-bold">글작성<span
@@ -213,7 +223,7 @@
 								<div class="row text-center">
 									<div class="col" id="btn-group">
 										<button id="wrtieDaily-cancle" type="submit"">취소</button>
-										<button id="writeDaily-btn" type="submit"">등록</button>
+										<button id="writeDaily-btn" onclick="submitAction();" type="submit"">등록</button>
 									</div>
 								</div>
 							</form>
@@ -239,12 +249,101 @@
 		src="../js/magnific-popup.min.js?ver=1.1.0"></script>
 	<script type="text/javascript" src="../js/custom-theme.js?ver=1.0.0"></script>
 	<script type="text/javascript">
-		$(document).ready(function(){
+	/* 	$(document).ready(function(){
 			$("#writeDaily-imgupload").click(function(e){
 				e.preventDefault();
 				$("#file").click();
 			});
 		});
+		$('body').click(function(){
+			$(".ui-sortable").append('<li data-type="image" data-ori_preview="file0" data-preview="news0" data-thumb_crob="1" data-crob="crob_img1">' +	 
+					'<div class="click-item thumb_btn">' +	 
+							'<input type="radio" name="crob_thumb_img" id="crob_img1"></div>' +	 
+						'<img class="write-crob-thumb" id="crob_main_thumb1" src="C:\Users\wlsgm\OneDrive\바탕 화면\도루묵.jpg">' +	 
+					'<div class="tag-item" hidden=""></div>	' +	 										
+						'<button type="button" class="util_btn del_util" onclick="pageSnsWrite.deleteImage("file0",0)"></button></li>')
+		}) */
+		 
+		
+		// 이미지 정보들을 담을 배열
+        var sel_files = [];
+ 
+ 
+        $(document).ready(function() {
+            $("#input_imgs").on("change", handleImgFileSelect);
+        }); 
+ 
+        function fileUploadAction() {
+            console.log("fileUploadAction");
+            $("#input_imgs").trigger('click');
+        }
+ 
+        function handleImgFileSelect(e) {
+ 
+            // 이미지 정보들을 초기화
+            sel_files = [];
+            $(".imgs_wrap").empty();
+ 
+            var files = e.target.files;
+            var filesArr = Array.prototype.slice.call(files);
+ 
+            var index = 0;
+            filesArr.forEach(function(f) {
+                if(!f.type.match("image.*")) {
+                    alert("확장자는 이미지 확장자만 가능합니다.");
+                    return;
+                }
+ 
+                sel_files.push(f);
+ 
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var html = "CONTENT";
+                    var html = "<a href=\"javascript:void(0);\" onclick=\"deleteImageAction("+index+")\" id=\"img_id_"+index+"\"><img src=\"" + e.target.result + "\" data-file='"+f.name+"' class='selProductFile' title='Click to remove'></a>";
+
+                    $(".imgs_wrap").append(html);
+                    index++;
+ 
+                }
+                reader.readAsDataURL(f);
+                
+            });
+        }
+        
+        
+        function deleteImageAction(index) {            
+                 console.log("index : "+index);
+                 sel_files.splice(index, 1);
+      
+                 var img_id = "#img_id_"+index;
+                 $(img_id).remove();
+      
+                 console.log(sel_files);
+             }    
+        function submitAction() {            
+            var data = new FormData();
+ 
+            for(var i=0, len=sel_files.length; i<len; i++) {
+                var name = "image_"+i;
+                data.append(name, sel_files[i]);
+            }
+            data.append("image_count", sel_files.length);
+           
+ 
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST","./study01_af.php");
+            xhr.onload = function(e) {
+                if(this.status == 200) {
+                    console.log("Result : "+e.currentTarget.responseText);
+                }
+            }
+ 
+            xhr.send(data);
+ 
+        }
+
+		 
+		 
 	</script>
 
 </body>
