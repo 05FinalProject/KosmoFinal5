@@ -19,8 +19,8 @@ public class HomeController {
 	public void HeaderPage() {
 	}
 	
-	@RequestMapping("header-style-3")
-	public void HeaderReal() {
+	@RequestMapping("footer-style-3")
+	public void footer() {
 	}
 	
 	@RequestMapping("/Footer")
