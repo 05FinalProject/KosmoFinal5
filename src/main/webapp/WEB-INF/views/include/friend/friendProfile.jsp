@@ -18,6 +18,39 @@
 <link rel="stylesheet" href="/community/css/owl.theme.default.min.css">
 <link rel="stylesheet" href="/community/css/style.css">
 <link rel="stylesheet" href="/community/css/responsive.css">
+
+<!-- admin템플릿 추가 -->
+<!-- Google Font: Source Sans Pro -->
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="../../admin/plugins/fontawesome-free/css/all.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet"
+	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- Tempusdominus Bootstrap 4 -->
+<link rel="stylesheet"
+	href="../../admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+<!-- iCheck -->
+<link rel="stylesheet"
+	href="../../admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+<!-- JQVMap -->
+<link rel="stylesheet" href="../../admin/plugins/jqvmap/jqvmap.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="../../admin/dist/css/adminlte.min.css">
+<!-- overlayScrollbars -->
+<link rel="stylesheet"
+	href="../../admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+<!-- Daterange picker -->
+<link rel="stylesheet"
+	href="../../admin/plugins/daterangepicker/daterangepicker.css">
+<!-- summernote -->
+<link rel="stylesheet"
+	href="../../admin/plugins/summernote/summernote-bs4.min.css">
+<!-- WithYou myPage Custom Css-->
+<link rel="stylesheet" href="/myPage/css/myPage.css">
+
 <script src="https://kit.fontawesome.com/23b331c6f8.js"
 	crossorigin="anonymous"></script>
 
@@ -234,8 +267,8 @@
 								<div class="aaa">
 									<div class="input-group" style="float: left;">
 										<span class="input-group-text"><i
-											class="fa-solid fa-bone"></i></span> <select class="form-control"
-											style="float: left;">
+											class="fa-solid fa-bone"></i></span> 
+											<select class="form-control" style="float: left;">
 											<option>견종 선택</option>
 											<c:forEach var="vo" items="${kindList}">
 											<option>${vo.dog_kind}</option>
@@ -338,6 +371,42 @@
 <script src="/community/js/owl.carousel.min.js"></script>
 <script src="/community/js/wow.min.js"></script>
 <script src="/community/js/main.js"></script>
+
+<!-- admin템플릿 추가 -->
+<!-- jQuery -->
+	<script src="../../admin/plugins/jquery/jquery.min.js"></script>
+	<!-- jQuery UI 1.11.4 -->
+	<script src="../../admin/plugins/jquery-ui/jquery-ui.min.js"></script>
+	<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+	<script>
+		$.widget.bridge('uibutton', $.ui.button)
+	</script>
+	<!-- Bootstrap 4 -->
+	<script src="../../admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- ChartJS -->
+	<script src="../../admin/plugins/chart.js/Chart.min.js"></script>
+	<!-- Sparkline -->
+	<script src="../../admin/plugins/sparklines/sparkline.js"></script>
+	<!-- JQVMap -->
+	<script src="../../admin/plugins/jqvmap/jquery.vmap.min.js"></script>
+	<script src="../../admin/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+	<!-- jQuery Knob Chart -->
+	<script src="../../admin/plugins/jquery-knob/jquery.knob.min.js"></script>
+	<!-- daterangepicker -->
+	<script src="../../admin/plugins/moment/moment.min.js"></script>
+	<script src="../../admin/plugins/daterangepicker/daterangepicker.js"></script>
+	<!-- Tempusdominus Bootstrap 4 -->
+	<script
+		src="../../admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+	<!-- Summernote -->
+	<script src="../../admin/plugins/summernote/summernote-bs4.min.js"></script>
+	<!-- overlayScrollbars -->
+	<script
+		src="../../admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="../../admin/dist/js/adminlte.js"></script>
+	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+	<script src="../../admin/dist/js/pages/dashboard.js"></script>
 
 <script type="text/javascript">
 		$(document).ready(function(){

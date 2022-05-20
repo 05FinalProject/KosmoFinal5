@@ -5,5 +5,6 @@ import com.example.domain.CommunityVO;
 public interface CommunityService {
 	
 	
+	
 
 }
