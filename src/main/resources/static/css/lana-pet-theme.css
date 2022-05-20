@@ -173,7 +173,7 @@ ul.social-icons li a.social-icon::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #F8B03A(39, 46, 55, 0.9);
+  background-color: rgba(39, 46, 55, 0.9);
 }
 
 .lana-full-bg-image-golden-large-sitting-dog-body-indoor {
@@ -333,7 +333,7 @@ ul.social-icons li a.social-icon::after {
 }
 
 .header.custom-background-image.bg-dark {
-  background: F8B03A !important;
+  background: rgba(39, 46, 55, 0.9) !important;
 }
 
 .header .header-content {
@@ -485,11 +485,11 @@ ul.social-icons li a.social-icon::after {
 }
 
 #lana-pet-main-navbar.navbar-dark .navbar-nav .nav-link {
-  color: white;
+  color: #fff;
 }
 
 #lana-pet-main-navbar.navbar-dark .navbar-nav .nav-link:hover, #lana-pet-main-navbar.navbar-dark .navbar-nav .nav-link:focus {
-  color: black;
+  color: #fff;
 }
 
 #lana-pet-main-navbar.navbar-dark .navbar-nav:not(.sm-collapsible) .dropdown .nav-link .sub-arrow {
@@ -902,7 +902,7 @@ ul.social-icons li a.social-icon::after {
 }
 
 #lana-pet-main-navbar.bg-transparent .navbar-nav.sm-collapsible .dropdown .nav-link .sub-arrow {
-  background: #f8b03a;
+  background: #272e37;
 }
 
 #lana-pet-main-navbar.bg-primary .navbar-nav.sm-collapsible .dropdown .nav-link .sub-arrow {
