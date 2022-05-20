@@ -18,7 +18,7 @@ public class AgencyVO {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer a_num;
 	
-	@Id
+	
 	private int a_category_num;	
 	
 	@Column(length = 200)
