@@ -23,6 +23,9 @@ public class UserVO {
 	private String user_name;
 	
 	@Column(length = 100)
+	private String user_pass;
+	
+	@Column(length = 100)
 	private String user_phone;
 	
 	@Column(length = 100)

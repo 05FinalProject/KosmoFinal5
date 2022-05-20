@@ -56,6 +56,9 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+              <form method="post" action="">
+              	<input type="hidden" name="_method" value="delete" />
+              	<input type="hidden" name="user_email" value="${user.user_email}" />
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
 	                  <tr>
@@ -77,12 +80,13 @@
 	                    <td>${user.user_phone}</td>
 	                    <td>${user.user_address}</td>
 	                    <td>${user.user_signup}</td>                  
-	                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
+	                    <td><button type="submit" class="btn btn-outline-danger">삭제</button></td>
 	                  </tr>      
                 </c:forEach>
                   </tbody>
                   <tfoot>
                 </table>
+                </form>
               </div>
               <!-- /.card-body -->
             </div>
@@ -107,6 +111,8 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+
+
 
 <!-- jQuery -->
 <script src="/admin/plugins/jquery/jquery.min.js"></script>
@@ -145,6 +151,10 @@
       "responsive": true,
     });
   });
+  
+  $('#frm').val(${user.user_email})
+  
+  console.log($('#frm').val())
 </script>
 </body>
 </html>
