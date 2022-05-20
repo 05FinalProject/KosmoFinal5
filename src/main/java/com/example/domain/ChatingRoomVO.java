@@ -26,6 +26,9 @@ public class ChatingRoomVO {
 	@Column(name = "room_num")
 	private int roomNumber;
 	
+	@Column(name = "room_pass", length = 100)
+	private String roomPass;
+	
 	@Column(name = "room_name", length = 100)
 	private String roomName;
 	

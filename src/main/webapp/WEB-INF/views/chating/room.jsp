@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -78,12 +78,13 @@
         <div class="col-12 col-lg-8">
             <div class="pet-grid-posts">
                 <div class="row">
+                    <c:forEach var="vo" items="${list}">
                     <div class="pet-grid-col col-12 col-md-6">
                         <div id="post-1" class="lana_pet type-lana_pet post-1 card pet-grid-card h-100">
                             	
                             <div class="card-body">
                                 <h5 class="post-title card-title">
-                                    Pet #1
+                                    ${vo.roomName} #${vo.roomNumber}
                                 </h5>
                               
                             </div>
@@ -97,97 +98,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="pet-grid-col col-12 col-md-6">
-                        <div id="post-2" class="lana_pet type-lana_pet post-2 card pet-grid-card h-100">
-                            
-                            <div class="card-body">
-                                <h5 class="post-title card-title">
-                                    Pet #2
-                                </h5>
-                                
-                            </div>
-                            <div class="card-footer">
-                                <p class="card-text">
-                                    <a href="#" class="more-link card-link">
-                                        들어가기 <i class="lana-icon-arrow-right text-primary"></i>
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pet-grid-col col-12 col-md-6">
-                        <div id="post-3" class="lana_pet type-lana_pet post-3 card pet-grid-card h-100">
-                            
-                       
-                            <div class="card-body">
-                                <h5 class="post-title card-title">
-                                    Pet #3
-                                </h5>
-                                
-                            </div>
-                            <div class="card-footer">
-                                <p class="card-text">
-                                    <a href="#" class="more-link card-link">
-                                        들어가기 <i class="lana-icon-arrow-right text-primary"></i>
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pet-grid-col col-12 col-md-6">
-                        <div id="post-4" class="lana_pet type-lana_pet post-4 card pet-grid-card h-100">
-                            
-                            <div class="card-body">
-                                <h5 class="post-title card-title">
-                                    Pet #4
-                                </h5>
-                                
-                            </div>
-                            <div class="card-footer">
-                                <p class="card-text">
-                                    <a href="#" class="more-link card-link">
-                                        들어가기 <i class="lana-icon-arrow-right text-primary"></i>
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pet-grid-col col-12 col-md-6">
-                        <div id="post-5" class="lana_pet type-lana_pet post-5 card pet-grid-card h-100">
-                            
-                            <div class="card-body">
-                                <h5 class="post-title card-title">
-                                    Pet #5
-                                </h5>
-                                
-                            </div>
-                            <div class="card-footer">
-                                <p class="card-text">
-                                    <a href="#" class="more-link card-link">
-                                        들어가기 <i class="lana-icon-arrow-right text-primary"></i>
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pet-grid-col col-12 col-md-6">
-                        <div id="post-6" class="lana_pet type-lana_pet post-6 card pet-grid-card h-100">
-                            
-                            <div class="card-body">
-                                <h5 class="post-title card-title">
-                                    Pet #6
-                                </h5>
-                                
-                            </div>
-                            <div class="card-footer">
-                                <p class="card-text">
-                                    <a href="#" class="more-link card-link">
-                                        들어가기 <i class="lana-icon-arrow-right text-primary"></i>
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    
+                    </c:forEach>
                 </div>
 
                 <nav class="navigation pagination justify-content-between bg-transparent text-uppercase"
