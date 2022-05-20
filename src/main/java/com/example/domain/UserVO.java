@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import lombok.Data;
 
@@ -51,5 +52,13 @@ public class UserVO {
 	@Temporal(TemporalType.DATE)
 	private Date user_signup;
 	
+	@Transient
+	private String addr1;
+	
+	@Transient
+	private String addr2;
+	
+	@Transient
+	private String addr3;
 	
 }
