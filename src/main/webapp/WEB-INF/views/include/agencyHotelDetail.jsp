@@ -93,11 +93,16 @@
     	width:24px;
     }
     
-    form-control2{
+    .form-control2{
     
          width:100%;
          height:100%;
          background:#fff58c; 
+    }
+    
+    .btn btn-primary btn-block font-weight-bold text-uppercase{
+    width:5px;
+    height:5px;
     }
     
     
