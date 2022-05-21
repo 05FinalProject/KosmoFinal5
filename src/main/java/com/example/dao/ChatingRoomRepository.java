@@ -32,4 +32,9 @@ public interface ChatingRoomRepository extends CrudRepository<ChatingRoomVO, Int
 	 @Query("SELECT c FROM ChatingRoomVO c ORDER BY c.roomNumber DESC")
 	 public List<ChatingRoomVO> getLastRoomNumber();
 	 
+	 //select * from chating_room 
+	 //where room_num = 1 and room_pass = '12';
+	 @Query("SELECT c FROM ChatingRoomVO c WHERE c.roomNumber=:roomNumber and c.roomPass=:roomPass")
+	 public List<ChatingRoomVO> checkRoomPass(int roomNumber,String roomPass );
+	 
 }

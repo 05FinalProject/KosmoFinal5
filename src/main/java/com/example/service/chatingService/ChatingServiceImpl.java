@@ -55,6 +55,8 @@ public class ChatingServiceImpl implements ChatingService {
 		return ch.getLastRoomNumber();
 	}
 	
-	
+	public List<ChatingRoomVO> checkRoomPass(ChatingRoomVO vo){
+		return ch.checkRoomPass(vo.getRoomNumber(),vo.getRoomPass());
+	}
 	
 }

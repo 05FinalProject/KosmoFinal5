@@ -1,17 +1,23 @@
 package com.example.controller.api;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.domain.ChatingRoomVO;
 import com.example.domain.Room;
+import com.example.service.chatingService.ChatingService;
 
 @Controller
 @RequestMapping("/api")
 @ResponseBody
 public class ApiController {
 	
-	
+	@Autowired
+	private ChatingService service;
 	
 	@RequestMapping(value = "/members",produces = "application/text; charset=UTF-8")
 	public String members(Room room) {
@@ -22,5 +28,16 @@ public class ApiController {
 		
 		return String.valueOf(Integer.parseInt(Character.toString(room.getRoomName().strip().charAt(4)) )-1);
 		
+	}
+	
+	@RequestMapping(value = "/checkRoomPass",produces = "application/text; charset=UTF-8")
+	public String members(ChatingRoomVO vo) {
+		String boo = "no";
+		List<ChatingRoomVO> list = service.checkRoomPass(vo);
+		if(list.size()>0) {
+			boo = "yes";
+		}
+		
+		return boo;
 	}
 }

@@ -17,5 +17,6 @@ public interface ChatingService {
 	
 	public List<ChatingRoomVO> getLastRoomNumber();
 	
+	public List<ChatingRoomVO> checkRoomPass(ChatingRoomVO vo);
 
 }
