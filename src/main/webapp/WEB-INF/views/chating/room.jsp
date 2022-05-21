@@ -141,14 +141,15 @@
                         <a id="makeRoom" class="tag-cloud-link "  >채팅방만들기</a>
                     </div>
                 </div>
-                <form class="pet-filter-form" id="frm">
+                <form class="pet-filter-form" action="moveChating" id="frm">
+                <input type="hidden" name="roomMember" value="${email}" >
                 <div id="insertRoom" >
                 <div class="widget1">
                 	<div>
                     <legend class="font">방이름</legend>
                     </div>
                     <div class="input-group">
-                        <input type="text" class="form-control in" name="roomNum" required >
+                        <input type="text" class="form-control in" name="roomName" required >
                     </div>
                      </div>
                   
