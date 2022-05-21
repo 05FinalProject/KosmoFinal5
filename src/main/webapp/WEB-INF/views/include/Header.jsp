@@ -39,11 +39,11 @@
 	<style>
 	.headlogo{
 		width:200px;
-		height:100px;
+		height:50px;
 	}
 	.signUplogo{
-		width:100px;
-		height:100px;
+		width:50px;
+		height:50px;
 	}
 	
 	.btn-light{
@@ -81,27 +81,40 @@
 						<!-- 반응형 커팅선 -->
 
 			<div class="collapse navbar-collapse" id="lana-navbar">
-				<ul class="navbar-nav mx-auto">
-					<li class="nav-item"><a class="nav-link mp" href="#">메인페이지</a></li>
+				<ul class="navbar-nav mr-auto">
 
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle comu" href="page.html"
 						id="page-dropdown" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false">커뮤니티</a>
 						<ul class="dropdown-menu" aria-labelledby="page-dropdown">
-							<li><a class="dropdown-item" href="page.html">일상공유</a></li>
-							<li><a class="dropdown-item"
-								href="template-our-services.html">자원봉사</a></li>
-							<li><a class="dropdown-item"
-								href="template-our-partners.html">가정분양</a></li>
-							<li><a class="dropdown-item" href="template-our-team.html">물품나눔</a></li>
-							<li><a class="dropdown-item" href="template-contact.html">행사</a></li>
-							<li><a class="dropdown-item" href="template-contact.html">산책로</a></li>
-						</ul></li>
+							<li><a class="dropdown-item" href="#">일상공유</a></li>
+							<li><a class="dropdown-item" href="#">자원봉사</a></li>
+							<li><a class="dropdown-item" href="#">가정분양</a></li>
+							<li><a class="dropdown-item" href="#">물품나눔</a></li>
+							<li><a class="dropdown-item" href="#">행사</a></li>
+							<li><a class="dropdown-item" href="#">산책로</a></li>
+						</ul>
+					</li>
+					
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle organi" href="page.html"
+						id="page-dropdown" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false">관련기관</a>
+						<ul class="dropdown-menu" aria-labelledby="page-dropdown">
+							<li><a class="dropdown-item" href="#">훈련소</a></li>
+							<li><a class="dropdown-item" href="#">보호소</a></li>
+							<li><a class="dropdown-item" href="#">동물병원</a></li>
+							<li><a class="dropdown-item" href="#">애견호텔</a></li>
+							<li><a class="dropdown-item" href="#">유치원</a></li>
+							<li><a class="dropdown-item" href="#">장례식장</a></li>
+							<li><a class="dropdown-item" href="#">애견카페</a></li>
+							<li><a class="dropdown-item" href="#">공원</a></li>
+						</ul>
+					</li>
 
 
-					<li class="nav-item"><a class="nav-link info"
-						href="attachment.html">반려견 사전</a></li>
+					<li class="nav-item"><a class="nav-link info" href="#">반려견 사전</a></li>
 
 				</ul>
 				<form class="search-widget d-none d-xl-inline-flex ">
@@ -134,11 +147,11 @@
 	<script type="text/javascript" src="/js/custom-theme.js?ver=1.0.0"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$(".mp").mouseover(function(){
-				$(".mp").css("color","#f8b03a");
+			$(".organi").mouseover(function(){
+				$(".organi").css("color","#f8b03a");
 			});
-			$(".mp").mouseleave(function(){
-				$(".mp").css("color","white");
+			$(".organi").mouseleave(function(){
+				$(".organi").css("color","white");	
 			});
 			$(".comu").mouseover(function(){
 				$(".comu").css("color","#f8b03a");
