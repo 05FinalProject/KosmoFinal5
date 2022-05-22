@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,6 +15,8 @@
 		<script src="https://kit.fontawesome.com/23b331c6f8.js" crossorigin="anonymous"></script>
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 <!-- 		<link href="/css/chating/chating.css" rel="stylesheet"> -->
+		
+
 		<script type="text/javascript">
 		window.onload = function(){
 			
@@ -26,8 +26,6 @@
 
 		var ws;
 		var numbers = Number($("#members").val());
-
-
 
 		function wsOpen(){
 			//웹소켓 전송시 현재 방의 번호를 넘겨서 보낸다.
@@ -39,8 +37,6 @@
 			ws.onopen = function(data){
 				//소켓이 열리면 동작
 			}
-			
-			
 			
 			ws.onmessage = function(data) {
 				//메시지를 받으면 동작
@@ -100,6 +96,26 @@
 						$(".msg_card_body").append("<p class='comego'>" + d.msg + "</p>");
 						$('.msg_card_body').scrollTop($('.msg_card_body').prop('scrollHeight'));
 						
+						$.ajax({
+							url:'/api/membersImg',
+							type:'get',
+							contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+							data:{user_email:$("#userName").val()},
+							success:function(data){
+								$('.contacts').append('<li class="friend" >'+
+										'<div class="d-flex bd-highlight">'+
+										'<div class="img_cont">'+
+											'<img src="/'+ data +'" class="rounded-circle user_img">'+
+											
+										'</div>'+
+										'<div class="user_info">'+
+											'<span >나</span>'+
+										
+										'</div>'+
+									'</div>'+
+								'</li>')
+							}
+						})
 						
 						$.ajax({
 							url:'/api/members',
@@ -107,7 +123,6 @@
 				            data:{roomName:$("#room").text(),id:'1'},
 				            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 				            success:function(data){
-				            	
 				                $('#room').text( $("#roomName").val()+'(' + data + ')')
 				            }
 						})
@@ -164,7 +179,6 @@
 		}
 
 
-
 		function sendCome() {
 			var option ={
 				type: "come",
@@ -176,9 +190,6 @@
 			ws.send(JSON.stringify(option))
 			
 		}
-
-
-
 
 		function send() {
 			var option ={
@@ -193,12 +204,6 @@
 			$('#chatting').val("");
 		}
 		</script>
-		
-		
-		
-		
-		
-		
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js"></script>
 	</head>
 	<!--Coded With Love By Mutiullah Samim-->
@@ -209,36 +214,25 @@
 	<input type="hidden" id="roomNumber" value="${roomNumber}"> 
 	<input type="hidden" name="userName" id="userName" value="${id}" />
 	
-	
-		
 		<div class="container-fluid h-100">
 			<div class="row justify-content-center h-100">
 				<div class="col-md-4 col-xl-3 chat"><div class="card mb-sm-3 mb-md-0 contacts_card">
-				<h1 id="room" class="roomName">${roomName}(${getRoomNum-1 })</h1>
-					<div class="card-header">
-						<div class="input-group">
-							<input type="text" placeholder="Search..." name="" class="form-control search">
-							<div class="input-group-prepend">
-								<span class="input-group-text search_btn"><i class="fas fa-search"></i></span>
-							</div>
-						</div>
-					</div>
+				
+					
 					<div class="card-body contacts_body">
 						<ui class="contacts">
-						<li class="friend" >
+						<!-- <li class="friend" >
 							<div class="d-flex bd-highlight">
 								<div class="img_cont">
 									<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img">
-									<span class="online_icon "></span>
+									
 								</div>
 								<div class="user_info">
-									<span >Khalid</span>
-									<p>online</p>
+									<span >나</span>
+								
 								</div>
 							</div>
-						</li>
-						
-						
+						</li> -->
 						</ui>
 					</div>
 					<div class="card-footer"></div>
@@ -246,26 +240,10 @@
 				<div class="col-md-8 col-xl-6 chat">
 					<div class="card">
 						<div class="card-header msg_head">
-							<div class="d-flex bd-highlight">
-								<div class="img_cont">
-									<img id="friendImg" src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img">
-									<span class="online_icon"></span>
-								</div>
-								<div class="user_info">
-									<span id="friendName">Khalid</span>
-									<p></p>
-								</div>
-								
-							</div>
-							<span id="action_menu_btn"><i class="fas fa-ellipsis-v"></i></span>
-							<div class="action_menu">
-								<ul>
-									<li><i class="fas fa-user-circle"></i> View profile</li>
-									<li><i class="fas fa-users"></i> Add to close friends</li>
-									<li><i class="fas fa-plus"></i> Add to group</li>
-									<li onclick="goout()"><i class="fa-solid fa-person-walking-arrow-right"></i>채팅방나가기</li>
-								</ul>
-							</div>
+							<span id="room" class="roomName">${roomName}(${getRoomNum-1 })</span>
+							<span class="float-right" onclick="goout()"><i class="fa-solid fa-right-from-bracket"></i></span>
+							
+							
 						</div>
 						<div class="card-body msg_card_body">
 							
@@ -285,16 +263,13 @@
 				</div>
 			</div>
 		</div>
-		
 		<script type="text/javascript">
-		
 		$('.friend').click(function(){
 			$('.contacts > .friend').removeClass('active')
 			$(this).addClass('active')
 			console.log($(this).filter('.user_info').filter('span'))
 			$('#friendName').text( $(this).find('span').text())
 			$('#friendImg').attr('src',$(this).find('img').attr('src'))
-			
 		})
 		
 		$(document).ready(function(){
@@ -302,9 +277,6 @@
 				$('.action_menu').toggle();
 			});
 				});
-		
-		
 		</script>
-		
 	</body>
 </html>

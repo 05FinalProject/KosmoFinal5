@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.domain.ChatingRoomVO;
+import com.example.domain.ImgVO;
 import com.example.domain.Room;
+import com.example.domain.UserVO;
 import com.example.service.chatingService.ChatingService;
 
 @Controller
@@ -39,5 +41,11 @@ public class ApiController {
 		}
 		
 		return boo;
+	}
+	
+	@RequestMapping(value = "/membersImg",produces = "application/text; charset=UTF-8")
+	public String membersImg(UserVO vo) {
+		List<ImgVO> img = service.getUserImg(vo.getUser_email());
+		return img.get(0).getP_rimgname();
 	}
 }

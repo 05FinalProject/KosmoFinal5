@@ -83,19 +83,16 @@
                     <c:forEach var="vo" items="${list}">
                     <div class="pet-grid-col col-12 col-md-6">
                         <div id="post-1" class="lana_pet type-lana_pet post-1 card pet-grid-card h-100">
-                            	
                             <div class="card-body">
                                 <h5 class="post-title card-title">
                                     ${vo.roomName} #${vo.roomNumber}
                                 </h5>
-                              
                             </div>
                             <div class="card-footer">
                                 <p class="card-text">
                                     <a class="more-link card-link" data-toggle="modal" data-target="#myModal" content="${vo.roomName} #${vo.roomNumber}">
                                         들어가기 <i class="lana-icon-arrow-right text-primary"></i>
                                     </a>
-                                    
                                 </p>
                             </div>
                         </div>
@@ -228,7 +225,6 @@ $('#goInRoom').click(function(e){
 		type:'get',
 		success:function(data){
 			if(data=="yes"){
-				alert("moveChating?roomMember="+$('#roomMember').val()+"&roomName="+$('#modalRoom').text().split('#')[0].trim())
 				location.href="moveChating?roomMember="+$('input[name="roomMember"]').val()+"&roomName="+$('#modalRoom').text().split('#')[0].trim()+"&roomNumber="+$('#modalRoomNum').val()
 				
 			}else{

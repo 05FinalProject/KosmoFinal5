@@ -31,12 +31,6 @@ public class ChatingController {
 	List<Room> roomList = new ArrayList<Room>();
 	static int roomNumber = 0;
 	
-	/*
-	 * @RequestMapping("modalRoom") public String modalRoom(ChatingRoomVO vo) {
-	 * List<ChatingRoomVO> list = service.checkRoomPass(vo); if(list.size()>0) {
-	 * return ""; }else { return ""; } }
-	 */
-	
 	@GetMapping("/chat")
 	public ModelAndView chat(Room room) {
 		ModelAndView mv = new ModelAndView();
@@ -85,24 +79,18 @@ public class ChatingController {
 	public ModelAndView chating(ChatingRoomVO vo) {
 		ModelAndView mv = new ModelAndView();
 
-		
 		List<Room> new_list = roomList.stream().filter(o->o.getRoomNumber()==roomNumber).collect(Collectors.toList());
-		System.out.println(roomList);
-		System.out.println(111);
+	
 		int roomNum = 1;
-		
 		if(vo.getRoomNumber() != 0) {
 			roomNum = vo.getRoomNumber();
 		}else {
 			List<ChatingRoomVO> chatingList = service.getLastRoomNumber();
 			
 			if(chatingList.size()>0) {
-				
 				roomNum = chatingList.get(0).getRoomNumber()+1;
 			}
 		}
-		
-		
 		
 		vo.setRoomNumber(roomNum);
 		service.insertRoomMember(vo);
