@@ -19,6 +19,10 @@ public class HomeController {
 	public void HeaderPage() {
 	}
 	
+	@RequestMapping("footer-style-3")
+	public void footer() {
+	}
+	
 	@RequestMapping("/Footer")
 	public void FooterPage() {
 	}
@@ -29,7 +33,6 @@ public class HomeController {
 		vo.setUser_address(vo.getAddr1()+vo.getAddr2()+vo.getAddr3());
 		vo.setUser_black("N");
 		vo.setUser_admin("N");
-		
 		
 		signUp.insertUser(vo);
 	}

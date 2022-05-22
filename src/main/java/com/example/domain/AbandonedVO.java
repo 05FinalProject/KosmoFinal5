@@ -16,14 +16,15 @@ public class AbandonedVO {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int ab_no;
+	private Integer ab_no;
 	
 	@Column(length = 200)
 	private String ab_name;
 	@Column(length = 200)
 	private String ab_kind;
-	private int ab_age;
 	@Column(length = 200)
+	private String ab_age;
+	@Column(length = 20)
 	private String ab_gender;
 	@Column(length = 200)
 	private String ab_image;
