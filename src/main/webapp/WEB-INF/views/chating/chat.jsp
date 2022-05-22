@@ -14,9 +14,8 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://kit.fontawesome.com/23b331c6f8.js" crossorigin="anonymous"></script>
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-<!-- 		<link href="/css/chating/chating.css" rel="stylesheet"> -->
 		
-
+<!-- 		<link href="/css/chating/chating.css" rel="stylesheet"> -->
 		<script type="text/javascript">
 		window.onload = function(){
 			
@@ -240,7 +239,7 @@
 				<div class="col-md-8 col-xl-6 chat">
 					<div class="card">
 						<div class="card-header msg_head">
-							<span id="room" class="roomName">${roomName}(${getRoomNum-1 })</span>
+							<span id="room" class="roomName font">${roomName}(${getRoomNum-1 })</span>
 							<span class="float-right" onclick="goout()"><i class="fa-solid fa-right-from-bracket"></i></span>
 							
 							
