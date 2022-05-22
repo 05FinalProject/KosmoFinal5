@@ -143,13 +143,17 @@
 	background-color:#f8b03a;
 }
 
+.aside-wrapper {
+ 	display:flex; 
+}
 </style>
 
 </head>
 
-
 <body>
 	<%@include file="../Header.jsp"%>
+
+	
 		<!-- Main Sidebar Container -->
 		<aside class="myPage-sidebar asidebar beta">
 			<!-- Sidebar -->
@@ -190,7 +194,7 @@
 							onmouseover="this.style.color='orange';"
 							onmouseout="this.style.color='black'">
 								<p>
-									<i class="far nav-icon" style="font-weight: bolder;">펫친 찾기</i>
+									<i class="far nav-icon" style="font-weight: bolder;">펫친찾기</i>
 								</p>
 						</a></li>
 						<li class="nav-item"><a href="#" class="nav-link"
@@ -200,13 +204,7 @@
 									<i class="far nav-icon" style="font-weight: bolder;">나의 산책로</i>
 								</p>
 						</a></li>
-						<div class="text-center">
-							<button href="javascript(0);" class="btn btm-sm btn-danger"
-								style="padding:1%; margin-top:50%;">
-								회원탈퇴</i>
-							</button>
-							<input type="file" id="file" style="display: none;">
-						</div>
+					
 
 					</ul>
 				</nav>
@@ -214,15 +212,13 @@
 			<!-- /.sidebar -->
 
 		</aside>
+		
 	<div class="container">
-	
-	
-	
-	
+	<div class="container">
 		<div class="row">
 			<div class="col-md-1"></div>
 			<div class="col-md-10">
-				<div class="card card-danger " id="box">
+				<div class="card card " id="box">
 					<div class="card-header">
 						<h4 class="card-title">친구 프로필</h4>
 					</div>
@@ -351,11 +347,12 @@
 			<button class="check-btn" id="back-btn">뒤로가기</button>
 		</div>
 		<!-- /.card-body -->
+	</div> <!-- end of .container -->
 	</div>
-	</div>
+<!-- 	</div>
 	</div>
 
-	</div>
+	</div> -->
 
 
 </body>
