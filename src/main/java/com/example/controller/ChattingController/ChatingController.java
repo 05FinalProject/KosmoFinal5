@@ -76,20 +76,22 @@ public class ChatingController {
 	 * @return
 	 */
 	@RequestMapping("/moveChating")
-//	public ModelAndView chating(@RequestParam HashMap<Object, Object> params ,ChatingRoomVO vo) {
 	public ModelAndView chating(ChatingRoomVO vo) {
 		ModelAndView mv = new ModelAndView();
-//		int roomNumber = Integer.parseInt((String) params.get("roomNumber"));
-		
+
 		List<Room> new_list = roomList.stream().filter(o->o.getRoomNumber()==roomNumber).collect(Collectors.toList());
-		
-		
-		List<ChatingRoomVO> chatingList = service.getLastRoomNumber();
+	
 		int roomNum = 1;
-		if(chatingList.size()>0) {
+		if(vo.getRoomNumber() != 0) {
+			roomNum = vo.getRoomNumber();
+		}else {
+			List<ChatingRoomVO> chatingList = service.getLastRoomNumber();
 			
-			roomNum = chatingList.get(0).getRoomNumber()+1;
+			if(chatingList.size()>0) {
+				roomNum = chatingList.get(0).getRoomNumber()+1;
+			}
 		}
+		
 		vo.setRoomNumber(roomNum);
 		service.insertRoomMember(vo);
 		mv.addObject("id",vo.getRoomMember());

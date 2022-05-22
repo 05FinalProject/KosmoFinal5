@@ -49,19 +49,21 @@
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title fontLarge"> </h4>
+          <h4 class="fontLarge" id="modalRoom"> </h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         
         <!-- Modal body -->
+        
+        <input type="hidden" name="roomNumber" id="modalRoomNum" value="" />
         <div class="modal-body font1">
          	비밀번호
         </div>
-        <input type="text" class="form-control col-8 inputCenter" placeholder="Search" aria-label="Search">
-        
+        <input type="text" name="roomPass" id="modalRoomPass" class="form-control col-8 inputCenter" aria-label="Search">
+        <label class="fontRed" id="passWrong" >비밀번호가 맞지않습니다,다시 확인하세요.</label>
         <!-- Modal footer -->
         <div class="modal-footer">
-        	<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+        	<button type="button" class="btn btn-primary" id="goInRoom">확인</button>
           <button type="button" class="btn btn-secondary" id="none" data-dismiss="modal">취소</button>
         </div>
         
@@ -81,19 +83,16 @@
                     <c:forEach var="vo" items="${list}">
                     <div class="pet-grid-col col-12 col-md-6">
                         <div id="post-1" class="lana_pet type-lana_pet post-1 card pet-grid-card h-100">
-                            	
                             <div class="card-body">
                                 <h5 class="post-title card-title">
                                     ${vo.roomName} #${vo.roomNumber}
                                 </h5>
-                              
                             </div>
                             <div class="card-footer">
                                 <p class="card-text">
-                                    <a class="more-link card-link" data-toggle="modal" data-target="#myModal" content="Pet #1">
+                                    <a class="more-link card-link" data-toggle="modal" data-target="#myModal" content="${vo.roomName} #${vo.roomNumber}">
                                         들어가기 <i class="lana-icon-arrow-right text-primary"></i>
                                     </a>
-                                    
                                 </p>
                             </div>
                         </div>
@@ -142,7 +141,7 @@
                     </div>
                 </div>
                 <form class="pet-filter-form" action="moveChating" id="frm">
-                <input type="hidden" name="roomMember" value="${email}" >
+                <input type="hidden" name="roomMember" id="roomMember" value="${email}" >
                 <div id="insertRoom" >
                 <div class="widget1">
                 	<div>
@@ -208,11 +207,33 @@ $('#up').click(function(){
 
 $('#none').click(function(){
 	$('.inputCenter').val('')
+	$('.fontRed').slideUp()
 })
 
+$('.card-link').click(function(){
+	//modal 방이름이랑 방번호 주기
+	$('#modalRoom').text($(this).attr('content'))
+	//modal 방번호 값을 주기
+	$('#modalRoomNum').val($(this).attr('content').split('#')[1]) 
 
+})
 
-
+$('#goInRoom').click(function(e){
+	$.ajax({
+		url:'/api/checkRoomPass',
+		data:{roomNumber:$('#modalRoomNum').val(),roomPass:$('#modalRoomPass').val()},
+		type:'get',
+		success:function(data){
+			if(data=="yes"){
+				location.href="moveChating?roomMember="+$('input[name="roomMember"]').val()+"&roomName="+$('#modalRoom').text().split('#')[0].trim()+"&roomNumber="+$('#modalRoomNum').val()
+				
+			}else{
+				$('#passWrong').slideDown()
+				
+			}
+		}
+	})
+})
 
 
 
