@@ -1,12 +1,19 @@
 package com.example.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.example.service.agency.AgencyService;
 
 @Controller
 @RequestMapping("/include")
 public class AgencyController {
+	
+	@Autowired
+	private AgencyService ag; 
 	
 	
 	@RequestMapping(value ="/agency", method=RequestMethod.GET)
@@ -30,7 +37,10 @@ public class AgencyController {
 	}
 
 	@RequestMapping(value ="/agencyShelter", method=RequestMethod.GET)
-	public String agencyShelter() {
+	public String agencyShelter(Model m) {
+		
+		m.addAttribute("agList",ag.getAllAbandoned() );
+		
 		return "/include/agencyShelter";
 	}
 	

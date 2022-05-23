@@ -76,13 +76,14 @@
 }
 
 .modal_content{
-  width:40%; height:auto;
-  background:#fff; border-radius:10px;
+  
+  width:28%; height:60%;
+  background:#fff; border-radius:20px;
   position:fixed; top:50%; left:50%;
   
   text-align:center;
   box-sizing:border-box; padding:74px 0;
-  line-height:23px; cursor:pointer;
+  line-height:30px; cursor:pointer;
   display:flex;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -93,11 +94,19 @@
     	width:24px;
     }
     
-    form-control2{
+    .form-control2{
     
          width:100%;
          height:100%;
          background:#fff58c; 
+    }
+    
+    #btn1{
+    
+    width:150px;
+    height:50px;
+    color: black;
+    margin: auto;
     }
     
     
@@ -408,7 +417,7 @@
                     
                     <li>
                      <div style="float: left">신고 내용:</div>
-                     <div style="float: left">호로 자식들을 신고</div>
+                     <div style="float: left">Streamlab is a long established fact that a reader will be distracted by the readable content of a page when Streamlab at its layout. The point of using Lorem Streamlab is that it has a more-or-less normal distribution of Streamlab as opposed Streamlab</div>
                      
                     </li>   
                    </ul>
@@ -416,10 +425,11 @@
 </div>
 </div>
 
+ 
 <div id="water" >
    <div class="form-group">
 
-<select class="form-control2">
+<select class="form-control2" style="text-align-last:center" >
 <option >게시글 도배</option>
 <option>욕설/비방</option>
 <option>음란성</option>
@@ -429,9 +439,10 @@
 <option>기타</option>
 </select>
 </div>
-</div>                    
+</div>  
+</div>                  
                    
-                    <button type="submit" class="btn btn-primary btn-block font-weight-bold text-uppercase">
+                    <button type="submit" id="btn1" class="btn btn-primary btn-block font-weight-bold text-uppercase">
                         신고하기
                     </button>
                 </form>

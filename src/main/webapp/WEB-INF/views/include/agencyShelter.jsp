@@ -78,8 +78,8 @@
                 <div class="col-12 col-md-4 col-lg-4">
                     <div class="lana_member type-lana_member card member-card bg-transparent">
                         <div class="card-body" id="pic1">
-                            <img src="../pictures/placeholder/250x250.svg" class="card-img-top img-fluid rounded-circle animated zoomIn" alt="Team Member" data-scroll-animate="zoomIn">
-                            <a href="/include/agencyHotelDetail"><h5 class="post-title card-title animated fadeInDown" data-scroll-animate="fadeInDown">
+                            <a href="/include/agencyShelterDetail"><img src="../pictures/placeholder/250x250.svg" class="card-img-top img-fluid rounded-circle animated zoomIn" alt="Team Member" data-scroll-animate="zoomIn"></a>
+                            <a ><h5 class="post-title card-title animated fadeInDown" data-scroll-animate="fadeInDown">
                                 강아지종 
                             </h5></a>
                             <h6 class="card-subtitle animated fadeInUp" data-scroll-animate="fadeInUp">
@@ -88,31 +88,30 @@
                             <p class="post-text card-text animated fadeIn" data-scroll-animate="fadeIn">
                                 암놈/숫놈
                             </p>
-                            <p class="post-text card-text animated fadeIn" data-scroll-animate="fadeIn">
-                                내용
-                            </p>
-                            
+                           
                           </div>
                     </div>
                 </div>
+                
+                
                 
                 <!--  ************ 1번째 칸 테이블 끝 *********************************** -->
                  
                 
                 
                     <!--  ************ 2번째 칸 테이블 시작 *********************************** -->
-                <div class="col-12 col-md-4 col-lg-4">
-                    <div class="lana_member type-lana_member card member-card bg-transparent">
-                        <div class="card-body" id="pic2">
-                            <img src="../pictures/placeholder/250x250.svg" class="card-img-top img-fluid rounded-circle animated zoomIn" alt="Team Member" data-scroll-animate="zoomIn">
-                             <a href="/include/agencyHotelDetail"><h5 class="post-title card-title animated fadeInDown" data-scroll-animate="fadeInDown">
-                                호텔 이름
+	                <div class="col-12 col-md-4 col-lg-4">
+	                    <div class="lana_member type-lana_member card member-card bg-transparent">
+	                        <div class="card-body" id="pic2">
+	                            <img src="../pictures/placeholder/250x250.svg" class="card-img-top img-fluid rounded-circle animated zoomIn" alt="Team Member" data-scroll-animate="zoomIn">
+	                             <a href="/include/agencyHotelDetail"><h5 class="post-title card-title animated fadeInDown" data-scroll-animate="fadeInDown">
+	                                강아지종 
                             </h5></a>
                             <h6 class="card-subtitle animated fadeInUp" data-scroll-animate="fadeInUp">
-                                지역
+                                 강아지색/개월수
                             </h6>
                             <p class="post-text card-text animated fadeIn" data-scroll-animate="fadeIn">
-                                정보
+                                암놈/숫놈
                             </p>
                            
                           
@@ -128,10 +127,10 @@
                         <div class="card-body" id="pic3">
                             <img src="../pictures/placeholder/250x250.svg" class="card-img-top img-fluid rounded-circle animated zoomIn" alt="Team Member" data-scroll-animate="zoomIn">
                              <a href="/include/agencyHotelDetail"><h5 class="post-title card-title animated fadeInDown" data-scroll-animate="fadeInDown">
-                                호텔 이름
+                                강아지종 
                             </h5></a>
                             <h6 class="card-subtitle animated fadeInUp" data-scroll-animate="fadeInUp">
-                                지역
+                                강아지색/개월수
                             </h6>
                             <p class="post-text card-text animated fadeIn" data-scroll-animate="fadeIn">
                                정보
@@ -165,10 +164,10 @@
                                  class="card-img-top img-fluid rounded-circle" alt="Team Member"
                                  data-scroll-animate="zoomIn">
                              <a href="/include/agencyHotelDetail"><h5 class="post-title card-title" data-scroll-animate="fadeInDown">
-                                호텔 이름
+                                강아지종 
                             </h5></a>
                             <h6 class="card-subtitle" data-scroll-animate="fadeInUp">
-                                지역
+                               강아지색/개월수
                             </h6>
                             <p class="post-text card-text" data-scroll-animate="fadeIn">
                                 정보
@@ -189,10 +188,10 @@
                                  class="card-img-top img-fluid rounded-circle" alt="Team Member"
                                  data-scroll-animate="zoomIn">
                              <a href="/include/agencyHotelDetail"><h5 class="post-title card-title" data-scroll-animate="fadeInDown">
-                                호텔 이름
+                                 강아지종 
                             </h5></a>
                             <h6 class="card-subtitle" data-scroll-animate="fadeInUp">
-                                지역
+                                강아지색/개월수
                             </h6>
                             <p class="post-text card-text" data-scroll-animate="fadeIn">
                                 정보
@@ -213,10 +212,10 @@
                                  class="card-img-top img-fluid rounded-circle" alt="Team Member"
                                  data-scroll-animate="zoomIn">
                             <a href="/include/agencyHotelDetail"><h5 class="post-title card-title" data-scroll-animate="fadeInDown">
-                                호텔 이름
+                                강아지종 
                             </h5></a>
                             <h6 class="card-subtitle" data-scroll-animate="fadeInUp">
-                                지역
+                                강아지색/개월수
                             </h6>
                             <p class="post-text card-text" data-scroll-animate="fadeIn">
                               정보
@@ -244,10 +243,10 @@
                                  class="card-img-top img-fluid rounded-circle" alt="Team Member"
                                  data-scroll-animate="zoomIn">
                              <a href="/include/agencyHotelDetail"><h5 class="post-title card-title" data-scroll-animate="fadeInDown">
-                                호텔 이름
+                                강아지종
                             </h5></a>
                             <h6 class="card-subtitle" data-scroll-animate="fadeInUp">
-                                지역
+                                강아지색/개월수
                             </h6>
                             <p class="post-text card-text" data-scroll-animate="fadeIn">
                                 정보
@@ -268,10 +267,10 @@
                                  class="card-img-top img-fluid rounded-circle" alt="Team Member"
                                  data-scroll-animate="zoomIn">
                              <a href="/include/agencyHotelDetail"><h5 class="post-title card-title" data-scroll-animate="fadeInDown">
-                                호텔 이름
+                                 강아지종
                             </h5></a>
                             <h6 class="card-subtitle" data-scroll-animate="fadeInUp">
-                                지역
+                                강아지색/개월수
                             </h6>
                             <p class="post-text card-text" data-scroll-animate="fadeIn">
                                 정보
@@ -292,10 +291,10 @@
                                  class="card-img-top img-fluid rounded-circle" alt="Team Member"
                                  data-scroll-animate="zoomIn">
                             <a href="/include/agencyHotelDetail"><h5 class="post-title card-title" data-scroll-animate="fadeInDown">
-                                호텔 이름
+                                강아지종
                             </h5></a>
                             <h6 class="card-subtitle" data-scroll-animate="fadeInUp">
-                                지역
+                                강아지색/개월수
                             </h6>
                             <p class="post-text card-text" data-scroll-animate="fadeIn">
                               정보
