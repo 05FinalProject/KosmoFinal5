@@ -17,4 +17,19 @@ public interface ReportRepository extends CrudRepository<ReportVO, Integer>{
 			+ "on rp.review_num = rv.review_num    ", nativeQuery = true)
 	 List<Object[]> reportReview();
 	
+	 //댓글신고 리스트 출력
+	 @Query(value = "SELECT ct.comment_num, ct.u_email, ct.comment_content, rp.r_reason, rp.r_date   "
+	 		+ "FROM comment ct\r\n    "
+	 		+ "INNER JOIN report rp\r\n     "
+	 		+ "ON ct.comment_num = rp.comment_num     ", nativeQuery = true)
+	 List<Object[]> reportComment();
+	 
+	 //게시글 리스트 출력
+	 @Query(value = "SELECT rp.c_num, cm.c_title, cm.user_email, rp.r_reason, rp.r_date     "
+	 		+ "FROM community cm     "
+	 		+ "INNER JOIN report rp    "
+	 		+ "ON cm.c_num = rp.c_num    ", nativeQuery = true)
+	 List<Object[]> reportCommunity();
+	 
+	 //블랙리스트 출력
 }
