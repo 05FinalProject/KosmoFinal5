@@ -85,8 +85,7 @@ public class AdminMainController {
 		m.addAttribute("list", llist);
 						
 		return "/admin/report/adminRpReview";
-	}
-	
+	}	
 	
 	
 	//댓글신고

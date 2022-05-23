@@ -7,13 +7,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.dao.ChatingRoomRepository;
+import com.example.dao.ImgRepository;
+import com.example.dao.UserRepository;
 import com.example.domain.ChatingRoomVO;
+import com.example.domain.ImgVO;
+import com.example.domain.UserVO;
 
 @Service
 public class ChatingServiceImpl implements ChatingService {
 
 	@Autowired
 	private ChatingRoomRepository ch;
+	
+	@Autowired
+	private UserRepository usr;
+	
+	@Autowired
+	private ImgRepository img;
 	
 	//채팅방멤버삭제
 	public void deleteByRoomMember(ChatingRoomVO vo) {
@@ -44,6 +54,18 @@ public class ChatingServiceImpl implements ChatingService {
 		
 		
 		return rList;
+	}
+	
+	public List<ChatingRoomVO> getLastRoomNumber(){
+		return ch.getLastRoomNumber();
+	}
+	
+	public List<ChatingRoomVO> checkRoomPass(ChatingRoomVO vo){
+		return ch.checkRoomPass(vo.getRoomNumber(),vo.getRoomPass());
+	}
+	
+	public List<ImgVO> getUserImg(String email) {
+		return img.findByUserEmail(email);
 	}
 	
 }

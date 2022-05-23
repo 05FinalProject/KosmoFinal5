@@ -60,7 +60,13 @@
 	left:70px
 }
 
-
+.fontRed{
+	color: red;
+    text-align: center;
+    margin: 0 0 15px 0;
+    font-weight: bolder;
+    display: none;
+}
 
 
 

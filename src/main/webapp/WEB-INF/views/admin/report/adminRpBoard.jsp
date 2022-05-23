@@ -70,12 +70,11 @@
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                  	<th width="40">게시글번호</th>
+                  	<th width="70">게시글번호</th>
                     <th>게시글제목</th>
                     <th>닉네임</th>
                     <th>신고사유</th>
-                    <th>신고날짜</th>
-                    <th>신고횟수</th>
+                    <th width="80">신고날짜</th>
                     <th width="50">삭제</th>
                   </tr>
                   </thead>

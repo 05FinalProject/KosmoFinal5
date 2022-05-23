@@ -70,12 +70,11 @@
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                  	<th width="40">댓글번호</th>
+                  	<th width="70">댓글번호</th>
                     <th>이메일</th>
                     <th>댓글내용</th>
                     <th>신고사유</th>
-                    <th>신고날짜</th>
-                    <th>신고횟수</th>
+                    <th width="80">신고날짜</th>
                     <th width="50">삭제</th>
                   </tr>
                   </thead>
@@ -88,7 +87,7 @@
                     <td>욕설</td>
                     <td>2022-05-13</td>
                     <td>5</td>
-                    <td><button type="button" class="btn btn-danger">삭제</button></td>
+                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
                   </tr>
                   <tr>
                   	<td text-align="center">2</td>

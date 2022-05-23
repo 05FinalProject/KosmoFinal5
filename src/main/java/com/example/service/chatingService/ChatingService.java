@@ -3,6 +3,8 @@ package com.example.service.chatingService;
 import java.util.List;
 
 import com.example.domain.ChatingRoomVO;
+import com.example.domain.ImgVO;
+import com.example.domain.UserVO;
 
 public interface ChatingService {
 	
@@ -14,4 +16,10 @@ public interface ChatingService {
 	
 	public List<ChatingRoomVO> getAllRooms();
 	
+	public List<ChatingRoomVO> getLastRoomNumber();
+	
+	public List<ChatingRoomVO> checkRoomPass(ChatingRoomVO vo);
+	
+	public List<ImgVO> getUserImg(String email);
+
 }

@@ -19,7 +19,7 @@ public class DogKindVO {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int dog_num;
+	private Integer dog_num;
 	
 	@Column(length = 200)
 	private String dog_kind;
