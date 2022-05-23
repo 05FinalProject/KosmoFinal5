@@ -44,6 +44,7 @@
 	.signUplogo{
 		width:50px;
 		height:50px;
+		color:white;
 	}
 	
 	.btn-light{
@@ -62,7 +63,7 @@
 		<nav class="navbar navbar-expand-lg navbar-dark navbar-only"
 			id="lana-pet-main-navbar" style="font-size:28px;">
 			<a class="navbar-brand" href="#" style="margin-left:3%;"> <img
-				class="navbar-logo headlogo" src="/img/그림3.png"
+				class="navbar-logo headlogo" src="/img/logo3.png"
 				alt="Navbar Logo">
 			</a>
 						<!-- 반응형 웹 작동 시 나타남 -->
@@ -117,14 +118,14 @@
 					<li class="nav-item"><a class="nav-link info" href="#">반려견 사전</a></li>
 
 				</ul>
-				<form class="search-widget d-none d-xl-inline-flex ">
-					<h1 style="color:white; width:180px;">날씨</h1>
+				<form class="search-widget d-none d-xl-inline-flex" style="background-color:white; border-radius:10px;">
+					<h1 style="color:black; width:18	0px; text-align:center;">날씨</h1>
 				</form>
 				
 				<div class="button-nav-widget d-none d-xl-inline-flex" style="margin-right:3%;">
 					<ul class="nav button-nav">
-						<li class="nav-item"><a href="#"
-							class="btn btn-sm btn-light text-uppercase font-weight-bold my-auto">
+						<li class="nav-item" style="color:white;"><a href="#"
+							class="btn btn-sm text-uppercase font-weight-bold my-auto">
 								<img class="signUplogo" src="/img/Guest.png"/> </a></li>
 					</ul>
 				</div>
