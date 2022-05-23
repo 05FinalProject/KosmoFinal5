@@ -135,12 +135,14 @@
 	margin-top: 30px;
 }
 
-/* ---------------------------- */
+/* -------------- 이미지 미리보기 -------------- */
 #att_zone{
-	width: 660px;
+	width: 100%;
 	min-height:150px;
 	padding:10px;
-	border:1px dotted #00f;
+	border:1px;
+	background:#fafafa;
+	border-radius:10px;
 }
 #att_zone:empty:before{
 	content : attr(data-placeholder);
@@ -227,13 +229,16 @@
 
 								<a href="javascript:" class="my_button" onclick="submitAction();">업로드</a> -->
 
-
+								
+								<!-- 이미지 미리보기 -->
 								<div id='image_preview'>
 									<h3>미리보기</h3>
 									<input type='file' id='btnAtt' multiple='multiple' />
+									<input type="hidden" id="img-test" name=""/>
 									<div id='att_zone'
 										data-placeholder='파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요'></div>
 								</div>
+								<br/>
 
 
 								<div class="form-group row">
