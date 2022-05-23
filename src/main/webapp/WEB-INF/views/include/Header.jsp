@@ -61,7 +61,7 @@
 
 	<header class="header bg-dark">
 		<nav class="navbar navbar-expand-lg navbar-dark navbar-only"
-			id="lana-pet-main-navbar" style="font-size:28px;">
+			id="lana-pet-main-navbar">
 			<a class="navbar-brand" href="#" style="margin-left:3%;"> <img
 				class="navbar-logo headlogo" src="/img/logo3.png"
 				alt="Navbar Logo">

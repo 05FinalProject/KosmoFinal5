@@ -15,7 +15,6 @@
 <a href='/admin'>admin페이지</a><br/><br/>
 <a href='include/Footer'>하단페이지</a><br/><br/>
 <a href='include/Header'>상단페이지</a><br/><br/>
-<a href='include/footer-style-3'>하단교체예정 페이지</a><br/><br/>
 <a href='include/Login'>로그인페이지</a><br/><br/>
 <a href='include/Main'>메인페이지</a><br/><br/>
 <a href="include/signUp">회원가입페이지</a><br/><br/>
@@ -33,7 +32,7 @@
 <a href='include/agencyDetail'>정보기관상세페이지</a><br/><br/>
 <a href='include/agencyHotel'>정보기관애견페이지</a><br/><br/>
 <a href='include/agencyHotelDetail'>정보기관애견상세페이지</a><br/><br/>
-<a href='include/agencyShelter'>보호소페이지</a><br/><br/>
+<a href='include/agencyShelter?page=1'>보호소페이지</a><br/><br/>
 <a href='include/agencyShelterDetail'>보호소 상세페이지</a><br/><br/>
 <a href="include/myPage/myPageProfile">마이페이지 - 프로필</a>
 

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="ko">
 <head>
@@ -74,239 +75,28 @@
             </div>
             
                     <!--************ 1번째 칸 테이블 시작 ***********************************-->
-         <div class="row mt-5">
+                    
+                     <div class="row mt-5">
+                     <c:forEach var="vo" items="${paging}">
                 <div class="col-12 col-md-4 col-lg-4">
                     <div class="lana_member type-lana_member card member-card bg-transparent">
                         <div class="card-body" id="pic1">
-                            <img src="../pictures/placeholder/250x250.svg" class="card-img-top img-fluid rounded-circle animated zoomIn" alt="Team Member" data-scroll-animate="zoomIn">
-                            <a href="/include/agencyHotelDetail"><h5 class="post-title card-title animated fadeInDown" data-scroll-animate="fadeInDown">
-                                강아지종 
+                            <a href="/include/agencyShelterDetail"><img src="${vo.ab_image}" class="card-img-top img-fluid rounded-circle animated zoomIn" alt="Team Member" data-scroll-animate="zoomIn"></a>
+                            <a ><h5 class="post-title card-title animated fadeInDown" data-scroll-animate="fadeInDown">
+                                ${vo.ab_kind}
                             </h5></a>
                             <h6 class="card-subtitle animated fadeInUp" data-scroll-animate="fadeInUp">
-                                강아지색/개월수
+                                ${vo.ab_name}/ ${vo.ab_age}
                             </h6>
                             <p class="post-text card-text animated fadeIn" data-scroll-animate="fadeIn">
-                                암놈/숫놈
+                                ${vo.ab_gender}
                             </p>
-                            <p class="post-text card-text animated fadeIn" data-scroll-animate="fadeIn">
-                                내용
-                            </p>
-                            
+                           
                           </div>
                     </div>
+                    
                 </div>
-                
-                <!--  ************ 1번째 칸 테이블 끝 *********************************** -->
-                 
-                
-                
-                    <!--  ************ 2번째 칸 테이블 시작 *********************************** -->
-                <div class="col-12 col-md-4 col-lg-4">
-                    <div class="lana_member type-lana_member card member-card bg-transparent">
-                        <div class="card-body" id="pic2">
-                            <img src="../pictures/placeholder/250x250.svg" class="card-img-top img-fluid rounded-circle animated zoomIn" alt="Team Member" data-scroll-animate="zoomIn">
-                             <a href="/include/agencyHotelDetail"><h5 class="post-title card-title animated fadeInDown" data-scroll-animate="fadeInDown">
-                                호텔 이름
-                            </h5></a>
-                            <h6 class="card-subtitle animated fadeInUp" data-scroll-animate="fadeInUp">
-                                지역
-                            </h6>
-                            <p class="post-text card-text animated fadeIn" data-scroll-animate="fadeIn">
-                                정보
-                            </p>
-                           
-                          
-                        </div>
-                    </div>
-                </div>
-                    <!--  ************ 2번째 칸 테이블 끝 *********************************** -->
-                 
-                
-                    <!--  ************ 3번째 칸 테이블 시작 *********************************** -->
-           <div class="col-12 col-md-4 col-lg-4">
-                    <div class="lana_member type-lana_member card member-card bg-transparent">
-                        <div class="card-body" id="pic3">
-                            <img src="../pictures/placeholder/250x250.svg" class="card-img-top img-fluid rounded-circle animated zoomIn" alt="Team Member" data-scroll-animate="zoomIn">
-                             <a href="/include/agencyHotelDetail"><h5 class="post-title card-title animated fadeInDown" data-scroll-animate="fadeInDown">
-                                호텔 이름
-                            </h5></a>
-                            <h6 class="card-subtitle animated fadeInUp" data-scroll-animate="fadeInUp">
-                                지역
-                            </h6>
-                            <p class="post-text card-text animated fadeIn" data-scroll-animate="fadeIn">
-                               정보
-                            </p>
-                          
-                         
-                        </div>
-                    </div>
-                </div>
-           <!-- ***************4번째 -->
-          
-           
-          </div>
-         
-         
-         
-        </div>
-            <!--  ************ 3번째 칸 테이블 끝 *********************************** -->
-        
-        
-        
-        <!--************ 2번째 칸 테이블 시작 ***********************************-->
-
-        <div id="employees-container" class="container my-5">
-        
-            <div class="row mt-5">
-                <div class="col-12 col-md-4 col-lg-4">
-                    <div class="lana_member type-lana_member card member-card bg-transparent">
-                        <div class="card-body" id="pic1">
-                            <img src="../pictures/placeholder/250x250.svg"
-                                 class="card-img-top img-fluid rounded-circle" alt="Team Member"
-                                 data-scroll-animate="zoomIn">
-                             <a href="/include/agencyHotelDetail"><h5 class="post-title card-title" data-scroll-animate="fadeInDown">
-                                호텔 이름
-                            </h5></a>
-                            <h6 class="card-subtitle" data-scroll-animate="fadeInUp">
-                                지역
-                            </h6>
-                            <p class="post-text card-text" data-scroll-animate="fadeIn">
-                                정보
-                            </p>
-                          
-                           
-                        </div>
-                    </div>
-                </div>
-                <!-- ***********  테이블 끝  ********************************** -->
-                
-                
-                <!--  *********  테이블 시작 ******************************** -->
-                <div class="col-12 col-md-4 col-lg-4">
-                    <div class="lana_member type-lana_member card member-card bg-transparent">
-                        <div class="card-body" id="pic1">
-                            <img src="../pictures/placeholder/250x250.svg"
-                                 class="card-img-top img-fluid rounded-circle" alt="Team Member"
-                                 data-scroll-animate="zoomIn">
-                             <a href="/include/agencyHotelDetail"><h5 class="post-title card-title" data-scroll-animate="fadeInDown">
-                                호텔 이름
-                            </h5></a>
-                            <h6 class="card-subtitle" data-scroll-animate="fadeInUp">
-                                지역
-                            </h6>
-                            <p class="post-text card-text" data-scroll-animate="fadeIn">
-                                정보
-                            </p>
-                           
-                         
-                        </div>
-                    </div>
-                </div>
-                
-                <!--  *************** 테이블 끝 ************************ -->
-                
-                <!--   ************** 테이블 시작 ************************** -->
-                <div class="col-12 col-md-4 col-lg-4">
-                    <div class="lana_member type-lana_member card member-card bg-transparent">
-                        <div class="card-body" id="pic1">
-                            <img src="../pictures/placeholder/250x250.svg"
-                                 class="card-img-top img-fluid rounded-circle" alt="Team Member"
-                                 data-scroll-animate="zoomIn">
-                            <a href="/include/agencyHotelDetail"><h5 class="post-title card-title" data-scroll-animate="fadeInDown">
-                                호텔 이름
-                            </h5></a>
-                            <h6 class="card-subtitle" data-scroll-animate="fadeInUp">
-                                지역
-                            </h6>
-                            <p class="post-text card-text" data-scroll-animate="fadeIn">
-                              정보
-                            </p>
-                          
-                           
-                        </div>
-                    </div>
-                </div>
-                <!--   *************** 테이블 끝 ******************* -->
-                
-            </div>
-        </div>
-        
-        <!--************ 2번째 칸 테이블 끝 ***********************************-->
-        
-        
-        <div id="employees-container" class="container my-5">
-        
-            <div class="row mt-5">
-                <div class="col-12 col-md-4 col-lg-4">
-                    <div class="lana_member type-lana_member card member-card bg-transparent">
-                        <div class="card-body" id="pic1">
-                            <img src="../pictures/placeholder/250x250.svg"
-                                 class="card-img-top img-fluid rounded-circle" alt="Team Member"
-                                 data-scroll-animate="zoomIn">
-                             <a href="/include/agencyHotelDetail"><h5 class="post-title card-title" data-scroll-animate="fadeInDown">
-                                호텔 이름
-                            </h5></a>
-                            <h6 class="card-subtitle" data-scroll-animate="fadeInUp">
-                                지역
-                            </h6>
-                            <p class="post-text card-text" data-scroll-animate="fadeIn">
-                                정보
-                            </p>
-                          
-                           
-                        </div>
-                    </div>
-                </div>
-                <!-- ***********  테이블 끝  ********************************** -->
-                
-                
-                <!--  *********  테이블 시작 ******************************** -->
-                <div class="col-12 col-md-4 col-lg-4">
-                    <div class="lana_member type-lana_member card member-card bg-transparent">
-                        <div class="card-body" id="pic1">
-                            <img src="../pictures/placeholder/250x250.svg"
-                                 class="card-img-top img-fluid rounded-circle" alt="Team Member"
-                                 data-scroll-animate="zoomIn">
-                             <a href="/include/agencyHotelDetail"><h5 class="post-title card-title" data-scroll-animate="fadeInDown">
-                                호텔 이름
-                            </h5></a>
-                            <h6 class="card-subtitle" data-scroll-animate="fadeInUp">
-                                지역
-                            </h6>
-                            <p class="post-text card-text" data-scroll-animate="fadeIn">
-                                정보
-                            </p>
-                           
-                         
-                        </div>
-                    </div>
-                </div>
-                
-                <!--  *************** 테이블 끝 ************************ -->
-                
-                <!--   ************** 테이블 시작 ************************** -->
-                <div class="col-12 col-md-4 col-lg-4">
-                    <div class="lana_member type-lana_member card member-card bg-transparent">
-                        <div class="card-body" id="pic1">
-                            <img src="../pictures/placeholder/250x250.svg"
-                                 class="card-img-top img-fluid rounded-circle" alt="Team Member"
-                                 data-scroll-animate="zoomIn">
-                            <a href="/include/agencyHotelDetail"><h5 class="post-title card-title" data-scroll-animate="fadeInDown">
-                                호텔 이름
-                            </h5></a>
-                            <h6 class="card-subtitle" data-scroll-animate="fadeInUp">
-                                지역
-                            </h6>
-                            <p class="post-text card-text" data-scroll-animate="fadeIn">
-                              정보
-                            </p>
-                          
-                           
-                        </div>
-                    </div>
-                </div>
-                <!--   *************** 테이블 끝 ******************* -->
-                
+                    </c:forEach>
             </div>
         </div>
         
@@ -318,22 +108,16 @@
         
         <!--******** 페이지 테이블  *****************************************  -->
         
-        <nav class="navigation pagination justify-content-between text-uppercase" role="navigation">
-                    <a class="prev disabled" href="#">
-                        Prev
-                    </a>
-                    <div class="nav-links">
-                        <ul class="page-numbers">
-                            <li><span aria-current="page" class="page-numbers current">1</span></li>
-                            <li><a class="page-numbers" href="#">2</a></li>
-                            <li><span class="page-numbers dots">…</span></li>
-                            <li><a class="page-numbers" href="#">4</a></li>
-                        </ul>
-                    </div>
-                    <a class="next" href="#">
-                        Next
-                    </a>
-                </nav>
+        <nav class="navigation pagination justify-content-between text-uppercase " role="navigation">
+              
+        <div class="nav-links">
+        <c:set var="recordsCnt" value="${count}" />
+		<c:set var="jspFile" value="agencyShelter?" />
+		<c:set var="perpage" value="9" />
+		<!-- include 페이징  jsp파일  -->
+		<%@include file="paging.jsp" %>
+        </div>
+        </nav>
     </div>
 </main>
                 

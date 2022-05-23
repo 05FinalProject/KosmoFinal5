@@ -76,7 +76,7 @@
 
 							
 						}else{
-							/* $("#chating").append("<p class='others'>" + d.userName + " :" + d.msg + "</p>"); */
+							
 							$(".msg_card_body").append('<div class="d-flex justify-content-start mb-4">'+
 									'<span class="msg_time">' + d.userName + '</span>'+
 								'<div class="img_cont_msg">'+
@@ -184,7 +184,7 @@
 				roomNumber: $("#roomNumber").val(),
 				sessionId : $("#sessionId").val(),
 				userName : $("#userName").val(),
-				msg : $("#userName").val()+'님 들어왔습니다.'
+				msg : $("#niName").val()+'님 들어왔습니다.'
 			}
 			ws.send(JSON.stringify(option))
 			
@@ -212,6 +212,7 @@
 	<input type="hidden" id="roomName" value="${roomName}">
 	<input type="hidden" id="roomNumber" value="${roomNumber}"> 
 	<input type="hidden" name="userName" id="userName" value="${id}" />
+	<input type="hidden" id="niName" value="${niName}" />
 	
 		<div class="container-fluid h-100">
 			<div class="row justify-content-center h-100">
@@ -220,18 +221,7 @@
 					
 					<div class="card-body contacts_body">
 						<ui class="contacts">
-						<!-- <li class="friend" >
-							<div class="d-flex bd-highlight">
-								<div class="img_cont">
-									<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img">
-									
-								</div>
-								<div class="user_info">
-									<span >나</span>
-								
-								</div>
-							</div>
-						</li> -->
+						
 						</ui>
 					</div>
 					<div class="card-footer"></div>

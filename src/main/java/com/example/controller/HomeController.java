@@ -28,14 +28,18 @@ public class HomeController {
 	}
 	
 	
+	
 	@RequestMapping("/Main")
-	public void MainPage(UserVO vo) {
-		vo.setUser_address(vo.getAddr1()+vo.getAddr2()+vo.getAddr3());
-		vo.setUser_black("N");
-		vo.setUser_admin("N");
-		
-		signUp.insertUser(vo);
-	}
+	 public void MainPage(UserVO vo) {
+		if(vo.getAddr3() != null) {
+			vo.setUser_address(vo.getAddr1()+vo.getAddr2()+vo.getAddr3());
+			 vo.setUser_black("N"); vo.setUser_admin("N");
+			 
+			 signUp.insertUser(vo); 
+		}
+	 
+	 }
+	 
 	
 	@RequestMapping("/signUp")
 	public void signUpPage( ) {

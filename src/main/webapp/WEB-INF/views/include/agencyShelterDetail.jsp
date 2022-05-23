@@ -65,11 +65,15 @@
  
  <main class="main">
     
-        <div id="post-1" class="post type-post post-1 card post-card">
-                    <img class="card-img img-fluid" src="../pictures/placeholder/640x300.svg" alt="Post">
-                    <div class="card-body">
+        <div id="post-1" class="lana_pet type-lana_pet post-1">
+        <div class="container post-container">
+            <div class="row justify-content-center post-row bg-white no-gutters">
+                <div class="col-12 post-thumbnail-col">
+                    <div class="swiper-container gallery-image">
+                        <div class="card-body">
                         
-                        <h3 class="post-title card-title"><a href="single.html">강아지종</a></h3>
+                        <img class="card-img-top img-fluid" src="../pictures/placeholder/530x400.svg" alt="Post">
+                        <h3 class="post-title card-title">강아지종</h3>
                         <p class="post-text card-text">
                           내용 
                         </p>
@@ -77,37 +81,16 @@
                         <div class="d-flex justify-content-between post-meta mt-4">
                             <div class="author-meta">
                                 <img src="../pictures/placeholder/32x32.svg" class="img-fluid rounded-circle mr-1 w-auto" alt="Author">
-                                By: <a href="#" class="author-link card-link">작성자</a>
+                                By: <a>작성자</a>
                             </div>
                            
                         </div>
                     </div>
-               
-        
-        
-        
-        
-        
-        <!--******** 페이지 테이블  *****************************************  -->
-        
-        <nav class="navigation pagination justify-content-between text-uppercase" role="navigation">
-                    <a class="prev disabled" href="#">
-                        Prev
-                    </a>
-                    <div class="nav-links">
-                        <ul class="page-numbers">
-                            <li><span aria-current="page" class="page-numbers current">1</span></li>
-                            <li><a class="page-numbers" href="#">2</a></li>
-                            <li><span class="page-numbers dots">…</span></li>
-                            <li><a class="page-numbers" href="#">4</a></li>
-                        </ul>
+                        </div>
                     </div>
-                    <a class="next" href="#">
-                        Next
-                    </a>
-                </nav>
-    
-     </div>
+                </div>
+            </div>
+      </div>
 </main>
                 
                 

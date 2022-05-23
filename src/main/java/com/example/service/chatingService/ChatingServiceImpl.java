@@ -68,4 +68,8 @@ public class ChatingServiceImpl implements ChatingService {
 		return img.findByUserEmail(email);
 	}
 	
+	public UserVO getUserInfo(String roomMember) {
+		return usr.findById(roomMember).get();
+	}
+	
 }
