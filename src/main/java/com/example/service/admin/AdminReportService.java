@@ -8,9 +8,9 @@ public interface AdminReportService {
 	
 	public List<Object[]> reportReviewList(ReportVO vo);
 	
-	public List<ReportVO> reportCommentList(ReportVO vo);
+	public List<Object[]> reportCommentList(ReportVO vo);
 	
-	public List<ReportVO> reportCommunityList(ReportVO vo);
+	public List<Object[]> reportCommunityList(ReportVO vo);
 	
 	public List<ReportVO> blackList(ReportVO vo);
 	

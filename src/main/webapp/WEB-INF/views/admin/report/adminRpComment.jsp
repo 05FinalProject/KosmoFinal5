@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,38 +80,16 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                 	<td text-align="center">1</td>
-                    <td>tt@naver.com</td>
-                    <td>최악이예요
-                    </td>
-                    <td>욕설</td>
-                    <td>2022-05-13</td>
-                    <td>5</td>
-                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
-                  </tr>
-                  <tr>
-                  	<td text-align="center">2</td>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td>5</td>
-                    <td>C</td>
-                    <td><button type="button" class="btn btn-danger">삭제</button></td>
-                  </tr>
-                  <tr>
-                  	<td text-align="center">3</td>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.5
-                    </td>
-                    <td>Win 95+</td>
-                    <td>5.5</td>
-                    <td>A</td>
-                    <td><button type="button" class="btn btn-danger">삭제</button></td>
-                  </tr>
+           			 <c:forEach var="vo" items="${list}" >
+	                  <tr>
+	                  	<td>${vo.comment_num}</td>
+	                    <td>${vo.u_email}</td>
+	                    <td>${vo.comment_content }</td>
+	                    <td>${vo.r_reason}</td>
+	                    <td>${vo.r_date}</td>
+	                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
+	                   </tr>
+                  	</c:forEach> 
                   </tbody>     
              
                 </table>              

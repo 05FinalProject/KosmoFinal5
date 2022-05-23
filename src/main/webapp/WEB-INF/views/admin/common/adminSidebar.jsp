@@ -6,7 +6,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="/admin" class="brand-link">
 	    <div style="text-align : center;">
 	    	<img alt="AdminLogo" src="/admin/dist/img/adminLogo.png" >
 	    </div>
@@ -98,7 +98,7 @@
                 </a>
               </li>
               <li class="nav-item" >
-                <a href="/admin/adminBoard" class="nav-link" id="board">
+                <a href="/admin/adminCommunity" class="nav-link" id="community">
                   <i class="far fa-circle nav-icon"></i>
                   <p>게시글</p>
                 </a>
