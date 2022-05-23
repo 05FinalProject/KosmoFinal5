@@ -55,7 +55,10 @@ public class HomeController {
 	
 	@RequestMapping("/myPage/myPageDogList")
 	public void myDogList() {
-		
+	}
+	
+	@RequestMapping("/myPage/myPageDogDetail")
+	public void myDogDetail() {
 	}
 }
 
