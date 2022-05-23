@@ -10,6 +10,8 @@ import com.example.domain.AbandonedVO;
 
 public interface AgencyService {
 
-	public List<AbandonedVO> findAll(Pageable paging);
+	public List<AbandonedVO> getPaging(Pageable paging);
+	
+	public int countRecord();
 	
 }

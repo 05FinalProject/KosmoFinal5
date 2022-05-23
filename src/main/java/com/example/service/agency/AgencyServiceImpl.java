@@ -12,11 +12,16 @@ import com.example.domain.AbandonedVO;
 
 @Service
 public class AgencyServiceImpl implements AgencyService{
+	
 	@Autowired
 	private AbandonedRepository ab;
 	
-	public List<AbandonedVO> findAll(Pageable paging){
+	public List<AbandonedVO> getPaging(Pageable paging){
 		return ab.findAll(paging);
+	}
+	
+	public int countRecord() {
+		return ab.countRecord();
 	}
 	
 	
