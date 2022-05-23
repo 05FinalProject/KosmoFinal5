@@ -1,6 +1,9 @@
 package com.example.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,7 +42,9 @@ public class AgencyController {
 	@RequestMapping(value ="/agencyShelter", method=RequestMethod.GET)
 	public String agencyShelter(Model m) {
 		
-		m.addAttribute("agList",ag.getAllAbandoned() );
+//		Pageable paging = PageRequest.of(0, 0,Sort.Direction.ASC,"seq");
+
+//		m.addAttribute("agList",ag.findAll(paging) );
 		
 		return "/include/agencyShelter";
 	}
