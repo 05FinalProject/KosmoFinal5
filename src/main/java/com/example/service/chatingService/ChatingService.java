@@ -12,7 +12,7 @@ public interface ChatingService {
 	
 	public void insertRoomMember(ChatingRoomVO vo);
 	
-	public List<ChatingRoomVO> findByRoomName(ChatingRoomVO vo);
+	public List<ChatingRoomVO> findByRoomNumber(ChatingRoomVO vo);
 	
 	public List<ChatingRoomVO> getAllRooms();
 	

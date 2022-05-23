@@ -94,8 +94,23 @@ public class ChatingController {
 		mv.addObject("id",vo.getRoomMember());
 		mv.addObject("roomName", vo.getRoomName());
 		mv.addObject("roomNumber", roomNum);
-		mv.addObject("getRoomNum",service.findByRoomName(vo).size());
+		mv.addObject("getRoomNum",service.findByRoomNumber(vo).size());
 		mv.addObject("niName", service.getUserInfo(vo.getRoomMember()).getUser_nickname());
+		
+		List<ChatingRoomVO> list = service.findByRoomNumber(vo);
+		for(ChatingRoomVO vv: list) {
+			service.getUserInfo(vv.getRoomMember());
+			
+		}
+		/*
+		for(int i=0;i<list.size();i++) {
+			if (list.get(i).getRoomMember()==vo.getRoomMember()) {
+				list.get(i).set
+			}
+		}
+		*/
+		
+//		mv.addObject("others", );
 		
 		mv.setViewName("/chating/chat");
 		
