@@ -35,6 +35,8 @@
 <a href='include/agencyShelter?page=1'>보호소페이지</a><br/><br/>
 <a href='include/agencyShelterDetail'>보호소 상세페이지</a><br/><br/>
 <a href="include/myPage/myPageProfile">마이페이지 - 프로필</a>
+<a href="include/myPage/myPageDogLists">마이페이지 - 반려동물리스트</a>
+<a href="include/myPage/myPageDogDetail">마이페이지 - 반려동물정보보기</a>
 
 
 </body>
