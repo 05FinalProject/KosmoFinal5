@@ -26,8 +26,7 @@ public class HomeController {
 	@RequestMapping("/Footer")
 	public void FooterPage() {
 	}
-	
-	
+
 	
 	@RequestMapping("/Main")
 	 public void MainPage(UserVO vo) {
@@ -53,4 +52,10 @@ public class HomeController {
 	@RequestMapping("/myPage/myPageProfile")
 	public void myPageProfile() {
 	}
+	
+	@RequestMapping("/myPage/myPageDogList")
+	public void myDogList() {
+		
+	}
 }
+
