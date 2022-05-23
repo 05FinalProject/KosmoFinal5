@@ -1,8 +1,10 @@
 package com.example.service.agency;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.example.dao.AbandonedRepository;
@@ -13,8 +15,8 @@ public class AgencyServiceImpl implements AgencyService{
 	@Autowired
 	private AbandonedRepository ab;
 	
-	public List<AbandonedVO> getAllAbandoned(){
-		return (List<AbandonedVO>)ab.findAll();
+	public List<AbandonedVO> findAll(Pageable paging){
+		return ab.findAll(paging);
 	}
 	
 	

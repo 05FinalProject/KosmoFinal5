@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="ko">
 <head>
@@ -317,21 +318,21 @@
         
         <!--******** 페이지 테이블  *****************************************  -->
         
-        <nav class="navigation pagination justify-content-between text-uppercase" role="navigation">
-                    <a class="prev disabled" href="#">
+        <nav class="navigation pagination justify-content-between text-uppercase " role="navigation">
+                   <!--  <a class="prev disabled" href="#">
                         Prev
-                    </a>
+                    </a> -->
                     <div class="nav-links">
-                        <ul class="page-numbers">
-                            <li><span aria-current="page" class="page-numbers current">1</span></li>
-                            <li><a class="page-numbers" href="#">2</a></li>
-                            <li><span class="page-numbers dots">…</span></li>
-                            <li><a class="page-numbers" href="#">4</a></li>
-                        </ul>
+                        <c:set var="recordsCnt" value="${300}" />
+<%--                         <c:set var="recordsCnt" value="${getGoodsCount.no}" /> --%>
+										<c:set var="jspFile" value="agencyShelter?" />
+										<c:set var="perpage" value="20" />
+										<!-- include 페이징  jsp파일  -->
+										<%@include file="paging.jsp" %>
                     </div>
-                    <a class="next" href="#">
+                    <!-- <a class="next" href="#">
                         Next
-                    </a>
+                    </a> -->
                 </nav>
     </div>
 </main>
