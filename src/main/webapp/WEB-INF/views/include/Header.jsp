@@ -63,7 +63,7 @@
 		<nav class="navbar navbar-expand-lg navbar-dark navbar-only"
 			id="lana-pet-main-navbar" style="font-size:28px;">
 			<a class="navbar-brand" href="#" style="margin-left:3%;"> <img
-				class="navbar-logo headlogo" src="/img/그림3.png"
+				class="navbar-logo headlogo" src="/img/logo3.png"
 				alt="Navbar Logo">
 			</a>
 						<!-- 반응형 웹 작동 시 나타남 -->
