@@ -64,8 +64,8 @@
 }
 
 .agency img {
-	height: 70%;
-	width: 70%;
+	height: auto;
+	width: 70px;
 }
 
 .agency li {
