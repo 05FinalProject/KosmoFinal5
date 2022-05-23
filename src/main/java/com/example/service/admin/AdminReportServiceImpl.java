@@ -1,7 +1,5 @@
 package com.example.service.admin;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,16 +23,16 @@ public class AdminReportServiceImpl implements AdminReportService{
 	
 	//댓글 목록 출력
 	@Override
-	public List<ReportVO> reportCommentList(ReportVO vo) {
+	public List<Object[]> reportCommentList(ReportVO vo) {
 		
-		return (List<ReportVO>)rpRepo.findAll();
+		return rpRepo.reportComment();
 	}
 
 	//게시글 목록 출력
 	@Override
-	public List<ReportVO> reportCommunityList(ReportVO vo) {
+	public List<Object[]> reportCommunityList(ReportVO vo) {
 		
-		return (List<ReportVO>)rpRepo.findAll();
+		return rpRepo.reportCommunity();
 	}
 
 	//블랙리스트 목록 출력
