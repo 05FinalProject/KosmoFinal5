@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import lombok.Data;
 
@@ -16,7 +17,8 @@ public class AbandonedVO {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer ab_no;
+	@Column(name = "ab_no")
+	private Integer abNo;
 	
 	@Column(length = 200)
 	private String ab_name;
@@ -28,5 +30,8 @@ public class AbandonedVO {
 	private String ab_gender;
 	@Column(length = 200)
 	private String ab_image;
+	
+	@Transient
+	private int page;
 	
 }

@@ -1,5 +1,7 @@
 package com.example.controller;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -9,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.example.domain.AbandonedVO;
 import com.example.service.agency.AgencyService;
 
 @Controller
@@ -40,12 +43,16 @@ public class AgencyController {
 	}
 
 	@RequestMapping(value ="/agencyShelter", method=RequestMethod.GET)
-	public String agencyShelter(Model m) {
-		
-//		Pageable paging = PageRequest.of(0, 0,Sort.Direction.ASC,"seq");
+	public String agencyShelter(Model m,AbandonedVO vo) {
+		int page = 1;
+		if(vo.getPage()!=0) {
+			page = vo.getPage();
+		}
+		Pageable paging = PageRequest.of(page-1, 9,Sort.Direction.ASC,"abNo");
 
-//		m.addAttribute("agList",ag.findAll(paging) );
+		m.addAttribute("paging",ag.getPaging(paging) );
 		
+		m.addAttribute("count",ag.countRecord() );
 		return "/include/agencyShelter";
 	}
 	

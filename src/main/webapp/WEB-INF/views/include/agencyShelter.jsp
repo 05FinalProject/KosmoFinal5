@@ -75,24 +75,30 @@
             </div>
             
                     <!--************ 1번째 칸 테이블 시작 ***********************************-->
-         <div class="row mt-5">
+                    
+                     <div class="row mt-5">
+                     <c:forEach var="vo" items="${paging}">
                 <div class="col-12 col-md-4 col-lg-4">
                     <div class="lana_member type-lana_member card member-card bg-transparent">
                         <div class="card-body" id="pic1">
-                            <a href="/include/agencyShelterDetail"><img src="../pictures/placeholder/250x250.svg" class="card-img-top img-fluid rounded-circle animated zoomIn" alt="Team Member" data-scroll-animate="zoomIn"></a>
+                            <a href="/include/agencyShelterDetail"><img src="${vo.ab_image}" class="card-img-top img-fluid rounded-circle animated zoomIn" alt="Team Member" data-scroll-animate="zoomIn"></a>
                             <a ><h5 class="post-title card-title animated fadeInDown" data-scroll-animate="fadeInDown">
-                                강아지종 
+                                ${vo.ab_kind}
                             </h5></a>
                             <h6 class="card-subtitle animated fadeInUp" data-scroll-animate="fadeInUp">
-                                강아지색/개월수
+                                ${vo.ab_name}/ ${vo.ab_age}
                             </h6>
                             <p class="post-text card-text animated fadeIn" data-scroll-animate="fadeIn">
-                                암놈/숫놈
+                                ${vo.ab_gender}
                             </p>
                            
                           </div>
                     </div>
+                    
                 </div>
+                    </c:forEach>
+                    
+         
                 
                 
                 
@@ -100,8 +106,8 @@
                  
                 
                 
-                    <!--  ************ 2번째 칸 테이블 시작 *********************************** -->
-	                <div class="col-12 col-md-4 col-lg-4">
+                  <!--   <!--  ************ 2번째 칸 테이블 시작 *********************************** -->
+	              <!--  <div class="col-12 col-md-4 col-lg-4">
 	                    <div class="lana_member type-lana_member card member-card bg-transparent">
 	                        <div class="card-body" id="pic2">
 	                            <img src="../pictures/placeholder/250x250.svg" class="card-img-top img-fluid rounded-circle animated zoomIn" alt="Team Member" data-scroll-animate="zoomIn">
@@ -119,10 +125,10 @@
                         </div>
                     </div>
                 </div>
-                    <!--  ************ 2번째 칸 테이블 끝 *********************************** -->
+                     ************ 2번째 칸 테이블 끝 ***********************************
                  
                 
-                    <!--  ************ 3번째 칸 테이블 시작 *********************************** -->
+                     ************ 3번째 칸 테이블 시작 ***********************************
            <div class="col-12 col-md-4 col-lg-4">
                     <div class="lana_member type-lana_member card member-card bg-transparent">
                         <div class="card-body" id="pic3">
@@ -141,7 +147,7 @@
                         </div>
                     </div>
                 </div>
-           <!-- ***************4번째 -->
+           ***************4번째
           
            
           </div>
@@ -149,11 +155,11 @@
          
          
         </div>
-            <!--  ************ 3번째 칸 테이블 끝 *********************************** -->
+             ************ 3번째 칸 테이블 끝 ***********************************
         
         
         
-        <!--************ 2번째 칸 테이블 시작 ***********************************-->
+        ************ 2번째 칸 테이블 시작 ***********************************
 
         <div id="employees-container" class="container my-5">
         
@@ -178,10 +184,10 @@
                         </div>
                     </div>
                 </div>
-                <!-- ***********  테이블 끝  ********************************** -->
+                ***********  테이블 끝  **********************************
                 
                 
-                <!--  *********  테이블 시작 ******************************** -->
+                 *********  테이블 시작 ********************************
                 <div class="col-12 col-md-4 col-lg-4">
                     <div class="lana_member type-lana_member card member-card bg-transparent">
                         <div class="card-body" id="pic1">
@@ -203,9 +209,9 @@
                     </div>
                 </div>
                 
-                <!--  *************** 테이블 끝 ************************ -->
+                 *************** 테이블 끝 ************************
                 
-                <!--   ************** 테이블 시작 ************************** -->
+                  ************** 테이블 시작 **************************
                 <div class="col-12 col-md-4 col-lg-4">
                     <div class="lana_member type-lana_member card member-card bg-transparent">
                         <div class="card-body" id="pic1">
@@ -226,12 +232,12 @@
                         </div>
                     </div>
                 </div>
-                <!--   *************** 테이블 끝 ******************* -->
+                  *************** 테이블 끝 *******************
                 
             </div>
         </div>
         
-        <!--************ 2번째 칸 테이블 끝 ***********************************-->
+        ************ 2번째 칸 테이블 끝 ***********************************
         
         
         <div id="employees-container" class="container my-5">
@@ -257,10 +263,10 @@
                         </div>
                     </div>
                 </div>
-                <!-- ***********  테이블 끝  ********************************** -->
+                ***********  테이블 끝  **********************************
                 
                 
-                <!--  *********  테이블 시작 ******************************** -->
+                 *********  테이블 시작 ********************************
                 <div class="col-12 col-md-4 col-lg-4">
                     <div class="lana_member type-lana_member card member-card bg-transparent">
                         <div class="card-body" id="pic1">
@@ -282,9 +288,9 @@
                     </div>
                 </div>
                 
-                <!--  *************** 테이블 끝 ************************ -->
+                 *************** 테이블 끝 ************************
                 
-                <!--   ************** 테이블 시작 ************************** -->
+                  ************** 테이블 시작 **************************
                 <div class="col-12 col-md-4 col-lg-4">
                     <div class="lana_member type-lana_member card member-card bg-transparent">
                         <div class="card-body" id="pic1">
@@ -304,7 +310,7 @@
                            
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!--   *************** 테이블 끝 ******************* -->
                 
             </div>
@@ -323,10 +329,10 @@
                         Prev
                     </a> -->
                     <div class="nav-links">
-                        <c:set var="recordsCnt" value="${300}" />
+                        <c:set var="recordsCnt" value="${count}" />
 <%--                         <c:set var="recordsCnt" value="${getGoodsCount.no}" /> --%>
 										<c:set var="jspFile" value="agencyShelter?" />
-										<c:set var="perpage" value="20" />
+										<c:set var="perpage" value="9" />
 										<!-- include 페이징  jsp파일  -->
 										<%@include file="paging.jsp" %>
                     </div>
