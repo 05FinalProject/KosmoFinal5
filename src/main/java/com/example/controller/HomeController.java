@@ -26,18 +26,19 @@ public class HomeController {
 	@RequestMapping("/Footer")
 	public void FooterPage() {
 	}
-	
+
 	
 	@RequestMapping("/Main")
-	public void MainPage() {
-	}
-	/*
-	 * public void MainPage(UserVO vo) {
-	 * vo.setUser_address(vo.getAddr1()+vo.getAddr2()+vo.getAddr3());
-	 * vo.setUser_black("N"); vo.setUser_admin("N");
-	 * 
-	 * signUp.insertUser(vo); }
-	 */
+	 public void MainPage(UserVO vo) {
+		if(vo.getAddr3() != null) {
+			vo.setUser_address(vo.getAddr1()+vo.getAddr2()+vo.getAddr3());
+			 vo.setUser_black("N"); vo.setUser_admin("N");
+			 
+			 signUp.insertUser(vo); 
+		}
+	 
+	 }
+	 
 	
 	@RequestMapping("/signUp")
 	public void signUpPage( ) {
@@ -51,4 +52,13 @@ public class HomeController {
 	@RequestMapping("/myPage/myPageProfile")
 	public void myPageProfile() {
 	}
+	
+	@RequestMapping("/myPage/myPageDogList")
+	public void myDogList() {
+	}
+	
+	@RequestMapping("/myPage/myPageDogDetail")
+	public void myDogDetail() {
+	}
 }
+

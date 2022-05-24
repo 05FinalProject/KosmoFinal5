@@ -36,8 +36,8 @@ public class ChatingServiceImpl implements ChatingService {
 	}
 	
 	//채팅방인원수검색
-	public List<ChatingRoomVO> findByRoomName(ChatingRoomVO vo){
-		return ch.findByRoomName(vo.getRoomName());
+	public List<ChatingRoomVO> findByRoomNumber(ChatingRoomVO vo){
+		return ch.findByRoomNumber(vo.getRoomNumber());
 	}
 	
 	//채팅방리스트
@@ -66,6 +66,10 @@ public class ChatingServiceImpl implements ChatingService {
 	
 	public List<ImgVO> getUserImg(String email) {
 		return img.findByUserEmail(email);
+	}
+	
+	public UserVO getUserInfo(String roomMember) {
+		return usr.findById(roomMember).get();
 	}
 	
 }

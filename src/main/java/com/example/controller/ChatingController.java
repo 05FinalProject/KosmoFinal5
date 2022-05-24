@@ -1,7 +1,6 @@
-package com.example.controller.ChattingController;
+package com.example.controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -10,10 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.dao.ChatingRoomRepository;
 import com.example.domain.ChatingRoomVO;
 import com.example.domain.Room;
 import com.example.domain.UserVO;
@@ -97,7 +94,23 @@ public class ChatingController {
 		mv.addObject("id",vo.getRoomMember());
 		mv.addObject("roomName", vo.getRoomName());
 		mv.addObject("roomNumber", roomNum);
-		mv.addObject("getRoomNum",service.findByRoomName(vo).size());
+		mv.addObject("getRoomNum",service.findByRoomNumber(vo).size());
+		mv.addObject("niName", service.getUserInfo(vo.getRoomMember()).getUser_nickname());
+		
+		List<ChatingRoomVO> list = service.findByRoomNumber(vo);
+		for(ChatingRoomVO vv: list) {
+			service.getUserInfo(vv.getRoomMember());
+			
+		}
+		/*
+		for(int i=0;i<list.size();i++) {
+			if (list.get(i).getRoomMember()==vo.getRoomMember()) {
+				list.get(i).set
+			}
+		}
+		*/
+		
+//		mv.addObject("others", );
 		
 		mv.setViewName("/chating/chat");
 		
