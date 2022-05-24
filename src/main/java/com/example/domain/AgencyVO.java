@@ -18,8 +18,8 @@ public class AgencyVO {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer a_num;
 	
-	
-	private int a_category_num;	
+	@Column(name = "a_category_num")
+	private int aCategoryNum;	
 	
 	@Column(length = 200)
 	private String a_name;
