@@ -62,9 +62,8 @@
 	<header class="header bg-dark">
 		<nav class="navbar navbar-expand-lg navbar-dark navbar-only"
 			id="lana-pet-main-navbar">
-			<a class="navbar-brand" href="#" style="margin-left:3%;"> <img
-				class="navbar-logo headlogo" src="/img/logo3.png"
-				alt="Navbar Logo">
+			<a class="navbar-brand" href="Main" style="margin-left:3%;"> 
+				<img class="navbar-logo headlogo" src="/img/logo3.png" alt="Navbar Logo">
 			</a>
 						<!-- 반응형 웹 작동 시 나타남 -->
 			<div class="toggler-buttons d-flex flex-fill justify-content-end">
@@ -124,7 +123,7 @@
 				
 				<div class="button-nav-widget d-none d-xl-inline-flex" style="margin-right:3%;">
 					<ul class="nav button-nav">
-						<li class="nav-item" style="color:white;"><a href="#"
+						<li class="nav-item" style="color:white;"><a href="Login"
 							class="btn btn-sm text-uppercase font-weight-bold my-auto">
 								<img class="signUplogo" src="/img/Guest.png"/> </a></li>
 					</ul>

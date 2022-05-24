@@ -40,12 +40,19 @@
 									<!-- FORM -->
 									<form id="member_frm" action="Main" method="post" name="member_frm">
 										
-										<!-- NICKNAME -->
+										<!-- 닉네임 -->
 										<div class="form-group first field--not-empty">
-											<label for="user_nickname">닉네임&nbsp; &nbsp; &nbsp; &nbsp;<span
-													class="error_box"></span></label>
-											<input type="text" class="form-control form_nick" id="user_nickname"
-												name="user_nickname" autofocus>
+											<div class="nickname_check col-md-9">
+												<label for="user_nickname">닉네임&nbsp; &nbsp; &nbsp; &nbsp;<span
+														class="error_box"></span></label>
+												<input type="text" class="form-control" id="user_nickname"
+													name="user_nickname">
+											</div>
+
+											<div class='nickname_check col-md-3'>
+												<button type="button" id="btn_nicknameCheck" class="btn_check btn-pill btn-orange">
+													<span class="text-white btn_text">중복확인</span></button>
+											</div>
 										</div>
 
 										<!-- EMAIL -->
@@ -58,7 +65,7 @@
 											</div>
 
 											<div class='email_check col-md-3'>
-												<button type="button" id="btn_emailCheak" class="btn_check btn-pill btn-orange">
+												<button type="button" id="btn_emailCheck" class="btn_check btn-pill btn-orange">
 													<span class="text-white btn_text">중복확인</span></button>
 											</div>
 										</div>
@@ -523,6 +530,13 @@
 				});
 				$("#btn_emailCheak").mouseout(function(){
 					$("#btn_emailCheak").css("background-color","#F8b03a");
+				});
+				
+				$("#btn_nicknameCheak").mouseover(function(){
+					$("#btn_nicknameCheak").css("background-color","#dc6721");
+				});
+				$("#btn_nicknameCheak").mouseout(function(){
+					$("#btn_nicknameCheak").css("background-color","#F8b03a");
 				});
 
 			});

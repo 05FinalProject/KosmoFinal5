@@ -1,10 +1,7 @@
-package com.example.service.community;
+package com.example.community;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.example.dao.CommunityRepository;
-import com.example.domain.CommunityVO;
 
 @Service
 public class CommunityServiceImpl implements CommunityService {

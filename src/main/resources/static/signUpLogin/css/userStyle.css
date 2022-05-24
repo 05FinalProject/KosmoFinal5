@@ -21,6 +21,12 @@ input[type=date]:focus::-webkit-datetime-edit {
 	margin-left: -15px;
 }
 
+.nickname_check {
+	display: inline-block;
+	margin-left: -15px;
+}
+
+
 .btn_check {
 	border: 1px solid transparent;
 }

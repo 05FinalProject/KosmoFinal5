@@ -31,6 +31,8 @@
           media="print">
 
     <link rel="stylesheet" href="css/mainPage.css" type="text/css">
+    <script src="https://kit.fontawesome.com/23b331c6f8.js"
+	crossorigin="anonymous"></script>
     
     
     <style type="text/css">
@@ -218,11 +220,11 @@
 
              		 <nav class="navigation pagination justify-content-between bg-transparent text-uppercase"
                      role="navigation">
-                    <a class="prev disabled" href="#">
-                        Prev
-                    </a>
+             
                     <div class="nav-links">
                         <ul class="page-numbers">
+                        
+                            <li><a class="page-numbers" href="#"></a></li>                            
                             <li><span aria-current="page" class="page-numbers current">1</span></li>
                             <li><a class="page-numbers" href="#">2</a></li>                            
                             <li><a class="page-numbers" href="#">3</a></li>
@@ -231,11 +233,11 @@
                             <li><a class="page-numbers" href="#">6</a></li>
                             <li><a class="page-numbers" href="#">7</a></li>
                             <li><a class="page-numbers" href="#">8</a></li>
+                            <li><a class="page-numbers" href="#">9</a></li>
+                            <li><a class="page-numbers" href="#">10</a></li>
                         </ul>
                     </div>
-                    <a class="next" href="#">
-                        Next
-                    </a>
+                   
                 </nav>
             </div>
         </div>

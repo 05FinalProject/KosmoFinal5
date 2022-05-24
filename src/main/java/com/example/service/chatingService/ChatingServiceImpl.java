@@ -72,4 +72,12 @@ public class ChatingServiceImpl implements ChatingService {
 		return usr.findById(roomMember).get();
 	}
 	
+	public List<ChatingRoomVO> findByRoomNumber(int roomNumber){
+		return ch.findByRoomNumber(roomNumber );
+	}
+	
+	public long getRoomMemCnt(int roomNumber) {
+		return ch.getRoomMemCnt(roomNumber);
+	}
+	
 }

@@ -2,6 +2,7 @@ package com.example.domain;
 
 import java.util.Date;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,11 +14,13 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.example.community.*;
+
 import lombok.Data;
 
 @Data
-@Table(name="comment")
 @Entity
+@Table(name="comment")
 public class CommentVO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

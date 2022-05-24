@@ -19,7 +19,6 @@
     <!-- Style -->
     <link rel="stylesheet" href="../signUpLogin/css/style.css">
     
-    <!-- userStyle : 안정은 -->
     <link rel="stylesheet" href="../signUpLogin/css/userStyle.css">
 	
     <title>Login</title>
@@ -47,12 +46,12 @@
                 </div>
                 <form action="loginMove.do" method="post" id="loginForm" name="loginForm">
                   <div class="form-group first field--not-empty" id="CookieEmail">
-                    <label for="memberEmail">이메일&nbsp; &nbsp; &nbsp; &nbsp;<span class="error_box"></span></label>
-                    <input type="email" class="form-control" id="memberEmail" name="memberEmail" >
+                    <label for="user_email">이메일&nbsp; &nbsp; &nbsp; &nbsp;<span class="error_box"></span></label>
+                    <input type="email" class="form-control" id="user_email" name="user_email" >
                   </div>
                   <div class="form-group last mb-4 field--not-empty" >
-                    <label for="memberPassword">비밀번호&nbsp; &nbsp; &nbsp; &nbsp;<span class="error_box"></span></label>
-                    <input type="password" class="form-control" id="memberPassword" name="memberPassword">
+                    <label for="user_pass">비밀번호&nbsp; &nbsp; &nbsp; &nbsp;<span class="error_box"></span></label>
+                    <input type="password" class="form-control" id="user_pass" name="user_pass">
                     
                   </div>
                   
@@ -70,7 +69,7 @@
                   <div class="d-flex mb-5 align-items-center" id="homeGO">
                     <label class="control control--checkbox mb-0"><span class="caption"></span>
                     </label>
-                    <span class="ml-auto"><a href="signupForm.do" class="forgot-pass">회원가입 하기</a></span> 
+                    <span class="ml-auto"><a href="signUp" class="forgot-pass">회원가입 하기</a></span> 
                     &nbsp;&nbsp;<span class="colorChange">|</span>&nbsp;&nbsp;
                     <span class=""><a href="pwSearchForm.do" class="forgot-pass">비밀번호 찾기</a></span> 
                   </div>
@@ -111,6 +110,24 @@
 		$(".btn-orange").mouseout(function(){
 			$(".btn-orange").css("background-color","#F8b03a");
 		});
+	})
+	 
+	$('#btnLogin').click(function(){
+		console.log($('#user_email').val())
+		console.log($('#user_pass').val())
+		$.ajax({
+			url:'/api/checkLogin',
+			data:{user_email:$('#user_email').val(),user_pass:$('#user_pass').val()},
+			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+			success:function(data){
+				if(data == 'yes'){
+					location.href='/include/Main'
+					$(".signUplogo").css("color","skyblue");
+				}else{
+					alert('아이디와 비밀번호가 일치하지 않습니다.')
+				}
+			}
+		})
 	})
     </script>
   </body>
