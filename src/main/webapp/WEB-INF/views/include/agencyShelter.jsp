@@ -40,13 +40,17 @@
   
     #pic1 {width: 100%; height: 100%; border: 1px solid #F3E2A9;}
     
-    #pic2 {width: 100%; height: 100%; border: 1px solid #F3E2A9;}
-    
-    #pic3 {width: 100%; height: 100%; border: 1px solid #F3E2A9;}
-    
+
     #managers-container {
       justify-content: space-around;
     }
+    
+  
+   .pagination{
+   
+   justify-content: center;
+   }
+ 
    
     </style>
   
@@ -72,24 +76,22 @@
                     <h1 class="mb-4 font-weight-bold" data-scroll-animate="fadeInDown">애견 보호소</h1>
                     <div class="lana-hr lana-hr-4 border-primary mt-4"></div>
                 </div>
-            </div>
             
-                    <!--************ 1번째 칸 테이블 시작 ***********************************-->
-                    
-                     <div class="row mt-5">
+            
+            <div class="row mt-5">
                      <c:forEach var="vo" items="${paging}">
-                <div class="col-12 col-md-4 col-lg-4">
-                    <div class="lana_member type-lana_member card member-card bg-transparent">
+                <div class="col-12 col-md-4 col-lg-4" >
+                    <div class="lana_member type-lana_member card member-card ">
                         <div class="card-body" id="pic1">
-                            <a href="/include/agencyShelterDetail"><img src="${vo.ab_image}" class="card-img-top img-fluid rounded-circle animated zoomIn" alt="Team Member" data-scroll-animate="zoomIn"></a>
+                            <a href="/include/agencyShelterDetail"><img src="${vo.abImage}" class="card-img-top img-fluid rounded-circle animated zoomIn" alt="Team Member" data-scroll-animate="zoomIn"></a>
                             <a ><h5 class="post-title card-title animated fadeInDown" data-scroll-animate="fadeInDown">
-                                ${vo.ab_kind}
+                                ${vo.abKind}
                             </h5></a>
                             <h6 class="card-subtitle animated fadeInUp" data-scroll-animate="fadeInUp">
-                                ${vo.ab_name}/ ${vo.ab_age}
+                                ${vo.abName}/ ${vo.abAge}
                             </h6>
                             <p class="post-text card-text animated fadeIn" data-scroll-animate="fadeIn">
-                                ${vo.ab_gender}
+                                ${vo.abGender}
                             </p>
                            
                           </div>
@@ -98,6 +100,13 @@
                 </div>
                     </c:forEach>
             </div>
+            
+            
+            </div>
+            
+                    <!--************ 1번째 칸 테이블 시작 ***********************************-->
+                    
+                     
         </div>
         
         
@@ -107,17 +116,19 @@
         
         
         <!--******** 페이지 테이블  *****************************************  -->
-        
-        <nav class="navigation pagination justify-content-between text-uppercase " role="navigation">
+       
+        <nav class="pagination" role="navigation">
               
-        <div class="nav-links">
+        <div class="nav-links" >
         <c:set var="recordsCnt" value="${count}" />
 		<c:set var="jspFile" value="agencyShelter?" />
 		<c:set var="perpage" value="9" />
-		<!-- include 페이징  jsp파일  -->
-		<%@include file="paging.jsp" %>
-        </div>
+		</div>
+        
+        <!-- include 페이징  jsp파일  -->
+        <%@include file="paging.jsp" %>
         </nav>
+        
     </div>
 </main>
                 
@@ -138,15 +149,7 @@
 <script type="text/javascript" src="/js/magnific-popup.min.js?ver=1.1.0"></script>
 <script type="text/javascript" src="/js/custom-theme.js?ver=1.0.0"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5a0a025e110dde0902210e297400a7be"></script>
-<script>
-		var container = document.getElementById('map');
-		var options = {
-			center: new kakao.maps.LatLng(33.450701, 126.570667),
-			level: 3
-		};
 
-		var map = new kakao.maps.Map(container, options);
-	</script>
 
 <script type="text/javascript">
 
