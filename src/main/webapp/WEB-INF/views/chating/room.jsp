@@ -40,8 +40,6 @@
 <%@ include file="../include/Header.jsp" %>
 <legend class="fontLarge">채팅방</legend>
 <div class="container col-12 col-lg-4 ">
-  
-
   <!-- The Modal -->
   <div class="modal fade" id="myModal">
     <div class="modal-dialog">
@@ -54,8 +52,11 @@
         </div>
         
         <!-- Modal body -->
-        
+       
+        <form action="chatingRoom" method="post" id="modalForm">
         <input type="hidden" name="roomNumber" id="modalRoomNum" value="" />
+        <input type="hidden" name="roomName" id="modalRoomName" value="" />
+        <input type="hidden" name="roomMember" id="modalRoomMember" value="${email}" >
         <div class="modal-body font1">
          	비밀번호
         </div>
@@ -66,7 +67,7 @@
         	<button type="button" class="btn btn-primary" id="goInRoom">확인</button>
           <button type="button" class="btn btn-secondary" id="none" data-dismiss="modal">취소</button>
         </div>
-        
+        </form>
       </div>
     </div>
   </div>
@@ -137,10 +138,10 @@
                 
                 <div class="widget widget_tag_cloud">
                     <div class="tagcloud text-center">
-                        <a id="makeRoom" class="tag-cloud-link "  >채팅방만들기</a>
+                        <a id="makeRoom" class="tag-cloud-link">채팅방만들기</a>
                     </div>
                 </div>
-                <form class="pet-filter-form" action="moveChating" id="frm">
+                <form class="pet-filter-form" action="chatingRoom" id="frm" method="post" >
                 <input type="hidden" name="roomMember" id="roomMember" value="${email}" >
                 <div id="insertRoom" >
                 <div class="widget1">
@@ -162,14 +163,6 @@
                    <input type="button" id="up" class="btn1 btn-secondary" value="취소" />
                    <input type="submit"  class="btn1 btn-primary" value="확인" />
                   
-                    <!-- <br/>
-                    <div class="widget widget_tag_cloud">
-                    <div class="tagcloud right" >
-                    	
-                        <input class="tag-cloud-link " id="sure" type="submit" >확인</a>
-                        <a class="tag-cloud-link " id="up" >취소</a>     
-                    </div>
-                </div> -->
                   </div>
                 </form>
             </div>
@@ -215,6 +208,9 @@ $('.card-link').click(function(){
 	$('#modalRoom').text($(this).attr('content'))
 	//modal 방번호 값을 주기
 	$('#modalRoomNum').val($(this).attr('content').split('#')[1]) 
+	
+	$('#modalRoomName').val($('#modalRoom').text().split('#')[0].trim())
+	$('#modalRoomNum').val($('#modalRoomNum').val())
 
 })
 
@@ -225,7 +221,7 @@ $('#goInRoom').click(function(e){
 		type:'get',
 		success:function(data){
 			if(data=="yes"){
-				location.href="moveChating?roomMember="+$('input[name="roomMember"]').val()+"&roomName="+$('#modalRoom').text().split('#')[0].trim()+"&roomNumber="+$('#modalRoomNum').val()
+				$('#modalForm').submit()
 				
 			}else{
 				$('#passWrong').slideDown()

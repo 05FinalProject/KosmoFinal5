@@ -12,7 +12,9 @@ public interface ChatingService {
 	
 	public void insertRoomMember(ChatingRoomVO vo);
 	
-	public List<ChatingRoomVO> findByRoomName(ChatingRoomVO vo);
+	public List<ChatingRoomVO> findByRoomNumber(int roomNumber);
+	
+	public List<ChatingRoomVO> findByRoomNumber(ChatingRoomVO vo);
 	
 	public List<ChatingRoomVO> getAllRooms();
 	
@@ -23,5 +25,7 @@ public interface ChatingService {
 	public List<ImgVO> getUserImg(String email);
 	
 	public UserVO getUserInfo(String roomMember);
+	
+	public long getRoomMemCnt(int roomNumber) ;
 
 }
