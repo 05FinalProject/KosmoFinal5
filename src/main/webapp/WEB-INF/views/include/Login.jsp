@@ -70,7 +70,7 @@
                   <div class="d-flex mb-5 align-items-center" id="homeGO">
                     <label class="control control--checkbox mb-0"><span class="caption"></span>
                     </label>
-                    <span class="ml-auto"><a href="signupForm.do" class="forgot-pass">회원가입 하기</a></span> 
+                    <span class="ml-auto"><a href="signUp" class="forgot-pass">회원가입 하기</a></span> 
                     &nbsp;&nbsp;<span class="colorChange">|</span>&nbsp;&nbsp;
                     <span class=""><a href="pwSearchForm.do" class="forgot-pass">비밀번호 찾기</a></span> 
                   </div>
@@ -111,6 +111,23 @@
 		$(".btn-orange").mouseout(function(){
 			$(".btn-orange").css("background-color","#F8b03a");
 		});
+	})
+	 
+	$('#btnLogin').click(function(){
+		console.log($('#memberEmail').val())
+		console.log($('#memberPassword').val())
+		$.ajax({
+			url:'/api/checkLogin',
+			data:{user_email:$('#memberEmail').val(),user_pass:$('#memberPassword').val()},
+			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+			success:function(data){
+				if(data == 'yes'){
+					location.href='/include/Main'
+				}else{
+					alert('아이디와 비밀번호가 일치하지 않습니다.')
+				}
+			}
+		})
 	})
     </script>
   </body>

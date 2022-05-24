@@ -96,11 +96,14 @@
 							url:'/api/membersImg',
 							type:'get',
 							contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-
+<<<<<<< HEAD
 							data:{user_email:d.userName},
 							 contentType: "application/json; charset=utf-8;",
 							 dataType: "json",
-
+=======
+// 							data:{user_email:$("#userName").val()},
+							data:{user_email:d.userName},
+>>>>>>> 2442e732fcae1088219b56170a9277492c48b5c0
 							success:function(data){
 								console.log(data)
 								var niName = data.niName;

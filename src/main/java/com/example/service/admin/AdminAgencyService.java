@@ -1,13 +1,15 @@
 package com.example.service.admin;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
 
-import com.example.dao.AgencyRepository;
+import com.example.domain.AgencyVO;
 
-public class AdminAgencyService {
+public interface AdminAgencyService {
+	
+	//애견호텔 목록 출력
+	public List<AgencyVO> agencyList(AgencyVO vo);
 	
 	
-	@Autowired
-	private AgencyRepository aRepo;	
-
+	
+	
 }
