@@ -33,10 +33,7 @@ public class SignUpServiceImpl implements SignUpService {
 	@Override
 	public UserVO loginCheck(UserVO vo) {
 		UserVO result = user.findById(vo.getUser_email()).get();
-		
-		
 		return result;
-		
 	}
 /*
 //	/**	비밀번호 찾기

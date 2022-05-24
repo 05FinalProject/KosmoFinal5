@@ -17,7 +17,7 @@ var blank = "필수 입력 사항입니다.";
 	[ 회원가입 페이지 ]
 	이메일 중복 버튼 클릭 이벤트
 */
-var emailCheak = false;
+var emailCheck = false;
 $('#btn_emailCheck').click(function(){
 	// 이메일 중복검사 확인 여부
 	
@@ -50,11 +50,11 @@ $('#btn_emailCheck').click(function(){
     		if(result == 'Y'){
 	        		$('label[for="user_email"] .error_box').css('color','#4ABA99');
 	        		$('label[for="user_email"] .error_box').html("사용 가능한 이메일입니다.");
-	        		emailCheak = true;
+	        		emailCheck = true;
 				}else{
 	        		$('label[for="user_email"] .error_box').css('color','#ED7A64');
 	        		$('label[for="user_email"] .error_box').html("사용할 수 없는 이메일입니다.");
-	        		emailCheak = false;
+	        		emailCheck = false;
 				}
     	},
     	error : function(err){
@@ -62,14 +62,14 @@ $('#btn_emailCheck').click(function(){
     		console.log(err);
     	}
     }); //end of ajax
-}); // end of $('#btn_emailCheak').click
+}); // end of $('#btn_emailCheck').click
 
 /*********************************************************************
 	[ 회원가입 페이지 ]
 	닉네임 중복 버튼 클릭 이벤트
 */
 var nicknameCheck = false;
-$('#btn_nicknameCheak').click(function(){
+$('#btn_nicknameCheck').click(function(){
 	// 닉네임 중복검사 확인 여부
 	
 	$('label[for="user_nickname"] .error_box').html("");
@@ -89,12 +89,11 @@ $('#btn_nicknameCheak').click(function(){
 		return;
 	}
 	
-	// 이메일 중복 검사 - DB와 비교
+	// 닉네임 중복 검사 - DB와 비교
  	  $.ajax({
     	type : 'post',
     	url : 'nicknameCheck',
     	data : { user_nickname : $('#user_nickname').val() },
-    	contentType : 'application/x-www-form-urlencoded;charset=utf-8',
     	success : function(result){
     		
     		// 중복 검사 후 나오는 결과 에러박스에 출력
@@ -113,7 +112,7 @@ $('#btn_nicknameCheak').click(function(){
     		console.log(err);
     	}
     }); //end of ajax
-}); // end of $('#btn_emailCheak').click
+}); // end of $('#btn_nicknameCheck').click
 
 
 
@@ -272,7 +271,7 @@ $('#btn_signUp').click(function(){
 							}else{
 				        		$('label[for="user_email"] .error_box').css('color','#ED7A64');
 								$('label[for="user_email"] .error_box').html("이메일 중복 여부를 확인해주세요.");
-				        		emailCheak = false;
+				        		emailCheck = false;
 				        		return;
 							}
 			    	},
