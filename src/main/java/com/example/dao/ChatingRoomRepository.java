@@ -15,15 +15,16 @@ import com.example.domain.ChatingRoomVO;
 @Repository
 public interface ChatingRoomRepository extends CrudRepository<ChatingRoomVO, Integer> {
 	
-	 public List<ChatingRoomVO> findByRoomNumber(int word);
+	 
+	 public List<ChatingRoomVO> findByRoomNumber(int roomNumber);
 	 
 	 @Modifying
 	 @Transactional
 	 @Query("DELETE FROM ChatingRoomVO c WHERE c.roomMember=:roomMember")
 	 public void deleteByRoomMember(@Param("roomMember")String roomMember);
 	 
-	 @Query("SELECT count(c) as count FROM ChatingRoomVO c WHERE c.roomName=?1")
-	 long getRoomMemCnt(String roomName);
+	 @Query("SELECT count(c) as count FROM ChatingRoomVO c WHERE c.roomNumber=?1")
+	 long getRoomMemCnt(int roomNumber);
 	 
 	 @Query(value = "select distinct room_name,room_num from chating_room order by room_num",nativeQuery = true)
 	 public List<Object[]> getAllRooms();
