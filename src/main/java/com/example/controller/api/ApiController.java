@@ -28,8 +28,11 @@ public class ApiController {
 		if(room.getId().equals("1")) {
 			return Integer.parseInt(room.getRoomName())+1;
 		}
+
 		
 			return Integer.parseInt(room.getRoomName())-1;
+
+		
 	}
 	
 	@RequestMapping(value = "/checkRoomPass",produces = "application/text; charset=UTF-8")
@@ -39,7 +42,6 @@ public class ApiController {
 		if(list.size()>0) {
 			boo = "yes";
 		}
-		
 		return boo;
 	}
 	
@@ -52,4 +54,6 @@ public class ApiController {
 		hm.put("email",vo.getUser_email());
 		return hm;
 	}
+	
+	
 }

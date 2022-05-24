@@ -1,6 +1,7 @@
 package com.example.controller.admin;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -29,7 +30,6 @@ public class AdminMainController {
 	@RequestMapping(value="", method=RequestMethod.GET)
 	public String adminPage() {
 		return "/admin/indexAdmin";
-		
 	}
 	
 	//차트
@@ -90,14 +90,40 @@ public class AdminMainController {
 	
 	//댓글신고
 	@RequestMapping(value="adminComment", method=RequestMethod.GET)
-	public String reportComment() {
+	public String reportComment(Model m) {
+		List<HashMap> list = new ArrayList<>();
+		List<Object[]> list2 = adminReportService.reportCommentList(new ReportVO());
+		
+		for(Object[] obj : list2) {
+			HashMap hm = new HashMap<>();
+			hm.put("comment_num", (int)obj[0]);
+			hm.put("u_email", (String)obj[1]);
+			hm.put("comment_content", (String)obj[2]);
+			hm.put("r_reason", (String)obj[3]);
+			hm.put("r_date", (Date)obj[4]);
+			list.add(hm);
+		}
+		m.addAttribute("list", list);
 		return "/admin/report/adminRpComment";
 	}
 	
 	//게시글신고
-	@RequestMapping(value="adminBoard", method=RequestMethod.GET)
-	public String reportBoard() {
-		return "/admin/report/adminRpBoard";
+	@RequestMapping(value="adminCommunity", method=RequestMethod.GET)
+	public String reportCommunity(Model m) {
+		List<HashMap> list = new ArrayList<>();
+		List<Object[]> list2 = adminReportService.reportCommentList(new ReportVO());
+		
+		for(Object[] obj : list2) {
+			HashMap hm = new HashMap<>();
+			hm.put("c_num", (int)obj[0]);
+			hm.put("c_title", (String)obj[1]);
+			hm.put("user_email", (String)obj[2]);
+			hm.put("r_reason", (String)obj[3]);
+			hm.put("r_date", (Date)obj[4]);
+			list.add(hm);
+		}
+		m.addAttribute("list", list);
+		return "/admin/report/adminRpCommunity";
 	}
 	
 	//블랙리스트
