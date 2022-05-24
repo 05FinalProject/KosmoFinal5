@@ -112,6 +112,23 @@
 			$(".btn-orange").css("background-color","#F8b03a");
 		});
 	})
+	 
+	$('#btnLogin').click(function(){
+		console.log($('#memberEmail').val())
+		console.log($('#memberPassword').val())
+		$.ajax({
+			url:'/api/checkLogin',
+			data:{user_email:$('#memberEmail').val(),user_pass:$('#memberPassword').val()},
+			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+			success:function(data){
+				if(data == 'yes'){
+					location.href='/include/Main'
+				}else{
+					alert('아이디와 비밀번호가 일치하지 않습니다.')
+				}
+			}
+		})
+	})
     </script>
   </body>
 </html>
