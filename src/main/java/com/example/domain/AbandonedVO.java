@@ -20,16 +20,16 @@ public class AbandonedVO {
 	@Column(name = "ab_no")
 	private Integer abNo;
 	
-	@Column(length = 200)
-	private String ab_name;
-	@Column(length = 200)
-	private String ab_kind;
-	@Column(length = 200)
-	private String ab_age;
-	@Column(length = 20)
-	private String ab_gender;
-	@Column(length = 200)
-	private String ab_image;
+	@Column(length = 200,name="ab_name")
+	private String abName;
+	@Column(length = 200,name="ab_kind" )
+	private String abKind;
+	@Column(length = 200,name="ab_age")
+	private String abAge;
+	@Column(length = 20,name="ab_gender")
+	private String abGender;
+	@Column(length = 200,name="ab_image")
+	private String abImage;
 	
 	@Transient
 	private int page;
