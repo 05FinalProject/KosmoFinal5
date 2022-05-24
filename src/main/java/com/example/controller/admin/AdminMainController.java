@@ -11,10 +11,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.example.domain.AgencyVO;
 import com.example.domain.ReportVO;
 import com.example.domain.UserVO;
+import com.example.service.admin.AdminAgencyService;
 import com.example.service.admin.AdminReportService;
 import com.example.service.admin.AdminUserService;
+import com.example.service.agency.AgencyService;
 
 
 @Controller
@@ -22,10 +25,12 @@ import com.example.service.admin.AdminUserService;
 public class AdminMainController {
 	
 	@Autowired
-	private AdminUserService adminUserService;
-	
+	private AdminUserService adminUserService;	
 	@Autowired
 	private AdminReportService adminReportService;
+	@Autowired
+	private AdminAgencyService adminAgencyService;
+	
 	
 	@RequestMapping(value="", method=RequestMethod.GET)
 	public String adminPage() {
@@ -146,7 +151,10 @@ public class AdminMainController {
 	
 	//시설관리(애견호텔)
 	@RequestMapping(value="adminHotel", method=RequestMethod.GET)
-	public String adminHotel() {
+	public String adminHotel(Model m) {	
+		List<AgencyVO> list = adminAgencyService.agencyList(new AgencyVO());
+		m.addAttribute("agencyList", list);
+
 		return "/admin/facilities/adminHotel";		
 	}
 	

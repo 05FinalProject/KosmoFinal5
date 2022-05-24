@@ -2,6 +2,7 @@ package com.example.service.admin;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,7 @@ public class AdminAgencyServiceImpl implements AdminAgencyService{
 	@Override
 	public List<AgencyVO> agencyList(AgencyVO vo) {
 		
-		return null;
+		return aRepo.findByACategoryNum();
 	}
 	
 	
