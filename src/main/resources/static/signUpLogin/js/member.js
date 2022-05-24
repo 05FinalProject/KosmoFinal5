@@ -18,7 +18,7 @@ var blank = "필수 입력 사항입니다.";
 	이메일 중복 버튼 클릭 이벤트
 */
 var emailCheak = false;
-$('#btn_emailCheak').click(function(){
+$('#btn_emailCheck').click(function(){
 	// 이메일 중복검사 확인 여부
 	
 	$('label[for="user_email"] .error_box').html("");
@@ -41,8 +41,8 @@ $('#btn_emailCheak').click(function(){
 	// 이메일 중복 검사 - DB와 비교
  	  $.ajax({
     	type : 'post',
-    	url : 'emailCheck.do',
-    	data : { memberEmail : $('#user_email').val() },
+    	url : 'emailCheck',
+    	data : { user_email : $('#user_email').val() },
     	contentType : 'application/x-www-form-urlencoded;charset=utf-8',
     	success : function(result){
     		
@@ -63,6 +63,58 @@ $('#btn_emailCheak').click(function(){
     	}
     }); //end of ajax
 }); // end of $('#btn_emailCheak').click
+
+/*********************************************************************
+	[ 회원가입 페이지 ]
+	닉네임 중복 버튼 클릭 이벤트
+*/
+var nicknameCheck = false;
+$('#btn_nicknameCheak').click(function(){
+	// 닉네임 중복검사 확인 여부
+	
+	$('label[for="user_nickname"] .error_box').html("");
+	var user_nickname = $.trim($("#user_nickname").val());
+	
+	// 입력값이 없을 때 에러박스
+	if(user_nickname == ''){
+
+		$('label[for="user_nickname"] .error_box').html(blank);
+		return false;
+
+	}
+	// 형식에 맞지 않을 때 나오는 에러박스
+	if( !RegexNick.test(user_nickname) ){
+		$('label[for="user_nickname"] .error_box').css('color','#ED7A64');
+		$('label[for="user_nickname"] .error_box').html("닉네임 형식이 올바르지 않습니다.");
+		return;
+	}
+	
+	// 이메일 중복 검사 - DB와 비교
+ 	  $.ajax({
+    	type : 'post',
+    	url : 'nicknameCheck',
+    	data : { user_nickname : $('#user_nickname').val() },
+    	contentType : 'application/x-www-form-urlencoded;charset=utf-8',
+    	success : function(result){
+    		
+    		// 중복 검사 후 나오는 결과 에러박스에 출력
+    		if(result == 'Y'){
+	        		$('label[for="user_nickname"] .error_box').css('color','#4ABA99');
+	        		$('label[for="user_nickname"] .error_box').html("사용 가능한 닉네임입니다.");
+	        		nicknameCheck = true;
+				}else{
+	        		$('label[for="user_nickname"] .error_box').css('color','#ED7A64');
+	        		$('label[for="user_nickname"] .error_box').html("사용할 수 없는 닉네임입니다.");
+	        		nicknameCheck = false;
+				}
+    	},
+    	error : function(err){
+			alert('실패');
+    		console.log(err);
+    	}
+    }); //end of ajax
+}); // end of $('#btn_emailCheak').click
+
 
 
 /*
@@ -88,7 +140,7 @@ $('#btn_signUp').click(function(){
 		$('label[for="user_nickname"] .error_box').html("");
 		}		
 	
-	if( !RegexNick.test(user_ncickname) ){
+	if( !RegexNick.test(user_nickname) ){
 
 		$('label[for="user_nickname"] .error_box').html("한글, 영문 그리고 숫자만 입력 가능합니다.");
 		return;
@@ -181,9 +233,16 @@ $('#btn_signUp').click(function(){
 		$('label[for="user_phone"] .error_box').html("");
 		}
 	
+	// 닉네임 중복 여부 체크 했는지 확인
+	if( !nicknameCheck ){
+		$('label[for="user_nickname"] .error_box').html("닉네임 중복 여부를 확인해주세요.");
+		return;
+	}else {
+		$('label[for="user_nickname"] .error_box').html("");
+	}
 	
 	// 이메일 중복 여부 체크 했는지 확인
-	if( !emailCheak ){
+	if( !nicknameCheck ){
 		$('label[for="user_email"] .error_box').html("이메일 중복 여부를 확인해주세요.");
 		return;
 	}else {
@@ -201,7 +260,7 @@ $('#btn_signUp').click(function(){
 		$('#termsService').next().html("");
 		$.ajax({
 			    	type : 'post',
-			    	url : 'emailCheck.do',
+			    	url : 'emailCheck',
 			    	data : { user_email : $('#user_email').val() },
 			    	contentType : 'application/x-www-form-urlencoded;charset=utf-8',
 			    	success : function(result){
@@ -262,7 +321,7 @@ $('#btnLogin').click(function(){
 	
   $.ajax({
 	type : 'post',
-	url : 'loginCheck.do',
+	url : 'loginCheck',
 	data : { user_email : $("#user_email").val(),
 			user_pass : $("#user_pass").val(),
 			rememberEmail : rememberEmail
@@ -274,7 +333,7 @@ $('#btnLogin').click(function(){
         		$('.error_box.login').html("존재하는 회원이 아니거나 비밀번호가 일치하지 않습니다.");
 			
 			}else{
-			// 결과가 result = "Y"이면 로그인 성공 -> loginMove.do로 이동
+			// 결과가 result = "Y"이면 로그인 성공 -> loginMove로 이동
         		document.loginForm.submit();
 			}
 	},
@@ -302,7 +361,7 @@ $('#btnPwSearch').click(function(){
 	// 회원 정보가 있는지 확인
  	  $.ajax({
     	type : 'post',
-    	url : 'pwSearch.do',
+    	url : 'pwSearch',
     	data : { user_email : $('#user_email').val(),
     			user_phone : $('#user_phone').val(),
     			user_name : $('#user_name').val(),
