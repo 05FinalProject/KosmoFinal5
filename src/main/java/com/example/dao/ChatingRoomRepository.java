@@ -15,7 +15,6 @@ import com.example.domain.ChatingRoomVO;
 @Repository
 public interface ChatingRoomRepository extends CrudRepository<ChatingRoomVO, Integer> {
 	
-	 public List<ChatingRoomVO> findByRoomNumber(int word);
 	 
 	 public List<ChatingRoomVO> findByRoomNumber(int roomNumber);
 	 
