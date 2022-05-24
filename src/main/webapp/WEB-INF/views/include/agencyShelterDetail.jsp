@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="ko">
 <head>
@@ -65,15 +66,21 @@
  
  <main class="main">
     
+    
         <div id="post-1" class="lana_pet type-lana_pet post-1">
+        
+        <c:forEach var="vo" items="${paging}">
         <div class="container post-container">
+        
             <div class="row justify-content-center post-row bg-white no-gutters">
+            
                 <div class="col-12 post-thumbnail-col">
+                   
                     <div class="swiper-container gallery-image">
                         <div class="card-body">
                         
-                        <img class="card-img-top img-fluid" src="../pictures/placeholder/530x400.svg" alt="Post">
-                        <h3 class="post-title card-title">강아지종</h3>
+                        <img class="card-img-top img-fluid" src="${vo.abImage}" alt="Post">
+                        <h3 class="post-title card-title">${vo.abKind}</h3>
                         <p class="post-text card-text">
                           내용 
                         </p>
@@ -87,9 +94,13 @@
                         </div>
                     </div>
                         </div>
+                        
                     </div>
+                  
                 </div>
+                
             </div>
+              </c:forEach>
       </div>
 </main>
                 
