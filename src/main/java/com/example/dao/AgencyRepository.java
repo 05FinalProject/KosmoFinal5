@@ -12,7 +12,7 @@ import com.example.domain.AgencyVO;
 public interface AgencyRepository extends CrudRepository<AgencyVO, Integer> {
 	
 	
-	@Query("SELECT a FROM AgencyVO a WHERE a.a_category_num = 1")
-	public List<AgencyVO> agencyHotelList();	
+//	@Query("SELECT a FROM AgencyVO a WHERE a.a_category_num = 1")
+//	public List<AgencyVO> agencyHotelList();	
 	
 }
