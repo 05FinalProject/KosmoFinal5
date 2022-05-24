@@ -50,6 +50,9 @@
 	align-items: right;
 }
 
+
+
+
 </style>
 
 
@@ -108,10 +111,9 @@
 								</div>
 								<div class="card-footer">
 									<div class="text-right">
-										<a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-xmark"></i>
+										<a href="#" class="btn btn-sm bg-teal"> <i class="fa-solid fa-trash-can"></i>
 										</a> <a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-ban"></i>
+											class="fa-solid fa-ban ban" ></i>
 										</a> <a href="#" class="btn btn-sm btn-primary"> <i
 											class="fas fa-user"></i>상세보기
 										</a>
@@ -150,10 +152,9 @@
 								</div>
 								<div class="card-footer">
 									<div class="text-right">
-										<a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-xmark"></i>
+										<a href="#" class="btn btn-sm bg-teal"> <i class="fa-solid fa-trash-can"></i>
 										</a> <a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-ban"></i>
+											class="fa-solid fa-ban ban" ></i>
 										</a> <a href="#" class="btn btn-sm btn-primary"> <i
 											class="fas fa-user"></i>상세보기
 										</a>
@@ -192,10 +193,9 @@
 								</div>
 								<div class="card-footer">
 									<div class="text-right">
-										<a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-xmark"></i>
+										<a href="#" class="btn btn-sm bg-teal"> <i class="fa-solid fa-trash-can"></i>
 										</a> <a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-ban"></i>
+											class="fa-solid fa-ban ban" ></i>
 										</a> <a href="#" class="btn btn-sm btn-primary"> <i
 											class="fas fa-user"></i>상세보기
 										</a>
@@ -234,10 +234,9 @@
 								</div>
 								<div class="card-footer">
 									<div class="text-right">
-										<a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-xmark"></i>
+										<a href="#" class="btn btn-sm bg-teal"> <i class="fa-solid fa-trash-can"></i>
 										</a> <a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-ban"></i>
+											class="fa-solid fa-ban ban" ></i>
 										</a> <a href="#" class="btn btn-sm btn-primary"> <i
 											class="fas fa-user"></i>상세보기
 										</a>
@@ -276,10 +275,9 @@
 								</div>
 								<div class="card-footer">
 									<div class="text-right">
-										<a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-xmark"></i>
+										<a href="#" class="btn btn-sm bg-teal"> <i class="fa-solid fa-trash-can"></i>
 										</a> <a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-ban"></i>
+											class="fa-solid fa-ban ban" ></i>
 										</a> <a href="#" class="btn btn-sm btn-primary"> <i
 											class="fas fa-user"></i>상세보기
 										</a>
@@ -318,10 +316,9 @@
 								</div>
 								<div class="card-footer">
 									<div class="text-right">
-										<a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-xmark"></i>
+										<a href="#" class="btn btn-sm bg-teal"> <i class="fa-solid fa-trash-can"></i>
 										</a> <a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-ban"></i>
+											class="fa-solid fa-ban ban" ></i>
 										</a> <a href="#" class="btn btn-sm btn-primary"> <i
 											class="fas fa-user"></i>상세보기
 										</a>
@@ -360,10 +357,9 @@
 								</div>
 								<div class="card-footer">
 									<div class="text-right">
-										<a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-xmark"></i>
+										<a href="#" class="btn btn-sm bg-teal"> <i class="fa-solid fa-trash-can"></i>
 										</a> <a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-ban"></i>
+											class="fa-solid fa-ban ban" ></i>
 										</a> <a href="#" class="btn btn-sm btn-primary"> <i
 											class="fas fa-user"></i>상세보기
 										</a>
@@ -402,10 +398,9 @@
 								</div>
 								<div class="card-footer">
 									<div class="text-right">
-										<a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-xmark"></i>
+										<a href="#" class="btn btn-sm bg-teal"> <i class="fa-solid fa-trash-can"></i>
 										</a> <a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-ban"></i>
+											class="fa-solid fa-ban ban" ></i>
 										</a> <a href="#" class="btn btn-sm btn-primary"> <i
 											class="fas fa-user"></i>상세보기
 										</a>
@@ -444,10 +439,9 @@
 								</div>
 								<div class="card-footer">
 									<div class="text-right">
-										<a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-xmark"></i>
+										<a href="#" class="btn btn-sm bg-teal"> <i class="fa-solid fa-trash-can"></i>
 										</a> <a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-ban"></i>
+											class="fa-solid fa-ban ban" ></i>
 										</a> <a href="#" class="btn btn-sm btn-primary"> <i
 											class="fas fa-user"></i>상세보기
 										</a>
@@ -456,6 +450,8 @@
 							</div>
 						</div>
 						<!-- 사용자 프로필 끝 -->
+						
+						
 
 						
 
