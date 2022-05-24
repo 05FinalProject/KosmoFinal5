@@ -27,7 +27,6 @@ public class ApiController {
 		if(room.getId().equals("1")) {
 			return String.valueOf(Integer.parseInt(Character.toString(room.getRoomName().strip().charAt(4)) )+1);
 		}
-		
 		return String.valueOf(Integer.parseInt(Character.toString(room.getRoomName().strip().charAt(4)) )-1);
 		
 	}
@@ -39,7 +38,6 @@ public class ApiController {
 		if(list.size()>0) {
 			boo = "yes";
 		}
-		
 		return boo;
 	}
 	
@@ -48,4 +46,6 @@ public class ApiController {
 		List<ImgVO> img = service.getUserImg(vo.getUser_email());
 		return img.get(0).getP_rimgname();
 	}
+	
+	
 }
