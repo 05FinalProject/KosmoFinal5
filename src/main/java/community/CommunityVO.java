@@ -1,4 +1,4 @@
-package com.example.domain;
+package community;
 
 import java.util.Date;
 
@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.example.domain.UserVO;
 
 import lombok.Data;
 

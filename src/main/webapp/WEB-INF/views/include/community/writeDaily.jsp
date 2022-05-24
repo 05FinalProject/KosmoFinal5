@@ -171,68 +171,10 @@
 							<h3 class="font-weight-bold">일상공유</h3>
 
 							<form id="contactform" class="contact-form mt-5" action="dailyDetail" method="post" enctype="multipart/form-data">
-
-							<!-- 	<div class="form-group row">
-									<div class="col">
-										<label for="input-file" class="font-weight-bold">사진등록<span
-											style="color: red">*</span></label>
-											<input multiple="multiple" type="file" name="files" id="input-file" class="form-control" aria-required="true"
-											aria-label="Subject">
-											
-										첨부한 이미지 목록 출력	
-										<div>
-										<div class="imgs_wrap">
-											<img id="writeDetail-img" alt="" src="">
-											<ul class="write-crob-img-wrapper clearfix ui-sortable">
-												썸네일 정보
-												<li data-type="image" data-ori_preview="file0"
-													data-preview="news0" data-thumb_crob="1"
-													data-crob="crob_img1"><div
-														class="click-item thumb_btn">
-														<input type="radio" name="crob_thumb_img" id="crob_img1"><label
-															class="write-crob-radio" for="crob_img1"
-															style="background: url(&quot;/web/img/change_icon_chi.png&quot;) center center no-repeat;">1</label>
-													</div>
-													<img class="write-crob-thumb" id="crob_main_thumb1"
-													src="blob:https://www.witkorea.kr/8e6b7a5a-2e66-4637-a59b-b3cd00fa3cd0">
-												<div class="tag-item" hidden=""></div>												
-													<button type="button" class="util_btn del_util"
-														onclick="pageSnsWrite.deleteImage('file0',0)"></button></li>
-											
-											</ul>
-										</div>
-										</div>
-
-										<a href="javascript:" id="writeDaily-imgupload" onclick="fileUploadAction();" style="float: right">사진첨부</a>
-										<input type="file" id="file" style="display: none;" multiple />
-									</div>
-
-								</div> -->
-
-
-						<!-- 연습2 -->
-							<!-- <div>
-									<h2>
-										<b>이미지 미리보기</b>
-									</h2>
-									<div class="input_wrap">
-										<a href="javascript:" onclick="fileUploadAction();"
-											class="my_button">파일 업로드</a> <input type="file"
-											id="input_imgs" multiple />
-									</div>
-								</div>
-								<div>
-									<div class="imgs_wrap">
-										<img id="img" />
-									</div>
-								</div>
-
-								<a href="javascript:" class="my_button" onclick="submitAction();">업로드</a> -->
-
 								
 								<!-- 이미지 미리보기 -->
 								<div id='image_preview'>
-									<h3>미리보기</h3>
+									<h4>미리보기</h4>
 									<input type='file' id='btnAtt' multiple='multiple' />
 									<input type="hidden" id="img-test" name=""/>
 									<div id='att_zone'
@@ -245,10 +187,7 @@
 									<div class="col">
 										<label class="font-weight-bold">글작성<span
 											style="color: red">*</span></label>
-										<textarea class="form-control" name="message" rows="8"
-											"
-                                              aria-required="true"
-											aria-label="Message"></textarea>
+										<textarea class="form-control" name="message" rows="8" aria-required="true" aria-label="Message"></textarea>
 									</div>
 								</div>
 								<div class="row text-center">
