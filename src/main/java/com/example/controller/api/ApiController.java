@@ -12,6 +12,7 @@ import com.example.domain.ImgVO;
 import com.example.domain.Room;
 import com.example.domain.UserVO;
 import com.example.service.chatingService.ChatingService;
+import com.example.service.signUpService.SignUpService;
 
 @Controller
 @RequestMapping("/api")
@@ -20,6 +21,8 @@ public class ApiController {
 	
 	@Autowired
 	private ChatingService service;
+	
+	
 	
 	@RequestMapping(value = "/members",produces = "application/text; charset=UTF-8")
 	public String members(Room room) {
@@ -45,6 +48,25 @@ public class ApiController {
 	public String membersImg(UserVO vo) {
 		List<ImgVO> img = service.getUserImg(vo.getUser_email());
 		return img.get(0).getP_rimgname();
+	}
+	
+	@RequestMapping(value = "/checkLogin",produces = "application/text; charset=UTF-8")
+	public String checkLogin(UserVO vo) {
+		
+		String boo = "";
+		
+		UserVO vv = service.getUserInfo(vo.getUser_email());
+		System.out.println(vv.getUser_pass());
+		System.out.println(vo.getUser_pass());
+		if(vo.getUser_pass().equals(vv.getUser_pass())) {
+			boo = "yes";
+		}else {
+			boo = "no";
+		}
+		
+		
+		
+		return boo;
 	}
 	
 	
