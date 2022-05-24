@@ -16,30 +16,31 @@ public class AgencyVO {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer a_num;
+	@Column(name = "a_num")
+	private Integer aNum;
 	
+	@Column(name = "a_category_num")
+	private int aCategoryNum;
 	
-	private int a_category_num;	
+	@Column(name = "a_name", length = 200)
+	private String aName;
 	
-	@Column(length = 200)
-	private String a_name;
+	@Column(name = "a_content", length = 3000)	
+	private String aContent;
 	
-	@Column(length = 3000)	
-	private String a_content;
+	@Column(name = "a_address", length = 200)
+	private String aAddress;
 	
-	@Column(length = 200)
-	private String a_address;
+	@Column(name = "a_tel", length = 30)
+	private String aTel;
 	
-	@Column(length = 30)
-	private String a_tel;
+	@Column(name = "a_lat", length = 30)
+	private String aLat;
 	
-	@Column(length = 30)
-	private String a_lat;
+	@Column(name = "a_lon", length = 30)
+	private String aLon;
 	
-	@Column(length = 30)
-	private String a_lon;
-	
-	@Column(length = 300)
-	private String a_image;
+	@Column(name = "a_image", length = 300)
+	private String aImage;
 
 }
