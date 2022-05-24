@@ -42,6 +42,7 @@ public class AgencyController {
 		return "/include/agencyHotelDetail";
 	}
 
+	//agencyShelter 페이징 처리
 	@RequestMapping(value ="/agencyShelter", method=RequestMethod.GET)
 	public String agencyShelter(Model m,AbandonedVO vo) {
 		int page = 1;

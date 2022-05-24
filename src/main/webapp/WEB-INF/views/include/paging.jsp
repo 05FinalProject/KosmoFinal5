@@ -7,10 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>manager_paging.jsp</title>
+
+
+
 </head>
 <body>
 	<!-- 페이징 !!--------------------------------------------------------------------------------------------------->
-
+ 
 	<ul class="pagination">
 		<c:set var="P" value="${param.P}" />
 		<c:set var="p" value="1" />
@@ -131,6 +134,6 @@
 		</c:choose>
 
 	</ul>
-
+ 
 </body>
 </html>

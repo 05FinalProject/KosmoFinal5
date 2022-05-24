@@ -12,10 +12,11 @@ public interface ChatingService {
 	
 	public void insertRoomMember(ChatingRoomVO vo);
 	
-
+<<<<<<< HEAD
 	public List<ChatingRoomVO> findByRoomNumber(int roomNumber);
 	
-
+=======
+>>>>>>> 2442e732fcae1088219b56170a9277492c48b5c0
 	public List<ChatingRoomVO> findByRoomNumber(ChatingRoomVO vo);
 	
 	public List<ChatingRoomVO> getAllRooms();

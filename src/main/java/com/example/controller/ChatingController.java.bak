@@ -111,13 +111,15 @@ public class ChatingController {
 		mv.addObject("id",vo.getRoomMember());
 		mv.addObject("roomName", vo.getRoomName());					
 		mv.addObject("roomNumber", roomNum);
-
+<<<<<<< HEAD
 		mv.addObject("getRoomNum",service.getRoomMemCnt(roomNum));
 		System.out.println(service.getRoomMemCnt(roomNum));
 		mv.addObject("niName", service.getUserInfo(vo.getRoomMember()).getUser_nickname());
 		
 		
-
+=======
+		mv.addObject("getRoomNum",service.findByRoomNumber(vo).size());
+		mv.addObject("niName", service.getUserInfo(vo.getRoomMember()).getUser_nickname());
 		
 		List<ChatingRoomVO> list = service.findByRoomNumber(vo);
 		for(ChatingRoomVO vv: list) {
@@ -133,7 +135,7 @@ public class ChatingController {
 		*/
 		
 //		mv.addObject("others", );
-
+>>>>>>> 2442e732fcae1088219b56170a9277492c48b5c0
 		
 		mv.setViewName("/chating/chat");
 		
