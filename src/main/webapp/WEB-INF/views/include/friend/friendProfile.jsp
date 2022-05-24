@@ -79,7 +79,7 @@
 	background: #e6e6e6;
 	border: #e6e6e6;
 	color: white;
-	height: 33px;
+	height: 44px;
 	width: 120px;
 	border-radius: 4px;
 	font-weight: bold;
@@ -150,10 +150,11 @@
 
 </head>
 
+
 <body>
 	<%@include file="../Header.jsp"%>
 
-	
+<div class="wrapper">
 		<!-- Main Sidebar Container -->
 		<aside class="myPage-sidebar asidebar beta">
 			<!-- Sidebar -->
@@ -212,10 +213,16 @@
 			<!-- /.sidebar -->
 
 		</aside>
+	</div>	
 		
+
+	<div class="content-wrapper">
+	
 	<div class="container">
-	<div class="container">
+	
 		<div class="row">
+			
+		
 			<div class="col-md-1"></div>
 			<div class="col-md-10">
 				<div class="card card " id="box">
