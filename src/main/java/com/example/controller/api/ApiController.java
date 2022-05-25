@@ -25,17 +25,14 @@ public class ApiController {
 	
 	
 	
-	@RequestMapping(value = "/members",produces = "application/text; charset=UTF-8")
+	@RequestMapping(value = "/members")
 	public int members(Room room) {
-		System.out.println(room.getRoomName());
+		
 		if(room.getId().equals("1")) {
-			return Integer.parseInt(room.getRoomName())+1;
+			System.out.println(654321);
+			return (Integer.parseInt(room.getRoomName())+1);
 		}
-
-		
-			return Integer.parseInt(room.getRoomName())-1;
-
-		
+			return (Integer.parseInt(room.getRoomName())-1);
 	}
 	
 	@RequestMapping(value = "/checkRoomPass",produces = "application/text; charset=UTF-8")
