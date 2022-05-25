@@ -55,6 +55,13 @@
 		color:#f8b03a;
 		background-color:#f8b03a;
 	}
+	
+	.nav-links{
+		display:block;
+		padding: 0.5rem 1rem;
+		color: white;
+	}
+	
 	</style>
 </head>
 <body class="home page page-template-template-lana-editor">
@@ -84,7 +91,7 @@
 				<ul class="navbar-nav mr-auto">
 
 					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle comu" href="page.html"
+						class="nav-links dropdown-toggle comu " href="page.html"
 						id="page-dropdown" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false">커뮤니티</a>
 						<ul class="dropdown-menu" aria-labelledby="page-dropdown">
@@ -98,7 +105,7 @@
 					</li>
 					
 					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle organi" href="page.html"
+						class="nav-links dropdown-toggle organi" href="page.html"
 						id="page-dropdown" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false">관련기관</a>
 						<ul class="dropdown-menu" aria-labelledby="page-dropdown">
@@ -114,7 +121,7 @@
 					</li>
 
 
-					<li class="nav-item"><a class="nav-link info" href="#">반려견 사전</a></li>
+					<li class="nav-item"><a class="nav-links info" href="#">반려견 사전</a></li>
 
 				</ul>
 				<form class="search-widget d-none d-xl-inline-flex" style="background-color:white; border-radius:10px;">
