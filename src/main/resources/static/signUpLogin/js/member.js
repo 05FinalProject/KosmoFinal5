@@ -192,7 +192,6 @@ $('#btn_signUp').click(function(){
 		$('label[for="user_passCheck"] .error_box').html("");
 		}
 	
-	
 	/* 비밀번호 일치 여부 확인 */
 	if(user_pass != user_passCheck){
 		$('label[for="user_passCheck"] .error_box').html("비밀번호가 일치하지 않습니다.");
@@ -225,7 +224,7 @@ $('#btn_signUp').click(function(){
 		}else{
 		$('label[for="user_phone"] .error_box').html("");
 		}
-	if( !RegexTel.test(memberTel) ){
+	if( !RegexTel.test(user_phone) ){
 
 		$('label[for="user_phone"] .error_box').html("전화번호 형식이 올바르지 않습니다. ex)010-000~0-000~0");
 		return;
@@ -251,13 +250,15 @@ $('#btn_signUp').click(function(){
 	
 	
 	//이용약관에 체크 했는지 확인
-	if( !$("#termsService").is(':checked')){
+	if( $("#agreeForm").css("display")=="none"){
 		// 체크 X
-		$('#termsService').next().html("이용 약관에 동의해주세요.");
+		alert("약관에 동의를 요청합니다.");
 		return;
-	}else{
+	}else if($("#agreeForm").css("display")=="block"){
 		// 체크 O
-		$('#termsService').next().html("");
+		alert("동의가 완료되었습니다.");
+		$("btn_signUp").attr("disabled", false);
+		$('#agreeForm').next().html("");
 		$.ajax({
 			    	type : 'post',
 			    	url : 'emailCheck',
@@ -290,60 +291,60 @@ $('#btn_signUp').click(function(){
 	로그인 버튼 클릭
 */
 
-$('#btnLogin').click(function(){
+//$('#btnLogin').click(function(){
 
-	var user_email = $.trim($("#user_email").val());
-	var user_pass = $.trim($("#user_pass").val());
-	var rememberEmail = false;
+//	var user_email = $.trim($("#user_email").val());
+	//var user_pass = $.trim($("#user_pass").val());
+	//var rememberEmail = false;
 
 	/* 이메일 */
-	if(user_email == ''){
-		$('label[for="user_email"] .error_box').html(blank);
-		$('#user_email').focus();
-    		return;
-		}else{
-		$('label[for="user_email"] .error_box').html("");
-		}	
+	//if(user_email == ''){
+		//$('label[for="user_email"] .error_box').html(blank);
+		//$('#user_email').focus();
+    //		return;
+		//}else{
+		//$('label[for="user_email"] .error_box').html("");
+		//}	
 	
 	/* 비밀번호 */
-	if(user_pass == ''){
-		$('label[for="user_pass"] .error_box').html(blank);
-		$('#user_pass').focus();
-    		return;
-		}else{
-		$('label[for="user_pass"] .error_box').html("");
-		}
+	//if(user_pass == ''){
+	//	$('label[for="user_pass"] .error_box').html(blank);
+	//	$('#user_pass').focus();
+    	//	return;
+	//	}else{
+		//$('label[for="user_pass"] .error_box').html("");
+		//}
 	
 	/* 이메일 기억하기 체크 박스*/
-	if( $("#user_email").is(':checked') ){
-		rememberEmail = true;
-		}//end of if
+	//if( $("#user_email").is(':checked') ){
+		//rememberEmail = true;
+		//}//end of if
 	
-  $.ajax({
-	type : 'post',
-	url : 'loginCheck',
-	data : { user_email : $("#user_email").val(),
-			user_pass : $("#user_pass").val(),
-			rememberEmail : rememberEmail
-	 		},
-	contentType : 'application/x-www-form-urlencoded;charset=utf-8',
-	success : function(result){
+  //$.ajax({
+//	type : 'post',
+	//url : 'loginCheck',
+	//data : { user_email : $("#user_email").val(),
+	//		user_pass : $("#user_pass").val(),
+	//		rememberEmail : rememberEmail
+	// 		},
+	//contentType : 'application/x-www-form-urlencoded;charset=utf-8',
+	//success : function(result){
 		// 중복 검사 후 나오는 결과 에러박스에 출력
-		if(result == "N"){
-        		$('.error_box.login').html("존재하는 회원이 아니거나 비밀번호가 일치하지 않습니다.");
+		//if(result == "N"){
+       // 		$('.error_box.login').html("존재하는 회원이 아니거나 비밀번호가 일치하지 않습니다.");
 			
-			}else{
+		//	}else{
 			// 결과가 result = "Y"이면 로그인 성공 -> loginMove로 이동
-        		document.loginForm.submit();
-			}
-	},
-	error : function(err){
-		alert(err);
-		console.log(err);
-	}
-	});//end of ajax
+        //		document.loginForm.submit();
+		//	}
+//	},
+	//error : function(err){
+	//	alert(err);
+	//	console.log(err);
+	//}
+	//});//end of ajax
 	
-}); //end of #btnLogin 
+//}); //end of #btnLogin 
 
 
 /*********************************************************************
