@@ -52,7 +52,7 @@ public class ApiController {
 	public HashMap membersImg(UserVO vo) {
 		List<ImgVO> img = service.getUserImg(vo.getUser_email());
 		HashMap hm = new HashMap();
-		hm.put("niName",service.getUserInfo(vo.getUser_email()).getUser_nickname() );
+		hm.put("niName",service.getUserInfo(vo.getUser_email()).getUserNickname() );
 		hm.put("img",img.get(0).getP_rimgname() );
 		hm.put("email",vo.getUser_email());
 		return hm;

@@ -4,6 +4,7 @@ import com.example.domain.UserVO;
 
 public interface SignUpService {
 	
+	/* 회원가입 */
 	void insertUser(UserVO vo);
 
 	/*	email 중복 체크 - DB에 동일한 이메일이 있는지 레코드 검색 */

@@ -42,8 +42,8 @@ public class UserVO {
 	@Column(length = 100)
 	private String user_black;
 	
-	@Column(length = 100)
-	private String user_nickname;
+	@Column(name="user_nickname",length = 100)
+	private String userNickname;
 	
 	@Column(insertable = false,updatable = false)
 	@Temporal(TemporalType.DATE)

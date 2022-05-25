@@ -1,5 +1,7 @@
 package com.example.service.signUpService;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,16 +19,26 @@ public class SignUpServiceImpl implements SignUpService {
 		user.save(vo);
 	}
 	
-	/*	닉네임 중복 체크 - DB에 동일한 이메일이 있는지 레코드 검색 */
+	/*	이메일 중복 체크 - DB에 동일한 이메일이 있는지 레코드 검색 */
 	@Override
 	public UserVO emailCheck(UserVO vo) {
-		return user.findById(vo.getUser_email()).get();
+		Optional<UserVO> result = user.findById(vo.getUser_email());
+		if(result.isPresent()) {
+			return result.get();
+		} else {
+			return null;
+		}
 	}
 	
-	/*	email 중복 체크 - DB에 동일한 닉네임이 있는지 레코드 검색 */
+	/*	닉네임 중복 체크 - DB에 동일한 닉네임이 있는지 레코드 검색 */
 	@Override
 	public UserVO nicknameCheck(UserVO vo) {
-		return user.findById(vo.getUser_nickname()).get();
+		Optional<UserVO> result = user.findByUserNickname(vo.getUserNickname());
+		if(result.isPresent()) {
+			return result.get();
+		} else {
+			return null;
+		}
 	}
 	
 	/* 로그인 - DB에 입력된 이메일과 비밀번호가 일치하는 레코드 검색 */

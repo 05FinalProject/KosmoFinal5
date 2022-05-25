@@ -21,7 +21,7 @@ input[type=date]:focus::-webkit-datetime-edit {
 	margin-left: -15px;
 }
 
-.nickname_check {
+.nicknameCheck {
 	display: inline-block;
 	margin-left: -15px;
 }
