@@ -1,5 +1,6 @@
 package com.example.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +20,8 @@ public class LikeItVO {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer like_num;
+	@Column(name = "like_num")
+	private Integer likeNum;
 	
 	@ManyToOne
 	@JoinColumn(name="u_email")

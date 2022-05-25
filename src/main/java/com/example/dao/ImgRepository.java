@@ -11,6 +11,6 @@ import com.example.domain.ImgVO;
 public interface ImgRepository extends CrudRepository<ImgVO, Integer> {
 	
 	//select * from img where user_email = 'abcd1@naver.com'
-	@Query("SELECT i FROM ImgVO i WHERE i.user.user_email=:email")
+	@Query("SELECT i FROM ImgVO i WHERE i.user.userEmail=:email")
 	public List<ImgVO> findByUserEmail(String email);
 }

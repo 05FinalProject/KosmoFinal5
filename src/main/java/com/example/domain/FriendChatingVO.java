@@ -22,17 +22,18 @@ public class FriendChatingVO {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer chating_no;
+	@Column(name = "chating_no")
+	private Integer chatingNo;
 	
-	@Column(length = 500)
-	private String chating_message;
+	@Column(length = 500,name = "chating_message")
+	private String chatingMessage;
 	
-	@Column(insertable = false,updatable = false,columnDefinition = "date default (current_date)")
+	@Column(insertable = false,updatable = false,columnDefinition = "date default (current_date)",name = "chating_time")
 	@Temporal(TemporalType.DATE)
-	private Date chating_time;
+	private Date chatingTime;
 	
-	@Column(length = 10)
-	private String chating_sign;
+	@Column(length = 10,name = "chating_sign")
+	private String chatingSign;
 	
 	@ManyToOne
 	@JoinColumn(name="friend_no")
