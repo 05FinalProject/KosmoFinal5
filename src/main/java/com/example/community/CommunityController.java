@@ -36,4 +36,8 @@ public class CommunityController {
 	public String saveDaily() {
 		return "/include/community/dailyDetail";
 	}
+	
+	
+	
+	
 }

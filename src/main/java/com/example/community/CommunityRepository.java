@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface CommunityRepository extends CrudRepository<CommunityVO, Integer> {
 	
 	
-	 
+	
 	
 }

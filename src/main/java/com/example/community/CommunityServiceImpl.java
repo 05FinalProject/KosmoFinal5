@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 public class CommunityServiceImpl implements CommunityService {
 	
 	
-	@Autowired private CommunityRepository c_repo;
+	@Autowired 
+	private CommunityRepository c_repo;
 	 
-
-
+	
 }

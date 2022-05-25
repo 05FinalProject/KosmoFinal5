@@ -45,10 +45,5 @@ public class CommunityVO {
 	@JoinColumn(name = "user_email")
 	private UserVO user;
 	
-	//---------------------------------------------
-	private String c_filename;
-	
-	private String c_filepath;
-	
 
 }
