@@ -175,7 +175,7 @@
 								<!-- 이미지 미리보기 -->
 								<div id='image_preview'>
 									<h4>미리보기</h4>
-									<input type='file' id='btnAtt' multiple='multiple' />
+									<input type='file' id='btnAtt' multiple='multiple' name="imageFiles"/>
 									<input type="hidden" id="img-test" name=""/>
 									<div id='att_zone'
 										data-placeholder='파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요'></div>
@@ -244,7 +244,7 @@
 				    
 				    // 이미지와 체크 박스를 감싸고 있는 div 속성
 				    var div_style = 'display:inline-block;position:relative;'
-				                  + 'width:150px;height:120px;margin:5px;border:1px solid #00f;z-index:1';
+				                  + 'width:150px;height:120px;margin:5px;z-index:1';
 				    // 미리보기 이미지 속성
 				    var img_style = 'width:100%;height:100%;z-index:none';
 				    // 이미지안에 표시되는 체크박스의 속성
