@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.domain.ChatingRoomVO;
 import com.example.domain.ImgVO;
-import com.example.domain.Room;
+
 import com.example.domain.UserVO;
 import com.example.service.chatingService.ChatingService;
 import com.example.service.signUpService.SignUpService;
@@ -26,7 +26,7 @@ public class ApiController {
 	
 	
 	@RequestMapping(value = "/members")
-	public int members(Room room) {
+	public int members(ChatingRoomVO room) {
 		
 		if(room.getId().equals("1")) {
 			System.out.println(654321);
@@ -36,7 +36,7 @@ public class ApiController {
 	}
 	
 	@RequestMapping(value = "/checkRoomPass",produces = "application/text; charset=UTF-8")
-	public String members(ChatingRoomVO vo) {
+	public String checkRoomPass(ChatingRoomVO vo) {
 		String boo = "no";
 		List<ChatingRoomVO> list = service.checkRoomPass(vo);
 		if(list.size()>0) {
