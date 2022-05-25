@@ -102,7 +102,7 @@
 							 dataType: "json",
 
 							success:function(data){
-								console.log(data)
+								
 								var niName = data.niName;
 								if($("#userName").val() == d.userName){
 									niName += '(나)'
@@ -126,10 +126,12 @@
 						$.ajax({
 							url:'/api/members',
 				            type:'get',
-				            data:{roomName:$("#room").text().split('(')[1].replace(')',''),id:'1'},
-				            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+				            data:{roomName:$("#getRoomNum").text(),id:'1'},
+				     
 				            success:function(data){
-				                $('#room').text( $("#roomName").val()+'(' + data + ')')
+				            	console.log(data)
+				  
+				                $('#getRoomNum').text(data)
 				            }
 						})
 					}else if(d.type == "goout"){
@@ -139,11 +141,11 @@
 							url:'/api/members',
 				            type:'get',
 				            
-				            data:{roomName:$("#room").text(),id:'-1'},
+				            data:{roomName:$("#getRoomNum").text(),id:'-1'},
 				            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 				            success:function(data){
 				            	
-				                $('#room').text( $("#roomName").val()+'(' + data + ')')
+				            	$('#getRoomNum').text(data)
 				            }
 						})
 						
@@ -256,7 +258,7 @@
 				<div class="col-md-8 col-xl-6 chat">
 					<div class="card">
 						<div class="card-header msg_head">
-							<span id="room" class="roomName font">${roomName}(${getRoomNum})</span>
+							<span id="room" class="roomName font">${roomName}(<label id="getRoomNum">${getRoomNum-1}</label>)</span>
 							<span class="float-right" onclick="goout()"><i class="fa-solid fa-right-from-bracket"></i></span>
 						</div>
 						<div class="card-body msg_card_body">
