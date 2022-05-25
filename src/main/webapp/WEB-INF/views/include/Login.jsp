@@ -19,7 +19,6 @@
     <!-- Style -->
     <link rel="stylesheet" href="../signUpLogin/css/style.css">
     
-    <!-- userStyle : 안정은 -->
     <link rel="stylesheet" href="../signUpLogin/css/userStyle.css">
 	
     <title>Login</title>
@@ -47,12 +46,12 @@
                 </div>
                 <form action="loginMove.do" method="post" id="loginForm" name="loginForm">
                   <div class="form-group first field--not-empty" id="CookieEmail">
-                    <label for="memberEmail">이메일&nbsp; &nbsp; &nbsp; &nbsp;<span class="error_box"></span></label>
-                    <input type="email" class="form-control" id="memberEmail" name="memberEmail" >
+                    <label for="user_email">이메일&nbsp; &nbsp; &nbsp; &nbsp;<span class="error_box"></span></label>
+                    <input type="email" class="form-control" id="user_email" name="user_email" >
                   </div>
                   <div class="form-group last mb-4 field--not-empty" >
-                    <label for="memberPassword">비밀번호&nbsp; &nbsp; &nbsp; &nbsp;<span class="error_box"></span></label>
-                    <input type="password" class="form-control" id="memberPassword" name="memberPassword">
+                    <label for="user_pass">비밀번호&nbsp; &nbsp; &nbsp; &nbsp;<span class="error_box"></span></label>
+                    <input type="password" class="form-control" id="user_pass" name="user_pass">
                     
                   </div>
                   
@@ -114,11 +113,9 @@
 	})
 	 
 	$('#btnLogin').click(function(){
-		console.log($('#memberEmail').val())
-		console.log($('#memberPassword').val())
 		$.ajax({
 			url:'/api/checkLogin',
-			data:{user_email:$('#memberEmail').val(),user_pass:$('#memberPassword').val()},
+			data:{user_email:$('#user_email').val(),user_pass:$('#user_pass').val()},
 			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 			success:function(data){
 				if(data == 'yes'){

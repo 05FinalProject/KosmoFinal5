@@ -17,7 +17,7 @@ var blank = "필수 입력 사항입니다.";
 	[ 회원가입 페이지 ]
 	이메일 중복 버튼 클릭 이벤트
 */
-var emailCheak = false;
+var emailCheck = false;
 $('#btn_emailCheck').click(function(){
 	// 이메일 중복검사 확인 여부
 	
@@ -50,11 +50,11 @@ $('#btn_emailCheck').click(function(){
     		if(result == 'Y'){
 	        		$('label[for="user_email"] .error_box').css('color','#4ABA99');
 	        		$('label[for="user_email"] .error_box').html("사용 가능한 이메일입니다.");
-	        		emailCheak = true;
+	        		emailCheck = true;
 				}else{
 	        		$('label[for="user_email"] .error_box').css('color','#ED7A64');
 	        		$('label[for="user_email"] .error_box').html("사용할 수 없는 이메일입니다.");
-	        		emailCheak = false;
+	        		emailCheck = false;
 				}
     	},
     	error : function(err){
@@ -62,49 +62,49 @@ $('#btn_emailCheck').click(function(){
     		console.log(err);
     	}
     }); //end of ajax
-}); // end of $('#btn_emailCheak').click
+}); // end of $('#btn_emailCheck').click
 
 /*********************************************************************
 	[ 회원가입 페이지 ]
 	닉네임 중복 버튼 클릭 이벤트
 */
 var nicknameCheck = false;
-$('#btn_nicknameCheak').click(function(){
+$('#btnNicknameCheck').click(function(){
 	// 닉네임 중복검사 확인 여부
 	
-	$('label[for="user_nickname"] .error_box').html("");
-	var user_nickname = $.trim($("#user_nickname").val());
+	$('label[for="userNickname"] .error_box').html("");
+	var userNickname = $.trim($("#userNickname").val());
 	
 	// 입력값이 없을 때 에러박스
-	if(user_nickname == ''){
+	if(userNickname == ''){
 
-		$('label[for="user_nickname"] .error_box').html(blank);
+		$('label[for="userNickname"] .error_box').html(blank);
 		return false;
 
 	}
 	// 형식에 맞지 않을 때 나오는 에러박스
-	if( !RegexNick.test(user_nickname) ){
-		$('label[for="user_nickname"] .error_box').css('color','#ED7A64');
-		$('label[for="user_nickname"] .error_box').html("닉네임 형식이 올바르지 않습니다.");
+	if( !RegexNick.test(userNickname) ){
+		$('label[for="userNickname"] .error_box').css('color','#ED7A64');
+		$('label[for="userNickname"] .error_box').html("닉네임 형식이 올바르지 않습니다.");
 		return;
 	}
 	
-	// 이메일 중복 검사 - DB와 비교
+	// 닉네임 중복 검사 - DB와 비교
  	  $.ajax({
     	type : 'post',
     	url : 'nicknameCheck',
-    	data : { user_nickname : $('#user_nickname').val() },
+    	data : { userNickname : $('#userNickname').val() },
     	contentType : 'application/x-www-form-urlencoded;charset=utf-8',
     	success : function(result){
     		
     		// 중복 검사 후 나오는 결과 에러박스에 출력
     		if(result == 'Y'){
-	        		$('label[for="user_nickname"] .error_box').css('color','#4ABA99');
-	        		$('label[for="user_nickname"] .error_box').html("사용 가능한 닉네임입니다.");
+	        		$('label[for="userNickname"] .error_box').css('color','#4ABA99');
+	        		$('label[for="userNickname"] .error_box').html("사용 가능한 닉네임입니다.");
 	        		nicknameCheck = true;
 				}else{
-	        		$('label[for="user_nickname"] .error_box').css('color','#ED7A64');
-	        		$('label[for="user_nickname"] .error_box').html("사용할 수 없는 닉네임입니다.");
+	        		$('label[for="userNickname"] .error_box').css('color','#ED7A64');
+	        		$('label[for="userNickname"] .error_box').html("사용할 수 없는 닉네임입니다.");
 	        		nicknameCheck = false;
 				}
     	},
@@ -113,7 +113,7 @@ $('#btn_nicknameCheak').click(function(){
     		console.log(err);
     	}
     }); //end of ajax
-}); // end of $('#btn_emailCheak').click
+}); // end of $('#btn_nicknameCheck').click
 
 
 
@@ -123,7 +123,7 @@ $('#btn_nicknameCheak').click(function(){
 $('#btn_signUp').click(function(){
 
 	// input에 입력된 값을 공백제거하고 변수에 담기
-	var user_nickname = $.trim($("#user_nickname").val());
+	var userNickname = $.trim($("#userNickname").val());
 	var user_email = $.trim($("#user_email").val());
 	var user_pass = $.trim($("#user_pass").val());
 	var user_passCheck = $.trim($("#user_passCheck").val());
@@ -132,20 +132,20 @@ $('#btn_signUp').click(function(){
 	var user_phone = $.trim($("#user_phone").val());
 	
 	/* 닉네임 */
-	if(user_nickname == ''){
-		$('label[for="user_nickname"] .error_box').html(blank);
-		$('#user_nickname').focus();
+	if(userNickname == ''){
+		$('label[for="userNickname"] .error_box').html(blank);
+		$('#userNickname').focus();
     		return;
 		}else{
-		$('label[for="user_nickname"] .error_box').html("");
+		$('label[for="userNickname"] .error_box').html("");
 		}		
 	
-	if( !RegexNick.test(user_nickname) ){
+	if( !RegexNick.test(userNickname) ){
 
-		$('label[for="user_nickname"] .error_box').html("한글, 영문 그리고 숫자만 입력 가능합니다.");
+		$('label[for="userNickname"] .error_box').html("한글, 영문 그리고 숫자만 입력 가능합니다.");
 		return;
 	}else{
-		$('label[for="user_nickname"] .error_box').html("");
+		$('label[for="userNickname"] .error_box').html("");
 		}
 	
 	
@@ -235,10 +235,10 @@ $('#btn_signUp').click(function(){
 	
 	// 닉네임 중복 여부 체크 했는지 확인
 	if( !nicknameCheck ){
-		$('label[for="user_nickname"] .error_box').html("닉네임 중복 여부를 확인해주세요.");
+		$('label[for="userNickname"] .error_box').html("닉네임 중복 여부를 확인해주세요.");
 		return;
 	}else {
-		$('label[for="user_nickname"] .error_box').html("");
+		$('label[for="userNickname"] .error_box').html("");
 	}
 	
 	// 이메일 중복 여부 체크 했는지 확인
@@ -272,7 +272,7 @@ $('#btn_signUp').click(function(){
 							}else{
 				        		$('label[for="user_email"] .error_box').css('color','#ED7A64');
 								$('label[for="user_email"] .error_box').html("이메일 중복 여부를 확인해주세요.");
-				        		emailCheak = false;
+				        		emailCheck = false;
 				        		return;
 							}
 			    	},
@@ -432,7 +432,7 @@ $('#btnPwChange').click(function(){
 $('#btnMemberUpdate').click(function(){
 	
 	// input에 입력된 값을 공백제거하고 변수에 담기
-	var user_nickname = $.trim($("#user_nickname").val());
+	var userNickname = $.trim($("#userNickname").val());
 	var user_pass = $.trim($("#user_pass").val());
 	var user_passCheck = $.trim($("#user_passCheck").val());
 	var user_name = $.trim($("#user_name").val());
@@ -441,20 +441,20 @@ $('#btnMemberUpdate').click(function(){
 	
 	
 	/* 닉네임 */
-	if(user_nickname == ''){
-		$('label[for="user_nickname"] .error_box').html(blank);
-		$('#user_nickname').focus();
+	if(userNickname == ''){
+		$('label[for="userNickname"] .error_box').html(blank);
+		$('#userNickname').focus();
     		return;
 		}else{
-		$('label[for="user_nickname"] .error_box').html("");
+		$('label[for="userNickname"] .error_box').html("");
 		}		
 	
-	if( !RegexNick.test(user_nickname) ){
+	if( !RegexNick.test(userNickname) ){
 
-		$('label[for="user_nickname"] .error_box').html("닉네임 형식이 올바르지 않습니다.");
+		$('label[for="userNickname"] .error_box').html("닉네임 형식이 올바르지 않습니다.");
 		return;
 	}else{
-		$('label[for="user_nickname"] .error_box').html("");
+		$('label[for="userNickname"] .error_box').html("");
 		}
 	
 	if(user_pass != ""){

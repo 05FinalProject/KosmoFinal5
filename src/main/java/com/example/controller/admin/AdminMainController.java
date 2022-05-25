@@ -6,15 +6,21 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.example.domain.AgencyVO;
 import com.example.domain.ReportVO;
 import com.example.domain.UserVO;
+import com.example.service.admin.AdminAgencyService;
 import com.example.service.admin.AdminReportService;
 import com.example.service.admin.AdminUserService;
+import com.example.service.agency.AgencyService;
 
 
 @Controller
@@ -22,10 +28,12 @@ import com.example.service.admin.AdminUserService;
 public class AdminMainController {
 	
 	@Autowired
-	private AdminUserService adminUserService;
-	
+	private AdminUserService adminUserService;	
 	@Autowired
 	private AdminReportService adminReportService;
+	@Autowired
+	private AdminAgencyService adminAgencyService;
+	
 	
 	@RequestMapping(value="", method=RequestMethod.GET)
 	public String adminPage() {
@@ -47,26 +55,6 @@ public class AdminMainController {
 		
 		return "/admin/adminUser";
 	}
-	
-
-	//리뷰신고
-//	@RequestMapping(value="adminReview", method=RequestMethod.GET)
-//	public String reportReview(Model m) {
-//		List<HashMap> llist= new ArrayList<>();
-//		List<Object[]> list = r.reportReview();
-//		
-//		for(Object[] o : list) {
-//			HashMap hm = new HashMap<>();
-//			hm.put("r_num",(int)o[0] );
-//			hm.put("user_email",(String)o[1] );
-//			hm.put("review_content",(String)o[2] );
-//			hm.put("r_reason",(String)o[3] );
-//			llist.add(hm);
-//		}		
-//		m.addAttribute("list", llist);
-//						
-//		return "/admin/report/adminRpReview";
-//	}
 	
 	//리뷰신고
 	@RequestMapping(value="adminReview", method=RequestMethod.GET)
@@ -146,7 +134,20 @@ public class AdminMainController {
 	
 	//시설관리(애견호텔)
 	@RequestMapping(value="adminHotel", method=RequestMethod.GET)
-	public String adminHotel() {
+	public String adminHotel(Model m, AgencyVO vo) {
+		//페이징 처리
+		int page =1;
+		if(vo.getPage()!=0) {
+			page = vo.getPage();
+		} 
+		Pageable paging = PageRequest.of(page-1, 9, Sort.Direction.ASC, "aNum");
+		m.addAttribute("paging", adminAgencyService.getPaging(paging));
+		m.addAttribute("count",adminAgencyService.countRecord());
+		
+		//호텔 리스트 
+		List<AgencyVO> list = adminAgencyService.agencyList(new AgencyVO());
+		m.addAttribute("agencyList", list);
+
 		return "/admin/facilities/adminHotel";		
 	}
 	

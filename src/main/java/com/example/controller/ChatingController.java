@@ -89,7 +89,7 @@ public class ChatingController {
 			for(ChatingRoomVO v : list) {
 				hm = new HashMap();
 				hm.put("img", service.getUserImg(v.getRoomMember()).get(0).getP_imgname()); //img
-				hm.put("nickName",service.getUserInfo(v.getRoomMember()).getUser_nickname());//niname
+				hm.put("nickName",service.getUserInfo(v.getRoomMember()).getUserNickname());//niname
 				hm.put("email", v.getRoomMember());
 				rlist.add(hm);
 			}
@@ -114,7 +114,7 @@ public class ChatingController {
 
 		mv.addObject("getRoomNum",service.getRoomMemCnt(roomNum));
 		System.out.println(service.getRoomMemCnt(roomNum));
-		mv.addObject("niName", service.getUserInfo(vo.getRoomMember()).getUser_nickname());
+		mv.addObject("niName", service.getUserInfo(vo.getRoomMember()).getUserNickname());
 		
 		
 
