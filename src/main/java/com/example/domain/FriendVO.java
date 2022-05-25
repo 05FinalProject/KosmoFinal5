@@ -17,10 +17,11 @@ import lombok.Data;
 public class FriendVO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer friend_no;
+	@Column(name = "friend_no")
+	private Integer friendNo;
 
-	@Column(length = 10)
-	private String user_sign;
+	@Column(length = 10,name = "user_sign")
+	private String userSign;
 	
 	@ManyToOne
 	@JoinColumn(name = "user_email")

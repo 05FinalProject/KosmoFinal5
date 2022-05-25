@@ -24,7 +24,7 @@ public class AdminUserServiceImpl implements AdminUserService{
 	//회원 삭제
 	@Override
 	public void deleteUser(UserVO vo) {
-	userRepo.deleteById(vo.getUser_email());
+	userRepo.deleteById(vo.getUserEmail());
 		
 	}
 	

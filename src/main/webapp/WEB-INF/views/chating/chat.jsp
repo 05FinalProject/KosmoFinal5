@@ -97,7 +97,7 @@
 							type:'get',
 							contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 
-							data:{user_email:d.userName},
+							data:{userEmail:d.userName},
 							 contentType: "application/json; charset=utf-8;",
 							 dataType: "json",
 

@@ -47,11 +47,11 @@ public class ApiController {
 	
 	@RequestMapping(value = "/membersImg",produces = "application/json; charset=UTF-8")
 	public HashMap membersImg(UserVO vo) {
-		List<ImgVO> img = service.getUserImg(vo.getUser_email());
+		List<ImgVO> img = service.getUserImg(vo.getUserEmail());
 		HashMap hm = new HashMap();
-		hm.put("niName",service.getUserInfo(vo.getUser_email()).getUserNickname() );
-		hm.put("img",img.get(0).getP_rimgname() );
-		hm.put("email",vo.getUser_email());
+		hm.put("niName",service.getUserInfo(vo.getUserEmail()).getUserNickname() );
+		hm.put("img",img.get(0).getPRimgname() );
+		hm.put("email",vo.getUserEmail());
 		return hm;
 	}
 	
@@ -60,10 +60,10 @@ public class ApiController {
 		
 		String boo = "";
 		
-		UserVO vv = service.getUserInfo(vo.getUser_email());
-		System.out.println(vv.getUser_pass());
-		System.out.println(vo.getUser_pass());
-		if(vo.getUser_pass().equals(vv.getUser_pass())) {
+		UserVO vv = service.getUserInfo(vo.getUserEmail());
+		System.out.println(vv.getUserPass());
+		System.out.println(vo.getUserPass());
+		if(vo.getUserPass().equals(vv.getUserPass())) {
 			boo = "yes";
 		}else {
 			boo = "no";

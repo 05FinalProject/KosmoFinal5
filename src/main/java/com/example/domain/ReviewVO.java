@@ -21,7 +21,8 @@ import lombok.Data;
 public class ReviewVO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer review_num;
+	@Column(name = "review_num")
+	private Integer reviewNum;
 	
 	@ManyToOne
 	@JoinColumn(name = "u_email")
@@ -31,13 +32,13 @@ public class ReviewVO {
 	@JoinColumn(name = "a_num")
 	private AgencyVO agency;
 	
-	@Column(length = 500)
-	private String review_content;
+	@Column(length = 500,name = "review_content")
+	private String reviewContent;
 	
-	@Column(insertable = false,updatable = false,columnDefinition = "date default (current_date)")
+	@Column(insertable = false,updatable = false,columnDefinition = "date default (current_date)",name = "review_insertdate")
 	@Temporal(TemporalType.DATE)
-	private Date review_insertdate;
+	private Date reviewInsertdate;
 	
-	@Column(length = 10)
-	private String review_star;
+	@Column(length = 10,name = "review_star")
+	private String reviewStar;
 }

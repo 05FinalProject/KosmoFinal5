@@ -22,7 +22,7 @@ public class SignUpServiceImpl implements SignUpService {
 	/*	이메일 중복 체크 - DB에 동일한 이메일이 있는지 레코드 검색 */
 	@Override
 	public UserVO emailCheck(UserVO vo) {
-		Optional<UserVO> result = user.findById(vo.getUser_email());
+		Optional<UserVO> result = user.findById(vo.getUserEmail());
 		if(result.isPresent()) {
 			return result.get();
 		} else {
@@ -44,7 +44,7 @@ public class SignUpServiceImpl implements SignUpService {
 	/* 로그인 - DB에 입력된 이메일과 비밀번호가 일치하는 레코드 검색 */
 	@Override
 	public UserVO loginCheck(UserVO vo) {
-		UserVO result = user.findById(vo.getUser_email()).get();
+		UserVO result = user.findById(vo.getUserEmail()).get();
 		return result;
 	}
 /*

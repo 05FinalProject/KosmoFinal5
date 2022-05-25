@@ -41,7 +41,7 @@ public class ChatingController {
 	public void room(Model m,UserVO user) {
 		List<ChatingRoomVO> list = service.getAllRooms();
 		m.addAttribute("list", list);
-		m.addAttribute("email",user.getUser_email());
+		m.addAttribute("email",user.getUserEmail());
 		
 	}
 	
@@ -88,7 +88,7 @@ public class ChatingController {
 			HashMap hm = new HashMap();
 			for(ChatingRoomVO v : list) {
 				hm = new HashMap();
-				hm.put("img", service.getUserImg(v.getRoomMember()).get(0).getP_imgname()); //img
+				hm.put("img", service.getUserImg(v.getRoomMember()).get(0).getPImgname()); //img
 				hm.put("nickName",service.getUserInfo(v.getRoomMember()).getUserNickname());//niname
 				hm.put("email", v.getRoomMember());
 				rlist.add(hm);
@@ -116,25 +116,11 @@ public class ChatingController {
 		System.out.println(service.getRoomMemCnt(roomNum));
 		mv.addObject("niName", service.getUserInfo(vo.getRoomMember()).getUserNickname());
 		
-		
-
-		
 		List<ChatingRoomVO> list = service.findByRoomNumber(vo);
 		for(ChatingRoomVO vv: list) {
 			service.getUserInfo(vv.getRoomMember());
 			
 		}
-		/*
-		for(int i=0;i<list.size();i++) {
-			if (list.get(i).getRoomMember()==vo.getRoomMember()) {
-				list.get(i).set
-			}
-		}
-		*/
-		
-//		mv.addObject("others", );
-
-		
 		mv.setViewName("/chating/chat");
 		
 		return mv;

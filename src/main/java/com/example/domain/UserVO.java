@@ -18,40 +18,40 @@ import lombok.Data;
 @Table(name = "user")
 public class UserVO {
 	@Id
-	@Column(length = 100)
-	private String user_email;
+	@Column(length = 100,name = "user_email")
+	private String userEmail;
 	
-	@Column(length = 100)
-	private String user_name;
+	@Column(length = 100,name = "user_name")
+	private String userName;
 	
-	@Column(length = 100)
-	private String user_pass;
+	@Column(length = 100,name = "user_pass")
+	private String userPass;
 	
-	@Column(length = 100)
-	private String user_phone;
+	@Column(length = 100,name = "user_phone")
+	private String userPhone;
 	
-	@Column(length = 100)
-	private String user_address;
+	@Column(length = 100,name = "user_address")
+	private String userAddress;
 	
-	@Column(length = 100)
-	private String user_gender;
+	@Column(length = 100,name = "user_gender")
+	private String userGender;
 	
-	@Column(length = 100)
-	private String user_admin;
+	@Column(length = 100,name = "user_admin")
+	private String userAdmin;
 	
-	@Column(length = 100)
-	private String user_black;
+	@Column(length = 100,name = "user_black")
+	private String userBlack;
 	
 	@Column(name="user_nickname",length = 100)
 	private String userNickname;
 	
-	@Column(insertable = false,updatable = false)
+	@Column(insertable = false,updatable = false,name = "user_logout_time")
 	@Temporal(TemporalType.DATE)
-	private Date user_logout_time;
+	private Date userLogoutTime;
 	
-	@Column(insertable = false,updatable = false, columnDefinition = "date default (current_date)")
+	@Column(insertable = false,updatable = false, columnDefinition = "date default (current_date)",name = "user_signup")
 	@Temporal(TemporalType.DATE)
-	private Date user_signup;
+	private Date userSignup;
 	
 	@Transient
 	private String addr1;

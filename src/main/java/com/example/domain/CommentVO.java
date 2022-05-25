@@ -24,6 +24,7 @@ import lombok.Data;
 public class CommentVO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "b_first")
 	private Integer comment_num;
 
 	@ManyToOne
@@ -34,10 +35,10 @@ public class CommentVO {
 	@JoinColumn(name="c_num")
 	private CommunityVO community;
 		
-	@Column(insertable = false,updatable = false,columnDefinition = "date default (current_date)")
+	@Column(insertable = false,updatable = false,columnDefinition = "date default (current_date)",name = "comment_insertdate")
 	@Temporal(TemporalType.DATE)
-	private Date comment_insertdate;
+	private Date commentInsertdate;
 	
-	@Column(length = 100)
-	private String comment_content;
+	@Column(length = 100,name = "comment_content")
+	private String commentContent;
 }
