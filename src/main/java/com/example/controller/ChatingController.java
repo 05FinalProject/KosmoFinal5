@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.domain.ChatingRoomVO;
-import com.example.domain.Room;
+
 import com.example.domain.UserVO;
 import com.example.service.chatingService.ChatingService;
 
@@ -27,14 +27,12 @@ public class ChatingController {
 	@Autowired
 	private ChatingService service;
 	
-	List<Room> roomList = new ArrayList<Room>();
+	List<ChatingRoomVO> roomList = new ArrayList<ChatingRoomVO>();
 	static int roomNumber = 0;
 	
 	@GetMapping("/chat")
-	public ModelAndView chat(Room room) {
-		ModelAndView mv = new ModelAndView();
-
-		return mv;
+	public void chat() {
+		
 	}
 	
 	@GetMapping("/room")
@@ -53,10 +51,8 @@ public class ChatingController {
 	}
 	
 	@GetMapping("/friendChat")
-	public ModelAndView chat1(Room room) {
-		ModelAndView mv = new ModelAndView();
+	public void chat1() {
 		
-		return mv;
 	}
 	
 	
@@ -78,7 +74,7 @@ public class ChatingController {
 	public ModelAndView chating(ChatingRoomVO vo) {
 		ModelAndView mv = new ModelAndView();
 
-		List<Room> new_list = roomList.stream().filter(o->o.getRoomNumber()==roomNumber).collect(Collectors.toList());
+		List<ChatingRoomVO> new_list = roomList.stream().filter(o->o.getRoomNumber()==roomNumber).collect(Collectors.toList());
 	
 		int roomNum = 1;
 		if(vo.getRoomNumber() != 0) {
