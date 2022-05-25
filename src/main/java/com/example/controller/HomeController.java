@@ -24,11 +24,7 @@ public class HomeController {
 	}
 
 	@RequestMapping("/Main")
-	public void MainPage() {
-	}
-
-	@RequestMapping("/signUp")
-	public void signUpPage(UserVO vo) {
+	public void MainPage(UserVO vo) {
 		if (vo.getAddr3() != null) {
 			vo.setUser_address(vo.getAddr2() + vo.getAddr3());
 			vo.setUser_black("N");
@@ -36,6 +32,11 @@ public class HomeController {
 
 			signUp.insertUser(vo);
 		}
+	}
+
+	@RequestMapping("/signUp")
+	public void signUpPage() {
+
 	}
 
 	@RequestMapping(value = "/nicknameCheck", produces = "application/text;charset=utf-8")

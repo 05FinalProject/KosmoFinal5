@@ -479,7 +479,7 @@
 											▶ 이전 이용 약관 보기 (0000년 00월 00일 ~ 0000년 00월 00일)
 										</div>
 										
-										<input type="submit" value="가입하기" id="btn_signUp" class="btn btn-pill btn-block text-white btn-orange" style="background-color:#F8b03a; color:white;">
+										<input type="button" value="가입하기" id="btn_signUp" class="btn btn-pill btn-block text-white btn-orange" style="background-color:#F8b03a; color:white;" >
 										<div class="d-flex mb-5 align-items-center" id="homeGO">
 											<label class="control control--checkbox mb-0"><span class="caption"></span>
 											</label>
@@ -571,10 +571,6 @@
                 if(fullRoadAddr !== ''){
                     fullRoadAddr += extraRoadAddr;
                 }
- 
-                // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                console.log(data.zonecode);
-                console.log(fullRoadAddr);
                 
                 
                 $("[name=addr1]").val(data.zonecode);
