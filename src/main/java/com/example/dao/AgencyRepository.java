@@ -12,16 +12,24 @@ import com.example.domain.AgencyVO;
 @Repository
 public interface AgencyRepository extends CrudRepository<AgencyVO, Integer> {
 	
-	@Query("SELECT a FROM AgencyVO a WHERE a.aCategoryNum = 1")
-	public List<AgencyVO> findByACategoryNum();	
+	@Query("SELECT a FROM AgencyVO a WHERE a.agencyCategoryNum = 1")
+	public List<AgencyVO> findByAgencyCategoryNum();	
 	
 	//public List<AgencyVO> findByACategoryNum(int aCategoryNum);
 	
 	
-	//시설 페이징 처리
-	@Query("SELECT count(a) as count FROM AgencyVO a")
-	 int countRecord();
+	//시설 페이징 처리(호텔)
+	@Query("SELECT count(a) as count FROM AgencyVO a WHERE a.agencyCategoryNum = 1")
+	int countHotelRecord();
 	
-	List<AgencyVO> findAll(Pageable paging);
+	List<AgencyVO> findByAgencyCategoryNum(Pageable paging, int agencyCategoryNum);
+	
+	//시설 페이징 처리(카페)
+	@Query("SELECT count(a) as count FROM AgencyVO a WHERE a.agencyCategoryNum = 2")
+	int countCafeRecord();
+	
+	
+	
+	
 	
 }

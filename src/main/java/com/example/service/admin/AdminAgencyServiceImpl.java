@@ -15,24 +15,25 @@ public class AdminAgencyServiceImpl implements AdminAgencyService{
 	
 	@Autowired
 	private AgencyRepository aRepo;
+
 	
-	//애견호텔 목록 출력
 	@Override
-	public List<AgencyVO> agencyList(AgencyVO vo) {
-		
-		return aRepo.findByACategoryNum();
+	public List<AgencyVO> getHotelPaging(Pageable paging) {		
+		return aRepo.findByAgencyCategoryNum(paging, 1);
 	}
-
 	@Override
-	public List<AgencyVO> getPaging(Pageable paging) {
-		
-		return aRepo.findAll(paging);
+	public int countHotelRecord() {		
+		return aRepo.countHotelRecord();
 	}
-
+	
 	@Override
-	public int countRecord() {
-		
-		return aRepo.countRecord();
+	public List<AgencyVO> getCafetPaging(Pageable paging) {		
+		return aRepo.findByAgencyCategoryNum(paging,2);
+	}
+	
+	@Override
+	public int countCafeRecord() {	
+		return aRepo.countCafeRecord();
 	}
 	
 	

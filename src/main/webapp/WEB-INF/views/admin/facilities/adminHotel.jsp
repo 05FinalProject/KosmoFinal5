@@ -50,6 +50,12 @@
 .lead {
 	margin-top: 10px;
 }
+
+.agencyImg{
+	border-radius:20px;
+	margin-top: 20px;
+}
+
 </style>
 
 </head>
@@ -75,7 +81,7 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1>보호소</h1>
+							<h1>애견호텔</h1>
 						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
@@ -104,23 +110,23 @@
 										<div class="row">
 											<div class="col-7">
 												<h2 class="lead">
-													<b>${agency.AName}</b>
+													<b>${agency.agencyName}</b>
 												</h2>
 												<p class="text-muted text-sm">
-													<b>About: </b> ${agency.AContent}
+													<b>About: </b> ${agency.agencyContent}
 												</p>
 												<ul class="ml-4 mb-0 fa-ul text-muted">
 													<li class="small"><span class="fa-li"><i
 															class="fas fa-lg fa-building" aria-hidden="true"></i></span>
-														Address: ${agency.AAddress}</li>
+														Address: ${agency.agencyAddress}</li>
 													<li class="small"><span class="fa-li"><i
 															class="fas fa-lg fa-phone" aria-hidden="true"></i></span> Phone
-														#: ${agency.ATel}</li>
+														#: ${agency.agencyTel}</li>
 												</ul>
 											</div>
 											<div class="col-5 text-center">
-												<img src="${agency.AImage}"
-													alt="user-avatar" class="img-circle img-fluid">
+												<img src="${agency.agencyImage}"
+													alt="user-avatar" class="img-square img-fluid agencyImg">
 											</div>
 										</div>
 									</div>
@@ -151,17 +157,14 @@
 					</nav>
 				</div>
 				<!-- /.card-footer -->
-			
-			</section>
 			</div>
 		<!-- /.card -->
+		<%@ include file="../../admin/common/adminFooter.jsp"%>
 		</section>
 		<!-- /.content -->
 	</div>
 	<!-- /.content-wrapper -->
-
-	<%@ include file="../../admin/common/adminFooter.jsp"%>
-
+	
 	<!-- Control Sidebar -->
 	<aside class="control-sidebar control-sidebar-dark">
 		<!-- Control sidebar content goes here -->
@@ -169,7 +172,7 @@
 	<!-- /.control-sidebar -->
 	</div>
 	<!-- ./wrapper -->
-
+	
 	<!-- jQuery -->
 	<script src="../../plugins/jquery/jquery.min.js"></script>
 	<!-- Bootstrap 4 -->

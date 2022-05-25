@@ -133,20 +133,16 @@ public class AdminMainController {
 	}
 	
 	//시설관리(애견호텔)
-	@RequestMapping(value="adminHotel", method=RequestMethod.GET)
+	@RequestMapping(value="/adminHotel", method=RequestMethod.GET)
 	public String adminHotel(Model m, AgencyVO vo) {
 		//페이징 처리
 		int page =1;
 		if(vo.getPage()!=0) {
 			page = vo.getPage();
 		} 
-		Pageable paging = PageRequest.of(page-1, 9, Sort.Direction.ASC, "aNum");
-		m.addAttribute("paging", adminAgencyService.getPaging(paging));
-		m.addAttribute("count",adminAgencyService.countRecord());
-		
-		//호텔 리스트 
-		List<AgencyVO> list = adminAgencyService.agencyList(new AgencyVO());
-		m.addAttribute("agencyList", list);
+		Pageable paging = PageRequest.of(page-1, 9, Sort.Direction.ASC, "agencyNum");
+		m.addAttribute("paging", adminAgencyService.getHotelPaging(paging));
+		m.addAttribute("count",adminAgencyService.countHotelRecord());	
 
 		return "/admin/facilities/adminHotel";		
 	}
@@ -158,8 +154,17 @@ public class AdminMainController {
 	}
 	
 	//시설관리(애견카페)
-	@RequestMapping(value="adminCafe", method=RequestMethod.GET)
-	public String adminCafe() {
+	@RequestMapping(value="/adminCafe", method=RequestMethod.GET)
+	public String adminCafe(Model m, AgencyVO vo) {
+		//페이징 처리
+		int page =1;
+		if(vo.getPage()!=0) {
+			page = vo.getPage();
+		} 
+		Pageable paging = PageRequest.of(page-1, 9, Sort.Direction.ASC, "agencyNum");
+		m.addAttribute("paging", adminAgencyService.getCafetPaging(paging));
+		m.addAttribute("count",adminAgencyService.countCafeRecord());
+		
 		return "/admin/facilities/adminCafe";			
 	}
 		
