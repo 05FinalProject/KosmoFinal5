@@ -42,15 +42,15 @@
 										
 										<!-- 닉네임 -->
 										<div class="form-group first field--not-empty">
-											<div class="nickname_check col-md-9">
-												<label for="user_nickname">닉네임&nbsp; &nbsp; &nbsp; &nbsp;<span
+											<div class="nicknameCheck col-md-9">
+												<label for="userNickname">닉네임&nbsp; &nbsp; &nbsp; &nbsp;<span
 														class="error_box"></span></label>
-												<input type="text" class="form-control" id="user_nickname"
-													name="user_nickname">
+												<input type="text" class="form-control" id="userNickname"
+													name="userNickname">
 											</div>
 
-											<div class='nickname_check col-md-3'>
-												<button type="button" id="btn_nicknameCheck" class="btn_check btn-pill btn-orange">
+											<div class='nicknameCheck col-md-3'>
+												<button type="button" id="btnNicknameCheck" class="btn_check btn-pill btn-orange">
 													<span class="text-white btn_text">중복확인</span></button>
 											</div>
 										</div>
@@ -532,11 +532,11 @@
 					$("#btn_emailCheak").css("background-color","#F8b03a");
 				});
 				
-				$("#btn_nicknameCheak").mouseover(function(){
-					$("#btn_nicknameCheak").css("background-color","#dc6721");
+				$("#btnNicknameCheak").mouseover(function(){
+					$("#btnNicknameCheak").css("background-color","#dc6721");
 				});
-				$("#btn_nicknameCheak").mouseout(function(){
-					$("#btn_nicknameCheak").css("background-color","#F8b03a");
+				$("#btnNicknameCheak").mouseout(function(){
+					$("#btnNicknameCheak").css("background-color","#F8b03a");
 				});
 
 			});
