@@ -4,6 +4,7 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.example.dao.AgencyRepository;
@@ -20,6 +21,18 @@ public class AdminAgencyServiceImpl implements AdminAgencyService{
 	public List<AgencyVO> agencyList(AgencyVO vo) {
 		
 		return aRepo.findByACategoryNum();
+	}
+
+	@Override
+	public List<AgencyVO> getPaging(Pageable paging) {
+		
+		return aRepo.findAll(paging);
+	}
+
+	@Override
+	public int countRecord() {
+		
+		return aRepo.countRecord();
 	}
 	
 	

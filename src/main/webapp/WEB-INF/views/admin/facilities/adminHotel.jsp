@@ -94,8 +94,9 @@
 				<!-- Default box -->
 				<div class="card card-solid">
 					<div class="card-body pb-0">
-					<c:forEach items="${agencyList}" var="agency"> 
+					
 						<div class="row">
+						<c:forEach items="${paging}" var="agency"> 
 							<div
 								class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
 								<div class="card bg-light d-flex flex-fill">
@@ -118,46 +119,42 @@
 												</ul>
 											</div>
 											<div class="col-5 text-center">
-												<img src="../../dist/img/user1-128x128.jpg"
+												<img src="${agency.AImage}"
 													alt="user-avatar" class="img-circle img-fluid">
 											</div>
 										</div>
 									</div>
 									<div class="card-footer">
 										<div class="text-right">
-											<a href="#" class="btn btn-sm btn-warning">수정 </a> <a
-												href="#" class="btn btn-sm btn-danger"> 삭제 </a>
+											<a href="#" class="btn btn-sm btn-warning">수정 </a> 
+											<a href="#" class="btn btn-sm btn-danger"> 삭제 </a>
 										</div>
 									</div>									
 								</div>							
 							</div>											
+							</c:forEach>	
 						</div>
-						</c:forEach>					
+										
 					</div>	
 									
 				</div>
-			
-
 			
 				<!-- /.card-body -->
 				<div class="card-footer">
 					<nav aria-label="Contacts Page Navigation">
 						<ul class="pagination justify-content-center m-0">
-							<li class="page-item active"><a class="page-link" href="#">1</a></li>
-							<li class="page-item"><a class="page-link" href="#">2</a></li>
-							<li class="page-item"><a class="page-link" href="#">3</a></li>
-							<li class="page-item"><a class="page-link" href="#">4</a></li>
-							<li class="page-item"><a class="page-link" href="#">5</a></li>
-							<li class="page-item"><a class="page-link" href="#">6</a></li>
-							<li class="page-item"><a class="page-link" href="#">7</a></li>
-							<li class="page-item"><a class="page-link" href="#">8</a></li>
+							<c:set var="recordsCnt" value="${count}" />
+							<c:set var="jspFile" value="adminHotel?"/>
+							<c:set var="perpage" value="9" />
 						</ul>
+						<%@include file="paging.jsp"%>
 					</nav>
 				</div>
 				<!-- /.card-footer -->
-		</div>
+			
+			</section>
+			</div>
 		<!-- /.card -->
-
 		</section>
 		<!-- /.content -->
 	</div>
