@@ -37,12 +37,16 @@ public class ChatingController {
 	@GetMapping("/room")
 	public void room(Model m,UserVO user) {
 		//채팅방list 출력
-		m.addAttribute("list", service.getAllRooms());
+		m.addAttribute("list", service.getAllRooms(user));
 		// user 이메일 값
 		m.addAttribute("email",user.getUserEmail());
+		//채팅방수 얻어오기
+		m.addAttribute("count",service.getRoomCnt());
 		
 	}
 	
+	@GetMapping("/friend")
+	public void friend() {}
 
 	
 	@PostMapping(value = "/friend")

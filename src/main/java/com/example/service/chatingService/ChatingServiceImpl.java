@@ -41,15 +41,24 @@ public class ChatingServiceImpl implements ChatingService {
 		return ch.findByRoomNumber(vo.getRoomNumber());
 	}
 	
+	//채팅방수 얻어오기
+	public int getRoomCnt() {
+		return Integer.parseInt(ch.getRoomCnt().get(0)[0].toString());
+	}
+	
 	//채팅방리스트
-	public List<ChatingRoomVO> getAllRooms(){
+	public List<ChatingRoomVO> getAllRooms(UserVO user){
+		int page = 1;
+		if(user.getPage() != 0) {
+			page = user.getPage();
+		}
 		List<ChatingRoomVO> rList = new ArrayList();
-		List<Object[]> list = ch.getAllRooms();
+		List<Object[]> list = ch.getAllRooms(6*page-6);
 		
 		for( Object[] o:list) {
 			ChatingRoomVO vo = new ChatingRoomVO();
-			vo.setRoomName((String)o[0]);
-			vo.setRoomNumber((int)o[1]);
+			vo.setRoomName((String)o[2]);
+			vo.setRoomNumber((int)o[3]);
 			rList.add(vo);
 		}
 		
