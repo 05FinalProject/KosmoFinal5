@@ -49,5 +49,4 @@ public class ReportVO {
 	@Temporal(TemporalType.DATE)
 	private Date rDate;
 	
-
 }

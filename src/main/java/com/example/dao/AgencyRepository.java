@@ -29,6 +29,13 @@ public interface AgencyRepository extends CrudRepository<AgencyVO, Integer>{
 	@Query("SELECT count(a) as count FROM AgencyVO a WHERE a.agencyCategoryNum = 2")
 	int countCafeRecord();
 	
+	//시설 페이징 처리(병원)
+	@Query("SELECT count(a) as count FROM AgencyVO a WHERE a.agencyCategoryNum = 3")
+	int countHospitalRecord();
+	
+	//시설 페이징 처리(장례식장)
+	@Query("SELECT count(a) as count FROM AgencyVO a WHERE a.agencyCategoryNum = 5")
+	int countFunehallRecord();
 	
 	
 	

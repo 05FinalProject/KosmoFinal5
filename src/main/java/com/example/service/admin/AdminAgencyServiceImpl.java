@@ -36,6 +36,30 @@ public class AdminAgencyServiceImpl implements AdminAgencyService{
 		return aRepo.countCafeRecord();
 	}
 	
+	@Override
+	public List<AgencyVO> getHospitaltPaging(Pageable paging) {
+		
+		return aRepo.findByAgencyCategoryNum(paging, 3);
+	}
+	
+	@Override
+	public int countHospitalRecord() {
+		
+		return aRepo.countHospitalRecord();
+	}
+	
+	@Override
+	public List<AgencyVO> getFunehallPaging(Pageable paging) {
+		
+		return aRepo.findByAgencyCategoryNum(paging, 5);
+	}
+	
+	@Override
+	public int countFunehallRecord() {
+		
+		return aRepo.countFunehallRecord();
+	}
+	
 	
 	
 

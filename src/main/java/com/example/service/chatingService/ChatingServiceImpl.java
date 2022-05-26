@@ -1,6 +1,7 @@
 package com.example.service.chatingService;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,12 +61,53 @@ public class ChatingServiceImpl implements ChatingService {
 		return ch.getLastRoomNumber();
 	}
 	
-	public List<ChatingRoomVO> checkRoomPass(ChatingRoomVO vo){
-		return ch.checkRoomPass(vo.getRoomNumber(),vo.getRoomPass());
+	//채팅방번호가 비밀번호랑 일치하면 yes,아니면 no
+	public String checkRoomPass(ChatingRoomVO vo){
+		String boo = "no";
+		if(ch.checkRoomPass(vo.getRoomNumber(),vo.getRoomPass()).size()>0) {
+			boo = "yes";
+		}
+		return boo;
+	}
+	
+	//user 이메일통해 이메지,닉네임 찾기
+	public HashMap getChatingRoomUserInfo(UserVO vo) {
+		HashMap hm = new HashMap();
+		hm.put("niName",usr.findById(vo.getUserEmail()).get().getUserNickname() );
+		hm.put("img",img.findByUserEmail(vo.getUserEmail()).get(0).getPRimgname() );
+		hm.put("email",vo.getUserEmail());
+		return hm;
+	}
+	
+	//채팅방들어온 user 사진,닉네임, email은 HashMap에 담기
+	public List<HashMap> getChatingRoomMemberInfo(ChatingRoomVO vo) {
+		List<ChatingRoomVO> list = ch.findByRoomNumber(vo.getRoomNumber());
+		ArrayList rlist = new ArrayList();
+		HashMap hm = new HashMap();
+		for(ChatingRoomVO v : list) {
+			hm = new HashMap();
+			hm.put("img", img.findByUserEmail(v.getRoomMember()).get(0).getPImgname()); //img
+			hm.put("nickName",usr.findById(v.getRoomMember()).get().getUserNickname());//niname
+			hm.put("email", v.getRoomMember());
+			rlist.add(hm);
+		}
+		return rlist;
 	}
 	
 	public List<ImgVO> getUserImg(String email) {
 		return img.findByUserEmail(email);
+	}
+	
+	//user의 id가 비밀번호랑 일치하면 yes,아니면 no
+	public String checkLogin(UserVO vo) {
+		
+		String boo = "no";
+		UserVO vv = usr.findById(vo.getUserEmail()).get();
+		if(vo.getUserPass().equals(vv.getUserPass())) {
+			boo = "yes";
+		}
+	
+		return boo;
 	}
 	
 	public UserVO getUserInfo(String roomMember) {
