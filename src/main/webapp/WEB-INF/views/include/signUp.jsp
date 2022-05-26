@@ -525,18 +525,18 @@
 					$(".Addr").css("background-color","#F8b03a");
 				});
 				
-				$("#btn_emailCheak").mouseover(function(){
-					$("#btn_emailCheak").css("background-color","#dc6721");
+				$("#btn_emailCheck").mouseover(function(){
+					$("#btn_emailCheck").css("background-color","#dc6721");
 				});
-				$("#btn_emailCheak").mouseout(function(){
-					$("#btn_emailCheak").css("background-color","#F8b03a");
+				$("#btn_emailCheck").mouseout(function(){
+					$("#btn_emailCheck").css("background-color","#F8b03a");
 				});
 				
-				$("#btnNicknameCheak").mouseover(function(){
-					$("#btnNicknameCheak").css("background-color","#dc6721");
+				$("#btnNicknameCheck").mouseover(function(){
+					$("#btnNicknameCheck").css("background-color","#dc6721");
 				});
-				$("#btnNicknameCheak").mouseout(function(){
-					$("#btnNicknameCheak").css("background-color","#F8b03a");
+				$("#btnNicknameCheck").mouseout(function(){
+					$("#btnNicknameCheck").css("background-color","#F8b03a");
 				});
 
 			});

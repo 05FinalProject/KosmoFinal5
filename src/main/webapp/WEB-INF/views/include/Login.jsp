@@ -110,7 +110,7 @@
 		$(".btn-orange").mouseout(function(){
 			$(".btn-orange").css("background-color","#F8b03a");
 		});
-	})
+	});
 	 
 	$('#btnLogin').click(function(){
 		$.ajax({
