@@ -115,7 +115,7 @@
 	$('#btnLogin').click(function(){
 		$.ajax({
 			url:'/api/checkLogin',
-			data:{user_email:$('#user_email').val(),user_pass:$('#user_pass').val()},
+			data:{userEmail:$('#user_email').val(),userPass:$('#user_pass').val()},
 			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 			success:function(data){
 				if(data == 'yes'){
