@@ -97,7 +97,7 @@
 								<div
 									class="lana_member type-lana_member card member-card bg-transparent" id="pic1">
 									<div class="card-body" >
-										<a href="/include/agencyShelterDetail"><img
+										<a href="/include/agencyShelterDetail?abNo=${vo.abNo }"><img
 											src="${vo.abImage}"
 											class="card-img-top img-fluid rounded-circle animated zoomIn"
 											alt="Team Member" data-scroll-animate="zoomIn"></a>
