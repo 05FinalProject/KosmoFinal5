@@ -79,6 +79,21 @@ public class ChatingServiceImpl implements ChatingService {
 		return hm;
 	}
 	
+	//채팅방들어온 user 사진,닉네임, email은 HashMap에 담기
+	public List<HashMap> getChatingRoomMemberInfo(ChatingRoomVO vo) {
+		List<ChatingRoomVO> list = ch.findByRoomNumber(vo.getRoomNumber());
+		ArrayList rlist = new ArrayList();
+		HashMap hm = new HashMap();
+		for(ChatingRoomVO v : list) {
+			hm = new HashMap();
+			hm.put("img", img.findByUserEmail(v.getRoomMember()).get(0).getPImgname()); //img
+			hm.put("nickName",usr.findById(v.getRoomMember()).get().getUserNickname());//niname
+			hm.put("email", v.getRoomMember());
+			rlist.add(hm);
+		}
+		return rlist;
+	}
+	
 	public List<ImgVO> getUserImg(String email) {
 		return img.findByUserEmail(email);
 	}

@@ -78,4 +78,8 @@ public class HomeController {
 	@RequestMapping("/myPage/myPageDogDetail")
 	public void myDogDetail() {
 	}
+	
+	@RequestMapping("/myPage/myPageBoard")
+	public void myPageBoard() {
+	}
 }
