@@ -56,19 +56,16 @@
 	margin-top: 20px;
 }
 
+.agencyCon{
+	margin-top: 30px;
+
+}
 </style>
 
 </head>
 <body class="hold-transition sidebar-mini">
 	<!-- Site wrapper -->
 	<div class="wrapper">
-
-		<!-- Preloader -->
-		<div
-			class="preloader flex-column justify-content-center align-items-center">
-			<img class="animation__shake" src="/admin/dist/img/AdminLTELogo.png"
-				alt="AdminLTELogo" height="60" width="60">
-		</div>
 
 		<%@ include file="../../admin/common/adminNavbar.jsp"%>
 
@@ -108,7 +105,7 @@
 								<div class="card bg-light d-flex flex-fill">
 									<div class="card-body pt-0">
 										<div class="row">
-											<div class="col-7">
+											<div class="col-7 agencyCon">
 												<h2 class="lead">
 													<b>${cafe.agencyName}</b>
 												</h2>

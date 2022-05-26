@@ -80,7 +80,7 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <c:forEach var="vo" items="${list}" >
+                  <c:forEach var="vo" items="${reviewList}" >
 	                  <tr>
 	                  	<td>${vo.r_num }</td>
 	                    <td>${vo.user_email }</td>
