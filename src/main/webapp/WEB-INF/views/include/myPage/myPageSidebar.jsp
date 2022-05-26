@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>마이페이지 - 반려견 정보 수정</title>
+<title>마이페이지 - 나의 프로필</title>
 
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet"
@@ -35,33 +35,14 @@
 <!-- summernote -->
 <link rel="stylesheet"
 	href="../../admin/plugins/summernote/summernote-bs4.min.css">
-
 <!-- WithYou myPage Custom Css-->
 <link rel="stylesheet" href="/myPage/css/myPage.css">
 
-    <link rel="stylesheet" id="montserrat-css"
-          href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
-    <link rel="stylesheet" id="open-sans-css"
-          href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i">
-
-    <link rel="stylesheet" id="animate-css" href="/css/animate.min.css?ver=3.7.2" type="text/css" media="all">
-    <link rel="stylesheet" id="font-awesome-css" href="/css/font-awesome.min.css?ver=5.15.4" type="text/css"
-          media="all">
-    <link rel="stylesheet" id="bootstrap-css" href="/css/bootstrap.min.css?ver=4.6.0" type="text/css" media="all">
-    <link rel="stylesheet" id="smartmenus-bootstrap-css" href="/css/smartmenus-bootstrap.min.css?ver=1.1.1"
-          type="text/css" media="all">
-    <link rel="stylesheet" id="swiper-css" href="/css/swiper.min.css?ver=4.5.3" type="text/css" media="all">
-    <link rel="stylesheet" id="magnific-popup-css" href="/css/magnific-popup.min.css?ver=1.1.0" type="text/css"
-          media="all">
-
 </head>
-<body class="hold-transition sidebar-mini layout-fixed "
+<body class="hold-transition sidebar-mini layout-fixed"
 	style="background-color: #f4f6f9;">
-	<%@include file="../Header.jsp"%>
 	<div class="wrapper">
-		<!-- Main Sidebar Container -->
-		<aside class="myPage-sidebar asidebar" style="margin-top: auto;">
-			<!-- Sidebar -->
+		<aside class="myPage-sidebar asidebar beta">
 			<div>
 				<nav class="mt-2">
 					<ul class="nav nav-pills sidebar flex-column"
@@ -109,93 +90,12 @@
 									<i class="far nav-icon" style="font-weight: bolder;">나의 산책로</i>
 								</p>
 						</a></li>
+
 					</ul>
 				</nav>
 			</div>
-			<!-- /.sidebar -->
 		</aside>
-
-  <!-- Content Wrapper. Contains page content -->
-
-    <section>
-      <!-- Default box -->
-      <div class="card-solid mx-auto" style="width:80%;">
-        <div class="card-body">
-          <div class="row" style="margin-top:5%;">
-            <div class="col-12 col-sm-7">
-              <div class="col-10 mx-auto my-auto">
-                <img src="/pictures/placeholder/530x400.svg" class="product-image" alt="Product Image">
-              </div>
-            </div>
-            <div class="col-12 col-sm-5">
-              <h3 class="my-3">반려견 이름</h3>
-              <hr>
-              <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <table>
-                  <tr> 
-                    <th>견&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;종 : </th>
-                    <th>여기에 표시될 것</th>
-                  </tr>
-                  <tr> 
-                    <th>몸무게 : </th>
-                    <th>여기에 표시될 것</th>
-                  </tr>
-                  <tr>
-                    <th>성별 : </th>
-                    <th>                <label class="btn btn-default text-center active">
-                      남아
-                      <br>
-                      <i class="fas fa-user fa text-blue"></i>
-                    </label>
-                  <label class="btn btn-default text-center">
-                      여아
-                      <br>
-                      <i class="fas fa-user fa text-red"></i>
-                    </label></th>
-                  </tr>
-                  <tr>
-                    <th>중성화 : </th>
-                    <th>                <label class="btn btn-default text-center active">
-                      했어요
-                      <br>
-                      <i class="fas fa-dot-circle fa text-green"></i>
-                    </label>
-                  <label class="btn btn-default text-center">
-                      안했어요
-                      <br>
-                      <i class="fas fa-times-circle fa text-orange"></i>
-                    </label></th>
-                    
-                  </tr>
-                  
-                </table>
-              </div>
-
-
-              <div class="mt-4">
-                <div class="btn btn-primary btn-lg btn-flat">
-                  수정
-                </div>
-
-                <div class="btn btn-danger btn-lg btn-flat float-right">
-                  삭제
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /.card-body -->
-      </div>
-      <!-- /.card -->
-
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-
-
-	<!-- ./wrapper -->
-	<%@include file="../Footer.jsp"%>
+	</div>
 
 	<!-- jQuery -->
 	<script src="../../admin/plugins/jquery/jquery.min.js"></script>
@@ -229,21 +129,8 @@
 		src="../../admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 	<!-- AdminLTE App -->
 	<script src="../../admin/dist/js/adminlte.js"></script>
-	<script src="../../admin/dist/js/adminlte.min.js"></script>
 	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 	<script src="../../admin/dist/js/pages/dashboard.js"></script>
-	
-	<script type="text/javascript" src="/js/jquery.min.js?ver=3.6.0"></script>
-	<script type="text/javascript" src="/js/popper.min.js?ver=1.16.1"></script>
-	<script type="text/javascript" src="/js/bootstrap.min.js?ver=4.6.0"></script>
-	<script type="text/javascript" src="/js/smartmenus.min.js?ver=1.1.1"></script>
-	<script type="text/javascript" src="/js/smartmenus-bootstrap.min.js?ver=1.1.1"></script>
-	<script type="text/javascript" src="/js/swiper.min.js?ver=4.5.3"></script>
-	<script type="text/javascript" src="/js/scrollmagic.min.js?ver=2.0.8"></script>
-	<script type="text/javascript" src="/js/magnific-popup.min.js?ver=1.1.0"></script>
-	<script type="text/javascript" src="/js/custom-theme.js?ver=1.0.0"></script>
-	
-	
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$(".btn-add").mouseover(function() {
@@ -264,7 +151,6 @@
 				e.preventDefault();
 				$("#file").click();
 			});
-
 		});
 	</script>
 </body>
