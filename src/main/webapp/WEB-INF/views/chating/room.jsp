@@ -104,20 +104,15 @@
 
                 <nav class="navigation pagination justify-content-between bg-transparent text-uppercase"
                      role="navigation">
-                    <a class="prev disabled" href="#">
-                        Prev
-                    </a>
                     <div class="nav-links">
-                        <ul class="page-numbers">
-                            <li><span aria-current="page" class="page-numbers current">1</span></li>
-                            <li><a class="page-numbers" href="#">2</a></li>
-                            <li><span class="page-numbers dots">…</span></li>
-                            <li><a class="page-numbers" href="#">4</a></li>
-                        </ul>
-                    </div>
-                    <a class="next" href="#">
-                        Next
-                    </a>
+						<c:set var="recordsCnt" value="${count}" />
+						<c:set var="jspFile" value="room?" />
+						<c:set var="perpage" value="6" />
+					</div>
+					<c:if test="${count>6}">
+					<!-- include 페이징  jsp파일  -->
+					<%@include file="../include/paging.jsp"%>
+					</c:if>
                 </nav>
             </div>
         </div>
