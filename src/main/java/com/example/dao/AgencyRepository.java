@@ -36,6 +36,10 @@ public interface AgencyRepository extends CrudRepository<AgencyVO, Integer> {
 	@Query("SELECT count(a) as count FROM AgencyVO a WHERE a.agencyCategoryNum = 5")
 	int countFunehallRecord();
 	
+	//시설 수정 
+	//@Query("update set")
+	
+	
 	
 	
 	

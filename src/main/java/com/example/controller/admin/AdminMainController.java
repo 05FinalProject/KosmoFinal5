@@ -221,8 +221,8 @@ public class AdminMainController {
 	//시설 수정
 	@RequestMapping(value="{agencyNum}", method = RequestMethod.PUT)
 	public String adminUpdateFacilities(AgencyVO vo) {
-		
-		return "/admin/facilities/adminUpdateFacilities";
+		adminAgencyService.updateAgency(vo);
+		return "redirect:/admin";
 	}
 
 

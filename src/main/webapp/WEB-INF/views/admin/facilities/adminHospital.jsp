@@ -67,7 +67,6 @@
 	<!-- Site wrapper -->
 	<div class="wrapper">
 
-
 		<%@ include file="../../admin/common/adminNavbar.jsp"%>
 
 		<%@ include file="../../admin/common/adminSidebar.jsp"%>
@@ -127,7 +126,7 @@
 									</div>
 									<div class="card-footer">
 										<div class="text-right">
-											<a href="#" class="btn btn-sm btn-warning">수정 </a> 
+											<a href="agencyNum" class="btn btn-sm btn-warning">수정 </a> 
 											<a href="#" class="btn btn-sm btn-danger"> 삭제 </a>
 										</div>
 									</div>									

@@ -59,6 +59,11 @@ public class AdminAgencyServiceImpl implements AdminAgencyService{
 		
 		return aRepo.countFunehallRecord();
 	}
+	@Override
+	public void updateAgency(AgencyVO vo) {
+	
+		
+	}
 	
 	
 	

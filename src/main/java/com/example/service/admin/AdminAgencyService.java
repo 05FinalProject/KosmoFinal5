@@ -26,5 +26,7 @@ public interface AdminAgencyService {
 	
 	public int countFunehallRecord();
 	
+	//시설수정
+	public void updateAgency(AgencyVO vo);
 	
 }
