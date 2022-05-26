@@ -33,5 +33,7 @@ public interface ChatingService {
 	public UserVO getUserInfo(String roomMember);
 	
 	public long getRoomMemCnt(int roomNumber) ;
+	
+	public List<HashMap> getChatingRoomMemberInfo(ChatingRoomVO vo);
 
 }
