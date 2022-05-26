@@ -80,11 +80,11 @@
                   </tr>
                   </thead>
                   <tbody>
-           			 <c:forEach var="vo" items="${list}" >
+           			 <c:forEach var="vo" items="${commentList}" >
 	                  <tr>
 	                  	<td>${vo.comment_num}</td>
 	                    <td>${vo.u_email}</td>
-	                    <td>${vo.comment_content }</td>
+	                    <td>${vo.comment_content}</td>
 	                    <td>${vo.r_reason}</td>
 	                    <td>${vo.r_date}</td>
 	                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>

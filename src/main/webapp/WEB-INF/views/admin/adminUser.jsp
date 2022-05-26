@@ -84,8 +84,8 @@
 	                    <td>${user.userName}</td>
 	                    <td>${user.userPhone}</td>
 	                    <td>${user.userAddress}</td>
-	                    <td>${user.userSignup}</td>                  
-	                    <td><button type="submit" class="btn btn-outline-danger">삭제</button></td>
+	                    <td>${user.userSignup}</td>    
+	                    <td><form action="/admin/adminUser"><input type="hidden" name="userEmail" value="${user.userEmail}"/><button type="submit" class="btn btn-outline-danger">삭제</button></form></td>	               
 	                  </tr>      
                 </c:forEach>
                   </tbody>

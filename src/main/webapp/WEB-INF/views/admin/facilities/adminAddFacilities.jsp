@@ -151,7 +151,7 @@
 
 					<button type="submit" class="btn btn-secondary m-2"
 						id="btnQnAWrite">수정</button>
-					<a href="QnAListPage.do"><button type="button"
+					<a href="/admin/adminShelter"><button type="button"
 							class="btn btn-secondary m-2" id="btnList">목록보기</button></a>
 				</form>
 			</div>
