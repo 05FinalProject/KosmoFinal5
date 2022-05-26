@@ -128,7 +128,16 @@ public class AdminMainController {
 	
 	//시설관리(동물병원)
 	@RequestMapping(value="adminHospital", method=RequestMethod.GET)
-	public String adminHospital() {
+	public String adminHospital(Model m, AgencyVO vo) {
+		//페이징 처리
+		int page =1;
+		if(vo.getPage()!=0) {
+			page = vo.getPage();
+		} 
+		Pageable paging = PageRequest.of(page-1, 9, Sort.Direction.ASC, "agencyNum");
+		m.addAttribute("paging", adminAgencyService.getHospitaltPaging(paging));
+		m.addAttribute("count",adminAgencyService.countHospitalRecord());	
+		
 		return "/admin/facilities/adminHospital";
 	}
 	
@@ -149,7 +158,15 @@ public class AdminMainController {
 	
 	//시설관리(장례식장)
 	@RequestMapping(value="adminFuneralhall", method=RequestMethod.GET)
-	public String adminFuneralhall() {
+	public String adminFuneralhall(Model m, AgencyVO vo) {
+		//페이징 처리
+		int page =1;
+		if(vo.getPage()!=0) {
+		page = vo.getPage();
+		} 
+		Pageable paging = PageRequest.of(page-1, 9, Sort.Direction.ASC, "agencyNum");
+		m.addAttribute("paging", adminAgencyService.getFunehallPaging(paging));
+		m.addAttribute("count",adminAgencyService.countFunehallRecord());
 		return "/admin/facilities/adminFuneralhall";		
 	}
 	

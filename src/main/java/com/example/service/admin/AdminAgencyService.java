@@ -18,5 +18,13 @@ public interface AdminAgencyService {
 		
 	public int countCafeRecord();
 	
+	public List<AgencyVO> getHospitaltPaging(Pageable paging);
+	
+	public int countHospitalRecord();
+	
+	public List<AgencyVO> getFunehallPaging(Pageable paging);
+	
+	public int countFunehallRecord();
+	
 	
 }
