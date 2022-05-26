@@ -19,8 +19,8 @@
 	
 	<a href="/chating/friendChat">친구리스트</a><br/><br/>
 	
-	email:abcd1@naver.com<a href="/chating/room?user_email=abcd1@naver.com">채팅방리스트</a><br/><br/>
-	email:abcd2@naver.com<a href="/chating/room?user_email=abcd2@naver.com">채팅방리스트</a><br/><br/>
-	email:abcd3@naver.com<a href="/chating/room?user_email=abcd3@naver.com">채팅방리스트</a><br/><br/>
+	email:abcd1@naver.com<a href="/chating/room?userEmail=abcd1@naver.com">채팅방리스트</a><br/><br/>
+	email:abcd2@naver.com<a href="/chating/room?userEmail=abcd2@naver.com">채팅방리스트</a><br/><br/>
+	email:abcd3@naver.com<a href="/chating/room?userEmail=abcd3@naver.com">채팅방리스트</a><br/><br/>
 </body>
 </html>

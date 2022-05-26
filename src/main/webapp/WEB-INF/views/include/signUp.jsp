@@ -42,15 +42,15 @@
 										
 										<!-- 닉네임 -->
 										<div class="form-group first field--not-empty">
-											<div class="nickname_check col-md-9">
-												<label for="user_nickname">닉네임&nbsp; &nbsp; &nbsp; &nbsp;<span
+											<div class="nicknameCheck col-md-9">
+												<label for="userNickname">닉네임&nbsp; &nbsp; &nbsp; &nbsp;<span
 														class="error_box"></span></label>
-												<input type="text" class="form-control" id="user_nickname"
-													name="user_nickname">
+												<input type="text" class="form-control" id="userNickname"
+													name="userNickname">
 											</div>
 
-											<div class='nickname_check col-md-3'>
-												<button type="button" id="btn_nicknameCheck" class="btn_check btn-pill btn-orange">
+											<div class='nicknameCheck col-md-3'>
+												<button type="button" id="btnNicknameCheck" class="btn_check btn-pill btn-orange">
 													<span class="text-white btn_text">중복확인</span></button>
 											</div>
 										</div>
@@ -479,7 +479,7 @@
 											▶ 이전 이용 약관 보기 (0000년 00월 00일 ~ 0000년 00월 00일)
 										</div>
 										
-										<input type="submit" value="가입하기" id="btn_signUp" class="btn btn-pill btn-block text-white btn-orange" style="background-color:#F8b03a; color:white;">
+										<input type="button" value="가입하기" id="btn_signUp" class="btn btn-pill btn-block text-white btn-orange" style="background-color:#F8b03a; color:white;" >
 										<div class="d-flex mb-5 align-items-center" id="homeGO">
 											<label class="control control--checkbox mb-0"><span class="caption"></span>
 											</label>
@@ -525,18 +525,18 @@
 					$(".Addr").css("background-color","#F8b03a");
 				});
 				
-				$("#btn_emailCheak").mouseover(function(){
-					$("#btn_emailCheak").css("background-color","#dc6721");
+				$("#btn_emailCheck").mouseover(function(){
+					$("#btn_emailCheck").css("background-color","#dc6721");
 				});
-				$("#btn_emailCheak").mouseout(function(){
-					$("#btn_emailCheak").css("background-color","#F8b03a");
+				$("#btn_emailCheck").mouseout(function(){
+					$("#btn_emailCheck").css("background-color","#F8b03a");
 				});
 				
-				$("#btn_nicknameCheak").mouseover(function(){
-					$("#btn_nicknameCheak").css("background-color","#dc6721");
+				$("#btnNicknameCheck").mouseover(function(){
+					$("#btnNicknameCheck").css("background-color","#dc6721");
 				});
-				$("#btn_nicknameCheak").mouseout(function(){
-					$("#btn_nicknameCheak").css("background-color","#F8b03a");
+				$("#btnNicknameCheck").mouseout(function(){
+					$("#btnNicknameCheck").css("background-color","#F8b03a");
 				});
 
 			});
@@ -571,10 +571,6 @@
                 if(fullRoadAddr !== ''){
                     fullRoadAddr += extraRoadAddr;
                 }
- 
-                // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                console.log(data.zonecode);
-                console.log(fullRoadAddr);
                 
                 
                 $("[name=addr1]").val(data.zonecode);

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.domain.ChatingRoomVO;
-import com.example.domain.Room;
+
 import com.example.domain.UserVO;
 import com.example.service.chatingService.ChatingService;
 
@@ -27,21 +27,19 @@ public class ChatingController {
 	@Autowired
 	private ChatingService service;
 	
-	List<Room> roomList = new ArrayList<Room>();
+	List<ChatingRoomVO> roomList = new ArrayList<ChatingRoomVO>();
 	static int roomNumber = 0;
 	
 	@GetMapping("/chat")
-	public ModelAndView chat(Room room) {
-		ModelAndView mv = new ModelAndView();
-
-		return mv;
+	public void chat() {
+		
 	}
 	
 	@GetMapping("/room")
 	public void room(Model m,UserVO user) {
 		List<ChatingRoomVO> list = service.getAllRooms();
 		m.addAttribute("list", list);
-		m.addAttribute("email",user.getUser_email());
+		m.addAttribute("email",user.getUserEmail());
 		
 	}
 	
@@ -53,10 +51,8 @@ public class ChatingController {
 	}
 	
 	@GetMapping("/friendChat")
-	public ModelAndView chat1(Room room) {
-		ModelAndView mv = new ModelAndView();
+	public void chat1() {
 		
-		return mv;
 	}
 	
 	
@@ -78,7 +74,7 @@ public class ChatingController {
 	public ModelAndView chating(ChatingRoomVO vo) {
 		ModelAndView mv = new ModelAndView();
 
-		List<Room> new_list = roomList.stream().filter(o->o.getRoomNumber()==roomNumber).collect(Collectors.toList());
+		List<ChatingRoomVO> new_list = roomList.stream().filter(o->o.getRoomNumber()==roomNumber).collect(Collectors.toList());
 	
 		int roomNum = 1;
 		if(vo.getRoomNumber() != 0) {
@@ -88,8 +84,8 @@ public class ChatingController {
 			HashMap hm = new HashMap();
 			for(ChatingRoomVO v : list) {
 				hm = new HashMap();
-				hm.put("img", service.getUserImg(v.getRoomMember()).get(0).getP_imgname()); //img
-				hm.put("nickName",service.getUserInfo(v.getRoomMember()).getUser_nickname());//niname
+				hm.put("img", service.getUserImg(v.getRoomMember()).get(0).getPImgname()); //img
+				hm.put("nickName",service.getUserInfo(v.getRoomMember()).getUserNickname());//niname
 				hm.put("email", v.getRoomMember());
 				rlist.add(hm);
 			}
@@ -114,27 +110,13 @@ public class ChatingController {
 
 		mv.addObject("getRoomNum",service.getRoomMemCnt(roomNum));
 		System.out.println(service.getRoomMemCnt(roomNum));
-		mv.addObject("niName", service.getUserInfo(vo.getRoomMember()).getUser_nickname());
-		
-		
-
+		mv.addObject("niName", service.getUserInfo(vo.getRoomMember()).getUserNickname());
 		
 		List<ChatingRoomVO> list = service.findByRoomNumber(vo);
 		for(ChatingRoomVO vv: list) {
 			service.getUserInfo(vv.getRoomMember());
 			
 		}
-		/*
-		for(int i=0;i<list.size();i++) {
-			if (list.get(i).getRoomMember()==vo.getRoomMember()) {
-				list.get(i).set
-			}
-		}
-		*/
-		
-//		mv.addObject("others", );
-
-		
 		mv.setViewName("/chating/chat");
 		
 		return mv;

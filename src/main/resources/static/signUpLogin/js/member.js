@@ -69,23 +69,23 @@ $('#btn_emailCheck').click(function(){
 	닉네임 중복 버튼 클릭 이벤트
 */
 var nicknameCheck = false;
-$('#btn_nicknameCheck').click(function(){
+$('#btnNicknameCheck').click(function(){
 	// 닉네임 중복검사 확인 여부
 	
-	$('label[for="user_nickname"] .error_box').html("");
-	var user_nickname = $.trim($("#user_nickname").val());
+	$('label[for="userNickname"] .error_box').html("");
+	var userNickname = $.trim($("#userNickname").val());
 	
 	// 입력값이 없을 때 에러박스
-	if(user_nickname == ''){
+	if(userNickname == ''){
 
-		$('label[for="user_nickname"] .error_box').html(blank);
+		$('label[for="userNickname"] .error_box').html(blank);
 		return false;
 
 	}
 	// 형식에 맞지 않을 때 나오는 에러박스
-	if( !RegexNick.test(user_nickname) ){
-		$('label[for="user_nickname"] .error_box').css('color','#ED7A64');
-		$('label[for="user_nickname"] .error_box').html("닉네임 형식이 올바르지 않습니다.");
+	if( !RegexNick.test(userNickname) ){
+		$('label[for="userNickname"] .error_box').css('color','#ED7A64');
+		$('label[for="userNickname"] .error_box').html("닉네임 형식이 올바르지 않습니다.");
 		return;
 	}
 	
@@ -93,17 +93,18 @@ $('#btn_nicknameCheck').click(function(){
  	  $.ajax({
     	type : 'post',
     	url : 'nicknameCheck',
-    	data : { user_nickname : $('#user_nickname').val() },
+    	data : { userNickname : $('#userNickname').val() },
+    	contentType : 'application/x-www-form-urlencoded;charset=utf-8',
     	success : function(result){
     		
     		// 중복 검사 후 나오는 결과 에러박스에 출력
     		if(result == 'Y'){
-	        		$('label[for="user_nickname"] .error_box').css('color','#4ABA99');
-	        		$('label[for="user_nickname"] .error_box').html("사용 가능한 닉네임입니다.");
+	        		$('label[for="userNickname"] .error_box').css('color','#4ABA99');
+	        		$('label[for="userNickname"] .error_box').html("사용 가능한 닉네임입니다.");
 	        		nicknameCheck = true;
 				}else{
-	        		$('label[for="user_nickname"] .error_box').css('color','#ED7A64');
-	        		$('label[for="user_nickname"] .error_box').html("사용할 수 없는 닉네임입니다.");
+	        		$('label[for="userNickname"] .error_box').css('color','#ED7A64');
+	        		$('label[for="userNickname"] .error_box').html("사용할 수 없는 닉네임입니다.");
 	        		nicknameCheck = false;
 				}
     	},
@@ -122,7 +123,7 @@ $('#btn_nicknameCheck').click(function(){
 $('#btn_signUp').click(function(){
 
 	// input에 입력된 값을 공백제거하고 변수에 담기
-	var user_nickname = $.trim($("#user_nickname").val());
+	var userNickname = $.trim($("#userNickname").val());
 	var user_email = $.trim($("#user_email").val());
 	var user_pass = $.trim($("#user_pass").val());
 	var user_passCheck = $.trim($("#user_passCheck").val());
@@ -131,20 +132,20 @@ $('#btn_signUp').click(function(){
 	var user_phone = $.trim($("#user_phone").val());
 	
 	/* 닉네임 */
-	if(user_nickname == ''){
-		$('label[for="user_nickname"] .error_box').html(blank);
-		$('#user_nickname').focus();
+	if(userNickname == ''){
+		$('label[for="userNickname"] .error_box').html(blank);
+		$('#userNickname').focus();
     		return;
 		}else{
-		$('label[for="user_nickname"] .error_box').html("");
+		$('label[for="userNickname"] .error_box').html("");
 		}		
 	
-	if( !RegexNick.test(user_nickname) ){
+	if( !RegexNick.test(userNickname) ){
 
-		$('label[for="user_nickname"] .error_box').html("한글, 영문 그리고 숫자만 입력 가능합니다.");
+		$('label[for="userNickname"] .error_box').html("한글, 영문 그리고 숫자만 입력 가능합니다.");
 		return;
 	}else{
-		$('label[for="user_nickname"] .error_box').html("");
+		$('label[for="userNickname"] .error_box').html("");
 		}
 	
 	
@@ -191,7 +192,6 @@ $('#btn_signUp').click(function(){
 		$('label[for="user_passCheck"] .error_box').html("");
 		}
 	
-	
 	/* 비밀번호 일치 여부 확인 */
 	if(user_pass != user_passCheck){
 		$('label[for="user_passCheck"] .error_box').html("비밀번호가 일치하지 않습니다.");
@@ -224,7 +224,7 @@ $('#btn_signUp').click(function(){
 		}else{
 		$('label[for="user_phone"] .error_box').html("");
 		}
-	if( !RegexTel.test(memberTel) ){
+	if( !RegexTel.test(user_phone) ){
 
 		$('label[for="user_phone"] .error_box').html("전화번호 형식이 올바르지 않습니다. ex)010-000~0-000~0");
 		return;
@@ -234,10 +234,10 @@ $('#btn_signUp').click(function(){
 	
 	// 닉네임 중복 여부 체크 했는지 확인
 	if( !nicknameCheck ){
-		$('label[for="user_nickname"] .error_box').html("닉네임 중복 여부를 확인해주세요.");
+		$('label[for="userNickname"] .error_box').html("닉네임 중복 여부를 확인해주세요.");
 		return;
 	}else {
-		$('label[for="user_nickname"] .error_box').html("");
+		$('label[for="userNickname"] .error_box').html("");
 	}
 	
 	// 이메일 중복 여부 체크 했는지 확인
@@ -250,13 +250,15 @@ $('#btn_signUp').click(function(){
 	
 	
 	//이용약관에 체크 했는지 확인
-	if( !$("#termsService").is(':checked')){
+	if( $("#agreeForm").css("display")=="none"){
 		// 체크 X
-		$('#termsService').next().html("이용 약관에 동의해주세요.");
+		alert("약관에 동의를 요청합니다.");
 		return;
-	}else{
+	}else if($("#agreeForm").css("display")=="block"){
 		// 체크 O
-		$('#termsService').next().html("");
+		alert("동의가 완료되었습니다.");
+		$("btn_signUp").attr("disabled", false);
+		$('#agreeForm').next().html("");
 		$.ajax({
 			    	type : 'post',
 			    	url : 'emailCheck',
@@ -289,60 +291,60 @@ $('#btn_signUp').click(function(){
 	로그인 버튼 클릭
 */
 
-$('#btnLogin').click(function(){
+//$('#btnLogin').click(function(){
 
-	var user_email = $.trim($("#user_email").val());
-	var user_pass = $.trim($("#user_pass").val());
-	var rememberEmail = false;
+//	var user_email = $.trim($("#user_email").val());
+	//var user_pass = $.trim($("#user_pass").val());
+	//var rememberEmail = false;
 
 	/* 이메일 */
-	if(user_email == ''){
-		$('label[for="user_email"] .error_box').html(blank);
-		$('#user_email').focus();
-    		return;
-		}else{
-		$('label[for="user_email"] .error_box').html("");
-		}	
+	//if(user_email == ''){
+		//$('label[for="user_email"] .error_box').html(blank);
+		//$('#user_email').focus();
+    //		return;
+		//}else{
+		//$('label[for="user_email"] .error_box').html("");
+		//}	
 	
 	/* 비밀번호 */
-	if(user_pass == ''){
-		$('label[for="user_pass"] .error_box').html(blank);
-		$('#user_pass').focus();
-    		return;
-		}else{
-		$('label[for="user_pass"] .error_box').html("");
-		}
+	//if(user_pass == ''){
+	//	$('label[for="user_pass"] .error_box').html(blank);
+	//	$('#user_pass').focus();
+    	//	return;
+	//	}else{
+		//$('label[for="user_pass"] .error_box').html("");
+		//}
 	
 	/* 이메일 기억하기 체크 박스*/
-	if( $("#user_email").is(':checked') ){
-		rememberEmail = true;
-		}//end of if
+	//if( $("#user_email").is(':checked') ){
+		//rememberEmail = true;
+		//}//end of if
 	
-  $.ajax({
-	type : 'post',
-	url : 'loginCheck',
-	data : { user_email : $("#user_email").val(),
-			user_pass : $("#user_pass").val(),
-			rememberEmail : rememberEmail
-	 		},
-	contentType : 'application/x-www-form-urlencoded;charset=utf-8',
-	success : function(result){
+  //$.ajax({
+//	type : 'post',
+	//url : 'loginCheck',
+	//data : { user_email : $("#user_email").val(),
+	//		user_pass : $("#user_pass").val(),
+	//		rememberEmail : rememberEmail
+	// 		},
+	//contentType : 'application/x-www-form-urlencoded;charset=utf-8',
+	//success : function(result){
 		// 중복 검사 후 나오는 결과 에러박스에 출력
-		if(result == "N"){
-        		$('.error_box.login').html("존재하는 회원이 아니거나 비밀번호가 일치하지 않습니다.");
+		//if(result == "N"){
+       // 		$('.error_box.login').html("존재하는 회원이 아니거나 비밀번호가 일치하지 않습니다.");
 			
-			}else{
+		//	}else{
 			// 결과가 result = "Y"이면 로그인 성공 -> loginMove로 이동
-        		document.loginForm.submit();
-			}
-	},
-	error : function(err){
-		alert(err);
-		console.log(err);
-	}
-	});//end of ajax
+        //		document.loginForm.submit();
+		//	}
+//	},
+	//error : function(err){
+	//	alert(err);
+	//	console.log(err);
+	//}
+	//});//end of ajax
 	
-}); //end of #btnLogin 
+//}); //end of #btnLogin 
 
 
 /*********************************************************************
@@ -431,7 +433,7 @@ $('#btnPwChange').click(function(){
 $('#btnMemberUpdate').click(function(){
 	
 	// input에 입력된 값을 공백제거하고 변수에 담기
-	var user_nickname = $.trim($("#user_nickname").val());
+	var userNickname = $.trim($("#userNickname").val());
 	var user_pass = $.trim($("#user_pass").val());
 	var user_passCheck = $.trim($("#user_passCheck").val());
 	var user_name = $.trim($("#user_name").val());
@@ -440,20 +442,20 @@ $('#btnMemberUpdate').click(function(){
 	
 	
 	/* 닉네임 */
-	if(user_nickname == ''){
-		$('label[for="user_nickname"] .error_box').html(blank);
-		$('#user_nickname').focus();
+	if(userNickname == ''){
+		$('label[for="userNickname"] .error_box').html(blank);
+		$('#userNickname').focus();
     		return;
 		}else{
-		$('label[for="user_nickname"] .error_box').html("");
+		$('label[for="userNickname"] .error_box').html("");
 		}		
 	
-	if( !RegexNick.test(user_nickname) ){
+	if( !RegexNick.test(userNickname) ){
 
-		$('label[for="user_nickname"] .error_box').html("닉네임 형식이 올바르지 않습니다.");
+		$('label[for="userNickname"] .error_box').html("닉네임 형식이 올바르지 않습니다.");
 		return;
 	}else{
-		$('label[for="user_nickname"] .error_box').html("");
+		$('label[for="userNickname"] .error_box').html("");
 		}
 	
 	if(user_pass != ""){

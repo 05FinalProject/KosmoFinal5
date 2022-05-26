@@ -50,6 +50,12 @@
 .lead {
 	margin-top: 10px;
 }
+
+.agencyImg{
+	border-radius:20px;
+	margin-top: 20px;
+}
+
 </style>
 
 </head>
@@ -75,7 +81,7 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1>보호소</h1>
+							<h1>애견호텔</h1>
 						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
@@ -94,8 +100,9 @@
 				<!-- Default box -->
 				<div class="card card-solid">
 					<div class="card-body pb-0">
-					<c:forEach items="${agencyList}" var="agency"> 
+					
 						<div class="row">
+						<c:forEach items="${paging}" var="agency"> 
 							<div
 								class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
 								<div class="card bg-light d-flex flex-fill">
@@ -103,68 +110,61 @@
 										<div class="row">
 											<div class="col-7">
 												<h2 class="lead">
-													<b>${agency.AName}</b>
+													<b>${agency.agencyName}</b>
 												</h2>
 												<p class="text-muted text-sm">
-													<b>About: </b> ${agency.AContent}
+													<b>About: </b> ${agency.agencyContent}
 												</p>
 												<ul class="ml-4 mb-0 fa-ul text-muted">
 													<li class="small"><span class="fa-li"><i
 															class="fas fa-lg fa-building" aria-hidden="true"></i></span>
-														Address: ${agency.AAddress}</li>
+														Address: ${agency.agencyAddress}</li>
 													<li class="small"><span class="fa-li"><i
 															class="fas fa-lg fa-phone" aria-hidden="true"></i></span> Phone
-														#: ${agency.ATel}</li>
+														#: ${agency.agencyTel}</li>
 												</ul>
 											</div>
 											<div class="col-5 text-center">
-												<img src="../../dist/img/user1-128x128.jpg"
-													alt="user-avatar" class="img-circle img-fluid">
+												<img src="${agency.agencyImage}"
+													alt="user-avatar" class="img-square img-fluid agencyImg">
 											</div>
 										</div>
 									</div>
 									<div class="card-footer">
 										<div class="text-right">
-											<a href="#" class="btn btn-sm btn-warning">수정 </a> <a
-												href="#" class="btn btn-sm btn-danger"> 삭제 </a>
+											<a href="#" class="btn btn-sm btn-warning">수정 </a> 
+											<a href="#" class="btn btn-sm btn-danger"> 삭제 </a>
 										</div>
 									</div>									
 								</div>							
 							</div>											
+							</c:forEach>	
 						</div>
-						</c:forEach>					
+										
 					</div>	
 									
 				</div>
-			
-
 			
 				<!-- /.card-body -->
 				<div class="card-footer">
 					<nav aria-label="Contacts Page Navigation">
 						<ul class="pagination justify-content-center m-0">
-							<li class="page-item active"><a class="page-link" href="#">1</a></li>
-							<li class="page-item"><a class="page-link" href="#">2</a></li>
-							<li class="page-item"><a class="page-link" href="#">3</a></li>
-							<li class="page-item"><a class="page-link" href="#">4</a></li>
-							<li class="page-item"><a class="page-link" href="#">5</a></li>
-							<li class="page-item"><a class="page-link" href="#">6</a></li>
-							<li class="page-item"><a class="page-link" href="#">7</a></li>
-							<li class="page-item"><a class="page-link" href="#">8</a></li>
+							<c:set var="recordsCnt" value="${count}" />
+							<c:set var="jspFile" value="adminHotel?"/>
+							<c:set var="perpage" value="9" />
 						</ul>
+						<%@include file="paging.jsp"%>
 					</nav>
 				</div>
 				<!-- /.card-footer -->
-		</div>
+			</div>
 		<!-- /.card -->
-
+		<%@ include file="../../admin/common/adminFooter.jsp"%>
 		</section>
 		<!-- /.content -->
 	</div>
 	<!-- /.content-wrapper -->
-
-	<%@ include file="../../admin/common/adminFooter.jsp"%>
-
+	
 	<!-- Control Sidebar -->
 	<aside class="control-sidebar control-sidebar-dark">
 		<!-- Control sidebar content goes here -->
@@ -172,7 +172,7 @@
 	<!-- /.control-sidebar -->
 	</div>
 	<!-- ./wrapper -->
-
+	
 	<!-- jQuery -->
 	<script src="../../plugins/jquery/jquery.min.js"></script>
 	<!-- Bootstrap 4 -->

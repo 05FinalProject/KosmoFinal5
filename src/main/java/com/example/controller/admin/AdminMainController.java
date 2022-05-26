@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,26 +55,6 @@ public class AdminMainController {
 		
 		return "/admin/adminUser";
 	}
-	
-
-	//리뷰신고
-//	@RequestMapping(value="adminReview", method=RequestMethod.GET)
-//	public String reportReview(Model m) {
-//		List<HashMap> llist= new ArrayList<>();
-//		List<Object[]> list = r.reportReview();
-//		
-//		for(Object[] o : list) {
-//			HashMap hm = new HashMap<>();
-//			hm.put("r_num",(int)o[0] );
-//			hm.put("user_email",(String)o[1] );
-//			hm.put("review_content",(String)o[2] );
-//			hm.put("r_reason",(String)o[3] );
-//			llist.add(hm);
-//		}		
-//		m.addAttribute("list", llist);
-//						
-//		return "/admin/report/adminRpReview";
-//	}
 	
 	//리뷰신고
 	@RequestMapping(value="adminReview", method=RequestMethod.GET)
@@ -150,10 +133,16 @@ public class AdminMainController {
 	}
 	
 	//시설관리(애견호텔)
-	@RequestMapping(value="adminHotel", method=RequestMethod.GET)
-	public String adminHotel(Model m) {	
-		List<AgencyVO> list = adminAgencyService.agencyList(new AgencyVO());
-		m.addAttribute("agencyList", list);
+	@RequestMapping(value="/adminHotel", method=RequestMethod.GET)
+	public String adminHotel(Model m, AgencyVO vo) {
+		//페이징 처리
+		int page =1;
+		if(vo.getPage()!=0) {
+			page = vo.getPage();
+		} 
+		Pageable paging = PageRequest.of(page-1, 9, Sort.Direction.ASC, "agencyNum");
+		m.addAttribute("paging", adminAgencyService.getHotelPaging(paging));
+		m.addAttribute("count",adminAgencyService.countHotelRecord());	
 
 		return "/admin/facilities/adminHotel";		
 	}
@@ -165,8 +154,17 @@ public class AdminMainController {
 	}
 	
 	//시설관리(애견카페)
-	@RequestMapping(value="adminCafe", method=RequestMethod.GET)
-	public String adminCafe() {
+	@RequestMapping(value="/adminCafe", method=RequestMethod.GET)
+	public String adminCafe(Model m, AgencyVO vo) {
+		//페이징 처리
+		int page =1;
+		if(vo.getPage()!=0) {
+			page = vo.getPage();
+		} 
+		Pageable paging = PageRequest.of(page-1, 9, Sort.Direction.ASC, "agencyNum");
+		m.addAttribute("paging", adminAgencyService.getCafetPaging(paging));
+		m.addAttribute("count",adminAgencyService.countCafeRecord());
+		
 		return "/admin/facilities/adminCafe";			
 	}
 		

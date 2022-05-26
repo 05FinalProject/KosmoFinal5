@@ -26,9 +26,9 @@ public class HomeController {
 	@RequestMapping("/Main")
 	public void MainPage(UserVO vo) {
 		if (vo.getAddr3() != null) {
-			vo.setUser_address(vo.getAddr2() + vo.getAddr3());
-			vo.setUser_black("N");
-			vo.setUser_admin("N");
+			vo.setUserAddress(vo.getAddr2() + vo.getAddr3());
+			vo.setUserBlack("N");
+			vo.setUserAdmin("N");
 
 			signUp.insertUser(vo);
 		}
@@ -36,6 +36,7 @@ public class HomeController {
 
 	@RequestMapping("/signUp")
 	public void signUpPage() {
+
 	}
 
 	@RequestMapping(value = "/nicknameCheck", produces = "application/text;charset=utf-8")
@@ -44,7 +45,7 @@ public class HomeController {
 		UserVO result = signUp.nicknameCheck(vo); // 사용가능한 닉네임이면 null값이 넘어옴
 		String message = ""; // 닉네임 사용 가능 여부를 담을 변수
 
-		if (result == null) { // 검색되는 레코드가 없으면 이메일 사용 가능
+		if (result == null) { // 검색되는 레코드가 없으면 닉네임 사용 가능
 			message = "Y";
 		} // end of if
 		return message;

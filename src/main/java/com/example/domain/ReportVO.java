@@ -42,12 +42,12 @@ public class ReportVO {
 	@JoinColumn(name="review_num")
 	private ReviewVO review;
 	
-	@Column(length = 100)
-	private String r_reason;
+	@Column(length = 100,name = "r_reason")
+	private String rReason;
 
-	@Column(insertable = false, updatable = false, columnDefinition = "date default (current_date)")
+	@Column(insertable = false, updatable = false, columnDefinition = "date default (current_date)",name = "r_date")
 	@Temporal(TemporalType.DATE)
-	private Date r_date;
+	private Date rDate;
 	
 
 }

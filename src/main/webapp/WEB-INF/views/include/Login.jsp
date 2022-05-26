@@ -110,19 +110,16 @@
 		$(".btn-orange").mouseout(function(){
 			$(".btn-orange").css("background-color","#F8b03a");
 		});
-	})
+	});
 	 
 	$('#btnLogin').click(function(){
-		console.log($('#user_email').val())
-		console.log($('#user_pass').val())
 		$.ajax({
 			url:'/api/checkLogin',
-			data:{user_email:$('#user_email').val(),user_pass:$('#user_pass').val()},
+			data:{userEmail:$('#user_email').val(),userPass:$('#user_pass').val()},
 			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 			success:function(data){
 				if(data == 'yes'){
 					location.href='/include/Main'
-					$(".signUplogo").css("color","skyblue");
 				}else{
 					alert('아이디와 비밀번호가 일치하지 않습니다.')
 				}
