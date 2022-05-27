@@ -26,7 +26,7 @@ public interface ChatingRoomRepository extends CrudRepository<ChatingRoomVO, Int
 	 @Query("SELECT count(c) as count FROM ChatingRoomVO c WHERE c.roomNumber=?1")
 	 long getRoomMemCnt(int roomNumber);
 	 
-	 @Query(value = "select * from chating_room   "
+	 @Query(value = "select distinct  room_name,room_num from chating_room   "
 	 		+ "  where room_num in (select c.room_num from (select room_num from chating_room group by room_num limit :page,6) as c)",nativeQuery = true)
 	 public List<Object[]> getAllRooms(int page);
 	 
