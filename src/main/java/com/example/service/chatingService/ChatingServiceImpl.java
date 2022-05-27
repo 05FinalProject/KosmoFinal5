@@ -58,8 +58,8 @@ public class ChatingServiceImpl implements ChatingService {
 		
 		for( Object[] o:list) {
 			ChatingRoomVO vo = new ChatingRoomVO();
-			vo.setRoomName((String)o[2]);
-			vo.setRoomNumber((int)o[3]);
+			vo.setRoomName((String)o[0]);
+			vo.setRoomNumber((int)o[1]);
 			rList.add(vo);
 		}
 		
