@@ -190,12 +190,14 @@ public class AdminMainController {
 	public String adminDog() {
 		return "/admin/adminDog";					
 	}
-	
+					
+			
 	//시설추가
 	@RequestMapping(value="adminFacilities", method=RequestMethod.GET)
 	public String adminAddFacilities() {
 		return "/admin/facilities/adminAddFacilities";						
 	}
+	
 	
 	//커뮤 관리
 	@RequestMapping(value="adminComunities", method=RequestMethod.GET)
@@ -217,12 +219,13 @@ public class AdminMainController {
 	}
 	
 	
+	
 	//시설 수정
-	@RequestMapping(value="{agencyNum}", method = RequestMethod.PUT)
-	public String adminUpdateFacilities() {
-		adminAgencyService.updateAgency(Integer agencyNum, String agencyName, String agencyAddress, String agencyTel);
-		return "redirect:/admin";
-	}
+//	@RequestMapping(value="{agencyNum}", method = RequestMethod.PUT)
+//	public String adminUpdateFacilities(Integer agencyNum, String agencyName, String agencyAddress, String agencyTel) {
+//		adminAgencyService.updateAgency(agencyNum);
+//		return "redirect:/admin";
+//	}
 	
 	//시설삭제
 

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,31 +46,27 @@
 <!-- Theme style -->
 <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
 
-<link rel="stylesheet" href="../../dist/css/admin.css">
 <style type="text/css">
-.form1{
-	display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-
+.lead {
+	margin-top: 10px;
 }
 
-.form2{
-   margin-top: 30px;
+.agencyImg{
+	border-radius:20px;
+	margin-top: 20px;
 }
 
+.agencyCon{
+	margin-top: 30px;
+
+}
 </style>
 </head>
+
 <body class="hold-transition sidebar-mini">
 	<!-- Site wrapper -->
 	<div class="wrapper">
 	
-	 <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="/admin/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-  </div>
-
 		<%@ include file="../../admin/common/adminNavbar.jsp"%>
 
 		<%@ include file="../../admin/common/adminSidebar.jsp"%>
@@ -78,8 +75,7 @@
 		<div class="content-wrapper">
 		 
 			<!-- Content Header (Page header) -->
-			
-			
+				
 			<section class="content-header">				
 					<div class="container-fluid">
 						<div class="row mb-2">
@@ -100,9 +96,10 @@
 				<!-- form start -->
 				<form action="" method="post">
 					<div class="mb-3">
-						<label for="exampleFormControlInput1" class="form-label">시설명</label>
+						<label for="exampleFormControlInput1" class="form-label">기관선택</label>
 						<div class="form-group">
 							<select class="form-control">
+								<!-- 선택을 안하면 입력이 안되게 설정... -->
 								<option>보호소</option>
 								<option>동물병원</option>
 								<option>애견호텔</option>
@@ -111,12 +108,13 @@
 							</select>
 						</div>
 					</div>
+					
+					<div class="mb-3">					
+						<label for="exampleFormControlInput1" class="form-label">시설명입력</label>
+						<input type="text" class="form-control" id="exampleFormControlInput1" name="facility">										
+					</div>
 
-					<div class="mb-3">
-						<div>
-							<label for="exampleFormControlInput1" class="form-label">주소</label>
-						</div>
-
+					<div class="mb-3">				
 						<input type="text" id="sample6_postcode" placeholder="우편번호">
 						<input type="button" onclick="sample6_execDaumPostcode()"
 							value="우편번호 찾기"><br> <input type="text"
@@ -136,8 +134,6 @@
 						<textarea class="form-control" id="exampleFormControlTextarea1"
 							rows="3" placeholder="내용을 입력해주세요" name="content"></textarea>
 					</div>
-
-
 
 					<div class="mb-3">
 						<label for="exampleInputPassword1" class="form-label">이미지
