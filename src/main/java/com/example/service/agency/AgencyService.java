@@ -6,6 +6,8 @@ import org.springframework.data.domain.Pageable;
 
 import com.example.domain.AbandonedVO;
 import com.example.domain.AgencyVO;
+import com.example.domain.ChatingRoomVO;
+import com.example.domain.DogKindVO;
 
 
 
@@ -26,6 +28,11 @@ public interface AgencyService {
 	public List<AgencyVO> getCafePaging(Pageable paging);
 		
 	public int countCafeRecord();
+	
+	//백과 사전 페이지 처리
+	public List<DogKindVO> getkindPaging(Pageable paging);
+	
+	public int countkindRecord();
 		
 	
  //************************************************************************************************	
@@ -37,4 +44,8 @@ public interface AgencyService {
 	
 	//카페 상세 띄우기
 	AgencyVO getagencyCafe(AgencyVO vo);
+	
+	
+//***************************************************
+	List<AgencyVO> agencyCafeSearch(AgencyVO vo);
 }

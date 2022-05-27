@@ -40,4 +40,7 @@ public class DogKindVO {
 	@Column(length = 100,name = "dog_image")
 	private String dogImage;
 	
+	@Transient
+	private int page;
+	
 }

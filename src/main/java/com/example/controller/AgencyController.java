@@ -2,6 +2,8 @@ package com.example.controller;
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.domain.AbandonedVO;
 import com.example.domain.AgencyVO;
+import com.example.domain.DogKindVO;
 import com.example.service.agency.AgencyService;
 
 @Controller
@@ -104,7 +107,7 @@ public String agencyCafe(Model m, AgencyVO vo) {
 	}
 	
 	
-	//agencyShelterDetail 상세보기 *********************************************************************************
+	//agencyShelterDetail 상세보기 
 	
 	@RequestMapping(value ="/agencyShelterDetail", method=RequestMethod.GET)
 	public void agencyShelterDetail(Model m,AbandonedVO vo) {
@@ -112,6 +115,34 @@ public String agencyCafe(Model m, AgencyVO vo) {
 		m.addAttribute("shelter",agencyservice.getagencyShelter(vo));
 		
 	}
+	//***************************************************************************************************
+	
+	
+	//*****************************************************************************
+	//강아지 백과사전 페이지 및 페이징 처리 
+	@RequestMapping(value ="/encyclopedia", method=RequestMethod.GET)
+   public String encyclopedia(Model m, DogKindVO vo) {
+		
+		int page = 1;
+		if(vo.getPage()!=0) {
+			page = vo.getPage();
+		}
+		Pageable paging = PageRequest.of(page-1, 18,Sort.Direction.ASC,"dogNum");
+
+		m.addAttribute("paging",agencyservice.getkindPaging(paging) );
+		
+		m.addAttribute("count",agencyservice.countkindRecord() );
+		return "/include/encyclopedia";
+	}
+	//********************************************************************************
+	
+	//agencyCafe페이지에 검색 기능 
+	@RequestMapping("/cafeSearch")
+	public void cafeSearch(AgencyVO vo) {
+		
+	}
+	
+	
 	
 	
 	@RequestMapping(value ="/yootest", method=RequestMethod.GET)
@@ -129,11 +160,6 @@ public String agencyCafe(Model m, AgencyVO vo) {
 	@RequestMapping(value ="/agencytestDetail", method=RequestMethod.GET)
 	public String agencytestDetail() {
 		return "/include/agencytestDetail";
-	}
-	
-	@RequestMapping(value ="/encyclopedia", method=RequestMethod.GET)
-	public String encyclopedia() {
-		return "/include/encyclopedia";
 	}
 	
 }

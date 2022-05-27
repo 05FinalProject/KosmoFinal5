@@ -36,7 +36,7 @@
 <a href='include/agencytestDetail'>정보기관상세페이지</a><br/><br/>
 <a href='include/agencyShelter?page=1'>보호소페이지</a><br/><br/>
 <a href='include/agencyShelterDetail'>보호소 상세페이지</a><br/><br/>
-<a href='include/encyclopedia'>백과사전 페이지</a><br/><br/>
+<a href='include/encyclopedia?page=1'>백과사전 페이지</a><br/><br/>
 <a href="include/myPage/myPageProfile">마이페이지 - 프로필</a>
 
 
