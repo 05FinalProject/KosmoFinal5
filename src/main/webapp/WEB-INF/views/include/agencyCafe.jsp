@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -138,26 +139,28 @@ border: 1px solid #008000;
 </div>
   
     
-    
-    
-    
   <!--********** 정보기관 리스트 출력 *********************** -->
       <div class="listing__list">
       
+       <c:forEach var="vo" items="${paging}">
   <!-- **** 1번째 테이블 *************************** -->    
         <div class="listing__item">
           <!-- 여기에 img값 가지고와야함 동적으로 -->
+          
+          
           <div
             class="listing__item__pic set-bg"
-            data-setbg="./resources/img/listing/list-1.jpg">
+            data-setbg="${vo.agencyImage }">
             <div class="listing__item__pic__btns">
               <a href="#"><span class="icon_zoom-in_alt"></span></a>
               <a href="#"><span class="icon_heart_alt"></span></a>
             </div>
           </div>
           <div class="listing__item__text">
+          
+         
             <div class="listing__item__text__inside">
-              <a href="/include/agencyDetail"><h5>기관명</h5></a>
+              <a href="/include/agencyCafeDetail?agencyNum=${vo.agencyNum }"><h5>${vo.agencyName }</h5></a>
               <div class="listing__item__text__rating">
                 <!-- 이쪽에 별 대신 맛평가 들어가야함-->
                 <div class="listing__item__rating__star">
@@ -171,204 +174,37 @@ border: 1px solid #008000;
                 </div>
               <ul>
                 <!--주소 이름 가지고와야함 ㅅㅂ-->
-                <li><span class="icon_pin_alt"></span> 서울시 강남구 일원동</li>
-                <li><span class="icon_phone"></span> 123-4567</li>
+                <li><span class="icon_pin_alt"></span> ${vo.agencyAddress }</li>
+                <li><span class="icon_phone"></span> ${vo.agencyTel }</li>
               </ul>
             </div>
            
+          
           </div>
+          
         </div>
+ </c:forEach>
+ 
+ </div>
+      
+      
+      <nav class="pagination" role="navigation">
 
+			<div class="nav-links">
+				<c:set var="recordsCnt" value="${count}" />
+				<c:set var="jspFile" value="agencyHotel?" />
+				<c:set var="perpage" value="11" />
+			</div>
 
- <!-- **** 2번째 테이블 ************************************ -->
-       <div class="listing__item">
-          <!-- 여기에 img값 가지고와야함 동적으로 -->
-          <div
-            class="listing__item__pic set-bg"
-            data-setbg="./resources/img/listing/list-1.jpg"
-          >
-            <div class="listing__item__pic__btns">
-              <a href="#"><span class="icon_zoom-in_alt"></span></a>
-              <a href="#"><span class="icon_heart_alt"></span></a>
-            </div>
-          </div>
-          <div class="listing__item__text">
-            <div class="listing__item__text__inside">
-              <a href="/include/agencyDetail"><h5>기관명</h5></a>
-              <div class="listing__item__text__rating">
-                <!-- 이쪽에 별 대신 맛평가 들어가야함-->
-                <div class="listing__item__rating__star">
-                  <span class="icon_star"></span>
-                  <span class="icon_star"></span>
-                  <span class="icon_star"></span>
-                  <span class="icon_star"></span>
-                  <span class="icon_star-half_alt"></span>
-                </div>
-                <!-- 가격대 가지고와야함-->
-                </div>
-              <ul>
-                <!--주소 이름 가지고와야함 -->
-                <li><span class="icon_pin_alt"></span> 서울시 강남구 일원동</li>
-                <li><span class="icon_phone"></span> 123-4567</li>
-              </ul>
-            </div>
-           
-          </div>
-        </div>
-<!-- ***** 2번째 테이블 끝  *************************-->
-
-
-<!-- ****** 3번째 테이블 시작 ****************-->
-        <div class="listing__item">
-          <!-- 여기에 img값 가지고와야함 동적으로 -->
-          <div
-            class="listing__item__pic set-bg"
-            data-setbg="./resources/img/listing/list-1.jpg"
-          >
-            <div class="listing__item__pic__btns">
-              <a href="#"><span class="icon_zoom-in_alt"></span></a>
-              <a href="#"><span class="icon_heart_alt"></span></a>
-            </div>
-          </div>
-          <div class="listing__item__text">
-            <div class="listing__item__text__inside">
-             <a href="/include/agencyDetail"><h5>기관명</h5></a>
-              <div class="listing__item__text__rating">
-                <!-- 이쪽에 별 대신 맛평가 들어가야함-->
-                <div class="listing__item__rating__star">
-                  <span class="icon_star"></span>
-                  <span class="icon_star"></span>
-                  <span class="icon_star"></span>
-                  <span class="icon_star"></span>
-                  <span class="icon_star-half_alt"></span>
-                </div>
-                <!-- 가격대 가지고와야함-->
-                </div>
-              <ul>
-                <!--주소 이름 가지고와야함 ㅅㅂ-->
-                <li><span class="icon_pin_alt"></span> 서울시 강남구 일원동</li>
-                <li><span class="icon_phone"></span> 123-4567</li>
-              </ul>
-            </div>
-           
-          </div>
-        </div>
-  <!-- ****** 3번째 테이블 끝 ****************-->      
-        
-
-<!--  ******* 4번째 테이블 시작 ******************** -->
-       <div class="listing__item">
-          <!-- 여기에 img값 가지고와야함 동적으로 -->
-          <div
-            class="listing__item__pic set-bg"
-            data-setbg="./resources/img/listing/list-1.jpg"
-          >
-            <div class="listing__item__pic__btns">
-              <a href="#"><span class="icon_zoom-in_alt"></span></a>
-              <a href="#"><span class="icon_heart_alt"></span></a>
-            </div>
-          </div>
-          <div class="listing__item__text">
-            <div class="listing__item__text__inside">
-              <a href="/include/agencyDetail"><h5>기관명</h5></a>
-              <div class="listing__item__text__rating">
-                <!-- 이쪽에 별 대신 맛평가 들어가야함-->
-                <div class="listing__item__rating__star">
-                  <span class="icon_star"></span>
-                  <span class="icon_star"></span>
-                  <span class="icon_star"></span>
-                  <span class="icon_star"></span>
-                  <span class="icon_star-half_alt"></span>
-                </div>
-                <!-- 가격대 가지고와야함-->
-                </div>
-              <ul>
-                <!--주소 이름 가지고와야함 ㅅㅂ-->
-                <li><span class="icon_pin_alt"></span> 서울시 강남구 일원동</li>
-                <li><span class="icon_phone"></span> 123-4567</li>
-              </ul>
-            </div>
-           
-          </div>
-        </div>
- <!--  **** 4번째 테이블 끝 ************************ -->       
-        
-
-<!--  ******** 5번째 테이블 시작 ********************** -->
-        <div class="listing__item">
-          <!-- 여기에 img값 가지고와야함 동적으로 -->
-          <div
-            class="listing__item__pic set-bg"
-            data-setbg="./resources/img/listing/list-1.jpg">
-            <div class="listing__item__pic__btns">
-              <a href="#"><span class="icon_zoom-in_alt"></span></a>
-              <a href="#"><span class="icon_heart_alt"></span></a>
-            </div>
-          </div>
-          <div class="listing__item__text">
-            <div class="listing__item__text__inside">
-             <a href="/include/agencyDetail"><h5>기관명</h5></a>
-              <div class="listing__item__text__rating">
-                <!-- 이쪽에 별 대신 맛평가 들어가야함-->
-                <div class="listing__item__rating__star">
-                  <span class="icon_star"></span>
-                  <span class="icon_star"></span>
-                  <span class="icon_star"></span>
-                  <span class="icon_star"></span>
-                  <span class="icon_star-half_alt"></span>
-                </div>
-                <!-- 가격대 가지고와야함-->
-                </div>
-              <ul>
-                <!--주소 이름 가지고와야함 ㅅㅂ-->
-                <li><span class="icon_pin_alt"></span> 서울시 강남구 일원동</li>
-                <li><span class="icon_phone"></span> 123-4567</li>
-              </ul>
-            </div>
-           
-          </div>
-        </div>
-   <!-- *****5번째 테이블 끝 ************************** -->     
-        
-
-<!-- ******** 6번째 테이블 시작 ********************** -->
-       <div class="listing__item">
-          <!-- 여기에 img값 가지고와야함 동적으로 -->
-          <div
-            class="listing__item__pic set-bg"
-            data-setbg="./resources/img/listing/list-1.jpg"
-          >
-            <div class="listing__item__pic__btns">
-              <a href="#"><span class="icon_zoom-in_alt"></span></a>
-              <a href="#"><span class="icon_heart_alt"></span></a>
-            </div>
-          </div>
-          <div class="listing__item__text">
-            <div class="listing__item__text__inside">
-              <a href="/include/agencyDetail"><h5>기관명</h5></a>
-              <div class="listing__item__text__rating">
-                <!-- 이쪽에 별 대신 맛평가 들어가야함-->
-                <div class="listing__item__rating__star">
-                  <span class="icon_star"></span>
-                  <span class="icon_star"></span>
-                  <span class="icon_star"></span>
-                  <span class="icon_star"></span>
-                  <span class="icon_star-half_alt"></span>
-                </div>
-                <!-- 가격대 가지고와야함-->
-                </div>
-              <ul>
-                <!--주소 이름 가지고와야함 ㅅㅂ-->
-                <li><span class="icon_pin_alt"></span> 서울시 강남구 일원동</li>
-                <li><span class="icon_phone"></span> 123-4567</li>
-              </ul>
-            </div>
-           
-          </div>
-        </div>
-   <!--*************** 6번째 테이블 끝  **************************-->     
-        
-      </div>
+			<!-- include 페이징  jsp파일  -->
+			<%@include file="paging.jsp"%>
+		</nav>
+      
+      
+      
+      
+      
+      
     </section>
     <!-- Listing Section End -->
 

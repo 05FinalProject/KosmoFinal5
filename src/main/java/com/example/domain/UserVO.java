@@ -62,4 +62,7 @@ public class UserVO {
 	@Transient
 	private String addr3;
 	
+	@Transient
+	private int page;
+	
 }
