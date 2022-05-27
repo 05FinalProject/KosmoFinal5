@@ -2,6 +2,7 @@ package com.example.service.chatingService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -129,6 +130,19 @@ public class ChatingServiceImpl implements ChatingService {
 	
 	public long getRoomMemCnt(int roomNumber) {
 		return ch.getRoomMemCnt(roomNumber);
+	}
+	
+	//roomList 페이지에 검색기능
+	public List<ChatingRoomVO> roomSearch(ChatingRoomVO vo){
+		ArrayList<ChatingRoomVO> list = new ArrayList<ChatingRoomVO>();
+		for(Object[] o : ch.roomSearch(vo.getRoomNumber())) {
+			ChatingRoomVO v = new ChatingRoomVO();
+			v.setRoomName((String)o[2]);
+			v.setRoomNumber((int)o[3]);
+			list.add(v);
+		}
+		
+		return list;
 	}
 	
 }

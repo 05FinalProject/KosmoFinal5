@@ -35,11 +35,12 @@ public interface ChatingRoomRepository extends CrudRepository<ChatingRoomVO, Int
 	 
 	 @Query("SELECT c FROM ChatingRoomVO c WHERE c.roomNumber=:roomNumber and c.roomPass=:roomPass")
 	 public List<ChatingRoomVO> checkRoomPass(int roomNumber,String roomPass );
-	 
-	 //select distinct count(*) from chating_room
+
 	 @Query(value = "select distinct count(*) from chating_room" ,nativeQuery = true)
 	 public List<Object[]> getRoomCnt();
 	 
+	 @Query(value = "select distinct * from chating_room where room_num like :roomNumber",nativeQuery = true)
+	 List<Object[]> roomSearch(int roomNumber);
 	 
 	 
 }
