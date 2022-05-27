@@ -21,8 +21,8 @@ public class AgencyServiceImpl implements AgencyService{
 	@Autowired
 	private AgencyRepository agencyRepo;
 
-	
-	
+	//*******************************************************
+	//보호소 페이지 처리 
 	public List<AbandonedVO> getPaging(Pageable paging){
 		return abandonedRepo.findAll(paging);
 	}
@@ -30,8 +30,11 @@ public class AgencyServiceImpl implements AgencyService{
 	public int countRecord() {
 		return abandonedRepo.countRecord();
 	}
+	//*****************************************************
 	
 	
+	//**********************************************************
+	//호텔 페이지 처리 
 	@Override
 	public List<AgencyVO> getHotelPaging(Pageable paging) {		
 		return agencyRepo.findByAgencyCategoryNum(paging, 1);
@@ -41,7 +44,25 @@ public class AgencyServiceImpl implements AgencyService{
 	public int countHotelRecord() {		
 		return agencyRepo.countHotelRecord();
 	}
-
+    //***************************************************************
+	
+	//**************************************************************
+	//카페 페이지 처리
+	@Override
+	public List<AgencyVO> getCafePaging(Pageable paging) {		
+		return agencyRepo.findByAgencyCategoryNum(paging, 2);
+	}
+	
+	@Override
+	public int countCafeRecord() {		
+		return agencyRepo.countHotelRecord();
+	}
+	
+	//************************************************************************
+	
+	
+	//******************************************************************************
+	
 	//보호소 상세정보 띄우기 
 	@Override
 	public AbandonedVO getagencyShelter(AbandonedVO vo) {
@@ -57,4 +78,11 @@ public class AgencyServiceImpl implements AgencyService{
 			return agencyRepo.save(avo);
 		}
 	
+	//카페정보 상세정보 띄우기 
+				@Override
+				public AgencyVO getagencyCafe(AgencyVO vo) {
+					AgencyVO avo = agencyRepo.findById(vo.getAgencyNum()).get();
+					return agencyRepo.save(avo);
+				}
+				
 }
