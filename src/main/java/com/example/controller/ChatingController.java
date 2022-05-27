@@ -1,7 +1,6 @@
 package com.example.controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.domain.ChatingRoomVO;
-
 import com.example.domain.UserVO;
 import com.example.service.chatingService.ChatingService;
 
@@ -27,9 +25,10 @@ public class ChatingController {
 	@Autowired
 	private ChatingService service;
 	
+
 	List<ChatingRoomVO> roomList = new ArrayList<ChatingRoomVO>();
 	static int roomNumber = 0;
-	
+
 	@GetMapping("/chat")
 	public void chat() {
 		
@@ -37,31 +36,28 @@ public class ChatingController {
 	
 	@GetMapping("/room")
 	public void room(Model m,UserVO user) {
-		List<ChatingRoomVO> list = service.getAllRooms();
-		m.addAttribute("list", list);
+		//채팅방list 출력
+		m.addAttribute("list", service.getAllRooms(user));
+		// user 이메일 값
 		m.addAttribute("email",user.getUserEmail());
+		//채팅방수 얻어오기
+		m.addAttribute("count",service.getRoomCnt());
 		
 	}
 	
+	@GetMapping("/friend")
+	public void friend() {}
+
+	
 	@PostMapping(value = "/friend")
 	public void roomGoOut(ChatingRoomVO vo) {
-		
+		//채팅방나가면 테이블에 user 정보 삭제
 		service.deleteByRoomMember(vo);
 		
 	}
 	
 	@GetMapping("/friendChat")
-	public void chat1() {
-		
-	}
-	
-	
-	/**
-	 * 방 페이지
-	 * @return
-	 */
-	@RequestMapping("/friend")
-	public void friend() {
+	public void friendChat() {
 		
 	}
 	
@@ -77,22 +73,11 @@ public class ChatingController {
 		List<ChatingRoomVO> new_list = roomList.stream().filter(o->o.getRoomNumber()==roomNumber).collect(Collectors.toList());
 	
 		int roomNum = 1;
+		//채팅방들어온 user 사진,닉네임, email은 HashMap에 담기
 		if(vo.getRoomNumber() != 0) {
 			roomNum = vo.getRoomNumber();
-			List<ChatingRoomVO> list = service.findByRoomNumber(roomNum);
-			ArrayList rlist = new ArrayList();
-			HashMap hm = new HashMap();
-			for(ChatingRoomVO v : list) {
-				hm = new HashMap();
-				hm.put("img", service.getUserImg(v.getRoomMember()).get(0).getPImgname()); //img
-				hm.put("nickName",service.getUserInfo(v.getRoomMember()).getUserNickname());//niname
-				hm.put("email", v.getRoomMember());
-				rlist.add(hm);
-			}
-			mv.addObject("rlist",rlist);
 			
-			
-			
+			mv.addObject("rlist",service.getChatingRoomMemberInfo(vo));
 			
 		}else {
 			List<ChatingRoomVO> chatingList = service.getLastRoomNumber();

@@ -80,7 +80,7 @@
     <div class="row">
         <div class="col-12 col-lg-8">
             <div class="pet-grid-posts">
-                <div class="row">
+                <div class="row" id="roomList">
                     <c:forEach var="vo" items="${list}">
                     <div class="pet-grid-col col-12 col-md-6">
                         <div id="post-1" class="lana_pet type-lana_pet post-1 card pet-grid-card h-100">
@@ -104,20 +104,15 @@
 
                 <nav class="navigation pagination justify-content-between bg-transparent text-uppercase"
                      role="navigation">
-                    <a class="prev disabled" href="#">
-                        Prev
-                    </a>
                     <div class="nav-links">
-                        <ul class="page-numbers">
-                            <li><span aria-current="page" class="page-numbers current">1</span></li>
-                            <li><a class="page-numbers" href="#">2</a></li>
-                            <li><span class="page-numbers dots">…</span></li>
-                            <li><a class="page-numbers" href="#">4</a></li>
-                        </ul>
-                    </div>
-                    <a class="next" href="#">
-                        Next
-                    </a>
+						<c:set var="recordsCnt" value="${count}" />
+						<c:set var="jspFile" value="room?" />
+						<c:set var="perpage" value="6" />
+					</div>
+					<c:if test="${count>6}">
+					<!-- include 페이징  jsp파일  -->
+					<%@include file="../include/paging.jsp"%>
+					</c:if>
                 </nav>
             </div>
         </div>
@@ -127,9 +122,9 @@
                 
                     <div class="widget">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search" aria-label="Search">
+                        <input type="text" class="form-control" id="searchInput" placeholder="Search" aria-label="Search">
                         <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
+                            <button class="btn btn-primary" id="roomSearch" type="button">
                                 <i class="fa fa-search"></i>
                             </button>
                         </div>
@@ -227,6 +222,40 @@ $('#goInRoom').click(function(e){
 				$('#passWrong').slideDown()
 				
 			}
+		}
+	})
+})
+
+$('#roomSearch').click(function(){
+	
+	$.ajax({
+		url:'/api/roomSearch',
+		data:{roomNumber:$('#searchInput').val()}, 
+		type:'get',
+		success:function(data){
+			$('#roomList').empty()
+			
+		
+			data.forEach(function(d){
+				$('#roomList').append('<div class="pet-grid-col col-12 col-md-6">'+
+                        '<div id="post-1" class="lana_pet type-lana_pet post-1 card pet-grid-card h-100">'+
+                        '<div class="card-body">'+
+                           ' <h5 class="post-title card-title">'+
+                                d.roomName+' #'+d.roomNumber+
+                            '</h5>'+
+                        '</div>'+
+                        '<div class="card-footer">'+
+                            '<p class="card-text">'+
+                                '<a class="more-link card-link" data-toggle="modal" data-target="#myModal" content="${vo.roomName} #${vo.roomNumber}">'+
+                                    '들어가기 <i class="lana-icon-arrow-right text-primary"></i>'+
+                                '</a>'+
+                            '</p>'+
+                        '</div>'+
+                    '</div>'+
+                '</div>')
+				
+			})
+	
 		}
 	})
 })

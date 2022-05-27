@@ -46,6 +46,20 @@
 <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
 
 <link rel="stylesheet" href="../../dist/css/admin.css">
+<style type="text/css">
+.form1{
+	display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+
+}
+
+.form2{
+   margin-top: 30px;
+}
+
+</style>
 </head>
 <body class="hold-transition sidebar-mini">
 	<!-- Site wrapper -->
@@ -76,8 +90,8 @@
 					</div>					
 					<!-- /.container-fluid -->
 			</section>
-			<div class="card">
- 		<div class="col-md-6">
+			<div class="card form1">
+ 		<div class="col-md-6 form2">
 			<div class="card card-primary">
 				<div class="card-header">
 					<h3 class="card-title">시설등록</h3>
@@ -137,7 +151,7 @@
 
 					<button type="submit" class="btn btn-secondary m-2"
 						id="btnQnAWrite">수정</button>
-					<a href="QnAListPage.do"><button type="button"
+					<a href="/admin/adminShelter"><button type="button"
 							class="btn btn-secondary m-2" id="btnList">목록보기</button></a>
 				</form>
 			</div>

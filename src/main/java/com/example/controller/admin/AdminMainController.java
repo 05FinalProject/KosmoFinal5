@@ -70,7 +70,7 @@ public class AdminMainController {
 			hm.put("r_reason",(String)o[3] );
 			llist.add(hm);
 		}		
-		m.addAttribute("list", llist);
+		m.addAttribute("reviewList", llist);
 						
 		return "/admin/report/adminRpReview";
 	}	
@@ -91,7 +91,7 @@ public class AdminMainController {
 			hm.put("r_date", (Date)obj[4]);
 			list.add(hm);
 		}
-		m.addAttribute("list", list);
+		m.addAttribute("commentList", list);
 		return "/admin/report/adminRpComment";
 	}
 	
@@ -99,7 +99,7 @@ public class AdminMainController {
 	@RequestMapping(value="adminCommunity", method=RequestMethod.GET)
 	public String reportCommunity(Model m) {
 		List<HashMap> list = new ArrayList<>();
-		List<Object[]> list2 = adminReportService.reportCommentList(new ReportVO());
+		List<Object[]> list2 = adminReportService.reportCommunityList(new ReportVO());
 		
 		for(Object[] obj : list2) {
 			HashMap hm = new HashMap<>();
@@ -110,7 +110,7 @@ public class AdminMainController {
 			hm.put("r_date", (Date)obj[4]);
 			list.add(hm);
 		}
-		m.addAttribute("list", list);
+		m.addAttribute("communityList", list);
 		return "/admin/report/adminRpCommunity";
 	}
 	
@@ -128,7 +128,16 @@ public class AdminMainController {
 	
 	//시설관리(동물병원)
 	@RequestMapping(value="adminHospital", method=RequestMethod.GET)
-	public String adminHospital() {
+	public String adminHospital(Model m, AgencyVO vo) {
+		//페이징 처리
+		int page =1;
+		if(vo.getPage()!=0) {
+			page = vo.getPage();
+		} 
+		Pageable paging = PageRequest.of(page-1, 9, Sort.Direction.ASC, "agencyNum");
+		m.addAttribute("paging", adminAgencyService.getHospitaltPaging(paging));
+		m.addAttribute("count",adminAgencyService.countHospitalRecord());	
+		
 		return "/admin/facilities/adminHospital";
 	}
 	
@@ -149,7 +158,15 @@ public class AdminMainController {
 	
 	//시설관리(장례식장)
 	@RequestMapping(value="adminFuneralhall", method=RequestMethod.GET)
-	public String adminFuneralhall() {
+	public String adminFuneralhall(Model m, AgencyVO vo) {
+		//페이징 처리
+		int page =1;
+		if(vo.getPage()!=0) {
+		page = vo.getPage();
+		} 
+		Pageable paging = PageRequest.of(page-1, 9, Sort.Direction.ASC, "agencyNum");
+		m.addAttribute("paging", adminAgencyService.getFunehallPaging(paging));
+		m.addAttribute("count",adminAgencyService.countFunehallRecord());
 		return "/admin/facilities/adminFuneralhall";		
 	}
 	
@@ -193,13 +210,20 @@ public class AdminMainController {
 	}
 	
 	//회원삭제
-	@RequestMapping(value = "{user_email}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "{userEmail}", method = RequestMethod.DELETE)
 	public String deleteUser(UserVO vo) {
 		adminUserService.deleteUser(vo);
 		return "redirect:/adminUser";
 	}
 	
+	//시설삭제
 	
+	//시설 수정
+	@RequestMapping(value="{agencyNum}", method = RequestMethod.PUT)
+	public String adminUpdateFacilities(AgencyVO vo) {
+		
+		return "/admin/facilities/adminUpdateFacilities";
+	}
 
 
 }

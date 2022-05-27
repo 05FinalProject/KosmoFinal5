@@ -2,6 +2,7 @@ package com.example.service.chatingService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,15 +42,24 @@ public class ChatingServiceImpl implements ChatingService {
 		return ch.findByRoomNumber(vo.getRoomNumber());
 	}
 	
+	//채팅방수 얻어오기
+	public int getRoomCnt() {
+		return Integer.parseInt(ch.getRoomCnt().get(0)[0].toString());
+	}
+	
 	//채팅방리스트
-	public List<ChatingRoomVO> getAllRooms(){
+	public List<ChatingRoomVO> getAllRooms(UserVO user){
+		int page = 1;
+		if(user.getPage() != 0) {
+			page = user.getPage();
+		}
 		List<ChatingRoomVO> rList = new ArrayList();
-		List<Object[]> list = ch.getAllRooms();
+		List<Object[]> list = ch.getAllRooms(6*page-6);
 		
 		for( Object[] o:list) {
 			ChatingRoomVO vo = new ChatingRoomVO();
-			vo.setRoomName((String)o[0]);
-			vo.setRoomNumber((int)o[1]);
+			vo.setRoomName((String)o[2]);
+			vo.setRoomNumber((int)o[3]);
 			rList.add(vo);
 		}
 		
@@ -79,6 +89,21 @@ public class ChatingServiceImpl implements ChatingService {
 		return hm;
 	}
 	
+	//채팅방들어온 user 사진,닉네임, email은 HashMap에 담기
+	public List<HashMap> getChatingRoomMemberInfo(ChatingRoomVO vo) {
+		List<ChatingRoomVO> list = ch.findByRoomNumber(vo.getRoomNumber());
+		ArrayList rlist = new ArrayList();
+		HashMap hm = new HashMap();
+		for(ChatingRoomVO v : list) {
+			hm = new HashMap();
+			hm.put("img", img.findByUserEmail(v.getRoomMember()).get(0).getPImgname()); //img
+			hm.put("nickName",usr.findById(v.getRoomMember()).get().getUserNickname());//niname
+			hm.put("email", v.getRoomMember());
+			rlist.add(hm);
+		}
+		return rlist;
+	}
+	
 	public List<ImgVO> getUserImg(String email) {
 		return img.findByUserEmail(email);
 	}
@@ -105,6 +130,19 @@ public class ChatingServiceImpl implements ChatingService {
 	
 	public long getRoomMemCnt(int roomNumber) {
 		return ch.getRoomMemCnt(roomNumber);
+	}
+	
+	//roomList 페이지에 검색기능
+	public List<ChatingRoomVO> roomSearch(ChatingRoomVO vo){
+		ArrayList<ChatingRoomVO> list = new ArrayList<ChatingRoomVO>();
+		for(Object[] o : ch.roomSearch(vo.getRoomNumber())) {
+			ChatingRoomVO v = new ChatingRoomVO();
+			v.setRoomName((String)o[2]);
+			v.setRoomNumber((int)o[3]);
+			list.add(v);
+		}
+		
+		return list;
 	}
 	
 }

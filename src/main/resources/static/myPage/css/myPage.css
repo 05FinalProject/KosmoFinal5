@@ -75,3 +75,9 @@ li.nav-item:hover{
     color:white;
     background-color: #dc6721;
 }
+
+.myBoard{
+	padding-bottom: 2%;
+	padding-right: 15%;
+	min-height: 200px;
+}

@@ -1,6 +1,7 @@
 package com.example.controller.api;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,6 +41,13 @@ public class ApiController {
 		return service.checkLogin(vo);
 		
 	}
+	
+	//roomList 페이지에 검색기능
+	@RequestMapping("/roomSearch")
+	public List<ChatingRoomVO> roomSearch(ChatingRoomVO vo) {
+		return service.roomSearch(vo);
+	}
+	
 	
 	
 }

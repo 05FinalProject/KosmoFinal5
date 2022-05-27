@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -136,18 +138,22 @@ border: 1px solid #008000;
    
    <!-- Listing Section Begin -->
     <section class="listing-details spad">
+     
       <div class="container">
         <div class="row">
           <div class="col-lg-8">
             <div class="listing__details__text">
-              
+        
+             
+             <form:form commandName="post">
+     <input name="agencyNum" type="hidden"  value="${vo.agencyNum }" /> 
               <div class="listing__details__gallery">
                 <h4>기관명</h4>
                 <div class="listing__details__gallery__pic">
                   <div class="listing__details__gallery__item">
                     <img
                       class="listing__details__gallery__item__large"
-                      src="./resources/img/listing/details/listing-details-1.jpg"
+                      src="${cafe.agencyImage }"
                       alt=""
                     />
                     <span><i class="fa fa-camera"></i> 170 Image</span>
@@ -155,6 +161,7 @@ border: 1px solid #008000;
                  
                 </div>
               </div>
+            
               
               
              <!--*********리뷰 테이블 ***********************************--> 
@@ -163,10 +170,12 @@ border: 1px solid #008000;
 
                <!-- ********* 1칸 리뷰 테이블 *******--> 
                 <div class="listing__details__comment__item">
+                    
+            
                   <div class="listing__details__comment__item__pic">
                     <img
-                      src="./resources/img/listing/details/comment.png"
-                      alt=""
+                      src=""
+                      alt="post"
                     />
                   </div>
                   <div class="listing__details__comment__item__text">
@@ -187,65 +196,10 @@ border: 1px solid #008000;
                      
                     </ul>
                   </div>
-                </div>
-
-                <!--********* 2칸 리뷰 테이블 ******* -->
-                <div class="listing__details__comment__item">
-                  <div class="listing__details__comment__item__pic">
-                    <img
-                      src="./resources/img/listing/details/comment.png"
-                      alt=""
-                    />
-                  </div>
-                  <div class="listing__details__comment__item__text">
-                    <div class="listing__details__comment__item__rating">
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                    </div>
-                    <span>March 22, 2019 작성일</span>
-                    <h5>작성자</h5>
-                    <p>
-                     내용
-                    </p>
-                    <ul>
-                      <span><img class="siren" src="../../img/siren.png"></span>
-                     
-                    </ul>
-                  </div>
-                </div>
-
-
-
-              <!--****-->  
-              <div class="listing__details__comment__item">
-                <div class="listing__details__comment__item__pic">
-                  <img
-                    src="./resources/img/listing/details/comment.png"
-                    alt=""
-                  />
-                </div>
-                <div class="listing__details__comment__item__text">
-                  <div class="listing__details__comment__item__rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                  </div>
-                  <span>March 22, 2019 작성일</span>
-                  <h5>작성자</h5>
-                  <p>
-                   내용
-                  </p>
-                  <ul>
-                    <span><img class="siren" src="../../img/siren.png"></span>
                    
-                  </ul>
                 </div>
-              </div>
+
+               </form:form>
                 <!--******************************-->
               </div>
               <!--******* 테이블 끝 ******-->
@@ -275,12 +229,12 @@ border: 1px solid #008000;
     
                 </div>
                 <div class="listing__sidebar__contact__text">
-                  <h4>내용</h4>
+                  <h4>${cafe.agencyName }</h4>
                   <ul>
                     <li>
-                      <span class="icon_pin_alt"></span> 주소
+                      <span class="icon_pin_alt"></span>${cafe.agencyAddress }
                     </li>
-                    <li><span class="icon_phone"></span> 번호</li>
+                    <li><span class="icon_phone"></span>${cafe.agencyTel }</li>
                     <li>
                       <span class="icon_mail_alt"></span>
                      영업시간

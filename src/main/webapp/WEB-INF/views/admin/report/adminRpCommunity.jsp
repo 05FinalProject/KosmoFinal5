@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,11 +80,11 @@
                   </tr>
                   </thead>
                   <tbody>
-                   <c:forEach var="vo" items="${list}" >
+                   <c:forEach var="vo" items="${communityList}" >
 	                  <tr>
 	                  	<td>${vo.c_num}</td>
 	                    <td>${vo.c_title}</td>
-	                    <td>${vo.user_email }</td>
+	                    <td>${vo.user_email}</td>
 	                    <td>${vo.r_reason}</td>
 	                    <td>${vo.r_date}</td>
 	                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
@@ -155,7 +156,7 @@
 		
 		 $('#report').addClass('menu-is-opening')
 		 $('#report').addClass('menu-open')	
-		 $('#board').addClass('active')
+		 $('#community').addClass('active')
 	</script>
 </body>
 </html>
