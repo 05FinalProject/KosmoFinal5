@@ -27,6 +27,6 @@ public interface AdminAgencyService {
 	public int countFunehallRecord();
 	
 	//시설수정
-	public void updateAgency(AgencyVO vo);
+	public AgencyVO updateAgency(Integer agencyNum, String agencyName, String agencyAddress, String agencyTel);
 	
 }

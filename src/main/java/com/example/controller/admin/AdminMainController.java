@@ -216,14 +216,15 @@ public class AdminMainController {
 		return "redirect:/adminUser";
 	}
 	
-	//시설삭제
 	
 	//시설 수정
 	@RequestMapping(value="{agencyNum}", method = RequestMethod.PUT)
-	public String adminUpdateFacilities(AgencyVO vo) {
-		adminAgencyService.updateAgency(vo);
+	public String adminUpdateFacilities() {
+		adminAgencyService.updateAgency(Integer agencyNum, String agencyName, String agencyAddress, String agencyTel);
 		return "redirect:/admin";
 	}
+	
+	//시설삭제
 
 
 }
