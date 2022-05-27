@@ -192,7 +192,7 @@ border: 1px solid #008000;
 
 			<div class="nav-links">
 				<c:set var="recordsCnt" value="${count}" />
-				<c:set var="jspFile" value="agencyHotel?" />
+				<c:set var="jspFile" value="agencyCafe?" />
 				<c:set var="perpage" value="11" />
 			</div>
 
@@ -266,15 +266,47 @@ border: 1px solid #008000;
 
 <script type="text/javascript">
 
-  <script>
-      $("#filter-search").click(function name(params) {
-        var regex = /[^0-9.;\-]/g;
-        var result = $("#radius").val().replace(regex, "");
-        console.log(result);
-      });
-    </script>
-
-    <script>
+      $('.search3').click(function(){
+    	  
+     	 $.ajax({
+     		url:'/api/agencyCafeSearch',
+    		data:{agencyName:$('.search2').val()}, 
+    		type:'get',
+    		success:function(data){
+    			
+    				console.log(data)
+    				$('.listing__list').empty()
+    				data.forEach(function(d){
+    					$('.listing__list').append('<div class="listing__item">'+
+  					          '<div class="listing__item__pic set-bg" data-setbg='+ d.agencyImage +'>'+
+  					           ' <div class="listing__item__pic__btns">'+
+  					            '  <a href="#"><span class="icon_zoom-in_alt"></span></a>'+
+  					             ' <a href="#"><span class="icon_heart_alt"></span></a>'+
+  					            '</div></div>'+
+  					          '<div class="listing__item__text">'+
+  					           ' <div class="listing__item__text__inside">'+
+  					            '  <a href="/include/agencyCafeDetail?agencyNum='+d.agencyNum+'"><h5>'+d.agencyName+'</h5></a>'+
+  					             ' <div class="listing__item__text__rating">'+
+  					              '  <div class="listing__item__rating__star">'+
+  					               '   <span class="icon_star"></span>'+
+  					                '  <span class="icon_star"></span>'+
+  					                 ' <span class="icon_star"></span>'+
+  					                 ' <span class="icon_star"></span>'+
+  					                 ' <span class="icon_star-half_alt"></span>'+
+  					                '</div> </div><ul>'+
+  					                '<li><span class="icon_pin_alt"></span>'+d.agencyAddress+'</li>'+
+  					                '<li><span class="icon_phone"></span>'+d.agencyTel+'</li>'+
+  					              '</ul></div></div></div>')
+    				} )
+    			
+    			}
+     	 })
+      
+      })
+      </script>
+      <!-- <script type="text/javascript">
+      
+   
       const slider = document.querySelector(".items");
       let isMouseDown = false;
       let startX, scrollLeft;
@@ -304,7 +336,10 @@ border: 1px solid #008000;
         const x = e.pageX - slider.offsetLeft;
         const walk = (x - startX) * 1;
         slider.scrollLeft = scrollLeft - walk;
-      });
+      }); -->
+      
+     
+   
     </script>
    </body>
  </html>

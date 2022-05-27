@@ -8,8 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.domain.AgencyVO;
 import com.example.domain.ChatingRoomVO;
 import com.example.domain.UserVO;
+import com.example.service.agency.AgencyService;
 import com.example.service.chatingService.ChatingService;
 
 @Controller
@@ -19,6 +21,9 @@ public class ApiController {
 	
 	@Autowired
 	private ChatingService service;
+	
+	@Autowired
+	private AgencyService aService;
 	
 	//채팅방리스트페이지에 채팅방번호랑 비밀번호 일치하는지 확인
 	@RequestMapping(value = "/checkRoomPass",produces = "application/text; charset=UTF-8")
@@ -48,6 +53,12 @@ public class ApiController {
 		return service.roomSearch(vo);
 	}
 	
-	
+	//agencyCafe 검색기능
+	@RequestMapping("/agencyCafeSearch")
+	public List<AgencyVO> agencyCafeSearch(AgencyVO vo){
+		
+		return aService.agencyCafeSearch(vo);
+		
+	}
 	
 }
