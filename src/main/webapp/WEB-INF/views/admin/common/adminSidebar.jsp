@@ -120,7 +120,13 @@
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">           
+            <ul class="nav nav-treeview">      
+              <li class="nav-item">
+                <a href="/admin/adminAddFacilities" class="nav-link" id="facilities">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>시설등록</p>
+                </a>
+              </li>     
               <li class="nav-item">
                 <a href="/admin/adminShelter" class="nav-link" id="shelter">
                   <i class="far fa-circle nav-icon"></i>

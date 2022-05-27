@@ -68,7 +68,6 @@
 	<div class="wrapper">
 
 		<%@ include file="../../admin/common/adminNavbar.jsp"%>
-
 		<%@ include file="../../admin/common/adminSidebar.jsp"%>
 
 		<!-- Content Wrapper. Contains page content -->
@@ -79,12 +78,6 @@
 					<div class="row mb-2">
 						<div class="col-sm-6">
 							<h1>장례식장</h1>
-						</div>
-						<div class="col-sm-6">
-							<ol class="breadcrumb float-sm-right">
-								<a href="/admin/adminFacilities"><button type="button"
-										class="btn btn-primary" id="regi">시설등록</button> </a>
-							</ol>
 						</div>
 					</div>
 				</div>
@@ -126,19 +119,115 @@
 									</div>
 									<div class="card-footer">
 										<div class="text-right">
-											<a href="#" class="btn btn-sm btn-warning">수정 </a> 
-											<a href="#" class="btn btn-sm btn-danger"> 삭제 </a>
+										<a class="btn btn-sm btn-warning" data-toggle="modal" data-target="#funeralhallModal${funeralhall.agencyNum}">수정 </a>													
+										<a href="#" class="btn btn-sm btn-danger"> 삭제 </a>
 										</div>
 									</div>									
 								</div>							
 							</div>											
-							</c:forEach>	
+							<!-- Modal -->
+								<div class="modal fade" id="funeralhallModal${funeralhall.agencyNum}"
+									tabindex="-1"
+									aria-labelledby="funeralhallModal${funeralhall.agencyNum}Label"
+									aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title"
+													id="funeralhallModal${funeralhall.agencyNum}Label">${funeralhall.agencyName}
+												</h5>
+												<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<!-- form start -->
+											<div class="modal-body">
+												<div class="container-fluid">
+													<div class="row">
+														<form action="" method="post">
+															<div class="row">
+																<div class="mb-3 col-md-6">
+																	<label for="exampleFormControlInput1"
+																		class="form-label">기관선택</label>
+																	<div class="form-group">
+																		<select class="form-control">
+																			<!-- 선택을 안하면 입력이 안되게 설정해야함(나중에)... -->
+																			<option>보호소</option>
+																			<option>동물병원</option>
+																			<option>애견호텔</option>
+																			<option>장례식장</option>
+																			<option>애견카페</option>
+																		</select>
+																	</div>
+																</div>
+
+																<div class="mb-3 col-md-6">
+																	<label for="exampleFormControlInput1"
+																		class="form-label">시설명</label> 
+																	<input type="text"
+																		class="form-control" id="exampleFormControlInput1"
+																		name="facility">
+																</div>
+
+																<div class="mb-3 col-md-12">
+																<label for="exampleFormControlInput1"
+																		class="form-label">시설주소</label> 
+																	<input type="text" id="sample6_postcode"
+																		placeholder="우편번호" class="form-control"> 										
+																	<input type="button"
+																		onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="btn btn-block btn-secondary"><br>
+																	<input type="text" id="sample6_address"
+																		placeholder="주소" class="form-control"><br> <input type="text"
+																		id="sample6_detailAddress" placeholder="상세주소" class="form-control">
+																	<input type="text" id="sample6_extraAddress"
+																		placeholder="참고항목" class="form-control">
+																</div>
+
+																<div class="mb-3 col-md-12">
+																	<label for="exampleFormControlInput1"
+																		class="form-label">전화번호</label> <input type="text"
+																		class="form-control" id="exampleFormControlInput1"
+																		name="tel">
+																</div>
+
+																<div class="mb-3 col-md-12">
+																	<label for="exampleFormControlTextarea1"
+																		class="form-label">소개글</label>
+																	<textarea class="form-control"
+																		id="exampleFormControlTextarea1" rows="3"
+																		placeholder="내용을 입력해주세요" name="content"></textarea>
+																</div>
+
+																<div class="mb-3 col-md-12">
+																	<label for="exampleInputPassword1" class="form-label">이미지
+																		첨부</label>
+																	<div class="custom-file">
+																		<input type="file" class="custom-file-input"
+																			id="customFile"> <label
+																			class="custom-file-label" for="customFile">Choose
+																			file</label>
+																	</div>
+																</div>
+
+																<div class="modal-footer">
+																	<button type="submit" class="btn btn-secondary m-2"
+																		id="btnQnAWrite">수정</button>
+																	<button type="button" class="btn btn-secondary m-2"
+																		id="btnList" data-dismiss="modal">취소</button>
+																</div>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</c:forEach>
 						</div>
-										
-					</div>	
-									
+					</div>
 				</div>
-			
 				<!-- /.card-body -->
 				<div class="card-footer">
 					<nav aria-label="Contacts Page Navigation">

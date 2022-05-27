@@ -47,4 +47,6 @@ public interface AgencyRepository extends CrudRepository<AgencyVO, Integer>{
 	List<Object[]> agencyCafeSearch(String agencyName);
 	
 	
+	
+	
 }
