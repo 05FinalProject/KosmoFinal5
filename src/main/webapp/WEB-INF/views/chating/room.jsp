@@ -60,7 +60,7 @@
         <div class="modal-body font1">
          	비밀번호
         </div>
-        <input type="text" name="roomPass" id="modalRoomPass" class="form-control col-8 inputCenter" aria-label="Search">
+        <input type="text" name="roomPass" id="modalRoomPass" class="form-control col-8 inputCenter">
         <label class="fontRed" id="passWrong" >비밀번호가 맞지않습니다,다시 확인하세요.</label>
         <!-- Modal footer -->
         <div class="modal-footer">
@@ -83,7 +83,7 @@
                 <div class="row" id="roomList">
                     <c:forEach var="vo" items="${list}">
                     <div class="pet-grid-col col-12 col-md-6">
-                        <div id="post-1" class="lana_pet type-lana_pet post-1 card pet-grid-card h-100">
+                        <div class="lana_pet type-lana_pet post-1 card pet-grid-card h-100">
                             <div class="card-body">
                                 <h5 class="post-title card-title">
                                     ${vo.roomName} #${vo.roomNumber}
@@ -122,7 +122,7 @@
                 
                     <div class="widget">
                     <div class="input-group">
-                        <input type="text" class="form-control" id="searchInput" placeholder="Search" aria-label="Search">
+                        <input type="number" min="1" class="form-control" id="searchInput" placeholder="Search"  aria-label="Search">
                         <div class="input-group-append">
                             <button class="btn btn-primary" id="roomSearch" type="button">
                                 <i class="fa fa-search"></i>
@@ -198,7 +198,9 @@ $('#none').click(function(){
 	$('.fontRed').slideUp()
 })
 
-$('.card-link').click(function(){
+$('.more-link').click(function(){
+	
+	
 	//modal 방이름이랑 방번호 주기
 	$('#modalRoom').text($(this).attr('content'))
 	//modal 방번호 값을 주기
@@ -208,6 +210,7 @@ $('.card-link').click(function(){
 	$('#modalRoomNum').val($('#modalRoomNum').val())
 
 })
+
 
 $('#goInRoom').click(function(e){
 	$.ajax({
@@ -238,7 +241,7 @@ $('#roomSearch').click(function(){
 		
 			data.forEach(function(d){
 				$('#roomList').append('<div class="pet-grid-col col-12 col-md-6">'+
-                        '<div id="post-1" class="lana_pet type-lana_pet post-1 card pet-grid-card h-100">'+
+                        '<div class="lana_pet type-lana_pet post-1 card pet-grid-card h-100">'+
                         '<div class="card-body">'+
                            ' <h5 class="post-title card-title">'+
                                 d.roomName+' #'+d.roomNumber+
@@ -246,19 +249,33 @@ $('#roomSearch').click(function(){
                         '</div>'+
                         '<div class="card-footer">'+
                             '<p class="card-text">'+
-                                '<a class="more-link card-link" data-toggle="modal" data-target="#myModal" content="${vo.roomName} #${vo.roomNumber}">'+
-                                    '들어가기 <i class="lana-icon-arrow-right text-primary"></i>'+
+                                '<a class="more-link card-link" onclick="search()" data-toggle="modal" data-target="#myModal" content="'+d.roomName+' #'+d.roomNumber+'">들어가기 <i class="lana-icon-arrow-right text-primary"></i>'+
                                 '</a>'+
                             '</p>'+
                         '</div>'+
                     '</div>'+
-                '</div>')
+                '</div>').ready(function(){
+                	$('.more-link').click(function(){
+                		
+                		
+                		//modal 방이름이랑 방번호 주기
+                		$('#modalRoom').text($(this).attr('content'))
+                		//modal 방번호 값을 주기
+                		$('#modalRoomNum').val($(this).attr('content').split('#')[1]) 
+                		
+                		$('#modalRoomName').val($('#modalRoom').text().split('#')[0].trim())
+                		$('#modalRoomNum').val($('#modalRoomNum').val())
+
+                	})
+                })
 				
 			})
+			
 	
 		}
 	})
 })
+
 
 
 
