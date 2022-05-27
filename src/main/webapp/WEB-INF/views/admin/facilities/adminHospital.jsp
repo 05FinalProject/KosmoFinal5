@@ -146,7 +146,8 @@
 											<div class="modal-body">
 												<div class="container-fluid">
 													<div class="row">
-														<form action="" method="post">
+														<form action="/admin/update" method="post">
+														  <input type="hidden" name="agencyNum" value="${hospital.agencyNum}">
 															<div class="row">
 																<div class="mb-3 col-md-6">
 																	<label for="exampleFormControlInput1"
