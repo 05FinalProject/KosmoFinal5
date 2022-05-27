@@ -96,6 +96,9 @@
                             </div>
                            
                         </div>
+                        
+                        <input name="submit" type="submit" id="submit" class="btn btn-primary btn-lg text-uppercase font-weight-bold w-15x" value="입양하기">
+                       
                     </div>
                         </div>
                         

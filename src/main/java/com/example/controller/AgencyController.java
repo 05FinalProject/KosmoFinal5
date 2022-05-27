@@ -22,6 +22,8 @@ public class AgencyController {
 	@Autowired
 	private AgencyService agencyservice; 
 	
+	
+	//******************************************************************************
 	////agencyhotel 보기
 	@RequestMapping(value ="/agencyHotel", method=RequestMethod.GET)
 public String agencyHotel(Model m, AgencyVO vo) {
@@ -47,15 +49,40 @@ public String agencyHotel(Model m, AgencyVO vo) {
 		
 	}
 	
-	@RequestMapping(value ="/agencytest", method=RequestMethod.GET)
-	public String agencytest() {
-		return "/include/agencytest";
+	//**************************************************************************************************
+	
+	
+	
+	//**************************************************************************************************
+	
+    ////agencyCafe 보기
+	@RequestMapping(value ="/agencyCafe", method=RequestMethod.GET)
+public String agencyCafe(Model m, AgencyVO vo) {
+		
+		int page = 1;
+		if(vo.getPage()!=0) {
+			page = vo.getPage();
+		}
+		Pageable paging = PageRequest.of(page-1, 16,Sort.Direction.ASC,"agencyNum");
+
+		m.addAttribute("paging",agencyservice.getCafePaging(paging) );
+		
+		m.addAttribute("count",agencyservice.countCafeRecord() );
+		return "/include/agencyCafe";
 	}
 	
-	@RequestMapping(value ="/agencytestDetail", method=RequestMethod.GET)
-	public String agencytestDetail() {
-		return "/include/agencytestDetail";
-	}
+	
+	//agencyCafe 상세보기
+		@RequestMapping(value ="/agencyCafeDetail", method=RequestMethod.GET)
+		public void agencyCafeDetail(Model m,AgencyVO vo) {
+			System.out.println(vo.getAgencyNum());
+			m.addAttribute("cafe",agencyservice.getagencyCafe(vo));
+			
+		}
+	
+		//***********************************************************************************
+	
+	
 
 	
 	//agencyshelter 페이지 ************************************************************************************
@@ -91,4 +118,22 @@ public String agencyHotel(Model m, AgencyVO vo) {
 	public String yootest() {
 		return "/include/yootest";
 	}
+	
+	
+
+	@RequestMapping(value ="/agencytest", method=RequestMethod.GET)
+	public String agencytest() {
+		return "/include/agencytest";
+	}
+	
+	@RequestMapping(value ="/agencytestDetail", method=RequestMethod.GET)
+	public String agencytestDetail() {
+		return "/include/agencytestDetail";
+	}
+	
+	@RequestMapping(value ="/encyclopedia", method=RequestMethod.GET)
+	public String encyclopedia() {
+		return "/include/encyclopedia";
+	}
+	
 }
