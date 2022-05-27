@@ -113,6 +113,13 @@
   margin: 0;
 }
 
+img{
+ position: absolute; top:0; left: 0;
+ width: 100%;
+ height: 100%;
+
+}
+
 /* .listing__item{
 border: 1px solid #008000;
 } */
@@ -135,7 +142,8 @@ border: 1px solid #008000;
     
   <div class="search1">
   <input class="search2" type="text" placeholder="검색">
-  <img class="search3" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+ <a href="#" class="btn btn-sm bg-teal search3"> <i class="fa-solid fa-trash-can"></i></a>
+										
 </div>
   
     
@@ -147,10 +155,10 @@ border: 1px solid #008000;
         <div class="listing__item">
           <!-- 여기에 img값 가지고와야함 동적으로 -->
           
-          
-          <div
+          <div >
+          <img 
             class="listing__item__pic set-bg"
-            data-setbg="${vo.agencyImage }">
+            src="${vo.agencyImage }">
             <div class="listing__item__pic__btns">
               <a href="#"><span class="icon_zoom-in_alt"></span></a>
               <a href="#"><span class="icon_heart_alt"></span></a>
@@ -277,8 +285,9 @@ border: 1px solid #008000;
     				console.log(data)
     				$('.listing__list').empty()
     				data.forEach(function(d){
-    					$('.listing__list').append('<div class="listing__item">'+
-  					          '<div class="listing__item__pic set-bg" data-setbg='+ d.agencyImage +'>'+
+    					var number = d.agencyNum
+    					$('.listing__list').append('<div class="listing__item"><div>'+
+  					          '<img class="listing__item__pic set-bg" src="'+ d.agencyImage +'" />'+
   					           ' <div class="listing__item__pic__btns">'+
   					            '  <a href="#"><span class="icon_zoom-in_alt"></span></a>'+
   					             ' <a href="#"><span class="icon_heart_alt"></span></a>'+
