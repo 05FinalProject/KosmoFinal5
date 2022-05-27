@@ -94,62 +94,81 @@
 				</div>
 				<!-- /.card-header -->
 				<!-- form start -->
-				<form action="" method="post">
-					<div class="mb-3">
-						<label for="exampleFormControlInput1" class="form-label">기관선택</label>
-						<div class="form-group">
-							<select class="form-control">
-								<!-- 선택을 안하면 입력이 안되게 설정... -->
-								<option>보호소</option>
-								<option>동물병원</option>
-								<option>애견호텔</option>
-								<option>장례식장</option>
-								<option>애견카페</option>
-							</select>
-						</div>
-					</div>
-					
-					<div class="mb-3">					
-						<label for="exampleFormControlInput1" class="form-label">시설명입력</label>
-						<input type="text" class="form-control" id="exampleFormControlInput1" name="facility">										
-					</div>
+<form action="/admin/update" method="post">
+														  <input type="hidden" name="agencyNum" value="${hospital.agencyNum}">
+															<div class="row">
+																<div class="mb-3 col-md-6">
+																	<label for="exampleFormControlInput1"
+																		class="form-label">기관선택</label>
+																	<div class="form-group">
+																		<select class="form-control">
+																			<!-- 선택을 안하면 입력이 안되게 설정해야함(나중에)... -->
+																			<option>보호소</option>
+																			<option>동물병원</option>
+																			<option>애견호텔</option>
+																			<option>장례식장</option>
+																			<option>애견카페</option>
+																		</select>
+																	</div>
+																</div>
 
-					<div class="mb-3">				
-						<input type="text" id="sample6_postcode" placeholder="우편번호">
-						<input type="button" onclick="sample6_execDaumPostcode()"
-							value="우편번호 찾기"><br> <input type="text"
-							id="sample6_address" placeholder="주소"><br> <input
-							type="text" id="sample6_detailAddress" placeholder="상세주소">
-						<input type="text" id="sample6_extraAddress" placeholder="참고항목">
-					</div>
+																<div class="mb-3 col-md-6">
+																	<label for="exampleFormControlInput1"
+																		class="form-label">시설명</label> <input type="text"
+																		class="form-control" id="exampleFormControlInput1"
+																		name="facility">
+																</div>
 
-					<div class="mb-3">
-						<label for="exampleFormControlInput1" class="form-label">전화번호</label>
-						<input type="text" class="form-control"
-							id="exampleFormControlInput1" name="tel">
-					</div>
+																<div class="mb-3 col-md-12">
+																	<label for="exampleFormControlInput1"
+																		class="form-label">시설주소</label> <input type="text"
+																		id="sample6_postcode" placeholder="우편번호"
+																		class="form-control"> <input type="button"
+																		onclick="sample6_execDaumPostcode()" value="우편번호 찾기"
+																		class="btn btn-block btn-secondary"><br>
+																	<input type="text" id="sample6_address"
+																		placeholder="주소" class="form-control"><br>
+																	<input type="text" id="sample6_detailAddress"
+																		placeholder="상세주소" class="form-control"> <input
+																		type="text" id="sample6_extraAddress"
+																		placeholder="참고항목" class="form-control">
+																</div>
 
-					<div class="mb-3">
-						<label for="exampleFormControlTextarea1" class="form-label">소개글</label>
-						<textarea class="form-control" id="exampleFormControlTextarea1"
-							rows="3" placeholder="내용을 입력해주세요" name="content"></textarea>
-					</div>
+																<div class="mb-3 col-md-12">
+																	<label for="exampleFormControlInput1"
+																		class="form-label">전화번호</label> <input type="text"
+																		class="form-control" id="exampleFormControlInput1"
+																		name="tel">
+																</div>
 
-					<div class="mb-3">
-						<label for="exampleInputPassword1" class="form-label">이미지
-							첨부</label>
-						<div class="custom-file">
-							<input type="file" class="custom-file-input" id="customFile">
-							<label class="custom-file-label" for="customFile">Choose
-								file</label>
-						</div>
-					</div>
+																<div class="mb-3 col-md-12">
+																	<label for="exampleFormControlTextarea1"
+																		class="form-label">소개글</label>
+																	<textarea class="form-control"
+																		id="exampleFormControlTextarea1" rows="3"
+																		placeholder="내용을 입력해주세요" name="content"></textarea>
+																</div>
 
-					<button type="submit" class="btn btn-secondary m-2"
-						id="btnQnAWrite">수정</button>
-					<a href="/admin/adminShelter"><button type="button"
-							class="btn btn-secondary m-2" id="btnList">목록보기</button></a>
-				</form>
+																<div class="mb-3 col-md-12">
+																	<label for="exampleInputPassword1" class="form-label">이미지
+																		첨부</label>
+																	<div class="custom-file">
+																		<input type="file" class="custom-file-input"
+																			id="customFile"> <label
+																			class="custom-file-label" for="customFile">Choose
+																			file</label>
+																	</div>
+																</div>
+
+																<div class="modal-footer">
+																	<button type="submit" class="btn btn-secondary m-2"
+																		id="btnQnAWrite">수정</button>
+																	<button type="button" class="btn btn-secondary m-2"
+																		id="btnList" data-dismiss="modal">취소</button>
+																</div>
+
+															</div>
+														</form>
 			</div>
 			</div>
 		</div>

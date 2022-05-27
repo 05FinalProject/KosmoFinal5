@@ -57,25 +57,18 @@ public class AdminAgencyServiceImpl implements AdminAgencyService{
 	public int countFunehallRecord() {
 		
 		return aRepo.countFunehallRecord();
-	}
+	}	
 	
-	//나중에 지울것
 	@Override
-	public AgencyVO updateAgency(Integer agencyNum, String agencyName, String agencyAddress, String agencyTel) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-//	@Override
-//	public AgencyVO updateAgency(Integer agencyNum, String agencyName, String agencyAddress, String agencyTel) {
-//		
-//		AgencyVO updateAgency =  aRepo.findById(agencyNum);//찾는거
+	public AgencyVO updateAgency(Integer agencyNum, String tel) {
+		
+		AgencyVO updateAgency =  aRepo.findById(agencyNum).get();//찾는거
 //		updateAgency.setAgencyName(agencyName);//값 변경
 //		updateAgency.setAgencyAddress(agencyAddress);
-//		updateAgency.setAgencyTel(agencyTel);
-//		
-//		return aRepo.save(updateAgency);//업데이트 문장 돌리기
-//	}		
-//	
+		updateAgency.setAgencyTel(tel);
+		
+		return aRepo.save(updateAgency);//업데이트 문장 돌리기
+	}		
+	
 
 }

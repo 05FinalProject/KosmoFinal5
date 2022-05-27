@@ -93,7 +93,7 @@
 					<div class="card-body pb-0">
 
 						<div class="row">
-							<c:forEach items="${paging}" var="agency">
+							<c:forEach items="${paging}" var="hotel">
 								<div
 									class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
 									<div class="card bg-light d-flex flex-fill">
@@ -101,22 +101,22 @@
 											<div class="row">
 												<div class="col-7 agencyCon">
 													<h2 class="lead">
-														<b>${agency.agencyName}</b>
+														<b>${hotel.agencyName}</b>
 													</h2>
 													<p class="text-muted text-sm">
-														<b>About: </b> ${agency.agencyContent}
+														<b>About: </b> ${hotel.agencyContent}
 													</p>
 													<ul class="ml-4 mb-0 fa-ul text-muted">
 														<li class="small"><span class="fa-li"><i
 																class="fas fa-lg fa-building" aria-hidden="true"></i></span>
-															Address: ${agency.agencyAddress}</li>
+															Address: ${hotel.agencyAddress}</li>
 														<li class="small"><span class="fa-li"><i
 																class="fas fa-lg fa-phone" aria-hidden="true"></i></span> Phone
-															#: ${agency.agencyTel}</li>
+															#: ${hotel.agencyTel}</li>
 													</ul>
 												</div>
 												<div class="col-5 text-center">
-													<img src="${agency.agencyImage}" alt="user-avatar"
+													<img src="${hotel.agencyImage}" alt="user-avatar"
 														class="img-square img-fluid agencyImg">
 												</div>
 											</div>
@@ -124,22 +124,22 @@
 										<div class="card-footer">
 											<div class="text-right">
 												<a class="btn btn-sm btn-warning" data-toggle="modal"
-													data-target="#hotelModal${agency.agencyNum}">수정 </a> <a
+													data-target="#hotelModal${hotel.agencyNum}">수정 </a> <a
 													href="#" class="btn btn-sm btn-danger"> 삭제 </a>
 											</div>
 										</div>
 									</div>
 								</div>
 								<!-- Modal -->
-								<div class="modal fade" id="hotelModal${agency.agencyNum}"
+								<div class="modal fade" id="hotelModal${hotel.agencyNum}"
 									tabindex="-1"
-									aria-labelledby="hotelModal${agency.agencyNum}Label"
+									aria-labelledby="hotelModal${hotel.agencyNum}Label"
 									aria-hidden="true">
 									<div class="modal-dialog">
 										<div class="modal-content">
 											<div class="modal-header">
 												<h5 class="modal-title"
-													id="hotelModal${agency.agencyNum}Label">${agency.agencyName}
+													id="hotelModal${hotel.agencyNum}Label">${hotel.agencyName}
 												</h5>
 												<button type="button" class="close" data-dismiss="modal"
 													aria-label="Close">
@@ -150,7 +150,8 @@
 											<div class="modal-body">
 												<div class="container-fluid">
 													<div class="row">
-														<form action="" method="post">
+														<form action="/admin/update" method="post">
+														  <input type="hidden" name="agencyNum" value="${hotel.agencyNum}">
 															<div class="row">
 																<div class="mb-3 col-md-6">
 																	<label for="exampleFormControlInput1"
@@ -169,23 +170,23 @@
 
 																<div class="mb-3 col-md-6">
 																	<label for="exampleFormControlInput1"
-																		class="form-label">시설명</label> 
-																	<input type="text"
+																		class="form-label">시설명</label> <input type="text"
 																		class="form-control" id="exampleFormControlInput1"
 																		name="facility">
 																</div>
 
 																<div class="mb-3 col-md-12">
-																<label for="exampleFormControlInput1"
-																		class="form-label">시설주소</label> 
-																	<input type="text" id="sample6_postcode"
-																		placeholder="우편번호" class="form-control"> 										
-																	<input type="button"
-																		onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="btn btn-block btn-secondary"><br>
+																	<label for="exampleFormControlInput1"
+																		class="form-label">시설주소</label> <input type="text"
+																		id="sample6_postcode" placeholder="우편번호"
+																		class="form-control"> <input type="button"
+																		onclick="sample6_execDaumPostcode()" value="우편번호 찾기"
+																		class="btn btn-block btn-secondary"><br>
 																	<input type="text" id="sample6_address"
-																		placeholder="주소" class="form-control"><br> <input type="text"
-																		id="sample6_detailAddress" placeholder="상세주소" class="form-control">
-																	<input type="text" id="sample6_extraAddress"
+																		placeholder="주소" class="form-control"><br>
+																	<input type="text" id="sample6_detailAddress"
+																		placeholder="상세주소" class="form-control"> <input
+																		type="text" id="sample6_extraAddress"
 																		placeholder="참고항목" class="form-control">
 																</div>
 
@@ -272,8 +273,6 @@
 	<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<!-- AdminLTE App -->
 	<script src="../../dist/js/adminlte.min.js"></script>
-	<!-- AdminLTE for demo purposes -->
-	<script src="../../dist/js/demo.js"></script>
 
 	<!-- jQuery -->
 	<script src="/admin/plugins/jquery/jquery.min.js"></script>
