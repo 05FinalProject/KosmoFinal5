@@ -135,6 +135,9 @@
 								<img class="signUplogo" src="/img/Guest.png"/> </a></li>
 					</ul>
 				</div>
+				<div>
+					<h1>"${session['user'].userName}"</h1>님 환영합니다.
+				</div>
 			</div>
 
 		</nav>
