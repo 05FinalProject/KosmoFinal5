@@ -72,35 +72,35 @@
 					<ul class="nav nav-pills sidebar flex-column"
 						data-widget="treeview" role="menu" data-accordion="false"
 						style="font-weight: bolder; color: black;">
-						<li class="nav-item"><a href="#" class="nav-link"
+						<li class="nav-item"><a href="myPageProfile" class="nav-link"
 							onmouseover="this.style.color='orange';"
 							onmouseout="this.style.color='black'">
 								<p>
 									<i class="far nav-icon" style="font-weight: bolder;">나의 프로필</i>
 								</p>
 						</a></li>
-						<li class="nav-item"><a href="#" class="nav-link"
+						<li class="nav-item"><a href="myPageBoard" class="nav-link"
 							onmouseover="this.style.color='orange';"
 							onmouseout="this.style.color='black'">
 								<p>
 									<i class="far nav-icon" style="font-weight: bolder;">나의 게시글</i>
 								</p>
 						</a></li>
-						<li class="nav-item"><a href="#" class="nav-link"
+						<li class="nav-item"><a href="myPageDogList" class="nav-link"
 							onmouseover="this.style.color='orange';"
 							onmouseout="this.style.color='black'">
 								<p>
 									<i class="far nav-icon" style="font-weight: bolder;">반려동물</i>
 								</p>
 						</a></li>
-						<li class="nav-item"><a href="#" class="nav-link"
+						<li class="nav-item"><a href="../friend/friendList" class="nav-link"
 							onmouseover="this.style.color='orange';"
 							onmouseout="this.style.color='black'">
 								<p>
 									<i class="far nav-icon" style="font-weight: bolder;">펫친관리</i>
 								</p>
 						</a></li>
-						<li class="nav-item"><a href="#" class="nav-link"
+						<li class="nav-item"><a href="../friend/friendFind" class="nav-link"
 							onmouseover="this.style.color='orange';"
 							onmouseout="this.style.color='black'">
 								<p>
@@ -123,7 +123,8 @@
 		<main class="content-wrapper">
 			<div class="row">
 				<div class="col-9 mx-auto">
-
+						
+					<!-- 갱얼쥐 상세정보 -->
 					<div class="blog-posts sticky-posts"
 						style="margin-top: 2%; margin-bottom: 2%; border-radius: 25px; border-right-style: solid; border-color: orange;">
 						<div id="post-1" class="post type-post post-1 card post-card"
@@ -163,7 +164,7 @@
 										</p>
 										<div
 											class="d-flex justify-content-between align-items-center post-meta mt-auto w-100">
-											<a href="single.html"
+											<a href="myPageDogDetail"
 												class="more-link card-link d-flex align-items-center">
 												상세보기 <i class="lana-icon-arrow-right text-primary"></i>
 											</a> <a href="single.html"
@@ -176,114 +177,7 @@
 							</div>
 						</div>
 					</div>
-
-					<div class="blog-posts sticky-posts"
-						style="margin-top: 2%; margin-bottom: 2%; border-radius: 25px; border-right-style: solid; border-color: orange;">
-						<div id="post-1" class="post type-post post-1 card post-card"
-							style="border-radius: 25px;">
-							<div class="row">
-								<div class="col-md-3 mx-auto">
-									<img class="card-img" src="/pictures/placeholder/530x400.svg"
-										alt="Post"
-										style="width: 300px; height: 250px; border-radius: 50%;">
-								</div>
-								<div class="col-md-6 mr-auto">
-									<div
-										class="card-body h-100 d-flex align-items-start flex-column">
-										<h3 class="post-title card-title">
-											<a href="single.html">반려견 이름</a>
-										</h3>
-										<p class="post-text card-text">
-										<table>
-											<tr>
-												<th>견종 :</th>
-												<th>이름</th>
-											</tr>
-											<tr>
-												<th>성별 :</th>
-												<th>한놈</th>
-											</tr>
-											<tr>
-												<th>몸무게 :</th>
-												<th>두시기</th>
-											</tr>
-											<tr>
-												<th>중성화 :</th>
-												<th>석삼</th>
-											</tr>
-										</table>
-
-										</p>
-										<div
-											class="d-flex justify-content-between align-items-center post-meta mt-auto w-100">
-											<a href="single.html"
-												class="more-link card-link d-flex align-items-center">
-												상세보기 <i class="lana-icon-arrow-right text-primary"></i>
-											</a> <a href="single.html"
-												class="more-link card-link d-flex align-items-center">
-												삭제 <i class="lana-icon-arrow-right text-primary"></i>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="blog-posts sticky-posts"
-						style="margin-top: 2%; margin-bottom: 2%; border-radius: 25px; border-right-style: solid; border-color: orange;">
-						<div id="post-1" class="post type-post post-1 card post-card"
-							style="border-radius: 25px;">
-							<div class="row">
-								<div class="col-md-3 mx-auto">
-									<img class="card-img" src="/pictures/placeholder/530x400.svg"
-										alt="Post"
-										style="width: 300px; height: 250px; border-radius: 50%;">
-								</div>
-								<div class="col-md-6 mr-auto">
-									<div
-										class="card-body h-100 d-flex align-items-start flex-column">
-										<h3 class="post-title card-title">
-											<a href="single.html">반려견 이름</a>
-										</h3>
-										<p class="post-text card-text">
-										<table>
-											<tr>
-												<th>견종 :</th>
-												<th>이름</th>
-											</tr>
-											<tr>
-												<th>성별 :</th>
-												<th>한놈</th>
-											</tr>
-											<tr>
-												<th>몸무게 :</th>
-												<th>두시기</th>
-											</tr>
-											<tr>
-												<th>중성화 :</th>
-												<th>석삼</th>
-											</tr>
-										</table>
-
-										</p>
-										<div
-											class="d-flex justify-content-between align-items-center post-meta mt-auto w-100">
-											<a href="single.html"
-												class="more-link card-link d-flex align-items-center">
-												상세보기 <i class="lana-icon-arrow-right text-primary"></i>
-											</a> <a href="single.html"
-												class="more-link card-link d-flex align-items-center">
-												삭제 <i class="lana-icon-arrow-right text-primary"></i>
-											</a>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
+					
 				</div>
 			</div>
 		</main>

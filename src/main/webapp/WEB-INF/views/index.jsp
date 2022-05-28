@@ -28,15 +28,16 @@
 <a href='include/friend/friendProfile'>친구정보페이지</a><br/><br/>
 <a href='include/friend/friendFind'>친구찾기페이지</a><br/><br/>
 <a href='include/friend/friendBlockList'>친구차단페이지</a><br/><br/>
-<a href='include/agency'>정보기관페이지</a><br/><br/>
-<a href='include/agencyDetail'>정보기관상세페이지</a><br/><br/>
-<a href='include/agencyHotel'>정보기관애견페이지</a><br/><br/>
-<a href='include/agencyHotelDetail'>정보기관애견상세페이지</a><br/><br/>
+<a href='include/agencyHotel?page=1'>정보기관페이지(호텔)</a><br/><br/>
+<a href='include/agencyHotelDetail'>정보기관상세페이지(호텔)</a><br/><br/>
+<a href='include/agencyCafe?page=1'>정보기관페이지(카페)</a><br/><br/>
+<a href='include/agencyCafeDetail'>정보기관상세페이지(카페)</a><br/><br/>
+<a href='include/agencytest'>정보기관페이지</a><br/><br/>
+<a href='include/agencytestDetail'>정보기관상세페이지</a><br/><br/>
 <a href='include/agencyShelter?page=1'>보호소페이지</a><br/><br/>
 <a href='include/agencyShelterDetail'>보호소 상세페이지</a><br/><br/>
+<a href='include/encyclopedia?page=1'>백과사전 페이지</a><br/><br/>
 <a href="include/myPage/myPageProfile">마이페이지 - 프로필</a>
-<a href="include/myPage/myPageDogLists">마이페이지 - 반려동물리스트</a>
-<a href="include/myPage/myPageDogDetail">마이페이지 - 반려동물정보보기</a>
 
 
 </body>

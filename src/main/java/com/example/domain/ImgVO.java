@@ -20,14 +20,15 @@ public class ImgVO {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "p_imgnum")
 	private Integer p_imgnum;
 	
 	
-	@Column(length = 200)
-	private String p_imgname;
+	@Column(length = 200,name = "p_imgname")
+	private String pImgname;
 	
-	@Column(length = 200)
-	private String p_rimgname;
+	@Column(length = 200,name = "p_rimgname")
+	private String pRimgname;
 	
 	@ManyToOne
 	@JoinColumn(name="c_num")

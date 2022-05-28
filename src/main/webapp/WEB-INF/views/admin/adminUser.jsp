@@ -63,7 +63,7 @@
               <div class="card-body">
               <form method="post" action="">
               	<input type="hidden" name="_method" value="delete" />
-              	<input type="hidden" name="user_email" value="${user.user_email}" />
+              	<input type="hidden" name="user_email" value="${user.userEmail}" />
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
 	                  <tr>
@@ -79,13 +79,18 @@
                   <tbody>
                  <c:forEach items="${userList}" var="user">        
 	                  <tr>
-	                    <td>${user.user_email}</td>
-	                    <td>${user.user_nickname}</td>
-	                    <td>${user.user_name}</td>
-	                    <td>${user.user_phone}</td>
-	                    <td>${user.user_address}</td>
-	                    <td>${user.user_signup}</td>                  
-	                    <td><button type="submit" class="btn btn-outline-danger">삭제</button></td>
+	                    <td>${user.userEmail}</td>
+	                    <td>${user.userNickname}</td>
+	                    <td>${user.userName}</td>
+	                    <td>${user.userPhone}</td>
+	                    <td>${user.userAddress}</td>
+	                    <td>${user.userSignup}</td>    
+	                    <td>
+		                <form action="/adminUser">
+			                <input type="hidden" name="userEmail" value="${user.userEmail}"/>
+			                <button type="submit" class="btn btn-outline-danger">삭제</button>
+		                </form>
+	                    </td>	               
 	                  </tr>      
                 </c:forEach>
                   </tbody>

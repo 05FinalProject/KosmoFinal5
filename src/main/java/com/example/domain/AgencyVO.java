@@ -20,31 +20,31 @@ public class AgencyVO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "a_num")
-	private Integer aNum;
+	private Integer agencyNum;
 	
 	@Column(name = "a_category_num")
-	private int aCategoryNum;
+	private int agencyCategoryNum;
 	
 	@Column(name = "a_name", length = 200)
-	private String aName;
+	private String agencyName;
 	
 	@Column(name = "a_content", length = 3000)	
-	private String aContent;
+	private String agencyContent;
 	
 	@Column(name = "a_address", length = 200)
-	private String aAddress;
+	private String agencyAddress;
 	
 	@Column(name = "a_tel", length = 30)
-	private String aTel;
+	private String agencyTel;
 	
 	@Column(name = "a_lat", length = 30)
-	private String aLat;
+	private String agencyLat;
 	
 	@Column(name = "a_lon", length = 30)
-	private String aLon;
+	private String agencyLon;
 	
 	@Column(name = "a_image", length = 300)
-	private String aImage;
+	private String agencyImage;
 	
 	@Transient
 	private int page;

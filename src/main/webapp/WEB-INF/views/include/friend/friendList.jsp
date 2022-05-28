@@ -18,8 +18,6 @@
 <script src="https://kit.fontawesome.com/23b331c6f8.js"
 	crossorigin="anonymous"></script>
 
-
-
 <style type="text/css">
 .content {
 	padding-top: 3%;

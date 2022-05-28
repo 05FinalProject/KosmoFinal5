@@ -8,15 +8,25 @@ import com.example.domain.AgencyVO;
 
 public interface AdminAgencyService {
 	
-	//애견호텔 목록 출력
-	public List<AgencyVO> agencyList(AgencyVO vo);
+	//페이징 처리
+	public List<AgencyVO> getHotelPaging(Pageable paging);
+	
+	public int countHotelRecord();
 	
 	//페이징 처리
-	public List<AgencyVO> getPaging(Pageable paging);
+	public List<AgencyVO> getCafetPaging(Pageable paging);
+		
+	public int countCafeRecord();
 	
-	public int countRecord();
+	public List<AgencyVO> getHospitaltPaging(Pageable paging);
 	
+	public int countHospitalRecord();
 	
+	public List<AgencyVO> getFunehallPaging(Pageable paging);
 	
+	public int countFunehallRecord();
+	
+	//시설수정
+	public AgencyVO updateAgency(Integer agencyNum, String tel);
 	
 }

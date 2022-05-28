@@ -18,24 +18,26 @@ public class PetVO {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer pet_num;
+	@Column(name = "pet_num")
+	private Integer petNum;
 	
 	@ManyToOne
 	@JoinColumn(name="user_email")
 	private UserVO user;
 
-	@Column(length = 100)
-	private String pet_name;
+	@Column(length = 100,name = "pet_name")
+	private String petName;
 	
-	private int pet_age;
+	@Column(name = "pet_age")
+	private int petAge;
 	
-	@Column(length = 100)
-	private String pet_gender;
+	@Column(length = 100,name = "pet_gender")
+	private String petGender;
 	
-	@Column(length = 100)
-	private String pet_variety;
+	@Column(length = 100,name = "pet_variety")
+	private String petVariety;
 	
-	@Column(length = 300)
-	private String pet_qr;
+	@Column(length = 300,name = "pet_qr")
+	private String petQr;
 
 }

@@ -19,24 +19,28 @@ public class DogKindVO {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer dog_num;
+	@Column(name = "dog_num")
+	private Integer dogNum;
 	
-	@Column(length = 200)
-	private String dog_kind;
+	@Column(length = 200,name = "dog_kind")
+	private String dogKind;
 
-	@Column(length = 50)
-	private String dog_local;
+	@Column(length = 50,name = "dog_local")
+	private String dogLocal;
 	
-	@Column(length = 30)
-	private String dog_height;
+	@Column(length = 30,name = "dog_height")
+	private String dogHeight;
 	
-	@Column(length = 30)
-	private String dog_weight;
+	@Column(length = 30,name = "dog_weight")
+	private String dogWeight;
 	
-	@Column(length = 5000)
-	private String dog_information;
+	@Column(length = 5000,name = "dog_information")
+	private String dogInformation;
 	
-	@Column(length = 100)
-	private String dog_image;
+	@Column(length = 100,name = "dog_image")
+	private String dogImage;
+	
+	@Transient
+	private int page;
 	
 }

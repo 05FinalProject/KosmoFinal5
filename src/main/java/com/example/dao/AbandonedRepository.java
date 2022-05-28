@@ -9,6 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.example.domain.AbandonedVO;
+import com.example.domain.AgencyVO;
 
 @Repository
 public interface AbandonedRepository extends CrudRepository<AbandonedVO, Integer> {
@@ -17,4 +18,5 @@ public interface AbandonedRepository extends CrudRepository<AbandonedVO, Integer
 	 int countRecord();
 	
 	List<AbandonedVO> findAll(Pageable paging);
+
 }

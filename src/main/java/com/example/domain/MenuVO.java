@@ -18,15 +18,16 @@ public class MenuVO {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer m_no;
+	@Column(name = "m_no")
+	private Integer mNo;
 	
 	@ManyToOne
 	@JoinColumn(name = "a_num")
 	private AgencyVO agency;
 	
-	@Column(length = 100)
-	private String m_name;
-	
-	private int m_price;
+	@Column(length = 100,name = "m_name")
+	private String mName;
+	@Column(length = 100,name = "m_price")
+	private int mPrice;
 	
 }
