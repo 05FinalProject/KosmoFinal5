@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -170,12 +172,12 @@
 						<div class="post-content">
 							<h3 class="font-weight-bold">일상공유</h3>
 
-							<form id="contactform" class="contact-form mt-5" action="dailyDetail" method="post" enctype="multipart/form-data">
+							<form id="contactform" class="contact-form mt-5" action="/writeDaily" method="post" enctype="multipart/form-data">
 								
 								<!-- 이미지 미리보기 -->
 								<div id='image_preview'>
 									<h4>미리보기</h4>
-									<input type='file' id='btnAtt' multiple='multiple' name="imageFiles"/>
+									<input type='file' id='btnAtt' multiple='multiple' name="uploadFile"/>
 									<input type="hidden" id="img-test" name=""/>
 									<div id='att_zone'
 										data-placeholder='파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요'></div>
@@ -192,7 +194,7 @@
 								</div>
 								<div class="row text-center">
 									<div class="col" id="btn-group">
-										<button id="wrtieDaily-cancle" type="submit"">취소</button>
+										<button id="wrtieDaily-cancle" type="submit">취소</button>
 										<button id="writeDaily-btn" onclick="submitAction();" type="submit"">등록</button>
 									</div>
 								</div>
@@ -334,6 +336,10 @@
 				    }
 				  }
 				)('att_zone', 'btnAtt')
+				
+				
+				
+				/* 이미지 다중 업로드 */
 		 
 	</script>
 
