@@ -192,6 +192,9 @@
 				</div>
 			</div>
 		</div>
+		
+		
+		
 		<script type="text/javascript">
 		
 		$('.friend').click(function(){
