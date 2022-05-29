@@ -168,9 +168,9 @@
 																		onclick="sample6_execDaumPostcode()" value="주소찾기"
 																		class="btn btn-block btn-secondary"><br>
 																	<input type="text" id="sample6_address"
-																		placeholder="주소" class="form-control"  value="${hotel.agencyAddress}" readonly><br>
+																		placeholder="주소" class="form-control"  value="${hotel.agencyAddress}" readonly name="addr"><br>
 																	<input type="text" id="sample6_detailAddress"
-																		placeholder="상세주소" class="form-control"> <input
+																		placeholder="상세주소" class="form-control" value="${hotel.agencyAddress2}" name="subAddr"> <input
 																		type="hidden" id="sample6_extraAddress"
 																		placeholder="참고항목" class="form-control">
 																</div>
@@ -205,7 +205,7 @@
 																	<button type="submit" class="btn btn-secondary m-2"
 																		id="btnQnAWrite">수정</button>
 																	<button type="button" class="btn btn-secondary m-2"
-																		id="btnList" data-dismiss="modal">취소</button>
+																		id="btnList" data-dismiss="modal" onclick="location.href='/admin/adminHotel'">취소</button>
 																</div>
 
 															</div>

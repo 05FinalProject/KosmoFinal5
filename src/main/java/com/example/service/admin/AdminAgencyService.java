@@ -33,6 +33,6 @@ public interface AdminAgencyService {
 	
 	
 	//시설수정
-	public AgencyVO updateAgency(Integer agencyNum, String tel, String address, String name, String content);
+	public AgencyVO updateAgency(Integer agencyNum, String tel, String name, String content, String addr, String subAddr);
 	
 }

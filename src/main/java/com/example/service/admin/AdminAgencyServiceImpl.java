@@ -64,14 +64,26 @@ public class AdminAgencyServiceImpl implements AdminAgencyService{
 		return aRepo.countFunehallRecord();
 	}	
 	
+//	@Override
+//	public AgencyVO updateAgency(Integer agencyNum, String tel, String address, String name, String content) {
+//		
+//		AgencyVO updateAgency =  aRepo.findById(agencyNum).get();//찾는거
+//		updateAgency.setAgencyContent(content);
+//		updateAgency.setAgencyName(name);//값 변경
+//		updateAgency.setAgencyAddress(address);
+//		updateAgency.setAgencyTel(tel);		
+//		return aRepo.save(updateAgency);//업데이트 문장 돌리기
+//	}
+	
 	@Override
-	public AgencyVO updateAgency(Integer agencyNum, String tel, String address, String name, String content) {
+	public AgencyVO updateAgency(Integer agencyNum, String tel, String name, String content, String addr, String subAddr) {
 		
 		AgencyVO updateAgency =  aRepo.findById(agencyNum).get();//찾는거
 		updateAgency.setAgencyContent(content);
 		updateAgency.setAgencyName(name);//값 변경
-		updateAgency.setAgencyAddress(address);
 		updateAgency.setAgencyTel(tel);		
+		updateAgency.setAgencyAddress(addr);	
+		updateAgency.setAgencyAddress2(subAddr);	
 		return aRepo.save(updateAgency);//업데이트 문장 돌리기
 	}
 	
