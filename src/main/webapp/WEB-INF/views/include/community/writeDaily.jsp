@@ -121,6 +121,9 @@
 	width: 191px;
 	border-radius: 4px;
 	font-weight: bold;
+	padding:8px;
+	padding-left:80px;
+	padding-right:80px;
 }
 
 #writeDaily-btn {
@@ -131,6 +134,7 @@
 	width: 191px;
 	border-radius: 4px;
 	font-weight: bold;
+	
 }
 
 #btn-group {
@@ -194,7 +198,7 @@
 								</div>
 								<div class="row text-center">
 									<div class="col" id="btn-group">
-										<button id="wrtieDaily-cancle" type="submit">취소</button>
+										<a href="daily" id="wrtieDaily-cancle">취소</a>
 										<button id="writeDaily-btn" type="submit">등록</button>
 									</div>
 								</div>

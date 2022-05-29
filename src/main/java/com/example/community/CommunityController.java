@@ -67,7 +67,7 @@ public class CommunityController {
 	}
 	
 	//게시글 출력
-	@RequestMapping()
+	@RequestMapping(value="/getCommunity", method = RequestMethod.GET)
 	public void getCommunity(CommunityVO vo, Model m) {
 		m.addAttribute("community", c_service.getCommunity(vo));
 	}

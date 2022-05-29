@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,7 +61,7 @@
 	border: #f8b03a;
 	color: white;
 	height: 40px;
-	width: 20px;
+	width: 30%;
 	border-radius: 4px;
 	font-weight: bold;
 }
@@ -84,6 +85,7 @@
 				<div class="blog-grid-posts">
 					<div class="row">
 
+						<c:forEach var="community" items="${paging }">
 						<!-- 1번 게시글 -->
 						<div class="blog-grid-col col-12 col-md-6 col-lg-3">
 							<div id="post-1"
@@ -96,10 +98,9 @@
 									</ul>
 									<span><img class="siren" src="../../img/siren.png"></span>
 									<h5 class="post-title card-title">
-										<a href="single.html">게시글 제목</a>
+										<a href="/include/dailyDetail?c_num=${community.c_num }">게시글 제목</a>
 									</h5>
-									<p class="post-text card-text">Lorem ipsum dolor sit amet,
-										consectetur adipiscing elit.</p>
+									<p class="post-text card-text">${community.c_content }</p>
 									<span><img class="emptyHeart"
 										src="../../img/emptyHeart.png"></span> <span><img
 										class="comment" src="../../img/comment.png"></span>
@@ -107,9 +108,10 @@
 
 							</div>
 						</div>
+						</c:forEach>
 
 						<!-- 2번 게시글 -->
-						<div class="blog-grid-col col-12 col-md-6 col-lg-3">
+			<!-- 			<div class="blog-grid-col col-12 col-md-6 col-lg-3">
 							<div id="post-2"
 								class="post type-post post-2 card post-card post-grid-card h-100">
 								<img class="card-img-top img-fluid"
@@ -269,7 +271,7 @@
 								</div>
 
 							</div>
-						</div>
+						</div> -->
 					</div>
 
 					<nav

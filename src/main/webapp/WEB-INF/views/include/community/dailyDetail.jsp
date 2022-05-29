@@ -93,7 +93,8 @@ information-content {
 
 <body>
 	<div id="total">
-	
+	<form action="updateCommunity" method="post">
+		<input name="c_num" type="hidden" value="${community.c_num }">
 		<div class="row justify-content-center">
 			<div class="col-lg-6 col-md-12">
 				<div class="pet-details-image">
@@ -113,9 +114,7 @@ information-content {
 					</div>
 
 					<div>
-
-						<p>${community.c_content }</p>
-
+						<div class="communityContent">${community.c_content }</div>
 						<div id="etc">
 							<small> <span>${community.c_insertdate }</span>
 							</small>
@@ -157,9 +156,9 @@ information-content {
 
 				</div>
 			</div>
-		
+			</form>
 		</div>
-	</div>
+	
 
 	<%@include file="../Footer.jsp"%>
 
