@@ -36,8 +36,12 @@ public class HomeController {
 
 	@RequestMapping("/signUp")
 	public void signUpPage() {
-
 	}
+	
+	@RequestMapping("/signUpSuccess")
+	public void signUp(UserVO vo) {
+	}
+	
 
 	@RequestMapping(value = "/nicknameCheck", produces = "application/text;charset=utf-8")
 	@ResponseBody

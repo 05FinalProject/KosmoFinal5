@@ -28,15 +28,6 @@ public class LoginController {
 	public void loginView() {
 	}
 	
-	@PostMapping("/Login")
-	public String login(UserVO vo, Model model) {
-		UserVO findUser = lservice.getUser(vo);
-		
-		if (findUser != null && findUser.getUserPass().equals(vo.getUserPass())){
-			model.addAttribute("user",findUser);
-			return "forward:/";
-		} else {
-			return "redirect:/Login";
-		}
-	}
+	
+	
 }
