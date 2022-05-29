@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,7 +49,10 @@ public class ChatingController {
 	}
 	
 	@GetMapping("/friend")
-	public void friend() {}
+	public void friend() {
+		
+		
+	}
 
 	
 	@PostMapping(value = "/friend")
@@ -57,7 +63,12 @@ public class ChatingController {
 	}
 	
 	@GetMapping("/friendChat")
-	public void friendChat() {
+	public void friendChat(UserVO vo ,HttpServletRequest request,Model m) {
+		//session 생성 및 user의 Email 저장
+		HttpSession session = request.getSession();
+		session.setAttribute("email", vo.getUserEmail());
+		//친구List 얻어오기
+		m.addAttribute("userList", service.friendList(vo.getUserEmail()));
 		
 	}
 	
