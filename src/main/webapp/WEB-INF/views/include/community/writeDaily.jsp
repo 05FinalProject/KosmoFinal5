@@ -189,13 +189,13 @@
 									<div class="col">
 										<label class="font-weight-bold">글작성<span
 											style="color: red">*</span></label>
-										<textarea class="form-control" name="message" rows="8" aria-required="true" aria-label="Message"></textarea>
+										<textarea class="form-control" name="c_content" rows="8" aria-required="true" aria-label="Message"></textarea>
 									</div>
 								</div>
 								<div class="row text-center">
 									<div class="col" id="btn-group">
 										<button id="wrtieDaily-cancle" type="submit">취소</button>
-										<button id="writeDaily-btn" onclick="submitAction();" type="submit"">등록</button>
+										<button id="writeDaily-btn" type="submit">등록</button>
 									</div>
 								</div>
 							</form>

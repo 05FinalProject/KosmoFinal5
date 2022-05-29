@@ -39,32 +39,28 @@ public class CommunityController {
 	
 	//일상공유 게시글 작성
 	@RequestMapping(value="/community/writeDaily", method = RequestMethod.POST)
-	public String saveDaily(MultipartHttpServletRequest mtfRequest) {
+	public String insertDaily(CommunityVO vo) {
 		
-		List<MultipartFile> fileList = mtfRequest.getFiles("file");
-		String src = mtfRequest.getParameter("src");
-		System.out.println("src value : " + src);
-
-		String path = "C:\\FinalProject\\KosmoFinal5\\src\\main\\resources\\static\\imgFile\\";
-
-		for (MultipartFile mf : fileList) {
-			String originFileName = mf.getOriginalFilename(); // 원본 파일 명
-			long fileSize = mf.getSize(); // 파일 사이즈
-
-			System.out.println("originFileName : " + originFileName);
-			System.out.println("fileSize : " + fileSize);
-
-			String safeFile = path + System.currentTimeMillis() + originFileName;
-			try {
-				mf.transferTo(new File(safeFile));
-			} catch (IllegalStateException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		/*
+		 * List<MultipartFile> fileList = mtfRequest.getFiles("file"); String src =
+		 * mtfRequest.getParameter("src"); System.out.println("src value : " + src);
+		 * 
+		 * String path =
+		 * "C:\\FinalProject\\KosmoFinal5\\src\\main\\resources\\static\\imgFile\\";
+		 * 
+		 * for (MultipartFile mf : fileList) { String originFileName =
+		 * mf.getOriginalFilename(); // 원본 파일 명 long fileSize = mf.getSize(); // 파일 사이즈
+		 * 
+		 * System.out.println("originFileName : " + originFileName);
+		 * System.out.println("fileSize : " + fileSize);
+		 * 
+		 * String safeFile = path + System.currentTimeMillis() + originFileName; try {
+		 * mf.transferTo(new File(safeFile)); } catch (IllegalStateException e) { //
+		 * TODO Auto-generated catch block e.printStackTrace(); } catch (IOException e)
+		 * { // TODO Auto-generated catch block e.printStackTrace(); } }
+		 */
+		
+		c_service.insertDaily(vo);
 		
 		return "/include/community/dailyDetail";
 	}
