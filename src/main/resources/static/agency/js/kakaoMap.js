@@ -1,7 +1,7 @@
 var mapContainer = document.getElementById("map");
 mapOption = {
   center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-  level: 5, // 지도의 확대 레벨
+  level: 3, // 지도의 확대 레벨
 };
 
 var map = new daum.maps.Map(mapContainer, mapOption);
