@@ -131,10 +131,7 @@
 									</div>
 								</div>
 								<!-- Modal -->
-								<div class="modal fade" id="hotelModal${hotel.agencyNum}"
-									tabindex="-1"
-									aria-labelledby="hotelModal${hotel.agencyNum}Label"
-									aria-hidden="true">
+								<div class="modal fade" id="hotelModal${hotel.agencyNum}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 									<div class="modal-dialog">
 										<div class="modal-content">
 											<div class="modal-header">
@@ -142,7 +139,7 @@
 													id="hotelModal${hotel.agencyNum}Label">${hotel.agencyName}
 												</h5>
 												<button type="button" class="close" data-dismiss="modal"
-													aria-label="Close">
+													aria-label="Close" onclick="location.href='/admin/adminHotel'">
 													<span aria-hidden="true">&times;</span>
 												</button>
 											</div>

@@ -78,7 +78,7 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1>애견호텔</h1>
+							<h1>보호소</h1>
 						</div>
 					</div>
 				</div>
