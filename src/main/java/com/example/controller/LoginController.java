@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -124,6 +125,16 @@ public class LoginController {
 //		
 //
 //		return "Main";	// 회원 탈퇴 시 메인 페이지로 이동
-//	}
+//	}Y
 	
+	/* 마이페이지 회원 정보에 출력될 회원 레코드 검색 */
+//	@RequestMapping("myPageProfile")
+//	public String mypageMember(UserVO vo, HttpSession session, Model model) {
+//		vo.setUserEmail(session.getAttribute("userEmail").toString());
+//		System.out.println(vo.getUserEmail());
+//		UserVO user = lservice.userSearch(vo);
+//		model.addAttribute("UserVO", user);
+//
+//		return "mypageProfile";
+//	}
 }
