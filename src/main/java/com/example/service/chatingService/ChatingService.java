@@ -39,5 +39,7 @@ public interface ChatingService {
 	public int getRoomCnt();
 	
 	public List<ChatingRoomVO> roomSearch(ChatingRoomVO vo);
+	
+	public List<UserVO> friendList(String email);
 
 }

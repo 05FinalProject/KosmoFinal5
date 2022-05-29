@@ -260,7 +260,7 @@
 				<div class="col-md-8 col-xl-6 chat">
 					<div class="card">
 						<div class="card-header msg_head">
-							<span id="room" class="roomName font">${roomName}  #<label class="center">${roomNumber}</label>(<label id="getRoomNum">${getRoomNum-1}</label>)${sessionScope.email}</span>
+							<span id="room" class="roomName font">${roomName}  #<label class="center">${roomNumber}</label>(<label id="getRoomNum">${getRoomNum-1}</label>)</span>
 							<span class="float-right" onclick="goout()"><i class="fa-solid fa-right-from-bracket"></i></span>
 						</div>
 						<div class="card-body msg_card_body">
