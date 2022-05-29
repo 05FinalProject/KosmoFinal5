@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -119,6 +121,9 @@
 	width: 191px;
 	border-radius: 4px;
 	font-weight: bold;
+	padding:8px;
+	padding-left:80px;
+	padding-right:80px;
 }
 
 #writeDaily-btn {
@@ -129,6 +134,7 @@
 	width: 191px;
 	border-radius: 4px;
 	font-weight: bold;
+	
 }
 
 #btn-group {
@@ -170,12 +176,12 @@
 						<div class="post-content">
 							<h3 class="font-weight-bold">일상공유</h3>
 
-							<form id="contactform" class="contact-form mt-5" action="dailyDetail" method="post" enctype="multipart/form-data">
+							<form id="contactform" class="contact-form mt-5" action="writeDaily" method="post" enctype="multipart/form-data">
 								
 								<!-- 이미지 미리보기 -->
 								<div id='image_preview'>
 									<h4>미리보기</h4>
-									<input type='file' id='btnAtt' multiple='multiple' />
+									<input type='file' id='btnAtt' multiple='multiple' name="file"/>
 									<input type="hidden" id="img-test" name=""/>
 									<div id='att_zone'
 										data-placeholder='파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요'></div>
@@ -187,13 +193,13 @@
 									<div class="col">
 										<label class="font-weight-bold">글작성<span
 											style="color: red">*</span></label>
-										<textarea class="form-control" name="message" rows="8" aria-required="true" aria-label="Message"></textarea>
+										<textarea class="form-control" name="c_content" rows="8" aria-required="true" aria-label="Message"></textarea>
 									</div>
 								</div>
 								<div class="row text-center">
 									<div class="col" id="btn-group">
-										<button id="wrtieDaily-cancle" type="submit"">취소</button>
-										<button id="writeDaily-btn" onclick="submitAction();" type="submit"">등록</button>
+										<a href="daily" id="wrtieDaily-cancle">취소</a>
+										<button id="writeDaily-btn" type="submit">등록</button>
 									</div>
 								</div>
 							</form>
@@ -201,7 +207,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>  
 	</main>
 
 
@@ -244,7 +250,7 @@
 				    
 				    // 이미지와 체크 박스를 감싸고 있는 div 속성
 				    var div_style = 'display:inline-block;position:relative;'
-				                  + 'width:150px;height:120px;margin:5px;border:1px solid #00f;z-index:1';
+				                  + 'width:150px;height:120px;margin:5px;z-index:1';
 				    // 미리보기 이미지 속성
 				    var img_style = 'width:100%;height:100%;z-index:none';
 				    // 이미지안에 표시되는 체크박스의 속성
@@ -334,6 +340,10 @@
 				    }
 				  }
 				)('att_zone', 'btnAtt')
+				
+				
+				
+				/* 이미지 다중 업로드 */
 		 
 	</script>
 

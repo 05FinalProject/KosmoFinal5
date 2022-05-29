@@ -44,5 +44,6 @@ public class CommunityVO {
 	@ManyToOne
 	@JoinColumn(name = "user_email")
 	private UserVO user;
+	
 
 }
