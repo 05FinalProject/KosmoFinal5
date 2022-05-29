@@ -13,7 +13,16 @@ public class WalkController {
 	private WalkService walkService;
 	
 	@RequestMapping(value ="", method=RequestMethod.GET)
-	public String walk() {
+	public String walk(WalkVO vo) {
+		
+		
+		return "/walk/walk";
+	}
+	
+	@RequestMapping(value ="", method=RequestMethod.POST)
+	public String walk2(WalkVO vo) {
+		
+		walkService.insertWalk(vo);
 		
 		return "/walk/walk";
 	}

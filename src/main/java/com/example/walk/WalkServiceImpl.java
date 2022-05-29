@@ -1,5 +1,7 @@
 package com.example.walk;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +13,9 @@ public class WalkServiceImpl implements WalkService{
 
 	@Override
 	public void insertWalk(WalkVO vo) {
+		
+
+		
 		walkRepository.save(vo);
 		
 	}
