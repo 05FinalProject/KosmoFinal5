@@ -131,10 +131,7 @@
 									</div>
 								</div>
 								<!-- Modal -->
-								<div class="modal fade" id="hotelModal${hotel.agencyNum}"
-									tabindex="-1"
-									aria-labelledby="hotelModal${hotel.agencyNum}Label"
-									aria-hidden="true">
+								<div class="modal fade" id="hotelModal${hotel.agencyNum}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 									<div class="modal-dialog">
 										<div class="modal-content">
 											<div class="modal-header">
@@ -142,7 +139,7 @@
 													id="hotelModal${hotel.agencyNum}Label">${hotel.agencyName}
 												</h5>
 												<button type="button" class="close" data-dismiss="modal"
-													aria-label="Close">
+													aria-label="Close" onclick="location.href='/admin/adminHotel'">
 													<span aria-hidden="true">&times;</span>
 												</button>
 											</div>
@@ -152,41 +149,26 @@
 													<div class="row">
 														<form action="/admin/update" method="post">
 														  <input type="hidden" name="agencyNum" value="${hotel.agencyNum}">
-															<div class="row">
-																<div class="mb-3 col-md-6">
-																	<label for="exampleFormControlInput1"
-																		class="form-label">기관선택</label>
-																	<div class="form-group">
-																		<select class="form-control">
-																			<!-- 선택을 안하면 입력이 안되게 설정해야함(나중에)... -->
-																			<option>보호소</option>
-																			<option>동물병원</option>
-																			<option>애견호텔</option>
-																			<option>장례식장</option>
-																			<option>애견카페</option>
-																		</select>
-																	</div>
-																</div>
-
-																<div class="mb-3 col-md-6">
+															<div class="row">															
+																<div class="mb-3 col-md-12">
 																	<label for="exampleFormControlInput1"
 																		class="form-label">시설명</label> <input type="text"
 																		class="form-control" id="exampleFormControlInput1"
-																		name="facility">
+																		name="facility" value="${hotel.agencyName}">
 																</div>
 
 																<div class="mb-3 col-md-12">
 																	<label for="exampleFormControlInput1"
-																		class="form-label">시설주소</label> <input type="text"
+																		class="form-label">시설주소</label> <input type="hidden"
 																		id="sample6_postcode" placeholder="우편번호"
-																		class="form-control"> <input type="button"
-																		onclick="sample6_execDaumPostcode()" value="우편번호 찾기"
+																		class="form-control" readonly> <input type="button"
+																		onclick="sample6_execDaumPostcode()" value="주소찾기"
 																		class="btn btn-block btn-secondary"><br>
 																	<input type="text" id="sample6_address"
-																		placeholder="주소" class="form-control"><br>
+																		placeholder="주소" class="form-control"  value="${hotel.agencyAddress}" readonly name="addr"><br>
 																	<input type="text" id="sample6_detailAddress"
-																		placeholder="상세주소" class="form-control"> <input
-																		type="text" id="sample6_extraAddress"
+																		placeholder="상세주소" class="form-control" value="${hotel.agencyAddress2}" name="subAddr"> <input
+																		type="hidden" id="sample6_extraAddress"
 																		placeholder="참고항목" class="form-control">
 																</div>
 
@@ -194,7 +176,7 @@
 																	<label for="exampleFormControlInput1"
 																		class="form-label">전화번호</label> <input type="text"
 																		class="form-control" id="exampleFormControlInput1"
-																		name="tel">
+																		name="tel" value="${hotel.agencyTel}">
 																</div>
 
 																<div class="mb-3 col-md-12">
@@ -202,11 +184,11 @@
 																		class="form-label">소개글</label>
 																	<textarea class="form-control"
 																		id="exampleFormControlTextarea1" rows="3"
-																		placeholder="내용을 입력해주세요" name="content"></textarea>
+																		placeholder="내용을 입력해주세요" name="content" value="${hotel.agencyContent}"></textarea>
 																</div>
 
 																<div class="mb-3 col-md-12">
-																	<label for="exampleInputPassword1" class="form-label">이미지
+																	<label for="exampleInputPassword1" class="form-label" value="${hotel.agencyImage}">이미지
 																		첨부</label>
 																	<div class="custom-file">
 																		<input type="file" class="custom-file-input"
@@ -220,7 +202,7 @@
 																	<button type="submit" class="btn btn-secondary m-2"
 																		id="btnQnAWrite">수정</button>
 																	<button type="button" class="btn btn-secondary m-2"
-																		id="btnList" data-dismiss="modal">취소</button>
+																		id="btnList" data-dismiss="modal" onclick="location.href='/admin/adminHotel'">취소</button>
 																</div>
 
 															</div>

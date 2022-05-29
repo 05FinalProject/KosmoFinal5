@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.domain.AbandonedVO;
 import com.example.domain.AgencyVO;
 import com.example.domain.ReportVO;
 import com.example.domain.UserVO;
@@ -123,7 +124,16 @@ public class AdminMainController {
 	
 	//시설관리(보호소)
 	@RequestMapping(value="adminShelter", method=RequestMethod.GET)
-	public String adminShelter() {
+	public String adminShelter(Model m, AbandonedVO vo) {
+		int page = 1;
+		if(vo.getPage()!=0) {
+			page = vo.getPage();
+		}
+		Pageable paging = PageRequest.of(page-1, 9,Sort.Direction.ASC,"abNo");
+
+		m.addAttribute("paging",adminAgencyService.getAbandonePaging(paging) );
+		
+		m.addAttribute("count",adminAgencyService.countRecord() );
 		return "/admin/facilities/adminShelter";
 	}
 	
@@ -221,12 +231,12 @@ public class AdminMainController {
 		
 	//시설 수정
 	@RequestMapping(value="update", method = RequestMethod.POST)
-	public String adminUpdateFacilities(Integer agencyNum, @RequestParam String tel) {
-		adminAgencyService.updateAgency(agencyNum, tel);
-		return "redirect:/admin";
+	public String adminUpdateFacilities(Integer agencyNum, @RequestParam String tel, @RequestParam String facility, @RequestParam String content, @RequestParam String addr, @RequestParam String subAddr) {
+		adminAgencyService.updateAgency(agencyNum, tel, facility, content, addr, subAddr);
+		return "redirect:/admin/adminHotel";
 	}
 	
 	//시설삭제
 
-
+	
 }

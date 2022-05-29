@@ -155,11 +155,12 @@
 																	<div class="form-group">
 																		<select class="form-control">
 																			<!-- 선택을 안하면 입력이 안되게 설정해야함(나중에)... -->
-																			<option>보호소</option>
-																			<option>동물병원</option>
-																			<option>애견호텔</option>
-																			<option>장례식장</option>
-																			<option>애견카페</option>
+																			<option value="1">애견호텔</option>
+																			<option value="2">애견카페</option>
+																			<option value="3">동물병원</option>
+																			<option value="4">보호소</option>																			
+																			<option value="5">장례식장</option>
+																			
 																		</select>
 																	</div>
 																</div>

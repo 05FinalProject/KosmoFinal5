@@ -34,6 +34,9 @@ public class AgencyVO {
 	@Column(name = "a_address", length = 200)
 	private String agencyAddress;
 	
+	@Column(name = "a_address2", length = 200)
+	private String agencyAddress2;//상세주소
+	
 	@Column(name = "a_tel", length = 30)
 	private String agencyTel;
 	
