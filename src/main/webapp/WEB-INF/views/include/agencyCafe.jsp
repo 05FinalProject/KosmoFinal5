@@ -113,6 +113,13 @@
   margin: 0;
 }
 
+img{
+ position: absolute; top:0; left: 0;
+ width: 100%;
+ height: 100%;
+
+}
+
 /* .listing__item{
 border: 1px solid #008000;
 } */
@@ -135,7 +142,8 @@ border: 1px solid #008000;
     
   <div class="search1">
   <input class="search2" type="text" placeholder="검색">
-  <img class="search3" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+ <a href="#" class="btn btn-sm bg-teal search3"> <i class="fa-solid fa-trash-can"></i></a>
+										
 </div>
   
     
@@ -147,10 +155,10 @@ border: 1px solid #008000;
         <div class="listing__item">
           <!-- 여기에 img값 가지고와야함 동적으로 -->
           
-          
-          <div
+          <div >
+          <img 
             class="listing__item__pic set-bg"
-            data-setbg="${vo.agencyImage }">
+            src="${vo.agencyImage }">
             <div class="listing__item__pic__btns">
               <a href="#"><span class="icon_zoom-in_alt"></span></a>
               <a href="#"><span class="icon_heart_alt"></span></a>
@@ -192,7 +200,7 @@ border: 1px solid #008000;
 
 			<div class="nav-links">
 				<c:set var="recordsCnt" value="${count}" />
-				<c:set var="jspFile" value="agencyHotel?" />
+				<c:set var="jspFile" value="agencyCafe?" />
 				<c:set var="perpage" value="11" />
 			</div>
 
@@ -266,15 +274,48 @@ border: 1px solid #008000;
 
 <script type="text/javascript">
 
-  <script>
-      $("#filter-search").click(function name(params) {
-        var regex = /[^0-9.;\-]/g;
-        var result = $("#radius").val().replace(regex, "");
-        console.log(result);
-      });
-    </script>
-
-    <script>
+      $('.search3').click(function(){
+    	  
+     	 $.ajax({
+     		url:'/api/agencyCafeSearch',
+    		data:{agencyName:$('.search2').val()}, 
+    		type:'get',
+    		success:function(data){
+    			
+    				console.log(data)
+    				$('.listing__list').empty()
+    				data.forEach(function(d){
+    					var number = d.agencyNum
+    					$('.listing__list').append('<div class="listing__item"><div>'+
+  					          '<img class="listing__item__pic set-bg" src="'+ d.agencyImage +'" />'+
+  					           ' <div class="listing__item__pic__btns">'+
+  					            '  <a href="#"><span class="icon_zoom-in_alt"></span></a>'+
+  					             ' <a href="#"><span class="icon_heart_alt"></span></a>'+
+  					            '</div></div>'+
+  					          '<div class="listing__item__text">'+
+  					           ' <div class="listing__item__text__inside">'+
+  					            '  <a href="/include/agencyCafeDetail?agencyNum='+d.agencyNum+'"><h5>'+d.agencyName+'</h5></a>'+
+  					             ' <div class="listing__item__text__rating">'+
+  					              '  <div class="listing__item__rating__star">'+
+  					               '   <span class="icon_star"></span>'+
+  					                '  <span class="icon_star"></span>'+
+  					                 ' <span class="icon_star"></span>'+
+  					                 ' <span class="icon_star"></span>'+
+  					                 ' <span class="icon_star-half_alt"></span>'+
+  					                '</div> </div><ul>'+
+  					                '<li><span class="icon_pin_alt"></span>'+d.agencyAddress+'</li>'+
+  					                '<li><span class="icon_phone"></span>'+d.agencyTel+'</li>'+
+  					              '</ul></div></div></div>')
+    				} )
+    			
+    			}
+     	 })
+      
+      })
+      </script>
+      <!-- <script type="text/javascript">
+      
+   
       const slider = document.querySelector(".items");
       let isMouseDown = false;
       let startX, scrollLeft;
@@ -304,7 +345,10 @@ border: 1px solid #008000;
         const x = e.pageX - slider.offsetLeft;
         const walk = (x - startX) * 1;
         slider.scrollLeft = scrollLeft - walk;
-      });
+      }); -->
+      
+     
+   
     </script>
    </body>
  </html>

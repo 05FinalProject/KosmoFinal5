@@ -71,12 +71,6 @@
 						<div class="col-sm-6">
 							<h1>보호소</h1>
 						</div>
-						<div class="col-sm-6">
-							<ol class="breadcrumb float-sm-right">
-								<a href="/admin/adminFacilities"><button type="button"
-										class="btn btn-primary" id="regi">시설등록</button> </a>
-							</ol>
-						</div>
 					</div>
 				</div>
 				<!-- /.container-fluid -->

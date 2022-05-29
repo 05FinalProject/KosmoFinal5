@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.domain.AgencyVO;
 import com.example.domain.ReportVO;
@@ -190,12 +191,14 @@ public class AdminMainController {
 	public String adminDog() {
 		return "/admin/adminDog";					
 	}
-	
+					
+			
 	//시설추가
-	@RequestMapping(value="adminFacilities", method=RequestMethod.GET)
+	@RequestMapping(value="adminAddFacilities", method=RequestMethod.GET)
 	public String adminAddFacilities() {
 		return "/admin/facilities/adminAddFacilities";						
 	}
+	
 	
 	//커뮤 관리
 	@RequestMapping(value="adminComunities", method=RequestMethod.GET)
@@ -215,15 +218,15 @@ public class AdminMainController {
 		adminUserService.deleteUser(vo);
 		return "redirect:/adminUser";
 	}
+		
+	//시설 수정
+	@RequestMapping(value="update", method = RequestMethod.POST)
+	public String adminUpdateFacilities(Integer agencyNum, @RequestParam String tel) {
+		adminAgencyService.updateAgency(agencyNum, tel);
+		return "redirect:/admin";
+	}
 	
 	//시설삭제
-	
-	//시설 수정
-	@RequestMapping(value="{agencyNum}", method = RequestMethod.PUT)
-	public String adminUpdateFacilities(AgencyVO vo) {
-		
-		return "/admin/facilities/adminUpdateFacilities";
-	}
 
 
 }

@@ -2,7 +2,6 @@ package com.example.service.admin;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -58,9 +57,18 @@ public class AdminAgencyServiceImpl implements AdminAgencyService{
 	public int countFunehallRecord() {
 		
 		return aRepo.countFunehallRecord();
-	}
+	}	
 	
-	
+	@Override
+	public AgencyVO updateAgency(Integer agencyNum, String tel) {
+		
+		AgencyVO updateAgency =  aRepo.findById(agencyNum).get();//찾는거
+//		updateAgency.setAgencyName(agencyName);//값 변경
+//		updateAgency.setAgencyAddress(agencyAddress);
+		updateAgency.setAgencyTel(tel);
+		
+		return aRepo.save(updateAgency);//업데이트 문장 돌리기
+	}		
 	
 
 }
