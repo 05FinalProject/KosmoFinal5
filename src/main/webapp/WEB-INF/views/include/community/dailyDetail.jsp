@@ -93,6 +93,7 @@ information-content {
 
 <body>
 	<div id="total">
+	
 		<div class="row justify-content-center">
 			<div class="col-lg-6 col-md-12">
 				<div class="pet-details-image">
@@ -100,6 +101,7 @@ information-content {
 					<!-- <img src="../../img/emptyHeart.png"> -->
 				</div>
 			</div>
+			
 			<div class="col-lg-6 col-md-12">
 				<div class="products-details-content">
 					<div id="userProfile">
@@ -112,16 +114,10 @@ information-content {
 
 					<div>
 
-						<p>Curabitur arcu erat accumsan id imperdiet et porttitor at
-							sem vivamus magna justo lacinia eget consectetur sed convallis at
-							tellus.</p>
-						<p>Proin eget tortor risus donec rutrum congue leo eget
-							malesuada mauris blandit aliquet elit eget tincidunt nibh
-							pulvinar curabitur arcu erat accumsan id imperdiet et porttitor
-							at sem.</p>
+						<p>${community.c_content }</p>
 
 						<div id="etc">
-							<small> <span>작성일 표시</span>
+							<small> <span>${community.c_insertdate }</span>
 							</small>
 							<button id="siren">
 								<img src="../../img/siren.png">
@@ -143,7 +139,7 @@ information-content {
 					<br/>
 
 					<div class="write-comment">
-						<form>
+						<form action="">
 						<div class="total-comment">
 							<label>댓글</label> 
 							<div class="comment-input">
@@ -161,6 +157,7 @@ information-content {
 
 				</div>
 			</div>
+		
 		</div>
 	</div>
 

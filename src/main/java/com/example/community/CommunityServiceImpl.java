@@ -21,5 +21,9 @@ public class CommunityServiceImpl implements CommunityService {
 	public void insertDaily(CommunityVO vo) {
 		communityRepo.save(vo);
 	}
+	
+	public CommunityVO getCommunity(CommunityVO vo) {
+		return communityRepo.findById(vo.getC_num()).get();
+	}
 
 }
