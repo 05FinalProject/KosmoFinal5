@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	
 <!doctype html>
 <html lang="ko">
 <head>
@@ -95,7 +97,7 @@
 						id="page-dropdown" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false">커뮤니티</a>
 						<ul class="dropdown-menu" aria-labelledby="page-dropdown">
-							<li><a class="dropdown-item" href="#">일상공유</a></li>
+							<li><a class="dropdown-item" href="community/daily">일상공유</a></li>
 							<li><a class="dropdown-item" href="#">자원봉사</a></li>
 							<li><a class="dropdown-item" href="#">가정분양</a></li>
 							<li><a class="dropdown-item" href="#">물품나눔</a></li>
@@ -110,18 +112,18 @@
 						aria-expanded="false">관련기관</a>
 						<ul class="dropdown-menu" aria-labelledby="page-dropdown">
 							<li><a class="dropdown-item" href="#">훈련소</a></li>
-							<li><a class="dropdown-item" href="#">보호소</a></li>
+							<li><a class="dropdown-item" href="agencyShelter">보호소</a></li>
 							<li><a class="dropdown-item" href="#">동물병원</a></li>
-							<li><a class="dropdown-item" href="#">애견호텔</a></li>
+							<li><a class="dropdown-item" href="agencyHotel">애견호텔</a></li>
 							<li><a class="dropdown-item" href="#">유치원</a></li>
 							<li><a class="dropdown-item" href="#">장례식장</a></li>
-							<li><a class="dropdown-item" href="#">애견카페</a></li>
+							<li><a class="dropdown-item" href="agencyCafe">애견카페</a></li>
 							<li><a class="dropdown-item" href="#">공원</a></li>
 						</ul>
 					</li>
 
 
-					<li class="nav-item"><a class="nav-links info" href="#">반려견 사전</a></li>
+					<li class="nav-item"><a class="nav-links info" href="encyclopedia">반려견 사전</a></li>
 
 				</ul>
 				<form class="search-widget d-none d-xl-inline-flex" style="background-color:white; border-radius:10px;">
@@ -130,14 +132,25 @@
 				
 				<div class="button-nav-widget d-none d-xl-inline-flex" style="margin-right:3%;">
 					<ul class="nav button-nav">
-						<li class="nav-item" style="color:white;"><a href="Login"
-							class="btn btn-sm text-uppercase font-weight-bold my-auto">
-								<img class="signUplogo" src="/img/Guest.png"/> </a></li>
+											<!-- 세션입력에 따른 헤더 노출화면 -->
+						<c:if test="${empty sessionScope.userNickname }">											
+						<li class="nav-item" style="color:white;">
+						<a href="Login" class="btn btn-sm text-uppercase font-weight-bold my-auto" style="color:white;"> Login </a>
+						</li>
+						</c:if>
+						
+						<c:if test="${not empty sessionScope.userNickname }">
+						<li class="nav-item" style="color:white;">
+						<a href="myPage/myPageProfile"> <%= session.getAttribute("userNickname") %></a>님 환영합니다.
+						</li>
+						<li class="nav-item">
+						<a href="logout" style="color:white;">Logout</a>
+						</li>
+						</c:if>
+
+						
 					</ul>
-				</div>
-				<div>
-					<h1>"${session['user'].userName}"</h1>님 환영합니다.
-				</div>
+					</div >
 			</div>
 
 		</nav>

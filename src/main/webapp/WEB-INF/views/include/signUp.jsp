@@ -38,7 +38,7 @@
 									</div>
 
 									<!-- FORM -->
-									<form id="member_frm" action="Main" method="post" name="member_frm">
+									<form id="member_frm" action="signUpSuccess" method="post" name="member_frm">
 										
 										<!-- 닉네임 -->
 										<div class="form-group first field--not-empty">

@@ -113,6 +113,17 @@
   margin: 0;
 }
 
+#agencyImage {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.wh {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
 /* .listing__item{
 border: 1px solid #008000;
 } */
@@ -133,9 +144,9 @@ border: 1px solid #008000;
    <!-- Listing Section Begin -->
     <section class="listing nice-scroll">
     
-  <div class="search1">
+  <div class="search1 wh" >
   <input class="search2" type="text" placeholder="검색">
-  <img class="search3" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+  <img class="search3 wh" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
 </div>
   
     
