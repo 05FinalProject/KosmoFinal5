@@ -6,7 +6,6 @@ import org.springframework.data.domain.Pageable;
 
 import com.example.domain.AbandonedVO;
 import com.example.domain.AgencyVO;
-import com.example.domain.ChatingRoomVO;
 import com.example.domain.DogKindVO;
 
 
@@ -44,6 +43,9 @@ public interface AgencyService {
 	
 	//카페 상세 띄우기
 	AgencyVO getagencyCafe(AgencyVO vo);
+	
+	//백과사전 상세 띄우기
+	//DogKindVO getencyclopedia(DogKindVO vo);
 	
 	
 //***************************************************
