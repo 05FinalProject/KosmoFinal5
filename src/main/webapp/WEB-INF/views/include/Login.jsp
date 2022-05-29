@@ -44,14 +44,14 @@
                   </div>
                   <p class="mb-4"></p>
                 </div>
-                <form action="loginMove.do" method="post" id="loginForm" name="loginForm">
+                <form action="loginMove" method="post" id="loginForm" name="loginForm">
                   <div class="form-group first field--not-empty" id="CookieEmail">
-                    <label for="user_email">이메일&nbsp; &nbsp; &nbsp; &nbsp;<span class="error_box"></span></label>
-                    <input type="email" class="form-control" id="user_email" name="user_email" >
+                    <label for="userEmail">이메일&nbsp; &nbsp; &nbsp; &nbsp;<span class="error_box"></span></label>
+                    <input type="email" class="form-control" id="userEmail" name="userEmail" >
                   </div>
                   <div class="form-group last mb-4 field--not-empty" >
-                    <label for="user_pass">비밀번호&nbsp; &nbsp; &nbsp; &nbsp;<span class="error_box"></span></label>
-                    <input type="password" class="form-control" id="user_pass" name="user_pass">
+                    <label for="userPass">비밀번호&nbsp; &nbsp; &nbsp; &nbsp;<span class="error_box"></span></label>
+                    <input type="password" class="form-control" id="userPass" name="userPass">
                     
                   </div>
                   
@@ -111,11 +111,12 @@
 			$(".btn-orange").css("background-color","#F8b03a");
 		});
 	});
-	 
+	
+	/*
 	$('#btnLogin').click(function(){
 		$.ajax({
 			url:'/api/checkLogin',
-			data:{userEmail:$('#user_email').val(),userPass:$('#user_pass').val()},
+			data:{userEmail:$('#userEmail').val(),userPass:$('#userPass').val()},
 			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 			success:function(data){
 				if(data == 'yes'){
@@ -126,6 +127,7 @@
 			}
 		})
 	})
+	*/
     </script>
   </body>
 </html>

@@ -15,23 +15,8 @@ public class HomeController {
 	@Autowired
 	private SignUpService signUp;
 
-	@RequestMapping("Header")
-	public void HeaderPage() {
-	}
-
-	@RequestMapping("/Footer")
-	public void FooterPage() {
-	}
-
 	@RequestMapping("/Main")
 	public void MainPage(UserVO vo) {
-		if (vo.getAddr3() != null) {
-			vo.setUserAddress(vo.getAddr2() + vo.getAddr3());
-			vo.setUserBlack("N");
-			vo.setUserAdmin("N");
-
-			signUp.insertUser(vo);
-		}
 	}
 
 	@RequestMapping("/signUp")
@@ -39,9 +24,19 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/signUpSuccess")
-	public void signUp(UserVO vo) {
+	public String signUp(UserVO vo) {
+		if (vo.getAddr3() != null) {
+			vo.setUserAddress(vo.getAddr2() + vo.getAddr3());
+			vo.setUserBlack("N");
+			vo.setUserAdmin("N");
+
+			signUp.insertUser(vo);
+			
+			return "redirect:Login";
+		} else {
+			return "redirect:signUp";
+		}
 	}
-	
 
 	@RequestMapping(value = "/nicknameCheck", produces = "application/text;charset=utf-8")
 	@ResponseBody

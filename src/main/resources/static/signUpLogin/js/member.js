@@ -291,60 +291,60 @@ $('#btnSignUp').click(function(){
 	로그인 버튼 클릭
 */
 
-//$('#btnLogin').click(function(){
+$('#btnLogin').click(function(){
 
-//	var user_email = $.trim($("#user_email").val());
-	//var user_pass = $.trim($("#user_pass").val());
-	//var rememberEmail = false;
+	var userEmail = $.trim($("#userEmail").val());
+	var userPass = $.trim($("#userPass").val());
+	var rememberEmail = false;
 
 	/* 이메일 */
-	//if(user_email == ''){
-		//$('label[for="user_email"] .error_box').html(blank);
-		//$('#user_email').focus();
-    //		return;
-		//}else{
-		//$('label[for="user_email"] .error_box').html("");
-		//}	
+	if(userEmail == ''){
+		$('label[for="userEmail"] .error_box').html(blank);
+		$('#userEmail').focus();
+    		return;
+		}else{
+		$('label[for="userEmail"] .error_box').html("");
+		}	
 	
 	/* 비밀번호 */
-	//if(user_pass == ''){
-	//	$('label[for="user_pass"] .error_box').html(blank);
-	//	$('#user_pass').focus();
-    	//	return;
-	//	}else{
-		//$('label[for="user_pass"] .error_box').html("");
-		//}
+	if(userPass == ''){
+		$('label[for="userPass"] .error_box').html(blank);
+		$('#userPass').focus();
+    		return;
+		}else{
+		$('label[for="userPass"] .error_box').html("");
+		}
 	
 	/* 이메일 기억하기 체크 박스*/
-	//if( $("#user_email").is(':checked') ){
-		//rememberEmail = true;
-		//}//end of if
+	if( $("#userEmail").is(':checked') ){
+		rememberEmail = true;
+		}//end of if
 	
-  //$.ajax({
-//	type : 'post',
-	//url : 'loginCheck',
-	//data : { user_email : $("#user_email").val(),
-	//		user_pass : $("#user_pass").val(),
-	//		rememberEmail : rememberEmail
-	// 		},
-	//contentType : 'application/x-www-form-urlencoded;charset=utf-8',
-	//success : function(result){
+  $.ajax({
+	type : 'post',
+	url : 'loginCheck',
+	data : { userEmail : $("#userEmail").val(),
+			userPass : $("#userPass").val(),
+			rememberEmail : rememberEmail
+	 		},
+	contentType : 'application/x-www-form-urlencoded;charset=utf-8',
+	success : function(result){
 		// 중복 검사 후 나오는 결과 에러박스에 출력
-		//if(result == "N"){
-       // 		$('.error_box.login').html("존재하는 회원이 아니거나 비밀번호가 일치하지 않습니다.");
+		if(result == "N"){
+        		$('.error_box.login').html("존재하는 회원이 아니거나 비밀번호가 일치하지 않습니다.");
 			
-		//	}else{
+			}else{
 			// 결과가 result = "Y"이면 로그인 성공 -> loginMove로 이동
-        //		document.loginForm.submit();
-		//	}
-//	},
-	//error : function(err){
-	//	alert(err);
-	//	console.log(err);
-	//}
-	//});//end of ajax
+        		document.loginForm.submit();
+			}
+	},
+	error : function(err){
+		alert(err);
+		console.log(err);
+	}
+	});//end of ajax
 	
-//}); //end of #btnLogin 
+}); //end of #btnLogin 
 
 
 /*********************************************************************
