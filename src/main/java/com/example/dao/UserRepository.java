@@ -14,6 +14,8 @@ public interface UserRepository extends CrudRepository<UserVO, String>{
 	UserVO findByUserEmail(String userEmail);
 
 	
+
+	
 	
 	
 	

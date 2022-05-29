@@ -98,7 +98,7 @@
 								style="padding:1%; margin-top:50%;">
 								회원탈퇴</i>
 							</button>
-							<input type="file" id="file" style="display: none;">
+							<input type="button" id="userDelete" style="display: none;">
 						</div>
 
 					</ul>

@@ -92,14 +92,10 @@ public class SignUpServiceImpl implements SignUpService {
 //		return memberDAO.memberUpdate(vo);
 //	}
 //
-//	/** 회원 탈퇴
-//	 *  - DB에 동일한 이메일과 패스워드를 가진 회원의 레코드를 삭제
-//	 * @param MemberVO vo 
-//	 * @return int ( 입력 성공 시 1을 리턴 )
-//	 */
+//	/* 회원 탈퇴 - DB에 동일한 이메일과 패스워드를 가진 회원의 레코드를 삭제 */
 //	@Override
 //	public int userDelete(UserVO vo) {
-//		return userDAO.userDelete(vo);
+//		return user.userDelete(vo);
 //	}
 //
 //	@Override
