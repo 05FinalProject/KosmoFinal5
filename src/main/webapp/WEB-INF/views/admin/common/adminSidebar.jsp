@@ -122,7 +122,7 @@
             </a>
             <ul class="nav nav-treeview">      
               <li class="nav-item">
-                <a href="/admin/adminAddFacilities" class="nav-link" id="facilities">
+                <a href="/admin/adminAddFacilities" class="nav-link" id="addFacilities">
                   <i class="far fa-circle nav-icon"></i>
                   <p>시설등록</p>
                 </a>

@@ -4,16 +4,16 @@ import java.util.List;
 
 import org.springframework.data.domain.Pageable;
 
+import com.example.domain.AbandonedVO;
 import com.example.domain.AgencyVO;
 
 public interface AdminAgencyService {
 	
-	//페이징 처리
+	//*********페이징 처리********************
 	public List<AgencyVO> getHotelPaging(Pageable paging);
 	
 	public int countHotelRecord();
 	
-	//페이징 처리
 	public List<AgencyVO> getCafetPaging(Pageable paging);
 		
 	public int countCafeRecord();
@@ -26,7 +26,13 @@ public interface AdminAgencyService {
 	
 	public int countFunehallRecord();
 	
+	public List<AbandonedVO> getAbandonePaging(Pageable paging);
+	
+	public int countRecord();
+	//****************************************
+	
+	
 	//시설수정
-	public AgencyVO updateAgency(Integer agencyNum, String tel);
+	public AgencyVO updateAgency(Integer agencyNum, String tel, String address, String name, String content);
 	
 }
