@@ -2,16 +2,20 @@ package com.example.service.chatingService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.dao.ChatingRoomRepository;
+import com.example.dao.FriendRepository;
 import com.example.dao.ImgRepository;
 import com.example.dao.UserRepository;
 import com.example.domain.ChatingRoomVO;
+import com.example.domain.FriendVO;
 import com.example.domain.ImgVO;
 import com.example.domain.UserVO;
 
@@ -26,6 +30,9 @@ public class ChatingServiceImpl implements ChatingService {
 	
 	@Autowired
 	private ImgRepository img;
+	
+	@Autowired
+	private FriendRepository fri;
 	
 	//채팅방멤버삭제
 	public void deleteByRoomMember(ChatingRoomVO vo) {
@@ -143,6 +150,23 @@ public class ChatingServiceImpl implements ChatingService {
 		}
 		
 		return list;
+	}
+	
+	//친구List 얻어오기
+	public List<UserVO> friendList(String email){
+		ArrayList<UserVO> userList = new ArrayList<UserVO>();
+		List<FriendVO> list = fri.friendList(email);
+		Set<String> emails = new HashSet<String>(); 
+		for(FriendVO vo:list) {
+			emails.add(vo.getUser1().getUserEmail());
+			emails.add(vo.getUser2().getUserEmail());
+		}
+		emails.remove(email);
+		for(String e : emails) {
+			userList.add(usr.findById(e).get());
+		}
+		
+		return userList;
 	}
 	
 }
