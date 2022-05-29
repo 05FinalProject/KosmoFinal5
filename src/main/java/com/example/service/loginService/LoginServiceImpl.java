@@ -1,7 +1,5 @@
 package com.example.service.loginService;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,13 +11,10 @@ public class LoginServiceImpl implements LoginService {
 	
 	@Autowired
 	private UserRepository user;
-	
-	public UserVO getUser(UserVO vo) {
-		Optional<UserVO> findUser = user.findById(vo.getUserEmail());
-		if(findUser.isPresent())
-			return findUser.get();
-		else return null;
+
+	@Override
+	public UserVO findByUserEmail(String userEmail) {
+		return user.findByUserEmail(userEmail);
 	}
-	
 
 }

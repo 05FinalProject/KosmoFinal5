@@ -10,6 +10,10 @@ import com.example.domain.UserVO;
 public interface UserRepository extends CrudRepository<UserVO, String>{
 
 	Optional<UserVO> findByUserNickname(String userNickname);
+
+	UserVO findByUserEmail(String userEmail);
+
+	
 	
 	
 	

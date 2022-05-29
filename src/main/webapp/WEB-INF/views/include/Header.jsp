@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	
 <!doctype html>
 <html lang="ko">
 <head>
@@ -130,14 +132,18 @@
 				
 				<div class="button-nav-widget d-none d-xl-inline-flex" style="margin-right:3%;">
 					<ul class="nav button-nav">
-						<li class="nav-item" style="color:white;"><a href="Login"
-							class="btn btn-sm text-uppercase font-weight-bold my-auto">
-								<img class="signUplogo" src="/img/Guest.png"/> </a></li>
+						<li class="nav-item" style="color:white;">
+						
+						<c:if test="${empty sessionScope.userNickname }">
+						<a href="Login" class="btn btn-sm text-uppercase font-weight-bold my-auto" style="color:white;"> Login </a>
+						</c:if>
+						<c:if test="${not empty sessionScope.userNickname }">
+						<a href="myPageProfile=${sessionScope.userNickname }"> <%= session.getAttribute("userNickname") %></a>님 환영합니다.
+						</c:if>
+						
+						</li>
 					</ul>
-				</div>
-				<div>
-					<h1>"${session['user'].userName}"</h1>님 환영합니다.
-				</div>
+					</div >
 			</div>
 
 		</nav>
