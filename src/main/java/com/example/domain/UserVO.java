@@ -65,4 +65,6 @@ public class UserVO {
 	@Transient
 	private int page;
 	
+	@Transient
+	private boolean isRememberEmail;
 }

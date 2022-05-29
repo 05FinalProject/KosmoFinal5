@@ -38,7 +38,7 @@
 									</div>
 
 									<!-- FORM -->
-									<form id="member_frm" action="Main" method="post" name="member_frm">
+									<form id="member_frm" action="signUpSuccess" method="post" name="member_frm">
 										
 										<!-- 닉네임 -->
 										<div class="form-group first field--not-empty">
@@ -57,61 +57,61 @@
 
 										<!-- EMAIL -->
 										<div class="form-group first field--not-empty">
-											<div class="email_check col-md-9">
-												<label for="user_email">이메일&nbsp; &nbsp; &nbsp; &nbsp;<span
+											<div class="emailCheck col-md-9">
+												<label for="userEmail">이메일&nbsp; &nbsp; &nbsp; &nbsp;<span
 														class="error_box"></span></label>
-												<input type="email" class="form-control" id="user_email"
-													name="user_email">
+												<input type="email" class="form-control" id="userEmail"
+													name="userEmail">
 											</div>
 
-											<div class='email_check col-md-3'>
-												<button type="button" id="btn_emailCheck" class="btn_check btn-pill btn-orange">
+											<div class='emailCheck col-md-3'>
+												<button type="button" id="btnEmailCheck" class="btn_check btn-pill btn-orange">
 													<span class="text-white btn_text">중복확인</span></button>
 											</div>
 										</div>
 
 										<!-- PW -->
 										<div class="form-group first field--not-empty">
-											<label for="user_pass">비밀번호&nbsp; &nbsp; &nbsp; &nbsp;<span
+											<label for="userPass">비밀번호&nbsp; &nbsp; &nbsp; &nbsp;<span
 													class="error_box"></span></label>
-											<input type="password" class="form-control" id="user_pass"
-												name="user_pass">
+											<input type="password" class="form-control" id="userPass"
+												name="userPass">
 										</div>
 
 										<!-- PW CHECK -->
 										<div class="form-group first field--not-empty">
-											<label for="user_passCheck">비밀번호 재확인 &nbsp; &nbsp; &nbsp; &nbsp;<span
+											<label for="userPassCheck">비밀번호 재확인 &nbsp; &nbsp; &nbsp; &nbsp;<span
 													class="error_box"></span></label>
-											<input type="password" class="form-control" id="user_passCheck">
+											<input type="password" class="form-control" id="userPassCheck">
 										</div>
 
 										<!-- NAME -->
 										<div class="form-group first field--not-empty">
-											<label for="user_name">이름&nbsp; &nbsp; &nbsp; &nbsp;<span
+											<label for="userName">이름&nbsp; &nbsp; &nbsp; &nbsp;<span
 													class="error_box"></span></label>
-											<input type="text" class="form-control" id="user_name" name="user_name">
+											<input type="text" class="form-control" id="userName" name="userName">
 										</div>
 
 										<!-- TEL -->
 										<div class="form-group first field--not-empty">
-											<label for="user_phone">휴대전화&nbsp; &nbsp; &nbsp; &nbsp;<span
+											<label for="userPhone">휴대전화&nbsp; &nbsp; &nbsp; &nbsp;<span
 													class="error_box"></span></label>
-											<input type="tel" class="form-control" id="user_phone" name="user_phone">
+											<input type="tel" class="form-control" id="userPhone" name="userPhone">
 										</div>
 										<br/>
 										<!-- 성별 -->
 										<div class="form-group">
-											<label for="user_gender">성별&nbsp; &nbsp; &nbsp; &nbsp;<span
+											<label for="userGender">성별&nbsp; &nbsp; &nbsp; &nbsp;<span
 													class="error_box"></span>													
 													</label>
 										</div>
 										<div class="form_toggle row-vh d-flex flex-row justify-content-between" >
 											<div class="form_radio_btn radio_male">
-												<input id="radio-1" type="radio" name="user_gender" value="남" checked>
+												<input id="radio-1" type="radio" name="userGender" value="남" checked>
 												<label for="radio-1">남자</label>
 											</div>							 
 											<div class="form_radio_btn">
-												<input id="radio-2" type="radio" name="user_gender" value="여">
+												<input id="radio-2" type="radio" name="userGender" value="여">
 												<label for="radio-2">여자</label>
 											</div>
 										</div>
@@ -479,7 +479,7 @@
 											▶ 이전 이용 약관 보기 (0000년 00월 00일 ~ 0000년 00월 00일)
 										</div>
 										
-										<input type="button" value="가입하기" id="btn_signUp" class="btn btn-pill btn-block text-white btn-orange" style="background-color:#F8b03a; color:white;" >
+										<input type="button" value="가입하기" id="btnSignUp" class="btn btn-pill btn-block text-white btn-orange" style="background-color:#F8b03a; color:white;" >
 										<div class="d-flex mb-5 align-items-center" id="homeGO">
 											<label class="control control--checkbox mb-0"><span class="caption"></span>
 											</label>
@@ -511,8 +511,8 @@
 						$("#agreeForm").css("display", "none")
 					}
 				});
-				$("#btn_signUp").mouseover(function(){
-					$("#btn_signUp").css("background-color","#dc6721");
+				$("#btnSignUp").mouseover(function(){
+					$("#btnSignUp").css("background-color","#dc6721");
 				});
 				$(".btn-orange").mouseout(function(){
 					$(".btn-orange").css("background-color","#F8b03a");
@@ -525,11 +525,11 @@
 					$(".Addr").css("background-color","#F8b03a");
 				});
 				
-				$("#btn_emailCheck").mouseover(function(){
-					$("#btn_emailCheck").css("background-color","#dc6721");
+				$("#btnEmailCheck").mouseover(function(){
+					$("#btnEmailCheck").css("background-color","#dc6721");
 				});
-				$("#btn_emailCheck").mouseout(function(){
-					$("#btn_emailCheck").css("background-color","#F8b03a");
+				$("#btnEmailCheck").mouseout(function(){
+					$("#btnEmailCheck").css("background-color","#F8b03a");
 				});
 				
 				$("#btnNicknameCheck").mouseover(function(){

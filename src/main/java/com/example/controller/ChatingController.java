@@ -63,10 +63,13 @@ public class ChatingController {
 	}
 	
 	@GetMapping("/friendChat")
-	public void friendChat(UserVO vo ,HttpServletRequest request) {
+	public void friendChat(UserVO vo ,HttpServletRequest request,Model m) {
+		//session 생성 및 user의 Email 저장
 		HttpSession session = request.getSession();
-		System.out.println(session);
 		session.setAttribute("email", vo.getUserEmail());
+		//친구List 얻어오기
+		m.addAttribute("userList", service.friendList(vo.getUserEmail()));
+		
 	}
 	
 	
