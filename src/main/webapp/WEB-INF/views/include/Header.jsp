@@ -97,7 +97,7 @@
 						id="page-dropdown" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false">커뮤니티</a>
 						<ul class="dropdown-menu" aria-labelledby="page-dropdown">
-							<li><a class="dropdown-item" href="#">일상공유</a></li>
+							<li><a class="dropdown-item" href="community/daily">일상공유</a></li>
 							<li><a class="dropdown-item" href="#">자원봉사</a></li>
 							<li><a class="dropdown-item" href="#">가정분양</a></li>
 							<li><a class="dropdown-item" href="#">물품나눔</a></li>
@@ -132,16 +132,23 @@
 				
 				<div class="button-nav-widget d-none d-xl-inline-flex" style="margin-right:3%;">
 					<ul class="nav button-nav">
+											<!-- 세션입력에 따른 헤더 노출화면 -->
+						<c:if test="${empty sessionScope.userNickname }">											
 						<li class="nav-item" style="color:white;">
-						
-						<c:if test="${empty sessionScope.userNickname }">
 						<a href="Login" class="btn btn-sm text-uppercase font-weight-bold my-auto" style="color:white;"> Login </a>
-						</c:if>
-						<c:if test="${not empty sessionScope.userNickname }">
-						<a href="myPageProfile=${sessionScope.userNickname }"> <%= session.getAttribute("userNickname") %></a>님 환영합니다.
+						</li>
 						</c:if>
 						
+						<c:if test="${not empty sessionScope.userNickname }">
+						<li class="nav-item" style="color:white;">
+						<a href="myPage/myPageProfile"> <%= session.getAttribute("userNickname") %></a>님 환영합니다.
 						</li>
+						<li class="nav-item">
+						<a href="logout" style="color:white;">Logout</a>
+						</li>
+						</c:if>
+
+						
 					</ul>
 					</div >
 			</div>

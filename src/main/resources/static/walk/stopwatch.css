@@ -1,0 +1,31 @@
+.walkTimer {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.box {
+  width: 200px;
+  height: 200px;
+}
+.timerBox {
+  width: 200px;
+  outline: 2px solid black;
+}
+.timerBox .time {
+  font-size: 30pt;
+  color: #4c4c4c;
+  text-align: center;
+  font-family: sans-serif;
+}
+.btnBox {
+  margin: 20px auto;
+  text-align: center;
+}
+.btnBox .fa {
+  margin: 0px 5px;
+  font-size: 30pt;
+  color: #faed7d;
+  cursor: pointer;
+}
