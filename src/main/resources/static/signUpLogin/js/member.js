@@ -520,10 +520,10 @@ $('#btnMemberUpdate').click(function(){
 $('#btnAgree').click(function(){
 	$('#agreeForm').toggle();
 });
-$('#btnMemberDelete').click(function(){
+$('#userDelete').click(function(){
 	var result = confirm("정말 탈퇴하시겠습니까?");
 	if(result){
-		document.user_delete.submit();
+		document.userDelete.submit();
 	}
 
 })
