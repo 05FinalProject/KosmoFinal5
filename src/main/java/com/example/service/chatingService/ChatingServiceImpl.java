@@ -153,20 +153,25 @@ public class ChatingServiceImpl implements ChatingService {
 	}
 	
 	//친구List 얻어오기
-	public List<UserVO> friendList(String email){
-		ArrayList<UserVO> userList = new ArrayList<UserVO>();
+	public List<HashMap> friendList(String email){
 		List<FriendVO> list = fri.friendList(email);
 		Set<String> emails = new HashSet<String>(); 
-		for(FriendVO vo:list) {
-			emails.add(vo.getUser1().getUserEmail());
-			emails.add(vo.getUser2().getUserEmail());
+		ArrayList<HashMap> rlist = new ArrayList<HashMap>() ;
+		HashMap hm ;
+		for(FriendVO f : list) {
+			emails.add(f.getUser1().getUserEmail());
+			emails.add(f.getUser2().getUserEmail());
 		}
 		emails.remove(email);
 		for(String e : emails) {
-			userList.add(usr.findById(e).get());
+			hm = new HashMap();
+			hm.put("img", img.findByUserEmail(e).get(0).getPRimgname()); //img
+			hm.put("nickName",usr.findById(e).get().getUserNickname());//niname
+			hm.put("email", e);
+			hm.put("friendNo", fri.getFriendNo(e,email));
+			rlist.add(hm);
 		}
-		
-		return userList;
+		return rlist;
 	}
 	
 }
