@@ -24,8 +24,8 @@ import lombok.Data;
 public class CommentVO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "b_first")
-	private Integer comment_num;
+	@Column(name = "comment_num")
+	private Integer commentNum;
 
 	@ManyToOne
 	@JoinColumn(name="u_email")
