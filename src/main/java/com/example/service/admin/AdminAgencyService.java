@@ -1,5 +1,6 @@
 package com.example.service.admin;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.data.domain.Pageable;
@@ -32,7 +33,7 @@ public interface AdminAgencyService {
 	//****************************************
 	
 	//차트 
-	public List<AgencyVO> chartAgencyCount(AgencyVO vo);
+	public List<HashMap<String, Object>> chartAgencyCount();
 	
 	
 	//시설수정

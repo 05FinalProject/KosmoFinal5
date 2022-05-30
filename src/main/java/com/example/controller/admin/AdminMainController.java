@@ -49,25 +49,28 @@ public class AdminMainController {
 
 	//차트
 	@RequestMapping(value="/adminChartsjs", method=RequestMethod.GET)
-	public String charts(AgencyVO vo, Model model) {
+	public String charts(Model model) {
 		//리스트 담기 
-		List<AgencyVO> list = adminAgencyService.chartAgencyCount(vo);
+		List<HashMap<String, Object>> list = adminAgencyService.chartAgencyCount();//서비스 리턴
 		Gson accountgson = new Gson();
 		JsonArray accountjArray = new JsonArray();
 
-		Iterator<AgencyVO> accountit = list.iterator();
+		Iterator<HashMap<String, Object>> accountit = list.iterator();
 		while (accountit.hasNext()) {
-			AgencyVO agencyCount = accountit.next();
+			HashMap agencyCount = accountit.next();
 			JsonObject object = new JsonObject();			
-			int agencyCategoryNum = agencyCount.getAgencyCategoryNum();
-			int agencyNum = agencyCount.getAgencyNum();
+			Integer agencyChartCount =Integer.parseInt(String.valueOf(agencyCount.get("chartCount")));
+			Integer agencyCategoryNum =Integer.parseInt(String.valueOf(agencyCount.get("agencyCategoryNum")));
+			
+			object.addProperty("agencyChartCount", agencyChartCount);
 			object.addProperty("agencyCategoryNum", agencyCategoryNum);
-			object.addProperty("agencyNum", agencyNum);
 			accountjArray.add(object);
 		}
-
+		
 		String accountjson = accountgson.toJson(accountjArray);
 		model.addAttribute("account", accountjson);
+			
+		
 		return "/admin/charts/chartsjs";
 	}
 
