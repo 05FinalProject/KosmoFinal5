@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="/admin/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/admin/dist/css/adminlte.min.css">
+  <!-- 차트 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -22,8 +24,8 @@
     <img class="animation__shake" src="/admin/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
   </div>
 
-<%@ include file="../admin/common/adminNavbar.jsp"%>
-<%@ include file="../admin/common/adminSidebar.jsp"%>
+<%@ include file="../../admin/common/adminNavbar.jsp"%>
+<%@ include file="../../admin/common/adminSidebar.jsp"%>
 
   
   <!-- Content Wrapper. Contains page content -->
@@ -76,7 +78,7 @@
             <!-- DONUT CHART -->
             <div class="card card-danger">
               <div class="card-header">
-                <h3 class="card-title">Donut Chart</h3>
+                <h3 class="card-title">시설별 등록 개수</h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -88,7 +90,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                <canvas id="list" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
               </div>
               <!-- /.card-body -->
             </div>
@@ -306,18 +308,17 @@
     })
 
     //-------------
-    //- DONUT CHART -
+    //- DONUT CHART - 시설별 등록개수
     //-------------
     // Get context with jQuery - using jQuery's .get() method.
     var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
     var donutData        = {
       labels: [
-          'Chrome',
-          'IE',
-          'FireFox',
-          'Safari',
-          'Opera',
-          'Navigator',
+          '보호소',
+          '동물병원',
+          '애견호텔',
+          '장례식장',
+          '애견호텔'
       ],
       datasets: [
         {

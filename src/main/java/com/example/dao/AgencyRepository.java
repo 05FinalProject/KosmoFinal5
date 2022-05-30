@@ -1,5 +1,6 @@
 package com.example.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.data.domain.Pageable;
@@ -46,7 +47,26 @@ public interface AgencyRepository extends CrudRepository<AgencyVO, Integer>{
 //	@Query("SELECT a FROM AgencyVO a WHERE c.agencyCategoryNum=2 and c.agencyName like %%")
 	List<Object[]> agencyCafeSearch(String agencyName);
 	
+	//차트 시설별 등록 개수(도넛차트)
+//	@Query(value = "  SELECT  count(*), a_category_num      "
+//			+ "  FROM agency      "
+//			+ "  WHERE a_category_num IN(1,2,3,5)    "
+//			+ "  GROUP BY a_category_num  ", nativeQuery = true)
+//	public List<AgencyVO> chartAgencyCount();
 	
 	
+	/*
+	 * @Query("     SELECT  count(a.agencyNum) as chartCount, a.agencyCategoryNum     "
+	 * + "    FROM AgencyVO a    " +
+	 * "    WHERE a.agencyCategoryNum IN(1,2,3,5)      " +
+	 * "    GROUP BY a.agencyCategoryNum        ")
+	 */
+	
+	@Query(value="  SELECT  count(a_num), a_category_num    "
+			+ "  FROM agency  "
+			+ "  WHERE a_category_num IN(1,2,3,5)  "
+			+ "  GROUP BY a_category_num",nativeQuery = true)
+	public List<Object[]> chartAgencyCount();
+		
 	
 }
