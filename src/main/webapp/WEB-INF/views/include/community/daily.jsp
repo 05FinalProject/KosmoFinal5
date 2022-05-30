@@ -94,11 +94,11 @@
 									src="../../pictures/placeholder/530x400.svg" alt="Post">
 								<div class="card-body">
 									<ul class="post-meta">
-										<li><a href="/include/community/dailyDetail">May 24, 2017</a></li>
+										<li><a href="/include/community/dailyDetail">${community.communityInsertdate }</a></li>
 									</ul>
 									<span><img class="siren" src="../../img/siren.png"></span>
 									<h5 class="post-title card-title">
-										<a href="/include/community/dailyDetail?c_num=${community.communityNum }">게시글 제목</a>
+										<a href="/include/community/dailyDetail?communityNum=${community.communityNum }">게시글 제목</a>
 									</h5>
 									<p class="post-text card-text">${community.communityContent }</p>
 									<span><img class="emptyHeart"
@@ -112,28 +112,17 @@
 
 					</div>
 
-					<nav
-						class="navigation pagination justify-content-between bg-transparent text-uppercase"
-						role="navigation">
+			<nav class="pagination" role="navigation">
 
-						<div class="nav-links">
-							<ul class="page-numbers">
+			<div class="nav-links">
+				<c:set var="recordsCnt" value="${count}" />
+				<c:set var="jspFile" value="daily?" />
+				<c:set var="perpage" value="8" />
+			</div>
 
-								<li><a class="page-numbers" href="#"></a></li>
-								<li><span aria-current="page" class="page-numbers current">1</span></li>
-								<li><a class="page-numbers" href="#">2</a></li>
-								<li><a class="page-numbers" href="#">3</a></li>
-								<li><a class="page-numbers" href="#">4</a></li>
-								<li><a class="page-numbers" href="#">5</a></li>
-								<li><a class="page-numbers" href="#">6</a></li>
-								<li><a class="page-numbers" href="#">7</a></li>
-								<li><a class="page-numbers" href="#">8</a></li>
-								<li><a class="page-numbers" href="#">9</a></li>
-								<li><a class="page-numbers" href="#">10</a></li>
-							</ul>
-						</div>
-
-					</nav>
+			<!-- include 페이징  jsp파일  -->
+			<%@include file="../paging.jsp"%>
+		</nav>
 				</div>
 			</div>
 		</div>

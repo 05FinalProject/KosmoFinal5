@@ -94,7 +94,7 @@ information-content {
 <body>
 	<div id="total">
 	<form action="updateCommunity" method="post">
-		<input name="c_num" type="hidden" value="${community.c_num }">
+		<input name="communityNum" type="hidden" value="${community.communityNum }">
 		<div class="row justify-content-center">
 			<div class="col-lg-6 col-md-12">
 				<div class="pet-details-image">
@@ -114,10 +114,9 @@ information-content {
 					</div>
 
 					<div>
-						<div class="communityContent">${community.c_content }</div>
+						<div class="communityContent">${community.communityContent }</div>
 						<div id="etc">
-							<small> <span>${community.c_insertdate }</span>
-							</small>
+							<small><span>${community.communityInsertdate }</span></small>
 							<button id="siren">
 								<img src="../../img/siren.png">
 							</button>

@@ -23,10 +23,6 @@ public class CommunityController {
 	private CommunityService c_service;
 
 	// 일상공유 리스트 페이지
-	/*
-	 * @RequestMapping(value="/community/daily", method=RequestMethod.GET) public
-	 * String daily() { return "/include/community/daily"; }
-	 */
 	@RequestMapping(value = "community/daily", method = RequestMethod.GET)
 	public String daily(Model m, CommunityVO vo) {
 
@@ -34,7 +30,7 @@ public class CommunityController {
 		if (vo.getPage() != 0) {
 			page = vo.getPage();
 		}
-		Pageable paging = PageRequest.of(page - 1, 8, Sort.Direction.ASC, "communityNum");
+		Pageable paging = PageRequest.of(page - 1, 8, Sort.Direction.DESC, "communityNum");
 
 		m.addAttribute("paging", c_service.getCommunityPaging(paging));
 
@@ -43,9 +39,13 @@ public class CommunityController {
 	}
 
 	// 일상공유 상세보기 페이지
+	/*
+	 * @RequestMapping(value = "/community/dailyDetail", method = RequestMethod.GET)
+	 * public String dailyDetail() { return "/include/community/dailyDetail"; }
+	 */
 	@RequestMapping(value = "/community/dailyDetail", method = RequestMethod.GET)
-	public String dailyDetail() {
-		return "/include/community/dailyDetail";
+	public void dailyDetail(CommunityVO vo, Model m) {
+		m.addAttribute("community", c_service.getCommunity(vo));
 	}
 
 	// 일상공유 게시글 작성 페이지
@@ -82,7 +82,7 @@ public class CommunityController {
 		return "/include/community/dailyDetail";
 	}
 
-	// 게시글 출력
+	//일상공유 게시판 상세보기
 	@RequestMapping(value = "/getCommunity", method = RequestMethod.GET)
 	public void getCommunity(CommunityVO vo, Model m) {
 		m.addAttribute("community", c_service.getCommunity(vo));
