@@ -21,7 +21,7 @@ public class ImgVO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "p_imgnum")
-	private Integer p_imgnum;
+	private Integer pImgnum;
 	
 	
 	@Column(length = 200,name = "p_imgname")
