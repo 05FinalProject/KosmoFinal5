@@ -163,14 +163,14 @@ border: 1px solid #008000;
 				<a href="javascript:pokedex_detail(1, '1');">
 					<div class="img">
 						<div class="tumb-wrp">
-							<img src="${vo.dogImage}" alt="" class="img-fluid">
+							<a href="/include/encyclopediaDetail?dogNum=${vo.dogNum }"><img src="${vo.dogImage}" alt="" class="img-fluid"></a>
 						</div>
 					</div>
 					<div class="bx-txt">
 						<h6><p>${vo.dogNum}</p> ${vo.dogKind}(${vo.dogLocal})</h6>
 
 						<p></p>
-												<span>길이:${vo.dogHeight}/무게:${vo.dogWeight}</span>
+												<span></span>
 												<span></span>
 						 					</div>
 				</a>

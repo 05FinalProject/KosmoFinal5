@@ -134,7 +134,25 @@ public String agencyCafe(Model m, AgencyVO vo) {
 		m.addAttribute("count",agencyservice.countkindRecord() );
 		return "/include/encyclopedia";
 	}
+	
+	
+	
+	//강아지 백과사전 상세보기 
+	
+	/*
+	 * @RequestMapping(value ="/encyclopediaDetail", method=RequestMethod.GET)
+	 * public void encyclopediaDetail(Model m,DogKindVO vo) {
+	 * System.out.println(vo.getDogNum());
+	 * m.addAttribute("encyclopedia",agencyservice.getencyclopedia(vo));
+	 * 
+	 * }
+	 */
+		//***************************************************************************************************
 	//********************************************************************************
+	
+	
+	
+	
 	
 	//agencyCafe페이지에 검색 기능 
 	@RequestMapping("/cafeSearch")

@@ -17,6 +17,8 @@ public class LoginServiceImpl implements LoginService {
 		return user.findByUserEmail(userEmail);
 	}
 
-	
-	
+//	@Override
+//	public UserVO userSearch(UserVO vo) {
+//		return user.userSearch(vo);
+//	}	
 }

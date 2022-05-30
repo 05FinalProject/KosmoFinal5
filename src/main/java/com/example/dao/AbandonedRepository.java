@@ -17,6 +17,6 @@ public interface AbandonedRepository extends CrudRepository<AbandonedVO, Integer
 	@Query("SELECT count(a) as count FROM AbandonedVO a")
 	 int countRecord();
 	
-	List<AbandonedVO> findAll(Pageable paging);
-
+	List<AbandonedVO> findAll(Pageable paging);	
+	
 }

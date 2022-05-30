@@ -6,6 +6,6 @@ public interface LoginService {
 
 	public UserVO findByUserEmail(String userEmail);
 	
-	
+//	public UserVO userSearch(UserVO vo);
 
 }

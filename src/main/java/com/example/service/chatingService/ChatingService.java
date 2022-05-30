@@ -40,6 +40,6 @@ public interface ChatingService {
 	
 	public List<ChatingRoomVO> roomSearch(ChatingRoomVO vo);
 	
-	public List<UserVO> friendList(String email);
+	public List<HashMap> friendList(String email);
 
 }

@@ -103,27 +103,27 @@
 							<li><a class="dropdown-item" href="#">물품나눔</a></li>
 							<li><a class="dropdown-item" href="#">행사</a></li>
 							<li><a class="dropdown-item" href="#">산책로</a></li>
+							
 						</ul>
 					</li>
 					
-					<li class="nav-item dropdown"><a
-						class="nav-links dropdown-toggle organi" href="page.html"
+					<li class="nav-item dropdown">
+					<a class="nav-links dropdown-toggle organi" href="page.html"
 						id="page-dropdown" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false">관련기관</a>
 						<ul class="dropdown-menu" aria-labelledby="page-dropdown">
-							<li><a class="dropdown-item" href="#">훈련소</a></li>
-							<li><a class="dropdown-item" href="agencyShelter">보호소</a></li>
+							<li><a class="dropdown-item" href="/include/agencyHotel">애견호텔</a></li>
+							<li><a class="dropdown-item" href="/include/agencyCafe">애견카페</a></li>
 							<li><a class="dropdown-item" href="#">동물병원</a></li>
-							<li><a class="dropdown-item" href="agencyHotel">애견호텔</a></li>
-							<li><a class="dropdown-item" href="#">유치원</a></li>
+							<li><a class="dropdown-item" href="/include/agencyShelter">보호소</a></li>
 							<li><a class="dropdown-item" href="#">장례식장</a></li>
-							<li><a class="dropdown-item" href="agencyCafe">애견카페</a></li>
-							<li><a class="dropdown-item" href="#">공원</a></li>
 						</ul>
 					</li>
 
 
-					<li class="nav-item"><a class="nav-links info" href="encyclopedia">반려견 사전</a></li>
+					<li class="nav-item"><a class="nav-links info" href="/include/encyclopedia">반려견 사전</a></li>
+					
+					<li class="nav-item"><a class="nav-links chat" href="/chating/friend?count=1">채팅방</a></li>
 
 				</ul>
 				<form class="search-widget d-none d-xl-inline-flex" style="background-color:white; border-radius:10px;">
@@ -194,6 +194,13 @@
 			});
 			$(".btn-light").mouseleave(function(){
 				$(".btn-light").css("color","white");
+			});
+			
+			$(".chat").mouseover(function(){
+				$(".chat").css("color","#f8b03a");
+			});
+			$(".chat").mouseleave(function(){
+				$(".chat").css("color","white");
 			});
 			
 		});

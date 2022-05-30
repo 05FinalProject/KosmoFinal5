@@ -2,7 +2,6 @@ package com.example.service.agency;
 
 
 import java.util.ArrayList;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import com.example.dao.AgencyRepository;
 import com.example.dao.DogKindRepository;
 import com.example.domain.AbandonedVO;
 import com.example.domain.AgencyVO;
-import com.example.domain.ChatingRoomVO;
 import com.example.domain.DogKindVO;
 
 @Service
@@ -103,6 +101,14 @@ public class AgencyServiceImpl implements AgencyService{
 					AgencyVO avo = agencyRepo.findById(vo.getAgencyNum()).get();
 					return agencyRepo.save(avo);
 				}
+				
+	
+				//백과사전 상세정보 띄우기 
+				/*
+				 * @Override public DogKindVO getencyclopedia(DogKindVO vo) { DogKindVO avo =
+				 * DogKindRepo.findById(vo.getDogNum()).get(); return DogKindRepo.save(avo); }
+				 */
+				
 				
 	//*******************************************			
 	public List<AgencyVO> agencyCafeSearch(AgencyVO vo){
