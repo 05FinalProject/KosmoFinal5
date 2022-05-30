@@ -1,5 +1,6 @@
 package com.example.service.chatingService;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -11,10 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.dao.ChatingRoomRepository;
+import com.example.dao.FriendChatingRepository;
 import com.example.dao.FriendRepository;
 import com.example.dao.ImgRepository;
 import com.example.dao.UserRepository;
 import com.example.domain.ChatingRoomVO;
+import com.example.domain.FriendChatingVO;
 import com.example.domain.FriendVO;
 import com.example.domain.ImgVO;
 import com.example.domain.UserVO;
@@ -33,6 +36,9 @@ public class ChatingServiceImpl implements ChatingService {
 	
 	@Autowired
 	private FriendRepository fri;
+	
+	@Autowired
+	private FriendChatingRepository fcr;
 	
 	//채팅방멤버삭제
 	public void deleteByRoomMember(ChatingRoomVO vo) {
@@ -172,6 +178,22 @@ public class ChatingServiceImpl implements ChatingService {
 			rlist.add(hm);
 		}
 		return rlist;
+	}
+	
+	//메세지를 db에 저장
+	public void insertMessage(HashMap hm) {
+		FriendChatingVO vo = new FriendChatingVO();
+		vo.setChatingMessage((String)hm.get("chatingMessage"));
+		FriendVO fv = new FriendVO();
+		fv.setFriendNo(Integer.parseInt((String)hm.get("friendNo")));
+		vo.setFriend(fv);
+		FriendVO f = fri.findById(Integer.parseInt((String)hm.get("friendNo"))).get();
+		vo.setChatingSign("2");
+		if (f.getUser1().getUserEmail().equals((String)hm.get("userEmail"))) {
+			vo.setChatingSign("1");
+		}
+		vo.setChatingTime(LocalDateTime.now());
+		fcr.save(vo);
 	}
 	
 }
