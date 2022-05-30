@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.domain.AgencyVO;
 import com.example.domain.ChatingRoomVO;
+import com.example.domain.FriendChatingVO;
+import com.example.domain.FriendVO;
 import com.example.domain.UserVO;
 import com.example.service.agency.AgencyService;
 import com.example.service.chatingService.ChatingService;
@@ -68,6 +70,12 @@ public class ApiController {
 	public void saveMessage(@RequestParam HashMap<String,Object> params) {
 		service.insertMessage(params);
 		
+	}
+	
+	//화면 뜨자마자 아니면 친구선택할때에 채팅기록 뜨기
+	@RequestMapping("messageHistory")
+	public List<HashMap<String, Object>> messageHistory(FriendVO vo){
+		return service.messageHistory(vo.getFriendNo());
 	}
 	
 }

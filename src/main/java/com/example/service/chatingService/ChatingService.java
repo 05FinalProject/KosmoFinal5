@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.example.domain.ChatingRoomVO;
+import com.example.domain.FriendChatingVO;
 import com.example.domain.FriendVO;
 import com.example.domain.ImgVO;
 import com.example.domain.UserVO;
@@ -44,6 +45,8 @@ public interface ChatingService {
 	public List<HashMap> friendList(String email);
 
 	void insertMessage(HashMap hm);
+	
+	List<HashMap<String, Object>> messageHistory(int friendNo);
 	
 	
 }

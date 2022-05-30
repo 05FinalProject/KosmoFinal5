@@ -196,4 +196,22 @@ public class ChatingServiceImpl implements ChatingService {
 		fcr.save(vo);
 	}
 	
+	//화면 뜨자마자 아니면 친구선택할때에 채팅기록 뜨기
+	public List<HashMap<String, Object>> messageHistory(int friendNo){
+		List<Object[]> obj = fcr.messageHistory(friendNo);
+		FriendVO f = fri.findById(friendNo).get();
+		
+		List<HashMap<String, Object>> rlist = new ArrayList<HashMap<String, Object>>();
+		for(Object[] o :obj) {
+			HashMap<String, Object> hm = new HashMap<String, Object>();
+			hm.put("message", o[1]);
+			hm.put("sign", o[2]);
+			hm.put("time", o[3]);
+			hm.put("user1", f.getUser1().getUserNickname());
+			rlist.add(hm);
+		}
+		
+		return rlist ;
+	}
+	
 }
