@@ -24,9 +24,16 @@ public class LoginServiceImpl implements LoginService {
 		return user.findByUserEmail(userEmail);
 	}
 
+	
+	/* DB에 회원의 사진이 있으면 가져오기 */
 	@Override
 	public ImgVO findBypRimgname(String pRimgname) {
-		
 		return Img.findByUserEmail(pRimgname).get(0);
 	}
+
+//	/* 회원탈퇴용으로 쓰는 중*/
+//	@Override
+//	public void delete(UserVO vo) {
+//		user.deleteById(vo.getUserEmail());
+//	}
 }

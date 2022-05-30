@@ -40,20 +40,6 @@
 									<!-- FORM -->
 									<form id="member_frm" action="signUpSuccess" method="post" name="member_frm">
 										
-										<!-- 닉네임 -->
-										<div class="form-group first field--not-empty">
-											<div class="nicknameCheck col-md-9">
-												<label for="userNickname">닉네임&nbsp; &nbsp; &nbsp; &nbsp;<span
-														class="error_box"></span></label>
-												<input type="text" class="form-control" id="userNickname"
-													name="userNickname">
-											</div>
-
-											<div class='nicknameCheck col-md-3'>
-												<button type="button" id="btnNicknameCheck" class="btn_check btn-pill btn-orange">
-													<span class="text-white btn_text">중복확인</span></button>
-											</div>
-										</div>
 
 										<!-- EMAIL -->
 										<div class="form-group first field--not-empty">
@@ -66,6 +52,21 @@
 
 											<div class='emailCheck col-md-3'>
 												<button type="button" id="btnEmailCheck" class="btn_check btn-pill btn-orange">
+													<span class="text-white btn_text">중복확인</span></button>
+											</div>
+										</div>
+										
+										<!-- 닉네임 -->
+										<div class="form-group first field--not-empty">
+											<div class="nicknameCheck col-md-9">
+												<label for="userNickname">닉네임&nbsp; &nbsp; &nbsp; &nbsp;<span
+														class="error_box"></span></label>
+												<input type="text" class="form-control" id="userNickname"
+													name="userNickname">
+											</div>
+
+											<div class='nicknameCheck col-md-3'>
+												<button type="button" id="btnNicknameCheck" class="btn_check btn-pill btn-orange">
 													<span class="text-white btn_text">중복확인</span></button>
 											</div>
 										</div>
