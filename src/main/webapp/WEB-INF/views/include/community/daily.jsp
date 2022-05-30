@@ -94,13 +94,13 @@
 									src="../../pictures/placeholder/530x400.svg" alt="Post">
 								<div class="card-body">
 									<ul class="post-meta">
-										<li><a href="single.html">May 24, 2017</a></li>
+										<li><a href="/include/community/dailyDetail">May 24, 2017</a></li>
 									</ul>
 									<span><img class="siren" src="../../img/siren.png"></span>
 									<h5 class="post-title card-title">
-										<a href="/include/dailyDetail?c_num=${community.c_num }">게시글 제목</a>
+										<a href="/include/community/dailyDetail?c_num=${community.communityNum }">게시글 제목</a>
 									</h5>
-									<p class="post-text card-text">${community.c_content }</p>
+									<p class="post-text card-text">${community.communityContent }</p>
 									<span><img class="emptyHeart"
 										src="../../img/emptyHeart.png"></span> <span><img
 										class="comment" src="../../img/comment.png"></span>
@@ -110,168 +110,6 @@
 						</div>
 						</c:forEach>
 
-						<!-- 2번 게시글 -->
-			<!-- 			<div class="blog-grid-col col-12 col-md-6 col-lg-3">
-							<div id="post-2"
-								class="post type-post post-2 card post-card post-grid-card h-100">
-								<img class="card-img-top img-fluid"
-									src="../../pictures/placeholder/530x400.svg" alt="Post">
-								<div class="card-body">
-									<ul class="post-meta">
-										<li><a href="single.html">May 24, 2017</a></li>
-
-									</ul>
-									<span><img class="siren" src="../../img/siren.png"></span>
-									<h5 class="post-title card-title">
-										<a href="single.html">Post #2</a>
-									</h5>
-									<p class="post-text card-text">Donec sit amet ultricies
-										dui, et posuere lacus.</p>
-									<span><img class="emptyHeart"
-										src="../../img/emptyHeart.png"></span> <span><img
-										class="comment" src="../../img/comment.png"></span>
-								</div>
-
-							</div>
-						</div>
-						<div class="blog-grid-col col-12 col-md-6 col-lg-3">
-							<div id="post-3"
-								class="post type-post post-3 card post-card post-grid-card h-100">
-								<img class="card-img-top img-fluid"
-									src="../../pictures/placeholder/530x400.svg" alt="Post">
-								<div class="card-body">
-									<ul class="post-meta">
-										<li><a href="single.html">May 24, 2017</a></li>
-
-									</ul>
-									<span><img class="siren" src="../../img/siren.png"></span>
-									<h5 class="post-title card-title">
-										<a href="single.html">Post #3</a>
-									</h5>
-									<p class="post-text card-text">Vestibulum accumsan justo
-										eget justo rhoncus convallis.</p>
-									<span><img class="emptyHeart"
-										src="../../img/emptyHeart.png"></span> <span><img
-										class="comment" src="../../img/comment.png"></span>
-								</div>
-
-							</div>
-						</div>
-						<div class="blog-grid-col col-12 col-md-6 col-lg-3">
-							<div id="post-4"
-								class="post type-post post-4 card post-card post-grid-card h-100">
-								<img class="card-img-top img-fluid"
-									src="../../pictures/placeholder/530x400.svg" alt="Post">
-								<div class="card-body">
-									<ul class="post-meta">
-										<li><a href="single.html">May 24, 2017</a></li>
-										<li><a href="#">News</a></li>
-									</ul>
-									<span><img class="siren" src="../../img/siren.png"></span>
-									<h5 class="post-title card-title">
-										<a href="single.html">Post #4</a>
-									</h5>
-									<p class="post-text card-text">Nullam in malesuada turpis.
-										Phasellus eget consectetur odio.</p>
-									<span><img class="emptyHeart"
-										src="../../img/emptyHeart.png"></span> <span><img
-										class="comment" src="../../img/comment.png"></span>
-								</div>
-
-							</div>
-						</div>
-						<div class="blog-grid-col col-12 col-md-6 col-lg-3">
-							<div id="post-5"
-								class="post type-post post-5 card post-card post-grid-card h-100">
-								<img class="card-img-top img-fluid"
-									src="../../pictures/placeholder/530x400.svg" alt="Post">
-								<div class="card-body">
-									<ul class="post-meta">
-										<li><a href="single.html">May 24, 2017</a></li>
-										<li><a href="#">News</a></li>
-									</ul>
-									<span><img class="siren" src="../../img/siren.png"></span>
-									<h5 class="post-title card-title">
-										<a href="single.html">Post #5</a>
-									</h5>
-									<p class="post-text card-text">Donec aliquam ac felis vel
-										fermentum. Proin at vestibulum lacus.</p>
-									<span><img class="emptyHeart"
-										src="../../img/emptyHeart.png"></span> <span><img
-										class="comment" src="../../img/comment.png"></span>
-								</div>
-
-							</div>
-						</div>
-						<div class="blog-grid-col col-12 col-md-6 col-lg-3">
-							<div id="post-6"
-								class="post type-post post-6 card post-card post-grid-card h-100">
-								<img class="card-img-top img-fluid"
-									src="../../pictures/placeholder/530x400.svg" alt="Post">
-								<div class="card-body">
-									<ul class="post-meta">
-										<li><a href="single.html">May 24, 2017</a></li>
-
-									</ul>
-									<span><img class="siren" src="../../img/siren.png"></span>
-									<h5 class="post-title card-title">
-										<a href="single.html">Post #6</a>
-									</h5>
-									<p class="post-text card-text">Suspendisse porta eget odio
-										eu faucibus.</p>
-									<span><img class="emptyHeart"
-										src="../../img/emptyHeart.png"></span> <span><img
-										class="comment" src="../../img/comment.png"></span>
-								</div>
-
-							</div>
-						</div>
-						<div class="blog-grid-col col-12 col-md-6 col-lg-3">
-							<div id="post-7"
-								class="post type-post post-7 card post-card post-grid-card h-100">
-								<img class="card-img-top img-fluid"
-									src="../../pictures/placeholder/530x400.svg" alt="Post">
-								<div class="card-body">
-									<ul class="post-meta">
-										<li><a href="single.html">May 24, 2017</a></li>
-
-									</ul>
-									<span><img class="siren" src="../../img/siren.png"></span>
-									<h5 class="post-title card-title">
-										<a href="single.html">Post #7</a>
-									</h5>
-									<p class="post-text card-text">Interdum et malesuada fames
-										ac ante ipsum primis in faucibus.</p>
-									<span><img class="emptyHeart"
-										src="../../img/emptyHeart.png"></span> <span><img
-										class="comment" src="../../img/comment.png"></span>
-								</div>
-
-							</div>
-						</div>
-						<div class="blog-grid-col col-12 col-md-6 col-lg-3">
-							<div id="post-8"
-								class="post type-post post-8 card post-card post-grid-card h-100">
-								<img class="card-img-top img-fluid"
-									src="../../pictures/placeholder/530x400.svg" alt="Post">
-								<div class="card-body">
-									<ul class="post-meta">
-										<li><a href="single.html">May 24, 2017</a></li>
-
-									</ul>
-									<span><img class="siren" src="../../img/siren.png"></span>
-									<h5 class="post-title card-title">
-										<a href="single.html">Post #8</a>
-									</h5>
-									<p class="post-text card-text">Vivamus auctor turpis lacus,
-										sed fringilla ligula gravida et.</p>
-									<span><img class="emptyHeart"
-										src="../../img/emptyHeart.png"></span> <span><img
-										class="comment" src="../../img/comment.png"></span>
-								</div>
-
-							</div>
-						</div> -->
 					</div>
 
 					<nav
