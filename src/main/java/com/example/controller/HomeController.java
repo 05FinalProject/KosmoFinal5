@@ -33,7 +33,7 @@ public class HomeController {
 			vo.setUserAddress(vo.getAddr2() + vo.getAddr3());
 			vo.setUserBlack("N");
 			vo.setUserAdmin("N");
-			ivo.setPRimgname("/resources/static/img/userImg/noImage.jpg");
+			ivo.setPRimgname("/img/userImg/noImage.jpg");
 			
 			//signUp.insertUser(vo);
 			ivo.setUser(vo);
