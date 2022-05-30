@@ -97,11 +97,11 @@
 
 
 
-
+<%@include file="./Header.jsp"%>
 	<main class="main">
 		<!-- 메인페이지 이벤트 배너 -->
 		<div class="container">
-		<%@include file="./Header.jsp"%>
+		
 			<div id="wrapper" class="mt-3">
 				<div class="bx_slider">
 					<div>
@@ -132,26 +132,30 @@
 							<div>
 								<img src="/img/mainpage/premium-icon-hotel-3009487.png" />
 							</div>
-							<div class="agency-name mt-2">호텔</div>
+							<div class="agency-name mt-2">애견호텔</div>
 						</li>
 						<li>
+							<a href="/include/agencyCafe">
 							<div>
 								<img src="/img/mainpage/premium-icon-cafe-3361447.png" />
 							</div>
-							<div class="agency-name mt-2">카페</div>
+							<div class="agency-name mt-2">애견카페</div>
+							</a>
 						</li>
 						<li>
 							<div>
 								<img
 									src="/img/mainpage/premium-icon-hospital-building-2749678.png" />
 							</div>
-							<div class="agency-name mt-2">병원</div>
+							<div class="agency-name mt-2">동물병원</div>
 						</li>
 						<li>
+							<a href="/include/agencyCafe">
 							<div>
 								<img src="/img/mainpage/premium-icon-animal-shelter-5871573.png" />
 							</div>
 							<div class="agency-name mt-2">보호소</div>
+							</a>
 						</li>
 						<li>
 							<div>
@@ -166,7 +170,7 @@
 
 		<!-- 일상공유 인기글 -->
 		<div id="stories-container"
-			class="container-fluid bg-light-blue section-py--large">
+			class="container-fluid section-py--large">
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-12 col-md-10 col-lg-6 text-center">

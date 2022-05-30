@@ -3,8 +3,10 @@ package com.example.community;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.example.domain.AgencyVO;
 import com.example.domain.ImgFileVO;
 
 @Service
@@ -23,7 +25,16 @@ public class CommunityServiceImpl implements CommunityService {
 	}
 	
 	public CommunityVO getCommunity(CommunityVO vo) {
-		return communityRepo.findById(vo.getC_num()).get();
+		return communityRepo.findById(vo.getCommunityNum()).get();
 	}
 
+	@Override
+	public List<CommunityVO> getCommunityPaging(Pageable paging) {		
+		return communityRepo.findAll(paging);
+	}
+	
+	@Override
+	public int countCommunityRecord() {		
+		return communityRepo.countCommunityRecord();
+	}
 }
