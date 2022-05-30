@@ -12,6 +12,8 @@ public interface ImgRepository extends CrudRepository<ImgVO, Integer> {
 	
 	@Query("SELECT i FROM ImgVO i WHERE i.user.userEmail=:email")
 	public List<ImgVO> findByUserEmail(String email);
+
+	
 	
 	
 }
