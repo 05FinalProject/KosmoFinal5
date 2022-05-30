@@ -1,8 +1,11 @@
 package com.example.controller.admin;
 
+//import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,48 +25,75 @@ import com.example.domain.UserVO;
 import com.example.service.admin.AdminAgencyService;
 import com.example.service.admin.AdminReportService;
 import com.example.service.admin.AdminUserService;
-import com.example.service.agency.AgencyService;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 
 @Controller
 @RequestMapping("/admin")
 public class AdminMainController {
-	
+
 	@Autowired
 	private AdminUserService adminUserService;	
 	@Autowired
 	private AdminReportService adminReportService;
 	@Autowired
 	private AdminAgencyService adminAgencyService;
-	
-	
+
+
 	@RequestMapping(value="", method=RequestMethod.GET)
 	public String adminPage() {
 		return "/admin/indexAdmin";
 	}
-	
+
 	//차트
 	@RequestMapping(value="/adminChartsjs", method=RequestMethod.GET)
-	public String charts() {
-		return "/admin/chartsjs";
-	}	
-	
+	public String charts(AgencyVO vo, Model model) {
+		//리스트 담기 
+		List<AgencyVO> list = adminAgencyService.chartAgencyCount(vo);
+		Gson accountgson = new Gson();
+		JsonArray accountjArray = new JsonArray();
+
+		Iterator<AgencyVO> accountit = list.iterator();
+		while (accountit.hasNext()) {
+			AgencyVO agencyCount = accountit.next();
+			JsonObject object = new JsonObject();			
+			int agencyCategoryNum = agencyCount.getAgencyCategoryNum();
+			int agencyNum = agencyCount.getAgencyNum();
+			object.addProperty("agencyCategoryNum", agencyCategoryNum);
+			object.addProperty("agencyNum", agencyNum);
+			accountjArray.add(object);
+		}
+
+		String accountjson = accountgson.toJson(accountjArray);
+		model.addAttribute("account", accountjson);
+		return "/admin/charts/chartsjs";
+	}
+
+	//차트2
+	@RequestMapping(value="/adminFlot", method=RequestMethod.GET)
+	public String flotCharts() {
+		return "/admin/charts/flot";
+	}
+
+
 	//회원관리
 	@RequestMapping(value="/adminUser", method=RequestMethod.GET)
 	public String userList(Model m) {
 		UserVO vo = new UserVO();
 		List<UserVO> list = adminUserService.userList(vo);
 		m.addAttribute("userList", list);
-		
+
 		return "/admin/adminUser";
 	}
-	
+
 	//리뷰신고
 	@RequestMapping(value="adminReview", method=RequestMethod.GET)
 	public String reportReview(Model m) {
 		List<HashMap> llist= new ArrayList<>();
 		List<Object[]> list = adminReportService.reportReviewList(new ReportVO());
-		
+
 		for(Object[] o : list) {
 			HashMap hm = new HashMap<>();
 			hm.put("r_num",(int)o[0] );
@@ -73,17 +103,17 @@ public class AdminMainController {
 			llist.add(hm);
 		}		
 		m.addAttribute("reviewList", llist);
-						
+
 		return "/admin/report/adminRpReview";
 	}	
-	
-	
+
+
 	//댓글신고
 	@RequestMapping(value="adminComment", method=RequestMethod.GET)
 	public String reportComment(Model m) {
 		List<HashMap> list = new ArrayList<>();
 		List<Object[]> list2 = adminReportService.reportCommentList(new ReportVO());
-		
+
 		for(Object[] obj : list2) {
 			HashMap hm = new HashMap<>();
 			hm.put("comment_num", (int)obj[0]);
@@ -96,13 +126,13 @@ public class AdminMainController {
 		m.addAttribute("commentList", list);
 		return "/admin/report/adminRpComment";
 	}
-	
+
 	//게시글신고
 	@RequestMapping(value="adminCommunity", method=RequestMethod.GET)
 	public String reportCommunity(Model m) {
 		List<HashMap> list = new ArrayList<>();
 		List<Object[]> list2 = adminReportService.reportCommunityList(new ReportVO());
-		
+
 		for(Object[] obj : list2) {
 			HashMap hm = new HashMap<>();
 			hm.put("c_num", (int)obj[0]);
@@ -115,13 +145,13 @@ public class AdminMainController {
 		m.addAttribute("communityList", list);
 		return "/admin/report/adminRpCommunity";
 	}
-	
+
 	//블랙리스트
 	@RequestMapping(value="adminBlacklist", method=RequestMethod.GET)
 	public String Blacklist() {
 		return "/admin/report/adminBlacklist";
 	}
-	
+
 	//시설관리(보호소)
 	@RequestMapping(value="adminShelter", method=RequestMethod.GET)
 	public String adminShelter(Model m, AbandonedVO vo) {
@@ -132,11 +162,11 @@ public class AdminMainController {
 		Pageable paging = PageRequest.of(page-1, 9,Sort.Direction.ASC,"abNo");
 
 		m.addAttribute("paging",adminAgencyService.getAbandonePaging(paging) );
-		
+
 		m.addAttribute("count",adminAgencyService.countRecord() );
 		return "/admin/facilities/adminShelter";
 	}
-	
+
 	//시설관리(동물병원)
 	@RequestMapping(value="adminHospital", method=RequestMethod.GET)
 	public String adminHospital(Model m, AgencyVO vo) {
@@ -148,10 +178,10 @@ public class AdminMainController {
 		Pageable paging = PageRequest.of(page-1, 9, Sort.Direction.ASC, "agencyNum");
 		m.addAttribute("paging", adminAgencyService.getHospitaltPaging(paging));
 		m.addAttribute("count",adminAgencyService.countHospitalRecord());	
-		
+
 		return "/admin/facilities/adminHospital";
 	}
-	
+
 	//시설관리(애견호텔)
 	@RequestMapping(value="/adminHotel", method=RequestMethod.GET)
 	public String adminHotel(Model m, AgencyVO vo) {
@@ -166,21 +196,21 @@ public class AdminMainController {
 
 		return "/admin/facilities/adminHotel";		
 	}
-	
+
 	//시설관리(장례식장)
 	@RequestMapping(value="adminFuneralhall", method=RequestMethod.GET)
 	public String adminFuneralhall(Model m, AgencyVO vo) {
 		//페이징 처리
 		int page =1;
 		if(vo.getPage()!=0) {
-		page = vo.getPage();
+			page = vo.getPage();
 		} 
 		Pageable paging = PageRequest.of(page-1, 9, Sort.Direction.ASC, "agencyNum");
 		m.addAttribute("paging", adminAgencyService.getFunehallPaging(paging));
 		m.addAttribute("count",adminAgencyService.countFunehallRecord());
 		return "/admin/facilities/adminFuneralhall";		
 	}
-	
+
 	//시설관리(애견카페)
 	@RequestMapping(value="/adminCafe", method=RequestMethod.GET)
 	public String adminCafe(Model m, AgencyVO vo) {
@@ -192,51 +222,51 @@ public class AdminMainController {
 		Pageable paging = PageRequest.of(page-1, 9, Sort.Direction.ASC, "agencyNum");
 		m.addAttribute("paging", adminAgencyService.getCafetPaging(paging));
 		m.addAttribute("count",adminAgencyService.countCafeRecord());
-		
+
 		return "/admin/facilities/adminCafe";			
 	}
-		
+
 	//회원강아지 정보
 	@RequestMapping(value="adminDog", method=RequestMethod.GET)
 	public String adminDog() {
 		return "/admin/adminDog";					
 	}
-					
-			
+
+
 	//시설추가
 	@RequestMapping(value="adminAddFacilities", method=RequestMethod.GET)
 	public String adminAddFacilities() {
 		return "/admin/facilities/adminAddFacilities";						
 	}
-	
-	
+
+
 	//커뮤 관리
 	@RequestMapping(value="adminComunities", method=RequestMethod.GET)
 	public String adminCommunities() {
 		return "/admin/communities/adminCommunities";
 	}
-	
+
 	//커뮤 일상
 	@RequestMapping(value="adminDaily", method=RequestMethod.GET)
 	public String adminDaily() {
 		return "/admin/communities/adminDaily";
 	}
-	
+
 	//회원삭제
 	@RequestMapping(value = "{userEmail}", method = RequestMethod.DELETE)
 	public String deleteUser(UserVO vo) {
 		adminUserService.deleteUser(vo);
 		return "redirect:/adminUser";
 	}
-		
+
 	//시설 수정
 	@RequestMapping(value="update", method = RequestMethod.POST)
 	public String adminUpdateFacilities(Integer agencyNum, @RequestParam String tel, @RequestParam String facility, @RequestParam String content, @RequestParam String addr, @RequestParam String subAddr) {
 		adminAgencyService.updateAgency(agencyNum, tel, facility, content, addr, subAddr);
 		return "redirect:/admin/adminHotel";
 	}
-	
+
 	//시설삭제
 
-	
+
 }

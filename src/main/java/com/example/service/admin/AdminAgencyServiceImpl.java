@@ -97,6 +97,12 @@ public class AdminAgencyServiceImpl implements AdminAgencyService{
 	public int countRecord() {
 		
 		return abRepo.countRecord();
+	}
+	
+	@Override
+	public List<AgencyVO> chartAgencyCount(AgencyVO vo) {
+		
+		return aRepo.chartAgencyCount();
 	}		
 	
 

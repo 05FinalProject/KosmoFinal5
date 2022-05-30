@@ -46,6 +46,19 @@ public interface AgencyRepository extends CrudRepository<AgencyVO, Integer>{
 //	@Query("SELECT a FROM AgencyVO a WHERE c.agencyCategoryNum=2 and c.agencyName like %%")
 	List<Object[]> agencyCafeSearch(String agencyName);
 	
+	//차트 시설별 등록 개수(도넛차트)
+//	@Query(value = "SELECT a.a_category_num    "
+//			+ "      FROM agency as a	  	"
+//			+ "       WHERE a.a_category_num IN(1,2,3,5)		"
+//			+ "        GROUP BY a.a_category_num	    ", nativeQuery = true)
+//	public List<AgencyVO> chartAgencyCount();
+	
+	
+	@Query("     SELECT  count(a.agencyNum), a.agencyCategoryNum     "
+			+ "    FROM AgencyVO a    "
+			+ "    WHERE a.agencyCategoryNum IN(1,2,3,5)      "
+			+ "    GROUP BY a.agencyCategoryNum        ")
+	public List<AgencyVO> chartAgencyCount();
 	
 	
 	

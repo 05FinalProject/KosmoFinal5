@@ -31,6 +31,9 @@ public interface AdminAgencyService {
 	public int countRecord();
 	//****************************************
 	
+	//차트 
+	public List<AgencyVO> chartAgencyCount(AgencyVO vo);
+	
 	
 	//시설수정
 	public AgencyVO updateAgency(Integer agencyNum, String tel, String name, String content, String addr, String subAddr);
