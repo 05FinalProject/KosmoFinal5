@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -207,7 +206,10 @@ public class ChatingServiceImpl implements ChatingService {
 			hm.put("message", o[1]);
 			hm.put("sign", o[2]);
 			hm.put("time", o[3]);
+			hm.put("img1", img.findByUserEmail(f.getUser1().getUserEmail()).get(0).getPRimgname());
+			hm.put("img2", img.findByUserEmail(f.getUser2().getUserEmail()).get(0).getPRimgname());
 			hm.put("user1", f.getUser1().getUserNickname());
+			hm.put("user2", f.getUser2().getUserNickname());
 			rlist.add(hm);
 		}
 		
