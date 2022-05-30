@@ -2,6 +2,7 @@ package com.example.community;
 
 import java.util.List;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -19,4 +20,9 @@ public interface CommunityRepository extends CrudRepository<CommunityVO, Integer
 	 */
 	
 
+	//시설 페이징 처리(호텔)
+	@Query("SELECT count(c) as count FROM CommunityVO c")
+	int countCommunityRecord();
+		
+	List<CommunityVO> findAll(Pageable paging);
 }
