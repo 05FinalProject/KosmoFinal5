@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>마이페이지 -</title>
+<title>마이페이지 - 친구정보</title>
 
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet"
@@ -37,9 +37,18 @@
 	href="../../admin/plugins/summernote/summernote-bs4.min.css">
 <!-- WithYou myPage Custom Css-->
 <link rel="stylesheet" href="/myPage/css/myPage.css">
+
 <style>
 
+.context{
+    margin-left: 0%;
+}
+
+.boxbox{
+	padding-bottom:5%;
+}
 </style>
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed"
 	style="background-color: #f4f6f9;">
@@ -68,7 +77,7 @@
 			<section class="content context">
 				<div class="container-fluid">
 					<div class="row">
-						<div class="col-md-8" style="float: none; margin: 0 auto;">
+						<div class="col-md-8 boxbox" style="float: none; margin: 0 auto;">
 							<div class="card">
 								<div class="card-body">
 									<div class="tab-content">
@@ -79,10 +88,8 @@
 												<div class="form-group row">
 													<label for="inputName" class="col-sm-2 col-form-label">닉네임</label>
 													<div class="col-sm-10">
-														<input type="text" class="form-control"
-															data-inputmask-alias="datetime"
-															data-inputmask-inputformat="dd/mm/yyyy" data-mask=""
-															inputmode="numeric">
+														<input type="text" class="form-control">
+															
 													</div>
 												</div>
 												<div class="form-group row">
@@ -108,32 +115,31 @@
 													<label for="inputSkills" class="col-sm-2 col-form-label">반려견
 														몸무게</label>
 													<div class="col-sm-10">
-														<input type="tel" class="form-control" id="inputSkills"
-															placeholder="전화번호">
+														<input type="tel" class="form-control" id="inputSkills">
+															
 													</div>
 												</div>
 												<div class="form-group row">
-													<label for="inputSkills" class="col-sm-2 col-form-label">반려견 성별</label>
-														<div>
-								<button class="btn btn-modify btn-sm boy"
-														style="background-color: #F8b03a; color: white; margin-left: 15px;">남아</button>
-								<button class="btn btn-modify btn-sm girl"
-														style="background-color: #F8b03a; color: white;">여아</button>
-							</div>
+													<label for="inputSkills" class="col-sm-2 col-form-label">반려견
+														성별</label>
+													<div>
+														<button class="btn btn-modify btn-sm boy"
+															style="background-color: #F8b03a; color: white; margin-left: 15px;">남아</button>
+														<button class="btn btn-modify btn-sm girl"
+															style="background-color: #F8b03a; color: white;">여아</button>
+													</div>
 												</div>
 												<div class="form-group row">
-													<label for="inputSkills" class="col-sm-2 col-form-label">중성화 여부</label>
+													<label for="inputSkills" class="col-sm-2 col-form-label">중성화
+														여부</label>
 													<div>
-								<button class="btn btn-modify btn-sm yes"
-														style="background-color: #F8b03a; color: white; margin-left: 15px;">했어요</button>
-								<button class="btn btn-modify btn-sm no"
-														style="background-color: #F8b03a; color: white;">안했어요</button>
-							</div>
+														<button class="btn btn-modify btn-sm yes"
+															style="background-color: #F8b03a; color: white; margin-left: 15px;">했어요</button>
+														<button class="btn btn-modify btn-sm no"
+															style="background-color: #F8b03a; color: white;">안했어요</button>
+													</div>
 												</div>
-												<div style="float: right;">
-													<button type="button" class="btn btn-modify btn-sm"
-														style="background-color: #F8b03a; color: white;">수정</button>
-												</div>
+
 											</form>
 										</div>
 										<!-- /.tab-pane -->
