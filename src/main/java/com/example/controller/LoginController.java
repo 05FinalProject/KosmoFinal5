@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.example.domain.ImgVO;
 import com.example.domain.UserVO;
 import com.example.service.loginService.LoginService;
 
@@ -34,7 +35,8 @@ public class LoginController {
 	@ResponseBody
 	public String loginCheck(String userEmail, HttpSession session){
 		UserVO result = lservice.findByUserEmail(userEmail);
-		System.out.println(result);
+		ImgVO result2 = lservice.findBypRimgname(userEmail);
+		System.out.println(result2.getPRimgname());
 		String message = "";
 		if(result == null){
 			System.out.println("로그인 실패");
@@ -44,7 +46,11 @@ public class LoginController {
 				System.out.println("*******로그인 성공********");
 				session.setAttribute("userNickname", result.getUserNickname());
 				session.setAttribute("userEmail", result.getUserEmail());
-				session.setAttribute("admin", result.getUserAdmin());
+				session.setAttribute("userName", result.getUserName());
+				session.setAttribute("userPhone", result.getUserPhone());
+				session.setAttribute("userAddress", result.getUserAddress());
+				session.setAttribute("userAdmin", result.getUserAdmin());
+				session.setAttribute("pRimgname", result2.getPRimgname());
 				session.setMaxInactiveInterval(60*60*24);
 				return message;
 			}
@@ -123,18 +129,7 @@ public class LoginController {
 //		
 //		session.invalidate(); // 세션에 저장된 로그인 정보를 삭제
 //		
-//
 //		return "Main";	// 회원 탈퇴 시 메인 페이지로 이동
 //	}Y
 	
-	/* 마이페이지 회원 정보에 출력될 회원 레코드 검색 */
-//	@RequestMapping("myPageProfile")
-//	public String mypageMember(UserVO vo, HttpSession session, Model model) {
-//		vo.setUserEmail(session.getAttribute("userEmail").toString());
-//		System.out.println(vo.getUserEmail());
-//		UserVO user = lservice.userSearch(vo);
-//		model.addAttribute("UserVO", user);
-//
-//		return "mypageProfile";
-//	}
 }
