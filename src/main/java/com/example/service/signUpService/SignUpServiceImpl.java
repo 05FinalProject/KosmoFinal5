@@ -25,12 +25,11 @@ public class SignUpServiceImpl implements SignUpService {
 		user.save(vo);
 	}
 	
+	// 회원가입 시 기본이미지 등록 (없을 시 serviceImpl에서 로그인 막힘)
 	public void insertImage(ImgVO ivo) {
 		user.save(ivo.getUser());
 		img.save(ivo);
 	}
-	
-	
 	
 	/*	이메일 중복 체크 - DB에 동일한 이메일이 있는지 레코드 검색 */
 	@Override
@@ -60,6 +59,7 @@ public class SignUpServiceImpl implements SignUpService {
 		UserVO result = user.findById(vo.getUserEmail()).get();
 		return result;
 	}
+	
 /*
 //	/**	비밀번호 찾기
 //	 * 	- DB에서 회원 정보 찾기
@@ -85,15 +85,6 @@ public class SignUpServiceImpl implements SignUpService {
 //		return memberDAO.pwChange(vo);
 //	}
 //	
-//	/** 마이페이지 회원 정보에 출력될 회원 레코드 검색
-//	 * - DB에서 이메일이 동일한 회원의 정보 찾기
-//	 * @param MemberVO vo : memberEmail
-//	 * @return MemberVO vo : 회원의 레코드
-//	 */
-//	@Override
-//	public UserVO userSearch(UserVO vo) {
-//		return memberDAO.userSearch(vo);
-//	}
 //
 //	/**	회원 정보 수정
 //	 * - DB에 동일한 이메일을 가진 회원의 정보를 수정
@@ -105,10 +96,6 @@ public class SignUpServiceImpl implements SignUpService {
 //		return memberDAO.memberUpdate(vo);
 //	}
 //
-//	/* 회원 탈퇴 - DB에 동일한 이메일과 패스워드를 가진 회원의 레코드를 삭제 */
-//	@Override
-//	public int userDelete(UserVO vo) {
-//		return user.userDelete(vo);
 //	}
 //
 //	@Override

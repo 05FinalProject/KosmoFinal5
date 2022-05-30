@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -107,7 +108,7 @@ public class LoginController {
 	}
 	
 //	/* 회원탈퇴 */
-//	@RequestMapping("userDelete")
+//	@RequestMapping(value="userDelete")
 //	public String delete(UserVO vo,HttpServletRequest request,HttpServletResponse response) {
 //		lservice.delete(vo);
 //		// 쿠키가 있다면
@@ -130,6 +131,8 @@ public class LoginController {
 //		session.invalidate(); // 세션에 저장된 로그인 정보를 삭제
 //		
 //		return "Main";	// 회원 탈퇴 시 메인 페이지로 이동
-//	}Y
+//	}
+	
+	
 	
 }

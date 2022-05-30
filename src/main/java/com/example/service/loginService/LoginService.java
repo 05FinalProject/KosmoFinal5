@@ -10,4 +10,7 @@ public interface LoginService {
 	public UserVO findByUserEmail(String userEmail);
 	
 	public ImgVO findBypRimgname(String pRimgname);
+
+//	/* 회원탈퇴용으로 쓰는 중*/
+//	public void delete(UserVO vo);
 }
