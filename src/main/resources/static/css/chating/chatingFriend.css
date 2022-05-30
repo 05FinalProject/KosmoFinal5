@@ -181,6 +181,14 @@ body,html{
 		font-size: 10px;
 		width:100px;
 	}
+	.msg_time0_send{
+		position: absolute;
+		right:0;
+		bottom: -15px;
+		color: rgba(255,255,255,0.5);
+		font-size: 10px;
+		width:60px;
+	}
 	.msg_head{
 		position: relative;
 	}

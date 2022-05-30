@@ -66,9 +66,13 @@ public class ChatingController {
 	public void friendChat(UserVO vo ,HttpServletRequest request,Model m) {
 		//session 생성 및 user의 Email 저장
 		HttpSession session = request.getSession();
-		session.setAttribute("email", vo.getUserEmail());
+		session.setAttribute("userEmail", vo.getUserEmail());
 		//친구List 얻어오기
 		m.addAttribute("userList", service.friendList(vo.getUserEmail()));
+		//user 정보얻어오기
+		m.addAttribute("user", service.getUserInfo(vo.getUserEmail()));
+		//user 사진얻어오기
+		m.addAttribute("userImg", service.getUserImg(vo.getUserEmail()).get(0).getPRimgname());
 		
 	}
 	
