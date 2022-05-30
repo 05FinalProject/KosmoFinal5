@@ -5,7 +5,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.dao.ImgRepository;
 import com.example.dao.UserRepository;
+import com.example.domain.ImgVO;
 import com.example.domain.UserVO;
 
 @Service
@@ -14,10 +16,21 @@ public class SignUpServiceImpl implements SignUpService {
 	@Autowired
 	private UserRepository user;
 	
+	@Autowired
+	private ImgRepository img;
+	
 	// 회원가입
 	public void insertUser(UserVO vo) {
+		
 		user.save(vo);
 	}
+	
+	public void insertImage(ImgVO ivo) {
+		user.save(ivo.getUser());
+		img.save(ivo);
+	}
+	
+	
 	
 	/*	이메일 중복 체크 - DB에 동일한 이메일이 있는지 레코드 검색 */
 	@Override
