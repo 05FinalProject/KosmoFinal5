@@ -1,5 +1,6 @@
 package com.example.domain;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -28,9 +29,9 @@ public class FriendChatingVO {
 	@Column(length = 500,name = "chating_message")
 	private String chatingMessage;
 	
-	@Column(insertable = false,updatable = false,columnDefinition = "date default (current_date)",name = "chating_time")
-	@Temporal(TemporalType.DATE)
-	private Date chatingTime;
+	//@Column(insertable = false,updatable = false,columnDefinition = "date default (current_date)",name = "chating_time")
+	@Column(name = "chating_time")
+	private LocalDateTime chatingTime;
 	
 	@Column(length = 10,name = "chating_sign")
 	private String chatingSign;
