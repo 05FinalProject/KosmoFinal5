@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,12 +94,21 @@
 									<i class="far nav-icon" style="font-weight: bolder;">나의 산책로</i>
 								</p>
 						</a></li>
+						<!-- 
+						<form id="frmDelete" action="userDelete">
+						<input type="hidden" name="_method" value="delete" />
+						<input type="hidden" name="userEmail" value="${sessionScope.userEmail }" />
+						</form>
+						 -->
+						
+						
+						
 						<div class="text-center">
-							<button href="javascript(0);" class="btn btm-sm btn-danger"
+							<button href="userDelete" class="btn btm-sm btn-danger" id="userDelete"
 								style="padding:1%; margin-top:50%;">
 								회원탈퇴</i>
 							</button>
-							<input type="button" id="userDelete" style="display: none;">
+							<input type="hidden" id="userDelete">
 						</div>
 
 					</ul>
@@ -114,14 +124,25 @@
 			</section>
 			<div class="card-body box-profile">
 				<div class="text-center">
+				
+				<!-- 기본이미지면 기본이미지로 출력, 사진이 있으면 사진으로 출력 -->
+				<c:if test="${sessionScope.pRimgname ne '/img/userImg/noImage.jpg' }">
 					<img class="profile-user-img img-fluid img-circle"
-						src="../../admin/dist/img/user4-128x128.jpg"
+						src="/${sessionScope.pRimgname }"
 						alt="User profile picture" style="width: 15%; height: 15%;">
+				</c:if>
+				<c:if test="${sessionScope.pRimgname eq '/img/userImg/noImage.jpg' }">
+					<img class="profile-user-img img-fluid img-circle"
+						src="/img/userImg/noImage.jpg"
+						alt="User profile picture" style="width: 15%; height: 15%;">
+				</c:if>
+				<!-- 위의 코드는 지워도 무관 -->
+
 				</div>
 				<div class="text-center">
 					<button href="javascript(0);" class="btn btm-sm btn-add"
 						style="background-color: #F8b03a; color: white; padding: 0.5%; margin-top: 1%">
-						프로필 수정</i>
+						사진 수정</i>
 					</button>
 					<input type="file" id="file" style="display: none;">
 				</div>
@@ -142,7 +163,7 @@
 													<label for="inputName" class="col-sm-2 col-form-label">이메일</label>
 													<div class="col-sm-10">
 														<input type="email" class="form-control" id="inputName"
-															placeholder="Email@naver.com">
+															value="${sessionScope.userEmail }" disabled="">
 													</div>
 												</div>
 												<div class="form-group row">
@@ -165,28 +186,28 @@
 														class="col-sm-2 col-form-label">이름</label>
 													<div class="col-sm-10">
 														<input type="text" class="form-control" id="inputEmail"
-															placeholder="홍길동">
+															value="${sessionScope.userName }" disabled="">
 													</div>
 												</div>
 												<div class="form-group row">
 													<label for="inputSkills" class="col-sm-2 col-form-label">전화번호</label>
 													<div class="col-sm-10">
 														<input type="tel" class="form-control" id="inputSkills"
-															placeholder="전화번호">
+															value="${sessionScope.userPhone }" disabled="">
 													</div>
 												</div>
 												<div class="form-group row">
 													<label for="inputSkills" class="col-sm-2 col-form-label">닉네임</label>
 													<div class="col-sm-10">
 														<input type="text" class="form-control" id="inputSkills"
-															placeholder="닉네임">
+															value="${sessionScope.userNickname }" disabled="">
 													</div>
 												</div>
 												<div class="form-group row">
 													<label for="inputSkills" class="col-sm-2 col-form-label">주소</label>
 													<div class="col-sm-10">
 														<input type="text" class="form-control" id="inputSkills"
-															placeholder="주소">
+															value="${sessionScope.userAddress }" disabled="">
 													</div>
 												</div>
 												<div style="float: right;">
@@ -268,6 +289,12 @@
 				$("#file").click();
 			});
 		});
+		
+		/* 
+		$('#userDelete').click(function(){
+			$('#frmDelete').submit
+		})
+		 */
 	</script>
 </body>
 </html>

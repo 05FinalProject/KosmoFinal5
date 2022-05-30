@@ -1,11 +1,13 @@
 package com.example.controller.api;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.domain.AgencyVO;
@@ -58,6 +60,13 @@ public class ApiController {
 	public List<AgencyVO> agencyCafeSearch(AgencyVO vo){
 		
 		return aService.agencyCafeSearch(vo);
+		
+	}
+	
+	//보내는 매세지를 db에 저장하기
+	@RequestMapping("/saveMessage")
+	public void saveMessage(@RequestParam HashMap<String,Object> params) {
+		service.insertMessage(params);
 		
 	}
 	

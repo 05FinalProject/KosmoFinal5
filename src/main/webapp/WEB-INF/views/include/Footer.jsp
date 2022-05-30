@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="ko">
 <head>
@@ -52,10 +53,18 @@
 								style="color: white;">고객센터: 02-2005-8523</p></li>
 					</ul>
 				</div>
+				
 				<div class="col-md-3">
 					<ul class="nav justify-content-center">
-						<li class="nav-item footerFont"><p class="nav-link"
-								style="color: white;">이메일: swkosmo@daum.net</p></li>
+					
+					<c:if test="${sessionScope.userAdmin eq 'N'}">
+						<li class="nav-item footerFont"><p class="nav-link" style="color: white;">이메일: swkosmo@daum.net</p></li>
+					</c:if>
+					
+					<c:if test="${sessionScope.userAdmin eq 'Y'}">
+						<li class="nav-item footerFont"><p class="nav-link" style="color: white;" ><a href="/admin">관리자 페이지</a></p></li>
+					</c:if>
+					
 					</ul>
 				</div>
 			</div>

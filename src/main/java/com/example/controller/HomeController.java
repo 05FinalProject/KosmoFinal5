@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.domain.ImgVO;
 import com.example.domain.UserVO;
 import com.example.service.signUpService.SignUpService;
 
@@ -25,14 +26,21 @@ public class HomeController {
 	
 	@RequestMapping("/signUpSuccess")
 	public String signUp(UserVO vo) {
+		
+		ImgVO ivo = new ImgVO();
+		
 		if (vo.getAddr3() != null) {
 			vo.setUserAddress(vo.getAddr2() + vo.getAddr3());
 			vo.setUserBlack("N");
 			vo.setUserAdmin("N");
-
-			signUp.insertUser(vo);
+			ivo.setPRimgname("/img/userImg/noImage.jpg");
+			
+			//signUp.insertUser(vo);
+			ivo.setUser(vo);
+			signUp.insertImage(ivo);
 			
 			return "redirect:Login";
+			
 		} else {
 			return "redirect:signUp";
 		}
