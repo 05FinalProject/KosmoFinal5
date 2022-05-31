@@ -216,4 +216,6 @@ public class ChatingServiceImpl implements ChatingService {
 		return rlist ;
 	}
 	
+	
+	
 }

@@ -42,12 +42,15 @@
 		function wsEvt() {
 			
 			var today = new Date()
-			var noon = 'PM'
+			var noon = '오후'
 			if(today.getHours() < 12){
-				noon = 'AM'
+				noon = '오전'
 			}
 			
 			//화면 뜨자마자 아니면 친구선택할때에 채팅기록 뜨기
+			
+			var mDate = new Date()
+			var dateSigh;
 			$.ajax({
 				url:'/api/messageHistory',
 				type:'get',
@@ -60,13 +63,26 @@
 				 success:function(data){
 					 console.log(data.length)
 					 $('.msg_card_body').empty()
+					  
 					  for(var i=data.length-1;i>=0;i--){
-						  console.log(data[i])
+						  
+						  var messageDate = new Date(data[i].time)
+						  console.log(messageDate)
+						  if(messageDate.getFullYear() != mDate.getFullYear() | messageDate.getMonth() != mDate.getMonth() | messageDate.getDate() != mDate.getDate()){
+							  mDate = messageDate
+							  dateSigh = messageDate.getFullYear()+'년'+ messageDate.getMonth()+'월'+messageDate.getDate()+'일'
+	 						  $('.msg_card_body').append('<p class="dateSign">'+dateSigh+'</p>')
+						  }
+						  var noon = '오후'
+						  if(messageDate.getHours() < 12){
+							noon = '오전'
+						  }
+ 						 
 						  if((data[i].user1 == $('#userNickname').val() && data[i].sign == '1') | (data[i].user2 == $('#userNickname').val() && data[i].sign == '2')){
 							 $('.msg_card_body').append('<div class="d-flex justify-content-end mb-4">'+
 										'<div class="msg_cotainer_send">'+
 										data[i].message+
-										'<span class="msg_time0_send">'+ today.getHours()+':'+ today.getMinutes()+'</span>'+
+										'<span class="msg_time0_send">'+ messageDate.getHours()+':'+ messageDate.getMinutes()+' '+noon+'</span>'+
 										'</div>'+
 									'<div class="img_cont_msg">'+
 									'<img src="'+$('#userImg').val()+'" class="rounded-circle user_img_msg">'+
@@ -75,13 +91,12 @@
 								$('.msg_card_body').scrollTop($('.msg_card_body').prop('scrollHeight')); 
 						 }else{
 							 $(".msg_card_body").append('<div class="d-flex justify-content-start mb-4">'+
-										'<span class="msg_time">' + data[i].user2 + '</span>'+
 									'<div class="img_cont_msg">'+
 										'<img src="'+$('#friendImg').val()+'" class="rounded-circle user_img_msg">'+
 									'</div>'+
 									'<div class="msg_cotainer">'+
 									data[i].message+ 
-										'<span class="msg_time">'+ today.getHours()+':'+ today.getMinutes()+'</span>'+
+										'<span class="msg_time">'+ messageDate.getHours()+':'+ messageDate.getMinutes()+' '+noon+'</span>'+
 									'</div>'+
 								'</div>');	
 								
@@ -105,9 +120,9 @@
 				
 				
 				var today = new Date()
-				var noon = 'PM'
+				var noon = '오후'
 				if(today.getHours() < 12){
-					noon = 'AM'
+					noon = '오전'
 				}
 				
 				if(d.type == "getId"){
@@ -127,7 +142,7 @@
 								
 								d.msg+
 								
-								'<span class="msg_time0_send">'+ today.getHours()+':'+ today.getMinutes()+'</span>'+
+								'<span class="msg_time0_send">'+ today.getHours()+':'+ today.getMinutes()+'  '+noon+'</span>'+
 								'</div>'+
 							'<div class="img_cont_msg">'+
 							'<img src="'+$('#userImg').val()+'" class="rounded-circle user_img_msg">'+
@@ -143,7 +158,7 @@
 							'</div>'+
 							'<div class="msg_cotainer">'+
 							 d.msg + 
-								'<span class="msg_time">'+ today.getHours()+':'+ today.getMinutes()+'</span>'+
+								'<span class="msg_time">'+ today.getHours()+':'+ today.getMinutes()+'  '+noon+'</span>'+
 							'</div>'+
 						'</div>');	
 						
@@ -189,6 +204,7 @@
 	</head>
 	
 	<body>
+		<input type="hidden" id="friendList" value="${userList}" />
 		<input type="hidden" id="userEmail" value="${sessionScope.userEmail}">
 		<input type="hidden" id="userNickname" value="${user.userNickname}">
 		<input type="hidden" id="userImg" value="/${userImg}">
@@ -199,8 +215,8 @@
 				<div class="col-md-4 col-xl-3 chat"><div class="card mb-sm-3 mb-md-0 contacts_card">
 					<div class="card-header">
 						<div class="input-group">
-							<input type="text" placeholder="Search..." name="" class="form-control search">
-							<div class="input-group-prepend">
+							<input type="text" placeholder="Search..." id="search" class="form-control search">
+							<div  class="input-group-prepend" >
 								<span class="input-group-text search_btn"><i class="fas fa-search"></i></span>
 							</div>
 						</div>
@@ -234,7 +250,7 @@
 						<div class="card-header msg_head">
 							<div class="d-flex bd-highlight">
 								<div class="img_cont" id="friendTitle">
-									<img id="friendImg" src="/${userList[0].img}" class="rounded-circle user_img">
+									<img id="friendImage" src="/${userList[0].img}" class="rounded-circle user_img">
 									
 								</div>
 								<div class="user_info">
@@ -281,7 +297,7 @@
 			
 			$('#friendName').text( $(this).find('span').text())
 
-			$('#friendImg').attr('src',$(this).find('img').attr('src'))
+			$('#friendImage').attr('src',$(this).find('img').attr('src'))
 			//*******
 			ws.close()
 			$('#friendNo').val($(this).attr('content'))
@@ -304,7 +320,28 @@
 			});
 		})
 		
-		</script>
+	/* 	$('.input-group-prepend').click(function(){
+			
+			var rList = []
+			
+			var friends = '${userList}'
+			var friendList=friends.replaceAll('{','').replaceAll('}','').replaceAll('[','').replaceAll(']','').replaceAll('img=','').replaceAll(' friendNo=','').replaceAll(' nickName=','').replaceAll(' email=','').split(',')
+			console.log(friendList)
+			var fNum = friendList.length/4
+			for(var i=0;i<fNum;i++){
+				if(friendList[2+4*i].includes($('#search').val())){
+					var fInfo = []
+					fInfo.push(friendList[4*i])
+					fInfo.push(friendList[4*i+1])
+					fInfo.push(friendList[4*i+2])
+					fInfo.push(friendList[4*i+3])
+					rList.push(fInfo)
+				}
+				
+			}
+		}) */
 		
+		
+		</script>
 	</body>
 </html>
