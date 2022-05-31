@@ -82,22 +82,25 @@
                         
                         
                         <div class="card-body">
-                      
-                        <img class="card-img-top img-fluid" src="${shelter.abImage}" alt="Post">
-                        <h3 class="post-title card-title">${shelter.abKind}</h3>
+                        
+                        <img class="card-img-top img-fluid" src="${encyclopedia.dogImage}" alt="Post">
+                     <!-- <img class="img-fluid post-thumbnail" src="${encyclopedia.dogImage}" alt="Post">-->
+                     <!-- <img src="${encyclopedia.dogImage}" class="img-fluid animated comeInLeft" alt="Lana Pet" data-scroll-animate="comeInLeft">-->
+                        <!--  <img class="card-img-top img-fluid" src="${encyclopedia.dogImage}" alt="Post">-->
+                        <h3 class="post-title card-title">${encyclopedia.dogKind}</h3>
                         <p class="post-text card-text">
-                         ${shelter.abName}/ ${shelter.abAge}/ ${shelter.abGender} 
+                         ${encyclopedia.dogLocal}
+                        </p>
+                        <p>
+                         길이:${encyclopedia.dogHeight}/몸무게:${encyclopedia.dogWeight}
+                        </p>
+                        <p>
+                         정보:${encyclopedia.dogInformation}
                         </p>
                         
-                        <div class="d-flex justify-content-between post-meta mt-4">
-                            <div class="author-meta">
-                                <img src="../pictures/placeholder/32x32.svg" class="img-fluid rounded-circle mr-1 w-auto" alt="Author">
-                                By: <a>작성자</a>
-                            </div>
-                           
-                        </div>
+                       
                         
-                        <input name="submit" type="submit" id="submit" class="btn btn-primary btn-lg text-uppercase font-weight-bold w-15x" value="입양하기">
+                       
                        
                     </div>
                         </div>

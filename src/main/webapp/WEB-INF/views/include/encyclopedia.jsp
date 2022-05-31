@@ -169,10 +169,7 @@ border: 1px solid #008000;
 					<div class="bx-txt">
 						<h6><p>${vo.dogNum}</p> ${vo.dogKind}(${vo.dogLocal})</h6>
 
-						<p></p>
-												<span></span>
-												<span></span>
-						 					</div>
+				 </div>
 				</a>
 				
 			</li>

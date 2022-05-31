@@ -77,7 +77,7 @@
 
 .modal_content{
   
-  width:28%; height:60%;
+  width:28%; 
   background:#fff; border-radius:20px;
   position:fixed; top:50%; left:50%;
   
