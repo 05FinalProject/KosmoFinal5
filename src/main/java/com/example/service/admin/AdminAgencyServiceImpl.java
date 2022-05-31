@@ -1,5 +1,7 @@
 package com.example.service.admin;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -97,6 +99,20 @@ public class AdminAgencyServiceImpl implements AdminAgencyService{
 	public int countRecord() {
 		
 		return abRepo.countRecord();
+	}
+	
+	@Override
+	public List<HashMap<String, Object>> chartAgencyCount() {
+		List<HashMap<String, Object>> rList = new ArrayList<HashMap<String,Object>>();
+		
+		for(Object[] o : aRepo.chartAgencyCount()) {
+			HashMap<String, Object> hm = new HashMap<String, Object>();
+			hm.put("chartCount",o[0]);
+			hm.put("agencyCategoryNum",o[1]);
+			rList.add(hm);
+		}
+							
+		return rList ;
 	}		
 	
 

@@ -19,13 +19,13 @@
 		 <script type="text/javascript">
 		var ws ;
 		
-		
 		window.onload = function(){
 			//websocket 객체생성
 			ws= new WebSocket("ws://" + location.host + "/chating/"+$("#friendNo").val());
 			ws.onopen = function(data){
 				//소켓이 열리면 동작
 			}
+			
 			wsEvt()
 			
 			document.addEventListener("keypress", function(e){
@@ -40,6 +40,58 @@
 		}
 		
 		function wsEvt() {
+			
+			var today = new Date()
+			var noon = 'PM'
+			if(today.getHours() < 12){
+				noon = 'AM'
+			}
+			
+			//화면 뜨자마자 아니면 친구선택할때에 채팅기록 뜨기
+			$.ajax({
+				url:'/api/messageHistory',
+				type:'get',
+				contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+
+				data:{	friendNo : $("#friendNo").val()
+					},
+				 contentType: "application/json; charset=utf-8;",
+				 dataType: "json",
+				 success:function(data){
+					 console.log(data.length)
+					 $('.msg_card_body').empty()
+					  for(var i=data.length-1;i>=0;i--){
+						  console.log(data[i])
+						  if((data[i].user1 == $('#userNickname').val() && data[i].sign == '1') | (data[i].user2 == $('#userNickname').val() && data[i].sign == '2')){
+							 $('.msg_card_body').append('<div class="d-flex justify-content-end mb-4">'+
+										'<div class="msg_cotainer_send">'+
+										data[i].message+
+										'<span class="msg_time0_send">'+ today.getHours()+':'+ today.getMinutes()+'</span>'+
+										'</div>'+
+									'<div class="img_cont_msg">'+
+									'<img src="'+$('#userImg').val()+'" class="rounded-circle user_img_msg">'+
+									'</div>'+
+								'</div>')
+								$('.msg_card_body').scrollTop($('.msg_card_body').prop('scrollHeight')); 
+						 }else{
+							 $(".msg_card_body").append('<div class="d-flex justify-content-start mb-4">'+
+										'<span class="msg_time">' + data[i].user2 + '</span>'+
+									'<div class="img_cont_msg">'+
+										'<img src="'+$('#friendImg').val()+'" class="rounded-circle user_img_msg">'+
+									'</div>'+
+									'<div class="msg_cotainer">'+
+									data[i].message+ 
+										'<span class="msg_time">'+ today.getHours()+':'+ today.getMinutes()+'</span>'+
+									'</div>'+
+								'</div>');	
+								
+								$('.msg_card_body').scrollTop($('.msg_card_body').prop('scrollHeight')); 
+								
+						 } 
+					 }  
+				 }
+			})
+			
 			//메세지 받기
 			ws.onmessage = function(data){
 				var msg = data.data;
@@ -50,6 +102,8 @@
 					var si = d.sessionId
 					
 				}
+				
+				
 				var today = new Date()
 				var noon = 'PM'
 				if(today.getHours() < 12){
@@ -57,7 +111,7 @@
 				}
 				
 				if(d.type == "getId"){
-					sendCome()
+					
 					var si = d.sessionId
 					
 					$("#sessionId").val(si); 
@@ -66,17 +120,17 @@
 				
 				if(d.type == 'message'){
 					if(d.userName == $("#userNickname").val()){
-						/* $('.msg_card_body').append('<div class="d-flex justify-content-end mb-4">'+ */
+						
 								$('.msg_card_body').append('<div class="d-flex justify-content-end mb-4">'+
 										
 								'<div class="msg_cotainer_send">'+
 								
 								d.msg+
 								
-								'<span class="msg_time0_send">'+ today.getHours()+':'+ today.getMinutes()+' '+noon+'</span>'+
+								'<span class="msg_time0_send">'+ today.getHours()+':'+ today.getMinutes()+'</span>'+
 								'</div>'+
 							'<div class="img_cont_msg">'+
-							'<img src="/'+$('#userImg').val()+'" class="rounded-circle user_img_msg">'+
+							'<img src="'+$('#userImg').val()+'" class="rounded-circle user_img_msg">'+
 							'</div>'+
 						'</div>')
 						
@@ -85,11 +139,11 @@
 						 $(".msg_card_body").append('<div class="d-flex justify-content-start mb-4">'+
 								'<span class="msg_time">' + d.userName + '</span>'+
 							'<div class="img_cont_msg">'+
-								'<img src="/'+data.img+'" class="rounded-circle user_img_msg">'+
+								'<img src="'+$('#friendImg').val()+'" class="rounded-circle user_img_msg">'+
 							'</div>'+
 							'<div class="msg_cotainer">'+
 							 d.msg + 
-								'<span class="msg_time">'+ today.getHours()+':'+ today.getMinutes()+' '+noon+' , Today' +'</span>'+
+								'<span class="msg_time">'+ today.getHours()+':'+ today.getMinutes()+'</span>'+
 							'</div>'+
 						'</div>');	
 						
@@ -99,7 +153,6 @@
 				}
 			}
 		}
-		
 		
 		function send() {
 			if($("#chatting").val() != ''){
@@ -132,14 +185,14 @@
 		}
 		</script> 
 		
-		
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js"></script>
 	</head>
 	
 	<body>
 		<input type="hidden" id="userEmail" value="${sessionScope.userEmail}">
 		<input type="hidden" id="userNickname" value="${user.userNickname}">
-		<input type="hidden" id="userImg" value="${userImg}">
+		<input type="hidden" id="userImg" value="/${userImg}">
+		<input type="hidden" id="friendImg" value="/${userList[0].img}">
 		<input type="hidden" id="sessionId" value="">
 		<div class="container-fluid h-100">
 			<div class="row justify-content-center h-100">
@@ -201,12 +254,7 @@
 							</div>
 						</div>
 						<div class="card-body msg_card_body">
-						<%-- <c:forEach items="" var="">
 						
-						
-						
-						</c:forEach> --%>
-							
 						</div>
 						<div class="card-footer">
 							<div class="input-group">
@@ -227,6 +275,7 @@
 		<script type="text/javascript">
 		
 		$('.friend').click(function(){
+			$('#friendImg').val($(this).find('img').attr('src'))
 			$('.contacts > .friend').removeClass('active')
 			$(this).addClass('active')
 			
