@@ -65,6 +65,15 @@ public class ApiController {
 		
 	}
 	
+	//agencyhotel 검색기능
+		@RequestMapping("/agencyHotelSearch")
+		public List<AgencyVO> agencyHotelSearch(AgencyVO vo){
+			
+			return aService.agencyHotelSearch(vo);
+			
+		}
+		
+	
 	//보내는 매세지를 db에 저장하기
 	@RequestMapping("/saveMessage")
 	public void saveMessage(@RequestParam HashMap<String,Object> params) {
@@ -77,5 +86,6 @@ public class ApiController {
 	public List<HashMap<String, Object>> messageHistory(FriendVO vo){
 		return service.messageHistory(vo.getFriendNo());
 	}
+	
 	
 }

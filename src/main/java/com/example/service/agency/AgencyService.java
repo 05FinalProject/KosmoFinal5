@@ -45,9 +45,13 @@ public interface AgencyService {
 	AgencyVO getagencyCafe(AgencyVO vo);
 	
 	//백과사전 상세 띄우기
-	//DogKindVO getencyclopedia(DogKindVO vo);
+	DogKindVO getencyclopedia(DogKindVO vo);
 	
 	
 //***************************************************
+	//카페 검색 기능 
 	List<AgencyVO> agencyCafeSearch(AgencyVO vo);
+	
+	//호텔 검색 기능
+	List<AgencyVO> agencyHotelSearch(AgencyVO vo);
 }

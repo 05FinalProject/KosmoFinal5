@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import lombok.Data;
 
@@ -30,4 +31,11 @@ public class FriendVO {
 	@ManyToOne
 	@JoinColumn(name = "user_email1")
 	private UserVO user2;
+	
+	@Transient
+	private String search;
+	
+	@Transient
+	private String friend;
+	
 }

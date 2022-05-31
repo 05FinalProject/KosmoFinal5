@@ -104,13 +104,16 @@ public class AgencyServiceImpl implements AgencyService{
 				
 	
 				//백과사전 상세정보 띄우기 
-				/*
-				 * @Override public DogKindVO getencyclopedia(DogKindVO vo) { DogKindVO avo =
-				 * DogKindRepo.findById(vo.getDogNum()).get(); return DogKindRepo.save(avo); }
-				 */
+				
+				 @Override public DogKindVO getencyclopedia(DogKindVO vo) { 
+				DogKindVO avo = DogKindRepo.findById(vo.getDogNum()).get(); 
+					 return DogKindRepo.save(avo); }
 				
 				
-	//*******************************************			
+				
+	//******************************************************************************
+				 
+	//카페 검색 기능 			 
 	public List<AgencyVO> agencyCafeSearch(AgencyVO vo){
 		ArrayList<AgencyVO> list = new ArrayList<AgencyVO>();
 		for(Object[] o : agencyRepo.agencyCafeSearch(vo.getAgencyName())) {
@@ -124,5 +127,23 @@ public class AgencyServiceImpl implements AgencyService{
 		}
 		return  list;
 	}		
+	
+	
+	//호텔 검색 기능 			 
+		public List<AgencyVO> agencyHotelSearch(AgencyVO vo){
+			ArrayList<AgencyVO> list = new ArrayList<AgencyVO>();
+			for(Object[] o : agencyRepo.agencyHotelSearch(vo.getAgencyName())) {
+				AgencyVO v = new AgencyVO();
+				v.setAgencyName((String)o[6]);
+				v.setAgencyAddress((String)o[1]);
+				v.setAgencyTel((String)o[7]);
+				v.setAgencyImage((String)o[8]);
+				v.setAgencyNum((int)o[0]);
+				list.add(v);
+			}
+			return  list;
+		}		
+		
+	
 				
 }
