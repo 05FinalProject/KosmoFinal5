@@ -69,6 +69,17 @@
 .write-btn {
 	
 }
+
+.post-text .card-text {  /* 적용 안 됨 - 수정해야함 */
+	overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* 라인수 */
+    -webkit-box-orient: vertical;
+    word-wrap:break-word; 
+    line-height: 1.2em;
+    height: 1em; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
+}
 </style>
 </head>
 
@@ -90,17 +101,18 @@
 						<div class="blog-grid-col col-12 col-md-6 col-lg-3">
 							<div id="post-1"
 								class="post type-post post-1 card post-card post-grid-card h-100">
+								<a href="/include/community/dailyDetail?communityNum=${community.communityNum }">
 								<img class="card-img-top img-fluid"
-									src="../../pictures/placeholder/530x400.svg" alt="Post">
+									src="../../pictures/placeholder/530x400.svg" alt="Post"></a>
 								<div class="card-body">
 									<ul class="post-meta">
-										<li><a href="/include/community/dailyDetail">${community.communityInsertdate }</a></li>
+										<li><a href="/include/community/dailyDetail?communityNum=${community.communityNum }">${community.communityInsertdate }</a></li>
 									</ul>
 									<span><img class="siren" src="../../img/siren.png"></span>
 									<h5 class="post-title card-title">
-										<a href="/include/community/dailyDetail?communityNum=${community.communityNum }">게시글 제목</a>
+										<a href="/include/community/dailyDetail?communityNum=${community.communityNum }">사용자 닉네임</a>
 									</h5>
-									<p class="post-text card-text">${community.communityContent }</p>
+									<p class="post-text card-text">${community.communityTitle }</p>
 									<span><img class="emptyHeart"
 										src="../../img/emptyHeart.png"></span> <span><img
 										class="comment" src="../../img/comment.png"></span>

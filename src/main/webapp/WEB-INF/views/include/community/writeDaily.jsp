@@ -219,7 +219,7 @@ header .subHeader .headerInner .gnb-bar .gnb-list.hover_menu.on {
 									<input type='file' id='btnAtt' multiple='multiple' name="file" />
 									<input type="hidden" id="img-test" name="" />
 									<div id='att_zone'
-										data-placeholder='파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요'></div>
+										data-placeholder='파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요.'></div>
 								</div>
 								<br />
 
@@ -228,8 +228,16 @@ header .subHeader .headerInner .gnb-bar .gnb-list.hover_menu.on {
 									<div class="col">
 										<label class="font-weight-bold">글작성<span
 											style="color: red">*</span></label>
-										<textarea class="form-control" name="communityContent" rows="8"
-											aria-required="true" aria-label="Message"></textarea>
+										<div class="form-group row">
+											<div class="col">
+												<input type="text" class="form-control" name="communityTitle"
+													placeholder="제목을 입력해주세요." aria-required="true"
+													required="required">
+											</div>
+										</div>
+										<textarea class="form-control" name="communityContent"
+											rows="8" aria-required="true" aria-label="Message"
+											placeholder="내용을 입력해주세요."></textarea>
 									</div>
 								</div>
 								<div class="row text-center">
