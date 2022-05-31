@@ -15,11 +15,11 @@ public interface FriendRepository extends CrudRepository<FriendVO, Integer> {
 	List<FriendVO> friendList(String email);
 	
 	//친구번호 얻어오기
-	
-	//select * from friend 
-	//where (user_sign = 0 and user_email = 'abcd2@naver.com' and user_email1='abcd1@naver.com')
-	//or (user_sign = 0 and user_email1 = 'abcd2@naver.com' and user_email='abcd1@naver.com');
 	@Query("SELECT f.friendNo FROM FriendVO f WHERE (f.userSign=0 and f.user1.userEmail=:email1 and f.user2.userEmail=:email2)  or     "
 			+ " (f.userSign=0 and f.user2.userEmail=:email1 and f.user1.userEmail=:email2)     ")
 	long getFriendNo(String email1,String email2);
+	
+	
+	
+	
 }

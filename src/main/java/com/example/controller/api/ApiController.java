@@ -87,4 +87,5 @@ public class ApiController {
 		return service.messageHistory(vo.getFriendNo());
 	}
 	
+	
 }
