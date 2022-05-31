@@ -118,21 +118,24 @@
 
 		</aside>
 		<div class="content-wrapper" style="margin-left: 10%;">
+		
+		<form action="userUpdate" method="post" id="userUpdateForm" enctype="multipart/form-data">
+			
 			<section class="content-header">
 				<div class="container-fluid profileHead"></div>
 				<!-- /.container-fluid -->
 			</section>
-			<div class="card-body box-profile">
+			<div class="card-body box-profile userFileForm">
 				<div class="text-center">
 				
 				<!-- 기본이미지면 기본이미지로 출력, 사진이 있으면 사진으로 출력 -->
 				<c:if test="${sessionScope.pRimgname ne '/img/userImg/noImage.jpg' }">
-					<img class="profile-user-img img-fluid img-circle"
+					<img class="profile-user-img img-fluid img-circle userFile"
 						src="/${sessionScope.pRimgname }"
 						alt="User profile picture" style="width: 15%; height: 15%;">
 				</c:if>
 				<c:if test="${sessionScope.pRimgname eq '/img/userImg/noImage.jpg' }">
-					<img class="profile-user-img img-fluid img-circle"
+					<img class="profile-user-img img-fluid img-circle userFile"
 						src="/img/userImg/noImage.jpg"
 						alt="User profile picture" style="width: 15%; height: 15%;">
 				</c:if>
@@ -140,11 +143,11 @@
 
 				</div>
 				<div class="text-center">
-					<button href="javascript(0);" class="btn btm-sm btn-add"
+					<label class="btn btm-sm btn-add" for="userFile"
 						style="background-color: #F8b03a; color: white; padding: 0.5%; margin-top: 1%">
 						사진 수정</i>
-					</button>
-					<input type="file" id="file" style="display: none;">
+					</label>
+					<input type="file" id="userFile" name="file" style="display: none;">
 				</div>
 			</div>
 			<!-- /.card-body -->
@@ -211,7 +214,7 @@
 													</div>
 												</div>
 												<div style="float: right;">
-													<button type="button" class="btn btn-modify"
+													<button type="submit" class="btn btn-modify"
 														style="background-color: #F8b03a; color: white;">수정</button>
 												</div>
 											</form>
@@ -229,6 +232,9 @@
 					<!-- /.row -->
 				</div>
 			</section>
+			
+			</form>
+			
 		</div>
 	</div>
 	<!-- ./wrapper -->
@@ -286,7 +292,7 @@
 			/* 프로필사진 업로드 */
 			$(".btn-add").click(function(e) {
 				e.preventDefault();
-				$("#file").click();
+				$("#userFile").click();
 			});
 		});
 		

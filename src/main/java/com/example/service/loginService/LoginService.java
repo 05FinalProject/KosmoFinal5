@@ -11,6 +11,8 @@ public interface LoginService {
 	
 	public ImgVO findBypRimgname(String pRimgname);
 
+	public void userImgUpdate(ImgVO ivo);
+
 //	/* 회원탈퇴용으로 쓰는 중*/
 //	public void delete(UserVO vo);
 }
