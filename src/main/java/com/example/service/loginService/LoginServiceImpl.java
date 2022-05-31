@@ -1,7 +1,5 @@
 package com.example.service.loginService;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +27,15 @@ public class LoginServiceImpl implements LoginService {
 	@Override
 	public ImgVO findBypRimgname(String pRimgname) {
 		return Img.findByUserEmail(pRimgname).get(0);
+	}
+
+
+	@Override
+	public void userImgUpdate(ImgVO ivo) {
+		ImgVO result = Img.findByUserEmail(ivo.getUser().getUserEmail()).get(0);
+		result.setPImgname(ivo.getPImgname());
+		result.setPRimgname("img/userImg/"+ivo.getPRimgname());
+		Img.save(result);
 	}
 
 //	/* 회원탈퇴용으로 쓰는 중*/
