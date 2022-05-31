@@ -20,14 +20,19 @@ public class CommunityServiceImpl implements CommunityService {
 	 * return communityRepo.findByP_imgnum(p_rimgname, p_rimgname); }
 	 */
 	
+	//일상공유 페이지 게시글 등록
 	public void insertDaily(CommunityVO vo) {
 		communityRepo.save(vo);
 	}
 	
+	//일상공유 페이지 상세보기
 	public CommunityVO getCommunity(CommunityVO vo) {
-		return communityRepo.findById(vo.getCommunityNum()).get();
+		CommunityVO cvo = communityRepo.findById(vo.getCommunityNum()).get();
+		return communityRepo.save(cvo);
 	}
 
+	//*******************************************************************
+	//일상공유 페이지 페이징 처리
 	@Override
 	public List<CommunityVO> getCommunityPaging(Pageable paging) {		
 		return communityRepo.findAll(paging);
@@ -37,4 +42,5 @@ public class CommunityServiceImpl implements CommunityService {
 	public int countCommunityRecord() {		
 		return communityRepo.countCommunityRecord();
 	}
+	//*******************************************************************
 }

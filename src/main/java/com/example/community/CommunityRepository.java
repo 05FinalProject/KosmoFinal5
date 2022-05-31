@@ -20,7 +20,7 @@ public interface CommunityRepository extends CrudRepository<CommunityVO, Integer
 	 */
 	
 
-	//시설 페이징 처리(호텔)
+	//일상공유 페이지 페이징 처리
 	@Query("SELECT count(c) as count FROM CommunityVO c")
 	int countCommunityRecord();
 		
