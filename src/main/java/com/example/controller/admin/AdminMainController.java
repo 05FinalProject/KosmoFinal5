@@ -52,23 +52,23 @@ public class AdminMainController {
 	public String charts(Model model) {
 		//리스트 담기 
 		List<HashMap<String, Object>> list = adminAgencyService.chartAgencyCount();//서비스 리턴
-		Gson accountgson = new Gson();
-		JsonArray accountjArray = new JsonArray();
+		Gson agencyGson = new Gson();
+		JsonArray agencyJArray = new JsonArray();
 
-		Iterator<HashMap<String, Object>> accountit = list.iterator();
-		while (accountit.hasNext()) {
-			HashMap agencyCount = accountit.next();
+		Iterator<HashMap<String, Object>> agencyIterator = list.iterator();
+		while (agencyIterator.hasNext()) {
+			HashMap agencyCount = agencyIterator.next();
 			JsonObject object = new JsonObject();			
 			Integer agencyChartCount =Integer.parseInt(String.valueOf(agencyCount.get("chartCount")));
 			Integer agencyCategoryNum =Integer.parseInt(String.valueOf(agencyCount.get("agencyCategoryNum")));
 			
 			object.addProperty("agencyChartCount", agencyChartCount);
 			object.addProperty("agencyCategoryNum", agencyCategoryNum);
-			accountjArray.add(object);
+			agencyJArray.add(object);
 		}
 		
-		String accountjson = accountgson.toJson(accountjArray);
-		model.addAttribute("account", accountjson);
+		String agencyJson = agencyGson.toJson(agencyJArray);
+		model.addAttribute("agency", agencyJson);
 			
 		
 		return "/admin/charts/chartsjs";
