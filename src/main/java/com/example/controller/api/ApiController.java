@@ -1,6 +1,5 @@
 package com.example.controller.api;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.domain.AgencyVO;
 import com.example.domain.ChatingRoomVO;
-import com.example.domain.FriendChatingVO;
 import com.example.domain.FriendVO;
 import com.example.domain.UserVO;
 import com.example.service.agency.AgencyService;
@@ -38,7 +36,7 @@ public class ApiController {
 	
 	//채팅방들어올때 user정보(이메지,닉네임)출력
 	@RequestMapping(value = "/membersImg",produces = "application/json; charset=UTF-8")
-	public HashMap membersImg(UserVO vo) {
+	public HashMap<String,Object> membersImg(UserVO vo) {
 		
 		return service.getChatingRoomUserInfo(vo);
 	}

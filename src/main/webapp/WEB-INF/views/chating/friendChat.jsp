@@ -135,13 +135,9 @@
 				
 				if(d.type == 'message'){
 					if(d.userName == $("#userNickname").val()){
-						
 								$('.msg_card_body').append('<div class="d-flex justify-content-end mb-4">'+
-										
 								'<div class="msg_cotainer_send">'+
-								
 								d.msg+
-								
 								'<span class="msg_time0_send">'+ today.getHours()+':'+ today.getMinutes()+'  '+noon+'</span>'+
 								'</div>'+
 							'<div class="img_cont_msg">'+
@@ -152,7 +148,6 @@
 						$('.msg_card_body').scrollTop($('.msg_card_body').prop('scrollHeight'));
 					}else{
 						 $(".msg_card_body").append('<div class="d-flex justify-content-start mb-4">'+
-								'<span class="msg_time">' + d.userName + '</span>'+
 							'<div class="img_cont_msg">'+
 								'<img src="'+$('#friendImg').val()+'" class="rounded-circle user_img_msg">'+
 							'</div>'+
