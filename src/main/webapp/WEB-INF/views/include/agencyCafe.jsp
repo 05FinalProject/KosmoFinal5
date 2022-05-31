@@ -127,8 +127,11 @@ border: 1px solid #008000;
 
 		</div>
 
-
-	               
+		<input class="agencyAddress" value="${vo.agencyNum }" type="hidden" />
+		<input class="agencyName" value="${vo.agencyName }" type="hidden" /> 
+		<input class="agencyLat" value="${vo.agencyLat }" type="hidden" /> 
+		<input class="agencyLon" value="${vo.agencyLon }" type="hidden" />
+             
 		<!--********** 정보기관 리스트 출력 *********************** -->
 		<div class="listing__list">
 
@@ -137,12 +140,9 @@ border: 1px solid #008000;
 				<div class="listing__item">
 					<!-- 여기에 img값 가지고와야함 동적으로 -->
 
-				 <%--  카카오 api 맵   
-				   <input class="agencyAddress" value="${vo.agencyNum }" hidden="hidden" />
-					<input class="agencyName" value="${vo.agencyName }" hidden="hidden" /> 
-					<input class="agencyLat" value="${vo.agencyLat }" hidden="hidden" /> 
-					<input class="agencyLon" value="${vo.agencyLon }" hidden="hidden" />
-					 --%>
+				     
+				   
+					 
 					
 					<div>
 						<img id="agencyImage" class="listing__item__pic set-bg"
