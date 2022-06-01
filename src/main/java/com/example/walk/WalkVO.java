@@ -1,6 +1,7 @@
 package com.example.walk;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -11,10 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.PrePersist;
+
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import com.example.domain.UserVO;
 
@@ -43,7 +42,13 @@ public class WalkVO {
 	private String walkStart;
 	
 	@Column(length = 100)
-	private String walkEnd;
+	private String walkEnd;	
+	
+	private LocalDate createdDateAt;
+	
+	public WalkVO() {
+		createdDateAt = LocalDate.now();
+	}
 
 	@ManyToOne
 	@JoinColumn(name = "user_email")
