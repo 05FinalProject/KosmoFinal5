@@ -25,4 +25,8 @@ public interface CommunityRepository extends CrudRepository<CommunityVO, Integer
 	int countCommunityRecord();
 		
 	List<CommunityVO> findAll(Pageable paging);
+	
+	
+	//****************admin*****************
+	List<CommunityVO> findAll();
 }

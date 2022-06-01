@@ -60,6 +60,7 @@ public class AdminAgencyServiceImpl implements AdminAgencyService{
 		return aRepo.findByAgencyCategoryNum(paging, 5);
 	}
 	
+	
 	@Override
 	public int countFunehallRecord() {
 		
@@ -105,13 +106,12 @@ public class AdminAgencyServiceImpl implements AdminAgencyService{
 	public List<HashMap<String, Object>> chartAgencyCount() {
 		List<HashMap<String, Object>> rList = new ArrayList<HashMap<String,Object>>();
 		
-		for(Object[] o : aRepo.chartAgencyCount()) {
+		for(Object[] obj : aRepo.chartAgencyCount()) {
 			HashMap<String, Object> hm = new HashMap<String, Object>();
-			hm.put("chartCount",o[0]);
-			hm.put("agencyCategoryNum",o[1]);
+			hm.put("chartCount",obj[0]);
+			hm.put("agencyCategoryNum",obj[1]);
 			rList.add(hm);
-		}
-							
+		}							
 		return rList ;
 	}		
 	

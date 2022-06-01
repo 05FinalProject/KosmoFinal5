@@ -168,8 +168,8 @@ public class AdminMainController {
 		Pageable paging = PageRequest.of(page-1, 9,Sort.Direction.ASC,"abNo");
 
 		m.addAttribute("paging",adminAgencyService.getAbandonePaging(paging) );
-
 		m.addAttribute("count",adminAgencyService.countRecord() );
+		
 		return "/admin/facilities/adminShelter";
 	}
 
@@ -177,7 +177,7 @@ public class AdminMainController {
 	@RequestMapping(value="adminHospital", method=RequestMethod.GET)
 	public String adminHospital(Model m, AgencyVO vo) {
 		//페이징 처리
-		int page =1;
+		int page = 1;
 		if(vo.getPage()!=0) {
 			page = vo.getPage();
 		} 
@@ -257,7 +257,7 @@ public class AdminMainController {
 	public String adminDaily(Model m) {
 		CommunityVO vo = new CommunityVO();
 		List<CommunityVO> list = adminCommunityService.communityList(vo);
-		m.addAttribute("userList", list);
+		m.addAttribute("communityList", list);
 		
 		return "/admin/communities/adminDaily";
 	}

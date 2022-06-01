@@ -14,15 +14,13 @@ public class AdminCommunityServiceImpl implements AdminCommunityService {
 	@Autowired
 	private CommunityRepository communityRepo;
 	
+	
+	//커뮤니티 일상공유 리스트 출력
 	@Override
 	public List<CommunityVO> communityList(CommunityVO vo) {
 		
 		return (List<CommunityVO>) communityRepo.findAll();
-	}
-	
-	
-	
-	
+	}	
 	
 	
 	

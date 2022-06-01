@@ -59,20 +59,6 @@ public interface AgencyRepository extends CrudRepository<AgencyVO, Integer>{
 	
 	
 	//차트 시설별 등록 개수(도넛차트)
-//	@Query(value = "  SELECT  count(*), a_category_num      "
-//			+ "  FROM agency      "
-//			+ "  WHERE a_category_num IN(1,2,3,5)    "
-//			+ "  GROUP BY a_category_num  ", nativeQuery = true)
-//	public List<AgencyVO> chartAgencyCount();
-	
-	
-	/*
-	 * @Query("     SELECT  count(a.agencyNum) as chartCount, a.agencyCategoryNum     "
-	 * + "    FROM AgencyVO a    " +
-	 * "    WHERE a.agencyCategoryNum IN(1,2,3,5)      " +
-	 * "    GROUP BY a.agencyCategoryNum        ")
-	 */
-	
 	@Query(value="  SELECT  count(a_num), a_category_num    "
 			+ "  FROM agency  "
 			+ "  WHERE a_category_num IN(1,2,3,5)  "

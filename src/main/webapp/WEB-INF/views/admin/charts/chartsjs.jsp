@@ -135,10 +135,21 @@
 
     for (let i = 0; i < jDataAgency.length; i++) {
         let dAgency = jDataAgency[i];
+        if(dAgency.agencyCategoryNum == 1){
+        	dAgency.agencyCategoryNum="애견호텔";
+        }else if(dAgency.agencyCategoryNum == 2){
+        	dAgency.agencyCategoryNum="애견카페";     	
+        }else if(dAgency.agencyCategoryNum == 3){
+        	dAgency.agencyCategoryNum="동물병원";     	
+        }else if(dAgency.agencyCategoryNum == 5){
+        	dAgency.agencyCategoryNum="장례식장";     	
+        }        
+        
         labelListAgency.push(dAgency.agencyCategoryNum);
         valueListAgency.push(dAgency.agencyChartCount);
         colorList.push(colorize());
     }
+    //dAgency.agencyCategoryNum가 1이면 동물호텔로 이름 변경
 
     let data = {
         labels: labelListAgency,
