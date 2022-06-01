@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.example.domain.UserVO;
+
 @Controller
 @RequestMapping("/include")
 public class CommunityController {
@@ -76,7 +78,8 @@ public class CommunityController {
 		 * TODO Auto-generated catch block e.printStackTrace(); } catch (IOException e)
 		 * { // TODO Auto-generated catch block e.printStackTrace(); } }
 		 */
-
+		
+		
 		c_service.insertDaily(vo);
 
 		return "/include/community/dailyDetail";
