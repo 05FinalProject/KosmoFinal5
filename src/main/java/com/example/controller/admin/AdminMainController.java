@@ -18,11 +18,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.community.CommunityVO;
 import com.example.domain.AbandonedVO;
 import com.example.domain.AgencyVO;
 import com.example.domain.ReportVO;
 import com.example.domain.UserVO;
 import com.example.service.admin.AdminAgencyService;
+import com.example.service.admin.AdminCommunityService;
 import com.example.service.admin.AdminReportService;
 import com.example.service.admin.AdminUserService;
 import com.google.gson.Gson;
@@ -31,7 +33,6 @@ import com.google.gson.JsonObject;
 
 
 @Controller
-@RequestMapping("/admin")
 public class AdminMainController {
 
 	@Autowired
@@ -40,9 +41,11 @@ public class AdminMainController {
 	private AdminReportService adminReportService;
 	@Autowired
 	private AdminAgencyService adminAgencyService;
+	@Autowired
+	private AdminCommunityService adminCommunityService;
 
 
-	@RequestMapping(value="", method=RequestMethod.GET)
+	@RequestMapping(value="/admin", method=RequestMethod.GET)
 	public String adminPage() {
 		return "/admin/indexAdmin";
 	}
@@ -52,23 +55,23 @@ public class AdminMainController {
 	public String charts(Model model) {
 		//리스트 담기 
 		List<HashMap<String, Object>> list = adminAgencyService.chartAgencyCount();//서비스 리턴
-		Gson accountgson = new Gson();
-		JsonArray accountjArray = new JsonArray();
+		Gson agencyGson = new Gson();
+		JsonArray agencyJArray = new JsonArray();
 
-		Iterator<HashMap<String, Object>> accountit = list.iterator();
-		while (accountit.hasNext()) {
-			HashMap agencyCount = accountit.next();
+		Iterator<HashMap<String, Object>> agencyIterator = list.iterator();
+		while (agencyIterator.hasNext()) {
+			HashMap agencyCount = agencyIterator.next();
 			JsonObject object = new JsonObject();			
 			Integer agencyChartCount =Integer.parseInt(String.valueOf(agencyCount.get("chartCount")));
 			Integer agencyCategoryNum =Integer.parseInt(String.valueOf(agencyCount.get("agencyCategoryNum")));
 			
 			object.addProperty("agencyChartCount", agencyChartCount);
 			object.addProperty("agencyCategoryNum", agencyCategoryNum);
-			accountjArray.add(object);
+			agencyJArray.add(object);
 		}
 		
-		String accountjson = accountgson.toJson(accountjArray);
-		model.addAttribute("account", accountjson);
+		String agencyJson = agencyGson.toJson(agencyJArray);
+		model.addAttribute("agency", agencyJson);
 			
 		
 		return "/admin/charts/chartsjs";
@@ -165,8 +168,8 @@ public class AdminMainController {
 		Pageable paging = PageRequest.of(page-1, 9,Sort.Direction.ASC,"abNo");
 
 		m.addAttribute("paging",adminAgencyService.getAbandonePaging(paging) );
-
 		m.addAttribute("count",adminAgencyService.countRecord() );
+		
 		return "/admin/facilities/adminShelter";
 	}
 
@@ -174,7 +177,7 @@ public class AdminMainController {
 	@RequestMapping(value="adminHospital", method=RequestMethod.GET)
 	public String adminHospital(Model m, AgencyVO vo) {
 		//페이징 처리
-		int page =1;
+		int page = 1;
 		if(vo.getPage()!=0) {
 			page = vo.getPage();
 		} 
@@ -251,7 +254,11 @@ public class AdminMainController {
 
 	//커뮤 일상
 	@RequestMapping(value="adminDaily", method=RequestMethod.GET)
-	public String adminDaily() {
+	public String adminDaily(Model m) {
+		CommunityVO vo = new CommunityVO();
+		List<CommunityVO> list = adminCommunityService.communityList(vo);
+		m.addAttribute("communityList", list);
+		
 		return "/admin/communities/adminDaily";
 	}
 

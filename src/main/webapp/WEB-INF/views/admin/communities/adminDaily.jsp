@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AdminLTE 3 | 신고관리</title>
+<title>AdminLTE 3 | 커뮤니티관리</title>
 
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet"
@@ -49,7 +50,7 @@
 						<!-- /.col -->
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
-								<li class="breadcrumb-item"><a href="#">Home</a></li>
+								<li class="breadcrumb-item"><a href="/admin">Home</a></li>
 								<li class="breadcrumb-item active">Dashboard v1</li>
 							</ol>
 						</div>
@@ -61,57 +62,45 @@
 			</div>
 			<!-- /.content-header -->
 
-   <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">일상공유</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table id="example2" class="table table-bordered table-hover">
-                  <thead>
-                  <tr>
-                  	<th width="70">제목</th>
-                    <th>작성자</th>
-                    <th>내용</th>
-                    <th>날짜</th>
-                    <th>삭제</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                 	<td text-align="center">1</td>
-                    <td>tt@naver.com</td>
-                    <td>최악이예요</td>
-                    <td>욕설</td>
-                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
-                  </tr>
-                  <tr>
-                  	<td text-align="center">2</td>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.0</td>
-                    <td>Win 95+</td>
-                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
-                  </tr>
-                  <tr>
-                  	<td text-align="center">3</td>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.5
-                    </td>
-                    <td>Win 95+</td>
-                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
-                  </tr>
-                  </tbody>     
-             
-                </table>              
-                  
-              </div>
-  
-              <!-- /.card-body -->
-            </div>         
-		</div>    
-		 
+			<div class="card">
+				<div class="card-header">
+					<h3 class="card-title">일상공유</h3>
+				</div>
+				<!-- /.card-header -->
+				<div class="card-body">
+					<table id="example2" class="table table-bordered table-hover">
+						<thead>
+							<tr>
+								<th width="70">제목</th>
+								<th>작성자</th>
+								<th>내용</th>
+								<th>날짜</th>
+								<th width="50">삭제</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${communityList}" var="community">
+								<tr>
+									<td>${community.communityTitle}</td>
+									<td>${community.user.userNickname}</td>
+									<td>${community.communityContent}</td>
+									<td>${community.communityInsertdate}</td>							
+									<td>
+										<form action="/adminDaily">
+											<input type="hidden" name="communityNum"
+												value="${community.communityNum}" />
+											<button type="submit" class="btn btn-outline-danger">삭제</button>
+										</form>
+									</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+				<!-- /.card-body -->
+			</div>
+		</div>
+
 		<!-- Main content -->
 
 		<%@ include file="../../admin/common/adminFooter.jsp"%>
@@ -143,7 +132,8 @@
 	<script src="/admin/plugins/pdfmake/vfs_fonts.js"></script>
 	<script src="/admin/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 	<script src="/admin/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-	<script src="/admin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+	<script
+		src="/admin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 	<!-- AdminLTE App -->
 	<script src="/admin/dist/js/adminlte.min.js"></script>
 	<!-- Page specific script -->
