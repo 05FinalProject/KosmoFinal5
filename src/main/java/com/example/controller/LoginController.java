@@ -7,8 +7,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -106,6 +104,24 @@ public class LoginController {
 			
 			return "redirect:Main";
 	}
+	
+	/* 프로필 수정 */
+	@RequestMapping("/myPage/userUpdate")
+	public String UserUpdate(ImgVO ivo, HttpServletRequest request) {
+		
+		System.out.println(ivo.getPImgname());
+		System.out.println(ivo.getPRimgname());   ///     /img/userImg/+ivo.getPRimgname()
+		HttpSession session = request.getSession();
+		
+		session.setAttribute("pRimgname", "img/userImg/"+ivo.getPRimgname());
+		UserVO vo = new UserVO();
+		vo.setUserEmail(session.getAttribute("userEmail").toString());
+		ivo.setUser(vo);
+		lservice.userImgUpdate(ivo);
+		
+		return "/include/myPage/myPageProfile";
+	}
+	
 	
 //	/* 회원탈퇴 */
 //	@RequestMapping(value="userDelete")

@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -66,7 +65,7 @@ public class ChatingServiceImpl implements ChatingService {
 		if(user.getPage() != 0) {
 			page = user.getPage();
 		}
-		List<ChatingRoomVO> rList = new ArrayList();
+		List<ChatingRoomVO> rList = new ArrayList<ChatingRoomVO>();
 		List<Object[]> list = ch.getAllRooms(6*page-6);
 		
 		for( Object[] o:list) {
@@ -94,8 +93,8 @@ public class ChatingServiceImpl implements ChatingService {
 	}
 	
 	//user 이메일통해 이메지,닉네임 찾기
-	public HashMap getChatingRoomUserInfo(UserVO vo) {
-		HashMap hm = new HashMap();
+	public HashMap<String,Object> getChatingRoomUserInfo(UserVO vo) {
+		HashMap<String,Object> hm = new HashMap<String,Object>();
 		hm.put("niName",usr.findById(vo.getUserEmail()).get().getUserNickname() );
 		hm.put("img",img.findByUserEmail(vo.getUserEmail()).get(0).getPRimgname() );
 		hm.put("email",vo.getUserEmail());
@@ -103,12 +102,12 @@ public class ChatingServiceImpl implements ChatingService {
 	}
 	
 	//채팅방들어온 user 사진,닉네임, email은 HashMap에 담기
-	public List<HashMap> getChatingRoomMemberInfo(ChatingRoomVO vo) {
+	public List<HashMap<String,Object>> getChatingRoomMemberInfo(ChatingRoomVO vo) {
 		List<ChatingRoomVO> list = ch.findByRoomNumber(vo.getRoomNumber());
-		ArrayList rlist = new ArrayList();
-		HashMap hm = new HashMap();
+		ArrayList<HashMap<String,Object>> rlist = new ArrayList<HashMap<String,Object>>();
+		HashMap<String,Object> hm = new HashMap<String,Object>();
 		for(ChatingRoomVO v : list) {
-			hm = new HashMap();
+			hm = new HashMap<String,Object>();
 			hm.put("img", img.findByUserEmail(v.getRoomMember()).get(0).getPImgname()); //img
 			hm.put("nickName",usr.findById(v.getRoomMember()).get().getUserNickname());//niname
 			hm.put("email", v.getRoomMember());
@@ -159,18 +158,18 @@ public class ChatingServiceImpl implements ChatingService {
 	}
 	
 	//친구List 얻어오기
-	public List<HashMap> friendList(String email){
+	public List<HashMap<String,Object>> friendList(String email){
 		List<FriendVO> list = fri.friendList(email);
 		Set<String> emails = new HashSet<String>(); 
-		ArrayList<HashMap> rlist = new ArrayList<HashMap>() ;
-		HashMap hm ;
+		ArrayList<HashMap<String,Object>> rlist = new ArrayList<HashMap<String,Object>>() ;
+		HashMap<String,Object> hm ;
 		for(FriendVO f : list) {
 			emails.add(f.getUser1().getUserEmail());
 			emails.add(f.getUser2().getUserEmail());
 		}
 		emails.remove(email);
 		for(String e : emails) {
-			hm = new HashMap();
+			hm = new HashMap<String,Object>();
 			hm.put("img", img.findByUserEmail(e).get(0).getPRimgname()); //img
 			hm.put("nickName",usr.findById(e).get().getUserNickname());//niname
 			hm.put("email", e);
@@ -181,7 +180,7 @@ public class ChatingServiceImpl implements ChatingService {
 	}
 	
 	//메세지를 db에 저장
-	public void insertMessage(HashMap hm) {
+	public void insertMessage(HashMap<String,Object> hm) {
 		FriendChatingVO vo = new FriendChatingVO();
 		vo.setChatingMessage((String)hm.get("chatingMessage"));
 		FriendVO fv = new FriendVO();
@@ -195,5 +194,28 @@ public class ChatingServiceImpl implements ChatingService {
 		vo.setChatingTime(LocalDateTime.now());
 		fcr.save(vo);
 	}
+	
+	//화면 뜨자마자 아니면 친구선택할때에 채팅기록 뜨기
+	public List<HashMap<String, Object>> messageHistory(int friendNo){
+		List<Object[]> obj = fcr.messageHistory(friendNo);
+		FriendVO f = fri.findById(friendNo).get();
+		
+		List<HashMap<String, Object>> rlist = new ArrayList<HashMap<String, Object>>();
+		for(Object[] o :obj) {
+			HashMap<String, Object> hm = new HashMap<String, Object>();
+			hm.put("message", o[1]);
+			hm.put("sign", o[2]);
+			hm.put("time", o[3]);
+			hm.put("img1", img.findByUserEmail(f.getUser1().getUserEmail()).get(0).getPRimgname());
+			hm.put("img2", img.findByUserEmail(f.getUser2().getUserEmail()).get(0).getPRimgname());
+			hm.put("user1", f.getUser1().getUserNickname());
+			hm.put("user2", f.getUser2().getUserNickname());
+			rlist.add(hm);
+		}
+		
+		return rlist ;
+	}
+	
+	
 	
 }

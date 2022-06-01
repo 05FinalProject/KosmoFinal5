@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.example.domain.ChatingRoomVO;
-import com.example.domain.FriendVO;
 import com.example.domain.ImgVO;
 import com.example.domain.UserVO;
 
@@ -17,7 +16,7 @@ public interface ChatingService {
 
 	public List<ChatingRoomVO> findByRoomNumber(int roomNumber);
 	
-	public HashMap getChatingRoomUserInfo(UserVO vo);
+	public HashMap<String,Object> getChatingRoomUserInfo(UserVO vo);
 	
 	public List<ChatingRoomVO> findByRoomNumber(ChatingRoomVO vo);
 	
@@ -35,15 +34,19 @@ public interface ChatingService {
 	
 	public long getRoomMemCnt(int roomNumber) ;
 	
-	public List<HashMap> getChatingRoomMemberInfo(ChatingRoomVO vo);
+	public List<HashMap<String,Object>> getChatingRoomMemberInfo(ChatingRoomVO vo);
 	
 	public int getRoomCnt();
 	
 	public List<ChatingRoomVO> roomSearch(ChatingRoomVO vo);
 	
-	public List<HashMap> friendList(String email);
+	public List<HashMap<String,Object>> friendList(String email);
 
-	void insertMessage(HashMap hm);
+	void insertMessage(HashMap<String,Object> hm);
+	
+	List<HashMap<String, Object>> messageHistory(int friendNo);
+	
+	
 	
 	
 }

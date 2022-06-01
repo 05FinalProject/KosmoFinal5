@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.domain.DogKindVO;
 @Repository
-public interface DogKindRepository extends CrudRepository<DogKindVO, String>{
+public interface DogKindRepository extends CrudRepository<DogKindVO, Integer>{
 	
 
 	@Query("SELECT count(a) as count FROM DogKindVO a")
