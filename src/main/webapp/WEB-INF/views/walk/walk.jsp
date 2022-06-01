@@ -163,6 +163,8 @@
 		var linePath = [];
 		var listLat = [];
 		var listLon = [];
+		var qwer = 0;
+		
 		let standardPosition;
 
 		function mylotation(lat, lon) {
@@ -177,20 +179,22 @@
 				listLat.push(standardPosition.Ma);
 				listLon.push(standardPosition.La);
 
-				$("#walk-distance").val(0)
+				Number($("#walk-distance").val(qwer))
 			} else {
 				
 				const dis = distance(standardPosition.Ma, standardPosition.La,
 						lat, lon);
 				console.log("거리 " + dis);
 				if (dis >= 10) {
-					// console.log("로테로테" + lotation);
+					
 					linePath.push(lotation);
 					standardPosition = lotation;
 					listLat.push(standardPosition.Ma);
 					listLon.push(standardPosition.La);
 					
-					var qwer = $("#walk-distance").val()+10
+					qwer+=10
+					
+					Number($("#walk-distance").val(qwer));
 				}
 			}
 			
