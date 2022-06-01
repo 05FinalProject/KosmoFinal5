@@ -8,61 +8,55 @@ import java.util.List;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
-import com.example.domain.FriendVO;
-import com.example.service.chatingService.ChatingService;
-
 @Component
 public class SocketHandler extends TextWebSocketHandler {
 	
 	List<HashMap<String, Object>> rls = new ArrayList<>(); //웹소켓 세션을 담아둘 리스트 ---roomListSessions
-	private static final String FILE_UPLOAD_PATH = "C:/test/websocket/";
-	static int fileUploadIdx = 0;
-	static String fileUploadSession = "";
+	
+	
 	
 	@Override
 	public void handleTextMessage(WebSocketSession session, TextMessage message) {
-		//System.out.println("handleTextmessage: " + session + " : " + message);
+		
 		//메시지 발송
 		String msg = message.getPayload(); //JSON형태의 String메시지를 받는다.
-		//System.out.println(msg);
+		
 		JSONObject obj = jsonToObjectParser(msg); //JSON데이터를 JSONObject로 파싱한다.
 		System.out.println(obj);
 		String rN = (String) obj.get("roomNumber"); //방의 번호를 받는다.
-		System.out.println(rN);
-		String msgType = (String) obj.get("type"); //메시지의 타입을 확인한다.
+		
 		HashMap<String, Object> temp = new HashMap<String, Object>();
-		//System.out.println(rls);
+		
 		if(rls.size() > 0) {
+			//해당 방번호의 모든 session 얻어오기
 			for(int i=0; i<rls.size(); i++) {
 				String roomNumber = (String) rls.get(i).get("roomNumber"); //세션리스트의 저장된 방번호를 가져와서
 				if(roomNumber.equals(rN)) { //같은값의 방이 존재한다면
 					temp = rls.get(i); //해당 방번호의 세션리스트의 존재하는 모든 object값을 가져온다.
-					fileUploadIdx = i;
-					fileUploadSession = (String) obj.get("sessionId");
 					break;
 				}
 			}
-			if(!msgType.equals("fileUpload")) { //메시지의 타입이 파일업로드가 아닐때만 전송한다.
-				//해당 방의 세션들만 찾아서 메시지를 발송해준다.
-				for(String k : temp.keySet()) { 
-					if(k.equals("roomNumber")) { //다만 방번호일 경우에는 건너뛴다.
-						continue;
-					}
-					
-					WebSocketSession wss = (WebSocketSession) temp.get(k);
-					if(wss != null) {
-						try {
-							wss.sendMessage(new TextMessage(obj.toJSONString()));
-						} catch (IOException e) {
-							e.printStackTrace();
-						}
+			
+			//해당 방의 세션들만 찾아서 메시지를 발송해준다.
+			for(String k : temp.keySet()) { 
+				if(k.equals("roomNumber")) { //다만 방번호일 경우에는 건너뛴다.
+					continue;
+				}
+				
+				WebSocketSession wss = (WebSocketSession) temp.get(k);
+				if(wss != null) {
+					try {
+						System.out.println(wss);
+						// server에서 client에게 메시지를 발송
+						wss.sendMessage(new TextMessage(obj.toJSONString()));
+					} catch (IOException e) {
+						e.printStackTrace();
 					}
 				}
 			}
@@ -73,7 +67,6 @@ public class SocketHandler extends TextWebSocketHandler {
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
 		//소켓 연결
-		super.afterConnectionEstablished(session);
 		boolean flag = false;
 		String url = session.getUri().toString();
 		String roomNumber = url.split("/chating/")[1];
