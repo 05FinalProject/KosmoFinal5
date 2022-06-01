@@ -12,7 +12,7 @@ public interface CommunityService {
 	/* public List<ImgFileVO> saveDaily(String p_imgname, String p_rimgname); */
 	
 	//게시글 등록
-	public void insertDaily(CommunityVO vo);
+	public void insertDaily(String userEmail, String communityTitle, String communityContent);
 	
 	//일상공유 게시판 상세보기
 	public CommunityVO getCommunity(CommunityVO vo);
