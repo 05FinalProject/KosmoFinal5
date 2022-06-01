@@ -18,11 +18,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.community.CommunityVO;
 import com.example.domain.AbandonedVO;
 import com.example.domain.AgencyVO;
 import com.example.domain.ReportVO;
 import com.example.domain.UserVO;
 import com.example.service.admin.AdminAgencyService;
+import com.example.service.admin.AdminCommunityService;
 import com.example.service.admin.AdminReportService;
 import com.example.service.admin.AdminUserService;
 import com.google.gson.Gson;
@@ -31,7 +33,6 @@ import com.google.gson.JsonObject;
 
 
 @Controller
-@RequestMapping("/admin")
 public class AdminMainController {
 
 	@Autowired
@@ -40,9 +41,11 @@ public class AdminMainController {
 	private AdminReportService adminReportService;
 	@Autowired
 	private AdminAgencyService adminAgencyService;
+	@Autowired
+	private AdminCommunityService adminCommunityService;
 
 
-	@RequestMapping(value="", method=RequestMethod.GET)
+	@RequestMapping(value="/admin", method=RequestMethod.GET)
 	public String adminPage() {
 		return "/admin/indexAdmin";
 	}
@@ -251,7 +254,11 @@ public class AdminMainController {
 
 	//커뮤 일상
 	@RequestMapping(value="adminDaily", method=RequestMethod.GET)
-	public String adminDaily() {
+	public String adminDaily(Model m) {
+		CommunityVO vo = new CommunityVO();
+		List<CommunityVO> list = adminCommunityService.communityList(vo);
+		m.addAttribute("userList", list);
+		
 		return "/admin/communities/adminDaily";
 	}
 

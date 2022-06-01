@@ -41,13 +41,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/admin/adminChartsjs" class="nav-link" id="chartsjs">
+                <a href="adminChartsjs" class="nav-link" id="chartsjs">
                   <i class="far fa-circle nav-icon"></i>
                   <p>ChartJS</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/adminFlot" class="nav-link">
+                <a href="adminFlot" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Flot</p>
                 </a>
@@ -68,7 +68,7 @@
           </li>
           
         <li class="nav-item">
-            <a href="/admin/adminUser" class="nav-link" id="user">
+            <a href="adminUser" class="nav-link" id="user">
               <i class="nav-icon fa-solid fa-user"></i>
               <p>
                 회원관리
@@ -86,25 +86,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item" >
-                <a href="/admin/adminReview" class="nav-link" id="review">
+                <a href="adminReview" class="nav-link" id="review">
                   <i class="far fa-circle nav-icon"></i>
                   <p>리뷰</p>
                 </a>
               </li>
               <li class="nav-item" >
-                <a href="/admin/adminComment" class="nav-link" id="comment">
+                <a href="adminComment" class="nav-link" id="comment">
                   <i class="far fa-circle nav-icon"></i>
                   <p>댓글</p>
                 </a>
               </li>
               <li class="nav-item" >
-                <a href="/admin/adminCommunity" class="nav-link" id="community">
+                <a href="adminCommunity" class="nav-link" id="community">
                   <i class="far fa-circle nav-icon"></i>
                   <p>게시글</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/adminBlacklist" class="nav-link" id="blacklist">
+                <a href="adminBlacklist" class="nav-link" id="blacklist">
                   <i class="far fa-circle nav-icon"></i>
                   <p>블랙리스트</p>
                 </a>
@@ -122,37 +122,37 @@
             </a>
             <ul class="nav nav-treeview">      
               <li class="nav-item">
-                <a href="/admin/adminAddFacilities" class="nav-link" id="addFacilities">
+                <a href="adminAddFacilities" class="nav-link" id="addFacilities">
                   <i class="far fa-circle nav-icon"></i>
                   <p>시설등록</p>
                 </a>
               </li>     
               <li class="nav-item">
-                <a href="/admin/adminShelter" class="nav-link" id="shelter">
+                <a href="adminShelter" class="nav-link" id="shelter">
                   <i class="far fa-circle nav-icon"></i>
                   <p>보호소</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/adminHospital" class="nav-link" id="hospital">
+                <a href="adminHospital" class="nav-link" id="hospital">
                   <i class="far fa-circle nav-icon"></i>
                   <p>동물병원</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/adminHotel" class="nav-link" id="hotel">
+                <a href="adminHotel" class="nav-link" id="hotel">
                   <i class="far fa-circle nav-icon"></i>
                   <p>애견호텔</p>
                 </a>
               </li>            
               <li class="nav-item">
-                <a href="/admin/adminFuneralhall" class="nav-link" id="funeralhall">
+                <a href="adminFuneralhall" class="nav-link" id="funeralhall">
                   <i class="far fa-circle nav-icon"></i>
                   <p>장례식장</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/adminCafe" class="nav-link" id="cafe">
+                <a href="adminCafe" class="nav-link" id="cafe">
                   <i class="far fa-circle nav-icon"></i>
                   <p>애견카페</p>
                 </a>
@@ -171,7 +171,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/admin/adminDaily" class="nav-link" id="daily">
+                <a href="adminDaily" class="nav-link" id="daily">
                   <i class="far fa-circle nav-icon"></i>
                   <p>일상공유</p>
                 </a>
@@ -224,4 +224,3 @@
     </div>
     <!-- /.sidebar -->
   </aside>
-  

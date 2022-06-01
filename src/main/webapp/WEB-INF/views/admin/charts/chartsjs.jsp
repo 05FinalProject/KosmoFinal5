@@ -128,7 +128,7 @@
     let jsonDataAgency = ${agency};
     let jsonObjectAgency = JSON.stringify(jsonDataAgency);
     let jDataAgency = JSON.parse(jsonObjectAgency);
-
+	console.log(jDataAgency);
     let labelListAgency = []; // 배열생성
     let valueListAgency = [];
     let colorList = [];
