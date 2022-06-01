@@ -120,7 +120,7 @@
 									</ul>
 										<span><img class="siren" src="../../img/siren.png"></span>
 										<h5 class="post-title card-title">
-											<a href="/include/community/dailyDetail?communityNum=${community.communityNum }">사용자 닉네임</a>
+											<a href="/include/community/dailyDetail?communityNum=${community.communityNum }">${community.user }사용자닉네임</a>
 										</h5>
 										<div class="post-text card-text">
 											<p class="post-text card-text">${community.communityTitle }</p>
