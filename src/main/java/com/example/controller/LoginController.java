@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -107,7 +108,7 @@ public class LoginController {
 	
 	/* 프로필 수정 */
 	@RequestMapping("/myPage/userUpdate")
-	public String UserUpdate(ImgVO ivo, HttpServletRequest request) {
+	public String UserUpdate(ImgVO ivo, HttpServletRequest request,Model m) {
 		
 		System.out.println(ivo.getPImgname());
 		System.out.println(ivo.getPRimgname());   ///     /img/userImg/+ivo.getPRimgname()
@@ -118,9 +119,14 @@ public class LoginController {
 		vo.setUserEmail(session.getAttribute("userEmail").toString());
 		ivo.setUser(vo);
 		lservice.userImgUpdate(ivo);
+		m.addAttribute("pRimgname", "img/userImg/"+ivo.getPRimgname());
+		return "/include/myPage/imgModify";
 		
-		return "/include/myPage/myPageProfile";
+		
+		//return "/include/myPage/myPageProfile";
 	}
+	
+	
 	
 	
 //	/* 회원탈퇴 */
