@@ -20,7 +20,7 @@
 		var ws ;
 		
 		window.onload = function(){
-			//websocket 객체생성
+			//websocket 객체생성(websocket서버 연결)
 			ws= new WebSocket("ws://" + location.host + "/chating/"+$("#friendNo").val());
 			ws.onopen = function(data){
 				//소켓이 열리면 동작
