@@ -125,6 +125,7 @@
 			<div class="row">
 				<div class="col-9 mx-auto">
 					
+					<!-- 등록된 반려견이 없으면 출력 -->
 					<c:if test="${sessionScope.pets eq null }">
 										<div class="blog-posts sticky-posts"
 						style="margin-top: 2%; margin-bottom: 2%; border-radius: 25px; border-right-style: solid; border-color: orange;">
@@ -135,7 +136,7 @@
 									<div
 										class="card-body h-100 d-flex align-items-center flex-column">
 										<h3>
-											<a href="myPageDogAdd">등록된 정보가 없습니다.</a>
+											<a href="myPageDogAdd">등록된 정보가 없습니다.(클릭)</a>
 										</h3>
 									</div>
 								</div>
@@ -144,6 +145,8 @@
 					</div>
 					</c:if>
 					
+					<!-- 등록된 반려견이 있으면 리스트 형식으로 출력 -->
+					<form action="myPageDogDetail">
 					<c:if test="${sessionScope.pets ne null }">
 					<c:forEach var="pet" items="${sessionScope.pets}" >
 								<div class="blog-posts sticky-posts"
@@ -174,11 +177,22 @@
 														</tr>
 														<tr>
 															<th>나이 :</th>
-															<th>${pet.petAge }세</th>
+															<th>${pet.petAge}세</th>
 														</tr>
 														<tr>
 															<th>중성화 :</th>
-															<th>했어요</th>
+															<th>
+															
+															<c:choose>
+															<c:when test="${pet.petNeutering == 'Y'}">
+															했어요
+															</c:when>
+															<c:otherwise>
+															안했어요
+															</c:otherwise>
+															</c:choose>
+															
+															</th>
 														</tr>
 													</table>
 													</p>
@@ -195,14 +209,15 @@
 									</div>
 								</div>
 						</c:forEach>
-						</c:if>
 								<div
 									class="d-flex justify-content-end align-items-center post-meta w-100">
 									<a href="myPageDogAdd"
-										class="more-link card-link d-flex align-items-center"> 추가
-										등록 &nbsp; <i class="lana-icon-arrow-right text-primary"></i>
+										class="more-link card-link d-flex align-items-center"> 
+										추가 등록 &nbsp; <i class="lana-icon-arrow-right text-primary"></i>
 									</a>
 								</div>
+						</c:if>
+						</form>
 				</div>
 			</div>
 		</main>
