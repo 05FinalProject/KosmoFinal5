@@ -33,7 +33,7 @@ public class HomeController {
 			vo.setUserAddress(vo.getAddr2() + vo.getAddr3());
 			vo.setUserBlack("N");
 			vo.setUserAdmin("N");
-			ivo.setPRimgname("/img/userImg/noImage.jpg");
+			ivo.setPRimgname("img/userImg/noImage.jpg");
 			
 			//signUp.insertUser(vo);
 			ivo.setUser(vo);
@@ -74,19 +74,4 @@ public class HomeController {
 	public void findPass() {
 	}
 
-	@RequestMapping("/myPage/myPageProfile")
-	public void myPageProfile() {
-	}
-
-	@RequestMapping("/myPage/myPageDogList")
-	public void myDogList() {
-	}
-
-	@RequestMapping("/myPage/myPageDogDetail")
-	public void myDogDetail() {
-	}
-	
-	@RequestMapping("/myPage/myPageBoard")
-	public void myPageBoard() {
-	}
 }
