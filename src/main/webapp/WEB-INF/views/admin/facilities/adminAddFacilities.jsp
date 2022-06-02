@@ -111,9 +111,9 @@
 								<div class="mb-3 col-md-6">
 									<label for="exampleFormControlInput1" class="form-label">기관선택</label>
 									<div class="form-group">
-										<select class="form-control">
+										<select class="form-control" name="agencyCategoryNum">
 											<!-- 선택을 안하면 입력이 안되게 설정해야함(나중에)... -->
-											<option value="기관선택">===기관선택===</option>
+											<option value="0">===기관선택===</option>
 											<option value="1">애견호텔</option>
 											<option value="2">애견카페</option>
 											<option value="3">동물병원</option>
