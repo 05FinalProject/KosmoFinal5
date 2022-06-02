@@ -127,21 +127,7 @@
 			</section>
 			<div class="card-body box-profile userFileForm">
 				<div class="text-center" id="imgArea">
-				
-				
-				<!-- 기본이미지면 기본이미지로 출력, 사진이 있으면 사진으로 출력 -->
-				<%-- <c:if test="${sessionScope.pRimgname ne '/img/userImg/noImage.jpg' }">
-					<img class="profile-user-img img-fluid img-circle userFile"
-						src="/${sessionScope.pRimgname }"
-						alt="User profile picture" style="width: 15%; height: 15%;">
-				</c:if>
-				<c:if test="${sessionScope.pRimgname eq '/img/userImg/noImage.jpg' }">
-					<img class="profile-user-img img-fluid img-circle userFile"
-						src="/img/userImg/noImage.jpg"
-						alt="User profile picture" style="width: 15%; height: 15%;">
-				</c:if> --%>
-				<!-- 위의 코드는 지워도 무관 -->
-
+				<!-- 사진 출력 줄 -->
 				</div>
 				<div class="text-center">
 					<label class="btn btm-sm btn-add" for="userFile"
