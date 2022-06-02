@@ -106,9 +106,8 @@ ul {
 	padding-bottom: 15px;
 }
 
-/* .listing__item{
-border: 1px solid #008000;
-} */
+
+
 </style>
 </head>
 
@@ -185,10 +184,10 @@ border: 1px solid #008000;
 		<!-- ***********페이징 처리 ************************************************* -->
 		<nav class="pagination" role="navigation">
 
-			<div class="nav-links">
-				<c:set var="recordsCnt" value="${count}" />
-				<c:set var="jspFile" value="agencyCafe?" />
-				<c:set var="perpage" value="11" />
+			<div class="nav-links ">
+				<c:set  var="recordsCnt" value="${count}" />
+				<c:set  var="jspFile" value="agencyCafe?" />
+				<c:set  var="perpage" value="11" />
 			</div>
 
 			<!-- include 페이징  jsp파일  -->
@@ -207,7 +206,7 @@ border: 1px solid #008000;
 	<!--카카오 지도 연결-->
 	<!--******** Map Begin *******************************************-->
 	<div class="listing__map">
-		<div id="map" style="width: 100%; height: 60em"></div>
+		<div id="map" style="width: 100%; height: 52em"></div>
 	</div>
 	<!--****** Map End ***********************************************-->
 
