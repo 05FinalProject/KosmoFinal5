@@ -146,6 +146,7 @@
 					</c:if>
 					
 					<!-- 등록된 반려견이 있으면 리스트 형식으로 출력 -->
+					<form action="myPageDogDetail">
 					<c:if test="${sessionScope.pets ne null }">
 					<c:forEach var="pet" items="${sessionScope.pets}" >
 								<div class="blog-posts sticky-posts"
@@ -176,11 +177,22 @@
 														</tr>
 														<tr>
 															<th>나이 :</th>
-															<th>${pet.petAge }세</th>
+															<th>${pet.petAge}세</th>
 														</tr>
 														<tr>
 															<th>중성화 :</th>
-															<th>했어요</th>
+															<th>
+															
+															<c:choose>
+															<c:when test="${pet.petNeutering == 'Y'}">
+															했어요
+															</c:when>
+															<c:otherwise>
+															안했어요
+															</c:otherwise>
+															</c:choose>
+															
+															</th>
 														</tr>
 													</table>
 													</p>
@@ -205,6 +217,7 @@
 									</a>
 								</div>
 						</c:if>
+						</form>
 				</div>
 			</div>
 		</main>

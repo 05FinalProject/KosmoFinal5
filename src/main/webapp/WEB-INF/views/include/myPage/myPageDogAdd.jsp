@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -167,7 +168,7 @@ display: block;
 									</tr>
 									<tr>
 										<th>몸무게 :</th>
-										<th><input type="text" placeholder="kg" id="petHeight"></th>
+										<th><input type="text" placeholder="kg" id="petWeight"></th>
 									</tr>
 									<tr>
 										<th>성별 :</th>

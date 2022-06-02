@@ -46,5 +46,5 @@ public class PetVO {
 	private String petNeutering;
 
 	@Column(name = "pet_weight")
-	private int petWeight;
+	private Integer petWeight;
 }

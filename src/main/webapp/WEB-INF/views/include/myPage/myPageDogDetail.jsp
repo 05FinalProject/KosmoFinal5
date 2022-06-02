@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -128,13 +129,13 @@
               </div>
             </div>
             <div class="col-12 col-sm-5">
-              <h3 class="my-3">${sessionScope.petName }</h3>
+              <h3 class="my-3">${pet.petName }</h3>
               <hr>
               <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <table>
                   <tr> 
                     <th>견&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;종 : </th>
-                    <th>${sessionScope.petVariety }</th>
+                    <th>${pet.petVariety }</th>
                   </tr>
                   <tr> 
                     <th>몸무게 : </th>
@@ -145,7 +146,7 @@
                     
                     <th>
                     
-                    <c:if test=${sessionScope.petGender eq '남아'}>
+                    <c:if test="${pet.petGender eq 'M'}">
                     <label class="btn btn-default text-center active">
                       남아
                       <br>
@@ -153,7 +154,7 @@
                     </label>
                     </c:if>
                     
-                    <c:if test=${sessionScope.petGender eq '여아' }>
+                    <c:if test="${pet.petGender eq 'W' }">
                  	 <label class="btn btn-default text-center">
                       여아
                       <br>
@@ -168,7 +169,7 @@
                     <th>중성화 : </th>
                     <th>
                     
-                    <c:if test=${sessionScope.petNeutering eq 'Y'}>
+                    <c:if test="${pet.petNeutering eq 'Y'}">
                     <label class="btn btn-default text-center active">
                       했어요
                       <br>
@@ -176,7 +177,7 @@
                     </label>
                     </c:if>
                   	
-                  	<c:if test=${sessionScope.petGender eq 'N'}>
+                  	<c:if test="${pet.petGender eq 'N'}">
                   	<label class="btn btn-default text-center">
                       안했어요
                       <br>
