@@ -17,6 +17,7 @@ public class LoginServiceImpl implements LoginService {
 	@Autowired
 	private ImgRepository Img;
 
+
 	@Override
 	public UserVO findByUserEmail(String userEmail) {
 		return user.findByUserEmail(userEmail);
@@ -37,6 +38,8 @@ public class LoginServiceImpl implements LoginService {
 		result.setPRimgname("img/userImg/"+ivo.getPRimgname());
 		Img.save(result);
 	}
+
+
 
 //	/* 회원탈퇴용으로 쓰는 중*/
 //	@Override

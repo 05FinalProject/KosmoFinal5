@@ -7,4 +7,5 @@ import com.example.domain.PetVO;
 @Repository
 public interface PetRepository extends CrudRepository<PetVO, Integer>{
 
+
 }

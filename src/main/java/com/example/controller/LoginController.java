@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,6 +36,7 @@ public class LoginController {
 	public String loginCheck(String userEmail, HttpSession session){
 		UserVO result = lservice.findByUserEmail(userEmail);
 		ImgVO result2 = lservice.findBypRimgname(userEmail);
+		
 		System.out.println(result2.getPRimgname());
 		String message = "";
 		if(result == null){
@@ -50,6 +52,7 @@ public class LoginController {
 				session.setAttribute("userAddress", result.getUserAddress());
 				session.setAttribute("userAdmin", result.getUserAdmin());
 				session.setAttribute("pRimgname", result2.getPRimgname());
+
 				session.setMaxInactiveInterval(60*60*24);
 				return message;
 			}
@@ -107,7 +110,7 @@ public class LoginController {
 	
 	/* 프로필 수정 */
 	@RequestMapping("/myPage/userUpdate")
-	public String UserUpdate(ImgVO ivo, HttpServletRequest request) {
+	public String UserUpdate(ImgVO ivo, HttpServletRequest request,Model m) {
 		
 		System.out.println(ivo.getPImgname());
 		System.out.println(ivo.getPRimgname());   ///     /img/userImg/+ivo.getPRimgname()
@@ -118,8 +121,31 @@ public class LoginController {
 		vo.setUserEmail(session.getAttribute("userEmail").toString());
 		ivo.setUser(vo);
 		lservice.userImgUpdate(ivo);
+		m.addAttribute("pRimgname", "img/userImg/"+ivo.getPRimgname());
+		return "/include/myPage/imgModify";
 		
-		return "/include/myPage/myPageProfile";
+		
+		//return "/include/myPage/myPageProfile";
+	}
+	
+	@RequestMapping("/myPage/myPageProfile")
+	public void myPageProfile() {
+	}
+
+	@RequestMapping("/myPage/myPageDogList")
+	public void myDogList() {
+	}
+
+	@RequestMapping("/myPage/myPageDogDetail")
+	public void myDogDetail() {
+	}
+	
+	@RequestMapping("/myPage/myPageDogAdd")
+	public void myPageDogAdd() {
+	}
+	
+	@RequestMapping("/myPage/myPageBoard")
+	public void myPageBoard() {
 	}
 	
 	
