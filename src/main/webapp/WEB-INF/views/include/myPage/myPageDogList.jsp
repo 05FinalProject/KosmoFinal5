@@ -124,9 +124,9 @@
 		<main class="content-wrapper">
 			<div class="row">
 				<div class="col-9 mx-auto">
-
-					<c:if test="${empty sessionScope.userPetNum}">
-					<div class="blog-posts sticky-posts"
+					
+					<c:if test="${sessionScope.pets eq null }">
+										<div class="blog-posts sticky-posts"
 						style="margin-top: 2%; margin-bottom: 2%; border-radius: 25px; border-right-style: solid; border-color: orange;">
 						<div id="post-1" class="post type-post post-1 card post-card"
 							style="border-radius: 25px;">
@@ -143,72 +143,66 @@
 						</div>
 					</div>
 					</c:if>
-
-					<!-- 갱얼쥐 상세정보 -->
-					<c:if test="${not empty sessionScope.userPetNum }">
 					
-					<c:forEach var="userPet" items="${ sessionScope.userPetNum}">
-					<div class="blog-posts sticky-posts"
-						style="margin-top: 2%; margin-bottom: 2%; border-radius: 25px; border-right-style: solid; border-color: orange;">
-						<div id="post-1" class="post type-post post-1 card post-card"
-							style="border-radius: 25px;">
-							<div class="row">
-								<div class="col-md-3 mx-auto" style="margin:1%;">
-									<img class="card-img" src="/pictures/placeholder/530x400.svg"
-										alt="Post"
-										style="width: 250px; height: 250px; border-radius: 50%;">
-								</div>
-								<div class="col-md-6 mr-auto">
-									<div
-										class="card-body h-100 d-flex align-items-start flex-column">
-										<h3 class="post-title card-title">
-											<a href="myPageDogDetail">${sessionScope.petName}</a>
-										</h3>
-										<p class="post-text card-text">
-										<table>
-											<tr>
-												<th>견종 :</th>
-												<th>${sessionScope.petVariety}</th>
-											</tr>
-											<tr>
-												<th>성별 :</th>
-												<th>${sessionScope.petGender} </th>
-											</tr>
-											<tr>
-												<th>나이 :</th>
-												<th>${sessionScope.petAge }</th>
-											</tr>
-											<tr>
-												<th>중성화 :</th>
-												<th>${sessionScope.petneutering}</th>
-											</tr>
-										</table>
-
-										</p>
-										<div
-											class="d-flex justify-content-between align-items-center post-meta mt-auto w-100">
-											<a href="single.html"
-												class="more-link card-link d-flex align-items-center">
-												삭제 <i class="lana-icon-arrow-right text-primary"></i>
-											</a>
+					<c:if test="${sessionScope.pets ne null }">
+					<c:forEach var="pet" items="${sessionScope.pets}" >
+								<div class="blog-posts sticky-posts"
+									style="margin-top: 2%; margin-bottom: 2%; border-radius: 25px; border-right-style: solid; border-color: orange;">
+									<div id="post-1" class="post type-post post-1 card post-card"
+										style="border-radius: 25px;">
+										<div class="row">
+											<div class="col-md-3 mx-auto" style="margin: 1%;">
+												<img class="card-img"
+													src="/pictures/placeholder/530x400.svg" alt="Post"
+													style="width: 250px; height: 250px; border-radius: 50%;">
+											</div>
+											<div class="col-md-6 mr-auto">
+												<div
+													class="card-body h-100 d-flex align-items-start flex-column">
+													<h3 class="post-title card-title">
+														<a href="myPageDogDetail">${pet.petName}</a>
+													</h3>
+													<p class="post-text card-text">
+													<table>
+														<tr>
+															<th>견종 :</th>
+															<th>${pet.petVariety}</th>
+														</tr>
+														<tr>
+															<th>성별 :</th>
+															<th>${pet.petGender}</th>
+														</tr>
+														<tr>
+															<th>나이 :</th>
+															<th>${pet.petAge }세</th>
+														</tr>
+														<tr>
+															<th>중성화 :</th>
+															<th>했어요</th>
+														</tr>
+													</table>
+													</p>
+													<div
+														class="d-flex justify-content-between align-items-center post-meta mt-auto w-100">
+														<a href="single.html"
+															class="more-link card-link d-flex align-items-center">
+															삭제 <i class="lana-icon-arrow-right text-primary"></i>
+														</a>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-						</div>
-					</div>
-					</c:forEach>
-					
-					<div
-						class="d-flex justify-content-end align-items-center post-meta w-100">
-						<a href="myPageDogAdd"
-							class="more-link card-link d-flex align-items-center"> 추가 등록 &nbsp;
-							<i class="lana-icon-arrow-right text-primary"></i>
-						</a>
-					</div>
-					</c:if>
-
-
+						</c:forEach>
+						</c:if>
+								<div
+									class="d-flex justify-content-end align-items-center post-meta w-100">
+									<a href="myPageDogAdd"
+										class="more-link card-link d-flex align-items-center"> 추가
+										등록 &nbsp; <i class="lana-icon-arrow-right text-primary"></i>
+									</a>
+								</div>
 				</div>
 			</div>
 		</main>
@@ -287,6 +281,8 @@
 			});
 
 		});
+		
+		
 	</script>
 </body>
 </html>

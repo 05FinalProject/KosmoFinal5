@@ -192,7 +192,7 @@ display: block;
 
 
 							<div class="mt-4">
-								<div class="btn btn-primary btn-flat "><input type="submit" value="등록"></div>
+								<div class="btn btn-primary btn-flat btn-add "><input type="submit" value="등록"></div>
 
 								<div class="btn btn-danger btn-flat float-right"><input type="button" value="취소"></div>
 							</div>
