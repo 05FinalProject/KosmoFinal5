@@ -15,7 +15,7 @@
 		<link rel="stylesheet" href="/css/chating/chatingFriend.css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-		
+		<script src="https://kit.fontawesome.com/23b331c6f8.js" crossorigin="anonymous"></script>
 		 <script type="text/javascript">
 		var ws ;
 		
@@ -34,9 +34,9 @@
 				}
 			});
 			
-			$('#action_menu_btn').click(function(){
-				$('.action_menu').toggle();
-			});
+// 			$('#action_menu_btn').click(function(){
+// 				$('.action_menu').toggle();
+// 			});
 		}
 		
 		function wsEvt() {
@@ -70,7 +70,7 @@
 						  console.log(messageDate)
 						  if(messageDate.getFullYear() != mDate.getFullYear() | messageDate.getMonth() != mDate.getMonth() | messageDate.getDate() != mDate.getDate()){
 							  mDate = messageDate
-							  dateSigh = messageDate.getFullYear()+'년'+ messageDate.getMonth()+'월'+messageDate.getDate()+'일'
+							  dateSigh = messageDate.getFullYear()+'년'+ (messageDate.getMonth()+1)+'월'+messageDate.getDate()+'일'
 	 						  $('.msg_card_body').append('<p class="dateSign">'+dateSigh+'</p>')
 						  }
 						  var noon = '오후'
@@ -257,10 +257,8 @@
 							<span id="action_menu_btn"><i class="fas fa-ellipsis-v"></i></span>
 							<div class="action_menu">
 								<ul>
-									<li><i class="fas fa-user-circle"></i> View profile</li>
-									<li><i class="fas fa-users"></i> Add to close friends</li>
-									<li><i class="fas fa-plus"></i> Add to group</li>
-									<li><i class="fas fa-ban"></i> 친구차단</li>
+									<li id="blackList"><i class="fas fa-ban"></i> 친구차단</li>
+									<li id="goOut"><i class="fa-solid fa-right-from-bracket"></i> 나가기</li>
 								</ul>
 							</div>
 						</div>
@@ -310,10 +308,12 @@
 				}
 			});
 			
-			$('#action_menu_btn').click(function(){
+			
+		})
+		
+		$('#action_menu_btn').click(function(){
 				$('.action_menu').toggle();
 			});
-		})
 		
 	/* 	$('.input-group-prepend').click(function(){
 			
@@ -336,6 +336,18 @@
 			}
 		}) */
 		
+		$('#blackList').click(function(){
+			$.ajax({
+				url:'/api/blackList',
+				type:'get',
+				contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+				data:{	
+						friendNo:$("#friendNo").val()
+					}
+			})
+			$('.active').remove()
+			$('.friend').first().click()
+		})
 		
 		</script>
 	</body>
