@@ -46,10 +46,7 @@ public interface AgencyRepository extends CrudRepository<AgencyVO, Integer>{
 	
 //	@Query("SELECT a FROM AgencyVO a WHERE c.agencyCategoryNum=2 and c.agencyName like %%")
 	List<Object[]> agencyCafeSearch(String agencyName);
-	
-	
-	
-	
+		
 	
 	@Query(value = "   select * from agency   "
 			+ "  where (a_category_num = 1 and a_address like %:agencyName%)  "
@@ -64,6 +61,29 @@ public interface AgencyRepository extends CrudRepository<AgencyVO, Integer>{
 			+ "  WHERE a_category_num IN(1,2,3,5)  "
 			+ "  GROUP BY a_category_num",nativeQuery = true)
 	public List<Object[]> chartAgencyCount();
+	
+	//월별 회원가입수(바 차트)
+	@Query(value = "WITH RECURSIVE cte AS     "
+			+ "(      "
+			+ "   SELECT DATE_ADD(NOW(), INTERVAL -11 MONTH) AS d   "
+			+ "        "
+			+ "   UNION all      "
+			+ "        "
+			+ "   SELECT DATE_ADD(d, INTERVAL 1 MONTH)  AS d      "
+			+ "   FROM cte      "
+			+ "   WHERE d < now()     "
+			+ ")     "
+			+ "SELECT 		"
+			+ "   DATE_FORMAT(c.d, '%y-%m') AS MONTH,		"
+			+ "   IFNULL(m.users,0) users			"
+			+ "FROM cte c		"
+			+ "   LEFT OUTER JOIN (		"
+			+ "      SELECT DATE_FORMAT(user_signup, '%y-%m') month, COUNT(*) users			"
+			+ "      FROM user		"
+			+ "      GROUP BY MONTH			"
+			+ "      ) m		"
+			+ "   ON date_format(c.d, '%y-%m') = m.month", nativeQuery = true)
+	public List<Object[]> chartSignupUser();
 		
 	
 }

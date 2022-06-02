@@ -85,5 +85,10 @@ public class ApiController {
 		return service.messageHistory(vo.getFriendNo());
 	}
 	
+	//친구차단기능
+	@RequestMapping("/blackList")
+	public void blackList(FriendVO vo) {
+		service.blackList(vo);
+	}
 	
 }
