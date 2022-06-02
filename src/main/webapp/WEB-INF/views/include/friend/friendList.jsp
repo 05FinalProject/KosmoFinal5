@@ -72,24 +72,31 @@
 	align-items: right;
 }
 
-.mt-2 {
+/* .mt-2 {
 	margin-top: 0px;
 	float: left;
 	width: 20%;
 	background-color: white;
 	
-}
+} */
 
 #community-nav {
-	width: 60%;
+	
+	
+	
 }
+
+
+
+
 </style>
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed"
 	style="background-color: #f4f6f9;">
 	<%@include file="../Header.jsp"%>
-	<div class="wrapper">
+	<div class="row">
+	<div class="wrapper col-md-3 h-100 ">
 		<!-- Main Sidebar Container -->
 		<!-- Sidebar -->
 		<%-- <%@include file="./sidebar.jsp"%> --%>
@@ -98,8 +105,8 @@
 		<!-- Sidebar -->
 		<!-- <div class="sidebar"> -->
 		<!-- Sidebar Menu -->
-		<div id="community-nav">
-			<nav class="mt-2">
+		<div id="community-nav w-100">
+			<nav class="w-100 h-100 bg-white">
 				<ul class="nav nav-pills nav-sidebar flex-column"
 					data-widget="treeview" role="menu" data-accordion="false">
 					<li class="nav-item" style="font-weight:bolder;"><a href="./adminCustomerList.do"
@@ -135,7 +142,7 @@
 	<!-- </aside> -->
 
 	<!-- /.sidebar -->
-	<div class="content-wrapper">
+	<div class="content-wrapper col-md-9 m-0">
 		<!-- 내용 넣는 곳 -->
 
 		<!-- Main content -->
@@ -588,6 +595,8 @@
 		</div>
 	</div>
 	</div>
+
+
 	<!-- ./wrapper -->
 	<%@include file="../Footer.jsp"%>
 
