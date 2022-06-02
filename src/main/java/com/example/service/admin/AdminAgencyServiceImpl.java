@@ -113,7 +113,20 @@ public class AdminAgencyServiceImpl implements AdminAgencyService{
 			rList.add(hm);
 		}							
 		return rList ;
-	}		
-	
+	}
+
+	@Override
+	public List<HashMap<String, Object>> chartSignupUser() {
+		List<HashMap<String, Object>> rList = new ArrayList<HashMap<String,Object>>();
+
+		for(Object[] obj : aRepo.chartSignupUser()) {
+			HashMap<String, Object> hm = new HashMap<String, Object>();
+			hm.put("chartMonth",obj[0]);
+			hm.put("userSignup",obj[1]);
+			rList.add(hm);
+		}
+		return rList;
+	}
+
 
 }
