@@ -39,5 +39,8 @@ public class PetVO {
 	
 	@Column(length = 300,name = "pet_qr")
 	private String petQr;
+	
+	@Column(length = 100,name = "pet_neutering")
+	private String petNeutering;
 
 }

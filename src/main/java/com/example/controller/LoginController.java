@@ -36,6 +36,7 @@ public class LoginController {
 	public String loginCheck(String userEmail, HttpSession session){
 		UserVO result = lservice.findByUserEmail(userEmail);
 		ImgVO result2 = lservice.findBypRimgname(userEmail);
+		
 		System.out.println(result2.getPRimgname());
 		String message = "";
 		if(result == null){
@@ -51,6 +52,7 @@ public class LoginController {
 				session.setAttribute("userAddress", result.getUserAddress());
 				session.setAttribute("userAdmin", result.getUserAdmin());
 				session.setAttribute("pRimgname", result2.getPRimgname());
+
 				session.setMaxInactiveInterval(60*60*24);
 				return message;
 			}
@@ -126,7 +128,25 @@ public class LoginController {
 		//return "/include/myPage/myPageProfile";
 	}
 	
+	@RequestMapping("/myPage/myPageProfile")
+	public void myPageProfile() {
+	}
+
+	@RequestMapping("/myPage/myPageDogList")
+	public void myDogList() {
+	}
+
+	@RequestMapping("/myPage/myPageDogDetail")
+	public void myDogDetail() {
+	}
 	
+	@RequestMapping("/myPage/myPageDogAdd")
+	public void myPageDogAdd() {
+	}
+	
+	@RequestMapping("/myPage/myPageBoard")
+	public void myPageBoard() {
+	}
 	
 	
 //	/* 회원탈퇴 */
