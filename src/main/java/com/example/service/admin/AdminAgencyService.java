@@ -34,7 +34,7 @@ public interface AdminAgencyService {
 	
 	//*********차트*********
 	public List<HashMap<String, Object>> chartAgencyCount();
-	public List<HashM>
+	//public List<HashM>
 	
 
 	
