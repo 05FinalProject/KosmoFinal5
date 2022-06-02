@@ -179,12 +179,10 @@ display: block;
 									</tr>
 									<tr>
 										<th>중성화 :</th>
-										<th><label class="btn btn-default text-center active">
-												했어요 <br> <i class="fas fa-dot-circle fa text-green"></i>
-										</label> <label class="btn btn-default text-center"> 안했어요 <br>
-												<i class="fas fa-times-circle fa text-orange"></i>
-										</label></th>
-
+										<th>
+										<label class="btn btn-default text-center active" value="Y"> 했어요 <br> <i class="fas fa-dot-circle fa text-green"></i> </label> 
+										<label class="btn btn-default text-center" value="N"> 안했어요 <br> <i class="fas fa-times-circle fa text-orange"></i> </label>
+										</th>
 									</tr>
 
 								</table>

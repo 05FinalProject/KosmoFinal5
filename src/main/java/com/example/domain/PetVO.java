@@ -34,13 +34,17 @@ public class PetVO {
 	@Column(length = 100,name = "pet_gender")
 	private String petGender;
 	
+	/* 견종 */
 	@Column(length = 100,name = "pet_variety")
 	private String petVariety;
 	
 	@Column(length = 300,name = "pet_qr")
 	private String petQr;
 	
+	/* 중성화 여부*/
 	@Column(length = 100,name = "pet_neutering")
 	private String petNeutering;
 
+	@Column(name = "pet_weight")
+	private int petWeight;
 }
