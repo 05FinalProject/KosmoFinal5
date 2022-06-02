@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>마이페이지 - 나의 반려견</title>
+<title>마이페이지 - 반려견 정보 수정</title>
 
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet"
@@ -59,6 +59,23 @@
 <link rel="stylesheet" id="magnific-popup-css"
 	href="/css/magnific-popup.min.css?ver=1.1.0" type="text/css"
 	media="all">
+	
+<style>
+.form-controller{
+display: block;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212121;
+    background-color: #fafafa;
+    background-clip: padding-box;
+    border: 1px solid #fafafa;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+</style>
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed "
@@ -119,110 +136,78 @@
 				</nav>
 			</div>
 			<!-- /.sidebar -->
-
 		</aside>
-		<main class="content-wrapper">
-			<div class="row">
-				<div class="col-9 mx-auto">
-					
-					<!-- 등록된 반려견이 없으면 출력 -->
-					<c:if test="${sessionScope.pets eq null }">
-										<div class="blog-posts sticky-posts"
-						style="margin-top: 2%; margin-bottom: 2%; border-radius: 25px; border-right-style: solid; border-color: orange;">
-						<div id="post-1" class="post type-post post-1 card post-card"
-							style="border-radius: 25px;">
-							<div class="row">
-								<div class="col-md-6 mr-auto">
-									<div
-										class="card-body h-100 d-flex align-items-center flex-column">
-										<h3>
-											<a href="myPageDogAdd">등록된 정보가 없습니다.(클릭)</a>
-										</h3>
-									</div>
-								</div>
+
+		<!-- Content Wrapper. Contains page content -->
+
+		<section>
+			<!-- Default box -->
+			<div class="card-solid mx-auto" style="width: 80%;">
+				<div class="card-body">
+					<div class="row" style="margin-top: 5%;">
+						<div class="col-12 col-sm-7">
+							<div class="col-10 mx-auto my-auto">
+								<img src="/pictures/placeholder/530x400.svg"
+									class="product-image" alt="Product Image"
+									style="border-radius: 10%;">
+							</div>
+						</div>
+						<div class="col-12 col-sm-5">
+							<input type="text" placeholder="이름" id="petName">
+							<hr>
+							<div class="btn-group btn-group-toggle" data-toggle="buttons">
+								<table>
+									<tr>
+										<th>견&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;종 :</th>
+										<th style="height:50%;"><select class="form-controller" style="float: left;">
+												<c:forEach var="pvo" items="${kindList}">
+													<option>${pvo.dogKind}</option>
+												</c:forEach>
+
+										</select></th>
+									</tr>
+									<tr>
+										<th>몸무게 :</th>
+										<th><input type="text" placeholder="kg" id="petWeight"></th>
+									</tr>
+									<tr>
+										<th>성별 :</th>
+										<th><label class="btn btn-default text-center active">
+												남아 <br> <i class="fas fa-user fa text-blue"></i>
+										</label> <label class="btn btn-default text-center"> 여아 <br>
+												<i class="fas fa-user fa text-red"></i>
+										</label></th>
+									</tr>
+									<tr>
+										<th>중성화 :</th>
+										<th>
+										<label class="btn btn-default text-center active" value="Y"> 했어요 <br> <i class="fas fa-dot-circle fa text-green"></i> </label> 
+										<label class="btn btn-default text-center" value="N"> 안했어요 <br> <i class="fas fa-times-circle fa text-orange"></i> </label>
+										</th>
+									</tr>
+
+								</table>
+							</div>
+
+
+							<div class="mt-4">
+								<div class="btn btn-primary btn-flat btn-add "><input type="submit" value="등록"></div>
+
+								<div class="btn btn-danger btn-flat float-right"><input type="button" value="취소"></div>
 							</div>
 						</div>
 					</div>
-					</c:if>
-					
-					<!-- 등록된 반려견이 있으면 리스트 형식으로 출력 -->
-					<form action="myPageDogDetail">
-					<c:if test="${sessionScope.pets ne null }">
-					<c:forEach var="pet" items="${sessionScope.pets}" >
-								<div class="blog-posts sticky-posts"
-									style="margin-top: 2%; margin-bottom: 2%; border-radius: 25px; border-right-style: solid; border-color: orange;">
-									<div id="post-1" class="post type-post post-1 card post-card"
-										style="border-radius: 25px;">
-										<div class="row">
-											<div class="col-md-3 mx-auto" style="margin: 1%;">
-												<img class="card-img"
-													src="/pictures/placeholder/530x400.svg" alt="Post"
-													style="width: 250px; height: 250px; border-radius: 50%;">
-											</div>
-											<div class="col-md-6 mr-auto">
-												<div
-													class="card-body h-100 d-flex align-items-start flex-column">
-													<h3 class="post-title card-title">
-														<a href="myPageDogDetail">${pet.petName}</a>
-													</h3>
-													<p class="post-text card-text">
-													<table>
-														<tr>
-															<th>견종 :</th>
-															<th>${pet.petVariety}</th>
-														</tr>
-														<tr>
-															<th>성별 :</th>
-															<th>${pet.petGender}</th>
-														</tr>
-														<tr>
-															<th>나이 :</th>
-															<th>${pet.petAge}세</th>
-														</tr>
-														<tr>
-															<th>중성화 :</th>
-															<th>
-															
-															<c:choose>
-															<c:when test="${pet.petNeutering == 'Y'}">
-															했어요
-															</c:when>
-															<c:otherwise>
-															안했어요
-															</c:otherwise>
-															</c:choose>
-															
-															</th>
-														</tr>
-													</table>
-													</p>
-													<div
-														class="d-flex justify-content-between align-items-center post-meta mt-auto w-100">
-														<a href="single.html"
-															class="more-link card-link d-flex align-items-center">
-															삭제 <i class="lana-icon-arrow-right text-primary"></i>
-														</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-						</c:forEach>
-								<div
-									class="d-flex justify-content-end align-items-center post-meta w-100">
-									<a href="myPageDogAdd"
-										class="more-link card-link d-flex align-items-center"> 
-										추가 등록 &nbsp; <i class="lana-icon-arrow-right text-primary"></i>
-									</a>
-								</div>
-						</c:if>
-						</form>
 				</div>
+				<!-- /.card-body -->
 			</div>
-		</main>
+			<!-- /.card -->
 
+		</section>
+		<!-- /.content -->
 	</div>
+	<!-- /.content-wrapper -->
+
+
 	<!-- ./wrapper -->
 	<%@include file="../Footer.jsp"%>
 
@@ -258,6 +243,7 @@
 		src="../../admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 	<!-- AdminLTE App -->
 	<script src="../../admin/dist/js/adminlte.js"></script>
+	<script src="../../admin/dist/js/adminlte.min.js"></script>
 	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 	<script src="../../admin/dist/js/pages/dashboard.js"></script>
 
@@ -296,8 +282,6 @@
 			});
 
 		});
-		
-		
 	</script>
 </body>
 </html>

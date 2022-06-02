@@ -1,11 +1,15 @@
 package com.example.service.loginService;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.dao.ImgRepository;
+import com.example.dao.PetRepository;
 import com.example.dao.UserRepository;
 import com.example.domain.ImgVO;
+import com.example.domain.PetVO;
 import com.example.domain.UserVO;
 
 @Service
@@ -16,6 +20,10 @@ public class LoginServiceImpl implements LoginService {
 	
 	@Autowired
 	private ImgRepository Img;
+	
+	@Autowired
+	private PetRepository pet;
+
 
 	@Override
 	public UserVO findByUserEmail(String userEmail) {
@@ -29,7 +37,12 @@ public class LoginServiceImpl implements LoginService {
 		return Img.findByUserEmail(pRimgname).get(0);
 	}
 
-
+	@Override
+	public List<PetVO> findByPetNum(String petNum) {
+		return (List<PetVO>) pet.findAll();
+		
+	}
+	
 	@Override
 	public void userImgUpdate(ImgVO ivo) {
 		ImgVO result = Img.findByUserEmail(ivo.getUser().getUserEmail()).get(0);
@@ -37,6 +50,10 @@ public class LoginServiceImpl implements LoginService {
 		result.setPRimgname("img/userImg/"+ivo.getPRimgname());
 		Img.save(result);
 	}
+
+
+
+
 
 //	/* 회원탈퇴용으로 쓰는 중*/
 //	@Override

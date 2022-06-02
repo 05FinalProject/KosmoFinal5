@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -128,43 +129,63 @@
               </div>
             </div>
             <div class="col-12 col-sm-5">
-              <h3 class="my-3">반려견 이름</h3>
+              <h3 class="my-3">${pet.petName }</h3>
               <hr>
               <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <table>
                   <tr> 
                     <th>견&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;종 : </th>
-                    <th>여기에 표시될 것</th>
+                    <th>${pet.petVariety }</th>
                   </tr>
                   <tr> 
                     <th>몸무게 : </th>
-                    <th>여기에 표시될 것</th>
+                    <th>${sessionScope.petWeight }</th>
                   </tr>
                   <tr>
                     <th>성별 : </th>
-                    <th>                <label class="btn btn-default text-center active">
+                    
+                    <th>
+                    
+                    <c:if test="${pet.petGender eq 'M'}">
+                    <label class="btn btn-default text-center active">
                       남아
                       <br>
                       <i class="fas fa-user fa text-blue"></i>
                     </label>
-                  <label class="btn btn-default text-center">
+                    </c:if>
+                    
+                    <c:if test="${pet.petGender eq 'W' }">
+                 	 <label class="btn btn-default text-center">
                       여아
                       <br>
                       <i class="fas fa-user fa text-red"></i>
-                    </label></th>
+                    </label>
+                    </c:if>
+                    
+                    </th>
+                    
                   </tr>
                   <tr>
                     <th>중성화 : </th>
-                    <th>                <label class="btn btn-default text-center active">
+                    <th>
+                    
+                    <c:if test="${pet.petNeutering eq 'Y'}">
+                    <label class="btn btn-default text-center active">
                       했어요
                       <br>
                       <i class="fas fa-dot-circle fa text-green"></i>
                     </label>
-                  <label class="btn btn-default text-center">
+                    </c:if>
+                  	
+                  	<c:if test="${pet.petGender eq 'N'}">
+                  	<label class="btn btn-default text-center">
                       안했어요
                       <br>
                       <i class="fas fa-times-circle fa text-orange"></i>
-                    </label></th>
+                    </label>
+                    </c:if>
+                    
+                    </th>
                     
                   </tr>
                   
