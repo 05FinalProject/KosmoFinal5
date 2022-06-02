@@ -53,7 +53,7 @@ public class AdminMainController {
 	//차트
 	@RequestMapping(value="/adminChartsjs", method=RequestMethod.GET)
 	public String charts(Model model) {
-		//리스트 담기 
+		//리스트 담기 (도넛차트)
 		List<HashMap<String, Object>> list = adminAgencyService.chartAgencyCount();//서비스 리턴
 		Gson agencyGson = new Gson();
 		JsonArray agencyJArray = new JsonArray();
@@ -72,6 +72,26 @@ public class AdminMainController {
 		
 		String agencyJson = agencyGson.toJson(agencyJArray);
 		model.addAttribute("agency", agencyJson);
+
+		//바 차트
+		List<HashMap<String, Object>> list2 = adminAgencyService.chartSignupUser();//서비스 리턴
+		Gson userSignupGson = new Gson();
+		JsonArray userSignupJArray = new JsonArray();
+
+		Iterator<HashMap<String, Object>> userSignupIterator = list2.iterator();//리스트에 있는걸 읽어서 해쉬맵에 담음
+		while (userSignupIterator.hasNext()) {//담은걸 하나씩 찾아서 분해한다
+			HashMap userSignupCount = userSignupIterator.next();
+			JsonObject object = new JsonObject();
+			String userSignupMonth = String.valueOf(userSignupCount.get("chartMonth"));
+			Integer userSignupNum = Integer.parseInt(String.valueOf(userSignupCount.get("userSignup")));
+			object.addProperty("userSignupMonth", userSignupMonth);//분해한걸 담는다 key value형식으로
+			object.addProperty("userSignupNum", userSignupNum);
+			userSignupJArray.add(object);//agencyJArray배열에 object를 담는다
+		}
+
+		String userSignupJson = userSignupGson.toJson(userSignupJArray);
+		model.addAttribute("userSignup", userSignupJson);
+		System.out.println("테스트"+model.getAttribute("userSignup"));
 			
 		
 		return "/admin/charts/chartsjs";

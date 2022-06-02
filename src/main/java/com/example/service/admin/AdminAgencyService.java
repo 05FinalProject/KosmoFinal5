@@ -34,10 +34,8 @@ public interface AdminAgencyService {
 	
 	//*********차트*********
 	public List<HashMap<String, Object>> chartAgencyCount();
-	//public List<HashM>
-	
+	public List<HashMap<String, Object>> chartSignupUser();
 
-	
 	
 	//시설수정
 	public AgencyVO updateAgency(Integer agencyNum, String tel, String name, String content, String addr, String subAddr);

@@ -85,7 +85,7 @@
                         <div class="col-md-6">
                         <div class="card card-danger">
                             <div class="card-header">
-                                <h3 class="card-title">시설 별 등록 갯수</h3>
+                                <h3 class="card-title">월별 회원가입수</h3>
                                 <div class="card-tools">
                                     <button type="button" class="btn btn-tool"
                                             data-card-widget="collapse">
@@ -102,7 +102,7 @@
                                         <div class=""></div>
                                     </div>
                                 </div>
-                                <canvas id="agencyBarchart" width="250" height="250"></canvas>
+                                <canvas id="userBarchart" width="250" height="250"></canvas>
                             </div>
                             <!-- /.card-body -->
                         </div>
@@ -191,7 +191,38 @@
         type: 'doughnut',
         data: data
     });
-    
+
+    //**************바 차트***********************
+    let jsonDataUser = ${userSignup};
+    let jsonObjectUser = JSON.stringify(jsonDataUser);
+    let jDataUser = JSON.parse(jsonObjectUser);
+    console.log(jDataUser);
+    let labelListUser = []; // 배열생성
+    let valueListUser = [];
+    let colorList2 = [];
+
+    for (let i = 0; i < jDataUser.length; i++) {
+        let dUser = jDataUser[i];
+
+        labelListUser.push(dUser.userSignupMonth);
+        valueListUser.push(dUser.userSignupNum);
+        colorList2.push(colorize());
+    }
+    //dAgency.agencyCategoryNum가 1이면 동물호텔로 이름 변경
+
+    let data2 = {
+        labels: labelListUser,
+        datasets: [{
+            backgroundColor: colorList2,
+            data: valueListUser
+        }],
+    };
+
+    let ctx2 = document.getElementById('userBarchart').getContext('2d');
+    new Chart(ctx2, {
+        type: 'bar',
+        data: data2
+    });
 </script>
 
 </body>

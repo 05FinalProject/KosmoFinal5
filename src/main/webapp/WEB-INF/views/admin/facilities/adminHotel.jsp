@@ -139,7 +139,7 @@
 													id="hotelModal${hotel.agencyNum}Label">${hotel.agencyName}
 												</h5>
 												<button type="button" class="close" data-dismiss="modal"
-													aria-label="Close" onclick="location.href='/admin/adminHotel'">
+													aria-label="Close" onclick="location.href='/adminHotel'">
 													<span aria-hidden="true">&times;</span>
 												</button>
 											</div>
@@ -202,7 +202,7 @@
 																	<button type="submit" class="btn btn-secondary m-2"
 																		id="btnQnAWrite">수정</button>
 																	<button type="button" class="btn btn-secondary m-2"
-																		id="btnList" data-dismiss="modal" onclick="location.href='/admin/adminHotel'">취소</button>
+																		id="btnList" data-dismiss="modal" onclick="location.href='/adminHotel'">취소</button>
 																</div>
 
 															</div>

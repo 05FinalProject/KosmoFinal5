@@ -74,15 +74,15 @@ public interface AgencyRepository extends CrudRepository<AgencyVO, Integer>{
 			+ "   WHERE d < now()     "
 			+ ")     "
 			+ "SELECT 		"
-			+ "   DATE_FORMAT(c.d, '%Y-%m') AS MONTH,		"
+			+ "   DATE_FORMAT(c.d, '%y-%m') AS MONTH,		"
 			+ "   IFNULL(m.users,0) users			"
 			+ "FROM cte c		"
 			+ "   LEFT OUTER JOIN (		"
-			+ "      SELECT DATE_FORMAT(user_signup, '%Y-%m') month, COUNT(*) users			"
+			+ "      SELECT DATE_FORMAT(user_signup, '%y-%m') month, COUNT(*) users			"
 			+ "      FROM user		"
 			+ "      GROUP BY MONTH			"
 			+ "      ) m		"
-			+ "   ON date_format(c.d, '%Y-%m') = m.month", nativeQuery = true)
+			+ "   ON date_format(c.d, '%y-%m') = m.month", nativeQuery = true)
 	public List<Object[]> chartSignupUser();
 		
 	
