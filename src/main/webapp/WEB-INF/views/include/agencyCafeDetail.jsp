@@ -117,11 +117,6 @@
 .siren {
     	width:24px;
     }
-
-
-/* .listing__item{
-border: 1px solid #008000;
-} */
      
    </style>
   </head>
@@ -130,13 +125,8 @@ border: 1px solid #008000;
   
   <body class="home page page-template-template-lana-editor">
    
-  <!-- Header Section Begin -->
   
-    
-  <!-- Header Section End -->
-     
-   
-   <!-- Listing Section Begin -->
+  <!-- Listing Section Begin -->
     <section class="listing-details spad">
      
       <div class="container">
@@ -148,7 +138,11 @@ border: 1px solid #008000;
              <form:form commandName="post">
      <input name="agencyNum" type="hidden"  value="${vo.agencyNum }" /> 
               <div class="listing__details__gallery">
-                <h4>기관명</h4>
+                <h4>기관명
+               
+                
+                
+                </h4>
                 <div class="listing__details__gallery__pic">
                   <div class="listing__details__gallery__item">
                     <img
@@ -167,11 +161,14 @@ border: 1px solid #008000;
              <!--*********리뷰 테이블 ***********************************--> 
               <div class="listing__details__comment">
                 <h4>리뷰</h4>
-
-               <!-- ********* 1칸 리뷰 테이블 *******--> 
+                
+			
+              <!-- ********* 1칸 리뷰 테이블 *******--> 
                 <div class="listing__details__comment__item">
-                    
-            
+                     <c:forEach var="review" items="${reviews}" >
+			
+			
+			
                   <div class="listing__details__comment__item__pic">
                     <img
                       src=""
@@ -186,37 +183,46 @@ border: 1px solid #008000;
                       <i class="fa fa-star"></i>
                       <i class="fa fa-star"></i>
                     </div>
-                    <span>March 22, 2019 작성일</span>
-                    <h5>작성자</h5>
+                  
+                    <span> 작성일:${review.reviewInsertdate }</span>
+                    <h5></h5>
+                    
                     <p>
-                     내용
+                    내용:${review.reviewContent }
                     </p>
+                    
                     <ul>
                       <span><img class="siren" src="../../img/siren.png"></span>
                      
                     </ul>
                   </div>
                    
+                   </c:forEach>
+            
                 </div>
-
+               
+               
                </form:form>
                 <!--******************************-->
               </div>
               <!--******* 테이블 끝 ******-->
               
               
-              <!--******* 리뷰 작성 테이블 ******************-->
+             
+             <!--******* 리뷰 작성 테이블 ******************-->
+              
+             
               <div class="listing__details__review">
                 <h4>리뷰작성</h4>
-                <form action="#">
-                  <input type="text" placeholder="Name" />
-                  <input type="text" placeholder="Email" />
-                  <textarea placeholder="Review"></textarea>
+                <form action="/include/insertReview" method="post"  >
+                <input type="hidden" name="userEmail" value="${sessionScope.userEmail}">
+                <input type="hidden" name="agencyNum" value="${cafe.agencyNum}">
+                  <textarea placeholder="Review" name="reviewContent"></textarea>
                   <button type="submit" class="site-btn">작성</button>
                 </form>
               </div>
 
-              <!--******* 리뷰 작성 테이블 ******************--> 
+           <!--******* 리뷰 작성 테이블 ******************--> 
             </div>
           </div>
           
@@ -259,7 +265,7 @@ border: 1px solid #008000;
             </div>
           </div>
         </div>
-      </div>
+     
     </section>
     <!-- Listing Section End -->
 
@@ -288,8 +294,7 @@ border: 1px solid #008000;
     <!--카카오 맵 js-->
     <script src="/agency/js/kakaoMap.js"></script>
     
-    
-    <script type="text/javascript" src="/js/jquery.min.js?ver=3.6.0"></script>
+<script type="text/javascript" src="/js/jquery.min.js?ver=3.6.0"></script>
 <script type="text/javascript" src="/js/popper.min.js?ver=1.16.1"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js?ver=4.6.0"></script>
 <script type="text/javascript" src="/js/smartmenus.min.js?ver=1.1.1"></script>
@@ -353,7 +358,8 @@ border: 1px solid #008000;
       });
     </script>
     
-    <body class="home page page-template-template-lana-editor">
+    
+<!--********** footer  ***********************************************************************-->
 
 <footer class="footer bg-dark text-white">
     <div class="container-fluid">

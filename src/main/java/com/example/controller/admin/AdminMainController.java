@@ -270,10 +270,10 @@ public class AdminMainController {
 	}
 
 	//시설 수정
-	@RequestMapping(value="update", method = RequestMethod.POST)
+	@RequestMapping(value="/admin/update", method = RequestMethod.POST)
 	public String adminUpdateFacilities(Integer agencyNum, @RequestParam String tel, @RequestParam String facility, @RequestParam String content, @RequestParam String addr, @RequestParam String subAddr) {
 		adminAgencyService.updateAgency(agencyNum, tel, facility, content, addr, subAddr);
-		return "redirect:/admin/adminHotel";
+		return "redirect:/adminHotel";
 	}
 
 	//시설삭제

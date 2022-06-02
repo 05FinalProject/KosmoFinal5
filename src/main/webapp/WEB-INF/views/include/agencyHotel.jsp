@@ -124,9 +124,6 @@
 	padding-bottom: 15px;
 }
 
-/* .listing__item{
-border: 1px solid #008000;
-} */
      
    </style>
   </head>
@@ -222,7 +219,7 @@ border: 1px solid #008000;
    <!--카카오 지도 연결-->
     <!--******** Map Begin *******************************************-->
     <div class="listing__map">
-      <div id="map" style="width: 100%; height: 60em"></div>
+      <div id="map" style="width: 100%; height: 52em"></div>
     </div>
     <!--****** Map End ***********************************************-->
 
