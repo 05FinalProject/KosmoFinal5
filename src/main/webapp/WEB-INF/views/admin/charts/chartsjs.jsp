@@ -73,15 +73,42 @@
                                         <div class=""></div>
                                     </div>
                                 </div>
-                                <canvas id="agencyPiechart" width="250" height="250"></canvas>
+                                <canvas id="agencyDonutchart" width="250" height="250"></canvas>
+                            </div>                                                       
+                            <!-- /.card-body -->
+                        </div>
+                        </div>                     
+                        <!-- END DONUT CHART-->                                           
+                        <!-- /.col (LEFT) -->
+                        
+                        <!-- /.col (RIGHT) -->
+                        <div class="col-md-6">
+                        <div class="card card-danger">
+                            <div class="card-header">
+                                <h3 class="card-title">시설 별 등록 갯수</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool"
+                                            data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="chartjs-size-monitor">
+                                    <div class="chartjs-size-monitor-expand">
+                                        <div class=""></div>
+                                    </div>
+                                    <div class="chartjs-size-monitor-shrink">
+                                        <div class=""></div>
+                                    </div>
+                                </div>
+                                <canvas id="agencyBarchart" width="250" height="250"></canvas>
                             </div>
                             <!-- /.card-body -->
                         </div>
-                        <!-- /.col (LEFT) -->
-                        <div class="col-md-6">
-
-                        </div>
-                        <!-- /.col (RIGHT) -->
+                        <!-- END BAR CHART-->
+                        </div>          
+                        <!-- /.col (RIGHT) -->             
                     </div>
                     <!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -142,8 +169,8 @@
         }else if(dAgency.agencyCategoryNum == 3){
         	dAgency.agencyCategoryNum="동물병원";     	
         }else if(dAgency.agencyCategoryNum == 5){
-        	dAgency.agencyCategoryNum="장례식장";     	
-        }        
+        	dAgency.agencyCategoryNum="장례식장";
+        }
         
         labelListAgency.push(dAgency.agencyCategoryNum);
         valueListAgency.push(dAgency.agencyChartCount);
@@ -158,12 +185,13 @@
             data: valueListAgency
         }],
     };
-
-    let ctx1 = document.getElementById('agencyPiechart').getContext('2d');
+	
+    let ctx1 = document.getElementById('agencyDonutchart').getContext('2d');
     new Chart(ctx1, {
-        type: 'pie',
+        type: 'doughnut',
         data: data
     });
+    
 </script>
 
 </body>

@@ -32,8 +32,11 @@ public interface AdminAgencyService {
 	public int countRecord();
 	//****************************************
 	
-	//차트 
+	//*********차트*********
 	public List<HashMap<String, Object>> chartAgencyCount();
+	public List<HashM>
+	
+
 	
 	
 	//시설수정
