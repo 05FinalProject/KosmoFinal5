@@ -106,7 +106,7 @@
 		<!-- <div class="sidebar"> -->
 		<!-- Sidebar Menu -->
 		<div id="community-nav w-100">
-			<nav class="w-100 h-100 bg-white">
+			<nav class="w-100 h-100 bg-white ">
 				<ul class="nav nav-pills nav-sidebar flex-column"
 					data-widget="treeview" role="menu" data-accordion="false">
 					<li class="nav-item" style="font-weight:bolder;"><a href="./adminCustomerList.do"
