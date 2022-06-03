@@ -24,7 +24,7 @@ public class LoginServiceImpl implements LoginService {
 	@Autowired
 	private PetRepository pet;
 
-
+	
 	@Override
 	public UserVO findByUserEmail(String userEmail) {
 		return user.findByUserEmail(userEmail);
