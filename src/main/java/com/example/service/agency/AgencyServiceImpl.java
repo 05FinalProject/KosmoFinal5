@@ -2,6 +2,7 @@ package com.example.service.agency;
 
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +12,13 @@ import org.springframework.stereotype.Service;
 import com.example.dao.AbandonedRepository;
 import com.example.dao.AgencyRepository;
 import com.example.dao.DogKindRepository;
+import com.example.dao.ReviewRepository;
+import com.example.dao.UserRepository;
 import com.example.domain.AbandonedVO;
 import com.example.domain.AgencyVO;
 import com.example.domain.DogKindVO;
+import com.example.domain.ReviewVO;
+import com.example.domain.UserVO;
 
 @Service
 public class AgencyServiceImpl implements AgencyService{
@@ -26,7 +31,12 @@ public class AgencyServiceImpl implements AgencyService{
 	
 	@Autowired
 	private DogKindRepository DogKindRepo;
-
+	
+    @Autowired
+    private ReviewRepository reviewRepo;
+    
+    @Autowired
+    private UserRepository usr;
 	//*******************************************************
 	//보호소 페이지 처리 
 	public List<AbandonedVO> getPaging(Pageable paging){
@@ -144,6 +154,28 @@ public class AgencyServiceImpl implements AgencyService{
 			return  list;
 		}		
 		
+		
+	//***********************************************
+	//리뷰 작성 테이블 
 	
+		public void insertReview(ReviewVO vo) {
+			UserVO v = usr.findById(vo.getUser().getUserEmail()).get();
+			vo.setUser(v);
+			AgencyVO a = agencyRepo.findById(vo.getAgency().getAgencyNum()).get();
+			vo.setAgency(a);
+			reviewRepo.save(vo);
+		}
+	
+		public void insertHotelReview(ReviewVO vo) {
+			UserVO v = usr.findById(vo.getUser().getUserEmail()).get();
+			vo.setUser(v);
+			AgencyVO a = agencyRepo.findById(vo.getAgency().getAgencyNum()).get();
+			vo.setAgency(a);
+			reviewRepo.save(vo);
+		}
+		
+		public List<ReviewVO> findByAgencyNum(AgencyVO vo){
+			return reviewRepo.findByAgency(vo);
+		}
 				
 }

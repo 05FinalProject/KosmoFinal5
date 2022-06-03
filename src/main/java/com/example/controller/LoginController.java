@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import java.util.List;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -7,12 +9,14 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.example.domain.ImgVO;
+import com.example.domain.PetVO;
 import com.example.domain.UserVO;
 import com.example.service.loginService.LoginService;
 
@@ -32,9 +36,11 @@ public class LoginController {
 	/* 로그인 성공여부에 따른 세션 저장*/
 	@RequestMapping(value="loginCheck", produces="application/text;charset=utf-8")
 	@ResponseBody
-	public String loginCheck(String userEmail, HttpSession session){
+	public String loginCheck(String userEmail, HttpSession session, Model m){
 		UserVO result = lservice.findByUserEmail(userEmail);
 		ImgVO result2 = lservice.findBypRimgname(userEmail);
+		List<PetVO> result3 = lservice.findByPetNum(userEmail);
+		
 		System.out.println(result2.getPRimgname());
 		String message = "";
 		if(result == null){
@@ -48,8 +54,10 @@ public class LoginController {
 				session.setAttribute("userName", result.getUserName());
 				session.setAttribute("userPhone", result.getUserPhone());
 				session.setAttribute("userAddress", result.getUserAddress());
-				session.setAttribute("userAdmin", result.getUserAdmin());
 				session.setAttribute("pRimgname", result2.getPRimgname());
+				session.setAttribute("pets", result3);
+				m.addAttribute("pets", result3.get(0));
+
 				session.setMaxInactiveInterval(60*60*24);
 				return message;
 			}
@@ -107,7 +115,7 @@ public class LoginController {
 	
 	/* 프로필 수정 */
 	@RequestMapping("/myPage/userUpdate")
-	public String UserUpdate(ImgVO ivo, HttpServletRequest request) {
+	public String UserUpdate(ImgVO ivo, HttpServletRequest request,Model m) {
 		
 		System.out.println(ivo.getPImgname());
 		System.out.println(ivo.getPRimgname());   ///     /img/userImg/+ivo.getPRimgname()
@@ -118,8 +126,31 @@ public class LoginController {
 		vo.setUserEmail(session.getAttribute("userEmail").toString());
 		ivo.setUser(vo);
 		lservice.userImgUpdate(ivo);
+		m.addAttribute("pRimgname", "img/userImg/"+ivo.getPRimgname());
+		return "/include/myPage/imgModify";
 		
-		return "/include/myPage/myPageProfile";
+		
+		//return "/include/myPage/myPageProfile";
+	}
+	
+	@RequestMapping("/myPage/myPageProfile")
+	public void myPageProfile() {
+	}
+
+	@RequestMapping("/myPage/myPageDogList")
+	public void myDogList() {
+	}
+
+	@RequestMapping("/myPage/myPageDogDetail")
+	public void myDogDetail() {
+	}
+	
+	@RequestMapping("/myPage/myPageDogAdd")
+	public void myPageDogAdd() {
+	}
+	
+	@RequestMapping("/myPage/myPageBoard")
+	public void myPageBoard() {
 	}
 	
 	

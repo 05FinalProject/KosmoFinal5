@@ -121,6 +121,12 @@
 										<span><img class="siren" src="../../img/siren.png"></span>
 										<h5 class="post-title card-title">
 											<a href="/include/community/dailyDetail?communityNum=${community.communityNum }">${community.user.userNickname }</a>
+
+
+										
+
+										
+
 										</h5>
 										<div class="post-text card-text">
 											<p class="post-text card-text">${community.communityTitle }</p>

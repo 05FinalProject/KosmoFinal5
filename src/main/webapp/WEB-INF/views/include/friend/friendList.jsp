@@ -39,7 +39,6 @@
 <link rel="stylesheet" href="/myPage/css/myPage.css">
 <script src="https://kit.fontawesome.com/23b331c6f8.js"
 	crossorigin="anonymous"></script>
-
 <style type="text/css">
 .content {
 	padding-top: 3%;
@@ -87,6 +86,11 @@
 }
 
 
+.nav-sidebar .nav-link p {
+    display: inline;
+    margin: 0;
+    white-space: inherit;
+}
 
 
 </style>
@@ -134,13 +138,66 @@
 						onmouseout="this.style.color='black'"> <p>나의 산책로</p>
 					</a></li>
 
-				</ul>
-			</nav>
-		</div>
-		<!-- /.sidebar-menu -->
-	</div>
-	<!-- </aside> -->
+	<div class="wrapper">
 
+  <aside class="myPage-sidebar asidebar beta">
+    <div class="sidebar">
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      </div>
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- 마이 프로필 -->
+          <li class="nav-item">
+            <a href="myPageProfile" class="nav-link">
+              <p>
+                마이 프로필
+              </p>
+            </a>
+          </li>
+          <!-- 나의 게시글 -->
+          <li class="nav-item">
+            <a href="myPageBoard" class="nav-link">
+              <p>
+                나의 게시글
+              </p>
+            </a>
+          </li>
+          <!-- 반려동물 -->
+          <li class="nav-item">
+            <a href="myPageDogList" class="nav-link">
+              <p>
+                반려동물
+              </p>
+            </a>
+          </li>
+          <!-- 펫친관리 -->
+          <li class="nav-item">
+            <a href="../friend/friendList" class="nav-link active">
+              <p>
+                펫친관리
+              </p>
+            </a>
+          </li>
+          <!-- 친구찾기 -->
+          <li class="nav-item">
+            <a href="../friend/friendFind" class="nav-link">
+              <p>
+                펫친찾기
+              </p>
+            </a>
+          </li>
+          <!-- 나의 산책로 -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <p>
+                나의 산책로
+              </p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
 	<!-- /.sidebar -->
 	<div class="content-wrapper col-md-9 m-0">
 		<!-- 내용 넣는 곳 -->
@@ -539,12 +596,6 @@
 							</div>
 						</div>
 						<!-- 사용자 프로필 끝 -->
-
-
-
-
-
-
 					</div>
 				</div>
 				<!-- /.card-body -->

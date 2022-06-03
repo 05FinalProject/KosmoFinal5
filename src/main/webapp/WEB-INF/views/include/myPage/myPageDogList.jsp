@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,119 +66,169 @@
 	<%@include file="../Header.jsp"%>
 	<div class="wrapper">
 		<!-- Main Sidebar Container -->
-		<aside class="myPage-sidebar asidebar" style="margin-top: auto;">
-			<!-- Sidebar -->
-			<div>
-				<nav class="mt-2">
-					<ul class="nav nav-pills sidebar flex-column"
-						data-widget="treeview" role="menu" data-accordion="false"
-						style="font-weight: bolder; color: black;">
-						<li class="nav-item"><a href="myPageProfile" class="nav-link"
-							onmouseover="this.style.color='orange';"
-							onmouseout="this.style.color='black'">
-								<p>
-									<i class="far nav-icon" style="font-weight: bolder;">나의 프로필</i>
-								</p>
-						</a></li>
-						<li class="nav-item"><a href="myPageBoard" class="nav-link"
-							onmouseover="this.style.color='orange';"
-							onmouseout="this.style.color='black'">
-								<p>
-									<i class="far nav-icon" style="font-weight: bolder;">나의 게시글</i>
-								</p>
-						</a></li>
-						<li class="nav-item"><a href="myPageDogList" class="nav-link"
-							onmouseover="this.style.color='orange';"
-							onmouseout="this.style.color='black'">
-								<p>
-									<i class="far nav-icon" style="font-weight: bolder;">반려동물</i>
-								</p>
-						</a></li>
-						<li class="nav-item"><a href="../friend/friendList" class="nav-link"
-							onmouseover="this.style.color='orange';"
-							onmouseout="this.style.color='black'">
-								<p>
-									<i class="far nav-icon" style="font-weight: bolder;">펫친관리</i>
-								</p>
-						</a></li>
-						<li class="nav-item"><a href="../friend/friendFind" class="nav-link"
-							onmouseover="this.style.color='orange';"
-							onmouseout="this.style.color='black'">
-								<p>
-									<i class="far nav-icon" style="font-weight: bolder;">펫친 찾기</i>
-								</p>
-						</a></li>
-						<li class="nav-item"><a href="#" class="nav-link"
-							onmouseover="this.style.color='orange';"
-							onmouseout="this.style.color='black'">
-								<p>
-									<i class="far nav-icon" style="font-weight: bolder;">나의 산책로</i>
-								</p>
-						</a></li>
-					</ul>
-				</nav>
-			</div>
-			<!-- /.sidebar -->
+  <aside class="myPage-sidebar asidebar beta">
+    <div class="sidebar">
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      </div>
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-		</aside>
+          <!-- 마이 프로필 -->
+          <li class="nav-item">
+            <a href="myPageProfile" class="nav-link">
+              <p>
+                마이 프로필
+              </p>
+            </a>
+          </li>
+        
+          <!-- 나의 게시글 -->
+          <li class="nav-item">
+            <a href="myPageBoard" class="nav-link">
+              <p>
+                나의 게시글
+              </p>
+            </a>
+          </li>
+
+          <!-- 반려동물 -->
+          <li class="nav-item">
+            <a href="myPageDogList" class="nav-link active">
+              <p>
+                반려동물
+              </p>
+            </a>
+          </li>
+
+          <!-- 펫친관리 -->
+          <li class="nav-item">
+            <a href="../friend/friendList" class="nav-link">
+              <p>
+                펫친관리
+              </p>
+            </a>
+          </li>
+
+          <!-- 친구찾기 -->
+          <li class="nav-item">
+            <a href="../friend/friendFind" class="nav-link">
+              <p>
+                펫친찾기
+              </p>
+            </a>
+          </li>
+          
+          <!-- 나의 산책로 -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <p>
+                나의 산책로
+              </p>
+            </a>
+          </li>
+          
+        </ul>
+      </nav>
+    </div>
+  </aside>
+  
 		<main class="content-wrapper">
 			<div class="row">
 				<div class="col-9 mx-auto">
-						
-					<!-- 갱얼쥐 상세정보 -->
-					<div class="blog-posts sticky-posts"
+					
+					<!-- 등록된 반려견이 없으면 출력 -->
+					<c:if test="${sessionScope.pets eq null }">
+										<div class="blog-posts sticky-posts"
 						style="margin-top: 2%; margin-bottom: 2%; border-radius: 25px; border-right-style: solid; border-color: orange;">
 						<div id="post-1" class="post type-post post-1 card post-card"
 							style="border-radius: 25px;">
 							<div class="row">
-								<div class="col-md-3 mx-auto">
-									<img class="card-img" src="/pictures/placeholder/530x400.svg"
-										alt="Post"
-										style="width: 300px; height: 250px; border-radius: 50%;">
-								</div>
 								<div class="col-md-6 mr-auto">
 									<div
-										class="card-body h-100 d-flex align-items-start flex-column">
-										<h3 class="post-title card-title">
-											<a href="single.html">반려견 이름</a>
+										class="card-body h-100 d-flex align-items-center flex-column">
+										<h3>
+											<a href="myPageDogAdd">등록된 정보가 없습니다.(클릭)</a>
 										</h3>
-										<p class="post-text card-text">
-										<table>
-											<tr>
-												<th>견종 :</th>
-												<th>이름</th>
-											</tr>
-											<tr>
-												<th>성별 :</th>
-												<th>한놈</th>
-											</tr>
-											<tr>
-												<th>몸무게 :</th>
-												<th>두시기</th>
-											</tr>
-											<tr>
-												<th>중성화 :</th>
-												<th>석삼</th>
-											</tr>
-										</table>
-
-										</p>
-										<div
-											class="d-flex justify-content-between align-items-center post-meta mt-auto w-100">
-											<a href="myPageDogDetail"
-												class="more-link card-link d-flex align-items-center">
-												상세보기 <i class="lana-icon-arrow-right text-primary"></i>
-											</a> <a href="single.html"
-												class="more-link card-link d-flex align-items-center">
-												삭제 <i class="lana-icon-arrow-right text-primary"></i>
-											</a>
-										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+					</c:if>
 					
+					<!-- 등록된 반려견이 있으면 리스트 형식으로 출력 -->
+					<form action="myPageDogDetail">
+					<c:if test="${sessionScope.pets ne null }">
+					<c:forEach var="pet" items="${sessionScope.pets}" >
+								<div class="blog-posts sticky-posts"
+									style="margin-top: 2%; margin-bottom: 2%; border-radius: 25px; border-right-style: solid; border-color: orange;">
+									<div id="post-1" class="post type-post post-1 card post-card"
+										style="border-radius: 25px;">
+										<div class="row">
+											<div class="col-md-3 mx-auto" style="margin: 1%;">
+												<img class="card-img"
+													src="/pictures/placeholder/530x400.svg" alt="Post"
+													style="width: 250px; height: 250px; border-radius: 50%;">
+											</div>
+											<div class="col-md-6 mr-auto">
+												<div
+													class="card-body h-100 d-flex align-items-start flex-column">
+													<h3 class="post-title card-title">
+														<a href="myPageDogDetail">${pet.petName}</a>
+													</h3>
+													<p class="post-text card-text">
+													<table>
+														<tr>
+															<th>견종 :</th>
+															<th>${pet.petVariety}</th>
+														</tr>
+														<tr>
+															<th>성별 :</th>
+															<th>${pet.petGender}</th>
+														</tr>
+														<tr>
+															<th>나이 :</th>
+															<th>${pet.petAge}세</th>
+														</tr>
+														<tr>
+															<th>중성화 :</th>
+															<th>
+															
+															<c:choose>
+															<c:when test="${pet.petNeutering == 'Y'}">
+															했어요
+															</c:when>
+															<c:otherwise>
+															안했어요
+															</c:otherwise>
+															</c:choose>
+															
+															</th>
+														</tr>
+													</table>
+													</p>
+													<div
+														class="d-flex justify-content-between align-items-center post-meta mt-auto w-100">
+														<a href="single.html"
+															class="more-link card-link d-flex align-items-center">
+															삭제 <i class="lana-icon-arrow-right text-primary"></i>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+						</c:forEach>
+								<div
+									class="d-flex justify-content-end align-items-center post-meta w-100">
+									<a href="myPageDogAdd"
+										class="more-link card-link d-flex align-items-center"> 
+										추가 등록 &nbsp; <i class="lana-icon-arrow-right text-primary"></i>
+									</a>
+								</div>
+						</c:if>
+						</form>
 				</div>
 			</div>
 		</main>
@@ -256,6 +307,8 @@
 			});
 
 		});
+		
+		
 	</script>
 </body>
 </html>

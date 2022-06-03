@@ -1,5 +1,9 @@
 package com.example.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -12,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.example.domain.AbandonedVO;
 import com.example.domain.AgencyVO;
 import com.example.domain.DogKindVO;
+import com.example.domain.ReviewVO;
+import com.example.domain.UserVO;
 import com.example.service.agency.AgencyService;
 
 @Controller
@@ -20,6 +26,8 @@ public class AgencyController {
 
 	@Autowired
 	private AgencyService agencyservice;
+	
+	
 
 	// ******************************************************************************
 	//// agencyhotel 보기
@@ -43,6 +51,12 @@ public class AgencyController {
 	public void agencyHotelDetail(Model m, AgencyVO vo) {
 		System.out.println(vo.getAgencyNum());
 		m.addAttribute("hotel", agencyservice.getagencyHotel(vo));
+		
+	//agencyhotel 리뷰 리스트 보여주기	
+		List<ReviewVO> reviews = agencyservice.findByAgencyNum(vo);
+		if(reviews.size() >0) {
+		}
+		m.addAttribute("reviews", reviews);
 
 	}
 
@@ -66,11 +80,17 @@ public class AgencyController {
 		return "/include/agencyCafe";
 	}
 
-	// agencyCafe 상세보기
+	// agencyCafe 상세보기 
 	@RequestMapping(value = "/agencyCafeDetail", method = RequestMethod.GET)
 	public void agencyCafeDetail(Model m, AgencyVO vo) {
-		System.out.println(vo.getAgencyNum());
+		
 		m.addAttribute("cafe", agencyservice.getagencyCafe(vo));
+		
+	//agencyCafe 리뷰 리스트 보여주기
+		List<ReviewVO> reviews = agencyservice.findByAgencyNum(vo);
+		if(reviews.size() >0) {
+		}
+		m.addAttribute("reviews", reviews);
 
 	}
 
@@ -103,8 +123,12 @@ public class AgencyController {
 		m.addAttribute("shelter", agencyservice.getagencyShelter(vo));
 
 	}
+	
 	// ***************************************************************************************************
 
+	
+	
+	
 	// *****************************************************************************
 	// 강아지 백과사전 페이지 및 페이징 처리
 	@RequestMapping(value = "/encyclopedia", method = RequestMethod.GET)
@@ -131,6 +155,7 @@ public class AgencyController {
 	  m.addAttribute("encyclopedia",agencyservice.getencyclopedia(vo));
 	  }
 	
+	  
 	// ***************************************************************************************************
 	// ********************************************************************************
 
@@ -146,6 +171,35 @@ public class AgencyController {
 
 		}
 
+		
+	//*******************************************************************************
+	//agencyCafe   리뷰작성 
+		
+		@RequestMapping(value="/insertReview", method = RequestMethod.POST)
+		public String agencyCafeUpdate(ReviewVO review,UserVO vo ,AgencyVO vv, HttpSession s) {
+			review.setUser(vo);
+			review.setAgency(vv);
+			//System.out.println(review);
+			agencyservice.insertReview(review);
+			//System.out.println(review);
+			return "redirect:/include/agencyCafeDetail?agencyNum="+vv.getAgencyNum();
+		}	
+		
+		
+	
+	//agencyhotel  리뷰 작성
+		
+		@RequestMapping(value="/insertHotelReview", method = RequestMethod.POST)
+		public String agencyHotelUpdate(ReviewVO review,UserVO vo ,AgencyVO vv, HttpSession s) {
+			review.setUser(vo);
+			review.setAgency(vv);
+			//System.out.println(review);
+			agencyservice.insertHotelReview(review);
+			//System.out.println(review);
+			return "redirect:/include/agencyHotelDetail?agencyNum="+vv.getAgencyNum();
+		}	
+	
+		
 	//*********************************************************************	
 		
 	@RequestMapping(value = "/yootest", method = RequestMethod.GET)
@@ -163,4 +217,7 @@ public class AgencyController {
 		return "/include/agencytestDetail";
 	}
 
+	
+	
+	
 }
