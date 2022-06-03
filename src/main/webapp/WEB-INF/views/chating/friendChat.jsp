@@ -61,13 +61,14 @@
 				 contentType: "application/json; charset=utf-8;",
 				 dataType: "json",
 				 success:function(data){
-					 console.log(data.length)
+					 
+					
 					 $('.msg_card_body').empty()
 					  
 					  for(var i=data.length-1;i>=0;i--){
 						  
 						  var messageDate = new Date(data[i].time)
-						  console.log(messageDate)
+						
 						  if(messageDate.getFullYear() != mDate.getFullYear() | messageDate.getMonth() != mDate.getMonth() | messageDate.getDate() != mDate.getDate()){
 							  mDate = messageDate
 							  dateSigh = messageDate.getFullYear()+'년'+ (messageDate.getMonth()+1)+'월'+messageDate.getDate()+'일'
@@ -205,6 +206,7 @@
 		<input type="hidden" id="userImg" value="/${userImg}">
 		<input type="hidden" id="friendImg" value="/${userList[0].img}">
 		<input type="hidden" id="sessionId" value="">
+		<input type="hidden" id="friendEmail" value="${userList[0].email}">
 		<div class="container-fluid h-100">
 			<div class="row justify-content-center h-100">
 				<div class="col-md-4 col-xl-3 chat"><div class="card mb-sm-3 mb-md-0 contacts_card">
@@ -221,7 +223,7 @@
 						<ui class="contacts">
 						
 						<c:forEach items="${userList}" var="vo">
-						<li class="friend" content="${vo.friendNo}" >
+						<li class="friend" content="${vo.friendNo}" email="${vo.email}" >
 							
 							<div class="d-flex bd-highlight">
 								<div class="img_cont">
@@ -287,7 +289,7 @@
 			$('#friendImg').val($(this).find('img').attr('src'))
 			$('.contacts > .friend').removeClass('active')
 			$(this).addClass('active')
-			
+			$('#friendEmail').val($(this).attr('email'))
 			$('#friendName').text( $(this).find('span').text())
 
 			$('#friendImage').attr('src',$(this).find('img').attr('src'))
@@ -307,34 +309,22 @@
 					send();
 				}
 			});
-			
-			
 		})
 		
 		$('#action_menu_btn').click(function(){
 				$('.action_menu').toggle();
 			});
 		
-	/* 	$('.input-group-prepend').click(function(){
-			
-			var rList = []
-			
-			var friends = '${userList}'
-			var friendList=friends.replaceAll('{','').replaceAll('}','').replaceAll('[','').replaceAll(']','').replaceAll('img=','').replaceAll(' friendNo=','').replaceAll(' nickName=','').replaceAll(' email=','').split(',')
-			console.log(friendList)
-			var fNum = friendList.length/4
-			for(var i=0;i<fNum;i++){
-				if(friendList[2+4*i].includes($('#search').val())){
-					var fInfo = []
-					fInfo.push(friendList[4*i])
-					fInfo.push(friendList[4*i+1])
-					fInfo.push(friendList[4*i+2])
-					fInfo.push(friendList[4*i+3])
-					rList.push(fInfo)
+		//친구 검색기능
+		$('.input-group-prepend').click(function(){
+			$('.contacts').find('li').each(function(i,e){
+				if(!$(this).find('span').text().includes($('#search').val())){
+					$(this).addClass('di-none')
+				}else{
+					$(this).removeClass('di-none')
 				}
-				
-			}
-		}) */
+			})
+		}) 
 		
 		$('#blackList').click(function(){
 			$.ajax({

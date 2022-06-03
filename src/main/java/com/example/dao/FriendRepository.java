@@ -19,7 +19,10 @@ public interface FriendRepository extends CrudRepository<FriendVO, Integer> {
 			+ " (f.userSign=0 and f.user2.userEmail=:email1 and f.user1.userEmail=:email2)     ")
 	long getFriendNo(String email1,String email2);
 	
-	
+	//1:1채팅 친구 검색
+	@Query("SELECT f FROM FriendVO f WHERE(f.userSign=0 and f.user1.userEmail=:email and f.user2.userEmail like :search)  or   "
+			+ "(f.userSign=0 and f.user2.userEmail=:email and f.user1.userEmail like :search)")
+	List<FriendVO> friendSearch(String search , String email);
 	
 	
 }

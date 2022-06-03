@@ -101,7 +101,7 @@ information-content {
 				<div class="col-lg-6 col-md-12">
 					<div class="products-details-content">
 						<div id="userProfile">
-							<h3>작성자 닉네임</h3>
+							<h3>${community.user.userNickname }</h3>
 							<!-- <p class="location">
 							<i class="ri-map-pin-line"></i> 4825 Poplar Lane Miami, FL
 						</p> -->
