@@ -19,6 +19,16 @@
 <link rel="stylesheet" href="/community/css/owl.theme.default.min.css">
 <link rel="stylesheet" href="/community/css/style.css">
 <link rel="stylesheet" href="/community/css/responsive.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../admin/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../admin/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="/myPage/css/myPage.css">
+  
 <script src="https://kit.fontawesome.com/23b331c6f8.js"
 	crossorigin="anonymous"></script>
 
@@ -57,6 +67,7 @@
 </head>
 <body class="archive post-type-archive post-type-archive-lana_story grid-3-columns">
 <%@include file="../Header.jsp"%>
+	<div class="wrapper">
   <aside class="myPage-sidebar asidebar beta">
     <div class="sidebar">
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -428,7 +439,7 @@
         </div>
     </div>
 </main>
-
+</div>
 
 
 <script type="text/javascript" src="../js/jquery.min.js?ver=3.6.0"></script>
