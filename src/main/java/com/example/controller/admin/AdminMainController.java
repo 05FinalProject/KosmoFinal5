@@ -50,7 +50,7 @@ public class AdminMainController {
 		return "/admin/indexAdmin";
 	}
 
-	//차트
+	//******************차트*******************************
 	@RequestMapping(value="/adminChartsjs", method=RequestMethod.GET)
 	public String charts(Model model) {
 		//리스트 담기 (도넛차트)
@@ -103,7 +103,7 @@ public class AdminMainController {
 		return "/admin/charts/flot";
 	}
 
-
+	//*****************************************************************
 	//회원관리
 	@RequestMapping(value="/adminUser", method=RequestMethod.GET)
 	public String userList(Model m) {
@@ -114,6 +114,20 @@ public class AdminMainController {
 		return "/admin/adminUser";
 	}
 
+	//회원강아지 정보
+	@RequestMapping(value="adminDog", method=RequestMethod.GET)
+	public String adminDog() {
+		return "/admin/adminDog";
+	}
+
+	//회원삭제
+	@RequestMapping(value = "{userEmail}", method = RequestMethod.DELETE)
+	public String deleteUser(UserVO vo) {
+		adminUserService.deleteUser(vo);
+		return "redirect:/adminUser";
+	}
+
+	//************************신고관리************************
 	//리뷰신고
 	@RequestMapping(value="adminReview", method=RequestMethod.GET)
 	public String reportReview(Model m) {
@@ -132,7 +146,6 @@ public class AdminMainController {
 
 		return "/admin/report/adminRpReview";
 	}	
-
 
 	//댓글신고
 	@RequestMapping(value="adminComment", method=RequestMethod.GET)
@@ -177,7 +190,10 @@ public class AdminMainController {
 	public String Blacklist() {
 		return "/admin/report/adminBlacklist";
 	}
+	// ******************************************************************************
 
+	//*******************************시설관리***************************************
+	//**************************시설리스트출력/페이징 처리***************************************
 	//시설관리(보호소)
 	@RequestMapping(value="adminShelter", method=RequestMethod.GET)
 	public String adminShelter(Model m, AbandonedVO vo) {
@@ -251,24 +267,53 @@ public class AdminMainController {
 
 		return "/admin/facilities/adminCafe";			
 	}
+	// ******************************************************************************
 
-	//회원강아지 정보
-	@RequestMapping(value="adminDog", method=RequestMethod.GET)
-	public String adminDog() {
-		return "/admin/adminDog";					
+	//*************************시설추가, 수정, 삭제*************************************
+	//시설등록
+	@RequestMapping(value="/admin/insertAgency", method=RequestMethod.POST)
+	public String adminInsertFacilities(@RequestParam Integer agencyCategoryNum, @RequestParam String agencyName, @RequestParam String addr, @RequestParam String subAddr, @RequestParam String tel, @RequestParam String agencyContent) {
+		System.out.println("인서트");
+		adminAgencyService.insertAgency(agencyCategoryNum, agencyName, addr, subAddr, tel, agencyContent);
+		return "redirect:/adminAddFacilities";
+	}
+
+	//시설 수정
+	@RequestMapping(value="/admin/update", method = RequestMethod.POST)
+	public String adminUpdateFacilities(Integer agencyNum, @RequestParam String tel, @RequestParam String facility, @RequestParam String content, @RequestParam String addr, @RequestParam String subAddr) {
+		adminAgencyService.updateAgency(agencyNum, tel, facility, content, addr, subAddr);
+		return "redirect:/adminHotel";
+	}
+
+	//시설 리스트 페이지
+	@RequestMapping(value = "/adminAddFacilities", method = RequestMethod.GET)
+	public String adminAddFacilities(){
+
+		return "/admin/facilities/adminAddFacilities";
 	}
 
 
-	//시설추가
-	@RequestMapping(value="adminAddFacilities", method=RequestMethod.GET)
-	public String adminAddFacilities() {
-		return "/admin/facilities/adminAddFacilities";						
-	}
+
+	//시설등록 테스트 할거
+	/*@RequestMapping(value="/admin/insertAgency", method=RequestMethod.POST)
+	public String adminInsertFacilities(Integer agencyNum, @RequestParam int agencyCategoryNum, @RequestParam String agencyName, @RequestParam String addr, @RequestParam String subAddr, @RequestParam String tel, @RequestParam String agencyContent, @RequestParam String agencyImage) {
+		System.out.println("인서트");
+		adminAgencyService.insertAgency(agencyNum, agencyCategoryNum, agencyName, addr, subAddr, tel, agencyContent, agencyImage);
+		return "redirect:/adminAddFacilities";
+	}*/
+
+	//시설삭제
+
+	// ******************************************************************************
+	// ******************************************************************************
 
 
+
+	// **************************커뮤니티 관리**************************************
 	//커뮤 관리
 	@RequestMapping(value="adminComunities", method=RequestMethod.GET)
 	public String adminCommunities() {
+
 		return "/admin/communities/adminCommunities";
 	}
 
@@ -281,22 +326,6 @@ public class AdminMainController {
 		
 		return "/admin/communities/adminDaily";
 	}
-
-	//회원삭제
-	@RequestMapping(value = "{userEmail}", method = RequestMethod.DELETE)
-	public String deleteUser(UserVO vo) {
-		adminUserService.deleteUser(vo);
-		return "redirect:/adminUser";
-	}
-
-	//시설 수정
-	@RequestMapping(value="/admin/update", method = RequestMethod.POST)
-	public String adminUpdateFacilities(Integer agencyNum, @RequestParam String tel, @RequestParam String facility, @RequestParam String content, @RequestParam String addr, @RequestParam String subAddr) {
-		adminAgencyService.updateAgency(agencyNum, tel, facility, content, addr, subAddr);
-		return "redirect:/adminHotel";
-	}
-
-	//시설삭제
-
+	// ******************************************************************************
 
 }

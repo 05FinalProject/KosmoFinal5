@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 
 import com.example.domain.AbandonedVO;
 import com.example.domain.AgencyVO;
+import org.springframework.web.bind.annotation.RequestParam;
 
 public interface AdminAgencyService {
 	
@@ -32,12 +33,17 @@ public interface AdminAgencyService {
 	public int countRecord();
 	//****************************************
 	
-	//*********차트*********
+	//****************차트*********************
 	public List<HashMap<String, Object>> chartAgencyCount();
 	public List<HashMap<String, Object>> chartSignupUser();
+	//****************************************
 
-	
+
+	//*****************시설관리*****************
 	//시설수정
 	public AgencyVO updateAgency(Integer agencyNum, String tel, String name, String content, String addr, String subAddr);
-	
+
+	//시설등록
+	public AgencyVO insertAgency(Integer agencyCategoryNum, String agencyName, String addr, String subAddr, String tel, String agencyContent);
+
 }

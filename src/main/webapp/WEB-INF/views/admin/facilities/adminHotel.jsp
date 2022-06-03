@@ -200,9 +200,9 @@
 
 																<div class="modal-footer">
 																	<button type="submit" class="btn btn-secondary m-2"
-																		id="btnQnAWrite">수정</button>
+																		id="btnUpdate">수정</button>
 																	<button type="button" class="btn btn-secondary m-2"
-																		id="btnList" data-dismiss="modal" onclick="location.href='/adminHotel'">취소</button>
+																		id="btnCancle" data-dismiss="modal" onclick="location.href='/adminHotel'">취소</button>
 																</div>
 
 															</div>
@@ -295,7 +295,27 @@
 		$('#facilities').addClass('menu-open')
 		$('#hotel').addClass('active')
 	</script>
-		<script
+	<script type="text/javascript">
+		/*
+			* each : 하나씩 뽑음
+			* <a class="page-link" href="adminHotel?P=2&amp;page=13">13</a>
+			* a태그 사이에 있는 숫자13을 찾아야 합니다
+			* a태그안에 있는 text를 찾고 page랑 같으면
+			* active클래스 추가
+			* */
+		$(function(){
+			var page = '${param.page}'
+			$('.pagination').find('li').each(function(){
+				if(page == $(this).find('a').text()){
+					$(this).addClass('active')
+				}
+				//console.log(e.text())
+			})
+		})
+
+	</script>
+
+	<script
 		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
 		function sample6_execDaumPostcode() {
