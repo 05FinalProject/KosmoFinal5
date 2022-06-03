@@ -19,6 +19,16 @@
 <link rel="stylesheet" href="/community/css/owl.theme.default.min.css">
 <link rel="stylesheet" href="/community/css/style.css">
 <link rel="stylesheet" href="/community/css/responsive.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../admin/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../admin/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="/myPage/css/myPage.css">
+  
 <script src="https://kit.fontawesome.com/23b331c6f8.js"
 	crossorigin="anonymous"></script>
 
@@ -55,12 +65,74 @@
 </style>
 
 </head>
-
-<%@include file="../Header.jsp"%>
-
-
 <body class="archive post-type-archive post-type-archive-lana_story grid-3-columns">
+<%@include file="../Header.jsp"%>
+	<div class="wrapper">
+  <aside class="myPage-sidebar asidebar beta">
+    <div class="sidebar">
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      </div>
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
+          <!-- 마이 프로필 -->
+          <li class="nav-item">
+            <a href="myPageProfile" class="nav-link">
+              <p>
+                마이 프로필
+              </p>
+            </a>
+          </li>
+        
+          <!-- 나의 게시글 -->
+          <li class="nav-item">
+            <a href="myPageBoard" class="nav-link">
+              <p>
+                나의 게시글
+              </p>
+            </a>
+          </li>
+
+          <!-- 반려동물 -->
+          <li class="nav-item">
+            <a href="myPageDogList" class="nav-link">
+              <p>
+                반려동물
+              </p>
+            </a>
+          </li>
+
+          <!-- 펫친관리 -->
+          <li class="nav-item">
+            <a href="../friend/friendList" class="nav-link">
+              <p>
+                펫친관리
+              </p>
+            </a>
+          </li>
+
+          <!-- 친구찾기 -->
+          <li class="nav-item">
+            <a href="../friend/friendFind" class="nav-link active">
+              <p>
+                펫친찾기
+              </p>
+            </a>
+          </li>
+          
+          <!-- 나의 산책로 -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <p>
+                나의 산책로
+              </p>
+            </a>
+          </li>
+          
+        </ul>
+      </nav>
+    </div>
+  </aside>
 <main class="main container">
     <div class="row">
         <div class="col-12">
@@ -367,7 +439,7 @@
         </div>
     </div>
 </main>
-
+</div>
 
 
 <script type="text/javascript" src="../js/jquery.min.js?ver=3.6.0"></script>
