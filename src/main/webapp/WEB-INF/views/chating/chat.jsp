@@ -110,7 +110,7 @@
 	
 							
 					}else if(d.type == "come"){
-						$(".msg_card_body").append("<p class='comego'>" + d.msg + "</p>");
+						$(".msg_card_body").append("<p class='comego dateSign'>" + d.msg + "</p>");
 						$('.msg_card_body').scrollTop($('.msg_card_body').prop('scrollHeight'));
 						
 						$.ajax({
@@ -146,7 +146,7 @@
 						
 						$('#getRoomNum').text(parseInt($('#getRoomNum').text())+1)
 					}else if(d.type == "goout"){
-						$(".msg_card_body").append("<p class='comego'>" + d.msg + "</p>");	
+						$(".msg_card_body").append("<p class='comego dateSign'>" + d.msg + "</p>");	
 						$('.msg_card_body').scrollTop($('#chating').prop('scrollHeight'));
 
 						$('#getRoomNum').text(parseInt($('#getRoomNum').text())-1)
