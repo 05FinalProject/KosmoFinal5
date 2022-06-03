@@ -98,7 +98,7 @@ information-content {
 					</div>
 				</div>
 
-				<div class="col-lg-6 col-md-12">
+				<d\iv class="col-lg-6 col-md-12">
 					<div class="products-details-content">
 						<div id="userProfile">
 							<h3>${community.user.userNickname }</h3>
@@ -150,15 +150,15 @@ information-content {
 				</div>
 			</form>
 		</div> -->
-		<form class="mt-5 ">
+		<form class="mt-5">
 			<div class="input-group input-group-lg">
 				<input type="email"
 					class="form-control bg-transparent border-primary text-white text-uppercase"
-					placeholder="Email" aria-label="Email" aria-describedby="subscribe">
+					placeholder="댓글을 입력해주세요." aria-label="Email" aria-describedby="subscribe">
 				<div class="input-group-append">
 					<button type="submit" id="subscribe"
 						class="btn btn-primary text-uppercase font-weight-bold">
-						<span class="d-none d-sm-inline">Subscribe</span> <i
+						<span class="d-none d-sm-inline">등록</span> <i
 							class="fas fa-paper-plane d-inline d-sm-none"></i>
 					</button>
 				</div>
