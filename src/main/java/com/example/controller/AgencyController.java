@@ -124,6 +124,13 @@ public class AgencyController {
 
 	}
 	
+	
+	//보호소 입양신청서 페이지 
+			@RequestMapping(value = "/agencyShelterSignup", method = RequestMethod.GET)
+			public void agencyShelterSignup(Model m, AbandonedVO vo,UserVO uv ) {
+				m.addAttribute("agencysignup",agencyservice.getagencyShelterSignup(vo));
+			}
+	
 	// ***************************************************************************************************
 
 	
@@ -179,9 +186,8 @@ public class AgencyController {
 		public String agencyCafeUpdate(ReviewVO review,UserVO vo ,AgencyVO vv, HttpSession s) {
 			review.setUser(vo);
 			review.setAgency(vv);
-			//System.out.println(review);
 			agencyservice.insertReview(review);
-			//System.out.println(review);
+			
 			return "redirect:/include/agencyCafeDetail?agencyNum="+vv.getAgencyNum();
 		}	
 		
@@ -193,14 +199,22 @@ public class AgencyController {
 		public String agencyHotelUpdate(ReviewVO review,UserVO vo ,AgencyVO vv, HttpSession s) {
 			review.setUser(vo);
 			review.setAgency(vv);
-			//System.out.println(review);
 			agencyservice.insertHotelReview(review);
-			//System.out.println(review);
 			return "redirect:/include/agencyHotelDetail?agencyNum="+vv.getAgencyNum();
 		}	
 	
 		
 	//*********************************************************************	
+		
+		
+		
+		
+	
+		
+		
+		
+		
+	//***********************************************************************************	
 		
 	@RequestMapping(value = "/yootest", method = RequestMethod.GET)
 	public String yootest() {

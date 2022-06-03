@@ -98,6 +98,15 @@ public class AgencyServiceImpl implements AgencyService{
 	}
 	
 	
+	//보호소 입양하기 페이지 띄우기 
+		@Override
+		public AbandonedVO getagencyShelterSignup(AbandonedVO vo) {
+			AbandonedVO avo = abandonedRepo.findById(vo.getAbNo()).get();
+			return abandonedRepo.save(avo);
+		}
+		
+	
+	
 	//호텔정보 상세정보 띄우기 
 		@Override
 		public AgencyVO getagencyHotel(AgencyVO vo) {

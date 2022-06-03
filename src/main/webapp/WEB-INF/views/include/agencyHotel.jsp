@@ -85,6 +85,25 @@
     <link rel="stylesheet" id="lana-pet-print-css" href="/css/lana-pet-print.min.css?ver=1.0.0" type="text/css"
           media="print">
 
+<!-- 페이지 색깔 표시  ****************************************-->
+
+<script type="text/javascript">
+$(function(){
+    var page = '${param.page}'
+    $('.pagination').find('li').each(function(i,e){
+       if(page == $(this).find('a').text()){
+          $(this).addClass('active')
+       }
+       //console.log(e.text())
+    })
+ })
+
+</script>
+
+<!-- 페이지 색깔 표시 끝 **************************************** -->
+
+
+
     <style>
       ul {
         list-style: none;
@@ -92,7 +111,7 @@
       }
       
      
-     .search1 {
+  .search1 {
   position: relative;
   width: 300px;
 }
@@ -208,12 +227,7 @@
 			<%@include file="paging.jsp"%>
 		</nav>
       
-      
-      
-      
-      
-      
-    </section>
+   </section>
     <!-- Listing Section End -->
 
    <!--카카오 지도 연결-->
@@ -223,8 +237,6 @@
     </div>
     <!--****** Map End ***********************************************-->
 
-    
-    
     
     <!-- Js Plugins -->
     <script src="/agency/js/jquery-3.3.1.min.js"></script>
@@ -272,50 +284,9 @@
 		var map = new kakao.maps.Map(container, options);
 	</script>
 
-<script type="text/javascript">
 
-  <script>
-      $("#filter-search").click(function name(params) {
-        var regex = /[^0-9.;\-]/g;
-        var result = $("#radius").val().replace(regex, "");
-        console.log(result);
-      });
-    </script>
 
-    <script>
-      const slider = document.querySelector(".items");
-      let isMouseDown = false;
-      let startX, scrollLeft;
-
-      slider.addEventListener("mousedown", (e) => {
-        isMouseDown = true;
-        slider.classList.add("active");
-
-        startX = e.pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-      });
-
-      slider.addEventListener("mouseleave", () => {
-        isMouseDown = false;
-        slider.classList.remove("active");
-      });
-
-      slider.addEventListener("mouseup", () => {
-        isMouseDown = false;
-        slider.classList.remove("active");
-      });
-
-      slider.addEventListener("mousemove", (e) => {
-        if (!isMouseDown) return;
-
-        e.preventDefault();
-        const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 1;
-        slider.scrollLeft = scrollLeft - walk;
-      });
-    </script>
-    
-    <!--**************** 검색기능 처리 ************************* -->
+ <!--**************** 검색기능 처리 ************************* -->
 
 	<script type="text/javascript">
 		$('.search3')

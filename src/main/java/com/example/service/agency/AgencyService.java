@@ -48,6 +48,9 @@ public interface AgencyService {
 	//백과사전 상세 띄우기
 	DogKindVO getencyclopedia(DogKindVO vo);
 	
+	//입양하기 페이지 
+	AbandonedVO getagencyShelterSignup(AbandonedVO vo);
+
 	
 //***************************************************
 	//카페 검색 기능 
