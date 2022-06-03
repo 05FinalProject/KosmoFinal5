@@ -51,7 +51,9 @@ public class LoginServiceImpl implements LoginService {
 		Img.save(result);
 	}
 
-
+	public UserVO checkPass(UserVO vo) {
+		return user.checkPass(vo.getUserEmail(),vo.getUserPass());
+	}
 
 
 
