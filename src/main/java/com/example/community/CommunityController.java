@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -58,7 +60,7 @@ public class CommunityController {
 
 	// 일상공유 게시글 작성
 	@RequestMapping(value = "/community/writeDaily", method = RequestMethod.POST)
-	public String insertDaily(CommunityVO vo) {
+	public String insertDaily(String userEmail, String communityTitle, String communityContent) {
 
 		/*
 		 * List<MultipartFile> fileList = mtfRequest.getFiles("file"); String src =
@@ -80,7 +82,7 @@ public class CommunityController {
 		 */
 		
 		
-		c_service.insertDaily(vo);
+		c_service.insertDaily(userEmail, communityTitle, communityContent);
 
 		return "/include/community/dailyDetail";
 	}
