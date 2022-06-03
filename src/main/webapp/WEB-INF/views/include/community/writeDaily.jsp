@@ -212,7 +212,7 @@ header .subHeader .headerInner .gnb-bar .gnb-list.hover_menu.on {
 
 							<form id="contactform" class="contact-form mt-5"
 								action="writeDaily" method="post" enctype="multipart/form-data">
-
+								<input type="hidden" value="${sessionScope.userEmail }" name="userEmail"/>
 								<!-- 이미지 미리보기 -->
 								<div id='image_preview'>
 									<h4>미리보기</h4>
@@ -222,7 +222,7 @@ header .subHeader .headerInner .gnb-bar .gnb-list.hover_menu.on {
 										data-placeholder='파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요.'></div>
 								</div>
 								<br />
-
+								
 
 								<div class="form-group row">
 									<div class="col">

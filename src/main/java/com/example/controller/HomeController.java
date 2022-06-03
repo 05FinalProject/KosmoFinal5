@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -70,8 +72,43 @@ public class HomeController {
 		return message;
 	}
 
-	@RequestMapping("/findPassword")
+	@RequestMapping("/findPassPage")
 	public void findPass() {
 	}
 
+	@RequestMapping("/changePassPage")
+	public void changePass() {	
+	}
+	
+	
+	/* 비밀번호 찾기 */
+	@RequestMapping(value="pwSearch", produces="application/text;charset=utf-8")
+	@ResponseBody
+	public String pwSearch(UserVO vo, HttpSession session) {
+		UserVO result = signUp.pwSearch(vo);
+		String message = "";	// 회원 정보 유무를 담을 변수
+		
+		if(result == null) {
+			// 회원정보가 없다는 뜻
+			message = "N";
+		}
+
+		/*	존재하는 회원이면 해당 이메일을 세션에 저장, 추후에 저장한 이메일을 비밀번호 재설정에서 사용함 */
+		session.setAttribute("userEmail", vo.getUserEmail());
+
+		return message;
+
+	}//end of pwSearch()
+
+	
+	
+	/* 비밀번호 재설정 */
+	@RequestMapping("pwChange")
+	public String pwChange(UserVO vo, HttpSession session) {
+		vo.setUserEmail(session.getAttribute("userEmail").toString());
+		signUp.pwChange(vo);
+
+		return "redirect:Login";
+
+	}//end of pwChange()
 }

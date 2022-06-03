@@ -83,65 +83,77 @@ display: block;
 	<%@include file="../Header.jsp"%>
 	<div class="wrapper">
 		<!-- Main Sidebar Container -->
-		<aside class="myPage-sidebar asidebar" style="margin-top: auto;">
-			<!-- Sidebar -->
-			<div>
-				<nav class="mt-2">
-					<ul class="nav nav-pills sidebar flex-column"
-						data-widget="treeview" role="menu" data-accordion="false"
-						style="font-weight: bolder; color: black;">
-						<li class="nav-item"><a href="myPageProfile" class="nav-link"
-							onmouseover="this.style.color='orange';"
-							onmouseout="this.style.color='black'">
-								<p>
-									<i class="far nav-icon" style="font-weight: bolder;">나의 프로필</i>
-								</p>
-						</a></li>
-						<li class="nav-item"><a href="myPageBoard" class="nav-link"
-							onmouseover="this.style.color='orange';"
-							onmouseout="this.style.color='black'">
-								<p>
-									<i class="far nav-icon" style="font-weight: bolder;">나의 게시글</i>
-								</p>
-						</a></li>
-						<li class="nav-item"><a href="myPageDogList" class="nav-link"
-							onmouseover="this.style.color='orange';"
-							onmouseout="this.style.color='black'">
-								<p>
-									<i class="far nav-icon" style="font-weight: bolder;">반려동물</i>
-								</p>
-						</a></li>
-						<li class="nav-item"><a href="../friend/friendList"
-							class="nav-link" onmouseover="this.style.color='orange';"
-							onmouseout="this.style.color='black'">
-								<p>
-									<i class="far nav-icon" style="font-weight: bolder;">펫친관리</i>
-								</p>
-						</a></li>
-						<li class="nav-item"><a href="../friend/friendFind"
-							class="nav-link" onmouseover="this.style.color='orange';"
-							onmouseout="this.style.color='black'">
-								<p>
-									<i class="far nav-icon" style="font-weight: bolder;">펫친 찾기</i>
-								</p>
-						</a></li>
-						<li class="nav-item"><a href="#" class="nav-link"
-							onmouseover="this.style.color='orange';"
-							onmouseout="this.style.color='black'">
-								<p>
-									<i class="far nav-icon" style="font-weight: bolder;">나의 산책로</i>
-								</p>
-						</a></li>
-					</ul>
-				</nav>
-			</div>
-			<!-- /.sidebar -->
-		</aside>
+  <aside class="myPage-sidebar asidebar beta">
+    <div class="sidebar">
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      </div>
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+          <!-- 마이 프로필 -->
+          <li class="nav-item">
+            <a href="myPageProfile" class="nav-link">
+              <p>
+                마이 프로필
+              </p>
+            </a>
+          </li>
+        
+          <!-- 나의 게시글 -->
+          <li class="nav-item">
+            <a href="myPageBoard" class="nav-link">
+              <p>
+                나의 게시글
+              </p>
+            </a>
+          </li>
+
+          <!-- 반려동물 -->
+          <li class="nav-item">
+            <a href="myPageDogList" class="nav-link active">
+              <p>
+                반려동물
+              </p>
+            </a>
+          </li>
+
+          <!-- 펫친관리 -->
+          <li class="nav-item">
+            <a href="../friend/friendList" class="nav-link">
+              <p>
+                펫친관리
+              </p>
+            </a>
+          </li>
+
+          <!-- 친구찾기 -->
+          <li class="nav-item">
+            <a href="../friend/friendFind" class="nav-link">
+              <p>
+                펫친찾기
+              </p>
+            </a>
+          </li>
+          
+          <!-- 나의 산책로 -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <p>
+                나의 산책로
+              </p>
+            </a>
+          </li>
+          
+        </ul>
+      </nav>
+    </div>
+  </aside>
 
 		<!-- Content Wrapper. Contains page content -->
 
 		<section>
 			<!-- Default box -->
+			<form method="post" action="petAdd" id="petFrm" name="petFrm">
 			<div class="card-solid mx-auto" style="width: 80%;">
 				<div class="card-body">
 					<div class="row" style="margin-top: 5%;">
@@ -160,21 +172,21 @@ display: block;
 									<tr>
 										<th>견&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;종 :</th>
 										<th style="height:50%;"><select class="form-controller" style="float: left;">
-												<c:forEach var="pvo" items="${kindList}">
-													<option>${pvo.dogKind}</option>
+												<c:forEach var="vo" items="${kindList}">
+													<option>${vo.dogKind}</option>
 												</c:forEach>
 
 										</select></th>
 									</tr>
 									<tr>
 										<th>몸무게 :</th>
-										<th><input type="text" placeholder="kg" id="petWeight"></th>
+										<th><input type="text" placeholder="kg" id="petWeight">kg</th>
 									</tr>
 									<tr>
 										<th>성별 :</th>
-										<th><label class="btn btn-default text-center active">
+										<th><label class="btn btn-default text-center active" value="M">
 												남아 <br> <i class="fas fa-user fa text-blue"></i>
-										</label> <label class="btn btn-default text-center"> 여아 <br>
+										</label> <label class="btn btn-default text-center" value="Y"> 여아 <br>
 												<i class="fas fa-user fa text-red"></i>
 										</label></th>
 									</tr>
@@ -191,19 +203,20 @@ display: block;
 
 
 							<div class="mt-4">
-								<div class="btn btn-primary btn-flat btn-add "><input type="submit" value="등록"></div>
+								<div class="btn btn-primary btn-flat btn-aadd "><input type="submit" value="등록"></div>
 
 								<div class="btn btn-danger btn-flat float-right"><input type="button" value="취소"></div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<!-- /.card-body -->
 			</div>
-			<!-- /.card -->
+			</form>
 
 		</section>
-		<!-- /.content -->
+		
+		
+		
 	</div>
 	<!-- /.content-wrapper -->
 
