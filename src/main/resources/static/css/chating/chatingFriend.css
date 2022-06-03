@@ -255,6 +255,9 @@ body,html{
     color: rgba(255,255,255,0.5);
     font-size: 10px;
 }
+.di-none{
+	display: none;
+}
 	
 	::-webkit-scrollbar {
 	width: 7px;
