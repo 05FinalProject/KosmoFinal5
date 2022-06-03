@@ -115,8 +115,6 @@ public class LoginController {
 	@RequestMapping("/myPage/userUpdate")
 	public String UserUpdate(ImgVO ivo, HttpServletRequest request,Model m) {
 		
-		System.out.println(ivo.getPImgname());
-		System.out.println(ivo.getPRimgname());   ///     /img/userImg/+ivo.getPRimgname()
 		HttpSession session = request.getSession();
 		
 		session.setAttribute("pRimgname", "img/userImg/"+ivo.getPRimgname());
@@ -126,9 +124,6 @@ public class LoginController {
 		lservice.userImgUpdate(ivo);
 		m.addAttribute("pRimgname", "img/userImg/"+ivo.getPRimgname());
 		return "/include/myPage/imgModify";
-		
-		
-		//return "/include/myPage/myPageProfile";
 	}
 	
 	@RequestMapping("/myPage/myPageProfile")
@@ -148,17 +143,16 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/myPage/petAdd", produces="application/text;charset=utf-8")
-	public String petAdd(int petNum, HttpSession session) {
-		UserVO uvo = new UserVO();
-		ImgVO ivo = new ImgVO();
-		ivo.setUser(uvo);
-		PetVO pvo = new PetVO();
+	public String petAdd(ImgVO ivo, HttpServletRequest request, Model m) {
+
+		HttpSession session = request.getSession();
 		
-		
+		session.setAttribute("pRimgname", "img/userImg/"+ivo.getPRimgname());
+		UserVO vo = new UserVO();
 		vo.setUserEmail(session.getAttribute("userEmail").toString());
-		pvo.setUser(vo);
 		
-		lservice.petAdd(pvo);
+		PetVO pvo = new PetVO();
+		pvo.setUser(vo);
 		
 		return "/myPage/myPageDogList";
 	}
