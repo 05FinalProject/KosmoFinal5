@@ -208,7 +208,6 @@
         valueListUser.push(dUser.userSignupNum);
         colorList2.push(colorize());
     }
-    //dAgency.agencyCategoryNum가 1이면 동물호텔로 이름 변경
 
     let data2 = {
         labels: labelListUser,

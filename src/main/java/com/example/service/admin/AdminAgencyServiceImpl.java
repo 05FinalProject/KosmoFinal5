@@ -89,7 +89,22 @@ public class AdminAgencyServiceImpl implements AdminAgencyService{
 		updateAgency.setAgencyAddress2(subAddr);	
 		return aRepo.save(updateAgency);//업데이트 문장 돌리기
 	}
-	
+
+	//시설등록
+	@Override
+	public AgencyVO insertAgency(Integer agencyCategoryNum, String agencyName, String addr, String subAddr, String tel, String agencyContent) {
+
+		AgencyVO insertAgency = new AgencyVO();
+		insertAgency.setAgencyCategoryNum(agencyCategoryNum);
+		insertAgency.setAgencyName(agencyName);
+		insertAgency.setAgencyAddress(addr);
+		insertAgency.setAgencyAddress2(subAddr);
+		insertAgency.setAgencyTel(tel);
+		insertAgency.setAgencyContent(agencyContent);
+
+		return aRepo.save(insertAgency);
+	}
+
 	@Override
 	public List<AbandonedVO> getAbandonePaging(Pageable paging) {
 		

@@ -19,7 +19,7 @@ public interface AgencyRepository extends CrudRepository<AgencyVO, Integer>{
 	
 	//public List<AgencyVO> findByACategoryNum(int aCategoryNum);
 	
-	
+	//***************************관리자 페이징 처리********************************
 	//시설 페이징 처리(호텔)
 	@Query("SELECT count(a) as count FROM AgencyVO a WHERE a.agencyCategoryNum = 1")
 	int countHotelRecord();
@@ -37,7 +37,10 @@ public interface AgencyRepository extends CrudRepository<AgencyVO, Integer>{
 	//시설 페이징 처리(장례식장)
 	@Query("SELECT count(a) as count FROM AgencyVO a WHERE a.agencyCategoryNum = 5")
 	int countFunehallRecord();
-	
+
+	//**************************************************************************
+
+
 	@Query(value = "   select * from agency   "
 			+ "  where (a_category_num = 2 and a_address like %:agencyName%)  "
 			+ "  or (a_category_num = 2 and a_tel like %:agencyName%)  "
@@ -53,15 +56,16 @@ public interface AgencyRepository extends CrudRepository<AgencyVO, Integer>{
 			+ "  or (a_category_num = 1 and a_tel like %:agencyName%)  "
 			+ "   or (a_category_num = 1 and a_name like %:agencyName%)  ",nativeQuery = true)
 	List<Object[]> agencyHotelSearch(String agencyName);
-	
-	
+
+
+	//*********************관리자 차트 관리*************************
 	//차트 시설별 등록 개수(도넛차트)
 	@Query(value="  SELECT  count(a_num), a_category_num    "
 			+ "  FROM agency  "
 			+ "  WHERE a_category_num IN(1,2,3,5)  "
 			+ "  GROUP BY a_category_num",nativeQuery = true)
 	public List<Object[]> chartAgencyCount();
-	
+
 	//월별 회원가입수(바 차트)
 	@Query(value = "WITH RECURSIVE cte AS     "
 			+ "(      "
@@ -84,6 +88,5 @@ public interface AgencyRepository extends CrudRepository<AgencyVO, Integer>{
 			+ "      ) m		"
 			+ "   ON date_format(c.d, '%y-%m') = m.month", nativeQuery = true)
 	public List<Object[]> chartSignupUser();
-		
-	
+	//******************************************************
 }
