@@ -82,7 +82,7 @@ information-content {
 </head>
 
 
-<%@include file="../Header.jsp"%>
+<%@include file="../include/Header.jsp"%>
 
 <body>
 
@@ -167,7 +167,7 @@ information-content {
 	</div>
 
 
-	<%@include file="../Footer.jsp"%>
+	<%@include file="../include/Footer.jsp"%>
 
 </body>
 

@@ -14,9 +14,9 @@ pageEncoding="UTF-8"%>
     <a href="include/findPassword">비밀번호찾기 페이지</a><br /><br />
     <!-- <a href='/chating/friend?room_member=1&roomNumber=1'>test</a><br/><br/> -->
     <a href="/chating/friend?count=1">test</a><br /><br />
-    <a href="include/community/daily">일상공유페이지</a><br /><br />
-    <a href="include/community/dailyDetail">일상공유상세페이지</a><br /><br />
-    <a href="include/community/writeDaily">일상공유작성페이지</a><br /><br />
+    <a href="/community/daily">일상공유페이지</a><br /><br />
+    <a href="/community/dailyDetail">일상공유상세페이지</a><br /><br />
+    <a href="/community/writeDaily">일상공유작성페이지</a><br /><br />
     <a href="include/friend/friendList">친구목록페이지</a><br /><br />
     <a href="include/friend/friendProfile">친구정보페이지</a><br /><br />
     <a href="include/friend/friendFind">친구찾기페이지</a><br /><br />
