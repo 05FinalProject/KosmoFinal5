@@ -63,7 +63,7 @@ public interface AgencyRepository extends CrudRepository<AgencyVO, Integer>{
 	@Query(value="  SELECT  count(a_num), a_category_num    "
 			+ "  FROM agency  "
 			+ "  WHERE a_category_num IN(1,2,3,5)  "
-			+ "  GROUP BY a_category_num",nativeQuery = true)
+			+ "  GROUP BY a_category_num  	", nativeQuery = true)
 	public List<Object[]> chartAgencyCount();
 
 	//월별 회원가입수(바 차트)

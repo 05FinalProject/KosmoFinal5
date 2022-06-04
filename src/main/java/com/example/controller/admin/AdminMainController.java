@@ -272,9 +272,9 @@ public class AdminMainController {
 	//*************************시설추가, 수정, 삭제*************************************
 	//시설등록
 	@RequestMapping(value="/admin/insertAgency", method=RequestMethod.POST)
-	public String adminInsertFacilities(@RequestParam Integer agencyCategoryNum, @RequestParam String agencyName, @RequestParam String addr, @RequestParam String subAddr, @RequestParam String tel, @RequestParam String agencyContent) {
+	public String adminInsertFacilities(@RequestParam Integer agencyCategoryNum, @RequestParam String agencyName, @RequestParam String addr, @RequestParam String subAddr, @RequestParam String tel, @RequestParam String agencyContent, @RequestParam String agencyImage) {
 		System.out.println("인서트");
-		adminAgencyService.insertAgency(agencyCategoryNum, agencyName, addr, subAddr, tel, agencyContent);
+		adminAgencyService.insertAgency(agencyCategoryNum, agencyName, addr, subAddr, tel, agencyContent, agencyImage);
 		return "redirect:/adminAddFacilities";
 	}
 

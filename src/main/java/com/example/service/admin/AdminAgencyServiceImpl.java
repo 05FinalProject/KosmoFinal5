@@ -92,7 +92,7 @@ public class AdminAgencyServiceImpl implements AdminAgencyService{
 
 	//시설등록
 	@Override
-	public AgencyVO insertAgency(Integer agencyCategoryNum, String agencyName, String addr, String subAddr, String tel, String agencyContent) {
+	public AgencyVO insertAgency(Integer agencyCategoryNum, String agencyName, String addr, String subAddr, String tel, String agencyContent, String agencyImage) {
 
 		AgencyVO insertAgency = new AgencyVO();
 		insertAgency.setAgencyCategoryNum(agencyCategoryNum);
@@ -101,6 +101,7 @@ public class AdminAgencyServiceImpl implements AdminAgencyService{
 		insertAgency.setAgencyAddress2(subAddr);
 		insertAgency.setAgencyTel(tel);
 		insertAgency.setAgencyContent(agencyContent);
+		insertAgency.setAgencyImage(agencyImage);
 
 		return aRepo.save(insertAgency);
 	}
