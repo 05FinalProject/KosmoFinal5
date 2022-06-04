@@ -54,7 +54,7 @@
 
 </head>
 
-<%@include file="../Header.jsp"%>
+<%@include file="../include/Header.jsp"%>
 
 <body>
 
@@ -205,7 +205,7 @@
 
 </body>
 
-<%@include file="../Footer.jsp"%>
+<%@include file="../include/Footer.jsp"%>
 
 <script src="/community/js/jquery.min.js"></script>
 <script src="/community/js/bootstrap.bundle.min.js"></script>

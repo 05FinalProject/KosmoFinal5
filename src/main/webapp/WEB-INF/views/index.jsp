@@ -17,11 +17,11 @@ pageEncoding="UTF-8"%>
     <a href="/community/daily">일상공유페이지</a><br /><br />
     <a href="/community/dailyDetail">일상공유상세페이지</a><br /><br />
     <a href="/community/writeDaily">일상공유작성페이지</a><br /><br />
-    <a href="include/friend/friendList">친구목록페이지</a><br /><br />
-    <a href="include/friend/friendProfile">친구정보페이지</a><br /><br />
-    <a href="include/friend/friendFind">친구찾기페이지</a><br /><br />
-    <a href="include/friend/friendBlockList">친구차단페이지</a><br /><br />
-    <a href="include/friend/friendRequestList">친구요청리스트페이지</a><br /><br />
+    <a href="/friend/friendList">친구목록페이지</a><br /><br />
+    <a href="/friend/friendProfile">친구정보페이지</a><br /><br />
+    <a href="/friend/friendFind">친구찾기페이지</a><br /><br />
+    <a href="/friend/friendBlockList">친구차단페이지</a><br /><br />
+    <a href="/friend/friendRequestList">친구요청리스트페이지</a><br /><br />
     <a href="include/agencyHotel?page=1">정보기관페이지(호텔)</a><br /><br />
     <a href="include/agencyHotelDetail">정보기관상세페이지(호텔)</a><br /><br />
     <a href="include/agencyCafe?page=1">정보기관페이지(카페)</a><br /><br />

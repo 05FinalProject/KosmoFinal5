@@ -54,7 +54,7 @@
 
 </head>
 
-<%@include file="../Header.jsp"%>
+<%@include file="../include/Header.jsp"%>
 
 <body class="archive post-type-archive post-type-archive-lana_story grid-3-columns">
 
@@ -381,7 +381,7 @@
 
 </body>
 
-<%@include file="../Footer.jsp"%>
+<%@include file="../include/Footer.jsp"%>
 
 
 </html>
