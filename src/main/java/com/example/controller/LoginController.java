@@ -36,31 +36,29 @@ public class LoginController {
 	/* 로그인 성공여부에 따른 세션 저장*/
 	@RequestMapping(value="loginCheck", produces="application/text;charset=utf-8")
 	@ResponseBody
-	public String loginCheck(String userEmail, HttpSession session, Model m){
-		UserVO result = lservice.findByUserEmail(userEmail);
-		ImgVO result2 = lservice.findBypRimgname(userEmail);
-		List<PetVO> result3 = lservice.findByPetNum(userEmail);
-		
-		System.out.println(result2.getPRimgname());
+	public String loginCheck(UserVO vo, HttpSession session, Model m){
+		UserVO result = lservice.findByUserEmail(vo.getUserEmail());
+		ImgVO result2 = lservice.findBypRimgname(vo.getUserEmail());
+		List<PetVO> result3 = lservice.findByPetNum(vo.getUserEmail());
+		UserVO check = lservice.checkPass(vo);
 		String message = "";
-		if(result == null){
-			System.out.println("로그인 실패");
+		if(check == null) {
 			message = "N";
 			return message;
-		}else{
-				System.out.println("*******로그인 성공********");
-				session.setAttribute("userNickname", result.getUserNickname());
-				session.setAttribute("userEmail", result.getUserEmail());
-				session.setAttribute("userName", result.getUserName());
-				session.setAttribute("userPhone", result.getUserPhone());
-				session.setAttribute("userAddress", result.getUserAddress());
-				session.setAttribute("pRimgname", result2.getPRimgname());
-				session.setAttribute("pets", result3);
-				m.addAttribute("pets", result3.get(0));
-
-				session.setMaxInactiveInterval(60*60*24);
-				return message;
-			}
+		}
+		
+		System.out.println("*******로그인 성공********");
+		session.setAttribute("userNickname", result.getUserNickname());
+		session.setAttribute("userEmail", result.getUserEmail());
+		session.setAttribute("userName", result.getUserName());
+		session.setAttribute("userPhone", result.getUserPhone());
+		session.setAttribute("userAddress", result.getUserAddress());
+		session.setAttribute("pRimgname", result2.getPRimgname());
+		session.setAttribute("pets", result3);
+		m.addAttribute("pets", result3.get(0));
+		
+		session.setMaxInactiveInterval(60*60*24);
+		return message;
 		}
 	
 	
@@ -117,8 +115,6 @@ public class LoginController {
 	@RequestMapping("/myPage/userUpdate")
 	public String UserUpdate(ImgVO ivo, HttpServletRequest request,Model m) {
 		
-		System.out.println(ivo.getPImgname());
-		System.out.println(ivo.getPRimgname());   ///     /img/userImg/+ivo.getPRimgname()
 		HttpSession session = request.getSession();
 		
 		session.setAttribute("pRimgname", "img/userImg/"+ivo.getPRimgname());
@@ -128,9 +124,6 @@ public class LoginController {
 		lservice.userImgUpdate(ivo);
 		m.addAttribute("pRimgname", "img/userImg/"+ivo.getPRimgname());
 		return "/include/myPage/imgModify";
-		
-		
-		//return "/include/myPage/myPageProfile";
 	}
 	
 	@RequestMapping("/myPage/myPageProfile")
@@ -146,7 +139,22 @@ public class LoginController {
 	}
 	
 	@RequestMapping("/myPage/myPageDogAdd")
-	public void myPageDogAdd() {
+	public void myPageDogAdd(PetVO pvo) {
+	}
+	
+	@RequestMapping(value="/myPage/petAdd", produces="application/text;charset=utf-8")
+	public String petAdd(ImgVO ivo, HttpServletRequest request, Model m) {
+
+		HttpSession session = request.getSession();
+		
+		session.setAttribute("pRimgname", "img/userImg/"+ivo.getPRimgname());
+		UserVO vo = new UserVO();
+		vo.setUserEmail(session.getAttribute("userEmail").toString());
+		
+		PetVO pvo = new PetVO();
+		pvo.setUser(vo);
+		
+		return "/myPage/myPageDogList";
 	}
 	
 	@RequestMapping("/myPage/myPageBoard")

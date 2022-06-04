@@ -153,6 +153,7 @@ display: block;
 
 		<section>
 			<!-- Default box -->
+			<form method="post" action="petAdd" id="petFrm" name="petFrm">
 			<div class="card-solid mx-auto" style="width: 80%;">
 				<div class="card-body">
 					<div class="row" style="margin-top: 5%;">
@@ -171,21 +172,21 @@ display: block;
 									<tr>
 										<th>견&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;종 :</th>
 										<th style="height:50%;"><select class="form-controller" style="float: left;">
-												<c:forEach var="pvo" items="${kindList}">
-													<option>${pvo.dogKind}</option>
+												<c:forEach var="vo" items="${kindList}">
+													<option>${vo.dogKind}</option>
 												</c:forEach>
 
 										</select></th>
 									</tr>
 									<tr>
 										<th>몸무게 :</th>
-										<th><input type="text" placeholder="kg" id="petWeight"></th>
+										<th><input type="text" placeholder="kg" id="petWeight">kg</th>
 									</tr>
 									<tr>
 										<th>성별 :</th>
-										<th><label class="btn btn-default text-center active">
+										<th><label class="btn btn-default text-center active" value="M">
 												남아 <br> <i class="fas fa-user fa text-blue"></i>
-										</label> <label class="btn btn-default text-center"> 여아 <br>
+										</label> <label class="btn btn-default text-center" value="Y"> 여아 <br>
 												<i class="fas fa-user fa text-red"></i>
 										</label></th>
 									</tr>
@@ -202,19 +203,20 @@ display: block;
 
 
 							<div class="mt-4">
-								<div class="btn btn-primary btn-flat btn-add "><input type="submit" value="등록"></div>
+								<div class="btn btn-primary btn-flat btn-aadd "><input type="submit" value="등록"></div>
 
 								<div class="btn btn-danger btn-flat float-right"><input type="button" value="취소"></div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<!-- /.card-body -->
 			</div>
-			<!-- /.card -->
+			</form>
 
 		</section>
-		<!-- /.content -->
+		
+		
+		
 	</div>
 	<!-- /.content-wrapper -->
 

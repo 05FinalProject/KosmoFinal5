@@ -322,7 +322,7 @@ $('#btnLogin').click(function(){
 	
   $.ajax({
 	type : 'post',
-	url : 'loginCheck',
+	url : '/include/loginCheck',
 	data : { userEmail : $("#userEmail").val(),
 			userPass : $("#userPass").val(),
 			rememberEmail : rememberEmail
@@ -417,7 +417,6 @@ $('#btnPwChange').click(function(){
 		$('label[for="userPassCheck"] .error_box').html("");
 		}
 	
-	
 	/* 비밀번호 일치 여부 확인 */
 	if(userPass != userPassCheck){
 		$('label[for="userPassCheck"] .error_box').html("비밀번호가 일치하지 않습니다.");
@@ -471,7 +470,6 @@ $('#btnMemberUpdate').click(function(){
 		}
 	
 	/* 비밀번호 재확인 */
-
 	/* 비밀번호 일치 여부 확인 */
 	if(userPass != userPassCheck){
 		$('label[for="userPassCheck"] .error_box').html("비밀번호가 일치하지 않습니다.");

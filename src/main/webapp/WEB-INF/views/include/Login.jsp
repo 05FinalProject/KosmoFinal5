@@ -71,7 +71,7 @@
                     </label>
                     <span class="ml-auto"><a href="signUp" class="forgot-pass">회원가입 하기</a></span> 
                     &nbsp;&nbsp;<span class="colorChange">|</span>&nbsp;&nbsp;
-                    <span class=""><a href="pwSearchForm.do" class="forgot-pass">비밀번호 찾기</a></span> 
+                    <span class=""><a href="findPassPage" class="forgot-pass">비밀번호 찾기</a></span> 
                   </div>
 
                   <!-- <span class="d-block text-center my-4 text-muted"> or sign in with</span>

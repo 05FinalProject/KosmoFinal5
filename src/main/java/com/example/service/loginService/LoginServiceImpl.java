@@ -24,7 +24,7 @@ public class LoginServiceImpl implements LoginService {
 	@Autowired
 	private PetRepository pet;
 
-
+	
 	@Override
 	public UserVO findByUserEmail(String userEmail) {
 		return user.findByUserEmail(userEmail);
@@ -51,7 +51,16 @@ public class LoginServiceImpl implements LoginService {
 		Img.save(result);
 	}
 
+	public UserVO checkPass(UserVO vo) {
+		return user.checkPass(vo.getUserEmail(),vo.getUserPass());
+	}
 
+
+	@Override
+	public void petAdd(PetVO pvo) {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 

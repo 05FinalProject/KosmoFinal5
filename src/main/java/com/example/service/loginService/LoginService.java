@@ -16,6 +16,9 @@ public interface LoginService {
 
 	public List<PetVO>  findByPetNum(String petNum);
 
+	public UserVO checkPass(UserVO vo);
+
+	public void petAdd(PetVO pvo);
 
 //	/* 회원탈퇴용으로 쓰는 중*/
 //	public void delete(UserVO vo);

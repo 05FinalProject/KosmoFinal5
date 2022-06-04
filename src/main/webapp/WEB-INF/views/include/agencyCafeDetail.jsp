@@ -114,11 +114,46 @@
   margin: 0;
 }
 
+   .modal{ 
+  position:fixed; width:100%; height:100%; z-index: 1000; background: rgba(0,0,0,0.8); top:0; left:0; display:none;
+}
+
+.modal_content{
+  
+  width:28%; 
+  background:#fff; border-radius:20px;
+  position:fixed; top:50%; left:50%;
+  
+  text-align:center;
+  box-sizing:border-box; padding:74px 0;
+  line-height:30px; cursor:pointer;
+  display:flex;
+  position: absolute;
+  transform: translate(-50%, -50%);
+   
+}
+
 .siren {
     	width:24px;
     }
-     
-   </style>
+    
+   .form-control2{
+    
+         width:100%;
+         height:100%;
+         background:#fff58c; 
+        
+    } 
+    
+    #btn1{
+    
+    width:150px;
+    height:50px;
+    color: black;
+    margin: auto;
+    }
+    
+      </style>
   </head>
 
 <%@include file="./Header.jsp" %>
@@ -138,11 +173,7 @@
              <form:form commandName="post">
      <input name="agencyNum" type="hidden"  value="${vo.agencyNum }" /> 
               <div class="listing__details__gallery">
-                <h4>기관명
                
-                
-                
-                </h4>
                 <div class="listing__details__gallery__pic">
                   <div class="listing__details__gallery__item">
                     <img
@@ -151,8 +182,9 @@
                       alt=""
                     />
                     <span><i class="fa fa-camera"></i> 170 Image</span>
+                     
                   </div>
-                 
+                 <h4>${cafe.agencyName }</h4>
                 </div>
               </div>
             
@@ -165,7 +197,7 @@
 			
               <!-- ********* 1칸 리뷰 테이블 *******--> 
                 <div class="listing__details__comment__item">
-                     <c:forEach var="review" items="${reviews}" >
+                     <c:forEach var="review" items="${reviews}"  varStatus="vs">
 			
 			
 			
@@ -196,14 +228,85 @@
                      
                     </ul>
                   </div>
+                  
+    
+  <!-- 모달 신고창 띄우기 ************************************************* --> 
+    
+    <div class="modal" >
+  <div class="modal_content" 
+       title="클릭하면 창이 닫힙니다." style="padding-top: 20px;padding-bottom: 20px;">
+       
+      
+    
+    <div class="col-12 mt-4 mt-lg-0">
+    
+    <button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+    
+   
+
+<h4>회원 신고하기</h4>
+    
+            <div class="widget-sidebar pet-sidebar">
+                
+              
+                 <div class="padding-6">
+                  <div class="gen-after-report">
+                     <div class="gen-extra-report">
+
+                   <ul>
                    
-                   </c:forEach>
+                    <li>
+                    <div style="float: left">신고 작성자:</div>
+                    <div style="float: left">홍길동</div>
+                     </li>
+                     <br>
+                    
+                    <li>
+                     <div style="float: left">신고 내용:</div><br>
+                     <div style="float: center">Streamlab is a long established fact that a reader will be distracted by the readable content of a page when Streamlab at its layout. The point of using Lorem Streamlab is that it has a more-or-less normal distribution of Streamlab as opposed Streamlab</div>
+                     </li>
+                     
+                        
+                   </ul>
+                   </div> 
+</div>
+</div>
+
+ 
+<div id="water" >
+   <div class="form-group">
+
+<select class="form-control2" style="text-align-last:center" >
+<option >게시글 도배</option>
+<option>욕설/비방</option>
+<option>음란성</option>
+<option>광고/홍보성</option>
+<option>개인정보 유출</option>
+<option>저작권 불법 도용</option>
+<option>기타</option>
+</select>
+</div>
+</div>  
+</div>                  
+                  
+                    <button type="submit" id="btn1" class="btn btn-primary btn-block font-weight-bold text-uppercase">
+                        신고하기
+                    </button>
+                
+            </div>
+        </div>
+    
+    </div>
+                  
+   <!-- 모달창 테이블 끝 ******************************************************** -->               
+                  
+                  </c:forEach>
             
                 </div>
                
-               
-               </form:form>
+         </form:form>
                 <!--******************************-->
+                
               </div>
               <!--******* 테이블 끝 ******-->
               
@@ -226,8 +329,8 @@
             </div>
           </div>
           
-          <div class="col-lg-4">
-            <div class="listing__sidebar">
+          <div class="col-lg-4" >
+            <div class="listing__sidebar" >
               <div class="listing__sidebar__contact">
                 <div class="listing__sidebar__contact__map">
                  
@@ -241,34 +344,22 @@
                       <span class="icon_pin_alt"></span>${cafe.agencyAddress }
                     </li>
                     <li><span class="icon_phone"></span>${cafe.agencyTel }</li>
-                    <li>
-                      <span class="icon_mail_alt"></span>
-                     영업시간
-                    </li>
-                    <li>
-                      <span class="icon_globe-2"></span> https://colorlib.com
-                    </li>
-                  </ul>
+                    
+                 </ul>
 
 
                 <!--  **************-->
                   
                 </div>
               </div>
-              <div class="listing__sidebar__working__hours">
-                <h5>영업중/영업종료</h5>
-                <ul>
-                  <li>Monday <span>09:00 AM - 20:00 PM</span></li>
-                  
-                </ul>
-              </div>
+             
             </div>
           </div>
-        </div>
+          
+       </div>
      
     </section>
     <!-- Listing Section End -->
-
 
     <!-- Js Plugins -->
     <script src="/agency/js/jquery-3.3.1.min.js"></script>
@@ -317,46 +408,26 @@
 
 <script type="text/javascript">
 
-  <script>
+ 
       $("#filter-search").click(function name(params) {
         var regex = /[^0-9.;\-]/g;
         var result = $("#radius").val().replace(regex, "");
         console.log(result);
       });
+      
+      
+
+	  $(".siren").click(function(){
+		$(".modal").fadeIn();
+	  });
+	  
+	  $(".close").click(function(){
+	    $(".modal").fadeOut();
+	  });
+	  
     </script>
 
-    <script>
-      const slider = document.querySelector(".items");
-      let isMouseDown = false;
-      let startX, scrollLeft;
-
-      slider.addEventListener("mousedown", (e) => {
-        isMouseDown = true;
-        slider.classList.add("active");
-
-        startX = e.pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-      });
-
-      slider.addEventListener("mouseleave", () => {
-        isMouseDown = false;
-        slider.classList.remove("active");
-      });
-
-      slider.addEventListener("mouseup", () => {
-        isMouseDown = false;
-        slider.classList.remove("active");
-      });
-
-      slider.addEventListener("mousemove", (e) => {
-        if (!isMouseDown) return;
-
-        e.preventDefault();
-        const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 1;
-        slider.scrollLeft = scrollLeft - walk;
-      });
-    </script>
+    
     
     
 <!--********** footer  ***********************************************************************-->
