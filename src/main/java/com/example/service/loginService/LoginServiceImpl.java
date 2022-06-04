@@ -56,6 +56,13 @@ public class LoginServiceImpl implements LoginService {
 	}
 
 
+	@Override
+	public void petAdd(PetVO pvo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 
 //	/* 회원탈퇴용으로 쓰는 중*/
 //	@Override
