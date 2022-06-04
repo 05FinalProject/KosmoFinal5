@@ -82,7 +82,7 @@
 
           <!-- 펫친관리 -->
           <li class="nav-item">
-            <a href="../friend/friendList" class="nav-link">
+            <a href="/friend/friendList" class="nav-link">
               <p>
                 펫친관리
               </p>
@@ -91,7 +91,7 @@
 
           <!-- 친구찾기 -->
           <li class="nav-item">
-            <a href="../friend/friendFind" class="nav-link">
+            <a href="/friend/friendFind" class="nav-link">
               <p>
                 펫친찾기
               </p>

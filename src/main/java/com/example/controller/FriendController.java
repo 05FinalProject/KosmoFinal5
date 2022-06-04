@@ -38,6 +38,7 @@ public class FriendController {
 	public void friendRequestList() {
 
 	}
+
 	
 	
 	@RequestMapping(value="/friendFind", method = RequestMethod.GET)

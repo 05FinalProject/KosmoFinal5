@@ -67,7 +67,7 @@
 						<!-- 각각의 박스 -->
 						<%-- <c:forEach var="friendFind" items="${sessionScope.userRandom }"> --%>
 						<c:choose>
-						<c:when test="${param.page*9-1>count-1 }">
+						<c:when test="${param.page*9-1>count-1}">
 							<c:forEach var="i" begin="${param.page*9-9 }" end="${count-1}">
 							<div class="story-grid-col col-12 col-md-6 col-lg-4">
 							<a id="post-1"

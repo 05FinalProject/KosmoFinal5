@@ -27,6 +27,8 @@
 <link rel="stylesheet" href="/community/css/owl.theme.default.min.css">
 <link rel="stylesheet" href="/community/css/style.css">
 <link rel="stylesheet" href="/community/css/responsive.css">
+<script src="https://kit.fontawesome.com/23b331c6f8.js"
+	crossorigin="anonymous"></script>
 
 
 
@@ -98,13 +100,13 @@ information-content {
 					</div>
 				</div>
 
-				<d\iv class="col-lg-6 col-md-12">
+				<div class="col-lg-6 col-md-12">
 					<div class="products-details-content">
 						<div id="userProfile">
+						<div>
 							<h3>${community.user.userNickname }</h3>
-							<!-- <p class="location">
-							<i class="ri-map-pin-line"></i> 4825 Poplar Lane Miami, FL
-						</p> -->
+							<a><i class="fa-solid fa-user-plus"></i></a>
+							</div>
 							<hr>
 						</div>
 
@@ -154,7 +156,8 @@ information-content {
 			<div class="input-group input-group-lg">
 				<input type="email"
 					class="form-control bg-transparent border-primary text-white text-uppercase"
-					placeholder="댓글을 입력해주세요." aria-label="Email" aria-describedby="subscribe">
+					placeholder="댓글을 입력해주세요." aria-label="Email"
+					aria-describedby="subscribe">
 				<div class="input-group-append">
 					<button type="submit" id="subscribe"
 						class="btn btn-primary text-uppercase font-weight-bold">
