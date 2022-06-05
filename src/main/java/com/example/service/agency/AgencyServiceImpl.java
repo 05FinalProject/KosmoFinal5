@@ -62,6 +62,7 @@ public class AgencyServiceImpl implements AgencyService{
 	}
     //***************************************************************
 	
+	
 	//**************************************************************
 	//카페 페이지 처리
 	@Override
@@ -71,10 +72,25 @@ public class AgencyServiceImpl implements AgencyService{
 	
 	@Override
 	public int countCafeRecord() {		
-		return agencyRepo.countHotelRecord();
+		return agencyRepo.countCafeRecord();
 	}
 	
+	
+	//**************************************************************
+	//병원 페이지 처리
+	@Override
+	public List<AgencyVO> getHospitalPaging(Pageable paging) {		
+	return agencyRepo.findByAgencyCategoryNum(paging, 3);
+		}
+			
+	@Override
+	public int countHospitalRecord() {		
+	return agencyRepo.countHospitalRecord();
+	}
+	
+	
 	//************************************************************************
+	
 	
 	//백과사전 페이지 처리
 	@Override
@@ -88,7 +104,9 @@ public class AgencyServiceImpl implements AgencyService{
 	}
 	
 	
+	
 	//******************************************************************************
+	
 	
 	//보호소 상세정보 띄우기 
 	@Override
@@ -100,9 +118,9 @@ public class AgencyServiceImpl implements AgencyService{
 	
 	//보호소 입양하기 페이지 띄우기 
 		@Override
-		public AbandonedVO getagencyShelterSignup(AbandonedVO vo) {
-			AbandonedVO avo = abandonedRepo.findById(vo.getAbNo()).get();
-			return abandonedRepo.save(avo);
+		public AbandonedVO agencyShelterSignup(AbandonedVO vo) {
+			AbandonedVO avo = abandonedRepo.findById(vo.getAbNo()).get(); 
+			  return abandonedRepo.save(avo);
 		}
 		
 	
@@ -120,13 +138,21 @@ public class AgencyServiceImpl implements AgencyService{
 					AgencyVO avo = agencyRepo.findById(vo.getAgencyNum()).get();
 					return agencyRepo.save(avo);
 				}
+	
+	//병원정보 상세정보 띄우기 
+			@Override
+			public AgencyVO getagencyHospital(AgencyVO vo) {
+				AgencyVO avo = agencyRepo.findById(vo.getAgencyNum()).get();
+				return agencyRepo.save(avo);
+				}			
+				
 				
 	
-				//백과사전 상세정보 띄우기 
+	//백과사전 상세정보 띄우기 
 				
-				 @Override public DogKindVO getencyclopedia(DogKindVO vo) { 
-				DogKindVO avo = DogKindRepo.findById(vo.getDogNum()).get(); 
-					 return DogKindRepo.save(avo); }
+		@Override public DogKindVO getencyclopedia(DogKindVO vo) { 
+	   DogKindVO avo = DogKindRepo.findById(vo.getDogNum()).get(); 
+		return DogKindRepo.save(avo); }
 				
 				
 				
@@ -163,10 +189,28 @@ public class AgencyServiceImpl implements AgencyService{
 			return  list;
 		}		
 		
+	
+		//병원 검색 기능 			 
+				public List<AgencyVO> agencyHospitalSearch(AgencyVO vo){
+					ArrayList<AgencyVO> list = new ArrayList<AgencyVO>();
+					for(Object[] o : agencyRepo.agencyHospitalSearch(vo.getAgencyName())) {
+						AgencyVO v = new AgencyVO();
+						v.setAgencyName((String)o[6]);
+						v.setAgencyAddress((String)o[1]);
+						v.setAgencyTel((String)o[7]);
+						//v.setAgencyImage((String)o[8]);
+						v.setAgencyNum((int)o[0]);
+						list.add(v);
+					}
+					return  list;
+				}			
+		
+		
 		
 	//***********************************************
 	//리뷰 작성 테이블 
 	
+		//카페 리뷰 작성
 		public void insertReview(ReviewVO vo) {
 			UserVO v = usr.findById(vo.getUser().getUserEmail()).get();
 			vo.setUser(v);
@@ -174,7 +218,8 @@ public class AgencyServiceImpl implements AgencyService{
 			vo.setAgency(a);
 			reviewRepo.save(vo);
 		}
-	
+	    
+		//호텔 리뷰 작성
 		public void insertHotelReview(ReviewVO vo) {
 			UserVO v = usr.findById(vo.getUser().getUserEmail()).get();
 			vo.setUser(v);
@@ -182,6 +227,16 @@ public class AgencyServiceImpl implements AgencyService{
 			vo.setAgency(a);
 			reviewRepo.save(vo);
 		}
+		
+		//병원 리뷰 작성
+		public void insertHospitalReview(ReviewVO vo) {
+			UserVO v = usr.findById(vo.getUser().getUserEmail()).get();
+			vo.setUser(v);
+			AgencyVO a = agencyRepo.findById(vo.getAgency().getAgencyNum()).get();
+			vo.setAgency(a);
+			reviewRepo.save(vo);
+		}
+		
 		
 		public List<ReviewVO> findByAgencyNum(AgencyVO vo){
 			return reviewRepo.findByAgency(vo);

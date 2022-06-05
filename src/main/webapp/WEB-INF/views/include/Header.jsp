@@ -106,7 +106,7 @@
 						<ul class="dropdown-menu" aria-labelledby="page-dropdown">
 							<li><a class="dropdown-item" href="/include/agencyHotel">애견호텔</a></li>
 							<li><a class="dropdown-item" href="/include/agencyCafe">애견카페</a></li>
-							<li><a class="dropdown-item" href="#">동물병원</a></li>
+							<li><a class="dropdown-item" href="/include/agencyHospital">동물병원</a></li>
 							<li><a class="dropdown-item" href="/include/agencyShelter">보호소</a></li>
 							<li><a class="dropdown-item" href="#">장례식장</a></li>
 						</ul>

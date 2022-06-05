@@ -180,7 +180,7 @@
                       src="${hotel.agencyImage }"
                       alt=""
                     />
-                    <span><i class="fa fa-camera"></i> 170 Image</span>
+                    
                   </div>
                   <h4>${hotel.agencyName }</h4>
                 </div>
@@ -449,5 +449,4 @@
 
 </body>
     
-   </body>
  </html>
