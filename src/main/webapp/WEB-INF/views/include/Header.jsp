@@ -70,7 +70,7 @@
 	<header class="header bg-dark">
 		<nav class="navbar navbar-expand-lg navbar-dark navbar-only"
 			id="lana-pet-main-navbar">
-			<a class="navbar-brand" href="Main" style="margin-left: 3%;"> <img
+			<a class="navbar-brand" href="/include/Main" style="margin-left: 3%;"> <img
 				class="navbar-logo headlogo" src="/img/logo3.png" alt="Navbar Logo">
 			</a>
 			<!-- 반응형 웹 작동 시 나타남 -->
