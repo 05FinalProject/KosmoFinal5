@@ -216,6 +216,17 @@ public class ChatingServiceImpl implements ChatingService {
 		return rlist ;
 	}
 	
+	//친구차단기능
+	public void blackList(FriendVO vo) {
+		FriendVO f = fri.findById(vo.getFriendNo()).get();
+		f.setUserSign("1");
+		fri.save(f);
+	}
 	
+	//1:1채팅 친구 검색
+	public List<FriendVO> friendSearch(String str,String str2){
+		return fri.friendSearch(str ,str2);
+		
+	}
 	
 }

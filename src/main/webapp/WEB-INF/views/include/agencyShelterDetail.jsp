@@ -67,8 +67,7 @@
  
  
  <main class="main">
-   <form:form commandName="post">
-    <input name="abNo" type="hidden"  value="${vo.abNo }" />
+    
         <div id="post-1" class="lana_pet type-lana_pet post-1">
         
        
@@ -86,7 +85,13 @@
                         <img class="card-img-top img-fluid" src="${shelter.abImage}" alt="Post">
                         <h3 class="post-title card-title">${shelter.abKind}</h3>
                         <p class="post-text card-text">
-                         ${shelter.abName}/ ${shelter.abAge}/ ${shelter.abGender} 
+                         ${shelter.abName} 
+                        </p>
+                        <p>
+                        ${shelter.abAge}
+                        </p>
+                        <p>
+                        ${shelter.abGender} 
                         </p>
                         
                         <div class="d-flex justify-content-between post-meta mt-4">
@@ -97,7 +102,7 @@
                            
                         </div>
                         
-                        <input name="submit" type="submit" id="submit" class="btn btn-primary btn-lg text-uppercase font-weight-bold w-15x" value="입양하기">
+                      <a href="/include/agencyShelterSignup?abNo=${shelter.abNo }"><input style="float: right" name="submit" type="submit" id="submit" class="btn btn-primary btn-lg text-uppercase font-weight-bold w-15x" value="입양 신청하기"></a>
                        
                     </div>
                         </div>
@@ -109,7 +114,7 @@
             </div>
              
       </div>
-     </form:form>
+
 </main>
                 
                 

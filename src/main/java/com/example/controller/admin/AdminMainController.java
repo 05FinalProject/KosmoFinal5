@@ -18,11 +18,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.community.CommunityVO;
 import com.example.domain.AbandonedVO;
 import com.example.domain.AgencyVO;
 import com.example.domain.ReportVO;
 import com.example.domain.UserVO;
 import com.example.service.admin.AdminAgencyService;
+import com.example.service.admin.AdminCommunityService;
 import com.example.service.admin.AdminReportService;
 import com.example.service.admin.AdminUserService;
 import com.google.gson.Gson;
@@ -31,7 +33,6 @@ import com.google.gson.JsonObject;
 
 
 @Controller
-@RequestMapping("/admin")
 public class AdminMainController {
 
 	@Autowired
@@ -40,35 +41,57 @@ public class AdminMainController {
 	private AdminReportService adminReportService;
 	@Autowired
 	private AdminAgencyService adminAgencyService;
+	@Autowired
+	private AdminCommunityService adminCommunityService;
 
 
-	@RequestMapping(value="", method=RequestMethod.GET)
+	@RequestMapping(value="/admin", method=RequestMethod.GET)
 	public String adminPage() {
 		return "/admin/indexAdmin";
 	}
 
-	//차트
+	//******************차트*******************************
 	@RequestMapping(value="/adminChartsjs", method=RequestMethod.GET)
 	public String charts(Model model) {
-		//리스트 담기 
+		//리스트 담기 (도넛차트)
 		List<HashMap<String, Object>> list = adminAgencyService.chartAgencyCount();//서비스 리턴
-		Gson accountgson = new Gson();
-		JsonArray accountjArray = new JsonArray();
+		Gson agencyGson = new Gson();
+		JsonArray agencyJArray = new JsonArray();
 
-		Iterator<HashMap<String, Object>> accountit = list.iterator();
-		while (accountit.hasNext()) {
-			HashMap agencyCount = accountit.next();
+		Iterator<HashMap<String, Object>> agencyIterator = list.iterator();
+		while (agencyIterator.hasNext()) {
+			HashMap agencyCount = agencyIterator.next();
 			JsonObject object = new JsonObject();			
 			Integer agencyChartCount =Integer.parseInt(String.valueOf(agencyCount.get("chartCount")));
 			Integer agencyCategoryNum =Integer.parseInt(String.valueOf(agencyCount.get("agencyCategoryNum")));
 			
 			object.addProperty("agencyChartCount", agencyChartCount);
 			object.addProperty("agencyCategoryNum", agencyCategoryNum);
-			accountjArray.add(object);
+			agencyJArray.add(object);
 		}
 		
-		String accountjson = accountgson.toJson(accountjArray);
-		model.addAttribute("account", accountjson);
+		String agencyJson = agencyGson.toJson(agencyJArray);
+		model.addAttribute("agency", agencyJson);
+
+		//바 차트
+		List<HashMap<String, Object>> list2 = adminAgencyService.chartSignupUser();//서비스 리턴
+		Gson userSignupGson = new Gson();
+		JsonArray userSignupJArray = new JsonArray();
+
+		Iterator<HashMap<String, Object>> userSignupIterator = list2.iterator();//리스트에 있는걸 읽어서 해쉬맵에 담음
+		while (userSignupIterator.hasNext()) {//담은걸 하나씩 찾아서 분해한다
+			HashMap userSignupCount = userSignupIterator.next();
+			JsonObject object = new JsonObject();
+			String userSignupMonth = String.valueOf(userSignupCount.get("chartMonth"));
+			Integer userSignupNum = Integer.parseInt(String.valueOf(userSignupCount.get("userSignup")));
+			object.addProperty("userSignupMonth", userSignupMonth);//분해한걸 담는다 key value형식으로
+			object.addProperty("userSignupNum", userSignupNum);
+			userSignupJArray.add(object);//agencyJArray배열에 object를 담는다
+		}
+
+		String userSignupJson = userSignupGson.toJson(userSignupJArray);
+		model.addAttribute("userSignup", userSignupJson);
+		System.out.println("테스트"+model.getAttribute("userSignup"));
 			
 		
 		return "/admin/charts/chartsjs";
@@ -80,7 +103,7 @@ public class AdminMainController {
 		return "/admin/charts/flot";
 	}
 
-
+	//*****************************************************************
 	//회원관리
 	@RequestMapping(value="/adminUser", method=RequestMethod.GET)
 	public String userList(Model m) {
@@ -91,6 +114,20 @@ public class AdminMainController {
 		return "/admin/adminUser";
 	}
 
+	//회원강아지 정보
+	@RequestMapping(value="adminDog", method=RequestMethod.GET)
+	public String adminDog() {
+		return "/admin/adminDog";
+	}
+
+	//회원삭제
+	@RequestMapping(value = "{userEmail}", method = RequestMethod.DELETE)
+	public String deleteUser(UserVO vo) {
+		adminUserService.deleteUser(vo);
+		return "redirect:/adminUser";
+	}
+
+	//************************신고관리************************
 	//리뷰신고
 	@RequestMapping(value="adminReview", method=RequestMethod.GET)
 	public String reportReview(Model m) {
@@ -109,7 +146,6 @@ public class AdminMainController {
 
 		return "/admin/report/adminRpReview";
 	}	
-
 
 	//댓글신고
 	@RequestMapping(value="adminComment", method=RequestMethod.GET)
@@ -154,7 +190,10 @@ public class AdminMainController {
 	public String Blacklist() {
 		return "/admin/report/adminBlacklist";
 	}
+	// ******************************************************************************
 
+	//*******************************시설관리***************************************
+	//**************************시설리스트출력/페이징 처리***************************************
 	//시설관리(보호소)
 	@RequestMapping(value="adminShelter", method=RequestMethod.GET)
 	public String adminShelter(Model m, AbandonedVO vo) {
@@ -165,8 +204,8 @@ public class AdminMainController {
 		Pageable paging = PageRequest.of(page-1, 9,Sort.Direction.ASC,"abNo");
 
 		m.addAttribute("paging",adminAgencyService.getAbandonePaging(paging) );
-
 		m.addAttribute("count",adminAgencyService.countRecord() );
+		
 		return "/admin/facilities/adminShelter";
 	}
 
@@ -174,7 +213,7 @@ public class AdminMainController {
 	@RequestMapping(value="adminHospital", method=RequestMethod.GET)
 	public String adminHospital(Model m, AgencyVO vo) {
 		//페이징 처리
-		int page =1;
+		int page = 1;
 		if(vo.getPage()!=0) {
 			page = vo.getPage();
 		} 
@@ -228,48 +267,65 @@ public class AdminMainController {
 
 		return "/admin/facilities/adminCafe";			
 	}
+	// ******************************************************************************
 
-	//회원강아지 정보
-	@RequestMapping(value="adminDog", method=RequestMethod.GET)
-	public String adminDog() {
-		return "/admin/adminDog";					
+	//*************************시설추가, 수정, 삭제*************************************
+	//시설등록
+	@RequestMapping(value="/admin/insertAgency", method=RequestMethod.POST)
+	public String adminInsertFacilities(@RequestParam Integer agencyCategoryNum, @RequestParam String agencyName, @RequestParam String addr, @RequestParam String subAddr, @RequestParam String tel, @RequestParam String agencyContent) {
+		System.out.println("인서트");
+		adminAgencyService.insertAgency(agencyCategoryNum, agencyName, addr, subAddr, tel, agencyContent);
+		return "redirect:/adminAddFacilities";
+	}
+
+	//시설 수정
+	@RequestMapping(value="/admin/update", method = RequestMethod.POST)
+	public String adminUpdateFacilities(Integer agencyNum, @RequestParam String tel, @RequestParam String facility, @RequestParam String content, @RequestParam String addr, @RequestParam String subAddr) {
+		adminAgencyService.updateAgency(agencyNum, tel, facility, content, addr, subAddr);
+		return "redirect:/adminHotel";
+	}
+
+	//시설 리스트 페이지
+	@RequestMapping(value = "/adminAddFacilities", method = RequestMethod.GET)
+	public String adminAddFacilities(){
+
+		return "/admin/facilities/adminAddFacilities";
 	}
 
 
-	//시설추가
-	@RequestMapping(value="adminAddFacilities", method=RequestMethod.GET)
-	public String adminAddFacilities() {
-		return "/admin/facilities/adminAddFacilities";						
-	}
+
+	//시설등록 테스트 할거
+	/*@RequestMapping(value="/admin/insertAgency", method=RequestMethod.POST)
+	public String adminInsertFacilities(Integer agencyNum, @RequestParam int agencyCategoryNum, @RequestParam String agencyName, @RequestParam String addr, @RequestParam String subAddr, @RequestParam String tel, @RequestParam String agencyContent, @RequestParam String agencyImage) {
+		System.out.println("인서트");
+		adminAgencyService.insertAgency(agencyNum, agencyCategoryNum, agencyName, addr, subAddr, tel, agencyContent, agencyImage);
+		return "redirect:/adminAddFacilities";
+	}*/
+
+	//시설삭제
+
+	// ******************************************************************************
+	// ******************************************************************************
 
 
+
+	// **************************커뮤니티 관리**************************************
 	//커뮤 관리
 	@RequestMapping(value="adminComunities", method=RequestMethod.GET)
 	public String adminCommunities() {
+
 		return "/admin/communities/adminCommunities";
 	}
 
 	//커뮤 일상
 	@RequestMapping(value="adminDaily", method=RequestMethod.GET)
-	public String adminDaily() {
+	public String adminDaily(Model m) {
+		CommunityVO vo = new CommunityVO();
+		List<CommunityVO> list = adminCommunityService.communityList(vo);
+		m.addAttribute("communityList", list);
+		
 		return "/admin/communities/adminDaily";
 	}
-
-	//회원삭제
-	@RequestMapping(value = "{userEmail}", method = RequestMethod.DELETE)
-	public String deleteUser(UserVO vo) {
-		adminUserService.deleteUser(vo);
-		return "redirect:/adminUser";
-	}
-
-	//시설 수정
-	@RequestMapping(value="update", method = RequestMethod.POST)
-	public String adminUpdateFacilities(Integer agencyNum, @RequestParam String tel, @RequestParam String facility, @RequestParam String content, @RequestParam String addr, @RequestParam String subAddr) {
-		adminAgencyService.updateAgency(agencyNum, tel, facility, content, addr, subAddr);
-		return "redirect:/admin/adminHotel";
-	}
-
-	//시설삭제
-
+	// ******************************************************************************
 
 }

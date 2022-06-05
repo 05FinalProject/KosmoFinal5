@@ -43,104 +43,85 @@
 <body class="hold-transition sidebar-mini layout-fixed"
 	style="background-color: #f4f6f9;">
 	<%@include file="../Header.jsp"%>
+	
 	<div class="wrapper">
 		<!-- Main Sidebar Container -->
-		<aside class="myPage-sidebar asidebar beta">
-			<!-- Sidebar -->
-			<div>
-				<nav class="mt-2">
-					<ul class="nav nav-pills sidebar flex-column"
-						data-widget="treeview" role="menu" data-accordion="false"
-						style="font-weight: bolder; color: black;">
-						<li class="nav-item"><a href="myPageProfile" class="nav-link"
-							onmouseover="this.style.color='orange';"
-							onmouseout="this.style.color='black'">
-								<p>
-									<i class="far nav-icon" style="font-weight: bolder;">나의 프로필</i>
-								</p>
-						</a></li>
-						<li class="nav-item"><a href="myPageBoard" class="nav-link"
-							onmouseover="this.style.color='orange';"
-							onmouseout="this.style.color='black'">
-								<p>
-									<i class="far nav-icon" style="font-weight: bolder;">나의 게시글</i>
-								</p>
-						</a></li>
-						<li class="nav-item"><a href="myPageDogList" class="nav-link"
-							onmouseover="this.style.color='orange';"
-							onmouseout="this.style.color='black'">
-								<p>
-									<i class="far nav-icon" style="font-weight: bolder;">반려동물</i>
-								</p>
-						</a></li>
-						<li class="nav-item"><a href="../friend/friendList" class="nav-link"
-							onmouseover="this.style.color='orange';"
-							onmouseout="this.style.color='black'">
-								<p>
-									<i class="far nav-icon" style="font-weight: bolder;">펫친관리</i>
-								</p>
-						</a></li>
-						<li class="nav-item"><a href="../friend/friendFind" class="nav-link"
-							onmouseover="this.style.color='orange';"
-							onmouseout="this.style.color='black'">
-								<p>
-									<i class="far nav-icon" style="font-weight: bolder;">펫친 찾기</i>
-								</p>
-						</a></li>
-						<li class="nav-item"><a href="#" class="nav-link"
-							onmouseover="this.style.color='orange';"
-							onmouseout="this.style.color='black'">
-								<p>
-									<i class="far nav-icon" style="font-weight: bolder;">나의 산책로</i>
-								</p>
-						</a></li>
-						<!-- 
-						<form id="frmDelete" action="userDelete">
-						<input type="hidden" name="_method" value="delete" />
-						<input type="hidden" name="userEmail" value="${sessionScope.userEmail }" />
-						</form>
-						 -->
-						
-						
-						
-						<div class="text-center">
-							<button href="userDelete" class="btn btm-sm btn-danger" id="userDelete"
-								style="padding:1%; margin-top:50%;">
-								회원탈퇴</i>
-							</button>
-							<input type="hidden" id="userDelete">
-						</div>
+  <aside class="myPage-sidebar asidebar beta">
+    <div class="sidebar">
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      </div>
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-					</ul>
-				</nav>
-			</div>
-			<!-- /.sidebar -->
+          <!-- 마이 프로필 -->
+          <li class="nav-item">
+            <a href="myPageProfile" class="nav-link active">
+              <p>
+                마이 프로필
+              </p>
+            </a>
+          </li>
+        
+          <!-- 나의 게시글 -->
+          <li class="nav-item">
+            <a href="myPageBoard" class="nav-link">
+              <p>
+                나의 게시글
+              </p>
+            </a>
+          </li>
 
-		</aside>
+          <!-- 반려동물 -->
+          <li class="nav-item">
+            <a href="myPageDogList" class="nav-link">
+              <p>
+                반려동물
+              </p>
+            </a>
+          </li>
+
+          <!-- 펫친관리 -->
+          <li class="nav-item">
+            <a href="/friend/friendList" class="nav-link">
+              <p>
+                펫친관리
+              </p>
+            </a>
+          </li>
+
+          <!-- 친구찾기 -->
+          <li class="nav-item">
+            <a href="/friend/friendFind" class="nav-link">
+              <p>
+                펫친찾기
+              </p>
+            </a>
+          </li>
+          
+          <!-- 나의 산책로 -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <p>
+                나의 산책로
+              </p>
+            </a>
+          </li>
+          
+        </ul>
+      </nav>
+    </div>
+  </aside>
 		<div class="content-wrapper" style="margin-left: 10%;">
 		
 		<form action="userUpdate" method="post" id="userUpdateForm" enctype="multipart/form-data">
-			
+			<input type="hidden" value="/${sessionScope.pRimgname }" id="imgSrc" />
 			<section class="content-header">
 				<div class="container-fluid profileHead"></div>
 				<!-- /.container-fluid -->
 			</section>
 			<div class="card-body box-profile userFileForm">
-				<div class="text-center">
-				
-				<!-- 기본이미지면 기본이미지로 출력, 사진이 있으면 사진으로 출력 -->
-				<c:if test="${sessionScope.pRimgname ne '/img/userImg/noImage.jpg' }">
-					<img class="profile-user-img img-fluid img-circle userFile"
-						src="/${sessionScope.pRimgname }"
-						alt="User profile picture" style="width: 15%; height: 15%;">
-				</c:if>
-				<c:if test="${sessionScope.pRimgname eq '/img/userImg/noImage.jpg' }">
-					<img class="profile-user-img img-fluid img-circle userFile"
-						src="/img/userImg/noImage.jpg"
-						alt="User profile picture" style="width: 15%; height: 15%;">
-				</c:if>
-				<!-- 위의 코드는 지워도 무관 -->
-
+				<div class="text-center" id="imgArea">
+				<!-- 사진 출력 줄 -->
 				</div>
 				<div class="text-center">
 					<label class="btn btm-sm btn-add" for="userFile"
@@ -294,13 +275,19 @@
 				e.preventDefault();
 				$("#userFile").click();
 			});
-		});
 		
-		/* 
-		$('#userDelete').click(function(){
-			$('#frmDelete').submit
-		})
-		 */
+		
+			$('#imgArea').append('<img class="profile-user-img img-fluid img-circle userFile"'+
+				'src="'+$('#imgSrc').val()+'" alt="User profile picture" style="width: 15%; height: 15%;">')
+		
+		
+			/* 
+			$('#userDelete').click(function(){
+				$('#frmDelete').submit
+			})
+		 	*/
+		 
+		});
 	</script>
 </body>
 </html>

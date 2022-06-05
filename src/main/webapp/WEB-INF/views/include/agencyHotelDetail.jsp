@@ -114,29 +114,53 @@
   margin: 0;
 }
 
+.modal{ 
+  position:fixed; width:100%; height:100%; z-index: 1000; background: rgba(0,0,0,0.8); top:0; left:0; display:none;
+}
+
+.modal_content{
+  
+  width:28%; 
+  background:#fff; border-radius:20px;
+  position:fixed; top:50%; left:50%;
+  
+  text-align:center;
+  box-sizing:border-box; padding:74px 0;
+  line-height:30px; cursor:pointer;
+  display:flex;
+  position: absolute;
+  transform: translate(-50%, -50%);
+   
+}
+
 .siren {
     	width:24px;
     }
+    
+    .form-control2{
+    
+         width:100%;
+         height:100%;
+         background:#fff58c; 
+    }
+    
+    #btn1{
+    
+    width:150px;
+    height:50px;
+    color: black;
+    margin: auto;
+    }
+    
 
-
-/* .listing__item{
-border: 1px solid #008000;
-} */
-     
-   </style>
+</style>
   </head>
 
 <%@include file="./Header.jsp" %>
   
   <body class="home page page-template-template-lana-editor">
    
-  <!-- Header Section Begin -->
-  
-    
-  <!-- Header Section End -->
-     
-   
-   <!-- Listing Section Begin -->
+ 
     <section class="listing-details spad">
      
       <div class="container">
@@ -148,7 +172,7 @@ border: 1px solid #008000;
              <form:form commandName="post">
      <input name="agencyNum" type="hidden"  value="${vo.agencyNum }" /> 
               <div class="listing__details__gallery">
-                <h4>기관명</h4>
+              
                 <div class="listing__details__gallery__pic">
                   <div class="listing__details__gallery__item">
                     <img
@@ -158,7 +182,7 @@ border: 1px solid #008000;
                     />
                     <span><i class="fa fa-camera"></i> 170 Image</span>
                   </div>
-                 
+                  <h4>${hotel.agencyName }</h4>
                 </div>
               </div>
             
@@ -170,7 +194,7 @@ border: 1px solid #008000;
 
                <!-- ********* 1칸 리뷰 테이블 *******--> 
                 <div class="listing__details__comment__item">
-                    
+                  <c:forEach var="review" items="${reviews}" >
             
                   <div class="listing__details__comment__item__pic">
                     <img
@@ -186,16 +210,89 @@ border: 1px solid #008000;
                       <i class="fa fa-star"></i>
                       <i class="fa fa-star"></i>
                     </div>
-                    <span>March 22, 2019 작성일</span>
-                    <h5>작성자</h5>
+                    
+                    <span>작성일:${review.reviewInsertdate }</span>
+                    <h5></h5>
                     <p>
-                     내용
+                      내용:${review.reviewContent }
                     </p>
                     <ul>
                       <span><img class="siren" src="../../img/siren.png"></span>
                      
                     </ul>
                   </div>
+                  
+                  
+                   <!-- 모달 신고창 띄우기 ************************************************* --> 
+    
+    <div class="modal" >
+  <div class="modal_content" 
+       title="클릭하면 창이 닫힙니다." style="padding-top: 20px;padding-bottom: 20px;">
+       
+      
+    
+    <div class="col-12 mt-4 mt-lg-0">
+    
+    <button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+    
+   
+
+<h4>회원 신고하기</h4>
+    
+            <div class="widget-sidebar pet-sidebar">
+                
+              
+                 <div class="padding-6">
+                  <div class="gen-after-report">
+                     <div class="gen-extra-report">
+
+                   <ul>
+                    <li>
+                    <div style="float: left">신고 작성자:</div>
+                    <div style="float: left">홍길동</div>
+                        </li>
+                     
+                    
+                    <li>
+                     <div style="float: left">신고 내용:</div>
+                     <div style="float: left">Streamlab is a long established fact that a reader will be distracted by the readable content of a page when Streamlab at its layout. The point of using Lorem Streamlab is that it has a more-or-less normal distribution of Streamlab as opposed Streamlab</div>
+                     
+                    </li>   
+                   </ul>
+                   </div> 
+</div>
+</div>
+
+ 
+<div id="water" >
+   <div class="form-group">
+
+<select class="form-control2" style="text-align-last:center" >
+<option >게시글 도배</option>
+<option>욕설/비방</option>
+<option>음란성</option>
+<option>광고/홍보성</option>
+<option>개인정보 유출</option>
+<option>저작권 불법 도용</option>
+<option>기타</option>
+</select>
+</div>
+</div>  
+</div>                  
+                   
+                    <button type="submit" id="btn1" class="btn btn-primary btn-block font-weight-bold text-uppercase">
+                        신고하기
+                    </button>
+                
+            </div>
+        </div>
+    
+    </div>
+                  
+   <!-- 모달창 테이블 끝 ******************************************************** -->   
+                  
+                   
+                   </c:forEach>
                    
                 </div>
 
@@ -208,10 +305,10 @@ border: 1px solid #008000;
               <!--******* 리뷰 작성 테이블 ******************-->
               <div class="listing__details__review">
                 <h4>리뷰작성</h4>
-                <form action="#">
-                  <input type="text" placeholder="Name" />
-                  <input type="text" placeholder="Email" />
-                  <textarea placeholder="Review"></textarea>
+                <form action="/include/insertHotelReview" method="post"  >
+                <input type="hidden" name="userEmail" value="${sessionScope.userEmail}">
+                <input type="hidden" name="agencyNum" value="${hotel.agencyNum}">
+                  <textarea placeholder="Review" name="reviewContent"></textarea>
                   <button type="submit" class="site-btn">작성</button>
                 </form>
               </div>
@@ -235,13 +332,8 @@ border: 1px solid #008000;
                       <span class="icon_pin_alt"></span>${hotel.agencyAddress }
                     </li>
                     <li><span class="icon_phone"></span>${hotel.agencyTel }</li>
-                    <li>
-                      <span class="icon_mail_alt"></span>
-                     영업시간
-                    </li>
-                    <li>
-                      <span class="icon_globe-2"></span> https://colorlib.com
-                    </li>
+                   
+                   
                   </ul>
 
 
@@ -249,17 +341,11 @@ border: 1px solid #008000;
                   
                 </div>
               </div>
-              <div class="listing__sidebar__working__hours">
-                <h5>영업중/영업종료</h5>
-                <ul>
-                  <li>Monday <span>09:00 AM - 20:00 PM</span></li>
-                  
-                </ul>
-              </div>
+              
             </div>
           </div>
         </div>
-      </div>
+      
     </section>
     <!-- Listing Section End -->
 
@@ -312,48 +398,27 @@ border: 1px solid #008000;
 
 <script type="text/javascript">
 
-  <script>
+ 
       $("#filter-search").click(function name(params) {
         var regex = /[^0-9.;\-]/g;
         var result = $("#radius").val().replace(regex, "");
         console.log(result);
       });
+      
+
+	  $(".siren").click(function(){
+		$(".modal").fadeIn();
+	  });
+	  
+	  $(".close").click(function(){
+	    $(".modal").fadeOut();
+	  });
+	  
     </script>
 
-    <script>
-      const slider = document.querySelector(".items");
-      let isMouseDown = false;
-      let startX, scrollLeft;
-
-      slider.addEventListener("mousedown", (e) => {
-        isMouseDown = true;
-        slider.classList.add("active");
-
-        startX = e.pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-      });
-
-      slider.addEventListener("mouseleave", () => {
-        isMouseDown = false;
-        slider.classList.remove("active");
-      });
-
-      slider.addEventListener("mouseup", () => {
-        isMouseDown = false;
-        slider.classList.remove("active");
-      });
-
-      slider.addEventListener("mousemove", (e) => {
-        if (!isMouseDown) return;
-
-        e.preventDefault();
-        const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 1;
-        slider.scrollLeft = scrollLeft - walk;
-      });
-    </script>
     
-    <body class="home page page-template-template-lana-editor">
+    
+   
 
 <footer class="footer bg-dark text-white">
     <div class="container-fluid">

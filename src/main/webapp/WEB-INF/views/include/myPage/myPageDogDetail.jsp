@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,67 +60,79 @@
 	style="background-color: #f4f6f9;">
 	<%@include file="../Header.jsp"%>
 	<div class="wrapper">
-		<!-- Main Sidebar Container -->
-		<aside class="myPage-sidebar asidebar" style="margin-top: auto;">
-			<!-- Sidebar -->
-			<div>
-				<nav class="mt-2">
-					<ul class="nav nav-pills sidebar flex-column"
-						data-widget="treeview" role="menu" data-accordion="false"
-						style="font-weight: bolder; color: black;">
-						<li class="nav-item"><a href="myPageProfile" class="nav-link"
-							onmouseover="this.style.color='orange';"
-							onmouseout="this.style.color='black'">
-								<p>
-									<i class="far nav-icon" style="font-weight: bolder;">나의 프로필</i>
-								</p>
-						</a></li>
-						<li class="nav-item"><a href="myPageBoard" class="nav-link"
-							onmouseover="this.style.color='orange';"
-							onmouseout="this.style.color='black'">
-								<p>
-									<i class="far nav-icon" style="font-weight: bolder;">나의 게시글</i>
-								</p>
-						</a></li>
-						<li class="nav-item"><a href="myPageDogList" class="nav-link"
-							onmouseover="this.style.color='orange';"
-							onmouseout="this.style.color='black'">
-								<p>
-									<i class="far nav-icon" style="font-weight: bolder;">반려동물</i>
-								</p>
-						</a></li>
-						<li class="nav-item"><a href="../friend/friendList" class="nav-link"
-							onmouseover="this.style.color='orange';"
-							onmouseout="this.style.color='black'">
-								<p>
-									<i class="far nav-icon" style="font-weight: bolder;">펫친관리</i>
-								</p>
-						</a></li>
-						<li class="nav-item"><a href="../friend/friendFind" class="nav-link"
-							onmouseover="this.style.color='orange';"
-							onmouseout="this.style.color='black'">
-								<p>
-									<i class="far nav-icon" style="font-weight: bolder;">펫친 찾기</i>
-								</p>
-						</a></li>
-						<li class="nav-item"><a href="#" class="nav-link"
-							onmouseover="this.style.color='orange';"
-							onmouseout="this.style.color='black'">
-								<p>
-									<i class="far nav-icon" style="font-weight: bolder;">나의 산책로</i>
-								</p>
-						</a></li>
-					</ul>
-				</nav>
-			</div>
-			<!-- /.sidebar -->
-		</aside>
+		
+  <aside class="myPage-sidebar asidebar beta">
+    <div class="sidebar">
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      </div>
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-  <!-- Content Wrapper. Contains page content -->
+          <!-- 마이 프로필 -->
+          <li class="nav-item">
+            <a href="myPageProfile" class="nav-link">
+              <p>
+                마이 프로필
+              </p>
+            </a>
+          </li>
+        
+          <!-- 나의 게시글 -->
+          <li class="nav-item">
+            <a href="myPageBoard" class="nav-link">
+              <p>
+                나의 게시글
+              </p>
+            </a>
+          </li>
 
-    <section>
-      <!-- Default box -->
-      <div class="card-solid mx-auto" style="width:80%;">
+          <!-- 반려동물 -->
+          <li class="nav-item">
+            <a href="myPageDogList" class="nav-link active">
+              <p>
+                반려동물
+              </p>
+            </a>
+          </li>
+
+          <!-- 펫친관리 -->
+          <li class="nav-item">
+            <a href="../friend/friendList" class="nav-link">
+              <p>
+                펫친관리
+              </p>
+            </a>
+          </li>
+
+          <!-- 친구찾기 -->
+          <li class="nav-item">
+            <a href="../friend/friendFind" class="nav-link">
+              <p>
+                펫친찾기
+              </p>
+            </a>
+          </li>
+          
+          <!-- 나의 산책로 -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <p>
+                나의 산책로
+              </p>
+            </a>
+          </li>
+          
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  
+
+    <section class="content-wrapper">
+    
+      
+      <div>
         <div class="card-body">
           <div class="row" style="margin-top:5%;">
             <div class="col-12 col-sm-7">
@@ -128,43 +141,63 @@
               </div>
             </div>
             <div class="col-12 col-sm-5">
-              <h3 class="my-3">반려견 이름</h3>
+              <h3 class="my-3">${pet.petName }</h3>
               <hr>
               <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <table>
                   <tr> 
                     <th>견&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;종 : </th>
-                    <th>여기에 표시될 것</th>
+                    <th>${pet.petVariety }</th>
                   </tr>
                   <tr> 
                     <th>몸무게 : </th>
-                    <th>여기에 표시될 것</th>
+                    <th>${sessionScope.petWeight }</th>
                   </tr>
                   <tr>
                     <th>성별 : </th>
-                    <th>                <label class="btn btn-default text-center active">
+                    
+                    <th>
+                    
+                    <c:if test="${pet.petGender eq 'M'}">
+                    <label class="btn btn-default text-center active">
                       남아
                       <br>
                       <i class="fas fa-user fa text-blue"></i>
                     </label>
-                  <label class="btn btn-default text-center">
+                    </c:if>
+                    
+                    <c:if test="${pet.petGender eq 'W' }">
+                 	 <label class="btn btn-default text-center">
                       여아
                       <br>
                       <i class="fas fa-user fa text-red"></i>
-                    </label></th>
+                    </label>
+                    </c:if>
+                    
+                    </th>
+                    
                   </tr>
                   <tr>
                     <th>중성화 : </th>
-                    <th>                <label class="btn btn-default text-center active">
+                    <th>
+                    
+                    <c:if test="${pet.petNeutering eq 'Y'}">
+                    <label class="btn btn-default text-center active">
                       했어요
                       <br>
                       <i class="fas fa-dot-circle fa text-green"></i>
                     </label>
-                  <label class="btn btn-default text-center">
+                    </c:if>
+                  	
+                  	<c:if test="${pet.petGender eq 'N'}">
+                  	<label class="btn btn-default text-center">
                       안했어요
                       <br>
                       <i class="fas fa-times-circle fa text-orange"></i>
-                    </label></th>
+                    </label>
+                    </c:if>
+                    
+                    </th>
                     
                   </tr>
                   

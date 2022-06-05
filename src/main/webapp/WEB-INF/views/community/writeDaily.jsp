@@ -170,6 +170,16 @@ header .subHeader .headerInner .gnb-bar .gnb-list.hover_menu.on {
 	font-weight: bold;
 }
 
+#updateDaily-btn {
+	background: #f8b03a;
+	border: #f8b03a;
+	color: white;
+	height: 40px;
+	width: 191px;
+	border-radius: 4px;
+	font-weight: bold;
+}
+
 #btn-group {
 	margin-top: 30px;
 }
@@ -194,7 +204,7 @@ header .subHeader .headerInner .gnb-bar .gnb-list.hover_menu.on {
 
 </head>
 
-<%@include file="../Header.jsp"%>
+<%@include file="../include/Header.jsp"%>
 
 <body class="page page-template-default">
 
@@ -212,7 +222,7 @@ header .subHeader .headerInner .gnb-bar .gnb-list.hover_menu.on {
 
 							<form id="contactform" class="contact-form mt-5"
 								action="writeDaily" method="post" enctype="multipart/form-data">
-
+								<input type="hidden" value="${sessionScope.userEmail }" name="userEmail"/>
 								<!-- 이미지 미리보기 -->
 								<div id='image_preview'>
 									<h4>미리보기</h4>
@@ -222,7 +232,7 @@ header .subHeader .headerInner .gnb-bar .gnb-list.hover_menu.on {
 										data-placeholder='파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요.'></div>
 								</div>
 								<br />
-
+								
 
 								<div class="form-group row">
 									<div class="col">
@@ -243,7 +253,9 @@ header .subHeader .headerInner .gnb-bar .gnb-list.hover_menu.on {
 								<div class="row text-center">
 									<div class="col" id="btn-group">
 										<a href="daily" id="wrtieDaily-cancle">취소</a>
+										<button id="updateDaily-btn" type="submit">수정</button>
 										<button id="writeDaily-btn" type="submit">등록</button>
+										<button id="deleteDaily-btn" type="submit">삭제</button>
 									</div>
 								</div>
 							</form>
@@ -256,7 +268,7 @@ header .subHeader .headerInner .gnb-bar .gnb-list.hover_menu.on {
 	</main>
 
 
-	<%@include file="../Footer.jsp"%>
+	<%@include file="../include/Footer.jsp"%>
 
 	<script type="text/javascript" src="../js/jquery.min.js?ver=3.6.0"></script>
 	<script type="text/javascript" src="../js/popper.min.js?ver=1.16.1"></script>

@@ -15,12 +15,12 @@
 		<link rel="stylesheet" href="/css/chating/chatingFriend.css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-		
+		<script src="https://kit.fontawesome.com/23b331c6f8.js" crossorigin="anonymous"></script>
 		 <script type="text/javascript">
 		var ws ;
 		
 		window.onload = function(){
-			//websocket 객체생성
+			//websocket 객체생성(websocket서버 연결)
 			ws= new WebSocket("ws://" + location.host + "/chating/"+$("#friendNo").val());
 			ws.onopen = function(data){
 				//소켓이 열리면 동작
@@ -34,9 +34,9 @@
 				}
 			});
 			
-			$('#action_menu_btn').click(function(){
-				$('.action_menu').toggle();
-			});
+// 			$('#action_menu_btn').click(function(){
+// 				$('.action_menu').toggle();
+// 			});
 		}
 		
 		function wsEvt() {
@@ -61,16 +61,17 @@
 				 contentType: "application/json; charset=utf-8;",
 				 dataType: "json",
 				 success:function(data){
-					 console.log(data.length)
+					 
+					
 					 $('.msg_card_body').empty()
 					  
 					  for(var i=data.length-1;i>=0;i--){
 						  
 						  var messageDate = new Date(data[i].time)
-						  console.log(messageDate)
+						
 						  if(messageDate.getFullYear() != mDate.getFullYear() | messageDate.getMonth() != mDate.getMonth() | messageDate.getDate() != mDate.getDate()){
 							  mDate = messageDate
-							  dateSigh = messageDate.getFullYear()+'년'+ messageDate.getMonth()+'월'+messageDate.getDate()+'일'
+							  dateSigh = messageDate.getFullYear()+'년'+ (messageDate.getMonth()+1)+'월'+messageDate.getDate()+'일'
 	 						  $('.msg_card_body').append('<p class="dateSign">'+dateSigh+'</p>')
 						  }
 						  var noon = '오후'
@@ -205,6 +206,7 @@
 		<input type="hidden" id="userImg" value="/${userImg}">
 		<input type="hidden" id="friendImg" value="/${userList[0].img}">
 		<input type="hidden" id="sessionId" value="">
+		<input type="hidden" id="friendEmail" value="${userList[0].email}">
 		<div class="container-fluid h-100">
 			<div class="row justify-content-center h-100">
 				<div class="col-md-4 col-xl-3 chat"><div class="card mb-sm-3 mb-md-0 contacts_card">
@@ -221,7 +223,7 @@
 						<ui class="contacts">
 						
 						<c:forEach items="${userList}" var="vo">
-						<li class="friend" content="${vo.friendNo}" >
+						<li class="friend" content="${vo.friendNo}" email="${vo.email}" >
 							
 							<div class="d-flex bd-highlight">
 								<div class="img_cont">
@@ -257,10 +259,8 @@
 							<span id="action_menu_btn"><i class="fas fa-ellipsis-v"></i></span>
 							<div class="action_menu">
 								<ul>
-									<li><i class="fas fa-user-circle"></i> View profile</li>
-									<li><i class="fas fa-users"></i> Add to close friends</li>
-									<li><i class="fas fa-plus"></i> Add to group</li>
-									<li><i class="fas fa-ban"></i> 친구차단</li>
+									<li id="blackList"><i class="fas fa-ban"></i> 친구차단</li>
+									<li id="goOut"><i class="fa-solid fa-right-from-bracket"></i> 나가기</li>
 								</ul>
 							</div>
 						</div>
@@ -289,7 +289,7 @@
 			$('#friendImg').val($(this).find('img').attr('src'))
 			$('.contacts > .friend').removeClass('active')
 			$(this).addClass('active')
-			
+			$('#friendEmail').val($(this).attr('email'))
 			$('#friendName').text( $(this).find('span').text())
 
 			$('#friendImage').attr('src',$(this).find('img').attr('src'))
@@ -309,33 +309,35 @@
 					send();
 				}
 			});
-			
-			$('#action_menu_btn').click(function(){
-				$('.action_menu').toggle();
-			});
 		})
 		
-	/* 	$('.input-group-prepend').click(function(){
-			
-			var rList = []
-			
-			var friends = '${userList}'
-			var friendList=friends.replaceAll('{','').replaceAll('}','').replaceAll('[','').replaceAll(']','').replaceAll('img=','').replaceAll(' friendNo=','').replaceAll(' nickName=','').replaceAll(' email=','').split(',')
-			console.log(friendList)
-			var fNum = friendList.length/4
-			for(var i=0;i<fNum;i++){
-				if(friendList[2+4*i].includes($('#search').val())){
-					var fInfo = []
-					fInfo.push(friendList[4*i])
-					fInfo.push(friendList[4*i+1])
-					fInfo.push(friendList[4*i+2])
-					fInfo.push(friendList[4*i+3])
-					rList.push(fInfo)
-				}
-				
-			}
-		}) */
+		$('#action_menu_btn').click(function(){
+				$('.action_menu').toggle();
+			});
 		
+		//친구 검색기능
+		$('.input-group-prepend').click(function(){
+			$('.contacts').find('li').each(function(i,e){
+				if(!$(this).find('span').text().includes($('#search').val())){
+					$(this).addClass('di-none')
+				}else{
+					$(this).removeClass('di-none')
+				}
+			})
+		}) 
+		
+		$('#blackList').click(function(){
+			$.ajax({
+				url:'/api/blackList',
+				type:'get',
+				contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+				data:{	
+						friendNo:$("#friendNo").val()
+					}
+			})
+			$('.active').remove()
+			$('.friend').first().click()
+		})
 		
 		</script>
 	</body>

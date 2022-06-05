@@ -5,8 +5,6 @@
 <head>
 <meta charset="UTF-8">
 
-
-
 <link rel="stylesheet" href="/community/css/bootstrap.min.css">
 <link rel="stylesheet" href="/community/css/animate.min.css">
 <link rel="stylesheet" href="/community/css/remixicon.css">
@@ -56,10 +54,11 @@
 
 </head>
 
-<%@include file="../Header.jsp"%>
-
+<%@include file="../include/Header.jsp"%>
 
 <body class="archive post-type-archive post-type-archive-lana_story grid-3-columns">
+
+
 
 <main class="main container">
     <div class="row">
@@ -382,7 +381,7 @@
 
 </body>
 
-<%@include file="../Footer.jsp"%>
+<%@include file="../include/Footer.jsp"%>
 
 
 </html>

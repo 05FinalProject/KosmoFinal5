@@ -403,7 +403,7 @@
     
             <div class="widget-sidebar pet-sidebar">
                 
-                <form>
+               
                  <div class="padding-6">
                   <div class="gen-after-report">
                      <div class="gen-extra-report">
@@ -445,7 +445,7 @@
                     <button type="submit" id="btn1" class="btn btn-primary btn-block font-weight-bold text-uppercase">
                         신고하기
                     </button>
-                </form>
+                
             </div>
         </div>
     

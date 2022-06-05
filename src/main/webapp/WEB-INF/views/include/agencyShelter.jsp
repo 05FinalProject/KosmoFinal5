@@ -41,6 +41,13 @@
 
 <link rel="stylesheet" href="/css/HeadFootPage.css" type="text/css">
 
+<!-- 페이지 색깔 표시  ****************************************-->
+
+
+
+<!-- 페이지 색깔 표시 끝 **************************************** -->
+
+
 
 <style type="text/css">
 #pic1 {
@@ -124,14 +131,7 @@
 
 
 		
-
-
-
-
-
-
-
-		<!--******** 페이지 테이블  *****************************************  -->
+    <!--******** 페이지 테이블  *****************************************  -->
 
 		<nav class="pagination" role="navigation">
 
@@ -172,41 +172,7 @@
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5a0a025e110dde0902210e297400a7be"></script>
 
-
-	<script type="text/javascript">
-
-    //eq(0) = ì»¤ë®¤ëí°
-	$(document).ready(function(){
-        $(".bigCate li.comu").click(function(){
-            $(".comunity").removeClass("off");
-			$(".organization").addClass("off");
-            $(".information").addClass("off");
-            $(".myPage").addClass("off");
-		});
-
-		$(".bigCate li.organi").click(function(){
-            $(".organization").removeClass("off");
-			$(".comunity").addClass("off");
-            $(".information").addClass("off");
-            $(".myPage").addClass("off");
-		});
-
-        $(".bigCate li.info").click(function(){
-            $(".information").removeClass("off");
-			$(".comunity").addClass("off");
-            $(".organization").addClass("off");
-            $(".myPage").addClass("off");
-		});
-
-        $(".bigCate li.myPage").click(function(){
-            $(".myPage").removeClass("off");
-			$(".comunity").addClass("off");
-            $(".information").addClass("off");
-            $(".myPage").addClass("off");
-		});
-
-	});
-</script>
+	
 <body class="home page page-template-template-lana-editor">
 
 	<footer class="footer bg-dark text-white">
@@ -238,6 +204,22 @@
 			</div>
 		</div>
 	</footer>
+
+<!-- 페이지 색깔 채우기 ***************** -->
+
+<script type="text/javascript">
+$(function(){
+    var page = '${param.page}'
+    $('.pagination').find('li').each(function(i,e){
+       if(page == $(this).find('a').text()){
+          $(this).addClass('active')
+       }
+       //console.log(e.text())
+    })
+ })
+
+</script>
+<!-- 페이지 색깔 채우기 ***************** -->
 
 
 </body>

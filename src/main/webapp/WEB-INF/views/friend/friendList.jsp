@@ -83,57 +83,86 @@
 #community-nav {
 	width: 60%;
 }
+
+.nav-sidebar .nav-link p {
+    display: inline;
+    margin: 0;
+    white-space: inherit;
+}
+
 </style>
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed"
 	style="background-color: #f4f6f9;">
-	<%@include file="../Header.jsp"%>
+	<%@include file="../include/Header.jsp"%>
 	<div class="wrapper">
-		<!-- Main Sidebar Container -->
-		<!-- Sidebar -->
-		<%-- <%@include file="./sidebar.jsp"%> --%>
-		<!-- <aside class="main-sidebar asidebar elevation-4"> -->
 
-		<!-- Sidebar -->
-		<!-- <div class="sidebar"> -->
-		<!-- Sidebar Menu -->
-		<div id="community-nav">
-			<nav class="mt-2">
-				<ul class="nav nav-pills nav-sidebar flex-column"
-					data-widget="treeview" role="menu" data-accordion="false">
-					<li class="nav-item" style="font-weight:bolder;"><a href="./adminCustomerList.do"
-						class="nav-link" onmouseover="this.style.color='orange';"
-						onmouseout="this.style.color='black'"> <p>나의 프로필</p>
-					</a></li>
-					<li class="nav-item" style="font-weight:bolder;"><a href="/adminOrderList.do"
-						class="nav-link" onmouseover="this.style.color='orange';"
-						onmouseout="this.style.color='black'"><p>나의 게시글</p>
-					</a></li>
-					<li class="nav-item" style="font-weight:bolder;"><a href="/adminPaymentList.do"
-						class="nav-link" onmouseover="this.style.color='orange';"
-						onmouseout="this.style.color='black'"><p>반려동물</p>
-					</a></li>
-					<li class="nav-item" style="font-weight:bolder;"><a href="/adminProductList.do"
-						class="nav-link" onmouseover="this.style.color='orange';"
-						onmouseout="this.style.color='black'"> <p>펫친관리</p>
-					</a></li>
-					<li class="nav-item" style="font-weight:bolder;"><a href="/adminBoardList.do"
-						class="nav-link" onmouseover="this.style.color='orange';"
-						onmouseout="this.style.color='black'"> <p>펫친찾기</p>
-					</a></li>
-					<li class="nav-item" style="font-weight:bolder;"><a href="/adminProductRegister.do"
-						class="nav-link" onmouseover="this.style.color='orange';"
-						onmouseout="this.style.color='black'"> <p>나의 산책로</p>
-					</a></li>
+  <aside class="myPage-sidebar asidebar beta">
+    <div class="sidebar">
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      </div>
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-				</ul>
-			</nav>
-		</div>
-		<!-- /.sidebar-menu -->
-	</div>
-	<!-- </aside> -->
+          <!-- 마이 프로필 -->
+          <li class="nav-item">
+            <a href="myPageProfile" class="nav-link">
+              <p>
+                마이 프로필
+              </p>
+            </a>
+          </li>
+        
+          <!-- 나의 게시글 -->
+          <li class="nav-item">
+            <a href="myPageBoard" class="nav-link">
+              <p>
+                나의 게시글
+              </p>
+            </a>
+          </li>
 
+          <!-- 반려동물 -->
+          <li class="nav-item">
+            <a href="myPageDogList" class="nav-link">
+              <p>
+                반려동물
+              </p>
+            </a>
+          </li>
+
+          <!-- 펫친관리 -->
+          <li class="nav-item">
+            <a href="../friend/friendList" class="nav-link active">
+              <p>
+                펫친관리
+              </p>
+            </a>
+          </li>
+
+          <!-- 친구찾기 -->
+          <li class="nav-item">
+            <a href="../friend/friendFind" class="nav-link">
+              <p>
+                펫친찾기
+              </p>
+            </a>
+          </li>
+          
+          <!-- 나의 산책로 -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <p>
+                나의 산책로
+              </p>
+            </a>
+          </li>
+          
+        </ul>
+      </nav>
+    </div>
+  </aside>
 	<!-- /.sidebar -->
 	<div class="content-wrapper">
 		<!-- 내용 넣는 곳 -->
@@ -532,12 +561,6 @@
 							</div>
 						</div>
 						<!-- 사용자 프로필 끝 -->
-
-
-
-
-
-
 					</div>
 				</div>
 				<!-- /.card-body -->
@@ -589,7 +612,7 @@
 	</div>
 	</div>
 	<!-- ./wrapper -->
-	<%@include file="../Footer.jsp"%>
+	<%@include file="../include/Footer.jsp"%>
 
 	<!-- jQuery -->
 	<script src="../../admin/plugins/jquery/jquery.min.js"></script>

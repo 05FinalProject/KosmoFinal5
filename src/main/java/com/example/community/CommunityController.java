@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -18,14 +20,14 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.example.domain.UserVO;
 
 @Controller
-@RequestMapping("/include")
+@RequestMapping("/community")
 public class CommunityController {
 
 	@Autowired
 	private CommunityService c_service;
 
 	// 일상공유 리스트 페이지
-	@RequestMapping(value = "community/daily", method = RequestMethod.GET)
+	@RequestMapping(value = "/daily", method = RequestMethod.GET)
 	public String daily(Model m, CommunityVO vo) {
 
 		int page = 1;
@@ -37,28 +39,25 @@ public class CommunityController {
 		m.addAttribute("paging", c_service.getCommunityPaging(paging));
 
 		m.addAttribute("count", c_service.countCommunityRecord());
-		return "/include/community/daily";
+		return "/community/daily";
 	}
 
 	// 일상공유 상세보기 페이지
-	/*
-	 * @RequestMapping(value = "/community/dailyDetail", method = RequestMethod.GET)
-	 * public String dailyDetail() { return "/include/community/dailyDetail"; }
-	 */
-	@RequestMapping(value = "/community/dailyDetail", method = RequestMethod.GET)
-	public void dailyDetail(CommunityVO vo, Model m) {
+	@RequestMapping(value = "/dailyDetail", method = RequestMethod.GET)
+	public String dailyDetail(CommunityVO vo, Model m) {
 		m.addAttribute("community", c_service.getCommunity(vo));
+		return "/community/dailyDetail";
 	}
 
 	// 일상공유 게시글 작성 페이지
-	@RequestMapping(value = "/community/writeDaily", method = RequestMethod.GET)
+	@RequestMapping(value = "/writeDaily", method = RequestMethod.GET)
 	public String writeDaily() {
-		return "/include/community/writeDaily";
+		return "/community/writeDaily";
 	}
 
 	// 일상공유 게시글 작성
-	@RequestMapping(value = "/community/writeDaily", method = RequestMethod.POST)
-	public String insertDaily(CommunityVO vo) {
+	@RequestMapping(value = "/writeDaily", method = RequestMethod.POST)
+	public String insertDaily(String userEmail, String communityTitle, String communityContent) {
 
 		/*
 		 * List<MultipartFile> fileList = mtfRequest.getFiles("file"); String src =
@@ -80,9 +79,9 @@ public class CommunityController {
 		 */
 		
 		
-		c_service.insertDaily(vo);
+		c_service.insertDaily(userEmail, communityTitle, communityContent);
 
-		return "/include/community/dailyDetail";
+		return "/community/dailyDetail";
 	}
 
 	//일상공유 게시판 상세보기
@@ -90,5 +89,11 @@ public class CommunityController {
 	public void getCommunity(CommunityVO vo, Model m) {
 		m.addAttribute("community", c_service.getCommunity(vo));
 	}
-
+	
+	//일상공유 게시글 수정
+	@RequestMapping(value="/{communityNum}", method = RequestMethod.PUT)
+	public String updateCommunity(CommunityVO vo) {
+		/* c_service.updateCommunity(vo); */
+		return "redirect:/community/" + vo.getCommunityNum();
+	}
 }

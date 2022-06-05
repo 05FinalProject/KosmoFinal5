@@ -68,6 +68,24 @@
 	href="/css/lana-pet-print.min.css?ver=1.0.0" type="text/css"
 	media="print">
 
+
+<!-- 페이지 색깔 표시  ****************************************-->
+
+<script type="text/javascript">
+$(function(){
+    var page = '${param.page}'
+    $('.pagination').find('li').each(function(i,e){
+       if(page == $(this).find('a').text()){
+          $(this).addClass('active')
+       }
+       //console.log(e.text())
+    })
+ })
+
+</script>
+
+<!-- 페이지 색깔 표시 끝 **************************************** -->
+
 <style>
 ul {
 	list-style: none;
@@ -106,9 +124,9 @@ ul {
 	padding-bottom: 15px;
 }
 
-/* .listing__item{
-border: 1px solid #008000;
-} */
+
+
+
 </style>
 </head>
 
@@ -141,10 +159,7 @@ border: 1px solid #008000;
 					<!-- 여기에 img값 가지고와야함 동적으로 -->
 
 				     
-				   
-					 
-					
-					<div>
+				     <div>
 						<img id="agencyImage" class="listing__item__pic set-bg"
 							src="${vo.agencyImage}" />
 						<div class="listing__item__pic__btns">
@@ -185,10 +200,10 @@ border: 1px solid #008000;
 		<!-- ***********페이징 처리 ************************************************* -->
 		<nav class="pagination" role="navigation">
 
-			<div class="nav-links">
-				<c:set var="recordsCnt" value="${count}" />
-				<c:set var="jspFile" value="agencyCafe?" />
-				<c:set var="perpage" value="11" />
+			<div class="nav-links " >
+				<c:set  var="recordsCnt" value="${count}" />
+				<c:set  var="jspFile" value="agencyCafe?" />
+				<c:set  var="perpage" value="11" />
 			</div>
 
 			<!-- include 페이징  jsp파일  -->
@@ -198,16 +213,14 @@ border: 1px solid #008000;
 		<!-- ************ 페이징 처리 끝 *************************** -->
 
 	</section>
-
-
-	<!-- Listing Section End -->
+<!--  Section End -->
 
 
 
 	<!--카카오 지도 연결-->
 	<!--******** Map Begin *******************************************-->
 	<div class="listing__map">
-		<div id="map" style="width: 100%; height: 60em"></div>
+		<div id="map" style="width: 100%; height: 52em"></div>
 	</div>
 	<!--****** Map End ***********************************************-->
 
@@ -389,9 +402,7 @@ border: 1px solid #008000;
 	</script>
 
 
-
-
-	<!--**************** 검색기능 처리 ************************* -->
+<!--**************** 검색기능 처리 ************************* -->
 
 	<script type="text/javascript">
 		$('.search3')
@@ -447,46 +458,9 @@ border: 1px solid #008000;
 									})
 
 						})
+						
 	</script>
 
 	<!--**** 검색기능끝 *************************  -->
-
-	<!-- <script type="text/javascript">
-      
-   
-      const slider = document.querySelector(".items");
-      let isMouseDown = false;
-      let startX, scrollLeft;
-
-      slider.addEventListener("mousedown", (e) => {
-        isMouseDown = true;
-        slider.classList.add("active");
-
-        startX = e.pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-      });
-
-      slider.addEventListener("mouseleave", () => {
-        isMouseDown = false;
-        slider.classList.remove("active");
-      });
-
-      slider.addEventListener("mouseup", () => {
-        isMouseDown = false;
-        slider.classList.remove("active");
-      });
-
-      slider.addEventListener("mousemove", (e) => {
-        if (!isMouseDown) return;
-
-        e.preventDefault();
-        const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 1;
-        slider.scrollLeft = scrollLeft - walk;
-      }); -->
-
-
-
-
 </body>
 </html>

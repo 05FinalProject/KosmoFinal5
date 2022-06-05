@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import com.example.domain.AbandonedVO;
 import com.example.domain.AgencyVO;
 import com.example.domain.DogKindVO;
+import com.example.domain.ReviewVO;
 
 
 
@@ -47,6 +48,9 @@ public interface AgencyService {
 	//백과사전 상세 띄우기
 	DogKindVO getencyclopedia(DogKindVO vo);
 	
+	//입양하기 페이지 
+	AbandonedVO getagencyShelterSignup(AbandonedVO vo);
+
 	
 //***************************************************
 	//카페 검색 기능 
@@ -54,4 +58,15 @@ public interface AgencyService {
 	
 	//호텔 검색 기능
 	List<AgencyVO> agencyHotelSearch(AgencyVO vo);
+	
+//**************************************************
+	
+	
+	
+	
+	public List<ReviewVO> findByAgencyNum(AgencyVO vo);
+	
+	public void insertReview(ReviewVO vo);
+	
+	public void insertHotelReview(ReviewVO vo);
 }

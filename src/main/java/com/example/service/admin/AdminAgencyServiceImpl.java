@@ -60,6 +60,7 @@ public class AdminAgencyServiceImpl implements AdminAgencyService{
 		return aRepo.findByAgencyCategoryNum(paging, 5);
 	}
 	
+	
 	@Override
 	public int countFunehallRecord() {
 		
@@ -88,7 +89,22 @@ public class AdminAgencyServiceImpl implements AdminAgencyService{
 		updateAgency.setAgencyAddress2(subAddr);	
 		return aRepo.save(updateAgency);//업데이트 문장 돌리기
 	}
-	
+
+	//시설등록
+	@Override
+	public AgencyVO insertAgency(Integer agencyCategoryNum, String agencyName, String addr, String subAddr, String tel, String agencyContent) {
+
+		AgencyVO insertAgency = new AgencyVO();
+		insertAgency.setAgencyCategoryNum(agencyCategoryNum);
+		insertAgency.setAgencyName(agencyName);
+		insertAgency.setAgencyAddress(addr);
+		insertAgency.setAgencyAddress2(subAddr);
+		insertAgency.setAgencyTel(tel);
+		insertAgency.setAgencyContent(agencyContent);
+
+		return aRepo.save(insertAgency);
+	}
+
 	@Override
 	public List<AbandonedVO> getAbandonePaging(Pageable paging) {
 		
@@ -105,15 +121,27 @@ public class AdminAgencyServiceImpl implements AdminAgencyService{
 	public List<HashMap<String, Object>> chartAgencyCount() {
 		List<HashMap<String, Object>> rList = new ArrayList<HashMap<String,Object>>();
 		
-		for(Object[] o : aRepo.chartAgencyCount()) {
+		for(Object[] obj : aRepo.chartAgencyCount()) {
 			HashMap<String, Object> hm = new HashMap<String, Object>();
-			hm.put("chartCount",o[0]);
-			hm.put("agencyCategoryNum",o[1]);
+			hm.put("chartCount",obj[0]);
+			hm.put("agencyCategoryNum",obj[1]);
+			rList.add(hm);
+		}							
+		return rList ;
+	}
+
+	@Override
+	public List<HashMap<String, Object>> chartSignupUser() {
+		List<HashMap<String, Object>> rList = new ArrayList<HashMap<String,Object>>();
+
+		for(Object[] obj : aRepo.chartSignupUser()) {
+			HashMap<String, Object> hm = new HashMap<String, Object>();
+			hm.put("chartMonth",obj[0]);
+			hm.put("userSignup",obj[1]);
 			rList.add(hm);
 		}
-							
-		return rList ;
-	}		
-	
+		return rList;
+	}
+
 
 }

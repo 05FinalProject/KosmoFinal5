@@ -21,5 +21,11 @@ public interface SignUpService {
 	/* 로그인 - DB에 입력된 이메일과 비밀번호가 일치하는 레코드 검색 */
 	public UserVO loginCheck(UserVO vo);
 	
+	/* 비밀번호 찾기 */
+	public UserVO pwSearch(UserVO vo);
+	
+	/* 비밀번호 변경 */
+	public UserVO pwChange(UserVO vo);
+	
 	
 }
