@@ -38,7 +38,7 @@
 
 .contents .upload-box .drag-file {
   position: relative;
-  width: 75%;
+  width: 60%;
   height: 360px;
   display: flex;
   flex-direction: column;
