@@ -86,6 +86,17 @@ information-content {
 	justify-content: left;
 }
 
+#userProfile {
+	display:flex;
+	
+}
+
+#fa-user-plus {
+	margin-left:2%;
+}
+#fa-user-check {
+	margin-left:2%;
+}
 </style>
 
 </head>
@@ -109,12 +120,10 @@ information-content {
 
 				<div class="col-lg-6 col-md-12">
 					<div class="products-details-content">
-						<div id="userProfile">						
-							
-							<h3>${community.user.userNickname }</h3>
-							
-							<a><i class="fa-solid fa-user-plus"></i></a>	
-											
+						<div id="userProfile" class="container">			
+							<div class="item"><h3>${community.user.userNickname }</h3></div>							
+							<div class="item" id="fa-user-plus"><a href="#"><i class="fa-solid fa-user-plus"></i></a></div>											
+							<div class="item" id="fa-user-check"><a href="#"><i class="fa-solid fa-user-check"></i></a></div>											
 						</div>
 							<hr>
 
