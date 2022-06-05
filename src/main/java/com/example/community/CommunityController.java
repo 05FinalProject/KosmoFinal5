@@ -89,5 +89,11 @@ public class CommunityController {
 	public void getCommunity(CommunityVO vo, Model m) {
 		m.addAttribute("community", c_service.getCommunity(vo));
 	}
-
+	
+	//일상공유 게시글 수정
+	@RequestMapping(value="/{communityNum}", method = RequestMethod.PUT)
+	public String updateCommunity(CommunityVO vo) {
+		/* c_service.updateCommunity(vo); */
+		return "redirect:/community/" + vo.getCommunityNum();
+	}
 }
