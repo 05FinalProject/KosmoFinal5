@@ -70,7 +70,7 @@
 	
 }
 
-.post-text .card-text {  /* 적용 안 됨 - 수정해야함 */
+.post-text .card-text { 
 	overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -79,6 +79,16 @@
     word-wrap:break-word; 
     line-height: 1.2em;
     height: 1em; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
+    
+}
+
+.comment-img {
+	margin-top:5%;
+}
+
+.pagination {
+	display: flex;
+	
 }
 </style>
 </head>
@@ -108,14 +118,18 @@
 									<ul class="post-meta">
 										<li><a href="/include/community/dailyDetail?communityNum=${community.communityNum }">${community.communityInsertdate }</a></li>
 									</ul>
-									<span><img class="siren" src="../../img/siren.png"></span>
-									<h5 class="post-title card-title">
-										<a href="/include/community/dailyDetail?communityNum=${community.communityNum }">사용자 닉네임</a>
-									</h5>
-									<p class="post-text card-text">${community.communityTitle }</p>
-									<span><img class="emptyHeart"
-										src="../../img/emptyHeart.png"></span> <span><img
-										class="comment" src="../../img/comment.png"></span>
+										<span><img class="siren" src="../../img/siren.png"></span>
+										<h5 class="post-title card-title">
+											<a href="/include/community/dailyDetail?communityNum=${community.communityNum }">${community.user.userNickname }사용자닉네임</a>
+										</h5>
+										<div class="post-text card-text">
+											<p class="post-text card-text">${community.communityTitle }</p>
+										</div>
+									<div class="comment-img">
+										<span><img class="emptyHeart"
+											src="../../img/emptyHeart.png"></span> <span><img
+											class="comment" src="../../img/comment.png"></span>
+									</div>
 								</div>
 
 							</div>
