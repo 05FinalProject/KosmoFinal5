@@ -71,6 +71,13 @@ public class ApiController {
 			
 		}
 		
+		//agency병원 검색기능
+		@RequestMapping("/agencyHospitalSearch")
+		public List<AgencyVO> agencyHospitalSearch(AgencyVO vo){
+					
+			return aService.agencyHospitalSearch(vo);
+					
+				}	
 	
 	//보내는 매세지를 db에 저장하기
 	@RequestMapping("/saveMessage")

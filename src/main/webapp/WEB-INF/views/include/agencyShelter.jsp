@@ -214,7 +214,7 @@ $(function(){
        if(page == $(this).find('a').text()){
           $(this).addClass('active')
        }
-       //console.log(e.text())
+      
     })
  })
 

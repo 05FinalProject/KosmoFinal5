@@ -94,16 +94,10 @@
                         ${shelter.abGender} 
                         </p>
                         
-                        <div class="d-flex justify-content-between post-meta mt-4">
-                            <div class="author-meta">
-                                <img src="../pictures/placeholder/32x32.svg" class="img-fluid rounded-circle mr-1 w-auto" alt="Author">
-                                By: <a>작성자</a>
-                            </div>
-                           
-                        </div>
-                        
-                      <a href="/include/agencyShelterSignup?abNo=${shelter.abNo }"><input style="float: right" name="submit" type="submit" id="submit" class="btn btn-primary btn-lg text-uppercase font-weight-bold w-15x" value="입양 신청하기"></a>
-                       
+                       <div style="text-align: center;">
+                      <a href="/include/agencyShelterSignup?abNo=${shelter.abNo }"><input  name="submit" type="submit" id="submit" class="btn btn-primary btn-lg text-uppercase font-weight-bold w-15x" value="입양 신청하기"></a>
+                       </div>
+                     
                     </div>
                         </div>
                         

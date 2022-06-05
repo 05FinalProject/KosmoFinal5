@@ -160,9 +160,7 @@ ul {
 
 				     
 				     <div>
-						<img id="agencyImage" class="listing__item__pic set-bg"
-							src="${vo.agencyImage}" />
-						<div class="listing__item__pic__btns">
+				     <div class="listing__item__pic__btns">
 							<a href="#"><span class="icon_zoom-in_alt"></span></a> <a
 								href="#"><span class="icon_heart_alt"></span></a>
 						</div>
@@ -171,7 +169,7 @@ ul {
 
 
 						<div class="listing__item__text__inside">
-							<a href="/include/agencyCafeDetail?agencyNum=${vo.agencyNum }"><h5>${vo.agencyName }</h5></a>
+							<a href="/include/agencyHospitalDetail?agencyNum=${vo.agencyNum }"><h5>${vo.agencyName }</h5></a>
 							<div class="listing__item__text__rating">
 								<!-- 이쪽에 별 대신 맛평가 들어가야함-->
 								<div class="listing__item__rating__star">
@@ -202,7 +200,7 @@ ul {
 
 			<div class="nav-links " >
 				<c:set  var="recordsCnt" value="${count}" />
-				<c:set  var="jspFile" value="agencyCafe?" />
+				<c:set  var="jspFile" value="agencyHospital?" />
 				<c:set  var="perpage" value="11" />
 			</div>
 
@@ -411,7 +409,7 @@ ul {
 
 							$
 									.ajax({
-										url : '/api/agencyCafeSearch',
+										url : '/api/agencyHospitalSearch',
 										data : {
 											agencyName : $('.search2').val()
 										},
@@ -425,7 +423,7 @@ ul {
 														$('.listing__list')
 																.append(
 																		'<div class="listing__item"><div>'
-																				+ '<img id="agencyImage" class="listing__item__pic set-bg" src="'+ d.agencyImage +'" />'
+																				//+ '<img id="agencyImage" class="listing__item__pic set-bg" src="'+ d.agencyImage +'" />'
 																				+ ' <div class="listing__item__pic__btns">'
 																				+ '  <a href="#"><span class="icon_zoom-in_alt"></span></a>'
 																				+ ' <a href="#"><span class="icon_heart_alt"></span></a>'
