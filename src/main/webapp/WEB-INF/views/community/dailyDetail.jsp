@@ -52,7 +52,7 @@
 
 #siren {
 	background: none;
-	width: 40px;
+	width: 30px;
 	border: none;
 	float: right;
 }
@@ -97,6 +97,27 @@ information-content {
 #fa-user-check {
 	margin-left:2%;
 }
+
+.modal{
+	position:fixed; width:100%; height:100%; z-index: 1000; background: rgba(0,0,0,0.8); top:0; left:0; display:none;
+}
+
+.modal_content{
+
+	width:28%;
+	background:#fff; border-radius:20px;
+	position:fixed; top:50%; left:50%;
+
+	text-align:center;
+	box-sizing:border-box;
+	padding:74px 0;
+	line-height:30px;
+	cursor:pointer;
+	display:flex;
+	position: absolute;
+	transform: translate(-50%, -50%);
+}
+
 </style>
 
 </head>
@@ -105,7 +126,6 @@ information-content {
 <%@include file="../include/Header.jsp"%>
 
 <body>
-
 	<div id="total">
 		<form action="updateCommunity" method="post">
 			<input name="communityNum" type="hidden"
@@ -131,11 +151,78 @@ information-content {
 							<div class="communityContent">${community.communityContent }</div>
 							<div id="etc">
 								<small><span>${community.communityInsertdate }</span></small>
-								<button id="siren">
+								<%--<button id="siren" data-toggle="modal" data-target="#staticBackdrop">
 									<img src="../../img/siren.png">
-								</button>
+								</button>--%>
+								<span><img id="siren" class="siren" src="../../img/siren.png"></span>
 							</div>
 						</div>
+
+						<!-- 모달 신고창 띄우기 ************************************************* -->
+						<div class="modal" >
+							<div class="modal_content"
+								 title="클릭하면 창이 닫힙니다." style="padding-top: 20px;padding-bottom: 20px;">
+
+								<div class="col-12 mt-4 mt-lg-0">
+
+									<button type="button" class="close">
+										<span aria-hidden="true">×</span>
+										<span class="sr-only">Close</span>
+									</button>
+
+									<h4>게시글 신고하기</h4>
+
+									<div class="widget-sidebar pet-sidebar">
+
+
+										<div class="padding-6">
+											<div class="gen-after-report">
+												<div class="gen-extra-report">
+
+													<ul>
+
+														<li>
+															<div style="float: left">신고 작성자:</div>
+															<div style="float: left">홍길동</div>
+														</li>
+														<br>
+
+														<li>
+															<div style="float: left">신고 내용:</div><br>
+															<div style="float: center">Streamlab is a long established fact that a reader will be distracted by the readable content of a page when Streamlab at its layout. The point of using Lorem Streamlab is that it has a more-or-less normal distribution of Streamlab as opposed Streamlab</div>
+														</li>
+
+
+													</ul>
+												</div>
+											</div>
+										</div>
+
+										<div id="water" >
+											<div class="form-group">
+												<select class="form-control" style="text-align-last:center" >
+													<option >게시글 도배</option>
+													<option>욕설/비방</option>
+													<option>음란성</option>
+													<option>광고/홍보성</option>
+													<option>개인정보 유출</option>
+													<option>저작권 불법 도용</option>
+													<option>기타</option>
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<button type="submit" id="btn1" class="btn btn-primary btn-block font-weight-bold text-uppercase">
+										신고하기
+									</button>
+
+								</div>
+							</div>
+
+						</div>
+
+						<!-- 모달창 테이블 끝 ******************************************************** -->
 						<hr>
 
 						<!-- 댓글리스트 출력 -->
@@ -190,7 +277,16 @@ information-content {
 
 </body>
 
+<script type="text/javascript">
+	$(".siren").click(function(){
+		$(".modal").fadeIn();
+	});
 
+	$(".close").click(function(){
+		$(".modal").fadeOut();
+	});
+
+</script>
 
 <!-- 템플릿2 -->
 <!-- Links of JS files -->
