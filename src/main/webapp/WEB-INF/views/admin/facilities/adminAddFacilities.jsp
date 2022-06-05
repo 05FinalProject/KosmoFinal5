@@ -164,7 +164,7 @@
 							</div>
 
 							<div class="modal-footer">
-								<button type="submit" class="btn btn-secondary m-2 btn-success"
+								<button type="submit" class="btn btn-secondary m-2 btn-success swalDefaultSuccess"
 										id="btnInsert">등록</button>
 								<button type="button" class="btn btn-secondary m-2 btn-danger"
 										id="btnCancle" data-dismiss="modal">취소</button>
@@ -229,10 +229,21 @@
 <script src="/admin/dist/js/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/admin/dist/js/pages/dashboard.js"></script>
+
+<!-- 추가한 스크립트 (사이드바 클릭시 클래스 추가, 카카오 우편번호) -->
 <script type="text/javascript">
 	$('#facilities').addClass('menu-is-opening')
 	$('#facilities').addClass('menu-open')
 	$('#addFacilities').addClass('active')
+
+	$(function () {
+		$('.swalDefaultSuccess').click(function() {
+			Toast.fire({
+				icon: 'success',
+				title: '시설이 등록되었습니다.'
+			})
+		});
+	})
 </script>
 <script
 		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
