@@ -5,41 +5,89 @@
 <link rel="stylesheet" href="/walk/stopwatch.css" />
 <head>
 <meta charset="utf-8" />
-<title>geolocation으로 마커 표시하기</title>
+<title>산책하기</title>
 <link
 	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
 	rel="stylesheet"
 	integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
 	crossorigin="anonymous" />
 <script src="/js/jquery.min.js?ver=3.6.0"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<style>
+.mapContainer {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+#map {
+	width: 100%;
+	height: 100%;
+}
+
+.walkTimer {
+	position: fixed;
+	z-index: 10;
+	bottom:50px;
+	/* left:45%; */
+	width:100%;
+}
+#box{
+	width:100%;
+}
+
+/* #timerBox{
+	width:100%
+} */
+/* #startbtn{
+	width:500px;
+} */
+
+#stopbtn{
+	width:10%;
+}
+.walk-container{
+	display:flex;
+	width:100%;
+	/* margin-left:0.6%; */
+	justify-content:center;
+	/* padding-top: 3.55%  
+	 */
+}
+
+
+</style>
+ <link rel="stylesheet" href="/walk/button.css" />
 </head>
 <body>
-	<p style="margin-top: -12px">
-		<b>Chrome 브라우저는 https 환경에서만 geolocation을 지원합니다.</b> 참고해주세요.
-	</p>
-	<div id="map" style="width: 100%; height: 350px"></div>
-	<form action="walk" method="post">
-		<input name="walkLon" id="walk-path-lon" value="" /> 
-		<input name="walkLat" id="walk-path-lat" value="" /> 
-		<input name="walkTime" id="walk-time" value="" />
-		<input name="walkStart" id="walk-start" />
-		<input name="walkEnd" id="walk-end" />
-		<input name="walkDistance" id="walk-distance" />
-			
-		<button type="submit">text</button>
-	</form>
-	<div class="walkTimer">
-		<div id="box" class="box">
-			<div id="timerBox" class="timerBox">
-				<div id="time" class="time">00:00:00</div>
-			</div>
-			<div class="btnBox">
-				<i id="startbtn" class="fa fa-play" aria-hidden="true"></i> <i
-					id="pausebtn" class="fa fa-pause" aria-hidden="true"></i> <i
-					id="stopbtn" class="fa fa-stop" aria-hidden="true"></i>
+<div class="mapContainer" id="map"></div>
+	<form id="frm" action="walk" method="post">
+		<div class="row">
+			<div class="walkTimer">
+				<div id="box" class="box"> 
+				<div class="walk-container">
+					<button type="button" id="startbtn" class="btn-gradient bg-dark block">산책시작</button>
+				</div>
+					<div class="walk-container bg-white">
+						<input name="walkDistance" id="walk-distance" />
+						<button type="submit" id="stopbtn" class="btn-gradient bg-dark block">산책종료</button>
+						<div id="timerBox" class="bg-white timerBox">
+							<div id="time" class="time">00:00:00</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
+
+		<input name="walkLon" id="walk-path-lon" value="" type="hidden"/> 
+		<input name="walkLat" id="walk-path-lat" value="" type="hidden"/> 
+		<input name="walkTime" id="walk-time" value="" type="hidden"/> 
+		<input name="walkStart" id="walk-start" type="hidden"/>
+		<input name="walkEnd" id="walk-end" type="hidden"/> 
+		<input name="walkDistance" id="walk-distance" type="hidden"/>
+	</form>
+
 
 
 
