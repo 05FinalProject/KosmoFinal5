@@ -191,8 +191,8 @@
 															<th>${pet.petAge}세</th>
 														</tr>
 														<tr>
-															<th>중성화 :</th>
-															<th>
+															<th>중성화 : </th>
+															<th>&nbsp;
 															
 															<c:choose>
 															<c:when test="${pet.petNeutering == 'Y'}">

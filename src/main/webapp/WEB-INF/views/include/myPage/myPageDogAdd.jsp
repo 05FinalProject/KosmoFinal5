@@ -60,6 +60,21 @@
 	href="/css/magnific-popup.min.css?ver=1.1.0" type="text/css"
 	media="all">
 <link rel="stylesheet" href="../../signUpLogin/css/petStyle.css">
+<style>
+.form-control2{
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 200;
+    line-height: 1.5;
+    color: #212121;
+    background-color: #fafafa;
+    background-clip: padding-box;
+    border: 1px solid #fafafa;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+</style>
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed "
@@ -75,12 +90,14 @@
 						data-widget="treeview" role="menu" data-accordion="false">
 
 						<!-- 마이 프로필 -->
-						<li class="nav-item"><a href="/include/myPage/myPageProfile" class="nav-link">
+						<li class="nav-item"><a href="/include/myPage/myPageProfile"
+							class="nav-link">
 								<p>마이 프로필</p>
 						</a></li>
 
 						<!-- 나의 게시글 -->
-						<li class="nav-item"><a href="/include/myPage/myPageBoard" class="nav-link">
+						<li class="nav-item"><a href="/include/myPage/myPageBoard"
+							class="nav-link">
 								<p>나의 게시글</p>
 						</a></li>
 
@@ -116,10 +133,10 @@
 
 		<section>
 			<!-- Default box -->
-			<form method="post" action="petAdd" id="petFrm" name="petFrm">
+			<form method="post" action="pet_Add" id="petFrm" name="pet_Frm">
 				<div class="card-solid mx-auto" style="width: 80%;">
 					<div class="card-body">
-						<div class="row" style="margin-top: 5%;">
+						<div class="row" style="margin: 5%;">
 
 
 							<div class="col-12 col-sm-7">
@@ -134,7 +151,8 @@
 												<p class="message">Drag files to upload</p>
 												<img src="" alt="미리보기 이미지" class="preview">
 											</div>
-											<label class="file-label" for="chooseFile">이미지</label> <input class="file" id="chooseFile" type="file"
+											<label class="file-label" for="chooseFile">이미지</label> <input
+												class="file" id="chooseFile" type="file"
 												onchange="dropFile.handleFiles(this.files)"
 												accept="image/png, image/jpeg, image/gif">
 										</div>
@@ -146,41 +164,42 @@
 
 
 							<div class="col-12 col-sm-5">
-								<input type="text" placeholder="이름" id="petName">
+								<label for="userEmail"><span
+									class="error_box"></span></label> 
+									<input type="text" class="form-control2" id="petName" name="petName" placeholder="이름">
 								<hr>
 								<div class="btn-group btn-group-toggle" data-toggle="buttons">
 									<table>
 										<tr>
 											<th>견&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;종 :</th>
 											<th style="height: 50%;"><select class="form-controller"
-												style="float: left;">
-													<c:forEach var="vo" items="${kindList}">
-														<option>${vo.dogKind}</option>
+												style="float: left;" id="petVariety">
+													<c:forEach var="pvo" items="${kindList}">
+														<option>${pvo.dogKind}</option>
 													</c:forEach>
 
 											</select></th>
 										</tr>
 										<tr>
 											<th>몸무게 :</th>
-											<th><input type="text" placeholder="kg" id="petWeight">kg</th>
+											<th style="height:1px; padding:0px;">
+											<input type="text" class="form-control2" id="petWeight" name="petWeight" style="height:30px; padding:0px;" placeholder="kg">
+											</th>
 										</tr>
 										<tr>
 											<th>성별 :</th>
-											<th><label class="btn btn-default text-center active"
-												value="M"> 남아 <br> <i
-													class="fas fa-user fa text-blue"></i>
-											</label> <label class="btn btn-default text-center" value="Y">
-													여아 <br> <i class="fas fa-user fa text-red"></i>
+											<th><label class="btn btn-default text-center active">
+													남아 <br> <i class="fas fa-user fa text-blue"></i>
+											</label> <label class="btn btn-default text-center"> 여아 <br>
+													<i class="fas fa-user fa text-red"></i>
 											</label></th>
 										</tr>
 										<tr>
 											<th>중성화 :</th>
-											<th><label class="btn btn-default text-center active"
-												value="Y"> 했어요 <br> <i
-													class="fas fa-dot-circle fa text-green"></i>
-											</label> <label class="btn btn-default text-center" value="N">
-													안했어요 <br> <i
-													class="fas fa-times-circle fa text-orange"></i>
+											<th><label class="btn btn-default text-center active">
+													했어요 <br> <i class="fas fa-dot-circle fa text-green"></i>
+											</label> <label class="btn btn-default text-center"> 안했어요 <br>
+													<i class="fas fa-times-circle fa text-orange"></i>
 											</label></th>
 										</tr>
 
@@ -189,12 +208,13 @@
 
 
 								<div class="mt-4">
-									<div class="btn btn-primary btn-flat btn-aadd ">
-										<input type="submit" value="등록">
+									<div class="btn btn-primary btn-flat btn-add" id="petAdd">
+										등록 <input type="hidden">
 									</div>
 
-									<div class="btn btn-danger btn-flat float-right">
-										<input type="button" value="취소">
+									<div class="btn btn-danger btn-flat float-right"
+										onclick="location.href='/include/myPage/myPageDogList'">
+										<input type="hidden">취소
 									</div>
 								</div>
 							</div>
@@ -261,6 +281,7 @@
 	<script type="text/javascript"
 		src="/js/magnific-popup.min.js?ver=1.1.0"></script>
 	<script type="text/javascript" src="/js/custom-theme.js?ver=1.0.0"></script>
+	<script type="text/javascript" src="../../signUpLogin/js/petStyle.js"></script>
 
 
 	<script type="text/javascript">
@@ -278,77 +299,7 @@
 			$(".btn-modify").mouseout(function() {
 				$(".btn-modify").css("background-color", "#F8b03a");
 			});
-			/* 프로필사진 업로드 */
-			$(".btn-add").click(function(e) {
-				e.preventDefault();
-				$("#file").click();
-			});
-
 			
-			function DropFile(dropAreaId, fileListId) {
-				  let dropArea = document.getElementById(dropAreaId);
-				  let fileList = document.getElementById(fileListId);
-
-				  function preventDefaults(e) {
-				    e.preventDefault();
-				    e.stopPropagation();
-				  }
-
-				  function highlight(e) {
-				    preventDefaults(e);
-				    dropArea.classList.add("highlight");
-				  }
-
-				  function unhighlight(e) {
-				    preventDefaults(e);
-				    dropArea.classList.remove("highlight");
-				  }
-
-				  function handleDrop(e) {
-				    unhighlight(e);
-				    let dt = e.dataTransfer;
-				    let files = dt.files;
-
-				    handleFiles(files);
-
-				    const fileList = document.getElementById(fileListId);
-				    if (fileList) {
-				      fileList.scrollTo({ top: fileList.scrollHeight });
-				    }
-				  }
-
-				  function handleFiles(files) {
-				    files = [...files];
-				    // files.forEach(uploadFile);
-				    files.forEach(previewFile);
-				  }
-
-				  function previewFile(file) {
-				    console.log(file);
-				    renderFile(file);
-				  }
-
-				  function renderFile(file) {
-				    let reader = new FileReader();
-				    reader.readAsDataURL(file);
-				    reader.onloadend = function () {
-				      let img = dropArea.getElementsByClassName("preview")[0];
-				      img.src = reader.result;
-				      img.style.display = "block";
-				    };
-				  }
-
-				  dropArea.addEventListener("dragenter", highlight, false);
-				  dropArea.addEventListener("dragover", highlight, false);
-				  dropArea.addEventListener("dragleave", unhighlight, false);
-				  dropArea.addEventListener("drop", handleDrop, false);
-
-				  return {
-				    handleFiles
-				  };
-				}
-
-				const dropFile = new DropFile("drop-file", "files");
 		});
 	</script>
 </body>
