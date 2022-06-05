@@ -37,6 +37,7 @@ public class LoginServiceImpl implements LoginService {
 		return Img.findByUserEmail(pRimgname).get(0);
 	}
 
+	/* DB에 회원의 반려견 리스트 가져오기 */
 	@Override
 	public List<PetVO> findByPetNum(String petNum) {
 		return (List<PetVO>) pet.findAll();
