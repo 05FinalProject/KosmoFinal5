@@ -57,6 +57,13 @@
 	color: white;
 }
 </style>
+
+ <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.15.2/js/all.js"
+      integrity="sha384-vuFJ2JiSdUpXLKGK+tDteQZBqNlMwAjhZ3TvPaDfN9QmbPb7Q8qUpbSNapQev3YF"
+      crossorigin="anonymous"
+    ></script>
 </head>
 <body class="home page page-template-template-lana-editor">
 
@@ -118,10 +125,13 @@
 						href="/chating/friend?count=1">채팅방</a></li>
 
 				</ul>
-				<form class="search-widget d-none d-xl-inline-flex"
-					style="background-color: white; border-radius: 10px;">
-					<h1 style="color: black; width: 18 0px; text-align: center;">날씨</h1>
-				</form>
+			
+				<div class="weather bg-white">
+					<div class="iconc"></div>
+				<!-- 	<div class="CurrIcon"></div>
+					<div class="CurrTemp"></div>
+					<div class="City"></div> -->
+				</div>
 
 				<div class="button-nav-widget d-none d-xl-inline-flex"
 					style="margin-right: 3%;">
@@ -168,6 +178,8 @@
 
 		</nav>
 	</header>
+	
+	<div id="map" style="width: 100%; height: 350px; display: none"></div>
 
 
 	<script type="text/javascript" src="/js/jquery.min.js?ver=3.6.0"></script>
@@ -218,6 +230,12 @@
 			
 		});
 	</script>
+	
+	<script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f5b6c107c52e63373c42ed42d662f260"
+    ></script>
+    <script type="text/javascript" src="/main/weather.js"></script>
 
 
 </body>
