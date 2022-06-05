@@ -79,6 +79,13 @@ information-content {
 .comment-btn {
 	width: 15%;
 }
+
+.friend-plus {
+	dispaly:flex;
+	flex-direction: row;
+	justify-content: left;
+}
+
 </style>
 
 </head>
@@ -102,13 +109,14 @@ information-content {
 
 				<div class="col-lg-6 col-md-12">
 					<div class="products-details-content">
-						<div id="userProfile">
-						<div>
+						<div id="userProfile">						
+							
 							<h3>${community.user.userNickname }</h3>
-							<a><i class="fa-solid fa-user-plus"></i></a>
-							</div>
-							<hr>
+							
+							<a><i class="fa-solid fa-user-plus"></i></a>	
+											
 						</div>
+							<hr>
 
 						<div>
 							<div class="communityContent">${community.communityContent }</div>
@@ -128,7 +136,6 @@ information-content {
 									class="rounded-circle" alt="image">
 								<h6>댓글 작성자 닉네임</h6>
 								<p>댓글 내용 출력</p>
-
 							</div>
 						</div>
 						<br />
