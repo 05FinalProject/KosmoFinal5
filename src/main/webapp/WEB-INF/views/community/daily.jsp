@@ -95,7 +95,7 @@
 
 <body class="archive grid-4-columns">
 
-	<%@include file="../Header.jsp"%>
+	<%@include file="../include/Header.jsp"%>
 
 	<main class="main container">
 		<div class="write-btn">
@@ -111,16 +111,16 @@
 						<div class="blog-grid-col col-12 col-md-6 col-lg-3">
 							<div id="post-1"
 								class="post type-post post-1 card post-card post-grid-card h-100">
-								<a href="/include/community/dailyDetail?communityNum=${community.communityNum }">
+								<a href="/community/dailyDetail?communityNum=${community.communityNum }">
 								<img class="card-img-top img-fluid"
 									src="../../pictures/placeholder/530x400.svg" alt="Post"></a>
 								<div class="card-body">
 									<ul class="post-meta">
-										<li><a href="/include/community/dailyDetail?communityNum=${community.communityNum }">${community.communityInsertdate }</a></li>
+										<li><a href="/community/dailyDetail?communityNum=${community.communityNum }">${community.communityInsertdate }</a></li>
 									</ul>
 										<span><img class="siren" src="../../img/siren.png"></span>
 										<h5 class="post-title card-title">
-											<a href="/include/community/dailyDetail?communityNum=${community.communityNum }">${community.user.userNickname }</a>
+											<a href="/community/dailyDetail?communityNum=${community.communityNum }">${community.user.userNickname }</a>
 
 
 										
@@ -153,7 +153,7 @@
 			</div>
 
 			<!-- include 페이징  jsp파일  -->
-			<%@include file="../paging.jsp"%>
+			<%@include file="../include/paging.jsp"%>
 		</nav>
 				</div>
 			</div>
@@ -163,7 +163,7 @@
 
 
 
-	<%@include file="../Footer.jsp"%>
+	<%@include file="../include/Footer.jsp"%>
 
 	<script type="text/javascript" src="/js/jquery.min.js?ver=3.6.0"></script>
 	<script type="text/javascript" src="/js/popper.min.js?ver=1.16.1"></script>

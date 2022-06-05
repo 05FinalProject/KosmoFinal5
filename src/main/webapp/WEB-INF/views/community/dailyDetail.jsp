@@ -27,6 +27,8 @@
 <link rel="stylesheet" href="/community/css/owl.theme.default.min.css">
 <link rel="stylesheet" href="/community/css/style.css">
 <link rel="stylesheet" href="/community/css/responsive.css">
+<script src="https://kit.fontawesome.com/23b331c6f8.js"
+	crossorigin="anonymous"></script>
 
 
 
@@ -77,12 +79,19 @@ information-content {
 .comment-btn {
 	width: 15%;
 }
+
+.friend-plus {
+	dispaly:flex;
+	flex-direction: row;
+	justify-content: left;
+}
+
 </style>
 
 </head>
 
 
-<%@include file="../Header.jsp"%>
+<%@include file="../include/Header.jsp"%>
 
 <body>
 
@@ -100,13 +109,14 @@ information-content {
 
 				<div class="col-lg-6 col-md-12">
 					<div class="products-details-content">
-						<div id="userProfile">
+						<div id="userProfile">						
+							
 							<h3>${community.user.userNickname }</h3>
-							<!-- <p class="location">
-							<i class="ri-map-pin-line"></i> 4825 Poplar Lane Miami, FL
-						</p> -->
-							<hr>
+							
+							<a><i class="fa-solid fa-user-plus"></i></a>	
+											
 						</div>
+							<hr>
 
 						<div>
 							<div class="communityContent">${community.communityContent }</div>
@@ -126,7 +136,6 @@ information-content {
 									class="rounded-circle" alt="image">
 								<h6>댓글 작성자 닉네임</h6>
 								<p>댓글 내용 출력</p>
-
 							</div>
 						</div>
 						<br />
@@ -150,15 +159,16 @@ information-content {
 				</div>
 			</form>
 		</div> -->
-		<form class="mt-5 ">
+		<form class="mt-5">
 			<div class="input-group input-group-lg">
 				<input type="email"
 					class="form-control bg-transparent border-primary text-white text-uppercase"
-					placeholder="Email" aria-label="Email" aria-describedby="subscribe">
+					placeholder="댓글을 입력해주세요." aria-label="Email"
+					aria-describedby="subscribe">
 				<div class="input-group-append">
 					<button type="submit" id="subscribe"
 						class="btn btn-primary text-uppercase font-weight-bold">
-						<span class="d-none d-sm-inline">Subscribe</span> <i
+						<span class="d-none d-sm-inline">등록</span> <i
 							class="fas fa-paper-plane d-inline d-sm-none"></i>
 					</button>
 				</div>
@@ -167,7 +177,7 @@ information-content {
 	</div>
 
 
-	<%@include file="../Footer.jsp"%>
+	<%@include file="../include/Footer.jsp"%>
 
 </body>
 

@@ -51,7 +51,7 @@
 
 </head>
 
-<%@include file="../Header.jsp"%>
+<%@include file="../include/Header.jsp"%>
 
 <body
 	class="archive post-type-archive post-type-archive-lana_story grid-3-columns">
@@ -67,7 +67,7 @@
 						<!-- 각각의 박스 -->
 						<%-- <c:forEach var="friendFind" items="${sessionScope.userRandom }"> --%>
 						<c:choose>
-						<c:when test="${param.page*9-1>count-1 }">
+						<c:when test="${param.page*9-1>count-1}">
 							<c:forEach var="i" begin="${param.page*9-9 }" end="${count-1}">
 							<div class="story-grid-col col-12 col-md-6 col-lg-4">
 							<a id="post-1"
@@ -141,7 +141,7 @@
 							</div>
 
 							<!-- include 페이징  jsp파일  -->
-							<%@include file="../paging.jsp"%>
+							<%@include file="../include/paging.jsp"%>
 						</nav>
 					</div>
 				</div>
@@ -164,7 +164,7 @@
 
 </body>
 
-<%@include file="../Footer.jsp"%>
+<%@include file="../include/Footer.jsp"%>
 
 
 </html>

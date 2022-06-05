@@ -13,36 +13,37 @@ import com.example.domain.UserVO;
 import com.example.service.friendService.FriendService;
 
 @Controller
-@RequestMapping("/include")
+@RequestMapping("/friend")
 public class FriendController {
 	
 	@Autowired
 	private FriendService service;
 
-	@RequestMapping("/friend/friendList")
+	@RequestMapping("/friendList")
 	public void friendList() {
 		
 	}
 	
-	@RequestMapping("/friend/friendBlockList")
+	@RequestMapping("/friendBlockList")
 	public void friendBlockList() {
 		
 	}
 	
-	@RequestMapping("/friend/friendProfile")
+	@RequestMapping("/friendProfile")
 	public void friendProfile(Model m) {
 		m.addAttribute("kindList", service.getDogList());
 	}
 
-	@RequestMapping("/friend/friendRequestList")
+	@RequestMapping("/friendRequestList")
 	public void friendRequestList() {
 
 	}
+
 	
 	
-	@RequestMapping(value="/friend/friendFind", method = RequestMethod.GET)
+	@RequestMapping(value="/friendFind", method = RequestMethod.GET)
 	public void friendFind(Model m, HttpSession session) {
-		int cnt = service.getUserCount()-1;  //자기 빼고 숫자 세야하기 때문(레코드 수)
+		int cnt = service.getUserCount()-1;  //자기 빼고 숫자 세야하기 때문에 -1(레코드 수)
 		if(cnt>18) {
 			cnt=18;
 		} 

@@ -194,7 +194,7 @@ header .subHeader .headerInner .gnb-bar .gnb-list.hover_menu.on {
 
 </head>
 
-<%@include file="../Header.jsp"%>
+<%@include file="../include/Header.jsp"%>
 
 <body class="page page-template-default">
 
@@ -256,7 +256,7 @@ header .subHeader .headerInner .gnb-bar .gnb-list.hover_menu.on {
 	</main>
 
 
-	<%@include file="../Footer.jsp"%>
+	<%@include file="../include/Footer.jsp"%>
 
 	<script type="text/javascript" src="../js/jquery.min.js?ver=3.6.0"></script>
 	<script type="text/javascript" src="../js/popper.min.js?ver=1.16.1"></script>
