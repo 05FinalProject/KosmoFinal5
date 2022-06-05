@@ -89,7 +89,7 @@
 						id="page-dropdown" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false">커뮤니티</a>
 						<ul class="dropdown-menu" aria-labelledby="page-dropdown">
-							<li><a class="dropdown-item" href="/include/community/daily">일상공유</a></li>
+							<li><a class="dropdown-item" href="/community/daily">일상공유</a></li>
 							<li><a class="dropdown-item" href="#">자원봉사</a></li>
 							<li><a class="dropdown-item" href="#">가정분양</a></li>
 							<li><a class="dropdown-item" href="#">물품나눔</a></li>

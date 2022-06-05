@@ -41,7 +41,7 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed"
 	style="background-color: #f4f6f9;">
-	<%@include file="../Header.jsp"%>
+	<%@include file="../include/Header.jsp"%>
 	<div class="wrapper">
 		<!-- Main Sidebar Container -->
 		<!-- Sidebar -->
@@ -146,7 +146,7 @@
 		</div>
 	</div>
 	<!-- ./wrapper -->
-	<%@include file="../Footer.jsp"%>
+	<%@include file="../include/Footer.jsp"%>
 
 	<!-- jQuery -->
 	<script src="../../admin/plugins/jquery/jquery.min.js"></script>
