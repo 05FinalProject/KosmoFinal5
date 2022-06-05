@@ -152,7 +152,7 @@
 
 
 <body>
-	<%@include file="../Header.jsp"%>
+	<%@include file="../include/Header.jsp"%>
 		
 
 	<div class="content-wrapper">
@@ -303,7 +303,7 @@
 
 </body>
 
-<%@include file="../Footer.jsp"%>
+<%@include file="../include/Footer.jsp"%>
 
 <script src="/community/js/jquery.min.js"></script>
 <script src="/community/js/bootstrap.bundle.min.js"></script>

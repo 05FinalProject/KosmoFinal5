@@ -56,4 +56,9 @@ public class CommunityServiceImpl implements CommunityService {
 		return communityRepo.countCommunityRecord();
 	}
 	//*******************************************************************
+	
+	//일상공유 게시글 수정
+	public void updateCommunity(CommunityVO vo) {
+		/* communityRepo.updateCommunity(); */
+	}
 }

@@ -23,4 +23,7 @@ public interface CommunityService {
 	
 	public int countCommunityRecord();
 	//**************************************************************
+	
+	//일상공유 게시글 수정
+	/* public void updateCommunuity(); */
 }
