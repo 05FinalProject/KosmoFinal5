@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.example.domain.CommentVO;
 import com.example.domain.UserVO;
 
 @Controller
@@ -51,6 +52,15 @@ public class CommunityController {
 	public String dailyDetail(CommunityVO vo, Model m) {
 		System.out.println("너오니?5555555555555555");
 		m.addAttribute("community", c_service.getCommunity(vo));
+		
+		
+		//일상공유 댓글리스트
+		List<CommentVO> commentList = c_service.commentList(vo.getCommunityNum());
+		m.addAttribute("commentList", commentList);
+		
+		
+		
+		
 		return "/community/dailyDetail";
 	}
 
@@ -111,5 +121,22 @@ public class CommunityController {
 		c_service.updateCommunity(communityNum, communityTitle, communityContent);
 		return "yes";
 	}
+	
+	//일상공유페이지 댓글 작성
+	@RequestMapping(value="/writeCommunitycomment", method = RequestMethod.POST)
+	public String communityComment(Integer communityNum, String userEmail, String commentContent) {
+		System.out.println("communityNum" + communityNum);
+		System.out.println("userEmail" + userEmail);
+		System.out.println("commentContent" + commentContent);
+		
+		c_service.writeCommunitycomment(communityNum, userEmail, commentContent);
+		
+		return "redirect:/community/dailyDetail?communityNum=" + communityNum;
+	}
+	
+	
+	
+	
+	
 	
 }

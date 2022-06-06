@@ -9,7 +9,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.example.dao.CommentRepository;
 import com.example.dao.UserRepository;
+import com.example.domain.CommentVO;
+import com.example.domain.UserVO;
 
 @Service
 public class CommunityServiceImpl implements CommunityService {
@@ -20,6 +23,9 @@ public class CommunityServiceImpl implements CommunityService {
 	
 	@Autowired
 	private UserRepository userRepo;
+	
+	@Autowired
+	private CommentRepository commentRepo;
 	
 	/*
 	 * public List<ImgFileVO> saveDaily(String p_imgname, String p_rimgname) {
@@ -73,5 +79,26 @@ public class CommunityServiceImpl implements CommunityService {
 	//일상공유 게시글 삭제
 	public void deleteCommunity(Integer communityNum) {
 		communityRepo.deleteById(communityNum);
+	}
+	
+	//일상공유 댓글 작성
+	public void writeCommunitycomment(Integer communityNum, String userEmail, String commentContent) {
+		CommentVO commentVo = new CommentVO();
+		Date date = new Date();
+		
+		commentVo.setUser(userRepo.findById(userEmail).get());
+		commentVo.setCommunity(communityRepo.findById(communityNum).get());
+		commentVo.setCommentContent(commentContent);
+		commentVo.setCommentInsertdate(date);
+		
+		
+		commentRepo.save(commentVo);
+		
+	}
+	
+	//일상공유 댓글 리스트
+	public List<CommentVO> commentList(Integer communityNum) {
+		
+		return commentRepo.findByCommunity(communityRepo.findById(communityNum).get());
 	}
 }

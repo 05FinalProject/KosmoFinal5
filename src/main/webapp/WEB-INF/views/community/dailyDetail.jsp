@@ -184,7 +184,7 @@ small {
 												value="수정" />
 										</div>
 										<div class="item" id="item2">
-											<a href="/community/deleteCommunity?communityNum=${community.communityNum }"><input type="button" id="deleteBtn" value="삭제"/></a>						
+											<a><input type="button" id="deleteBtn" value="삭제"/></a>						
 										</div>
 									</c:if>
 								</div>
@@ -193,15 +193,17 @@ small {
 						<hr>
 
 						<!-- 댓글리스트 출력 -->
+						<c:forEach items="${commentList }" var="comment">
 						<div class="seller-information">
 							<div class="information-content">
 								<img src="/community/images/user/user-25.jpg"
 									class="rounded-circle" alt="image">
-								<h6>댓글 작성자 닉네임</h6>
-								<p>댓글 내용 출력</p>
+								<h6>${comment.user.userNickname }</h6>
+								<p>${comment.commentContent }</p>
 							</div>
-						</div>
+						</div>		
 						<br />
+						</c:forEach>
 					</div>
 				</div>
 			</div>
@@ -222,12 +224,14 @@ small {
 				</div>
 			</form>
 		</div> -->
-		<form class="mt-5">
+		<form class="mt-5" action="/community/writeCommunitycomment" method="post">
 			<div class="input-group input-group-lg">
-				<input type="email"
-					class="form-control bg-transparent border-primary text-white text-uppercase"
-					placeholder="댓글을 입력해주세요." aria-label="Email"
-					aria-describedby="subscribe">
+			<input type="hidden" name="userEmail" value="${sessionScope.userEmail}"/>
+			<input type="hidden" name="communityNum" value="${community.communityNum}">
+				<input type="text" name="commentContent"
+					class="form-control bg-transparent border-primary text-uppercase"
+					placeholder="댓글을 입력해주세요."
+					>
 				<div class="input-group-append">
 					<button type="submit" id="subscribe"
 						class="btn btn-primary text-uppercase font-weight-bold">
@@ -304,10 +308,12 @@ $(function(){
      });
 	
 	$('#deleteBtn').on('click',function(){
+		var communityNum = "${community.communityNum }"
 		if(confirm("삭제하시겠습니까?")) {
-			
+			location.href = "/community/deleteCommunity?communityNum=" + communityNum
 		} else {
 			alert("이전 페이지로 돌아갑니다.");
+			location.href="/community/daily"
 		}
 	});
 	
