@@ -304,7 +304,11 @@ $(function(){
      });
 	
 	$('#deleteBtn').on('click',function(){
-		alert('ok');
+		if(confirm("삭제하시겠습니까?")) {
+			
+		} else {
+			alert("이전 페이지로 돌아갑니다.");
+		}
 	});
 	
 })

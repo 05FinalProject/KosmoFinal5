@@ -39,7 +39,7 @@ public class CommunityVO {
 	@Temporal(TemporalType.DATE)
 	private Date communityInsertdate;
 	
-	@Column(insertable = false,updatable = false, name="c_updatedate")
+	@Column(insertable = false, name="c_updatedate")
 	@Temporal(TemporalType.DATE)
 	private Date communityUpdatedate;
 	

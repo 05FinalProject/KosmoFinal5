@@ -61,10 +61,11 @@ public class CommunityServiceImpl implements CommunityService {
 	//일상공유 게시글 수정
 	public void updateCommunity(Integer communityNum, String communityTitle, String communityContent) {
 		CommunityVO cvo = communityRepo.findById(communityNum).get();
+		Date date = new Date();
 		
 		cvo.setCommunityTitle(communityTitle);
 		cvo.setCommunityContent(communityContent);
-		cvo.setCommunityUpdatedate(new Date());
+		cvo.setCommunityUpdatedate(date);
 		
 		communityRepo.save(cvo);
 	}
