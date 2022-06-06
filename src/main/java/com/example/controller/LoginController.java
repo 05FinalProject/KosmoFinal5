@@ -137,28 +137,30 @@ public class LoginController {
 	}
 
 	/* 반려견 정보 상세보기*/
-	@RequestMapping("/myPage/myPageDogDetail")
-	public void myDogDetail() {
-	}
+//	@RequestMapping("/myPage/myPageDogDetail")
+//	public void myDogDetail(PetVO pvo, Model m) {
+//		System.out.println(pvo.getPetNum());
+//		m.addAttribute("petNum", lservice.getPetDetail(pvo));
+//	}
 	
 	/* 반려견 추가 페이지 */
 	@RequestMapping(value="/myPage/myPageDogAdd", method=RequestMethod.GET)
-	public void myPageDogAdd(PetVO pvo) {
+	public void myPageDogAdd() {
 	}
 	
 	/* 반려견 추가 버튼 이벤트 */
-//	@RequestMapping(value="/myPage/petAdd", method=RequestMethod.POST)
-//	public String petAdd(ImgVO ivo, UserVO uvo, PetVO pvo, HttpServletRequest request, Model m) {
-//
-//		HttpSession session = request.getSession();
-//		
-//		session.getAttribute("userEmail");
-//		
-//		uvo.setUserEmail("userEmail");
-//		lservice.save(vo)
-//		
-//		return "/myPage/myPageDogList";
-//	}
+	@RequestMapping(value="/myPage/petAdd", method=RequestMethod.POST)
+	public String petAdd(PetVO pvo, UserVO vo, ImgVO ivo, HttpSession session, Model m) {
+		
+		session.setAttribute("pRimgname", "img/userImg/"+ivo.getPRimgname());
+		vo.setUserEmail(session.getAttribute("userEmail").toString());
+		
+		ivo.setUser(vo);
+		ivo.setPet(pvo);
+		lservice.petAdd(pvo);
+		
+		return "redirect:/include/myPage/myPageDogList";
+	}
 
 
 	/* 유저의 글 */
