@@ -67,29 +67,29 @@ p{
 					data-widget="treeview" role="menu" data-accordion="false" style="color:black;">
 
 					<!-- 마이 프로필 -->
-					<li class="nav-item"><a href="myPageProfile" class="nav-link">
+					<li class="nav-item"><a href="/include/myPage/myPageProfile" class="nav-link">
 							<p>마이 프로필</p>
 					</a></li>
 
 					<!-- 나의 게시글 -->
-					<li class="nav-item"><a href="myPageBoard"
+					<li class="nav-item"><a href="/include/myPage/myPageBoard"
 						class="nav-link active">
 							<p>나의 게시글</p>
 					</a></li>
 
 					<!-- 반려동물 -->
-					<li class="nav-item"><a href="myPageDogList" class="nav-link">
+					<li class="nav-item"><a href="/include/myPage/myPageDogList" class="nav-link">
 							<p>반려동물</p>
 					</a></li>
 
 					<!-- 펫친관리 -->
-					<li class="nav-item"><a href="../friend/friendList"
+					<li class="nav-item"><a href="/friend/friendList"
 						class="nav-link">
 							<p>펫친관리</p>
 					</a></li>
 
 					<!-- 친구찾기 -->
-					<li class="nav-item"><a href="../friend/friendFind"
+					<li class="nav-item"><a href="/friend/friendFind"
 						class="nav-link">
 							<p>펫친찾기</p>
 					</a></li>

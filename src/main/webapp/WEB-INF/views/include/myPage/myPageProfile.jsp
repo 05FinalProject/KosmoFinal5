@@ -55,7 +55,7 @@
 
           <!-- 마이 프로필 -->
           <li class="nav-item">
-            <a href="myPageProfile" class="nav-link active">
+            <a href="/include/myPage/myPageProfile" class="nav-link active">
               <p>
                 마이 프로필
               </p>
@@ -64,7 +64,7 @@
         
           <!-- 나의 게시글 -->
           <li class="nav-item">
-            <a href="myPageBoard" class="nav-link">
+            <a href="/include/myPage/myPageBoard" class="nav-link">
               <p>
                 나의 게시글
               </p>
@@ -73,7 +73,7 @@
 
           <!-- 반려동물 -->
           <li class="nav-item">
-            <a href="myPageDogList" class="nav-link">
+            <a href="/include/myPage/myPageDogList" class="nav-link">
               <p>
                 반려동물
               </p>

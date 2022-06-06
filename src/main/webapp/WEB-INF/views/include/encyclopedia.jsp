@@ -183,7 +183,7 @@ border: 1px solid #008000;
 			<div class="nav-links">
 				<c:set var="recordsCnt" value="${count}" />
 				<c:set var="jspFile" value="encyclopedia?" />
-				<c:set var="perpage" value="12" />
+				<c:set var="perpage" value="7" />
 			</div>
 
 			<!-- include 페이징  jsp파일  -->
@@ -241,50 +241,7 @@ border: 1px solid #008000;
 		var map = new kakao.maps.Map(container, options);
 	</script>
 
-<script type="text/javascript">
-
-  <script>
-      $("#filter-search").click(function name(params) {
-        var regex = /[^0-9.;\-]/g;
-        var result = $("#radius").val().replace(regex, "");
-        console.log(result);
-      });
-    </script>
-
-    <script>
-      const slider = document.querySelector(".items");
-      let isMouseDown = false;
-      let startX, scrollLeft;
-
-      slider.addEventListener("mousedown", (e) => {
-        isMouseDown = true;
-        slider.classList.add("active");
-
-        startX = e.pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-      });
-
-      slider.addEventListener("mouseleave", () => {
-        isMouseDown = false;
-        slider.classList.remove("active");
-      });
-
-      slider.addEventListener("mouseup", () => {
-        isMouseDown = false;
-        slider.classList.remove("active");
-      });
-
-      slider.addEventListener("mousemove", (e) => {
-        if (!isMouseDown) return;
-
-        e.preventDefault();
-        const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 1;
-        slider.scrollLeft = scrollLeft - walk;
-      });
-    </script>
-    
-    <footer class="footer bg-dark text-white">
+<footer class="footer bg-dark text-white">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2">
@@ -309,6 +266,23 @@ border: 1px solid #008000;
         </div>
     </div>
 </footer>
+    
+    <!-- 페이지 색깔 채우기 ***************** -->
+
+<script type="text/javascript">
+$(function(){
+    var page = '${param.page}'
+    $('.pagination').find('li').each(function(i,e){
+       if(page == $(this).find('a').text()){
+          $(this).addClass('active')
+       }
+      
+    })
+ })
+
+</script>
+<!-- 페이지 색깔 채우기 ***************** -->
+    
     
     
    </body>
