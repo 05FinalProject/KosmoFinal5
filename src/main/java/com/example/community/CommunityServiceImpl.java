@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.dao.UserRepository;
 
@@ -26,7 +27,7 @@ public class CommunityServiceImpl implements CommunityService {
 	 */
 	
 	//일상공유 페이지 게시글 등록
-	public void insertDaily(String userEmail, String communityTitle, String communityContent) {
+	public void insertDaily(String userEmail, String communityTitle, String communityContent, MultipartFile[] file) {
 		CommunityVO cvo = new CommunityVO();
 		Date date = new Date();
 		cvo.setUser(userRepo.findById(userEmail).get());
@@ -58,7 +59,18 @@ public class CommunityServiceImpl implements CommunityService {
 	//*******************************************************************
 	
 	//일상공유 게시글 수정
-	public void updateCommunity(CommunityVO vo) {
-		/* communityRepo.updateCommunity(); */
+	public void updateCommunity(Integer communityNum, String communityTitle, String communityContent) {
+		CommunityVO cvo = communityRepo.findById(communityNum).get();
+		
+		cvo.setCommunityTitle(communityTitle);
+		cvo.setCommunityContent(communityContent);
+		cvo.setCommunityUpdatedate(new Date());
+		
+		communityRepo.save(cvo);
+	}
+	
+	//일상공유 게시글 삭제
+	public void deleteCommunity(Integer communityNum) {
+		communityRepo.deleteById(communityNum);
 	}
 }
