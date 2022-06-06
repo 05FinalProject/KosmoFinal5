@@ -2,6 +2,7 @@ package com.example.community;
 
 import java.util.List;
 
+import com.example.domain.ReportVO;
 import org.springframework.data.domain.Pageable;
 
 import com.example.domain.AgencyVO;
@@ -26,4 +27,7 @@ public interface CommunityService {
 	
 	//일상공유 게시글 수정
 	/* public void updateCommunuity(); */
+
+	//일상공유 게시글 신고
+	public void reportCommunity(Integer communityNum, String user, String rReason);
 }

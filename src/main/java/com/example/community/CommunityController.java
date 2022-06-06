@@ -2,18 +2,23 @@ package com.example.community;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import com.example.domain.ReportVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -96,4 +101,21 @@ public class CommunityController {
 		/* c_service.updateCommunity(vo); */
 		return "redirect:/community/" + vo.getCommunityNum();
 	}
+
+	//일상공유 게시글 신고
+	//@RequestMapping(value = "/reportCommunity", method = RequestMethod.POST)
+	@PostMapping(value = "/reportCommunity")
+	public String reportCommunity(Integer communityNum, String userEmail, String rReason){
+		System.out.println("게시글 신고 컨트롤러 시작@@@@@@@@@");
+		System.out.println(communityNum);
+		System.out.println(userEmail);
+		System.out.println(rReason);
+		c_service.reportCommunity(communityNum, userEmail, rReason);
+		return "redirect:/community/daily";
+	}
+
+
+
+
+
 }

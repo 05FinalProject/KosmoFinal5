@@ -183,7 +183,7 @@ public class AgencyController {
 	//agencyCafe   리뷰작성 
 		
 		@RequestMapping(value="/insertReview", method = RequestMethod.POST)
-		public String agencyCafeUpdate(ReviewVO review,UserVO vo ,AgencyVO vv, HttpSession s) {
+		public String agencyCafeUpdate(ReviewVO review, UserVO vo ,AgencyVO vv, HttpSession s) {
 			review.setUser(vo);
 			review.setAgency(vv);
 			agencyservice.insertReview(review);

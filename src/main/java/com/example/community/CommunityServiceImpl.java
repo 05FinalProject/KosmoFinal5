@@ -4,6 +4,8 @@ package com.example.community;
 import java.util.Date;
 import java.util.List;
 
+import com.example.dao.ReportRepository;
+import com.example.domain.ReportVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -19,6 +21,9 @@ public class CommunityServiceImpl implements CommunityService {
 	
 	@Autowired
 	private UserRepository userRepo;
+
+	@Autowired
+	ReportRepository reportRepo;
 	
 	/*
 	 * public List<ImgFileVO> saveDaily(String p_imgname, String p_rimgname) {
@@ -55,10 +60,25 @@ public class CommunityServiceImpl implements CommunityService {
 	public int countCommunityRecord() {		
 		return communityRepo.countCommunityRecord();
 	}
+
+
 	//*******************************************************************
 	
 	//일상공유 게시글 수정
 	public void updateCommunity(CommunityVO vo) {
 		/* communityRepo.updateCommunity(); */
+	}
+
+	//일상공유 게시글 신고
+	@Override
+	public void reportCommunity(Integer communityNum, String user, String rReason) {
+		ReportVO vo = new ReportVO();
+		Date date = new Date();
+		vo.setCommunity(communityRepo.findById(communityNum).get()); // forigen key
+		vo.setUser(userRepo.findById(user).get()); // forigen key
+		vo.setRReason(rReason);
+		vo.setRDate(date);
+
+		reportRepo.save(vo);
 	}
 }
