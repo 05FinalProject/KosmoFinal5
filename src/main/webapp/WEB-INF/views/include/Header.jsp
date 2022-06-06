@@ -92,7 +92,7 @@
 				<ul class="navbar-nav mr-auto">
 
 					<li class="nav-item dropdown"><a
-						class="nav-links dropdown-toggle comu " href="page.html"
+						class="nav-links dropdown-toggle comu " href="#"
 						id="page-dropdown" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false">커뮤니티</a>
 						<ul class="dropdown-menu" aria-labelledby="page-dropdown">
@@ -106,7 +106,7 @@
 						</ul></li>
 
 					<li class="nav-item dropdown"><a
-						class="nav-links dropdown-toggle organi" href="page.html"
+						class="nav-links dropdown-toggle organi" href="#"
 						id="page-dropdown" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false">관련기관</a>
 						<ul class="dropdown-menu" aria-labelledby="page-dropdown">
