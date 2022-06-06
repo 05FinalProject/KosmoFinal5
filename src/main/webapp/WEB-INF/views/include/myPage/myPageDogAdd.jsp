@@ -133,7 +133,7 @@
 
 		<section>
 			<!-- Default box -->
-			<form method="post" action="pet_Add" id="petFrm" name="pet_Frm">
+			<form method="post" action="petAdd" id="petFrm" name="pet_Frm">
 				<div class="card-solid mx-auto" style="width: 80%;">
 					<div class="card-body">
 						<div class="row" style="margin: 5%;">
@@ -209,7 +209,8 @@
 
 								<div class="mt-4">
 									<div class="btn btn-primary btn-flat btn-add" id="petAdd">
-										등록 <input type="hidden">
+									<input type="hidden" name=userEmail value="${sessionScope.userEmail }">
+										<button type="submit">등록</button>
 									</div>
 
 									<div class="btn btn-danger btn-flat float-right"
