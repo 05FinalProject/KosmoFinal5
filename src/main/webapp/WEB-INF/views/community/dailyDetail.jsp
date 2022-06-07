@@ -41,6 +41,7 @@
 	justify-content: center;
 	align-items: center;
 	margin: 60px;
+	/* height:100vh;  */
 }
 
 #comment-insert-btn {
@@ -48,6 +49,10 @@
 	color: white;
 	float: right;
 	border: #f8b03a;
+}
+
+.siren {
+	width: 40px;
 }
 
 #siren {
@@ -81,22 +86,42 @@ information-content {
 }
 
 .friend-plus {
-	dispaly:flex;
+	dispaly: flex;
 	flex-direction: row;
 	justify-content: left;
 }
 
 #userProfile {
-	display:flex;
-	
+	display: flex;
+	padding-left:0px;
 }
 
 #fa-user-plus {
-	margin-left:2%;
+	margin-left: 2%;
 }
+
 #fa-user-check {
-	margin-left:2%;
+	margin-left: 2%;
 }
+
+.item #item1 {
+	float: right;
+}
+
+#btnbtn {
+	display: flex;
+}
+
+span {
+	margin-right: 60%;
+}
+
+#communityTitle {
+	margin-right: 60%;
+	
+}
+
+
 </style>
 
 </head>
@@ -107,7 +132,7 @@ information-content {
 <body>
 
 	<div id="total">
-		<form action="updateCommunity" method="post">
+		<form method="post">
 			<input name="communityNum" type="hidden"
 				value="${community.communityNum }">
 			<div class="row justify-content-center">
@@ -120,34 +145,65 @@ information-content {
 
 				<div class="col-lg-6 col-md-12">
 					<div class="products-details-content">
-						<div id="userProfile" class="container">			
-							<div class="item"><h3>${community.user.userNickname }</h3></div>							
-							<div class="item" id="fa-user-plus"><a href="#"><i class="fa-solid fa-user-plus"></i></a></div>											
-							<div class="item" id="fa-user-check"><a href="#"><i class="fa-solid fa-user-check"></i></a></div>											
+						<div id="userProfile" class="container">
+							<div class="item" id="communityTitle">
+								<h3 class="beforeUpdate">${community.communityTitle }</h3>
+								<input type="text" class="updateInput" name="communityTitle"
+									value="${community.communityTitle }" />
+							</div>
+							<div class="item">
+								<h3>${community.user.userNickname }</h3>
+							</div>
+							<div class="item" id="fa-user-plus">
+								<a><i class="fa-solid fa-user-plus"></i></a>
+							</div>
+							<div class="item" id="fa-user-check">
+								<a><i class="fa-solid fa-user-check"></i></a>
+							</div>
+
 						</div>
-							<hr>
+						<hr>
 
 						<div>
-							<div class="communityContent">${community.communityContent }</div>
+
+							<div class="communityContent beforeUpdate">${community.communityContent }</div>
+							<input type="text" class="updateInput" name="communityContent"
+								value="${community.communityContent }" />
 							<div id="etc">
-								<small><span>${community.communityInsertdate }</span></small>
-								<button id="siren">
-									<img src="../../img/siren.png">
-								</button>
+								<div class="container" id="btnbtn">
+									<span>${community.communityInsertdate }</span>
+
+									<button class="item" id="siren">
+										<img class="siren" src="../../img/siren.png">
+									</button>
+									<c:if test="${community.user.userNickname eq sessionScope.userNickname }">
+										<div class="item" id="item1">
+											<input class="beforeUpdate updateBtn beforeUpdateBtn"
+												type="submit" value="수정" /> <input
+												class="updateInput updateBtn afterUpdateBtn" type="submit"
+												value="수정" />
+										</div>
+										<div class="item" id="item2">
+											<a><input type="button" id="deleteBtn" value="삭제"/></a>						
+										</div>
+									</c:if>
+								</div>
 							</div>
 						</div>
 						<hr>
 
 						<!-- 댓글리스트 출력 -->
+						<c:forEach items="${commentList }" var="comment">
 						<div class="seller-information">
 							<div class="information-content">
 								<img src="/community/images/user/user-25.jpg"
 									class="rounded-circle" alt="image">
-								<h6>댓글 작성자 닉네임</h6>
-								<p>댓글 내용 출력</p>
+								<h6>${comment.user.userNickname }</h6> 
+								<p>${comment.commentContent }</p>
 							</div>
-						</div>
+						</div>		
 						<br />
+						</c:forEach>
 					</div>
 				</div>
 			</div>
@@ -168,12 +224,14 @@ information-content {
 				</div>
 			</form>
 		</div> -->
-		<form class="mt-5">
+		<form class="mt-5" action="/community/writeCommunitycomment" method="post">
 			<div class="input-group input-group-lg">
-				<input type="email"
-					class="form-control bg-transparent border-primary text-white text-uppercase"
-					placeholder="댓글을 입력해주세요." aria-label="Email"
-					aria-describedby="subscribe">
+			<input type="hidden" name="userEmail" value="${sessionScope.userEmail}"/>
+			<input type="hidden" name="communityNum" value="${community.communityNum}">
+				<input type="text" name="commentContent"
+					class="form-control bg-transparent border-primary text-uppercase"
+					placeholder="댓글을 입력해주세요."
+					>
 				<div class="input-group-append">
 					<button type="submit" id="subscribe"
 						class="btn btn-primary text-uppercase font-weight-bold">
@@ -186,8 +244,8 @@ information-content {
 	</div>
 
 
-	<%@include file="../include/Footer.jsp"%>
 
+	<%@include file="../include/Footer.jsp"%>
 </body>
 
 
@@ -203,5 +261,63 @@ information-content {
 <script src="/community/js/owl.carousel.min.js"></script>
 <script src="/community/js/wow.min.js"></script>
 <script src="/community/js/main.js"></script>
+
+
+<script type="text/javascript">
+$(function(){
+	$('.updateInput').hide();
+	$('.beforeUpdateBtn').click(function(e){
+		e.preventDefault();
+		$('.updateInput').show();
+		$('.beforeUpdate').hide();
+	});
+	
+	$('.afterUpdateBtn').click(function(e){
+		e.preventDefault();
+        input_title = $('input[name="communityTitle"]').val();
+        input_content = $('input[name="communityContent"]').val();
+        input_communityNum = $('input[name="communityNum"]').val();
+        $.ajax({
+           url:'/community/communityUpdate',   // url로 변경 ( 홈페이지 주소로 뒤에는 RequestMapping의 값을)
+           type:'post',
+           contentType : 'application/x-www-form-urlencoded;charset=utf-8',
+           data : { 
+        	   communityTitle : input_title,
+        	   communityContent : input_content,
+        	   communityNum : input_communityNum
+                 }, 
+           success : function(data) {
+              if(data=='yes') {
+                 alert('수정되었습니다');   // hide,show 적어주면됨
+                 $('.beforeUpdate').html(input_title);      // html(값)  => 불러오는 것 , 값을 넣으면 setter 
+                 $('.communityContent').html(input_content);
+                 $('.updateInput').hide();
+         		 $('.beforeUpdate').show();
+              }
+              else {
+                 alert('수정에 실패하였습니다.');
+              }
+              
+           },
+           error : function(err) {
+              alert('수정되지 않았습니다.');
+              console.log(err);
+           }
+           
+        });
+     });
+	
+	$('#deleteBtn').on('click',function(){
+		var communityNum = "${community.communityNum }"
+		if(confirm("삭제하시겠습니까?")) {
+			location.href = "/community/deleteCommunity?communityNum=" + communityNum
+		} else {
+			alert("이전 페이지로 돌아갑니다.");
+			location.href="/community/daily"
+		}
+	});
+	
+})
+</script>
 
 </html>

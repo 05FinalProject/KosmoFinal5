@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import com.example.community.*;
 
 import lombok.Data;
@@ -35,8 +37,9 @@ public class CommentVO {
 	@JoinColumn(name="c_num")
 	private CommunityVO community;
 		
-	@Column(insertable = false,updatable = false,columnDefinition = "date default (current_date)",name = "comment_insertdate")
-	@Temporal(TemporalType.DATE)
+	@CreationTimestamp
+	@Column(name = "comment_insertdate")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date commentInsertdate;
 	
 	@Column(length = 100,name = "comment_content")

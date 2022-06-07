@@ -30,6 +30,10 @@
           media="all">
     <link rel="stylesheet" id="lana-pet-print-css" href="/css/lana-pet-print.min.css?ver=1.0.0" type="text/css"
           media="print">
+    
+    <style type="text/css">
+    
+    </style>
 </head>
 <body class="home page page-template-template-lana-editor">
 
