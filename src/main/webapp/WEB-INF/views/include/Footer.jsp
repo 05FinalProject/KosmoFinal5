@@ -62,7 +62,7 @@
 					</c:if>
 					
 					<c:if test="${sessionScope.userAdmin == 'Y'}">
-						<li class="nav-item footerFont"><p class="nav-link" style="color: white;" ><a href="/admin/indexAdmin">관리자 페이지</a></p></li>
+						<li class="nav-item footerFont"><p class="nav-link" style="color: white;" ><a href="/admin">관리자 페이지</a></p></li>
 					</c:if>
 					
 					</ul>

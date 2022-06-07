@@ -138,7 +138,7 @@
 					</c:if>
 
 					<!-- 등록된 반려견이 있으면 리스트 형식으로 출력 -->
-					<form action="myPageDogDetail">
+					
 						<c:if test="${sessionScope.pets ne null }">
 							<c:forEach var="pet" items="${sessionScope.pets}">
 								<div class="blog-posts sticky-posts"
@@ -207,7 +207,7 @@
 								</a>
 							</div>
 						</c:if>
-					</form>
+					
 				</div>
 			</div>
 		</main>

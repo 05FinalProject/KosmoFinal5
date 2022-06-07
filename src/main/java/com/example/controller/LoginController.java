@@ -53,6 +53,7 @@ public class LoginController {
 		session.setAttribute("userName", result.getUserName());
 		session.setAttribute("userPhone", result.getUserPhone());
 		session.setAttribute("userAddress", result.getUserAddress());
+		session.setAttribute("userAdmin", result.getUserAdmin());
 		session.setAttribute("pRimgname", result2.getPRimgname());
 		session.setAttribute("pets", result3);
 		m.addAttribute("pets", result3.get(0));
@@ -137,9 +138,9 @@ public class LoginController {
 	}
 
 	/* 반려견 정보 상세보기*/
-	@RequestMapping(value="/myPageDogDetail", method = RequestMethod.GET)
+	@RequestMapping(value="/myPage/myPageDogDetail")
 	public void myDogDetail(PetVO pvo, Model m) {
-		m.addAttribute("petNum", lservice.getPetDetail(pvo));
+		m.addAttribute("pet", lservice.getPetDetail(pvo));
 	}
 	
 	/* 반려견 추가 페이지 */

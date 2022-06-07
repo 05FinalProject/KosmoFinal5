@@ -32,10 +32,10 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 
   <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
+    <span style="visibility:hidden;"><strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+    All rights reserved.</span>
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.2.0
+      <b><a href="/include/Main">User Home</a></b>
     </div>
   </footer>
 

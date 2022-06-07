@@ -158,21 +158,12 @@
                     
                     <th>
                     
-                    <c:if test="${pet.petGender eq 'M'}">
+                    
                     <label class="btn btn-default text-center active">
-                      남아
+                      ${pet.petGender }
                       <br>
                       <i class="fas fa-user fa text-blue"></i>
                     </label>
-                    </c:if>
-                    
-                    <c:if test="${pet.petGender eq 'W' }">
-                 	 <label class="btn btn-default text-center">
-                      여아
-                      <br>
-                      <i class="fas fa-user fa text-red"></i>
-                    </label>
-                    </c:if>
                     
                     </th>
                     
