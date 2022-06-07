@@ -58,15 +58,19 @@ public class CommunityController {
 	// 일상공유 상세보기 페이지
 	@RequestMapping(value = "/dailyDetail", method = RequestMethod.GET)
 	public String dailyDetail(CommunityVO vo, Model m) {
-		System.out.println("너오니?5555555555555555");
 		m.addAttribute("community", c_service.getCommunity(vo));
 		
 		
 		//일상공유 댓글리스트
 		List<CommentVO> commentList = c_service.commentList(vo.getCommunityNum());
 		m.addAttribute("commentList", commentList);
+		System.out.println(vo.getCommunityNum());
 		
 		
+		//일상공유 이미지 리스트
+		List<ImgVO> imgList = c_service.imgList(vo.getCommunityNum());
+		m.addAttribute("imgList", imgList);
+		System.out.println(m.getAttribute("imgList"));
 		
 		
 		return "/community/dailyDetail";
@@ -88,14 +92,18 @@ public class CommunityController {
 		communityVo.setCommunityContent(communityContent);
 		communityVo.setCommunityInsertdate(new Date());
 		
+		
+		
 		c_service.insertDaily(userEmail, communityTitle, communityContent, file);
-		
-		
+		//다중이미지 첨부
 		for(MultipartFile f : file) {
-			ImgVO imgvo = new ImgVO();
 			
+			ImgVO imgvo = new ImgVO();
+			System.out.println("123445ssasdsdas");
 			imgvo.setCommunity(null);
 			imgvo.setCommunity(c_service.getCommunityByUser(userEmail));
+			System.out.println(c_service.getCommunityByUser(userEmail));
+			System.out.println(userEmail);
 			imgvo.setFile2(f);
 			c_service.insertImgVo(imgvo);
 		}
@@ -110,6 +118,13 @@ public class CommunityController {
 //	public void getCommunity(CommunityVO vo, Model m) {
 //		m.addAttribute("community", c_service.getCommunity(vo));
 //	}
+	
+
+	
+	
+	
+	
+	
 
 	//일상공유 게시글 삭제
 	@RequestMapping(value="/deleteCommunity", method = RequestMethod.GET)

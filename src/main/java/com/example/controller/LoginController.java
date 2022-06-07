@@ -54,7 +54,7 @@ public class LoginController {
 		session.setAttribute("userPhone", result.getUserPhone());
 		session.setAttribute("userAddress", result.getUserAddress());
 		session.setAttribute("userAdmin", result.getUserAdmin());
-		session.setAttribute("pRimgname", result2.getPRimgname());
+		session.setAttribute("pRimgname", result2.getRealImgName());
 		session.setAttribute("pets", result3);
 		m.addAttribute("pets", result3.get(0));
 		
@@ -118,12 +118,12 @@ public class LoginController {
 		
 		HttpSession session = request.getSession();
 		
-		session.setAttribute("pRimgname", "img/userImg/"+ivo.getPRimgname());
+		session.setAttribute("pRimgname", "img/userImg/"+ivo.getRealImgName());
 		UserVO vo = new UserVO();
 		vo.setUserEmail(session.getAttribute("userEmail").toString());
 		ivo.setUser(vo);
 		lservice.userImgUpdate(ivo);
-		m.addAttribute("pRimgname", "img/userImg/"+ivo.getPRimgname());
+		m.addAttribute("pRimgname", "img/userImg/"+ivo.getRealImgName());
 		return "/include/myPage/imgModify";
 	}
 	
@@ -152,7 +152,7 @@ public class LoginController {
 	@RequestMapping(value="/myPage/petAdd", method=RequestMethod.POST)
 	public String petAdd(PetVO pvo, UserVO vo, ImgVO ivo, HttpSession session, Model m) {
 		
-		session.setAttribute("pRimgname", "img/userImg/"+ivo.getPRimgname());
+		session.setAttribute("pRimgname", "img/userImg/"+ivo.getRealImgName());
 		vo.setUserEmail(session.getAttribute("userEmail").toString());
 		
 		ivo.setUser(vo);
