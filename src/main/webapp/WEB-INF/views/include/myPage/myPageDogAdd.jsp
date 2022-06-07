@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,13 +59,13 @@
 <link rel="stylesheet" id="magnific-popup-css"
 	href="/css/magnific-popup.min.css?ver=1.1.0" type="text/css"
 	media="all">
-	
+<link rel="stylesheet" href="../../signUpLogin/css/petStyle.css">
 <style>
-.form-controller{
-display: block;
+.form-control2{
+    display: block;
     width: 100%;
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 200;
     line-height: 1.5;
     color: #212121;
     background-color: #fafafa;
@@ -74,7 +74,6 @@ display: block;
     border-radius: 0.25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-
 </style>
 
 </head>
@@ -83,140 +82,152 @@ display: block;
 	<%@include file="../Header.jsp"%>
 	<div class="wrapper">
 		<!-- Main Sidebar Container -->
-  <aside class="myPage-sidebar asidebar beta">
-    <div class="sidebar">
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-      </div>
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+		<aside class="myPage-sidebar asidebar beta">
+			<div class="sidebar">
+				<div class="user-panel mt-3 pb-3 mb-3 d-flex"></div>
+				<nav class="mt-2">
+					<ul class="nav nav-pills nav-sidebar flex-column"
+						data-widget="treeview" role="menu" data-accordion="false">
 
-          <!-- 마이 프로필 -->
-          <li class="nav-item">
-            <a href="myPageProfile" class="nav-link">
-              <p>
-                마이 프로필
-              </p>
-            </a>
-          </li>
-        
-          <!-- 나의 게시글 -->
-          <li class="nav-item">
-            <a href="myPageBoard" class="nav-link">
-              <p>
-                나의 게시글
-              </p>
-            </a>
-          </li>
+						<!-- 마이 프로필 -->
+						<li class="nav-item"><a href="/include/myPage/myPageProfile"
+							class="nav-link">
+								<p>마이 프로필</p>
+						</a></li>
 
-          <!-- 반려동물 -->
-          <li class="nav-item">
-            <a href="myPageDogList" class="nav-link active">
-              <p>
-                반려동물
-              </p>
-            </a>
-          </li>
+						<!-- 나의 게시글 -->
+						<li class="nav-item"><a href="/include/myPage/myPageBoard"
+							class="nav-link">
+								<p>나의 게시글</p>
+						</a></li>
 
-          <!-- 펫친관리 -->
-          <li class="nav-item">
-            <a href="../friend/friendList" class="nav-link">
-              <p>
-                펫친관리
-              </p>
-            </a>
-          </li>
+						<!-- 반려동물 -->
+						<li class="nav-item"><a href="/include/myPage/myPageDogList"
+							class="nav-link active">
+								<p>반려동물</p>
+						</a></li>
 
-          <!-- 친구찾기 -->
-          <li class="nav-item">
-            <a href="../friend/friendFind" class="nav-link">
-              <p>
-                펫친찾기
-              </p>
-            </a>
-          </li>
-          
-          <!-- 나의 산책로 -->
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <p>
-                나의 산책로
-              </p>
-            </a>
-          </li>
-          
-        </ul>
-      </nav>
-    </div>
-  </aside>
+						<!-- 펫친관리 -->
+						<li class="nav-item"><a href="/friend/friendList"
+							class="nav-link">
+								<p>펫친관리</p>
+						</a></li>
+
+						<!-- 친구찾기 -->
+						<li class="nav-item"><a href="/friend/friendFind"
+							class="nav-link">
+								<p>펫친찾기</p>
+						</a></li>
+
+						<!-- 나의 산책로 -->
+						<li class="nav-item"><a href="#" class="nav-link">
+								<p>나의 산책로</p>
+						</a></li>
+
+					</ul>
+				</nav>
+			</div>
+		</aside>
 
 		<!-- Content Wrapper. Contains page content -->
 
 		<section>
 			<!-- Default box -->
-			<form method="post" action="petAdd" id="petFrm" name="petFrm">
-			<div class="card-solid mx-auto" style="width: 80%;">
-				<div class="card-body">
-					<div class="row" style="margin-top: 5%;">
-						<div class="col-12 col-sm-7">
-							<div class="col-10 mx-auto my-auto">
-								<img src="/pictures/placeholder/530x400.svg"
-									class="product-image" alt="Product Image"
-									style="border-radius: 10%;">
-							</div>
-						</div>
-						<div class="col-12 col-sm-5">
-							<input type="text" placeholder="이름" id="petName">
-							<hr>
-							<div class="btn-group btn-group-toggle" data-toggle="buttons">
-								<table>
-									<tr>
-										<th>견&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;종 :</th>
-										<th style="height:50%;"><select class="form-controller" style="float: left;">
-												<c:forEach var="vo" items="${kindList}">
-													<option>${vo.dogKind}</option>
-												</c:forEach>
+			<form method="post" action="petAdd" id="petFrm" name="pet_Frm">
+				<div class="card-solid mx-auto" style="width: 80%;">
+					<div class="card-body">
+						<div class="row" style="margin: 5%;">
 
-										</select></th>
-									</tr>
-									<tr>
-										<th>몸무게 :</th>
-										<th><input type="text" placeholder="kg" id="petWeight">kg</th>
-									</tr>
-									<tr>
-										<th>성별 :</th>
-										<th><label class="btn btn-default text-center active" value="M">
-												남아 <br> <i class="fas fa-user fa text-blue"></i>
-										</label> <label class="btn btn-default text-center" value="Y"> 여아 <br>
-												<i class="fas fa-user fa text-red"></i>
-										</label></th>
-									</tr>
-									<tr>
-										<th>중성화 :</th>
-										<th>
-										<label class="btn btn-default text-center active" value="Y"> 했어요 <br> <i class="fas fa-dot-circle fa text-green"></i> </label> 
-										<label class="btn btn-default text-center" value="N"> 안했어요 <br> <i class="fas fa-times-circle fa text-orange"></i> </label>
-										</th>
-									</tr>
 
-								</table>
+							<div class="col-12 col-sm-7">
+
+								<div id="root">
+									<div class="contents">
+										<div class="upload-box">
+											<div id="drop-file" class="drag-file">
+												<img
+													src="https://img.icons8.com/pastel-glyph/2x/image-file.png"
+													alt="파일 아이콘" class="image">
+												<p class="message">Drag files to upload</p>
+												<img src="" alt="미리보기 이미지" class="preview">
+											</div>
+											<label class="file-label" for="chooseFile">이미지</label> <input
+												class="file" id="chooseFile" type="file"
+												onchange="dropFile.handleFiles(this.files)"
+												accept="image/png, image/jpeg, image/gif">
+										</div>
+									</div>
+								</div>
+
 							</div>
 
 
-							<div class="mt-4">
-								<div class="btn btn-primary btn-flat btn-aadd "><input type="submit" value="등록"></div>
 
-								<div class="btn btn-danger btn-flat float-right"><input type="button" value="취소"></div>
+							<div class="col-12 col-sm-5">
+								<label for="userEmail"><span
+									class="error_box"></span></label> 
+									<input type="text" class="form-control2" id="petName" name="petName" placeholder="이름">
+								<hr>
+								<div class="btn-group btn-group-toggle" data-toggle="buttons">
+									<table>
+										<tr>
+											<th>견&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;종 :</th>
+											<th style="height: 50%;"><select class="form-controller"
+												style="float: left;" id="petVariety">
+													<c:forEach var="pvo" items="${kindList}">
+														<option>${pvo.dogKind}</option>
+													</c:forEach>
+
+											</select></th>
+										</tr>
+										<tr>
+											<th>몸무게 :</th>
+											<th style="height:1px; padding:0px;">
+											<input type="text" class="form-control2" id="petWeight" name="petWeight" style="height:30px; padding:0px;" placeholder="kg">
+											</th>
+										</tr>
+										<tr>
+											<th>성별 :</th>
+											<th><label class="btn btn-default text-center active">
+													남아 <br> <i class="fas fa-user fa text-blue"></i>
+											</label> <label class="btn btn-default text-center"> 여아 <br>
+													<i class="fas fa-user fa text-red"></i>
+											</label></th>
+										</tr>
+										<tr>
+											<th>중성화 :</th>
+											<th><label class="btn btn-default text-center active">
+													했어요 <br> <i class="fas fa-dot-circle fa text-green"></i>
+											</label> <label class="btn btn-default text-center"> 안했어요 <br>
+													<i class="fas fa-times-circle fa text-orange"></i>
+											</label></th>
+										</tr>
+
+									</table>
+								</div>
+
+
+								<div class="mt-4">
+									<div class="btn btn-primary btn-flat btn-add" id="petAdd">
+									<input type="hidden" name=userEmail value="${sessionScope.userEmail }">
+										<button type="submit">등록</button>
+									</div>
+
+									<div class="btn btn-danger btn-flat float-right"
+										onclick="location.href='/include/myPage/myPageDogList'">
+										<input type="hidden">취소
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 			</form>
 
 		</section>
-		
-		
-		
+
+
+
 	</div>
 	<!-- /.content-wrapper -->
 
@@ -271,6 +282,7 @@ display: block;
 	<script type="text/javascript"
 		src="/js/magnific-popup.min.js?ver=1.1.0"></script>
 	<script type="text/javascript" src="/js/custom-theme.js?ver=1.0.0"></script>
+	<script type="text/javascript" src="../../signUpLogin/js/petStyle.js"></script>
 
 
 	<script type="text/javascript">
@@ -288,12 +300,7 @@ display: block;
 			$(".btn-modify").mouseout(function() {
 				$(".btn-modify").css("background-color", "#F8b03a");
 			});
-			/* 프로필사진 업로드 */
-			$(".btn-add").click(function(e) {
-				e.preventDefault();
-				$("#file").click();
-			});
-
+			
 		});
 	</script>
 </body>

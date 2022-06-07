@@ -52,7 +52,6 @@
                   <div class="form-group last mb-4 field--not-empty" >
                     <label for="userPass">비밀번호&nbsp; &nbsp; &nbsp; &nbsp;<span class="error_box"></span></label>
                     <input type="password" class="form-control" id="userPass" name="userPass">
-                    
                   </div>
                   
                   <div class="d-flex mb-5 align-items-center">
@@ -69,9 +68,9 @@
                   <div class="d-flex mb-5 align-items-center" id="homeGO">
                     <label class="control control--checkbox mb-0"><span class="caption"></span>
                     </label>
-                    <span class="ml-auto"><a href="signUp" class="forgot-pass">회원가입 하기</a></span> 
+                    <span class="ml-auto"><a href="/include/signUp" class="forgot-pass">회원가입 하기</a></span> 
                     &nbsp;&nbsp;<span class="colorChange">|</span>&nbsp;&nbsp;
-                    <span class=""><a href="findPassPage" class="forgot-pass">비밀번호 찾기</a></span> 
+                    <span class=""><a href="/include/findPassPage" class="forgot-pass">비밀번호 찾기</a></span> 
                   </div>
 
                   <!-- <span class="d-block text-center my-4 text-muted"> or sign in with</span>

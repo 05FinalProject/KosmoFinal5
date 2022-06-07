@@ -70,7 +70,7 @@
 	
 }
 
-.post-text .card-text { 
+#post-title { 
 	overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -90,6 +90,7 @@
 	display: flex;
 	
 }
+
 </style>
 </head>
 
@@ -119,8 +120,8 @@
 										<li><a href="/community/dailyDetail?communityNum=${community.communityNum }">${community.communityInsertdate }</a></li>
 									</ul>
 										<span><img class="siren" src="../../img/siren.png"></span>
-										<h5 class="post-title card-title">
-											<a href="/community/dailyDetail?communityNum=${community.communityNum }">${community.user.userNickname }</a>
+										<h5 class="post-title card-title" id="post-title">
+											<a href="/community/dailyDetail?communityNum=${community.communityNum }">${community.communityTitle }</a>
 
 
 										
@@ -129,7 +130,7 @@
 
 										</h5>
 										<div class="post-text card-text">
-											<p class="post-text card-text">${community.communityTitle }</p>
+											<p class="post-text card-text">${community.user.userNickname }</p>
 										</div>
 									<div class="comment-img">
 										<span><img class="emptyHeart"

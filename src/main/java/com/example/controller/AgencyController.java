@@ -1,7 +1,9 @@
 package com.example.controller;
 
+import java.io.Console;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -97,6 +99,41 @@ public class AgencyController {
 	// ***********************************************************************************
 
 	
+////agencyhospital 보기
+	@RequestMapping(value = "/agencyHospital", method = RequestMethod.GET)
+	public String agencyHospital(Model m, AgencyVO vo) {
+
+		int page = 1;
+		if (vo.getPage() != 0) {
+			page = vo.getPage();
+		}
+		Pageable paging = PageRequest.of(page - 1, 16, Sort.Direction.ASC, "agencyNum");
+
+		m.addAttribute("paging", agencyservice.getHospitalPaging(paging));
+
+		m.addAttribute("count", agencyservice.countHospitalRecord());
+		return "/include/agencyHospital";
+	}
+	
+	// agencyhospital 상세보기 
+		@RequestMapping(value = "/agencyHospitalDetail", method = RequestMethod.GET)
+		public void agencyHospitalDetail(Model m, AgencyVO vo) {
+			
+			m.addAttribute("hospital", agencyservice.getagencyHospital(vo));
+			
+			
+			//agencyhospital 리뷰 리스트 보여주기
+			List<ReviewVO> reviews = agencyservice.findByAgencyNum(vo);
+			if(reviews.size() >0) {
+			}
+			m.addAttribute("reviews", reviews);
+		}
+	
+		
+
+				
+	
+		
 	// ************************************************************************************
 
 	// agencyShelter 페이징 처리
@@ -119,7 +156,6 @@ public class AgencyController {
 
 	@RequestMapping(value = "/agencyShelterDetail", method = RequestMethod.GET)
 	public void agencyShelterDetail(Model m, AbandonedVO vo) {
-		System.out.println(vo.getAbNo());
 		m.addAttribute("shelter", agencyservice.getagencyShelter(vo));
 
 	}
@@ -127,9 +163,9 @@ public class AgencyController {
 	
 	//보호소 입양신청서 페이지 
 			@RequestMapping(value = "/agencyShelterSignup", method = RequestMethod.GET)
-			public void agencyShelterSignup(Model m, AbandonedVO vo,UserVO uv ) {
-				m.addAttribute("agencysignup",agencyservice.getagencyShelterSignup(vo));
-			}
+			public void agencyShelterSignup(Model m, AbandonedVO vo) {
+			m.addAttribute("signup",agencyservice.agencyShelterSignup(vo));	
+		}
 	
 	// ***************************************************************************************************
 
@@ -172,12 +208,19 @@ public class AgencyController {
 
 	}
 	
-	// agencyCafe페이지에 검색 기능
+	// agencyhotel 페이지에 검색 기능
 		@RequestMapping("/hotelSearch")
 		public void hotelSearch(AgencyVO vo) {
 
 		}
 
+	// agencyhospital 페이지에 검색 기능
+	@RequestMapping("/hospitalSearch")
+	public void hospitalSearch(AgencyVO vo) {
+
+		}
+	
+		
 		
 	//*******************************************************************************
 	//agencyCafe   리뷰작성 
@@ -203,6 +246,16 @@ public class AgencyController {
 			return "redirect:/include/agencyHotelDetail?agencyNum="+vv.getAgencyNum();
 		}	
 	
+		//agency병원 리뷰 작성
+		
+				@RequestMapping(value="/insertHospitalReview", method = RequestMethod.POST)
+				public String agencyHospitalUpdate(ReviewVO review,UserVO vo ,AgencyVO vv, HttpSession s) {
+					review.setUser(vo);
+					review.setAgency(vv);
+					agencyservice.insertHospitalReview(review);
+					return "redirect:/include/agencyHospitalDetail?agencyNum="+vv.getAgencyNum();
+				}	
+		
 		
 	//*********************************************************************	
 		
@@ -212,14 +265,9 @@ public class AgencyController {
 	
 		
 		
-		
-		
 	//***********************************************************************************	
 		
-	@RequestMapping(value = "/yootest", method = RequestMethod.GET)
-	public String yootest() {
-		return "/include/yootest";
-	}
+	
 
 	@RequestMapping(value = "/agencytest", method = RequestMethod.GET)
 	public String agencytest() {

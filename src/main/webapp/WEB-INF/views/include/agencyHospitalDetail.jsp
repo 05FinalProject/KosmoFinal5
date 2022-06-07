@@ -141,7 +141,8 @@
     
          width:100%;
          height:100%;
-         background:#fff58c;
+         background:#fff58c; 
+        
     } 
     
     #btn1{
@@ -174,16 +175,10 @@
               <div class="listing__details__gallery">
                
                 <div class="listing__details__gallery__pic">
-                  <div class="listing__details__gallery__item">
-                    <img
-                      class="listing__details__gallery__item__large"
-                      src="${cafe.agencyImage }"
-                      alt=""
-                    />
-                   
-                     
-                  </div>
-                 <h4>${cafe.agencyName }</h4>
+                 
+                 <h4>${hospital.agencyName }</h4>
+                 <h5>${hospital.agencyAddress }</h5>
+                 <h5>${hospital.agencyTel }</h5>
                 </div>
               </div>
             
@@ -318,7 +313,7 @@
                 <h4>리뷰작성</h4>
                 <form action="/include/insertReview" method="post"  >
                 <input type="hidden" name="userEmail" value="${sessionScope.userEmail}">
-                <input type="hidden" name="agencyNum" value="${cafe.agencyNum}">
+                <input type="hidden" name="agencyNum" value="${hospital.agencyNum}">
                   <textarea placeholder="Review" name="reviewContent"></textarea>
                   <button type="submit" class="site-btn">작성</button>
                 </form>
@@ -337,12 +332,12 @@
     
                 </div>
                 <div class="listing__sidebar__contact__text">
-                  <h4>${cafe.agencyName }</h4>
+                  <h4>${hospital.agencyName }</h4>
                   <ul>
                     <li>
-                      <span class="icon_pin_alt"></span>${cafe.agencyAddress }
+                      <span class="icon_pin_alt"></span>${hospital.agencyAddress }
                     </li>
-                    <li><span class="icon_phone"></span>${cafe.agencyTel }</li>
+                    <li><span class="icon_phone"></span>${hospital.agencyTel }</li>
                     
                  </ul>
 
@@ -459,4 +454,6 @@
 
 
 </body>
+    
+   
  </html>

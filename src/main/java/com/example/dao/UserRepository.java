@@ -41,5 +41,9 @@ public interface UserRepository extends CrudRepository<UserVO, String>{
 	UserVO save(String userEmail, String userPass);
 
 	
+	// 반려견 등록
+	
+
+	
 	 
 }

@@ -37,6 +37,7 @@ public class LoginServiceImpl implements LoginService {
 		return Img.findByUserEmail(pRimgname).get(0);
 	}
 
+	/* DB에 회원의 반려견 리스트 가져오기 */
 	@Override
 	public List<PetVO> findByPetNum(String petNum) {
 		return (List<PetVO>) pet.findAll();
@@ -55,11 +56,26 @@ public class LoginServiceImpl implements LoginService {
 		return user.checkPass(vo.getUserEmail(),vo.getUserPass());
 	}
 
-
+	/* 반려견 등록 */
 	@Override
 	public void petAdd(PetVO pvo) {
-		// TODO Auto-generated method stub
+		UserVO uvo = user.findById(pvo.getUser().getUserEmail()).get();
+		ImgVO ivo = new ImgVO();
+		ivo = Img.findByUserEmail(ivo.getUser().getUserEmail()).get(0);
+		ivo.setPImgname(ivo.getPImgname());
+		ivo.setPRimgname("img/petImg/"+ivo.getPRimgname());
 		
+		pvo.setUser(uvo);
+		pvo.setPetNum(ivo.getPet().getPetNum());
+		pet.save(pvo);
+	}
+
+
+	/* 반려견 상세보기 */
+	@Override
+	public PetVO getPetDetail(PetVO pvo) {
+		PetVO pevo = pet.findById(pvo.getPetNum()).get();
+		return pevo;
 	}
 
 

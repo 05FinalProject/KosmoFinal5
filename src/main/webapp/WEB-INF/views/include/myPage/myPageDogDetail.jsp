@@ -70,7 +70,7 @@
 
           <!-- 마이 프로필 -->
           <li class="nav-item">
-            <a href="myPageProfile" class="nav-link">
+            <a href="/include/myPage/myPageProfile" class="nav-link">
               <p>
                 마이 프로필
               </p>
@@ -79,7 +79,7 @@
         
           <!-- 나의 게시글 -->
           <li class="nav-item">
-            <a href="myPageBoard" class="nav-link">
+            <a href="/include/myPage/myPageBoard" class="nav-link">
               <p>
                 나의 게시글
               </p>
@@ -88,7 +88,7 @@
 
           <!-- 반려동물 -->
           <li class="nav-item">
-            <a href="myPageDogList" class="nav-link active">
+            <a href="/include/myPage/myPageDogList" class="nav-link active">
               <p>
                 반려동물
               </p>
@@ -97,7 +97,7 @@
 
           <!-- 펫친관리 -->
           <li class="nav-item">
-            <a href="../friend/friendList" class="nav-link">
+            <a href="/friend/friendList" class="nav-link">
               <p>
                 펫친관리
               </p>
@@ -106,7 +106,7 @@
 
           <!-- 친구찾기 -->
           <li class="nav-item">
-            <a href="../friend/friendFind" class="nav-link">
+            <a href="/friend/friendFind" class="nav-link">
               <p>
                 펫친찾기
               </p>
@@ -130,8 +130,8 @@
   
 
     <section class="content-wrapper">
-    
-      
+    <form action="myPageDogDetail" method="post">
+      <input name="petNum" type="hidden" value="${pet.petNum }">
       <div>
         <div class="card-body">
           <div class="row" style="margin-top:5%;">
@@ -151,28 +151,19 @@
                   </tr>
                   <tr> 
                     <th>몸무게 : </th>
-                    <th>${sessionScope.petWeight }</th>
+                    <th>${pet.petWeight }</th>
                   </tr>
                   <tr>
                     <th>성별 : </th>
                     
                     <th>
                     
-                    <c:if test="${pet.petGender eq 'M'}">
+                    
                     <label class="btn btn-default text-center active">
-                      남아
+                      ${pet.petGender }
                       <br>
                       <i class="fas fa-user fa text-blue"></i>
                     </label>
-                    </c:if>
-                    
-                    <c:if test="${pet.petGender eq 'W' }">
-                 	 <label class="btn btn-default text-center">
-                      여아
-                      <br>
-                      <i class="fas fa-user fa text-red"></i>
-                    </label>
-                    </c:if>
                     
                     </th>
                     
@@ -216,11 +207,12 @@
               </div>
             </div>
           </div>
+                  
         </div>
         <!-- /.card-body -->
       </div>
       <!-- /.card -->
-
+      </form>
     </section>
     <!-- /.content -->
   </div>

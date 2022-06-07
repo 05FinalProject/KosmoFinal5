@@ -29,12 +29,13 @@
 .walkTimer {
 	position: fixed;
 	z-index: 10;
-	bottom:50px;
+	bottom: 50px;
 	/* left:45%; */
-	width:100%;
+	width: 100%;
 }
-#box{
-	width:100%;
+
+#box {
+	width: 100%;
 }
 
 /* #timerBox{
@@ -43,20 +44,27 @@
 /* #startbtn{
 	width:500px;
 } */
-
-#stopbtn{
-	width:10%;
+#stopbtn {
+	width: 10%;
 }
-.walk-container{
-	display:flex;
-	width:100%;
+
+.walk-container {
+	display: flex;
+	width: 101.5%;
 	/* margin-left:0.6%; */
-	justify-content:center;
-	/* padding-top: 3.55%  
-	 */
+	justify-content: center;
+	/* padding-top: 3.55%   */
+	position: fixed;
+	bottom: 0;
+	height: 10%;
+	align-items: center;
 }
 
-
+.walk-container2 {
+	display: flex;
+	width: 101.5%;
+	justify-content: center;
+}
 </style>
  <link rel="stylesheet" href="/walk/button.css" />
 </head>
@@ -66,10 +74,10 @@
 		<div class="row">
 			<div class="walkTimer">
 				<div id="box" class="box"> 
-				<div class="walk-container">
+				<div class="walk-container2">
 					<button type="button" id="startbtn" class="btn-gradient bg-dark block">산책시작</button>
 				</div>
-					<div class="walk-container bg-white">
+					<div class="walk-container">
 						<input name="walkDistance" id="walk-distance" />
 						<button type="submit" id="stopbtn" class="btn-gradient bg-dark block">산책종료</button>
 						<div id="timerBox" class="bg-white timerBox">
@@ -172,11 +180,15 @@
 			console.log(err);
 		}
 		var navi;
-
+		
+		var imageSrc = 'https://vrthumb.clipartkorea.co.kr/2015/11/12/cb059000011.jpg', // 마커이미지의 주소입니다    
+	    imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
+	    imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 
 
 		// 지도에 마커와 인포윈도우를 표시하는 함수입니다
 		var marker;
+		var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
 		var flag = false;
 		function displayMarker(locPosition, message) {
 			//마커 하나만 생성
@@ -186,6 +198,7 @@
 			// 마커를 생성합니다
 			marker = new kakao.maps.Marker({
 				position : locPosition,
+				image: markerImage
 			});
 			marker.setMap(map);
 			flag = true;

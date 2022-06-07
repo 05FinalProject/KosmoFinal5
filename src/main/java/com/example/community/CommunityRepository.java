@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.domain.ImgFileVO;
+
 
 @Repository
 public interface CommunityRepository extends CrudRepository<CommunityVO, Integer> {
@@ -29,4 +29,10 @@ public interface CommunityRepository extends CrudRepository<CommunityVO, Integer
 	
 	//****************admin*****************
 	List<CommunityVO> findAll();
+	
+	
+	@Query("SELECT c FROM CommunityVO c WHERE c.user.userEmail=:userEmail Order By c.communityInsertdate DESC")
+	List<CommunityVO> getCommunityByUser(String userEmail);
+	
+	
 }
