@@ -60,6 +60,7 @@
 	href="/css/magnific-popup.min.css?ver=1.1.0" type="text/css"
 	media="all">
 <link rel="stylesheet" href="../../signUpLogin/css/petStyle.css">
+<link rel="stylesheet" href="../../signUpLogin/css/userStyle.css">
 <style>
 .form-control2{
     display: block;
@@ -133,7 +134,8 @@
 
 		<section>
 			<!-- Default box -->
-			<form method="post" action="petAdd" id="petFrm" name="pet_Frm">
+			<form method="post" action="petAdd" id="petFrm" name="pet_Frm" enctype="multipart/form-data">
+				<input type="hidden" value="${sessionScope.userEmail }" name="userEmail"/>
 				<div class="card-solid mx-auto" style="width: 80%;">
 					<div class="card-body">
 						<div class="row" style="margin: 5%;">
@@ -151,34 +153,34 @@
 												<p class="message">Drag files to upload</p>
 												<img src="" alt="미리보기 이미지" class="preview">
 											</div>
-											<label class="file-label" for="chooseFile">이미지</label> <input
-												class="file" id="chooseFile" type="file"
-												onchange="dropFile.handleFiles(this.files)"
+											<label class="file-label" for="chooseFile">이미지</label> 
+											<input class="file" id="chooseFile" type="file" name="file"
+												onchange="dropFile.handleFiles(this.files)" multiple="multiple"
 												accept="image/png, image/jpeg, image/gif">
 										</div>
 									</div>
 								</div>
-
 							</div>
-
-
 
 							<div class="col-12 col-sm-5">
 								<label for="userEmail"><span
 									class="error_box"></span></label> 
 									<input type="text" class="form-control2" id="petName" name="petName" placeholder="이름">
 								<hr>
-								<div class="btn-group btn-group-toggle" data-toggle="buttons">
+								<div>
 									<table>
 										<tr>
 											<th>견&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;종 :</th>
-											<th style="height: 50%;"><select class="form-controller"
-												style="float: left;" id="petVariety">
+											<th style="height: 50%;">
+											
+											<select class="form-controller" style="float: left;" id="petVariety" name="petVariety">
+											
 													<c:forEach var="pvo" items="${kindList}">
 														<option>${pvo.dogKind}</option>
 													</c:forEach>
 
-											</select></th>
+											</select>
+											</th>
 										</tr>
 										<tr>
 											<th>몸무게 :</th>
@@ -187,25 +189,43 @@
 											</th>
 										</tr>
 										<tr>
+											<th>나이 :</th>
+											<th style="height:1px; padding:0px;">
+											<input type="text" class="form-control2" id="petAge" name="petAge" style="height:30px; padding:0px;" placeholder="세">
+											</th>
+										</tr>
+										<tr>
 											<th>성별 :</th>
-											<th><label class="btn btn-default text-center active">
-													남아 <br> <i class="fas fa-user fa text-blue"></i>
-											</label> <label class="btn btn-default text-center"> 여아 <br>
-													<i class="fas fa-user fa text-red"></i>
-											</label></th>
+											<th>
+											<div class="form_toggle row-vh d-flex flex-row justify-content-between" >
+												<div class="form_radio_btn radio_male">
+													<input id="radio-1" type="radio" name="petGender" value="M" checked>
+													<label for="radio-1">남아<i class="fas fa-user fa text-blue"></i></label>
+												</div>							 
+												<div class="form_radio_btn">
+													<input id="radio-2" type="radio" name="petGender" value="W">
+													<label for="radio-2">여아<i class="fas fa-user fa text-red"></i></label>
+												</div>
+											</div>
+											</th>
 										</tr>
 										<tr>
 											<th>중성화 :</th>
-											<th><label class="btn btn-default text-center active">
-													했어요 <br> <i class="fas fa-dot-circle fa text-green"></i>
-											</label> <label class="btn btn-default text-center"> 안했어요 <br>
-													<i class="fas fa-times-circle fa text-orange"></i>
-											</label></th>
+											<th>
+											<div class="form_toggle row-vh d-flex flex-row justify-content-between" >
+												<div class="form_radio_btn radio_male">
+													<input id="radio-3" type="radio" name="petNeutering" value="했어요" checked>
+													<label for="radio-3">했어요<i class="fas fa-dot-circle fa text-green"></i></label>
+												</div>							 
+												<div class="form_radio_btn">
+													<input id="radio-4" type="radio" name="petNeutering" value="안했어요">
+													<label for="radio-4">안했어요<i class="fas fa-times-circle fa text-orange"></i></label>
+												</div>
+											</div>											
+											</th>
 										</tr>
-
 									</table>
 								</div>
-
 
 								<div class="mt-4">
 									<div class="btn btn-primary btn-flat btn-add" id="petAdd">
@@ -258,13 +278,11 @@
 	<script src="../../admin/plugins/moment/moment.min.js"></script>
 	<script src="../../admin/plugins/daterangepicker/daterangepicker.js"></script>
 	<!-- Tempusdominus Bootstrap 4 -->
-	<script
-		src="../../admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+	<script src="../../admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 	<!-- Summernote -->
 	<script src="../../admin/plugins/summernote/summernote-bs4.min.js"></script>
 	<!-- overlayScrollbars -->
-	<script
-		src="../../admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+	<script src="../../admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 	<!-- AdminLTE App -->
 	<script src="../../admin/dist/js/adminlte.js"></script>
 	<script src="../../admin/dist/js/adminlte.min.js"></script>
@@ -275,15 +293,12 @@
 	<script type="text/javascript" src="/js/popper.min.js?ver=1.16.1"></script>
 	<script type="text/javascript" src="/js/bootstrap.min.js?ver=4.6.0"></script>
 	<script type="text/javascript" src="/js/smartmenus.min.js?ver=1.1.1"></script>
-	<script type="text/javascript"
-		src="/js/smartmenus-bootstrap.min.js?ver=1.1.1"></script>
+	<script type="text/javascript" src="/js/smartmenus-bootstrap.min.js?ver=1.1.1"></script>
 	<script type="text/javascript" src="/js/swiper.min.js?ver=4.5.3"></script>
 	<script type="text/javascript" src="/js/scrollmagic.min.js?ver=2.0.8"></script>
-	<script type="text/javascript"
-		src="/js/magnific-popup.min.js?ver=1.1.0"></script>
+	<script type="text/javascript" src="/js/magnific-popup.min.js?ver=1.1.0"></script>
 	<script type="text/javascript" src="/js/custom-theme.js?ver=1.0.0"></script>
 	<script type="text/javascript" src="../../signUpLogin/js/petStyle.js"></script>
-
 
 	<script type="text/javascript">
 		$(document).ready(function() {

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.dao.ImgRepository;
 import com.example.dao.PetRepository;
@@ -58,18 +59,25 @@ public class LoginServiceImpl implements LoginService {
 
 	/* 반려견 등록 */
 	@Override
-	public void petAdd(PetVO pvo) {
-		UserVO uvo = user.findById(pvo.getUser().getUserEmail()).get();
-		ImgVO ivo = new ImgVO();
-		ivo = Img.findByUserEmail(ivo.getUser().getUserEmail()).get(0);
-		ivo.setPImgname(ivo.getPImgname());
-		ivo.setRealImgName("img/petImg/"+ivo.getRealImgName());
+	public void petAdd(String petName, Integer petAge, String petGender, String petVariety, String petNeutering,
+			Integer petWeight, MultipartFile file) {
+		PetVO pvo = new PetVO();
+		pvo.setPetName(petName);
+		pvo.setPetAge(petAge);
+		pvo.setPetGender(petGender);
+		pvo.setPetVariety(petVariety);
+		pvo.setPetNeutering(petNeutering);
+		pvo.setPetWeight(petWeight);
 		
-		pvo.setUser(uvo);
-		pvo.setPetNum(ivo.getPet().getPetNum());
 		pet.save(pvo);
 	}
 
+	/* 반려견 이미지 등록 */
+	@Override
+	public void insertImgVO(ImgVO ivo) {
+		Img.save(ivo);
+		
+	}
 
 	/* 반려견 상세보기 */
 	@Override
