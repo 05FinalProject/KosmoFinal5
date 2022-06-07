@@ -96,7 +96,7 @@ public class ChatingServiceImpl implements ChatingService {
 	public HashMap<String,Object> getChatingRoomUserInfo(UserVO vo) {
 		HashMap<String,Object> hm = new HashMap<String,Object>();
 		hm.put("niName",usr.findById(vo.getUserEmail()).get().getUserNickname() );
-		hm.put("img",img.findByUserEmail(vo.getUserEmail()).get(0).getPRimgname() );
+		hm.put("img",img.findByUserEmail(vo.getUserEmail()).get(0).getRealImgName() );
 		hm.put("email",vo.getUserEmail());
 		return hm;
 	}
@@ -170,7 +170,7 @@ public class ChatingServiceImpl implements ChatingService {
 		emails.remove(email);
 		for(String e : emails) {
 			hm = new HashMap<String,Object>();
-			hm.put("img", img.findByUserEmail(e).get(0).getPRimgname()); //img
+			hm.put("img", img.findByUserEmail(e).get(0).getRealImgName()); //img
 			hm.put("nickName",usr.findById(e).get().getUserNickname());//niname
 			hm.put("email", e);
 			hm.put("friendNo", fri.getFriendNo(e,email));
@@ -206,8 +206,8 @@ public class ChatingServiceImpl implements ChatingService {
 			hm.put("message", o[1]);
 			hm.put("sign", o[2]);
 			hm.put("time", o[3]);
-			hm.put("img1", img.findByUserEmail(f.getUser1().getUserEmail()).get(0).getPRimgname());
-			hm.put("img2", img.findByUserEmail(f.getUser2().getUserEmail()).get(0).getPRimgname());
+			hm.put("img1", img.findByUserEmail(f.getUser1().getUserEmail()).get(0).getRealImgName());
+			hm.put("img2", img.findByUserEmail(f.getUser2().getUserEmail()).get(0).getRealImgName());
 			hm.put("user1", f.getUser1().getUserNickname());
 			hm.put("user2", f.getUser2().getUserNickname());
 			rlist.add(hm);
