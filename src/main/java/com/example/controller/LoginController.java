@@ -137,11 +137,10 @@ public class LoginController {
 	}
 
 	/* 반려견 정보 상세보기*/
-//	@RequestMapping("/myPage/myPageDogDetail")
-//	public void myDogDetail(PetVO pvo, Model m) {
-//		System.out.println(pvo.getPetNum());
-//		m.addAttribute("petNum", lservice.getPetDetail(pvo));
-//	}
+	@RequestMapping(value="/myPageDogDetail", method = RequestMethod.GET)
+	public void myDogDetail(PetVO pvo, Model m) {
+		m.addAttribute("petNum", lservice.getPetDetail(pvo));
+	}
 	
 	/* 반려견 추가 페이지 */
 	@RequestMapping(value="/myPage/myPageDogAdd", method=RequestMethod.GET)

@@ -130,8 +130,8 @@
   
 
     <section class="content-wrapper">
-    
-      
+    <form action="myPageDogDetail" method="post">
+      <input name="petNum" type="hidden" value="${pet.petNum }">
       <div>
         <div class="card-body">
           <div class="row" style="margin-top:5%;">
@@ -151,7 +151,7 @@
                   </tr>
                   <tr> 
                     <th>몸무게 : </th>
-                    <th>${sessionScope.petWeight }</th>
+                    <th>${pet.petWeight }</th>
                   </tr>
                   <tr>
                     <th>성별 : </th>
@@ -216,11 +216,12 @@
               </div>
             </div>
           </div>
+                  
         </div>
         <!-- /.card-body -->
       </div>
       <!-- /.card -->
-
+      </form>
     </section>
     <!-- /.content -->
   </div>

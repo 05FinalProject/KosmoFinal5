@@ -138,14 +138,14 @@
 					<ul class="nav button-nav">
 						<!-- 세션입력에 따른 헤더 노출화면 -->
 						<c:if test="${empty sessionScope.userNickname }">
-							<li class="nav-item" style="color: white;"><a href="Login"
+							<li class="nav-item" style="color: white;"><a href="/include/Login"
 								class="btn btn-sm text-uppercase font-weight-bold my-auto"
 								style="color: white;"> Login </a></li>
 						</c:if>
 
 						<c:if test="${not empty sessionScope.userNickname }">
 							<li class="nav-item" style="color: white;"><a
-								href="myPage/myPageProfile"> <%= session.getAttribute("userNickname") %></a>님
+								href="/include/myPage/myPageProfile"> <%= session.getAttribute("userNickname") %></a>님
 								환영합니다.</li>
 
 							<!-- 알림 추가 -->
@@ -167,7 +167,7 @@
 								</div></li>
 							<!-- 알림 추가 끝 -->
 
-							<li class="nav-item"><a href="logout" style="color: white;">Logout</a>
+							<li class="nav-item"><a href="/include/logout" style="color: white;">Logout</a>
 							</li>
 						</c:if>
 
