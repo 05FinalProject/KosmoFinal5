@@ -104,7 +104,7 @@ public class AdminMainController {
 	}
 
 	//*****************************************************************
-	//회원관리
+	//회원관리 회원 리스트 출력
 	@RequestMapping(value="/adminUser", method=RequestMethod.GET)
 	public String userList(Model m) {
 		UserVO vo = new UserVO();
@@ -120,10 +120,18 @@ public class AdminMainController {
 		return "/admin/adminDog";
 	}
 
-	//회원삭제
+	/*//회원삭제
 	@RequestMapping(value = "{userEmail}", method = RequestMethod.DELETE)
 	public String deleteUser(UserVO vo) {
 		adminUserService.deleteUser(vo);
+		return "redirect:/adminUser";
+	}*/
+
+	//회원삭제
+	@RequestMapping(value = "/deleteUser", method = RequestMethod.POST)
+	public String deleteUser(String userEmail) {
+		System.out.println(userEmail);
+		adminUserService.deleteUser(userEmail);
 		return "redirect:/adminUser";
 	}
 

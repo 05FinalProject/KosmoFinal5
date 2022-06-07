@@ -22,10 +22,19 @@ public class AdminUserServiceImpl implements AdminUserService{
 	}
 
 	//회원 삭제
-	@Override
+	/*@Override
 	public void deleteUser(UserVO vo) {
 	userRepo.deleteById(vo.getUserEmail());
 		
+	}*/
+
+	@Override
+	public void deleteUser(String userEmail) {
+		UserVO userVO = userRepo.findById(userEmail).get();
+		userVO.setUserState("N");
+
+		userRepo.save(userVO);
+
 	}
 	
 	

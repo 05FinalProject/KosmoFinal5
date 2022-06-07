@@ -52,6 +52,9 @@ public class UserVO {
 	@Column(insertable = false,updatable = false, columnDefinition = "date default (current_date)",name = "user_signup")
 	@Temporal(TemporalType.DATE)
 	private Date userSignup;
+
+	@Column(name="user_state",length = 100)
+	private String userState;
 	
 	@Transient
 	private String addr1;
