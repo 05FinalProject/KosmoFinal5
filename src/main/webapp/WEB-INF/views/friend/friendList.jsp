@@ -171,8 +171,11 @@
 		<section class="content">
 			<div class="btn-group-group">
 				<div class="btn-group">
-					<a href="#" class="btn btn-"> <i class="fa-solid fa-user"></i>
+					<a class="btn btn-" id="friendChat"> <i class="fa-solid fa-user"></i>
 						친구채팅 <i class="fa-solid fa-angle-right" style="color: #f8b03a"></i>
+						<form id="friendChating" action="/chating/friendChat" method="post">
+							<input type="hidden" value="${sessionScope.userEmail }" name="userEmail" />
+						</form>
 					</a> <a href="#" class="btn"> <i class="fa-solid fa-users"></i>
 						그룹채팅 <i class="fa-solid fa-angle-right" style="color: #f8b03a"></i>
 					</a>
@@ -648,6 +651,11 @@
 	<script src="../../admin/dist/js/adminlte.js"></script>
 	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 	<script src="../../admin/dist/js/pages/dashboard.js"></script>
+	<script type="text/javascript">
+	$('#friendChat').click(function(){
+		$('#friendChating').submit()
+	})
+	</script>
 </body>
 </html>
 
