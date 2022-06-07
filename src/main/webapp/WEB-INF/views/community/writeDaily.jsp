@@ -252,10 +252,8 @@ header .subHeader .headerInner .gnb-bar .gnb-list.hover_menu.on {
 								</div>
 								<div class="row text-center">
 									<div class="col" id="btn-group">
-										<a href="daily" id="wrtieDaily-cancle">취소</a>
-										<button id="updateDaily-btn" type="submit">수정</button>
-										<button id="writeDaily-btn" type="submit">등록</button>
-										<button id="deleteDaily-btn" type="submit">삭제</button>
+										<a href="daily" id="wrtieDaily-cancle">취소</a>							
+										<button id="writeDaily-btn" type="submit">등록</button>										
 									</div>
 								</div>
 							</form>

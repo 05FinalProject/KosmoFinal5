@@ -33,10 +33,7 @@
 					send();
 				}
 			});
-			
-// 			$('#action_menu_btn').click(function(){
-// 				$('.action_menu').toggle();
-// 			});
+
 		}
 		
 		function wsEvt() {
@@ -60,25 +57,27 @@
 					},
 				 contentType: "application/json; charset=utf-8;",
 				 dataType: "json",
+				 //
 				 success:function(data){
 					 
-					
+					//원래 선택했던 친구의 기록 지우기
 					 $('.msg_card_body').empty()
-					  
+					 //시간순으로 채팅기록(data) 출력
 					  for(var i=data.length-1;i>=0;i--){
-						  
 						  var messageDate = new Date(data[i].time)
-						
+						  //오늘 날자랑 다르면 채팅기록의 날짜출력
 						  if(messageDate.getFullYear() != mDate.getFullYear() | messageDate.getMonth() != mDate.getMonth() | messageDate.getDate() != mDate.getDate()){
 							  mDate = messageDate
 							  dateSigh = messageDate.getFullYear()+'년'+ (messageDate.getMonth()+1)+'월'+messageDate.getDate()+'일'
 	 						  $('.msg_card_body').append('<p class="dateSign">'+dateSigh+'</p>')
 						  }
+						  //오전오후 
 						  var noon = '오후'
 						  if(messageDate.getHours() < 12){
 							noon = '오전'
 						  }
- 						 
+ 						 //sign 1이면 A가 B에게 메시지 전송하기, 2면 B가 A에게 메시지 전송하기
+ 						 //내 매시지인지 딴 분 매시지인지 if문으로 판단해서 화면 출력하기
 						  if((data[i].user1 == $('#userNickname').val() && data[i].sign == '1') | (data[i].user2 == $('#userNickname').val() && data[i].sign == '2')){
 							 $('.msg_card_body').append('<div class="d-flex justify-content-end mb-4">'+
 										'<div class="msg_cotainer_send">'+
@@ -100,9 +99,7 @@
 										'<span class="msg_time">'+ messageDate.getHours()+':'+ messageDate.getMinutes()+' '+noon+'</span>'+
 									'</div>'+
 								'</div>');	
-								
 								$('.msg_card_body').scrollTop($('.msg_card_body').prop('scrollHeight')); 
-								
 						 } 
 					 }  
 				 }
@@ -165,6 +162,7 @@
 			}
 		}
 		
+		//메시지 발송 메소드
 		function send() {
 			if($("#chatting").val() != ''){
 				var option ={
@@ -174,8 +172,9 @@
 						userName : $('#userNickname').val(),
 						msg : $("#chatting").val()
 					}
+				//메시지 발송
 				ws.send(JSON.stringify(option))
-				
+				//메시지 DB에 저장하기
 				$.ajax({
 					url:'/api/saveMessage',
 					type:'get',
@@ -184,12 +183,7 @@
 					data:{	chatingMessage:$("#chatting").val(),
 							friendNo:$("#friendNo").val(),
 							userEmail:$('#userEmail').val()
-						},
-					 contentType: "application/json; charset=utf-8;",
-					 //dataType: "json",
-					 success:function(data){
-						 console.log(data)
-					 }
+						}
 				})
 			}
 			$('#chatting').val("");
@@ -285,17 +279,24 @@
 		
 		<script type="text/javascript">
 		
+		//친구 클릭할때
 		$('.friend').click(function(){
+			//이미지 바꾸기
 			$('#friendImg').val($(this).find('img').attr('src'))
+			//원래 음영효과 삭제
 			$('.contacts > .friend').removeClass('active')
+			//친구 음영효과 추가
 			$(this).addClass('active')
+			//id="friendEmail"의 hidden테그 value값이 클릭했던 친구email를 지정
 			$('#friendEmail').val($(this).attr('email'))
 			$('#friendName').text( $(this).find('span').text())
 
 			$('#friendImage').attr('src',$(this).find('img').attr('src'))
-			//*******
+			//**********
+			//원래 WebSocket 연결 종료
 			ws.close()
 			$('#friendNo').val($(this).attr('content'))
+			//클릭했던 친구랑 실시 채팅하기위해 새 WebSocket 연결하기
 			ws= new WebSocket("ws://" + location.host + "/chating/"+$('#friendNo').val());
 			ws.onopen = function(data){
 				//소켓이 열리면 동작
@@ -317,16 +318,20 @@
 		
 		//친구 검색기능
 		$('.input-group-prepend').click(function(){
+			//jquery for문
 			$('.contacts').find('li').each(function(i,e){
+				//친구 닉네임이 입력하는내용을 포함하지않으면 감추기
 				if(!$(this).find('span').text().includes($('#search').val())){
 					$(this).addClass('di-none')
-				}else{
+				}else{	//포함하면 출력
 					$(this).removeClass('di-none')
 				}
 			})
 		}) 
 		
+		//친구 차단 기능
 		$('#blackList').click(function(){
+			//DB에 친구차단상태 변경
 			$.ajax({
 				url:'/api/blackList',
 				type:'get',
@@ -335,7 +340,9 @@
 						friendNo:$("#friendNo").val()
 					}
 			})
+			//차단한친구를 친구목록에서 삭제
 			$('.active').remove()
+			//첫번째 친구 클릭
 			$('.friend').first().click()
 		})
 		
