@@ -56,6 +56,10 @@
 	padding: 0.5rem 1rem;
 	color: white;
 }
+
+.iconc{
+	border-radius: 400px
+}
 </style>
 
  <script
@@ -78,7 +82,9 @@
 				<button class="search-toggler" type="button" data-toggle="collapse"
 					data-target="#lana-search" aria-controls="lana-search"
 					aria-expanded="false" aria-label="Toggle search">
-					<i><h2 style="color: white;">날씨</h2></i>
+					<div class="weather ">
+						<div class="iconc bg-white"></div>
+					</div>
 				</button>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#lana-navbar" aria-controls="lana-navbar"
@@ -125,10 +131,10 @@
 						href="/chating/friend?count=1">채팅방</a></li>
 
 				</ul>
-			
-				<div class="weather bg-white">
-					<div class="iconc"></div>
-				<!-- 	<div class="CurrIcon"></div>
+
+				<div class="weather ">
+					 <div class="iconc bg-white"></div>
+					<!-- 	<div class="CurrIcon"></div>
 					<div class="CurrTemp"></div>
 					<div class="City"></div> -->
 				</div>
@@ -236,6 +242,7 @@
       src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f5b6c107c52e63373c42ed42d662f260"
     ></script>
     <script type="text/javascript" src="/main/weather.js"></script>
+    
 
 
 </body>
