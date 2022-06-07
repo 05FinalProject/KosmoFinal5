@@ -41,6 +41,11 @@ public interface AgencyService {
 			
 	public int countHospitalRecord();
 	
+	//장례식장 페이지 처리 
+	public List<AgencyVO> getHallPaging(Pageable paging);
+				
+	public int countFunehallRecord();
+		
 	
  //************************************************************************************************	
 	//보호소 상세 띄우기 
@@ -54,6 +59,9 @@ public interface AgencyService {
 	
 	//병원 상세 띄우기
 	AgencyVO getagencyHospital(AgencyVO vo);
+	
+	//장례식장 상세 띄우기
+	AgencyVO getagencyHall(AgencyVO vo);
 	
 	//백과사전 상세 띄우기
 	DogKindVO getencyclopedia(DogKindVO vo);
@@ -70,7 +78,10 @@ public interface AgencyService {
 	List<AgencyVO> agencyHotelSearch(AgencyVO vo);
 	
 	//병원 검색 기능
-   List<AgencyVO> agencyHospitalSearch(AgencyVO vo);
+    List<AgencyVO> agencyHospitalSearch(AgencyVO vo);
+    
+    //병원 검색 기능
+    List<AgencyVO> agencyHallSearch(AgencyVO vo);
 	
 //**************************************************
 	
@@ -88,4 +99,7 @@ public interface AgencyService {
 	
 	//병원 리뷰
 	public void insertHospitalReview(ReviewVO vo);
+	
+	//장례식장 리뷰
+	public void insertHallReview(ReviewVO vo);
 }

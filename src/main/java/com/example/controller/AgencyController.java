@@ -1,9 +1,7 @@
 package com.example.controller;
 
-import java.io.Console;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +21,7 @@ import com.example.domain.UserVO;
 import com.example.service.agency.AgencyService;
 
 @Controller
-@RequestMapping("/include")
+@RequestMapping("/agency")
 public class AgencyController {
 
 	@Autowired
@@ -45,7 +43,7 @@ public class AgencyController {
 		m.addAttribute("paging", agencyservice.getHotelPaging(paging));
 
 		m.addAttribute("count", agencyservice.countHotelRecord());
-		return "/include/agencyHotel";
+		return "/agency/agencyHotel";
 	}
 
 	// agencyhotel 상세보기
@@ -79,7 +77,7 @@ public class AgencyController {
 		m.addAttribute("paging", agencyservice.getCafePaging(paging));
 
 		m.addAttribute("count", agencyservice.countCafeRecord());
-		return "/include/agencyCafe";
+		return "/agency/agencyCafe";
 	}
 
 	// agencyCafe 상세보기 
@@ -112,7 +110,7 @@ public class AgencyController {
 		m.addAttribute("paging", agencyservice.getHospitalPaging(paging));
 
 		m.addAttribute("count", agencyservice.countHospitalRecord());
-		return "/include/agencyHospital";
+		return "/agency/agencyHospital";
 	}
 	
 	// agencyhospital 상세보기 
@@ -129,8 +127,38 @@ public class AgencyController {
 			m.addAttribute("reviews", reviews);
 		}
 	
-		
+	//**********************************************************************************
+		///agency장례식장 보기
+		@RequestMapping(value = "/agencyHall", method = RequestMethod.GET)
+		public String agencyHall(Model m, AgencyVO vo) {
 
+			int page = 1;
+			if (vo.getPage() != 0) {
+				page = vo.getPage();
+			}
+			Pageable paging = PageRequest.of(page - 1, 16, Sort.Direction.ASC, "agencyNum");
+
+			m.addAttribute("paging", agencyservice.getHallPaging(paging));
+
+			m.addAttribute("count", agencyservice.countFunehallRecord());
+			return "/agency/agencyHall";
+		}
+
+		
+		// agency장례식장 상세보기 
+				@RequestMapping(value = "/agencyHallDetail", method = RequestMethod.GET)
+				public void agencyHallDetail(Model m, AgencyVO vo) {
+					
+					m.addAttribute("hall", agencyservice.getagencyHall(vo));
+					
+					
+					//agency장례식장 리뷰 리스트 보여주기
+					List<ReviewVO> reviews = agencyservice.findByAgencyNum(vo);
+					if(reviews.size() >0) {
+					}
+					m.addAttribute("reviews", reviews);
+				}
+		
 				
 	
 		
@@ -149,7 +177,7 @@ public class AgencyController {
 		m.addAttribute("paging", agencyservice.getPaging(paging));
 
 		m.addAttribute("count", agencyservice.countRecord());
-		return "/include/agencyShelter";
+		return "/agency/agencyShelter";
 	}
 
 	// agencyShelterDetail 상세보기
@@ -186,7 +214,7 @@ public class AgencyController {
 		m.addAttribute("paging", agencyservice.getkindPaging(paging));
 
 		m.addAttribute("count", agencyservice.countkindRecord());
-		return "/include/encyclopedia";
+		return "/agency/encyclopedia";
 	}
 
 	// 강아지 백과사전 상세보기
@@ -209,17 +237,22 @@ public class AgencyController {
 	}
 	
 	// agencyhotel 페이지에 검색 기능
-		@RequestMapping("/hotelSearch")
-		public void hotelSearch(AgencyVO vo) {
+	@RequestMapping("/hotelSearch")
+	public void hotelSearch(AgencyVO vo) {
 
-		}
+	}
 
 	// agencyhospital 페이지에 검색 기능
 	@RequestMapping("/hospitalSearch")
 	public void hospitalSearch(AgencyVO vo) {
 
-		}
+	}
 	
+	// agency장례식장 페이지에 검색 기능
+		@RequestMapping("/hallSearch")
+		public void hallSearch(AgencyVO vo) {
+
+		}
 		
 		
 	//*******************************************************************************
@@ -231,7 +264,7 @@ public class AgencyController {
 			review.setAgency(vv);
 			agencyservice.insertReview(review);
 			
-			return "redirect:/include/agencyCafeDetail?agencyNum="+vv.getAgencyNum();
+			return "redirect:/agency/agencyCafeDetail?agencyNum="+vv.getAgencyNum();
 		}	
 		
 		
@@ -243,7 +276,7 @@ public class AgencyController {
 			review.setUser(vo);
 			review.setAgency(vv);
 			agencyservice.insertHotelReview(review);
-			return "redirect:/include/agencyHotelDetail?agencyNum="+vv.getAgencyNum();
+			return "redirect:/agency/agencyHotelDetail?agencyNum="+vv.getAgencyNum();
 		}	
 	
 		//agency병원 리뷰 작성
@@ -253,9 +286,19 @@ public class AgencyController {
 					review.setUser(vo);
 					review.setAgency(vv);
 					agencyservice.insertHospitalReview(review);
-					return "redirect:/include/agencyHospitalDetail?agencyNum="+vv.getAgencyNum();
+					return "redirect:/agency/agencyHospitalDetail?agencyNum="+vv.getAgencyNum();
 				}	
 		
+				
+		//agency장례식장 리뷰 작성
+				
+		@RequestMapping(value="/insertHallReview", method = RequestMethod.POST)
+		public String agencyHallUpdate(ReviewVO review,UserVO vo ,AgencyVO vv, HttpSession s) {
+				review.setUser(vo);
+				review.setAgency(vv);
+				agencyservice.insertHospitalReview(review);
+				return "redirect:/agency/agencyHallDetail?agencyNum="+vv.getAgencyNum();
+				}			
 		
 	//*********************************************************************	
 		

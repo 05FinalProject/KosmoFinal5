@@ -25,7 +25,7 @@
 	</head>
 
 	<body>
-	<%@include file="./Header.jsp" %>
+	 <%@include file="/WEB-INF/views/include/Header.jsp" %>
 	
 	
 	
@@ -43,7 +43,7 @@
 									<!-- FORM  ******************************************************* -->
 									<form id="member_frm" action="signUpSuccess" method="post" name="member_frm">
 										
-                                   <%--   <input name="abNo" type="hidden"  value="${vo.abNo }" />  --%>
+                                   
 										<!-- PW -->
 										<h5 id="titleCenter"><strong>반려동물의 표시</strong></h5>
 										<div class="form-group first field--not-empty">
@@ -106,7 +106,7 @@
 										</div>		
 								        
 								   
-										<a onclick="alert('입양 신청이 되었습니다.');"  href="/include/agencyShelter"><input type="button" value="입양하기" id="btnSignUp" class="btn btn-pill btn-block text-white btn-orange" style="background-color:#F8b03a; color:white;" ></a>
+										<a onclick="alert('입양 신청이 되었습니다.');"  href="/agency/agencyShelter"><input type="button" value="입양하기" id="btnSignUp" class="btn btn-pill btn-block text-white btn-orange" style="background-color:#F8b03a; color:white;" ></a>
 										<div class="d-flex mb-5 align-items-center" id="homeGO">
 											<label class="control control--checkbox mb-0"><span class="caption"></span>
 											</label>
@@ -126,7 +126,7 @@
 		
 		
 		
-		<%@include file="./Footer.jsp" %>
+		<%@include file="/WEB-INF/views/include/Footer.jsp" %>
 
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 		<script type="text/javascript" src="/js/jquery.min.js?ver=3.6.0"></script>
@@ -173,46 +173,7 @@
 
 			});
 		</script>
-		<script> 
-		/*주소 찾기*/
-			//본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
-		function execPostCode() {
-          new daum.Postcode({
-            oncomplete: function(data) {
-                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
- 
-                // 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
-                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-            	var fullRoadAddr = data.roadAddress; // 도로명 주소 변수
-                var extraRoadAddr = ''; // 도로명 조합형 주소 변수
- 
-                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-                    extraRoadAddr += data.bname;
-                }
-                // 건물명이 있고, 공동주택일 경우 추가한다.
-                if(data.buildingName !== '' && data.apartment === 'Y'){
-                   extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                }
-                // 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-                if(extraRoadAddr !== ''){
-                    extraRoadAddr = ' (' + extraRoadAddr + ')';
-                }
-                // 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
-                if(fullRoadAddr !== ''){
-                    fullRoadAddr += extraRoadAddr;
-                }
-                
-                
-                $("[name=addr1]").val(data.zonecode);
-                $("[name=addr2]").val(fullRoadAddr);
-                
-            }
-        }).open();
-    }
-
-		</script>
+		
 	</body>
 
 	</html>
