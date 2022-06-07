@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.domain.ImgVO;
 import com.example.domain.PetVO;
 import com.example.domain.UserVO;
+import com.example.service.friendService.FriendService;
 import com.example.service.loginService.LoginService;
 
 @SessionAttributes("user")
@@ -27,6 +29,9 @@ public class LoginController {
 	
 	@Autowired
 	private LoginService lservice;
+	
+	@Autowired
+	private FriendService fservice;
 	
 	/* 로그인 페이지로 이동*/
 	@RequestMapping("/Login")
@@ -145,23 +150,37 @@ public class LoginController {
 	
 	/* 반려견 추가 페이지 */
 	@RequestMapping(value="/myPage/myPageDogAdd", method=RequestMethod.GET)
-	public void myPageDogAdd() {
+	public void myPageDogAdd(Model m) {
+		m.addAttribute("kindList", fservice.getDogList());
 	}
 	
 	/* 반려견 추가 버튼 이벤트 */
 	@RequestMapping(value="/myPage/petAdd", method=RequestMethod.POST)
-	public String petAdd(PetVO pvo, UserVO vo, ImgVO ivo, HttpSession session, Model m) {
+	public String petAdd(String petName, Integer petAge, String petGender, String petVariety, 
+						String petNeutering, Integer petWeight, MultipartFile file, HttpSession session) {
 		
-		session.setAttribute("pRimgname", "img/userImg/"+ivo.getRealImgName());
-		vo.setUserEmail(session.getAttribute("userEmail").toString());
+	
+		PetVO pvo = new PetVO();
+		pvo.setPetName(petName);
+		pvo.setPetAge(petAge);
+		pvo.setPetGender(petGender);
+		pvo.setPetVariety(petVariety);
+		pvo.setPetNeutering(petNeutering);
+		pvo.setPetWeight(petWeight);
 		
-		ivo.setUser(vo);
-		ivo.setPet(pvo);
-		lservice.petAdd(pvo);
+		lservice.petAdd(petName, petAge, petGender, petVariety, petNeutering, petWeight, file);
+		
+		
+			ImgVO ivo = new ImgVO();
+			
+			ivo.setPet(lservice.getPetDetail(pvo));
+			ivo.setFile2(file);
+			lservice.insertImgVO(ivo);
+		
 		
 		return "redirect:/include/myPage/myPageDogList";
 	}
-
+	
 
 	/* 유저의 글 */
 	@RequestMapping("/myPage/myPageBoard")

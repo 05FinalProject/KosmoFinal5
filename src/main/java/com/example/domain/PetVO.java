@@ -29,7 +29,7 @@ public class PetVO {
 	private String petName;
 	
 	@Column(name = "pet_age")
-	private int petAge;
+	private Integer petAge;
 	
 	@Column(length = 100,name = "pet_gender")
 	private String petGender;
