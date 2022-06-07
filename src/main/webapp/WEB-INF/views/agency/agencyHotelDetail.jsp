@@ -156,7 +156,7 @@
 </style>
   </head>
 
-<%@include file="./Header.jsp" %>
+<%@include file="/WEB-INF/views/include/Header.jsp" %>
   
   <body class="home page page-template-template-lana-editor">
    
@@ -197,10 +197,7 @@
                   <c:forEach var="review" items="${reviews}" >
             
                   <div class="listing__details__comment__item__pic">
-                    <img
-                      src=""
-                      alt="post"
-                    />
+                    
                   </div>
                   <div class="listing__details__comment__item__text">
                     <div class="listing__details__comment__item__rating">

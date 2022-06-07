@@ -122,14 +122,11 @@
 	justify-content: center;
 }
 
-/* .listing__item{
-border: 1px solid #008000;
-} */
      
    </style>
   </head>
 
-<%@include file="./Header.jsp" %>
+<%@include file="/WEB-INF/views/include/Header.jsp" %>
   
   <body class="home page page-template-template-lana-editor">
    
@@ -163,7 +160,7 @@ border: 1px solid #008000;
 				<a href="javascript:pokedex_detail(1, '1');">
 					<div class="img">
 						<div class="tumb-wrp">
-							<a href="/include/encyclopediaDetail?dogNum=${vo.dogNum }"><img src="${vo.dogImage}" alt="" class="img-fluid"></a>
+							<a href="/agency/encyclopediaDetail?dogNum=${vo.dogNum }"><img src="${vo.dogImage}" alt="" class="img-fluid"></a>
 						</div>
 					</div>
 					<div class="bx-txt">
@@ -183,11 +180,11 @@ border: 1px solid #008000;
 			<div class="nav-links">
 				<c:set var="recordsCnt" value="${count}" />
 				<c:set var="jspFile" value="encyclopedia?" />
-				<c:set var="perpage" value="7" />
+				<c:set var="perpage" value="18" />
 			</div>
 
 			<!-- include 페이징  jsp파일  -->
-			<%@include file="paging.jsp"%>
+			<%@include file="/WEB-INF/views/include/paging.jsp"%>
 		</nav>
 	
 </div>
@@ -207,10 +204,7 @@ border: 1px solid #008000;
     <script src="/agency/js/owl.carousel.min.js"></script>
     <script src="/agency/js/main.js"></script>
 
-    <!--직접 만든 js-->
-    <script src="/agency/js/yang.js"></script>
-    <script src="/agency/js/slide.js"></script>
-
+    
     <!--카카오맵 출력하려면 필요한 키값-->
     <script
       type="text/javascript"

@@ -116,16 +116,16 @@
 						id="page-dropdown" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false">관련기관</a>
 						<ul class="dropdown-menu" aria-labelledby="page-dropdown">
-							<li><a class="dropdown-item" href="/include/agencyHotel">애견호텔</a></li>
-							<li><a class="dropdown-item" href="/include/agencyCafe">애견카페</a></li>
-							<li><a class="dropdown-item" href="/include/agencyHospital">동물병원</a></li>
-							<li><a class="dropdown-item" href="/include/agencyShelter">보호소</a></li>
-							<li><a class="dropdown-item" href="#">장례식장</a></li>
+							<li><a class="dropdown-item" href="/agency/agencyHotel">애견호텔</a></li>
+							<li><a class="dropdown-item" href="/agency/agencyCafe">애견카페</a></li>
+							<li><a class="dropdown-item" href="/agency/agencyHospital">동물병원</a></li>
+							<li><a class="dropdown-item" href="/agency/agencyShelter">보호소</a></li>
+							<li><a class="dropdown-item" href="/agency/agencyHall">장례식장</a></li>
 						</ul></li>
 
 
 					<li class="nav-item"><a class="nav-links info"
-						href="/include/encyclopedia">반려견 사전</a></li>
+						href="/agency/encyclopedia">반려견 사전</a></li>
 
 					<li class="nav-item"><a class="nav-links chat"
 						href="/chating/friend?count=1">채팅방</a></li>

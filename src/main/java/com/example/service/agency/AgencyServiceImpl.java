@@ -88,6 +88,17 @@ public class AgencyServiceImpl implements AgencyService{
 	return agencyRepo.countHospitalRecord();
 	}
 	
+	//**************************************************************
+		//장례식장 페이지 처리
+		@Override
+		public List<AgencyVO> getHallPaging(Pageable paging) {		
+		return agencyRepo.findByAgencyCategoryNum(paging, 5);
+			}
+				
+		@Override
+		public int countFunehallRecord() {		
+		return agencyRepo.countFunehallRecord();
+		}
 	
 	//************************************************************************
 	
@@ -146,7 +157,14 @@ public class AgencyServiceImpl implements AgencyService{
 				return agencyRepo.save(avo);
 				}			
 				
-				
+	//장레식장 정보 상세정보 띄우기 
+	@Override
+	public AgencyVO getagencyHall(AgencyVO vo) {
+		AgencyVO avo = agencyRepo.findById(vo.getAgencyNum()).get();
+		return agencyRepo.save(avo);
+		}			
+			
+			
 	
 	//백과사전 상세정보 띄우기 
 				
@@ -206,6 +224,23 @@ public class AgencyServiceImpl implements AgencyService{
 				}			
 		
 		
+		//병원 검색 기능 			 
+				public List<AgencyVO> agencyHallSearch(AgencyVO vo){
+					ArrayList<AgencyVO> list = new ArrayList<AgencyVO>();
+					for(Object[] o : agencyRepo.agencyHallSearch(vo.getAgencyName())) {
+						AgencyVO v = new AgencyVO();
+						v.setAgencyName((String)o[6]);
+						v.setAgencyAddress((String)o[1]);
+						v.setAgencyTel((String)o[7]);
+						//v.setAgencyImage((String)o[8]);
+						v.setAgencyNum((int)o[0]);
+						list.add(v);
+					}
+					return  list;
+				}			
+				
+				
+				
 		
 	//***********************************************
 	//리뷰 작성 테이블 
@@ -236,6 +271,16 @@ public class AgencyServiceImpl implements AgencyService{
 			vo.setAgency(a);
 			reviewRepo.save(vo);
 		}
+		
+		
+		//장례식장 리뷰 작성
+				public void insertHallReview(ReviewVO vo) {
+					UserVO v = usr.findById(vo.getUser().getUserEmail()).get();
+					vo.setUser(v);
+					AgencyVO a = agencyRepo.findById(vo.getAgency().getAgencyNum()).get();
+					vo.setAgency(a);
+					reviewRepo.save(vo);
+				}
 		
 		
 		public List<ReviewVO> findByAgencyNum(AgencyVO vo){

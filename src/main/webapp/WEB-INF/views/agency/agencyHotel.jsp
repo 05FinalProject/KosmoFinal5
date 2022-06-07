@@ -147,7 +147,7 @@ $(function(){
    </style>
   </head>
 
-<%@include file="./Header.jsp" %>
+<%@include file="/WEB-INF/views/include/Header.jsp" %>
   
   <body class="home page page-template-template-lana-editor">
    
@@ -175,9 +175,11 @@ $(function(){
           <!-- 여기에 img값 가지고와야함 동적으로 -->
           
           <div>
+          <c:if test="${vo.agencyImage !=null }">
           <img id="agencyImage" 
             class="listing__item__pic set-bg"
-            src="${vo.agencyImage }">
+            src="${vo.agencyImage }" />
+           </c:if>
             <div class="listing__item__pic__btns">
               <a href="#"><span class="icon_zoom-in_alt"></span></a>
               <a href="#"><span class="icon_heart_alt"></span></a>
@@ -187,7 +189,7 @@ $(function(){
           
          
             <div class="listing__item__text__inside">
-              <a href="/include/agencyHotelDetail?agencyNum=${vo.agencyNum }"><h5>${vo.agencyName }</h5></a>
+              <a href="/agency/agencyHotelDetail?agencyNum=${vo.agencyNum }"><h5>${vo.agencyName }</h5></a>
               <div class="listing__item__text__rating">
                 <!-- 이쪽에 별 대신 맛평가 들어가야함-->
                 <div class="listing__item__rating__star">
@@ -220,11 +222,11 @@ $(function(){
 			<div class="nav-links">
 				<c:set var="recordsCnt" value="${count}" />
 				<c:set var="jspFile" value="agencyHotel?" />
-				<c:set var="perpage" value="11" />
+				<c:set var="perpage" value="16" />
 			</div>
 
 			<!-- include 페이징  jsp파일  -->
-			<%@include file="paging.jsp"%>
+			<%@include file="/WEB-INF/views/include/paging.jsp"%>
 		</nav>
       
    </section>
@@ -250,10 +252,7 @@ $(function(){
     <script src="/agency/js/owl.carousel.min.js"></script>
     <script src="/agency/js/main.js"></script>
 
-    <!--직접 만든 js-->
-    <script src="/agency/js/yang.js"></script>
-    <script src="/agency/js/slide.js"></script>
-
+    
     <!--카카오맵 출력하려면 필요한 키값-->
     <script
       type="text/javascript"
@@ -316,7 +315,7 @@ $(function(){
 																				+ '</div></div>'
 																				+ '<div class="listing__item__text">'
 																				+ ' <div class="listing__item__text__inside">'
-																				+ '  <a href="/include/agencyCafeDetail?agencyNum='
+																				+ '  <a href="/agency/agencyCafeDetail?agencyNum='
 																				+ d.agencyNum
 																				+ '"><h5>'
 																				+ d.agencyName
