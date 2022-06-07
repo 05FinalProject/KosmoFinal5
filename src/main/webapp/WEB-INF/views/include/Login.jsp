@@ -52,7 +52,6 @@
                   <div class="form-group last mb-4 field--not-empty" >
                     <label for="userPass">비밀번호&nbsp; &nbsp; &nbsp; &nbsp;<span class="error_box"></span></label>
                     <input type="password" class="form-control" id="userPass" name="userPass">
-                    
                   </div>
                   
                   <div class="d-flex mb-5 align-items-center">

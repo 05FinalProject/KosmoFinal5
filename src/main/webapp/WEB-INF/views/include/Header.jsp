@@ -56,6 +56,10 @@
 	padding: 0.5rem 1rem;
 	color: white;
 }
+
+.iconc{
+	border-radius: 400px
+}
 </style>
 
  <script
@@ -78,7 +82,9 @@
 				<button class="search-toggler" type="button" data-toggle="collapse"
 					data-target="#lana-search" aria-controls="lana-search"
 					aria-expanded="false" aria-label="Toggle search">
-					<i><h2 style="color: white;">날씨</h2></i>
+					<div class="weather ">
+						<div class="iconc bg-white"></div>
+					</div>
 				</button>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#lana-navbar" aria-controls="lana-navbar"
@@ -92,7 +98,7 @@
 				<ul class="navbar-nav mr-auto">
 
 					<li class="nav-item dropdown"><a
-						class="nav-links dropdown-toggle comu " href="page.html"
+						class="nav-links dropdown-toggle comu " href="#"
 						id="page-dropdown" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false">커뮤니티</a>
 						<ul class="dropdown-menu" aria-labelledby="page-dropdown">
@@ -106,7 +112,7 @@
 						</ul></li>
 
 					<li class="nav-item dropdown"><a
-						class="nav-links dropdown-toggle organi" href="page.html"
+						class="nav-links dropdown-toggle organi" href="#"
 						id="page-dropdown" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false">관련기관</a>
 						<ul class="dropdown-menu" aria-labelledby="page-dropdown">
@@ -125,10 +131,10 @@
 						href="/chating/friend?count=1">채팅방</a></li>
 
 				</ul>
-			
-				<div class="weather bg-white">
-					<div class="iconc"></div>
-				<!-- 	<div class="CurrIcon"></div>
+
+				<div class="weather ">
+					 <div class="iconc bg-white"></div>
+					<!-- 	<div class="CurrIcon"></div>
 					<div class="CurrTemp"></div>
 					<div class="City"></div> -->
 				</div>
@@ -138,14 +144,14 @@
 					<ul class="nav button-nav">
 						<!-- 세션입력에 따른 헤더 노출화면 -->
 						<c:if test="${empty sessionScope.userNickname }">
-							<li class="nav-item" style="color: white;"><a href="Login"
+							<li class="nav-item" style="color: white;"><a href="/include/Login"
 								class="btn btn-sm text-uppercase font-weight-bold my-auto"
 								style="color: white;"> Login </a></li>
 						</c:if>
 
 						<c:if test="${not empty sessionScope.userNickname }">
 							<li class="nav-item" style="color: white;"><a
-								href="myPage/myPageProfile"> <%= session.getAttribute("userNickname") %></a>님
+								href="/include/myPage/myPageProfile"> <%= session.getAttribute("userNickname") %></a>님
 								환영합니다.</li>
 
 							<!-- 알림 추가 -->
@@ -167,7 +173,7 @@
 								</div></li>
 							<!-- 알림 추가 끝 -->
 
-							<li class="nav-item"><a href="logout" style="color: white;">Logout</a>
+							<li class="nav-item"><a href="/include/logout" style="color: white;">Logout</a>
 							</li>
 						</c:if>
 
@@ -236,6 +242,7 @@
       src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f5b6c107c52e63373c42ed42d662f260"
     ></script>
     <script type="text/javascript" src="/main/weather.js"></script>
+    
 
 
 </body>

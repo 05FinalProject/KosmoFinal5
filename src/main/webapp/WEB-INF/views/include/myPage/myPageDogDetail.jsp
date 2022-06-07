@@ -130,8 +130,8 @@
   
 
     <section class="content-wrapper">
-    
-      
+    <form action="myPageDogDetail" method="post">
+      <input name="petNum" type="hidden" value="${pet.petNum }">
       <div>
         <div class="card-body">
           <div class="row" style="margin-top:5%;">
@@ -151,28 +151,19 @@
                   </tr>
                   <tr> 
                     <th>몸무게 : </th>
-                    <th>${sessionScope.petWeight }</th>
+                    <th>${pet.petWeight }</th>
                   </tr>
                   <tr>
                     <th>성별 : </th>
                     
                     <th>
                     
-                    <c:if test="${pet.petGender eq 'M'}">
+                    
                     <label class="btn btn-default text-center active">
-                      남아
+                      ${pet.petGender }
                       <br>
                       <i class="fas fa-user fa text-blue"></i>
                     </label>
-                    </c:if>
-                    
-                    <c:if test="${pet.petGender eq 'W' }">
-                 	 <label class="btn btn-default text-center">
-                      여아
-                      <br>
-                      <i class="fas fa-user fa text-red"></i>
-                    </label>
-                    </c:if>
                     
                     </th>
                     
@@ -216,11 +207,12 @@
               </div>
             </div>
           </div>
+                  
         </div>
         <!-- /.card-body -->
       </div>
       <!-- /.card -->
-
+      </form>
     </section>
     <!-- /.content -->
   </div>

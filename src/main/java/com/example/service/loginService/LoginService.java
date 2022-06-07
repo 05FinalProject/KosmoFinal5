@@ -12,14 +12,20 @@ public interface LoginService {
 	
 	public ImgVO findBypRimgname(String pRimgname);
 
+	/* 프로필 이미지 수정*/
 	public void userImgUpdate(ImgVO ivo);
 
+	/* 등록한 반려견 불러오기 */
 	public List<PetVO>  findByPetNum(String petNum);
 
 	public UserVO checkPass(UserVO vo);
 
+	/* 반려견 추가 - 현재 구현 중*/
 	public void petAdd(PetVO pvo);
 
+	/* 반려견 상세보기 */
+	public PetVO getPetDetail(PetVO pvo);
+	
 //	/* 회원탈퇴용으로 쓰는 중*/
 //	public void delete(UserVO vo);
 }

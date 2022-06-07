@@ -61,22 +61,15 @@
 					}else if(d.type == "message"){
 						console.log(d)
 						
-						
-						
 						$.ajax({
 							url:'/api/membersImg',
 							type:'get',
 							contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-
 							data:{userEmail:d.userName},
 							 contentType: "application/json; charset=utf-8;",
 							 dataType: "json",
-
 							success:function(data){
-								
-								//var niName = data.niName;
-								if(d.sessionId == $("#sessionId").val()){
-									
+								if(d.sessionId == $("#sessionId").val()){		//내 메시지
 									$(".msg_card_body").append('<div class="d-flex justify-content-end mb-4">'+
 											'<div class="msg_cotainer_send">'+
 											d.msg+
@@ -87,11 +80,8 @@
 										'</div>'+
 									'</div>');
 									$('.msg_card_body').scrollTop($('.msg_card_body').prop('scrollHeight'));
-
-								}else{
-									
+								}else{										//따른분의 메시지
 									$(".msg_card_body").append('<div class="d-flex justify-content-start mb-4">'+
-											'<span class="msg_time">' + d.userName + '</span>'+
 										'<div class="img_cont_msg">'+
 											'<img src="/'+data.img+'" class="rounded-circle user_img_msg">'+
 										'</div>'+
@@ -100,11 +90,8 @@
 											'<span class="msg_time">'+ today.getHours()+':'+ today.getMinutes()+' '+noon+' , Today' +'</span>'+
 										'</div>'+
 									'</div>');	
-									
 									$('.msg_card_body').scrollTop($('.msg_card_body').prop('scrollHeight'));
 								}
-								
-								
 							}
 						})
 	
