@@ -41,7 +41,7 @@
 	justify-content: center;
 	align-items: center;
 	margin: 60px;
-	/* height:100vh;  */
+	/*  height:100vh; */
 }
 
 #comment-insert-btn {
@@ -93,7 +93,7 @@ information-content {
 
 #userProfile {
 	display: flex;
-	padding-left:0px;
+	padding-left: 0px;
 }
 
 #fa-user-plus {
@@ -118,10 +118,15 @@ span {
 
 #communityTitle {
 	margin-right: 60%;
-	
 }
 
+.seller-information {
+	display: none;
+}
 
+#end {
+	display: none;
+}
 </style>
 
 </head>
@@ -139,7 +144,9 @@ span {
 				<div class="col-lg-6 col-md-12">
 					<div class="pet-details-image">
 						<!-- 사용자가 첨부한 이미지 들어오는 자리 -->
-						<!-- <img src="../../img/emptyHeart.png"> -->
+						<c:forEach items="${imgList}" var="img"> 
+							<img src="/img/communityImg/${img.realImgName}">
+						</c:forEach>
 					</div>
 				</div>
 
@@ -176,7 +183,8 @@ span {
 									<button class="item" id="siren">
 										<img class="siren" src="../../img/siren.png">
 									</button>
-									<c:if test="${community.user.userNickname eq sessionScope.userNickname }">
+									<c:if
+										test="${community.user.userNickname eq sessionScope.userNickname }">
 										<div class="item" id="item1">
 											<input class="beforeUpdate updateBtn beforeUpdateBtn"
 												type="submit" value="수정" /> <input
@@ -184,7 +192,7 @@ span {
 												value="수정" />
 										</div>
 										<div class="item" id="item2">
-											<a><input type="button" id="deleteBtn" value="삭제"/></a>						
+											<a><input type="button" id="deleteBtn" value="삭제" /></a>
 										</div>
 									</c:if>
 								</div>
@@ -194,53 +202,45 @@ span {
 
 						<!-- 댓글리스트 출력 -->
 						<c:forEach items="${commentList }" var="comment">
-						<div class="seller-information">
-							<div class="information-content">
-								<img src="/community/images/user/user-25.jpg"
-									class="rounded-circle" alt="image">
-								<h6>${comment.user.userNickname }</h6> 
-								<p>${comment.commentContent }</p>
+							<div class="seller-information">
+								<div class="information-content">
+									<img src="/community/images/user/user-25.jpg"
+										class="rounded-circle" alt="image">
+									<h6>${comment.user.userNickname }</h6>
+									<p>${comment.commentContent }</p>
+								</div>
+								<br />
 							</div>
-						</div>		
-						<br />
+
 						</c:forEach>
+						<div class="load-more-posts-btn">
+							<a href="#"><i class="flaticon-loading" id="load">댓글 더 보기</i></a>
+						</div>
+						<div class="text-center" id="end">마지막 댓글입니다.</div>
 					</div>
 				</div>
 			</div>
 		</form>
 
 		<!-- 댓글 입력창 -->
-		<!-- 		<div class="">
-			<form action="">
-				<div class="col-md-6 row write-comment">
-					<label>댓글</label>
-					<div class="comment-input">
-						<input type="text" class="form-control" placeholder="댓글을 입력해주세요">
-					</div>
-					<div class="comment-btn">
-						<button type="submit" class="btn btn-primary"
-							id="comment-insert-btn">등록</button>
+		<div class="col-md-6 ms-auto">
+			<form class="mt-5" action="/community/writeCommunitycomment"
+				method="post">
+				<div class="input-group input-group-lg">
+					<input type="hidden" name="userEmail"
+						value="${sessionScope.userEmail}" /> <input type="hidden"
+						name="communityNum" value="${community.communityNum}"> <input
+						type="text" name="commentContent"
+						class="form-control bg-transparent border-primary text-uppercase"
+						placeholder="댓글을 입력해주세요.">
+					<div class="input-group-append">
+						<button type="submit" id="subscribe"
+							class="btn btn-primary text-uppercase font-weight-bold">
+							등록</button>
 					</div>
 				</div>
 			</form>
-		</div> -->
-		<form class="mt-5" action="/community/writeCommunitycomment" method="post">
-			<div class="input-group input-group-lg">
-			<input type="hidden" name="userEmail" value="${sessionScope.userEmail}"/>
-			<input type="hidden" name="communityNum" value="${community.communityNum}">
-				<input type="text" name="commentContent"
-					class="form-control bg-transparent border-primary text-uppercase"
-					placeholder="댓글을 입력해주세요."
-					>
-				<div class="input-group-append">
-					<button type="submit" id="subscribe"
-						class="btn btn-primary text-uppercase font-weight-bold">
-						<span class="d-none d-sm-inline">등록</span> <i
-							class="fas fa-paper-plane d-inline d-sm-none"></i>
-					</button>
-				</div>
-			</div>
-		</form>
+		</div>
 	</div>
 
 
@@ -317,7 +317,35 @@ $(function(){
 		}
 	});
 	
+	
+	
+	/* ************************************** 댓글 리스트 **************************************** */
+	plusReview();
+    function plusReview(){
+        $(".seller-information").slice(0, 4).show(); // select the first ten
+        if ($(".seller-information").length>5){
+            $("#load").click(function(e){ // click event for load more
+                e.preventDefault();
+                $(".seller-information:hidden").slice(0, 4).show(); // select next 10 hidden divs and show them
+                if($(".seller-information:hidden").length == 0){ // check if any hidden divs still exist
+                    $("#load").css('display','none');
+                    $("#end").show();
+                }
+            });
+        } else {
+            $("#load").css('display','none');
+        }
+
+    }
+	
+	
+	
+	
 })
+
+
+
+
 </script>
 
 </html>

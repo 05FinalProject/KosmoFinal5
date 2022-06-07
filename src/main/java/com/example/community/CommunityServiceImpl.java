@@ -104,10 +104,13 @@ public class CommunityServiceImpl implements CommunityService {
 		return commentRepo.findByCommunity(communityRepo.findById(communityNum).get());
 	}
 
+	
+	//일상공유 이미지 등록
 	public void insertImgVo(ImgVO imgvo) {
 		imgRepo.save(imgvo);
 	}
 
+	//일상공유 이미지 등록에 이용
 	public CommunityVO getCommunityByUser(String userEmail) {
 		List<CommunityVO> list = communityRepo.getCommunityByUser(userEmail);
 		CommunityVO v = new CommunityVO();
@@ -116,5 +119,9 @@ public class CommunityServiceImpl implements CommunityService {
 		}
 		
 		return v;
+	}
+	//이미지 리스트 출력
+	public List<ImgVO> imgList(Integer communityNum) {
+		return imgRepo.findByCommunity(communityRepo.findById(communityNum).get());
 	}
 }

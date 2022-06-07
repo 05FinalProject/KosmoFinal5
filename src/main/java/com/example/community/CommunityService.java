@@ -39,7 +39,12 @@ public interface CommunityService {
 	//일상공유 댓글 리스트
 	public List<CommentVO> commentList(Integer communityNum);
 	
+	//일상공유 이미지 첨부
 	public void insertImgVo(ImgVO imgvo);
 	
+	//일상공유 이미지 첨부에 이용
 	public CommunityVO getCommunityByUser(String userEmail);
+	
+	//일상공유 이미지 리스트
+	public List<ImgVO> imgList(Integer communityNum);
 }

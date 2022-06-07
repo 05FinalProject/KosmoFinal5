@@ -72,7 +72,7 @@ public class ChatingController {
 		//user 정보얻어오기
 		m.addAttribute("user", service.getUserInfo(vo.getUserEmail()));
 		//user 사진얻어오기
-		m.addAttribute("userImg", service.getUserImg(vo.getUserEmail()).get(0).getPRimgname());
+		m.addAttribute("userImg", service.getUserImg(vo.getUserEmail()).get(0).getRealImgName());
 		
 	}
 	

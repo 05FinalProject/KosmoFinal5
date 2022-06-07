@@ -48,7 +48,7 @@ public class LoginServiceImpl implements LoginService {
 	public void userImgUpdate(ImgVO ivo) {
 		ImgVO result = Img.findByUserEmail(ivo.getUser().getUserEmail()).get(0);
 		result.setPImgname(ivo.getPImgname());
-		result.setPRimgname("img/userImg/"+ivo.getPRimgname());
+		result.setRealImgName("img/userImg/"+ivo.getRealImgName());
 		Img.save(result);
 	}
 
@@ -63,7 +63,7 @@ public class LoginServiceImpl implements LoginService {
 		ImgVO ivo = new ImgVO();
 		ivo = Img.findByUserEmail(ivo.getUser().getUserEmail()).get(0);
 		ivo.setPImgname(ivo.getPImgname());
-		ivo.setPRimgname("img/petImg/"+ivo.getPRimgname());
+		ivo.setRealImgName("img/petImg/"+ivo.getRealImgName());
 		
 		pvo.setUser(uvo);
 		pvo.setPetNum(ivo.getPet().getPetNum());
