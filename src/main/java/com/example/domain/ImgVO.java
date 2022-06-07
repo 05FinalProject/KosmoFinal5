@@ -64,6 +64,7 @@ public class ImgVO {
 	public MultipartFile getFile() {
 		return file;
 	}
+	
 	public void setFile(MultipartFile file) {
 		
 		if(!file.isEmpty()) {
@@ -82,6 +83,29 @@ public class ImgVO {
 		}
 		
 		
+	
+				
+	}
+	
+public void setFile2(MultipartFile file) {
+		
+		if(!file.isEmpty()) {
+			pImgname = file.getOriginalFilename();
+			pRimgname = UUID.randomUUID().toString()+"_"+pImgname;
+			Path path = Paths.get(System.getProperty("user.dir"), "src/main/resources/static/img/communityImg");
+			System.out.println(path);
+			
+			File files = new File(path+"/" + pRimgname);
+			
+			try {
+				file.transferTo(files);
+			} catch (Exception e) {
+				e.printStackTrace();
+			} 
+		}
+		
+		
+	
 				
 	}
 	

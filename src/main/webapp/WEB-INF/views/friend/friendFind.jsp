@@ -63,12 +63,22 @@
 			<div class="col-12">
 				<div class="story-grid-posts">
 					<div class="row">
+					<c:choose>
+						<c:when test="${param.page == null }">
+							<c:set var="page" value="1"></c:set>
+						</c:when>
+						<c:when test="${param.page != null }">
+							<c:set var="page" value="${param.page }"></c:set>
+						</c:when>
+						
+					</c:choose>
+					
 
 						<!-- 각각의 박스 -->
 						<%-- <c:forEach var="friendFind" items="${sessionScope.userRandom }"> --%>
 						<c:choose>
-						<c:when test="${param.page*9-1>count-1}">
-							<c:forEach var="i" begin="${param.page*9-9 }" end="${count-1}">
+						<c:when test="${page*9-1>count-1}">
+							<c:forEach var="i" begin="${page*9-9 }" end="${count-1}">
 							<div class="story-grid-col col-12 col-md-6 col-lg-4">
 							<a id="post-1"
 								class="lana_story type-lana_story post-1 card story-card story-grid-card h-100"
@@ -97,8 +107,8 @@
 						</div>
 						</c:forEach>
 						</c:when>
-						<c:when test="${param.page*9-1<=count }">
-							<c:forEach var="i" begin="${param.page*9-9 }" end="${param.page*9-1 }">
+						<c:when test="${page*9-1<=count }">
+							<c:forEach var="i" begin="${page*9-9 }" end="${page*9-1 }">
 							<div class="story-grid-col col-12 col-md-6 col-lg-4">
 							<a id="post-1"
 								class="lana_story type-lana_story post-1 card story-card story-grid-card h-100"

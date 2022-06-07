@@ -7,7 +7,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.example.domain.AgencyVO;
 import com.example.domain.CommentVO;
-import com.example.domain.ImgFileVO;
+import com.example.domain.ImgVO;
+
 
 public interface CommunityService {
 	
@@ -37,4 +38,8 @@ public interface CommunityService {
 	
 	//일상공유 댓글 리스트
 	public List<CommentVO> commentList(Integer communityNum);
+	
+	public void insertImgVo(ImgVO imgvo);
+	
+	public CommunityVO getCommunityByUser(String userEmail);
 }

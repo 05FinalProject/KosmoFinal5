@@ -1,10 +1,7 @@
 package com.example.community;
 
-import java.io.File;
-import java.io.IOException;
+import java.util.Date;
 import java.util.List;
-
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -12,17 +9,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.example.domain.CommentVO;
-import com.example.domain.UserVO;
+import com.example.domain.ImgVO;
 
 @Controller
 @RequestMapping("/community")
@@ -75,26 +68,24 @@ public class CommunityController {
 	@RequestMapping(value = "/writeDaily", method = RequestMethod.POST)
 	public String insertDaily(String userEmail, String communityTitle, String communityContent, MultipartFile[] file) {
 		System.out.println("너오니?3333333333333");
-		/*
-		 * List<MultipartFile> fileList = mtfRequest.getFiles("file"); String src =
-		 * mtfRequest.getParameter("src"); System.out.println("src value : " + src);
-		 * 
-		 * String path =
-		 * "C:\\FinalProject\\KosmoFinal5\\src\\main\\resources\\static\\imgFile\\";
-		 * 
-		 * for (MultipartFile mf : fileList) { String originFileName =
-		 * mf.getOriginalFilename(); // 원본 파일 명 long fileSize = mf.getSize(); // 파일 사이즈
-		 * 
-		 * System.out.println("originFileName : " + originFileName);
-		 * System.out.println("fileSize : " + fileSize);
-		 * 
-		 * String safeFile = path + System.currentTimeMillis() + originFileName; try {
-		 * mf.transferTo(new File(safeFile)); } catch (IllegalStateException e) { //
-		 * TODO Auto-generated catch block e.printStackTrace(); } catch (IOException e)
-		 * { // TODO Auto-generated catch block e.printStackTrace(); } }
-		 */
-
+		CommunityVO communityVo = new CommunityVO();
+		communityVo.setCommunityTitle(communityTitle);
+		communityVo.setCommunityContent(communityContent);
+		communityVo.setCommunityInsertdate(new Date());
+		
 		c_service.insertDaily(userEmail, communityTitle, communityContent, file);
+		
+		
+		for(MultipartFile f : file) {
+			ImgVO imgvo = new ImgVO();
+			
+			imgvo.setCommunity(null);
+			imgvo.setCommunity(c_service.getCommunityByUser(userEmail));
+			imgvo.setFile2(f);
+			c_service.insertImgVo(imgvo);
+		}
+
+		
 
 		return "redirect:/community/daily";
 	}
@@ -107,9 +98,9 @@ public class CommunityController {
 
 	//일상공유 게시글 삭제
 	@RequestMapping(value="/deleteCommunity", method = RequestMethod.GET)
-	public String deleteCommunity(Integer communityNum) {
+	public String deleteCommunity(CommunityVO communityVo) {
 		System.out.println("너오니?11111111111111111");
-		c_service.deleteCommunity(communityNum);
+		c_service.deleteCommunity(communityVo.getCommunityNum());
 		return "redirect:/community/daily";
 	}
 
