@@ -75,7 +75,7 @@ public class LoginServiceImpl implements LoginService {
 	@Override
 	public PetVO getPetDetail(PetVO pvo) {
 		PetVO pevo = pet.findById(pvo.getPetNum()).get();
-		return pet.save(pevo);
+		return pevo;
 	}
 
 
