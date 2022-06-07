@@ -1,5 +1,5 @@
 var ws ;
-		
+
 		window.onload = function(){
 			//websocket 객체생성(websocket서버 연결)
 			ws= new WebSocket("ws://" + location.host + "/chating/"+$("#friendNo").val());
@@ -89,10 +89,8 @@ var ws ;
 			//메세지 받기
 			ws.onmessage = function(data){
 				var msg = data.data;
-				console.log(msg)
 				if(msg != null && msg.type != ''){
 					var d = JSON.parse(msg);
-					console.log(d)
 					var si = d.sessionId
 					
 				}
@@ -143,6 +141,8 @@ var ws ;
 			}
 		}
 		
+	
+		
 		//메시지 발송 메소드
 		function send() {
 			if($("#chatting").val() != ''){
@@ -155,6 +155,7 @@ var ws ;
 					}
 				//메시지 발송
 				ws.send(JSON.stringify(option))
+				
 				//메시지 DB에 저장하기
 				$.ajax({
 					url:'/api/saveMessage',
@@ -172,6 +173,7 @@ var ws ;
 		
 		//친구 클릭할때
 		$('.friend').click(function(){
+			
 			//이미지 바꾸기
 			$('#friendImg').val($(this).find('img').attr('src'))
 			//원래 음영효과 삭제
@@ -185,7 +187,9 @@ var ws ;
 			$('#friendImage').attr('src',$(this).find('img').attr('src'))
 			//**********
 			//원래 WebSocket 연결 종료
+			
 			ws.close()
+			
 			$('#friendNo').val($(this).attr('content'))
 			//클릭했던 친구랑 실시 채팅하기위해 새 WebSocket 연결하기
 			ws= new WebSocket("ws://" + location.host + "/chating/"+$('#friendNo').val());
@@ -201,7 +205,7 @@ var ws ;
 					send();
 				}
 			});
-		})
+		});
 		
 		$('#action_menu_btn').click(function(){
 				$('.action_menu').toggle();
@@ -241,3 +245,4 @@ var ws ;
 		$('#goOut').click(function(){
 			location.href='/friend/friendList'
 		})
+	
