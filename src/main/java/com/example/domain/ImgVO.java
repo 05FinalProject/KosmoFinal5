@@ -36,7 +36,7 @@ public class ImgVO {
 	private String pImgname;
 	
 	@Column(length = 200,name = "p_rimgname")
-	private String pRimgname;
+	private String realImgName;
 	
 	@ManyToOne
 	@JoinColumn(name="c_num")
@@ -69,11 +69,11 @@ public class ImgVO {
 		
 		if(!file.isEmpty()) {
 			pImgname = file.getOriginalFilename();
-			pRimgname = UUID.randomUUID().toString()+"_"+pImgname;
+			realImgName = UUID.randomUUID().toString()+"_"+pImgname;
 			Path path = Paths.get(System.getProperty("user.dir"), "src/main/resources/static/img/userImg");
 			System.out.println(path);
 			
-			File files = new File(path+"/" + pRimgname);
+			File files = new File(path+"/" + realImgName);
 			
 			try {
 				file.transferTo(files);
@@ -91,11 +91,11 @@ public void setFile2(MultipartFile file) {
 		
 		if(!file.isEmpty()) {
 			pImgname = file.getOriginalFilename();
-			pRimgname = UUID.randomUUID().toString()+"_"+pImgname;
+			realImgName = UUID.randomUUID().toString()+"_"+pImgname;
 			Path path = Paths.get(System.getProperty("user.dir"), "src/main/resources/static/img/communityImg");
 			System.out.println(path);
 			
-			File files = new File(path+"/" + pRimgname);
+			File files = new File(path+"/" + realImgName);
 			
 			try {
 				file.transferTo(files);

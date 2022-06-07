@@ -3,6 +3,8 @@ package com.example.community;
 import java.util.Date;
 import java.util.List;
 
+import com.example.dao.ReportRepository;
+import com.example.domain.ReportVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -25,10 +27,14 @@ public class CommunityServiceImpl implements CommunityService {
 	private UserRepository userRepo;
 
 	@Autowired
+
+	ReportRepository reportRepo;
+	
 	private CommentRepository commentRepo;
 
 	@Autowired
 	private ImgRepository imgRepo;
+
 
 	/*
 	 * public List<ImgFileVO> saveDaily(String p_imgname, String p_rimgname) {
@@ -64,6 +70,16 @@ public class CommunityServiceImpl implements CommunityService {
 	public int countCommunityRecord() {
 		return communityRepo.countCommunityRecord();
 	}
+
+
+
+	//*******************************************************************
+	
+	//일상공유 게시글 수정
+	public void updateCommunity(CommunityVO vo) {
+		/* communityRepo.updateCommunity(); */
+	}
+
 	// *******************************************************************
 
 	// 일상공유 게시글 수정
@@ -104,10 +120,13 @@ public class CommunityServiceImpl implements CommunityService {
 		return commentRepo.findByCommunity(communityRepo.findById(communityNum).get());
 	}
 
+	
+	//일상공유 이미지 등록
 	public void insertImgVo(ImgVO imgvo) {
 		imgRepo.save(imgvo);
 	}
 
+	//일상공유 이미지 등록에 이용
 	public CommunityVO getCommunityByUser(String userEmail) {
 		List<CommunityVO> list = communityRepo.getCommunityByUser(userEmail);
 		CommunityVO v = new CommunityVO();
@@ -116,5 +135,23 @@ public class CommunityServiceImpl implements CommunityService {
 		}
 		
 		return v;
+
+	}
+
+	//일상공유 게시글 신고
+	@Override
+	public void reportCommunity(Integer communityNum, String user, String rReason) {
+		ReportVO vo = new ReportVO();
+		Date date = new Date();
+		vo.setCommunity(communityRepo.findById(communityNum).get()); // forigen key
+		vo.setUser(userRepo.findById(user).get()); // forigen key
+		vo.setRReason(rReason);
+		vo.setRDate(date);
+
+		reportRepo.save(vo);
+	}
+	//이미지 리스트 출력
+	public List<ImgVO> imgList(Integer communityNum) {
+		return imgRepo.findByCommunity(communityRepo.findById(communityNum).get());
 	}
 }

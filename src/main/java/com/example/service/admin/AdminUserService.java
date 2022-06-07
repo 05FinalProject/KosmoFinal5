@@ -10,7 +10,7 @@ public interface AdminUserService {
 	public List<UserVO> userList(UserVO vo);
 
 	//회원 삭제
-	public void deleteUser(UserVO vo);
+	public void deleteUser(String userEmail);
 	
 
 }
