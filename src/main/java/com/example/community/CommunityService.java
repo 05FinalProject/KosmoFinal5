@@ -2,6 +2,7 @@ package com.example.community;
 
 import java.util.List;
 
+import com.example.domain.ReportVO;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -28,6 +29,12 @@ public interface CommunityService {
 	//**************************************************************
 	
 	//일상공유 게시글 수정
+
+	/* public void updateCommunuity(); */
+
+	//일상공유 게시글 신고
+	public void reportCommunity(Integer communityNum, String user, String rReason);
+
 	public void updateCommunity(Integer communityNum, String communityTitle, String communityContent);
 	
 	//일상공유 게시글 삭제
@@ -44,7 +51,9 @@ public interface CommunityService {
 	
 	//일상공유 이미지 첨부에 이용
 	public CommunityVO getCommunityByUser(String userEmail);
+
 	
 	//일상공유 이미지 리스트
 	public List<ImgVO> imgList(Integer communityNum);
+
 }

@@ -41,7 +41,8 @@ public class CommunityVO {
 	@Column(name="c_insertdate")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date communityInsertdate;
-	
+
+
 	@CreationTimestamp
 	@Column(name="c_updatedate")
 	@Temporal(TemporalType.TIMESTAMP)

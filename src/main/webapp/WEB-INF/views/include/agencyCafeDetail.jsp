@@ -141,8 +141,7 @@
     
          width:100%;
          height:100%;
-         background:#fff58c; 
-        
+         background:#fff58c;
     } 
     
     #btn1{
@@ -460,6 +459,4 @@
 
 
 </body>
-    
-   
  </html>

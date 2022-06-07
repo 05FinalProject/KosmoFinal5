@@ -39,9 +39,11 @@ public interface UserRepository extends CrudRepository<UserVO, String>{
 	// UPDATE user set userPass WEHRE userEmail
 	@Query("UPDATE UserVO uvo SET uvo.userPass=:userPass WHERE uvo.userEmail=:userEmail")
 	UserVO save(String userEmail, String userPass);
+
 	
 	// 반려견 등록
 	
+
 	
 	 
 }

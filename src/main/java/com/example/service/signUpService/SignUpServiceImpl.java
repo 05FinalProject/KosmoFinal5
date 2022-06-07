@@ -21,7 +21,6 @@ public class SignUpServiceImpl implements SignUpService {
 	
 	// 회원가입
 	public void insertUser(UserVO vo) {
-		
 		user.save(vo);
 	}
 	

@@ -44,6 +44,6 @@ public interface AdminAgencyService {
 	public AgencyVO updateAgency(Integer agencyNum, String tel, String name, String content, String addr, String subAddr);
 
 	//시설등록
-	public AgencyVO insertAgency(Integer agencyCategoryNum, String agencyName, String addr, String subAddr, String tel, String agencyContent);
+	public AgencyVO insertAgency(Integer agencyCategoryNum, String agencyName, String addr, String subAddr, String tel, String agencyContent, String agencyImage);
 
 }
