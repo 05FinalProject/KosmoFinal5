@@ -112,8 +112,8 @@ information-content {
 	display: flex;
 }
 
-small {
-	margin-right: 75%;
+span {
+	margin-right: 60%;
 }
 
 #communityTitle {
@@ -171,7 +171,7 @@ small {
 								value="${community.communityContent }" />
 							<div id="etc">
 								<div class="container" id="btnbtn">
-									<small><span>${community.communityInsertdate }</span></small>
+									<span>${community.communityInsertdate }</span>
 
 									<button class="item" id="siren">
 										<img class="siren" src="../../img/siren.png">
@@ -198,7 +198,7 @@ small {
 							<div class="information-content">
 								<img src="/community/images/user/user-25.jpg"
 									class="rounded-circle" alt="image">
-								<h6>${comment.user.userNickname }</h6>
+								<h6>${comment.user.userNickname }</h6> 
 								<p>${comment.commentContent }</p>
 							</div>
 						</div>		
@@ -288,14 +288,14 @@ $(function(){
                  }, 
            success : function(data) {
               if(data=='yes') {
-                 alert('수정 되었습니다');   // hide,show 적어주면됨
+                 alert('수정되었습니다');   // hide,show 적어주면됨
                  $('.beforeUpdate').html(input_title);      // html(값)  => 불러오는 것 , 값을 넣으면 setter 
                  $('.communityContent').html(input_content);
                  $('.updateInput').hide();
          		 $('.beforeUpdate').show();
               }
               else {
-                 alert('안됨');
+                 alert('수정에 실패하였습니다.');
               }
               
            },

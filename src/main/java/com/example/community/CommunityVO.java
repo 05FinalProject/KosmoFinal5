@@ -15,6 +15,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import com.example.domain.UserVO;
 
 import lombok.Data;
@@ -35,12 +37,14 @@ public class CommunityVO {
 	@Column(length = 3000, name="c_content")
 	private String communityContent;
 	
-	@Column(insertable = false,updatable = false,columnDefinition = "date default (current_date)", name="c_insertdate")
-	@Temporal(TemporalType.DATE)
+	@CreationTimestamp
+	@Column(name="c_insertdate")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date communityInsertdate;
 	
-	@Column(insertable = false, name="c_updatedate")
-	@Temporal(TemporalType.DATE)
+	@CreationTimestamp
+	@Column(name="c_updatedate")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date communityUpdatedate;
 	
 	@ManyToOne
