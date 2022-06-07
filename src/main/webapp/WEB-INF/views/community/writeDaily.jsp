@@ -227,7 +227,7 @@ header .subHeader .headerInner .gnb-bar .gnb-list.hover_menu.on {
 								<div id='image_preview'>
 									<h4>미리보기</h4>
 									<input type='file' id='btnAtt' multiple='multiple' name="file" />
-									<input type="hidden" id="img-test" name="" />
+									
 									<div id='att_zone'
 										data-placeholder='파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요.'></div>
 								</div>
