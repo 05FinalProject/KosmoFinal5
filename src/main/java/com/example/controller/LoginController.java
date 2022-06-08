@@ -122,10 +122,11 @@ public class LoginController {
 	public String UserUpdate(ImgVO ivo, HttpServletRequest request,Model m) {
 		
 		HttpSession session = request.getSession();
-		
 		session.setAttribute("pRimgname", "img/userImg/"+ivo.getRealImgName());
+		
 		UserVO vo = new UserVO();
 		vo.setUserEmail(session.getAttribute("userEmail").toString());
+		vo.setUserPass(session.getAttribute("userPass").toString());
 		ivo.setUser(vo);
 		lservice.userImgUpdate(ivo);
 		m.addAttribute("pRimgname", "img/userImg/"+ivo.getRealImgName());

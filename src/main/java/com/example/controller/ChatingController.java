@@ -37,7 +37,7 @@ public class ChatingController {
 		
 	}
 	
-	@GetMapping("/room")
+	@PostMapping("/room")
 	public void room(Model m,UserVO user) {
 		//채팅방list 출력
 		m.addAttribute("list", service.getAllRooms(user));
