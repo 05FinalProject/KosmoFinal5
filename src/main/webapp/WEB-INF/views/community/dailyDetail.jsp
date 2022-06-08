@@ -261,8 +261,7 @@ span {
         }
 
 
-        </style>
-
+       
 #end {
 	display: none;
 }
@@ -374,8 +373,7 @@ span {
 						placeholder="댓글을 입력해주세요.">
 					<div class="input-group-append">
 						<button type="submit" id="subscribe"
-							class="btn btn-primary text-uppercase font-weight-bold">
-							등록</button>
+							class="btn btn-primary text-uppercase font-weight-bold">등록</button>							
 					</div>
 				</div>
 			</form>
@@ -533,7 +531,7 @@ $(function(){
 	plusReview();
     function plusReview(){
         $(".seller-information").slice(0, 4).show(); // select the first ten
-        if ($(".seller-information").length>5){
+        if ($(".seller-information").length>4){
             $("#load").click(function(e){ // click event for load more
                 e.preventDefault();
                 $(".seller-information:hidden").slice(0, 4).show(); // select next 10 hidden divs and show them

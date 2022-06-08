@@ -58,6 +58,7 @@ public class CommunityController {
 	// 일상공유 상세보기 페이지
 	@RequestMapping(value = "/dailyDetail", method = RequestMethod.GET)
 	public String dailyDetail(CommunityVO vo, Model m) {
+		System.out.println("상세보기 페이지");
 		m.addAttribute("community", c_service.getCommunity(vo));
 		
 		
@@ -164,6 +165,8 @@ public class CommunityController {
 		System.out.println(userEmail);
 		System.out.println(rReason);
 		c_service.reportCommunity(communityNum, userEmail, rReason);
+		System.out.println("컨트롤러");
+		
 		return "redirect:/community/daily";
 	}
 		
