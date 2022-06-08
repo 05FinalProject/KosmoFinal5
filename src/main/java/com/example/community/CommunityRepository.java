@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import com.example.domain.UserVO;
+
 
 
 @Repository
@@ -33,6 +35,7 @@ public interface CommunityRepository extends CrudRepository<CommunityVO, Integer
 	
 	@Query("SELECT c FROM CommunityVO c WHERE c.user.userEmail=:userEmail Order By c.communityInsertdate DESC")
 	List<CommunityVO> getCommunityByUser(String userEmail);
+
 	
-	
+	List<CommunityVO> findByUser(UserVO u);
 }

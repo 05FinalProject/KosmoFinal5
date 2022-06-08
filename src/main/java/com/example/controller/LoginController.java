@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.example.community.CommunityService;
 import com.example.domain.ImgVO;
 import com.example.domain.PetVO;
 import com.example.domain.UserVO;
-import com.example.service.chatingService.ChatingService;
 import com.example.service.friendService.FriendService;
 import com.example.service.loginService.LoginService;
 
@@ -34,7 +34,8 @@ public class LoginController {
 	@Autowired
 	private FriendService fservice;
 	
-	
+	@Autowired
+	private CommunityService Cservice;
 	
 	/* 로그인 페이지로 이동*/
 	@RequestMapping("/Login")
@@ -152,7 +153,7 @@ public class LoginController {
 		m.addAttribute("pet", lservice.getPetDetail(pvo));
 	}
 	
-	/* 반려견 추가 페이지 */
+	/* 반려견 추가 페이지 (견종) */
 	@RequestMapping(value="/myPage/myPageDogAdd", method=RequestMethod.GET)
 	public void myPageDogAdd(Model m) {
 		m.addAttribute("kindList", fservice.getDogList());
@@ -160,28 +161,15 @@ public class LoginController {
 	
 	/* 반려견 추가 버튼 이벤트 */
 	@RequestMapping(value="/myPage/petAdd", method=RequestMethod.POST)
-	public String petAdd(ImgVO ivo, String petName, Integer petAge, String petGender, String petVariety, 
-						String petNeutering, Integer petWeight, MultipartFile file, HttpServletRequest request) {
+	public String petAdd(PetVO pvo, MultipartFile file, HttpSession session) {
 		
-		HttpSession session = request.getSession();
+		String userEmail = session.getAttribute("userEmail").toString();
 		
-		PetVO pvo = new PetVO();
-		session.setAttribute("userEmail", pvo.getUser().getUserEmail());
-		session.setAttribute("pRimgname", pvo.getPetNum());
+		lservice.insertPet(userEmail, pvo);
 		
-		pvo.setPetName(petName);
-		pvo.setPetAge(petAge);
-		pvo.setPetGender(petGender);
-		pvo.setPetVariety(petVariety);
-		pvo.setPetNeutering(petNeutering);
-		pvo.setPetWeight(petWeight);
-		
-		lservice.petAdd(petName, petAge, petGender, petVariety, petNeutering, petWeight, file);
-		
-		
-			//ImgVO ivo = new ImgVO();
+			ImgVO ivo = new ImgVO();
 			
-			ivo.setPet(lservice.getPetDetail(pvo));
+			ivo.setPet(lservice.getPetOwnerByUser(userEmail));
 			ivo.setFile3(file);
 			lservice.insertImgVO(ivo);
 		
@@ -189,11 +177,21 @@ public class LoginController {
 		return "redirect:/include/myPage/myPageDogList";
 	}
 	
-
 	/* 유저의 글 */
 	@RequestMapping("/myPage/myPageBoard")
-	public void myPageBoard() {
+	public void myPageBoard(HttpSession session, Model m) {	
+		
+		String userEmail = session.getAttribute("userEmail").toString();
+		
+		m.addAttribute("CommunityWrite", lservice.findCommunityList(userEmail));
+		m.addAttribute("comment", lservice.findCommentList(userEmail) );
+		m.addAttribute("like", lservice.findCommunityByLike(userEmail));
+		m.addAttribute("review", lservice.findByReviewList(userEmail));
 	}
+	
+	
+	
+	
 	
 	
 //	/* 회원탈퇴 */

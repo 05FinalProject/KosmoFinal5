@@ -148,7 +148,7 @@
 										<div class="row">
 											<div class="col-md-3 mx-auto" style="margin: 1%;">
 												<img class="card-img"
-													src="/pictures/placeholder/530x400.svg" alt="Post"
+													src="../img/petImg/${img.realImgName}" alt="Post"
 													style="width: 250px; height: 250px; border-radius: 50%;">
 											</div>
 											<div class="col-md-6 mr-auto">

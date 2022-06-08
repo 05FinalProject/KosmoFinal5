@@ -1,16 +1,24 @@
 package com.example.service.loginService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
+import com.example.community.CommunityRepository;
+import com.example.community.CommunityVO;
+import com.example.dao.CommentRepository;
 import com.example.dao.ImgRepository;
+import com.example.dao.LikeItRepository;
 import com.example.dao.PetRepository;
+import com.example.dao.ReviewRepository;
 import com.example.dao.UserRepository;
+import com.example.domain.CommentVO;
 import com.example.domain.ImgVO;
+import com.example.domain.LikeItVO;
 import com.example.domain.PetVO;
+import com.example.domain.ReviewVO;
 import com.example.domain.UserVO;
 
 @Service
@@ -25,6 +33,17 @@ public class LoginServiceImpl implements LoginService {
 	@Autowired
 	private PetRepository pet;
 
+	@Autowired
+	private CommunityRepository cmR;
+	
+	@Autowired
+	private CommentRepository cr;
+	
+	@Autowired
+	private ReviewRepository rv;
+	
+	@Autowired
+	private LikeItRepository li;
 	
 	@Override
 	public UserVO findByUserEmail(String userEmail) {
@@ -42,7 +61,6 @@ public class LoginServiceImpl implements LoginService {
 	@Override
 	public List<PetVO> findByPetNum(String petNum) {
 		return (List<PetVO>) pet.findAll();
-		
 	}
 	
 	@Override
@@ -59,16 +77,8 @@ public class LoginServiceImpl implements LoginService {
 
 	/* 반려견 등록 */
 	@Override
-	public void petAdd(String petName, Integer petAge, String petGender, String petVariety, String petNeutering,
-			Integer petWeight, MultipartFile file) {
-		PetVO pvo = new PetVO();
-		pvo.setPetName(petName);
-		pvo.setPetAge(petAge);
-		pvo.setPetGender(petGender);
-		pvo.setPetVariety(petVariety);
-		pvo.setPetNeutering(petNeutering);
-		pvo.setPetWeight(petWeight);
-		
+	public void insertPet(String userEmail, PetVO pvo) {
+		pvo.setUser(user.findById(userEmail).get());
 		pet.save(pvo);
 	}
 
@@ -86,6 +96,67 @@ public class LoginServiceImpl implements LoginService {
 		return pevo;
 	}
 
+	/* 반려견리스트 누를 때 이미지 불러오기 */
+//	@Override
+//	public ImgVO getPetImg(ImgVO ivo) {
+//		return Img.findByPet(ivo.getPet()).get(0);
+//	}
+
+
+	@Override
+	public PetVO petAdd(PetVO pvo) {
+		return null;
+	}
+
+
+	@Override
+	public List<CommunityVO> findCommunityList(String userEmail) {
+		UserVO u = user.findById(userEmail).get();
+		return cmR.findByUser(u);
+	}
+
+
+	@Override
+	public List<CommentVO> findCommentList(String userEmail) {
+		UserVO u = user.findById(userEmail).get();
+		return cr.findByUser(u);
+	}
+
+
+	@Override
+	public List<ReviewVO> findByReviewList(String userEmail) {
+		UserVO u = user.findById(userEmail).get();
+		return rv.findByUser(u);
+	}
+
+
+	@Override
+	public List<CommunityVO> findCommunityByLike(String userEmail) {
+		UserVO u = user.findById(userEmail).get();
+		List<LikeItVO> likeList = li.findByUser(u);
+
+		List<CommunityVO> resultList = new ArrayList<CommunityVO>();
+		
+		for (LikeItVO like : likeList){
+			CommunityVO vo = like.getCommunity();
+			resultList.add(vo);
+		}
+		return resultList;
+	}
+
+
+	/* 반려견 이미지 등록에 써먹는 중*/
+	@Override
+	public PetVO getPetOwnerByUser(String userEmail) {
+		UserVO uvo = new UserVO();
+		uvo.setUserEmail(userEmail);
+		List<PetVO> list = pet.getPetOwnerByUser(uvo);
+		PetVO v = new PetVO();
+		if(list.size() > 0) {
+			v = list.get(0);
+		}
+		return v;
+	}
 
 
 //	/* 회원탈퇴용으로 쓰는 중*/
