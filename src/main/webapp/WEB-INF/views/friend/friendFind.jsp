@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="/community/css/bootstrap.min.css">
 <link rel="stylesheet" href="/community/css/animate.min.css">
@@ -18,6 +19,7 @@
 <link rel="stylesheet" href="/community/css/owl.theme.default.min.css">
 <link rel="stylesheet" href="/community/css/style.css">
 <link rel="stylesheet" href="/community/css/responsive.css">
+<link rel="stylesheet" href="/myPage/css/myPage.css">
 <script src="https://kit.fontawesome.com/23b331c6f8.js"
 	crossorigin="anonymous"></script>
 
@@ -53,13 +55,77 @@
 
 <%@include file="../include/Header.jsp"%>
 
-<body
-	class="archive post-type-archive post-type-archive-lana_story grid-3-columns">
+<body class="hold-transition sidebar-mini layout-fixed">
 
+<div class="wrapper">
+  <aside class="myPage-sidebar asidebar beta">
+    <div class="sidebar">
+      <div>
+      </div>
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
+          <!-- 마이 프로필 -->
+          <li class="nav-item">
+            <a href="/include/myPage/myPageProfile" class="nav-link">
+              <p>
+                마이 프로필
+              </p>
+            </a>
+          </li>
+        
+          <!-- 나의 게시글 -->
+          <li class="nav-item">
+            <a href="/include/myPage/myPageBoard" class="nav-link">
+              <p>
+                나의 게시글
+              </p>
+            </a>
+          </li>
 
-	<main class="main container">
-		<div class="row">
+          <!-- 반려동물 -->
+          <li class="nav-item">
+            <a href="/include/myPage/myPageDogList" class="nav-link">
+              <p>
+                반려동물
+              </p>
+            </a>
+          </li>
+
+          <!-- 펫친관리 -->
+          <li class="nav-item">
+            <a href="/friend/friendList" class="nav-link active">
+              <p>
+                펫친관리
+              </p>
+            </a>
+          </li>
+
+          <!-- 친구찾기 -->
+          <li class="nav-item">
+            <a href="/friend/friendFind" class="nav-link">
+              <p>
+                펫친찾기
+              </p>
+            </a>
+          </li>
+          
+          <!-- 나의 산책로 -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <p>
+                나의 산책로
+              </p>
+            </a>
+          </li>
+          
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+	<div class="content-wrapper">
+		<div class="container">
 			<div class="col-12">
 				<div class="story-grid-posts">
 					<div class="row">
@@ -70,7 +136,6 @@
 						<c:when test="${param.page != null }">
 							<c:set var="page" value="${param.page }"></c:set>
 						</c:when>
-						
 					</c:choose>
 					
 
@@ -156,8 +221,9 @@
 					</div>
 				</div>
 			</div>
-	</main>
-
+			</div>
+	</div>
+</div>
 
 
 	<script type="text/javascript" src="../js/jquery.min.js?ver=3.6.0"></script>

@@ -129,7 +129,7 @@
 					
 					<li class="nav-item">
 					<c:if test="${not empty sessionScope.userEmail }">
-					<a class="nav-links chat"  id="chatingRoom">채팅방</a></c:if></li>
+					<a class="nav-links chat" id="chatingRoom" style="cursor:pointer;">채팅방</a></c:if></li>
 				</ul>
 				<form action="/chating/room" method="post" id="chatingFrm">
 				<input type="hidden" name="userEmail" value="${sessionScope.userEmail}">
