@@ -195,11 +195,8 @@ var ws ;
 			ws= new WebSocket("ws://" + location.host + "/chating/"+$('#friendNo').val());
 			ws.onopen = function(data){
 				//소켓이 열리면 동작
-				
 			}
-			
 			wsEvt()
-			
 			document.addEventListener("keypress", function(e){
 				if(e.keyCode == 13){ //enter press
 					send();
@@ -243,6 +240,15 @@ var ws ;
 		
 		//나가기
 		$('#goOut').click(function(){
+			//친구채팅창 떠나는 시간 저장
+			$.ajax({
+				url:'/api/leaveTime',
+				type:'get',
+				contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+				data:{	
+					userEmail:$('#userEmail').val()
+					}
+			})
 			location.href='/friend/friendList'
 		})
 	

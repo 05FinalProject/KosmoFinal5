@@ -14,11 +14,13 @@ import com.example.dao.ChatingRoomRepository;
 import com.example.dao.FriendChatingRepository;
 import com.example.dao.FriendRepository;
 import com.example.dao.ImgRepository;
+import com.example.dao.PetRepository;
 import com.example.dao.UserRepository;
 import com.example.domain.ChatingRoomVO;
 import com.example.domain.FriendChatingVO;
 import com.example.domain.FriendVO;
 import com.example.domain.ImgVO;
+import com.example.domain.PetVO;
 import com.example.domain.UserVO;
 
 @Service
@@ -38,6 +40,9 @@ public class ChatingServiceImpl implements ChatingService {
 	
 	@Autowired
 	private FriendChatingRepository fcr;
+	
+	@Autowired
+	private PetRepository pr;
 	
 	//채팅방멤버삭제
 	public void deleteByRoomMember(ChatingRoomVO vo) {
@@ -108,10 +113,14 @@ public class ChatingServiceImpl implements ChatingService {
 		HashMap<String,Object> hm = new HashMap<String,Object>();
 		for(ChatingRoomVO v : list) {
 			hm = new HashMap<String,Object>();
-			hm.put("img", img.findByUserEmail(v.getRoomMember()).get(0).getPImgname()); //img
-			hm.put("nickName",usr.findById(v.getRoomMember()).get().getUserNickname());//niname
-			hm.put("email", v.getRoomMember());
-			rlist.add(hm);
+			List<ImgVO> l = img.findByUserEmail(v.getRoomMember());
+			if (l.size()>0) {
+				hm.put("img", l.get(0).getPImgname()); //img
+				hm.put("nickName",usr.findById(v.getRoomMember()).get().getUserNickname());//niname
+				hm.put("email", v.getRoomMember());
+				rlist.add(hm);
+			}
+			
 		}
 		return rlist;
 	}
@@ -169,11 +178,21 @@ public class ChatingServiceImpl implements ChatingService {
 		}
 		emails.remove(email);
 		for(String e : emails) {
+			UserVO u = new UserVO();
+			u.setUserEmail(e);
+			List<PetVO> plist = pr.findByUser(u);
 			hm = new HashMap<String,Object>();
 			hm.put("img", img.findByUserEmail(e).get(0).getRealImgName()); //img
 			hm.put("nickName",usr.findById(e).get().getUserNickname());//niname
 			hm.put("email", e);
 			hm.put("friendNo", fri.getFriendNo(e,email));
+			
+			if (plist.size()>0) {
+				hm.put("petCnt", plist.size());
+			}else {
+				hm.put("petCnt", 0);
+			}
+			
 			rlist.add(hm);
 		}
 		return rlist;
@@ -227,6 +246,30 @@ public class ChatingServiceImpl implements ChatingService {
 	public List<FriendVO> friendSearch(String str,String str2){
 		return fri.friendSearch(str ,str2);
 		
+	}
+	
+	public void leaveTime(UserVO vo) {
+		UserVO u = usr.findById(vo.getUserEmail()).get();
+		u.setChatLeave(LocalDateTime.now());
+		usr.save(u);
+	}
+	
+	public List<HashMap<String, Object>> UnreadMessage(UserVO vo){
+		List<Object[]> obj = fcr.UnreadMessage(vo.getUserEmail());
+		List<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+		for(Object[] o : obj) {
+			HashMap<String, Object> hm = new HashMap<String, Object>();
+			hm.put("chatingNo", o[0]);
+			hm.put("chatingMessage", o[1]);
+			hm.put("chatingSign", o[2]);
+			hm.put("chatingTime", o[3]);
+			hm.put("friendNo", o[4]);
+			hm.put("userSign", o[5]);
+			hm.put("userEmail", o[6]);
+			hm.put("userEmail1", o[7]);
+			list.add(hm);
+		}
+		return list ;
 	}
 	
 }
