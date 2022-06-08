@@ -155,6 +155,7 @@ public class CommunityServiceImpl implements CommunityService {
 	
 	//이미지 리스트 출력
 	public List<ImgVO> imgList(Integer communityNum) {
+		System.out.println("이미지 커뮤니티 번호 확인"+communityNum);
 		return imgRepo.findByCommunity(communityRepo.findById(communityNum).get());
 	}
 }
