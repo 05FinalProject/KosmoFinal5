@@ -166,10 +166,15 @@
 								<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 									<span class="dropdown-item dropdown-header">15
 										Notifications</span>
-									<div class="dropdown-divider"></div>
-									<a href="#" class="dropdown-item"> <i
-										class="fas fa-envelope mr-2"></i> 4 new messages
+									<div class="dropdown-divider" id="unreadMessageBtn"></div>
+									<a  class="dropdown-item"> <i
+										class="fas fa-envelope mr-2"></i> <label id="unreadMessage">4</label> new messages
 									</a>
+									<c:if test="${sessionScope.userEmail != null }">
+									<form id="friendChating" action="/chating/friendChat" method="post">
+										<input type="hidden" value="${sessionScope.userEmail }" name="userEmail" />
+									</form>
+									</c:if>
 									<div class="dropdown-divider"></div>
 									<a href="/friend/friendRequestList" class="dropdown-item"> <i
 										class="fas fa-users mr-2"></i> 8 friend requests
@@ -205,6 +210,8 @@
 	<script type="text/javascript" src="/js/custom-theme.js?ver=1.0.0"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			
+			
 			$(".organi").mouseover(function(){
 				$(".organi").css("color","#f8b03a");
 			});
@@ -242,9 +249,10 @@
 				$("#chatingFrm").submit();
 			});
 		
-		
-		
-		
+			$('#unreadMessageBtn').click(function(){
+				$('#friendChating').submit()
+			})
+			
 		});
 	</script>
 	

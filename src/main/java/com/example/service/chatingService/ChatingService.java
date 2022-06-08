@@ -52,4 +52,6 @@ public interface ChatingService {
 	public List<FriendVO> friendSearch(String str,String str2);
 	
 	public void leaveTime(UserVO vo);
+	
+	public List<HashMap<String, Object>> UnreadMessage(UserVO vo);
 }
