@@ -27,8 +27,9 @@
 <link rel="stylesheet" href="/community/css/owl.carousel.min.css">
 <link rel="stylesheet" href="/community/css/owl.theme.default.min.css">
 <link rel="stylesheet" href="/community/css/style.css">
-<link rel="stylesheet" href="/community/css/choi.css">
+<link rel="stylesheet" href="/css/choi.css">
 <link rel="stylesheet" href="/community/css/responsive.css">
+<link rel="stylesheet" href="/css/jquery.bxslider.css">
 <script src="https://kit.fontawesome.com/23b331c6f8.js"
 	crossorigin="anonymous"></script>
 
@@ -259,6 +260,11 @@ span {
 #end {
 	display: none;
 }
+
+#wrap {
+	width: 350px;
+	margin: 0 auto;
+}
 </style>
 
 
@@ -282,22 +288,22 @@ span {
 
 
 						<!-- ****************************** 이미지 슬라이더 시작 *********************************** -->
-						<div class="listing__details__gallery__pic">
+						<%-- <div class="listing__details__gallery__pic">
 
 							<div class="listing__details__gallery__slider owl-carousel">
-								<%-- <c:forEach items="${fromReviewRealFname}" var="fromReviewRealFname"> --%>
+								<c:forEach items="${fromReviewRealFname}" var="fromReviewRealFname">
 								<c:forEach items="${imgList}" var="img">
 									<c:choose>
-										<%-- <c:when test="${ fromReviewRealFname.REVIEWREALFNAME != '0' }"> --%>
+										<c:when test="${ fromReviewRealFname.REVIEWREALFNAME != '0' }">
 										<c:when test="${ img.realImgName != null }">
-											<%-- <img data-imgbigurl="./resources/reviewUpload/${fromReviewRealFname.REVIEWREALFNAME }" src="./resources/reviewUpload/${fromReviewRealFname.REVIEWREALFNAME }" 
-											width="100%" height="160px" alt=""> --%>
+											<img data-imgbigurl="./resources/reviewUpload/${fromReviewRealFname.REVIEWREALFNAME }" src="./resources/reviewUpload/${fromReviewRealFname.REVIEWREALFNAME }" 
+											width="100%" height="160px" alt="">
 											<img data-imgbigurl="/img/communityImg/${img.realImgName}"
 												src="/img/communityImg/${img.realImgName}" width="100%"
 												height="160px" alt="">
 										</c:when>
 										<c:otherwise>
-											<%-- <c:if test="${fromReviewRealFname.REVIEWREALFNAME == '0' }"> --%>
+											<c:if test="${fromReviewRealFname.REVIEWREALFNAME == '0' }">
 											<c:if test="${img.realImgName == null }">
 												<img data-imgbigurl="/img/communityImg/no_image.png"
 													src="/img/communityImg/no_image.png" width="100%"
@@ -310,25 +316,25 @@ span {
 							</div>
 						</div>
 						<c:choose>
-							<%-- <c:when test="${ reviewInfo.REVIEWNUMBER != '0'  }"> --%>
+							<c:when test="${ reviewInfo.REVIEWNUMBER != '0'  }">
 							<c:when test="${ community.communityNum != null  }">
 
 								<div class="listing__details__comment">
 									<div class="listing__details__comment__item">
 										<div class="listing__details__comment__item__pic">
-											<%-- <input type="hidden" name="reviewNumber" value="${reviewInfo.REVIEWNUMBER }"> --%>
+											<input type="hidden" name="reviewNumber" value="${reviewInfo.REVIEWNUMBER }">
 											<input type="hidden" name="communityNum"
 												value="${community.communityNum }">
 
 
-											<%-- <c:forEach items="${ProfileRealFname }" var="ProfileRealFname"> --%>
+											<c:forEach items="${ProfileRealFname }" var="ProfileRealFname">
 											<c:forEach items="${imgList }" var="img2">
 
 												<c:choose>
-													<%-- <c:when test="${ProfileRealFname.REVIEWNUMBER eq reviewInfo.REVIEWNUMBER }"> --%>
+													<c:when test="${ProfileRealFname.REVIEWNUMBER eq reviewInfo.REVIEWNUMBER }">
 													<c:when
 														test="${img2.community.communityNum eq community.communityNum }">
-														<%-- 														<img src="./resources/upload/${ProfileRealFname.MEMBERREALFNAME }" alt="">													 --%>
+																												<img src="./resources/upload/${ProfileRealFname.MEMBERREALFNAME }" alt="">													
 														<img src="/img/communityImg/${img2.realImgName}" alt="">
 
 
@@ -338,17 +344,17 @@ span {
 
 										</div>
 										<div class="listing__details__comment__item__text">
-											<%-- 											<c:set var="email" value="${sessionScope.logemail}" /> --%>
-											<c:set var="communityNum" value="${community.communityNum}" ></c:set>
+																						<c:set var="email" value="${sessionScope.logemail}" />
+											<c:set var="communityNum" value="${community.communityNum}"></c:set>
 											<c:forEach items="${imgList }" var="img3">
 												<c:choose>
 
-													<%-- 												<c:when	test="${sessionScope.logemail eq reviewInfo.MEMBEREMAIL}"> --%>
+																									<c:when	test="${sessionScope.logemail eq reviewInfo.MEMBEREMAIL}">
 													<c:when
 														test="${community.communityNum eq img3.community.communityNum}">
-														<%-- 													<c:if test="${reviewInfo.REVIEWREALFNAME ne '0' }"> --%>
+																											<c:if test="${reviewInfo.REVIEWREALFNAME ne '0' }">
 														<c:if test="${img.realImgName != null}">
-															<%-- 														<img class="imgClass" width="180" height="120" src="./resources/reviewUpload/${reviewInfo.REVIEWREALFNAME }"> --%>
+																													<img class="imgClass" width="180" height="120" src="./resources/reviewUpload/${reviewInfo.REVIEWREALFNAME }">
 															<img class="imgClass" width="180" height="120"
 																src="/img/communityImg/${img3.realImgName}">
 
@@ -369,7 +375,21 @@ span {
 
 
 
-						</c:choose>
+						</c:choose> --%>
+
+
+
+						<div id="wrap">
+							<ul class="slider" width="300px">
+								<c:forEach items="${imgList}" var="img">
+									<li>
+										<a href="#"><img src="/img/communityImg/${img.realImgName}" width="500px" height="500px"></a>
+									</li>
+											
+											
+								</c:forEach>
+							</ul>
+						</div>
 						<!-- *************************************** 이미지 슬라이더 끝 ********************************************** -->
 
 					</div>
@@ -538,14 +558,13 @@ span {
 </body>
 
 <script type="text/javascript">
-    $(".siren").click(function () {
-        $(".modal").fadeIn();
-    });
+	$(".siren").click(function() {
+		$(".modal").fadeIn();
+	});
 
-    $(".close").click(function () {
-        $(".modal").fadeOut();
-    });
-
+	$(".close").click(function() {
+		$(".modal").fadeOut();
+	});
 </script>
 
 <!-- 템플릿2 -->
@@ -556,96 +575,107 @@ span {
 <script src="/community/js/jquery-ui.min.js"></script>
 <script src="/community/js/simplebar.min.js"></script>
 <script src="/community/js/metismenu.min.js"></script>
-<script src="/community/js/owl.carousel.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
 <script src="/community/js/wow.min.js"></script>
 <script src="/community/js/main.js"></script>
-<script src="/community/js/choi.js"></script>
+<script src="/js/choi.js"></script>
+<script src="/js/jquery.bxslider.js"></script>
 
 
 
 <script type="text/javascript">
-$(function(){
-	$('.updateInput').hide();
-	$('.beforeUpdateBtn').click(function(e){
-		e.preventDefault();
-		$('.updateInput').show();
-		$('.beforeUpdate').hide();
+$(document).ready(function() {
+	$(".slider").bxSlider({
+		auto : true
 	});
-	
-	$('.afterUpdateBtn').click(function(e){
-		e.preventDefault();
-        input_title = $('input[name="communityTitle"]').val();
-        input_content = $('input[name="communityContent"]').val();
-        input_communityNum = $('input[name="communityNum"]').val();
-        $.ajax({
-           url:'/community/communityUpdate',   // url로 변경 ( 홈페이지 주소로 뒤에는 RequestMapping의 값을)
-           type:'post',
-           contentType : 'application/x-www-form-urlencoded;charset=utf-8',
-           data : { 
-        	   communityTitle : input_title,
-        	   communityContent : input_content,
-        	   communityNum : input_communityNum
-                 }, 
-           success : function(data) {
-              if(data=='yes') {
-                 alert('수정되었습니다');   // hide,show 적어주면됨
-                 $('.beforeUpdate').html(input_title);      // html(값)  => 불러오는 것 , 값을 넣으면 setter 
-                 $('.communityContent').html(input_content);
-                 $('.updateInput').hide();
-         		 $('.beforeUpdate').show();
-              }
-              else {
-                 alert('수정에 실패하였습니다.');
-              }
-              
-           },
-           error : function(err) {
-              alert('수정되지 않았습니다.');
-              console.log(err);
-           }
-           
-        });
-     });
-	
-	$('#deleteBtn').on('click',function(){
-		var communityNum = "${community.communityNum }"
-		if(confirm("삭제하시겠습니까?")) {
-			location.href = "/community/deleteCommunity?communityNum=" + communityNum
-		} else {
-			alert("이전 페이지로 돌아갑니다.");
-			location.href="/community/daily"
+
+});
+
+
+	$(function() {
+		$('.updateInput').hide();
+		$('.beforeUpdateBtn').click(function(e) {
+			e.preventDefault();
+			$('.updateInput').show();
+			$('.beforeUpdate').hide();
+		});
+
+		$('.afterUpdateBtn')
+				.click(
+						function(e) {
+							e.preventDefault();
+							input_title = $('input[name="communityTitle"]')
+									.val();
+							input_content = $('input[name="communityContent"]')
+									.val();
+							input_communityNum = $('input[name="communityNum"]')
+									.val();
+							$
+									.ajax({
+										url : '/community/communityUpdate', // url로 변경 ( 홈페이지 주소로 뒤에는 RequestMapping의 값을)
+										type : 'post',
+										contentType : 'application/x-www-form-urlencoded;charset=utf-8',
+										data : {
+											communityTitle : input_title,
+											communityContent : input_content,
+											communityNum : input_communityNum
+										},
+										success : function(data) {
+											if (data == 'yes') {
+												alert('수정되었습니다'); // hide,show 적어주면됨
+												$('.beforeUpdate').html(
+														input_title); // html(값)  => 불러오는 것 , 값을 넣으면 setter 
+												$('.communityContent').html(
+														input_content);
+												$('.updateInput').hide();
+												$('.beforeUpdate').show();
+											} else {
+												alert('수정에 실패하였습니다.');
+											}
+
+										},
+										error : function(err) {
+											alert('수정되지 않았습니다.');
+											console.log(err);
+										}
+
+									});
+						});
+
+		$('#deleteBtn')
+				.on(
+						'click',
+						function() {
+							var communityNum = "${community.communityNum }"
+							if (confirm("삭제하시겠습니까?")) {
+								location.href = "/community/deleteCommunity?communityNum="
+										+ communityNum
+							} else {
+								alert("이전 페이지로 돌아갑니다.");
+								location.href = "/community/daily"
+							}
+						});
+
+		/* ************************************** 댓글 리스트 **************************************** */
+		plusReview();
+		function plusReview() {
+			$(".seller-information").slice(0, 4).show(); // select the first ten
+			if ($(".seller-information").length > 4) {
+				$("#load").click(function(e) { // click event for load more
+					e.preventDefault();
+					$(".seller-information:hidden").slice(0, 4).show(); // select next 10 hidden divs and show them
+					if ($(".seller-information:hidden").length == 0) { // check if any hidden divs still exist
+						$("#load").css('display', 'none');
+						$("#end").show();
+					}
+				});
+			} else {
+				$("#load").css('display', 'none');
+			}
+
 		}
-	});
-	
-	
-	
-	/* ************************************** 댓글 리스트 **************************************** */
-	plusReview();
-    function plusReview(){
-        $(".seller-information").slice(0, 4).show(); // select the first ten
-        if ($(".seller-information").length>4){
-            $("#load").click(function(e){ // click event for load more
-                e.preventDefault();
-                $(".seller-information:hidden").slice(0, 4).show(); // select next 10 hidden divs and show them
-                if($(".seller-information:hidden").length == 0){ // check if any hidden divs still exist
-                    $("#load").css('display','none');
-                    $("#end").show();
-                }
-            });
-        } else {
-            $("#load").css('display','none');
-        }
 
-    }
-	
-	
-	
-	
-})
-
-
-
-
+	})
 </script>
 
 </html>

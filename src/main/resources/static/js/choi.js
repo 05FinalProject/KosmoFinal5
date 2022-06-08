@@ -76,7 +76,7 @@
 			
 		})
 			
-	
+	/*
 		function readOldNotify(index){
 			let_endIndex = index+searchStep-1;	//인덱스
 			$.ajax({
@@ -126,7 +126,7 @@
 					console.log(err)
 				}
 			});
-		}
+		}*/
  
 // 평가 이모지 넣기
 rateImoji();
