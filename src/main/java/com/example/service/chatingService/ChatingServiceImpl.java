@@ -14,11 +14,13 @@ import com.example.dao.ChatingRoomRepository;
 import com.example.dao.FriendChatingRepository;
 import com.example.dao.FriendRepository;
 import com.example.dao.ImgRepository;
+import com.example.dao.PetRepository;
 import com.example.dao.UserRepository;
 import com.example.domain.ChatingRoomVO;
 import com.example.domain.FriendChatingVO;
 import com.example.domain.FriendVO;
 import com.example.domain.ImgVO;
+import com.example.domain.PetVO;
 import com.example.domain.UserVO;
 
 @Service
@@ -38,6 +40,9 @@ public class ChatingServiceImpl implements ChatingService {
 	
 	@Autowired
 	private FriendChatingRepository fcr;
+	
+	@Autowired
+	private PetRepository pr;
 	
 	//채팅방멤버삭제
 	public void deleteByRoomMember(ChatingRoomVO vo) {
@@ -173,11 +178,21 @@ public class ChatingServiceImpl implements ChatingService {
 		}
 		emails.remove(email);
 		for(String e : emails) {
+			UserVO u = new UserVO();
+			u.setUserEmail(e);
+			List<PetVO> plist = pr.findByUser(u);
 			hm = new HashMap<String,Object>();
 			hm.put("img", img.findByUserEmail(e).get(0).getRealImgName()); //img
 			hm.put("nickName",usr.findById(e).get().getUserNickname());//niname
 			hm.put("email", e);
 			hm.put("friendNo", fri.getFriendNo(e,email));
+			
+			if (plist.size()>0) {
+				hm.put("petCnt", plist.size());
+			}else {
+				hm.put("petCnt", 0);
+			}
+			
 			rlist.add(hm);
 		}
 		return rlist;
