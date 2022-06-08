@@ -156,7 +156,7 @@
       </style>
   </head>
 
-<%@include file="./Header.jsp" %>
+<%@include file="/WEB-INF/views/include/Header.jsp" %>
   
   <body class="home page page-template-template-lana-editor">
    
@@ -196,10 +196,7 @@
 			
 			
                   <div class="listing__details__comment__item__pic">
-                    <img
-                      src=""
-                      alt="post"
-                    />
+                   
                   </div>
                   <div class="listing__details__comment__item__text">
                     <div class="listing__details__comment__item__rating">
@@ -311,7 +308,7 @@
              
               <div class="listing__details__review">
                 <h4>리뷰작성</h4>
-                <form action="/include/insertReview" method="post"  >
+                <form action="/agency/insertReview" method="post"  >
                 <input type="hidden" name="userEmail" value="${sessionScope.userEmail}">
                 <input type="hidden" name="agencyNum" value="${hospital.agencyNum}">
                   <textarea placeholder="Review" name="reviewContent"></textarea>
@@ -367,9 +364,7 @@
     <script src="/agency/js/owl.carousel.min.js"></script>
     <script src="/agency/js/main.js"></script>
 
-    <!--직접 만든 js-->
-    <script src="/agency/js/yang.js"></script>
-    <script src="/agency/js/slide.js"></script>
+   
 
     <!--카카오맵 출력하려면 필요한 키값-->
     <script
@@ -403,15 +398,7 @@
 <script type="text/javascript">
 
  
-      $("#filter-search").click(function name(params) {
-        var regex = /[^0-9.;\-]/g;
-        var result = $("#radius").val().replace(regex, "");
-        console.log(result);
-      });
-      
-      
-
-	  $(".siren").click(function(){
+      $(".siren").click(function(){
 		$(".modal").fadeIn();
 	  });
 	  

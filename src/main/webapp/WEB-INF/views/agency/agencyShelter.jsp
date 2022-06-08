@@ -79,7 +79,7 @@
 
 </head>
 
-<%@include file="./Header.jsp"%>
+<%@include file="/WEB-INF/views/include/Header.jsp" %>
 
 <body class="home page page-template-template-lana-editor">
 
@@ -104,7 +104,7 @@
 								<div
 									class="lana_member type-lana_member card member-card bg-transparent" id="pic1">
 									<div class="card-body" >
-										<a href="/include/agencyShelterDetail?abNo=${vo.abNo }"><img
+										<a href="/agency/agencyShelterDetail?abNo=${vo.abNo }"><img
 											src="${vo.abImage}"
 											class="card-img-top img-fluid rounded-circle animated zoomIn"
 											alt="Team Member" data-scroll-animate="zoomIn"></a>
@@ -142,7 +142,7 @@
 			</div>
 
 			<!-- include 페이징  jsp파일  -->
-			<%@include file="paging.jsp"%>
+			<%@include file="/WEB-INF/views/include/paging.jsp"%>
 		</nav>
 
 		</div>

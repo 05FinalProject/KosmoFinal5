@@ -57,7 +57,7 @@
    
  </head>
 
- <%@include file="./Header.jsp" %>
+ <%@include file="/WEB-INF/views/include/Header.jsp" %>
 
 <body class="home page page-template-template-lana-editor">
 
@@ -67,8 +67,7 @@
  
  
  <main class="main">
-   <form:form commandName="post">
-    <input name="dogNum" type="hidden"  value="${vo.dogNum }" />
+    
         <div id="post-1" class="lana_pet type-lana_pet post-1">
         
        
@@ -82,26 +81,23 @@
                         
                         
                         <div class="card-body">
-                        
-                        <img class="card-img-top img-fluid" src="${encyclopedia.dogImage}" alt="Post">
-                     <!-- <img class="img-fluid post-thumbnail" src="${encyclopedia.dogImage}" alt="Post">-->
-                     <!-- <img src="${encyclopedia.dogImage}" class="img-fluid animated comeInLeft" alt="Lana Pet" data-scroll-animate="comeInLeft">-->
-                        <!--  <img class="card-img-top img-fluid" src="${encyclopedia.dogImage}" alt="Post">-->
-                        <h3 class="post-title card-title">${encyclopedia.dogKind}</h3>
+                      
+                        <img class="card-img-top img-fluid" src="${shelter.abImage}" alt="Post">
+                        <h3 class="post-title card-title">${shelter.abKind}</h3>
                         <p class="post-text card-text">
-                         ${encyclopedia.dogLocal}
+                         ${shelter.abName} 
                         </p>
                         <p>
-                         길이:${encyclopedia.dogHeight}/몸무게:${encyclopedia.dogWeight}
+                        ${shelter.abAge}
                         </p>
                         <p>
-                         정보:${encyclopedia.dogInformation}
+                        ${shelter.abGender} 
                         </p>
                         
-                       
-                        
-                       
-                       
+                       <div style="text-align: center;">
+                      <a href="/agency/agencyShelterSignup?abNo=${shelter.abNo }"><input  name="submit" type="submit" id="submit" class="btn btn-primary btn-lg text-uppercase font-weight-bold w-15x" value="입양 신청하기"></a>
+                       </div>
+                     
                     </div>
                         </div>
                         
@@ -112,7 +108,7 @@
             </div>
              
       </div>
-     </form:form>
+
 </main>
                 
                 
@@ -142,40 +138,6 @@
 		var map = new kakao.maps.Map(container, options);
 	</script>
 
-<script type="text/javascript">
-
-    //eq(0) = ì»¤ë®¤ëí°
-	$(document).ready(function(){
-        $(".bigCate li.comu").click(function(){
-            $(".comunity").removeClass("off");
-			$(".organization").addClass("off");
-            $(".information").addClass("off");
-            $(".myPage").addClass("off");
-		});
-
-		$(".bigCate li.organi").click(function(){
-            $(".organization").removeClass("off");
-			$(".comunity").addClass("off");
-            $(".information").addClass("off");
-            $(".myPage").addClass("off");
-		});
-
-        $(".bigCate li.info").click(function(){
-            $(".information").removeClass("off");
-			$(".comunity").addClass("off");
-            $(".organization").addClass("off");
-            $(".myPage").addClass("off");
-		});
-
-        $(".bigCate li.myPage").click(function(){
-            $(".myPage").removeClass("off");
-			$(".comunity").addClass("off");
-            $(".information").addClass("off");
-            $(".myPage").addClass("off");
-		});
-
-	});
-</script>
 
 
 <body class="home page page-template-template-lana-editor">

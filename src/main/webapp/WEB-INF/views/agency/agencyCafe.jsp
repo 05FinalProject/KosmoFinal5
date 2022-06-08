@@ -130,7 +130,7 @@ ul {
 </style>
 </head>
 
-<%@include file="./Header.jsp"%>
+<%@include file="/WEB-INF/views/include/Header.jsp" %>
 
 <body class="home page page-template-template-lana-editor">
 
@@ -171,7 +171,7 @@ ul {
 
 
 						<div class="listing__item__text__inside">
-							<a href="/include/agencyCafeDetail?agencyNum=${vo.agencyNum }"><h5>${vo.agencyName }</h5></a>
+							<a href="/agency/agencyCafeDetail?agencyNum=${vo.agencyNum }"><h5>${vo.agencyName }</h5></a>
 							<div class="listing__item__text__rating">
 								<!-- 이쪽에 별 대신 맛평가 들어가야함-->
 								<div class="listing__item__rating__star">
@@ -203,11 +203,11 @@ ul {
 			<div class="nav-links " >
 				<c:set  var="recordsCnt" value="${count}" />
 				<c:set  var="jspFile" value="agencyCafe?" />
-				<c:set  var="perpage" value="11" />
+				<c:set  var="perpage" value="16" />
 			</div>
 
 			<!-- include 페이징  jsp파일  -->
-			<%@include file="paging.jsp"%>
+			<%@include file="/WEB-INF/views/include/paging.jsp"%>
 		</nav>
 
 		<!-- ************ 페이징 처리 끝 *************************** -->
@@ -432,7 +432,7 @@ ul {
 																				+ '</div></div>'
 																				+ '<div class="listing__item__text">'
 																				+ ' <div class="listing__item__text__inside">'
-																				+ '  <a href="/include/agencyCafeDetail?agencyNum='
+																				+ '  <a href="/agency/agencyCafeDetail?agencyNum='
 																				+ d.agencyNum
 																				+ '"><h5>'
 																				+ d.agencyName

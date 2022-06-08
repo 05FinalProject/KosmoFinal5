@@ -45,7 +45,7 @@ public interface AgencyRepository extends CrudRepository<AgencyVO, Integer>{
 	@Query(value = "   select * from agency   "
 			+ "  where (a_category_num = 2 and a_address like %:agencyName%)  "
 			+ "  or (a_category_num = 2 and a_tel like %:agencyName%)  "
-			+ "   or (a_category_num = 2 and a_name like %:agencyName%)  ",nativeQuery = true)
+			+ "   or (a_category_num = 2 and a_name like %:agencyName%) limit 16 ",nativeQuery = true)
 	
 	List<Object[]> agencyCafeSearch(String agencyName);
 		
@@ -54,15 +54,23 @@ public interface AgencyRepository extends CrudRepository<AgencyVO, Integer>{
 	@Query(value = "   select * from agency   "
 			+ "  where (a_category_num = 1 and a_address like %:agencyName%)  "
 			+ "  or (a_category_num = 1 and a_tel like %:agencyName%)  "
-			+ "   or (a_category_num = 1 and a_name like %:agencyName%)  ",nativeQuery = true)
+			+ "   or (a_category_num = 1 and a_name like %:agencyName%) limit 16 ",nativeQuery = true)
 	List<Object[]> agencyHotelSearch(String agencyName);
 
 	//병원 검색
 	@Query(value = "   select * from agency   "
-			+ "  where (a_category_num = 1 and a_address like %:agencyName%)  "
-			+ "  or (a_category_num = 1 and a_tel like %:agencyName%)  "
-			+ "   or (a_category_num = 1 and a_name like %:agencyName%)  ",nativeQuery = true)
+			+ "  where (a_category_num = 3 and a_address like %:agencyName%)  "
+			+ "  or (a_category_num = 3 and a_tel like %:agencyName%)  "
+			+ "   or (a_category_num = 3 and a_name like %:agencyName%) limit 16 ",nativeQuery = true)
 	List<Object[]> agencyHospitalSearch(String agencyName);
+	
+	
+	//장례식장 검색
+		@Query(value = "   select * from agency   "
+				+ "  where (a_category_num = 5 and a_address like %:agencyName%)  "
+				+ "  or (a_category_num = 5 and a_tel like %:agencyName%)  "
+				+ "   or (a_category_num = 5 and a_name like %:agencyName%) limit 16 ",nativeQuery = true)
+		List<Object[]> agencyHallSearch(String agencyName);
 	
 
 	//*********************관리자 차트 관리*************************
