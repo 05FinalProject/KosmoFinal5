@@ -205,6 +205,14 @@ star-input>.input.focus{outline:1px dotted #ddd;}
                     
                   </div>
                   <h4>${hotel.agencyName }</h4>
+                   <ul>
+                    <li>
+                      <span class="icon_pin_alt"></span>${hotel.agencyAddress }
+                    </li>
+                    <li><span class="icon_phone"></span>${hotel.agencyTel }</li>
+                   
+                   
+                  </ul>
                 </div>
               </div>
             

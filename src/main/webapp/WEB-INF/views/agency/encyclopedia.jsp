@@ -134,7 +134,7 @@
 	<div class="search-book bg-dark2">
 	<form name="searchform" action="/pokedex" method="get">
 		<div class="row">
-			<h2 class="col-lg-1 col-12 text-wh"><img src="/img/icon/icon_ball_b.png" alt=""> 포켓몬</h2>
+			<h2 class="col-lg-1 col-12 text-wh"><img src="/img/icon/icon_ball_b.png" alt=""></h2>
 			<div class="nav-search black col-lg-11 col-12">
 				<div class="search-wrp">
 					<input type="text" id="word" name="word" onkeypress="if(event.keyCode==13) {searchforms(); return false;}" value="" placeholder="포켓몬 이름 또는 설명, 특성 키워드를 입력해주세요.">
