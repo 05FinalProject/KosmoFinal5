@@ -308,6 +308,7 @@ p{
 
 				<!-- 좋아요한 글 -->
 				<div class="tab-pane fade" id="account" role="tabpanel">
+								<c:forEach items="${like}" var="l">
 					<div>
 						<div class="content-page-box-area">
 							<div class="row">
@@ -317,25 +318,23 @@ p{
 											alt="image">
 										</a>
 										<div class="events-content">
+										<span>${l.communityTitle}</span>
 											<h3>
-												<a href="#">Digital Marketing</a>
+												<a href="#">${l.communityContent }</a>
 											</h3>
-											<p>Online</p>
-
-											<div
-												class="events-footer d-flex justify-content-between align-items-center">
-												<a href="#" class="default-btn">Attend</a>
-											</div>
+											<p>${l.user.userNickname} </p>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+				</c:forEach>
 				</div>
 
 				<!-- 작성한 댓글 -->
 				<div class="tab-pane fade" id="privacy" role="tabpanel">
+				<c:forEach items="${comment}" var="c">
 					<div>
 						<div class="content-page-box-area">
 							<div class="row">
@@ -344,92 +343,27 @@ p{
 										<table class="table table-bordered">
 											<thead>
 												<tr>
-													<th>Topic</th>
-													<th>Voices</th>
-													<th>Posts</th>
-													<th>Recent Topices</th>
+													<th>댓글내용</th>
+													<th>작성일자</th>
+													<th>게시물 제목</th>
+													<th>게시물 내용</th>
 												</tr>
 											</thead>
 
 											<tbody>
 												<tr>
 													<td>
-														<h5>Graphic Design</h5>
-														<p>Proin eget tortor risus vivamus magna</p> <span>justo
-															lacinia eget consectetu</span>
+														<p>${c.commentContent }</p>
 													</td>
-													<td>65</td>
-													<td>12</td>
-													<td class="info"><a href="#"> <img
-															src="assets/images/user/user-56.jpg"
-															class="rounded-circle" alt="image">
-													</a>
+													<td>${c.commentInsertdate }</td>
+													<td>${c.community.communityTitle }</td>
+													<td class="info">
 														<div class="text">
 															<h6>
-																<a href="#">Carol Jones</a>
+																<a href="#">${c.community.communityContent }</a>
 															</h6>
-															<span>1 Days Ago</span>
-														</div></td>
-												</tr>
-
-												<tr>
-													<td>
-														<h5>Weather Change</h5>
-														<p>Proin eget tortor risus vivamus magna</p> <span>justo
-															lacinia eget consectetu</span>
+														</div>
 													</td>
-													<td>65</td>
-													<td>12</td>
-													<td class="info"><a href="#"> <img
-															src="assets/images/user/user-57.jpg"
-															class="rounded-circle" alt="image">
-													</a>
-														<div class="text">
-															<h6>
-																<a href="#">Darren Tavares</a>
-															</h6>
-															<span>2 Days Ago</span>
-														</div></td>
-												</tr>
-
-												<tr>
-													<td>
-														<h5>Weather Change</h5>
-														<p>Proin eget tortor risus vivamus magna</p> <span>justo
-															lacinia eget consectetu</span>
-													</td>
-													<td>65</td>
-													<td>12</td>
-													<td class="info"><a href="#"> <img
-															src="assets/images/user/user-10.jpg"
-															class="rounded-circle" alt="image">
-													</a>
-														<div class="text">
-															<h6>
-																<a href="#">Maria Payne</a>
-															</h6>
-															<span>3 Days Ago</span>
-														</div></td>
-												</tr>
-
-												<tr>
-													<td>
-														<h5>Weather Change</h5>
-														<p>Proin eget tortor risus vivamus magna</p> <span>justo
-															lacinia eget consectetu</span>
-													</td>
-													<td>65</td>
-													<td>12</td>
-													<td class="info"><a href="#"> <img
-															src="assets/images/user/user-58.jpg"
-															class="rounded-circle" alt="image">
-													</a>
-														<div class="text">
-															<h6>
-																<a href="#">Roger V. Malkin</a>
-															</h6>
-															<span>5 Days Ago</span>
-														</div></td>
 												</tr>
 											</tbody>
 										</table>
@@ -438,11 +372,12 @@ p{
 							</div>
 						</div>
 					</div>
+					</c:forEach>
 				</div>
 
 				<!-- 작성한 글 -->
-				<div class="tab-pane fade show active" id="notification"
-					role="tabpanel">
+				<div class="tab-pane fade show active" id="notification"role="tabpanel">
+				<c:forEach items="${CommunityWrite}" var="w">
 					<div>
 						<div class="content-page-box-area">
 							<div class="row">
@@ -452,17 +387,12 @@ p{
 											alt="image">
 										</a>
 										<div class="events-content">
-											<span>12:30PM to 02:30PM</span>
+											<span>${w.communityTitle }</span>
 											<h3>
-												<a href="#">Digital Marketing</a>
+												<a href="#">${w.communityContent}</a>
 											</h3>
-											<p>Online</p>
+											<p>${w.communityInsertdate}</p>
 
-											<div
-												class="events-footer d-flex justify-content-between align-items-center">
-												<a href="#" class="default-btn">Attend</a> <span>July
-													30, 2021</span>
-											</div>
 										</div>
 									</div>
 								</div>
@@ -470,6 +400,7 @@ p{
 
 						</div>
 					</div>
+									</c:forEach>
 				</div>
 
 			</div>

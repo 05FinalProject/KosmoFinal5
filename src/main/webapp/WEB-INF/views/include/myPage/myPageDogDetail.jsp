@@ -137,7 +137,7 @@
           <div class="row" style="margin-top:5%;">
             <div class="col-12 col-sm-7">
               <div class="col-10 mx-auto my-auto">
-                <img src="/pictures/placeholder/530x400.svg" class="product-image" alt="Product Image">
+                <img src="${pet.img. }" class="product-image" alt="Product Image">
               </div>
             </div>
             <div class="col-12 col-sm-5">
@@ -157,8 +157,6 @@
                     <th>성별 : </th>
                     
                     <th>
-                    
-                    
                     <label class="btn btn-default text-center active">
                       ${pet.petGender }
                       <br>
