@@ -195,11 +195,8 @@ var ws ;
 			ws= new WebSocket("ws://" + location.host + "/chating/"+$('#friendNo').val());
 			ws.onopen = function(data){
 				//소켓이 열리면 동작
-				
 			}
-			
 			wsEvt()
-			
 			document.addEventListener("keypress", function(e){
 				if(e.keyCode == 13){ //enter press
 					send();

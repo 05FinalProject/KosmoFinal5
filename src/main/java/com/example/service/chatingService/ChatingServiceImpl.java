@@ -239,4 +239,22 @@ public class ChatingServiceImpl implements ChatingService {
 		usr.save(u);
 	}
 	
+	public List<HashMap<String, Object>> UnreadMessage(UserVO vo){
+		List<Object[]> obj = fcr.UnreadMessage(vo.getUserEmail());
+		List<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+		for(Object[] o : obj) {
+			HashMap<String, Object> hm = new HashMap<String, Object>();
+			hm.put("chatingNo", o[0]);
+			hm.put("chatingMessage", o[1]);
+			hm.put("chatingSign", o[2]);
+			hm.put("chatingTime", o[3]);
+			hm.put("friendNo", o[4]);
+			hm.put("userSign", o[5]);
+			hm.put("userEmail", o[6]);
+			hm.put("userEmail1", o[7]);
+			list.add(hm);
+		}
+		return list ;
+	}
+	
 }

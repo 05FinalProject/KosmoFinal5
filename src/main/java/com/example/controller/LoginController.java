@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.example.domain.ImgVO;
 import com.example.domain.PetVO;
 import com.example.domain.UserVO;
+import com.example.service.chatingService.ChatingService;
 import com.example.service.friendService.FriendService;
 import com.example.service.loginService.LoginService;
 
@@ -32,6 +33,8 @@ public class LoginController {
 	
 	@Autowired
 	private FriendService fservice;
+	
+	
 	
 	/* 로그인 페이지로 이동*/
 	@RequestMapping("/Login")
@@ -62,6 +65,7 @@ public class LoginController {
 		session.setAttribute("pRimgname", result2.getRealImgName());
 		session.setAttribute("pets", result3);
 		m.addAttribute("pets", result3.get(0));
+		
 		
 		session.setMaxInactiveInterval(60*60*24);
 		return message;
@@ -175,7 +179,7 @@ public class LoginController {
 		lservice.petAdd(petName, petAge, petGender, petVariety, petNeutering, petWeight, file);
 		
 		
-			ImgVO ivo = new ImgVO();
+			//ImgVO ivo = new ImgVO();
 			
 			ivo.setPet(lservice.getPetDetail(pvo));
 			ivo.setFile3(file);
