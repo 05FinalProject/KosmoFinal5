@@ -50,4 +50,6 @@ public interface ChatingService {
 	public void blackList(FriendVO vo);
 	
 	public List<FriendVO> friendSearch(String str,String str2);
+	
+	public void leaveTime(UserVO vo);
 }

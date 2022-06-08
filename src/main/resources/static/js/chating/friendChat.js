@@ -243,6 +243,15 @@ var ws ;
 		
 		//나가기
 		$('#goOut').click(function(){
+			//친구채팅창 떠나는 시간 저장
+			$.ajax({
+				url:'/api/leaveTime',
+				type:'get',
+				contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+				data:{	
+					userEmail:$('#userEmail').val()
+					}
+			})
 			location.href='/friend/friendList'
 		})
 	
