@@ -122,11 +122,10 @@ public class LoginController {
 	public String UserUpdate(ImgVO ivo, HttpServletRequest request,Model m) {
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("pRimgname", "img/userImg/"+ivo.getRealImgName());
 		
+		session.setAttribute("pRimgname", "img/userImg/"+ivo.getRealImgName());
 		UserVO vo = new UserVO();
 		vo.setUserEmail(session.getAttribute("userEmail").toString());
-		vo.setUserPass(session.getAttribute("userPass").toString());
 		ivo.setUser(vo);
 		lservice.userImgUpdate(ivo);
 		m.addAttribute("pRimgname", "img/userImg/"+ivo.getRealImgName());
@@ -157,11 +156,15 @@ public class LoginController {
 	
 	/* 반려견 추가 버튼 이벤트 */
 	@RequestMapping(value="/myPage/petAdd", method=RequestMethod.POST)
-	public String petAdd(String petName, Integer petAge, String petGender, String petVariety, 
-						String petNeutering, Integer petWeight, MultipartFile file, HttpSession session) {
+	public String petAdd(ImgVO ivo, String petName, Integer petAge, String petGender, String petVariety, 
+						String petNeutering, Integer petWeight, MultipartFile file, HttpServletRequest request) {
 		
-	
+		HttpSession session = request.getSession();
+		
 		PetVO pvo = new PetVO();
+		session.setAttribute("userEmail", pvo.getUser().getUserEmail());
+		session.setAttribute("pRimgname", pvo.getPetNum());
+		
 		pvo.setPetName(petName);
 		pvo.setPetAge(petAge);
 		pvo.setPetGender(petGender);
@@ -175,7 +178,7 @@ public class LoginController {
 			ImgVO ivo = new ImgVO();
 			
 			ivo.setPet(lservice.getPetDetail(pvo));
-			ivo.setFile2(file);
+			ivo.setFile3(file);
 			lservice.insertImgVO(ivo);
 		
 		

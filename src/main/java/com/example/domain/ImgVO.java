@@ -25,89 +25,99 @@ import lombok.Data;
 @Entity
 @Table(name="img")
 public class ImgVO {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "p_imgnum")
 	private Integer pImgnum;
-	
-	
+
+
 	@Column(length = 200,name = "p_imgname")
 	private String pImgname;
-	
+
 	@Column(length = 200,name = "p_rimgname")
 	private String realImgName;
-	
+
 	@ManyToOne
 	@JoinColumn(name="c_num")
 	private CommunityVO community;
-	
+
 	@ManyToOne
 	@JoinColumn(name="comment_num")
 	private CommentVO comment;
-	
+
 	@ManyToOne
 	@JoinColumn(name="review_num")
 	private ReviewVO review;
-	
+
 	@ManyToOne
 	@JoinColumn(name="p_num")
 	private PetVO pet;
-	
+
 	@ManyToOne
 	@JoinColumn(name="user_email")
 	private UserVO user;
 
 	@Transient
 	private MultipartFile file;
-	
+
 	public MultipartFile getFile() {
 		return file;
 	}
-	
+
 	public void setFile(MultipartFile file) {
-		
+
 		if(!file.isEmpty()) {
 			pImgname = file.getOriginalFilename();
 			realImgName = UUID.randomUUID().toString()+"_"+pImgname;
 			Path path = Paths.get(System.getProperty("user.dir"), "src/main/resources/static/img/userImg");
 			System.out.println(path);
-			
+
 			File files = new File(path+"/" + realImgName);
-			
+
 			try {
 				file.transferTo(files);
 			} catch (Exception e) {
 				e.printStackTrace();
 			} 
 		}
-		
-		
-	
-				
 	}
-	
-public void setFile2(MultipartFile file) {
-		
+
+	public void setFile2(MultipartFile file) {
+
 		if(!file.isEmpty()) {
 			pImgname = file.getOriginalFilename();
 			realImgName = UUID.randomUUID().toString()+"_"+pImgname;
 			Path path = Paths.get(System.getProperty("user.dir"), "src/main/resources/static/img/communityImg");
 			System.out.println(path);
-			
+
 			File files = new File(path+"/" + realImgName);
-			
+
+			try {
+				file.transferTo(files);
+			} catch (Exception e) {
+				e.printStackTrace();
+			} 
+		}			
+	}
+
+	public void setFile3(MultipartFile file) {
+
+		if(!file.isEmpty()) {
+			pImgname = file.getOriginalFilename();
+			realImgName = UUID.randomUUID().toString()+"_"+pImgname;
+			Path path = Paths.get(System.getProperty("user.dir"), "src/main/resources/static/img/petImg");
+			System.out.println(path);
+
+			File files = new File(path+"/" + realImgName);
+
 			try {
 				file.transferTo(files);
 			} catch (Exception e) {
 				e.printStackTrace();
 			} 
 		}
-		
-		
-	
-				
+
 	}
-	
-	
+
 }

@@ -151,21 +151,6 @@
 													</div>
 												</div>
 												<div class="form-group row">
-													<label for="inputEmail" class="col-sm-2 col-form-label">비밀번호</label>
-													<div class="col-sm-10">
-														<input type="password" class="form-control"
-															id="inputEmail" placeholder="password">
-													</div>
-												</div>
-												<div class="form-group row">
-													<label for="inputEmail" class="col-sm-2 col-form-label">비밀번호
-														확인</label>
-													<div class="col-sm-10">
-														<input type="password" class="form-control"
-															id="inputEmail" placeholder="password">
-													</div>
-												</div>
-												<div class="form-group row">
 													<label for="inputExperience"
 														class="col-sm-2 col-form-label">이름</label>
 													<div class="col-sm-10">
@@ -196,7 +181,7 @@
 												</div>
 												<div style="float: right;">
 													<button type="submit" class="btn btn-modify"
-														style="background-color: #F8b03a; color: white;">수정</button>
+														style="background-color: #F8b03a; color: white;">완료</button>
 												</div>
 											</form>
 										</div>
