@@ -1,5 +1,8 @@
 package com.example.controller;
 
+import java.util.HashMap;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.domain.PetVO;
 import com.example.domain.UserVO;
+import com.example.service.chatingService.ChatingService;
 import com.example.service.friendService.FriendService;
 
 @Controller
@@ -18,10 +22,20 @@ public class FriendController {
 	
 	@Autowired
 	private FriendService service;
+	
+	@Autowired
+	private ChatingService cservice;
 
 	@RequestMapping("/friendList")
-	public void friendList() {
+	public void friendList(Integer page,Model m,HttpSession session) {
+		int fpage = 1;
+		if(page != null) {
+			fpage = page;
+		}
+		List<HashMap<String, Object>> friendList = cservice.friendList(session.getAttribute("userEmail").toString());
 		
+		m.addAttribute("list", friendList);
+		m.addAttribute("count", friendList.size());
 	}
 	
 	@RequestMapping("/friendBlockList")

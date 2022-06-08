@@ -86,6 +86,7 @@
     <link rel="stylesheet" id="lana-pet-print-css" href="/css/lana-pet-print.min.css?ver=1.0.0" type="text/css"
           media="print">
 
+
     <style>
       ul {
         list-style: none;
@@ -114,7 +115,7 @@
   margin: 0;
 }
 
-   .modal{ 
+.modal{ 
   position:fixed; width:100%; height:100%; z-index: 1000; background: rgba(0,0,0,0.8); top:0; left:0; display:none;
 }
 
@@ -137,13 +138,12 @@
     	width:24px;
     }
     
-   .form-control2{
+    .form-control2{
     
          width:100%;
          height:100%;
          background:#fff58c; 
-        
-    } 
+    }
     
     #btn1{
     
@@ -153,15 +153,36 @@
     margin: auto;
     }
     
-      </style>
+
+  
+.star-input>.input,
+.star-input>.input>label:hover,
+.star-input>.input>input:focus+label,
+.star-input>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('/img/grade_img.png')no-repeat;}
+.star-input{display:inline-block; white-space:nowrap;width:225px;height:40px;}
+.star-input>.input{display:inline-block;width:150px;background-size:150px;height:28px;white-space:nowrap;overflow:hidden;position: relative;}
+.star-input>.input>input{position:absolute;width:1px;height:1px;opacity:0;}
+star-input>.input.focus{outline:1px dotted #ddd;}
+.star-input>.input>label{width:30px;height:0;padding:28px 0 0 0;overflow: hidden;float:left;cursor: pointer;position: absolute;top: 0;left: 0;}
+.star-input>.input>label:hover,
+.star-input>.input>input:focus+label,
+.star-input>.input>input:checked+label{background-size: 150px;background-position: 0 bottom;}
+.star-input>.input>label:hover~label{background-image: none;}
+.star-input>.input>label[for="p1"]{width:30px;z-index:5;}
+.star-input>.input>label[for="p2"]{width:60px;z-index:4;}
+.star-input>.input>label[for="p3"]{width:90px;z-index:3;}
+.star-input>.input>label[for="p4"]{width:120px;z-index:2;}
+.star-input>.input>label[for="p5"]{width:150px;z-index:1;}
+.star-input>output{display:inline-block;width:60px; font-size:18px;text-align:right; vertical-align:middle;}
+</style>
+
   </head>
 
-<%@include file="./Header.jsp" %>
+<%@include file="/WEB-INF/views/include/Header.jsp" %>
   
   <body class="home page page-template-template-lana-editor">
    
-  
-  <!-- Listing Section Begin -->
+ 
     <section class="listing-details spad">
      
       <div class="container">
@@ -173,58 +194,91 @@
              <form:form commandName="post">
      <input name="agencyNum" type="hidden"  value="${vo.agencyNum }" /> 
               <div class="listing__details__gallery">
-               
+              
                 <div class="listing__details__gallery__pic">
-                 
-                 <h4>${hospital.agencyName }</h4>
-                 <h5>${hospital.agencyAddress }</h5>
-                 <h5>${hospital.agencyTel }</h5>
+                  <div class="listing__details__gallery__item">
+                    <img
+                      class="listing__details__gallery__item__large"
+                      src="${hotel.agencyImage }"
+                      alt=""
+                    />
+                    
+                  </div>
+                  <h4>${hotel.agencyName }</h4>
                 </div>
               </div>
             
               
-              
-             <!--*********리뷰 테이블 ***********************************--> 
+              <!--*********리뷰 테이블 ***********************************--> 
               <div class="listing__details__comment">
                 <h4>리뷰</h4>
-                
-			
-              <!-- ********* 1칸 리뷰 테이블 *******--> 
+
+               <!-- ********* 1칸 리뷰 테이블 *******--> 
                 <div class="listing__details__comment__item">
-                     <c:forEach var="review" items="${reviews}"  varStatus="vs">
-			
-			
-			
+                  <c:forEach var="review" items="${reviews}" >
+            
                   <div class="listing__details__comment__item__pic">
-                    <img
-                      src=""
-                      alt="post"
-                    />
+                    
                   </div>
                   <div class="listing__details__comment__item__text">
                     <div class="listing__details__comment__item__rating">
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
+                    <c:choose>
+                    <c:when test="${review.reviewStar eq '5'}">
+                    <i class="fa fa-star" style="color:red;"	></i>
+                    <i class="fa fa-star" style="color:red;"></i>
+                    <i class="fa fa-star" style="color:red;"></i>
+                    <i class="fa fa-star" style="color:red;"></i>
+                    <i class="fa fa-star" style="color:red;"></i>
+                    </c:when>
+                    
+					<c:when test="${review.reviewStar eq '4' }">
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" ></i>
+					</c:when>
+					
+					<c:when test="${review.reviewStar eq '3' }">
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					</c:when>
+					
+					<c:when test="${review.reviewStar eq '2' }">
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					</c:when>					
+					
+					<c:when test="${review.reviewStar eq '1' }">	
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					</c:when>
+										
+                    </c:choose>
                     </div>
-                  
-                    <span> 작성일:${review.reviewInsertdate }</span>
+                    
+                    <span>작성일:${review.reviewInsertdate }</span>
                     <h5></h5>
-                    
                     <p>
-                    내용:${review.reviewContent }
+                      내용:${review.reviewContent }
                     </p>
-                    
                     <ul>
                       <span><img class="siren" src="../../img/siren.png"></span>
                      
                     </ul>
                   </div>
                   
-    
-  <!-- 모달 신고창 띄우기 ************************************************* --> 
+                  
+                   <!-- 모달 신고창 띄우기 ************************************************* --> 
     
     <div class="modal" >
   <div class="modal_content" 
@@ -248,19 +302,17 @@
                      <div class="gen-extra-report">
 
                    <ul>
-                   
                     <li>
                     <div style="float: left">신고 작성자:</div>
                     <div style="float: left">홍길동</div>
-                     </li>
-                     <br>
+                        </li>
+                     
                     
                     <li>
-                     <div style="float: left">신고 내용:</div><br>
-                     <div style="float: center">Streamlab is a long established fact that a reader will be distracted by the readable content of a page when Streamlab at its layout. The point of using Lorem Streamlab is that it has a more-or-less normal distribution of Streamlab as opposed Streamlab</div>
-                     </li>
+                     <div style="float: left">신고 내용:</div>
+                     <div style="float: left">Streamlab is a long established fact that a reader will be distracted by the readable content of a page when Streamlab at its layout. The point of using Lorem Streamlab is that it has a more-or-less normal distribution of Streamlab as opposed Streamlab</div>
                      
-                        
+                    </li>   
                    </ul>
                    </div> 
 </div>
@@ -282,7 +334,7 @@
 </div>
 </div>  
 </div>                  
-                  
+                   
                     <button type="submit" id="btn1" class="btn btn-primary btn-block font-weight-bold text-uppercase">
                         신고하기
                     </button>
@@ -292,39 +344,58 @@
     
     </div>
                   
-   <!-- 모달창 테이블 끝 ******************************************************** -->               
+   <!-- 모달창 테이블 끝 ******************************************************** -->   
                   
-                  </c:forEach>
-            
+                   
+                   </c:forEach>
+                   
                 </div>
-               
-         </form:form>
+
+               </form:form>
                 <!--******************************-->
-                
               </div>
               <!--******* 테이블 끝 ******-->
               
               
-             
-             <!--******* 리뷰 작성 테이블 ******************-->
-              
-             
+              <!--******* 리뷰 작성 테이블 ******************-->
               <div class="listing__details__review">
                 <h4>리뷰작성</h4>
-                <form action="/include/insertReview" method="post"  >
+                <form action="/agency/insertHotelReview" method="post"  >
+                
+                <span class="star-input">
+					<span class="input">
+				    	<input type="radio" name="star-input" value="1" id="p1">
+				    	<label for="p1">1</label>
+				    	<input type="radio" name="star-input" value="2" id="p2">
+				    	<label for="p2">2</label>
+				    	<input type="radio" name="star-input" value="3" id="p3">
+				    	<label for="p3">3</label>
+				    	<input type="radio" name="star-input" value="4" id="p4">
+				    	<label for="p4">4</label>
+				    	<input type="radio" name="star-input" value="5" id="p5">
+				    	<label for="p5">5</label>
+				  	</span>
+				  	<output for="star-input" name="reviewStar" placeholder="Review"><b>0</b>점</output>						
+				</span>       
+                
                 <input type="hidden" name="userEmail" value="${sessionScope.userEmail}">
-                <input type="hidden" name="agencyNum" value="${hospital.agencyNum}">
-                  <textarea placeholder="Review" name="reviewContent"></textarea>
-                  <button type="submit" class="site-btn">작성</button>
+                <input type="hidden" name="agencyNum" value="${hotel.agencyNum}">
+      
+                  
+      
+                <textarea placeholder="Review" name="reviewContent"></textarea>
+                
+                	
+               <button type="submit" class="site-btn">작성</button>
                 </form>
               </div>
 
-           <!--******* 리뷰 작성 테이블 ******************--> 
+              <!--******* 리뷰 작성 테이블 ******************--> 
             </div>
           </div>
           
-          <div class="col-lg-4" >
-            <div class="listing__sidebar" >
+          <div class="col-lg-4">
+            <div class="listing__sidebar">
               <div class="listing__sidebar__contact">
                 <div class="listing__sidebar__contact__map">
                  
@@ -332,28 +403,29 @@
     
                 </div>
                 <div class="listing__sidebar__contact__text">
-                  <h4>${hospital.agencyName }</h4>
+                  <h4>${hotel.agencyName }</h4>
                   <ul>
                     <li>
-                      <span class="icon_pin_alt"></span>${hospital.agencyAddress }
+                      <span class="icon_pin_alt"></span>${hotel.agencyAddress }
                     </li>
-                    <li><span class="icon_phone"></span>${hospital.agencyTel }</li>
-                    
-                 </ul>
+                    <li><span class="icon_phone"></span>${hotel.agencyTel }</li>
+                   
+                   
+                  </ul>
 
 
                 <!--  **************-->
                   
                 </div>
               </div>
-             
+              
             </div>
           </div>
-          
-       </div>
-     
+        </div>
+      
     </section>
     <!-- Listing Section End -->
+
 
     <!-- Js Plugins -->
     <script src="/agency/js/jquery-3.3.1.min.js"></script>
@@ -370,6 +442,8 @@
     <!--직접 만든 js-->
     <script src="/agency/js/yang.js"></script>
     <script src="/agency/js/slide.js"></script>
+    <script src="/js/star.js"></script>
+    <script src="/js/jquery-1.11.3.min.js"></script>
 
     <!--카카오맵 출력하려면 필요한 키값-->
     <script
@@ -379,7 +453,8 @@
     <!--카카오 맵 js-->
     <script src="/agency/js/kakaoMap.js"></script>
     
-<script type="text/javascript" src="/js/jquery.min.js?ver=3.6.0"></script>
+    
+    <script type="text/javascript" src="/js/jquery.min.js?ver=3.6.0"></script>
 <script type="text/javascript" src="/js/popper.min.js?ver=1.16.1"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js?ver=4.6.0"></script>
 <script type="text/javascript" src="/js/smartmenus.min.js?ver=1.1.1"></script>
@@ -409,7 +484,6 @@
         console.log(result);
       });
       
-      
 
 	  $(".siren").click(function(){
 		$(".modal").fadeIn();
@@ -421,10 +495,7 @@
 	  
     </script>
 
-    
-    
-    
-<!--********** footer  ***********************************************************************-->
+ 
 
 <footer class="footer bg-dark text-white">
     <div class="container-fluid">
@@ -455,5 +526,4 @@
 
 </body>
     
-   
  </html>

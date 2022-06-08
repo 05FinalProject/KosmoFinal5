@@ -141,7 +141,8 @@
     
          width:100%;
          height:100%;
-         background:#fff58c;
+         background:#fff58c; 
+        
     } 
     
     #btn1{
@@ -155,7 +156,7 @@
       </style>
   </head>
 
-<%@include file="./Header.jsp" %>
+<%@include file="/WEB-INF/views/include/Header.jsp" %>
   
   <body class="home page page-template-template-lana-editor">
    
@@ -174,16 +175,10 @@
               <div class="listing__details__gallery">
                
                 <div class="listing__details__gallery__pic">
-                  <div class="listing__details__gallery__item">
-                    <img
-                      class="listing__details__gallery__item__large"
-                      src="${cafe.agencyImage }"
-                      alt=""
-                    />
-                   
-                     
-                  </div>
-                 <h4>${cafe.agencyName }</h4>
+                 
+                 <h4>${hospital.agencyName }</h4>
+                 <h5>${hospital.agencyAddress }</h5>
+                 <h5>${hospital.agencyTel }</h5>
                 </div>
               </div>
             
@@ -201,10 +196,7 @@
 			
 			
                   <div class="listing__details__comment__item__pic">
-                    <img
-                      src=""
-                      alt="post"
-                    />
+                   
                   </div>
                   <div class="listing__details__comment__item__text">
                     <div class="listing__details__comment__item__rating">
@@ -316,9 +308,9 @@
              
               <div class="listing__details__review">
                 <h4>리뷰작성</h4>
-                <form action="/include/insertReview" method="post"  >
+                <form action="/agency/insertReview" method="post"  >
                 <input type="hidden" name="userEmail" value="${sessionScope.userEmail}">
-                <input type="hidden" name="agencyNum" value="${cafe.agencyNum}">
+                <input type="hidden" name="agencyNum" value="${hospital.agencyNum}">
                   <textarea placeholder="Review" name="reviewContent"></textarea>
                   <button type="submit" class="site-btn">작성</button>
                 </form>
@@ -337,12 +329,12 @@
     
                 </div>
                 <div class="listing__sidebar__contact__text">
-                  <h4>${cafe.agencyName }</h4>
+                  <h4>${hospital.agencyName }</h4>
                   <ul>
                     <li>
-                      <span class="icon_pin_alt"></span>${cafe.agencyAddress }
+                      <span class="icon_pin_alt"></span>${hospital.agencyAddress }
                     </li>
-                    <li><span class="icon_phone"></span>${cafe.agencyTel }</li>
+                    <li><span class="icon_phone"></span>${hospital.agencyTel }</li>
                     
                  </ul>
 
@@ -372,9 +364,7 @@
     <script src="/agency/js/owl.carousel.min.js"></script>
     <script src="/agency/js/main.js"></script>
 
-    <!--직접 만든 js-->
-    <script src="/agency/js/yang.js"></script>
-    <script src="/agency/js/slide.js"></script>
+   
 
     <!--카카오맵 출력하려면 필요한 키값-->
     <script
@@ -408,15 +398,7 @@
 <script type="text/javascript">
 
  
-      $("#filter-search").click(function name(params) {
-        var regex = /[^0-9.;\-]/g;
-        var result = $("#radius").val().replace(regex, "");
-        console.log(result);
-      });
-      
-      
-
-	  $(".siren").click(function(){
+      $(".siren").click(function(){
 		$(".modal").fadeIn();
 	  });
 	  
@@ -459,4 +441,6 @@
 
 
 </body>
+    
+   
  </html>

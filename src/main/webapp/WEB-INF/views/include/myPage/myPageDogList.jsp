@@ -188,7 +188,7 @@
 													</p>
 													<div
 														class="d-flex justify-content-between align-items-center post-meta mt-auto w-100">
-														<a href="single.html"
+														<a href="myPageDogDelete"
 															class="more-link card-link d-flex align-items-center">
 															삭제 <i class="lana-icon-arrow-right text-primary"></i>
 														</a>
@@ -199,6 +199,7 @@
 									</div>
 								</div>
 							</c:forEach>
+							
 							<div
 								class="d-flex justify-content-end align-items-center post-meta w-100">
 								<a href="myPageDogAdd"
@@ -206,6 +207,7 @@
 									등록 &nbsp; <i class="lana-icon-arrow-right text-primary"></i>
 								</a>
 							</div>
+							
 						</c:if>
 					
 				</div>

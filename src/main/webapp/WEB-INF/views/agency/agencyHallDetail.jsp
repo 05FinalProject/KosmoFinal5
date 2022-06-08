@@ -114,7 +114,7 @@
   margin: 0;
 }
 
-.modal{ 
+   .modal{ 
   position:fixed; width:100%; height:100%; z-index: 1000; background: rgba(0,0,0,0.8); top:0; left:0; display:none;
 }
 
@@ -137,12 +137,13 @@
     	width:24px;
     }
     
-    .form-control2{
+   .form-control2{
     
          width:100%;
          height:100%;
          background:#fff58c; 
-    }
+        
+    } 
     
     #btn1{
     
@@ -152,15 +153,15 @@
     margin: auto;
     }
     
-
-</style>
+      </style>
   </head>
 
-<%@include file="./Header.jsp" %>
+<%@include file="/WEB-INF/views/include/Header.jsp" %>
   
   <body class="home page page-template-template-lana-editor">
    
- 
+  
+  <!-- Listing Section Begin -->
     <section class="listing-details spad">
      
       <div class="container">
@@ -172,17 +173,12 @@
              <form:form commandName="post">
      <input name="agencyNum" type="hidden"  value="${vo.agencyNum }" /> 
               <div class="listing__details__gallery">
-              
+               
                 <div class="listing__details__gallery__pic">
-                  <div class="listing__details__gallery__item">
-                    <img
-                      class="listing__details__gallery__item__large"
-                      src="${hotel.agencyImage }"
-                      alt=""
-                    />
-                    
-                  </div>
-                  <h4>${hotel.agencyName }</h4>
+                 
+                 <h4>${hall.agencyName }</h4>
+                 <h5>${hall.agencyAddress }</h5>
+                 <h5>${hall.agencyTel }</h5>
                 </div>
               </div>
             
@@ -191,16 +187,16 @@
              <!--*********리뷰 테이블 ***********************************--> 
               <div class="listing__details__comment">
                 <h4>리뷰</h4>
-
-               <!-- ********* 1칸 리뷰 테이블 *******--> 
+                
+			
+              <!-- ********* 1칸 리뷰 테이블 *******--> 
                 <div class="listing__details__comment__item">
-                  <c:forEach var="review" items="${reviews}" >
-            
+                     <c:forEach var="review" items="${reviews}"  varStatus="vs">
+			
+			
+			
                   <div class="listing__details__comment__item__pic">
-                    <img
-                      src=""
-                      alt="post"
-                    />
+                   
                   </div>
                   <div class="listing__details__comment__item__text">
                     <div class="listing__details__comment__item__rating">
@@ -210,20 +206,22 @@
                       <i class="fa fa-star"></i>
                       <i class="fa fa-star"></i>
                     </div>
-                    
-                    <span>작성일:${review.reviewInsertdate }</span>
+                  
+                    <span> 작성일:${review.reviewInsertdate }</span>
                     <h5></h5>
+                    
                     <p>
-                      내용:${review.reviewContent }
+                    내용:${review.reviewContent }
                     </p>
+                    
                     <ul>
                       <span><img class="siren" src="../../img/siren.png"></span>
                      
                     </ul>
                   </div>
                   
-                  
-                   <!-- 모달 신고창 띄우기 ************************************************* --> 
+    
+  <!-- 모달 신고창 띄우기 ************************************************* --> 
     
     <div class="modal" >
   <div class="modal_content" 
@@ -247,17 +245,19 @@
                      <div class="gen-extra-report">
 
                    <ul>
+                   
                     <li>
                     <div style="float: left">신고 작성자:</div>
                     <div style="float: left">홍길동</div>
-                        </li>
-                     
+                     </li>
+                     <br>
                     
                     <li>
-                     <div style="float: left">신고 내용:</div>
-                     <div style="float: left">Streamlab is a long established fact that a reader will be distracted by the readable content of a page when Streamlab at its layout. The point of using Lorem Streamlab is that it has a more-or-less normal distribution of Streamlab as opposed Streamlab</div>
+                     <div style="float: left">신고 내용:</div><br>
+                     <div style="float: center">Streamlab is a long established fact that a reader will be distracted by the readable content of a page when Streamlab at its layout. The point of using Lorem Streamlab is that it has a more-or-less normal distribution of Streamlab as opposed Streamlab</div>
+                     </li>
                      
-                    </li>   
+                        
                    </ul>
                    </div> 
 </div>
@@ -279,7 +279,7 @@
 </div>
 </div>  
 </div>                  
-                   
+                  
                     <button type="submit" id="btn1" class="btn btn-primary btn-block font-weight-bold text-uppercase">
                         신고하기
                     </button>
@@ -289,36 +289,39 @@
     
     </div>
                   
-   <!-- 모달창 테이블 끝 ******************************************************** -->   
+   <!-- 모달창 테이블 끝 ******************************************************** -->               
                   
-                   
-                   </c:forEach>
-                   
+                  </c:forEach>
+            
                 </div>
-
-               </form:form>
+               
+         </form:form>
                 <!--******************************-->
+                
               </div>
               <!--******* 테이블 끝 ******-->
               
               
-              <!--******* 리뷰 작성 테이블 ******************-->
+             
+             <!--******* 리뷰 작성 테이블 ******************-->
+              
+             
               <div class="listing__details__review">
                 <h4>리뷰작성</h4>
-                <form action="/include/insertHotelReview" method="post"  >
+                <form action="/agency/insertReview" method="post"  >
                 <input type="hidden" name="userEmail" value="${sessionScope.userEmail}">
-                <input type="hidden" name="agencyNum" value="${hotel.agencyNum}">
+                <input type="hidden" name="agencyNum" value="${hall.agencyNum}">
                   <textarea placeholder="Review" name="reviewContent"></textarea>
                   <button type="submit" class="site-btn">작성</button>
                 </form>
               </div>
 
-              <!--******* 리뷰 작성 테이블 ******************--> 
+           <!--******* 리뷰 작성 테이블 ******************--> 
             </div>
           </div>
           
-          <div class="col-lg-4">
-            <div class="listing__sidebar">
+          <div class="col-lg-4" >
+            <div class="listing__sidebar" >
               <div class="listing__sidebar__contact">
                 <div class="listing__sidebar__contact__map">
                  
@@ -326,29 +329,28 @@
     
                 </div>
                 <div class="listing__sidebar__contact__text">
-                  <h4>${hotel.agencyName }</h4>
+                  <h4>${hall.agencyName }</h4>
                   <ul>
                     <li>
-                      <span class="icon_pin_alt"></span>${hotel.agencyAddress }
+                      <span class="icon_pin_alt"></span>${hall.agencyAddress }
                     </li>
-                    <li><span class="icon_phone"></span>${hotel.agencyTel }</li>
-                   
-                   
-                  </ul>
+                    <li><span class="icon_phone"></span>${hall.agencyTel }</li>
+                    
+                 </ul>
 
 
                 <!--  **************-->
                   
                 </div>
               </div>
-              
+             
             </div>
           </div>
-        </div>
-      
+          
+       </div>
+     
     </section>
     <!-- Listing Section End -->
-
 
     <!-- Js Plugins -->
     <script src="/agency/js/jquery-3.3.1.min.js"></script>
@@ -362,9 +364,7 @@
     <script src="/agency/js/owl.carousel.min.js"></script>
     <script src="/agency/js/main.js"></script>
 
-    <!--직접 만든 js-->
-    <script src="/agency/js/yang.js"></script>
-    <script src="/agency/js/slide.js"></script>
+    
 
     <!--카카오맵 출력하려면 필요한 키값-->
     <script
@@ -374,8 +374,7 @@
     <!--카카오 맵 js-->
     <script src="/agency/js/kakaoMap.js"></script>
     
-    
-    <script type="text/javascript" src="/js/jquery.min.js?ver=3.6.0"></script>
+<script type="text/javascript" src="/js/jquery.min.js?ver=3.6.0"></script>
 <script type="text/javascript" src="/js/popper.min.js?ver=1.16.1"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js?ver=4.6.0"></script>
 <script type="text/javascript" src="/js/smartmenus.min.js?ver=1.1.1"></script>
@@ -399,14 +398,8 @@
 <script type="text/javascript">
 
  
-      $("#filter-search").click(function name(params) {
-        var regex = /[^0-9.;\-]/g;
-        var result = $("#radius").val().replace(regex, "");
-        console.log(result);
-      });
-      
-
-	  $(".siren").click(function(){
+    
+       $(".siren").click(function(){
 		$(".modal").fadeIn();
 	  });
 	  
@@ -418,7 +411,8 @@
 
     
     
-   
+    
+<!--********** footer  ***********************************************************************-->
 
 <footer class="footer bg-dark text-white">
     <div class="container-fluid">
@@ -449,4 +443,5 @@
 
 </body>
     
+   
  </html>

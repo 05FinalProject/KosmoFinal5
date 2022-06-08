@@ -116,21 +116,25 @@
 						id="page-dropdown" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false">관련기관</a>
 						<ul class="dropdown-menu" aria-labelledby="page-dropdown">
-							<li><a class="dropdown-item" href="/include/agencyHotel">애견호텔</a></li>
-							<li><a class="dropdown-item" href="/include/agencyCafe">애견카페</a></li>
-							<li><a class="dropdown-item" href="/include/agencyHospital">동물병원</a></li>
-							<li><a class="dropdown-item" href="/include/agencyShelter">보호소</a></li>
-							<li><a class="dropdown-item" href="#">장례식장</a></li>
+							<li><a class="dropdown-item" href="/agency/agencyHotel">애견호텔</a></li>
+							<li><a class="dropdown-item" href="/agency/agencyCafe">애견카페</a></li>
+							<li><a class="dropdown-item" href="/agency/agencyHospital">동물병원</a></li>
+							<li><a class="dropdown-item" href="/agency/agencyShelter">보호소</a></li>
+							<li><a class="dropdown-item" href="/agency/agencyHall">장례식장</a></li>
 						</ul></li>
 
 
 					<li class="nav-item"><a class="nav-links info"
-						href="/include/encyclopedia">반려견 사전</a></li>
-
-					<li class="nav-item"><a class="nav-links chat"
-						href="/chating/friend?count=1">채팅방</a></li>
-
+						href="/agency/encyclopedia">반려견 사전</a></li>
+					
+					<li class="nav-item">
+					<c:if test="${not empty sessionScope.userEmail }">
+					<a class="nav-links chat" id="chatingRoom" style="cursor:pointer;">채팅방</a></c:if></li>
 				</ul>
+				<form action="/chating/room" method="post" id="chatingFrm">
+				<input type="hidden" name="userEmail" value="${sessionScope.userEmail}">
+				</form>
+				
 
 				<div class="weather ">
 					 <div class="iconc bg-white"></div>
@@ -163,9 +167,14 @@
 									<span class="dropdown-item dropdown-header">15
 										Notifications</span>
 									<div class="dropdown-divider"></div>
-									<a href="#" class="dropdown-item"> <i
-										class="fas fa-envelope mr-2"></i> 4 new messages
+									<a  class="dropdown-item"  id="unreadMessageBtn"> <i
+										class="fas fa-envelope mr-2"></i> <label id="unreadMessage">0</label> new messages
 									</a>
+									<c:if test="${sessionScope.userEmail != null }">
+									<form id="friendChating" action="/chating/friendChat" method="post">
+										<input type="hidden" value="${sessionScope.userEmail }" name="userEmail" />
+									</form>
+									</c:if>
 									<div class="dropdown-divider"></div>
 									<a href="/friend/friendRequestList" class="dropdown-item"> <i
 										class="fas fa-users mr-2"></i> 8 friend requests
@@ -201,6 +210,8 @@
 	<script type="text/javascript" src="/js/custom-theme.js?ver=1.0.0"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			
+			
 			$(".organi").mouseover(function(){
 				$(".organi").css("color","#f8b03a");
 			});
@@ -233,6 +244,14 @@
 			$(".chat").mouseleave(function(){
 				$(".chat").css("color","white");
 			});
+			
+			$("#chatingRoom").click(function(){
+				$("#chatingFrm").submit();
+			});
+		
+			$('#unreadMessageBtn').click(function(){
+				$('#friendChating').submit()
+			})
 			
 		});
 	</script>

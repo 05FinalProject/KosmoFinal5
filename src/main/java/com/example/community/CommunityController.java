@@ -50,8 +50,10 @@ public class CommunityController {
 	}
 
 	// 일상공유 상세보기 페이지
+
 	@RequestMapping(value = "/dailyDetail/{number}", method = RequestMethod.POST)
 	public String dailyDetail(@PathVariable Integer number, CommunityVO vo, Model m) {
+
 		m.addAttribute("community", c_service.getCommunity(vo));
 		
 		
@@ -113,6 +115,7 @@ public class CommunityController {
 //		m.addAttribute("community", c_service.getCommunity(vo));
 //	}
 
+
 	//일상공유 게시글 삭제
 	@RequestMapping(value="/deleteCommunity", method = RequestMethod.GET)
 	public String deleteCommunity(CommunityVO communityVo) {
@@ -151,6 +154,8 @@ public class CommunityController {
 		System.out.println(userEmail);
 		System.out.println(rReason);
 		c_service.reportCommunity(communityNum, userEmail, rReason);
+		System.out.println("컨트롤러");
+		
 		return "redirect:/community/daily";
 	}
 }

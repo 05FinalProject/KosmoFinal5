@@ -171,8 +171,11 @@
 		<section class="content">
 			<div class="btn-group-group">
 				<div class="btn-group">
-					<a href="#" class="btn btn-"> <i class="fa-solid fa-user"></i>
+					<a class="btn btn-" id="friendChat"> <i class="fa-solid fa-user"></i>
 						친구채팅 <i class="fa-solid fa-angle-right" style="color: #f8b03a"></i>
+						<form id="friendChating" action="/chating/friendChat" method="post">
+							<input type="hidden" value="${sessionScope.userEmail }" name="userEmail" />
+						</form>
 					</a> <a href="#" class="btn"> <i class="fa-solid fa-users"></i>
 						그룹채팅 <i class="fa-solid fa-angle-right" style="color: #f8b03a"></i>
 					</a>
@@ -182,31 +185,34 @@
 			<!-- Default box -->
 			<div class="card card-solid">
 				<div class="card-body pb-0">
+				
 					<div class="row">
-
-						<!-- 사용자 프로필 -->
-						<div
-							class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
+						<c:set var="page" value="1" />
+						<c:if test="${param.page != null }">
+						<c:set var="page" value="${param.page}" />
+						</c:if>
+						<c:choose>
+						<c:when test="${count >=page*9 }">
+						<c:forEach begin="${page*9-9}" end="${page*9-1}" var="i" >
+						<div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
 							<div class="card bg-light d-flex flex-fill">
 
 								<div class="card-body pt-0">
 									<div class="row">
 										<div class="col-7">
 											<h2 class="lead" style="font-weight: bold;">
-												<b>닉네임</b>
+												<b>${list[i].nickName}</b>
 											</h2>
 											<br />
-											<!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p> -->
+											<p class="text-muted text-sm"><b>Email: </b>${list[i].email }</p>
 											<ul class="ml-4 mb-0 fa-ul text-muted">
 												<li class="small"><span class="fa-li"><i
-														class="fa-solid fa-paw"></i></span>접속상태 : 접속중</li>
-												<br />
-												<li class="small"><span class="fa-li"><i
-														class="fa-solid fa-paw"></i></span>마지막 접속 : 2022/05/17</li>
+														class="fa-solid fa-paw"></i></span>강아지 수 : ${list[i].petCnt }</li>
+												
 											</ul>
 										</div>
 										<div class="col-5 profile-img" style="padding-top: 25px;">
-											<img src="/admin/dist/img/user1-128x128.jpg"
+											<img src="/${list[i].img }"
 												alt="user-avatar" class="img-circle img-fluid">
 										</div>
 									</div>
@@ -224,31 +230,29 @@
 								</div>
 							</div>
 						</div>
-						<!-- 사용자 프로필 끝 -->
-
-						<!-- 사용자 프로필 -->
-						<div
-							class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
+						</c:forEach>
+						</c:when>
+						<c:when test="${count <page*9 }">
+						<c:forEach begin="${page*9-9}" end="${count-1}" var="i">
+						<div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
 							<div class="card bg-light d-flex flex-fill">
 
 								<div class="card-body pt-0">
 									<div class="row">
 										<div class="col-7">
 											<h2 class="lead" style="font-weight: bold;">
-												<b>닉네임</b>
+												<b>${list[i].nickName }</b>
 											</h2>
 											<br />
-											<!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p> -->
+											<p class="text-muted text-sm"><b>Email: </b>${list[i].email }</p>
 											<ul class="ml-4 mb-0 fa-ul text-muted">
 												<li class="small"><span class="fa-li"><i
-														class="fa-solid fa-paw"></i></span>접속상태 : 접속중</li>
-												<br/>
-												<li class="small"><span class="fa-li"><i
-														class="fa-solid fa-paw"></i></span>마지막 접속 : 2022/05/17</li>
+														class="fa-solid fa-paw"></i></span>강아지 수 : ${list[i].petCnt }</li>
+												
 											</ul>
 										</div>
 										<div class="col-5 profile-img" style="padding-top: 25px;">
-											<img src="/admin/dist/img/user1-128x128.jpg"
+											<img src="/${list[i].img }"
 												alt="user-avatar" class="img-circle img-fluid">
 										</div>
 									</div>
@@ -266,300 +270,13 @@
 								</div>
 							</div>
 						</div>
-						<!-- 사용자 프로필 끝 -->
+						</c:forEach>
+						</c:when>
+						</c:choose>
+						
+						
 
-						<!-- 사용자 프로필 -->
-						<div
-							class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-							<div class="card bg-light d-flex flex-fill">
-
-								<div class="card-body pt-0">
-									<div class="row">
-										<div class="col-7">
-											<h2 class="lead" style="font-weight: bold;">
-												<b>닉네임</b>
-											</h2>
-											<br />
-											<!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p> -->
-											<ul class="ml-4 mb-0 fa-ul text-muted">
-												<li class="small"><span class="fa-li"><i
-														class="fa-solid fa-paw"></i></span>접속상태 : 접속중</li>
-												<br />
-												<li class="small"><span class="fa-li"><i
-														class="fa-solid fa-paw"></i></span>마지막 접속 : 2022/05/17</li>
-											</ul>
-										</div>
-										<div class="col-5 profile-img" style="padding-top: 25px;">
-											<img src="/admin/dist/img/user1-128x128.jpg"
-												alt="user-avatar" class="img-circle img-fluid">
-										</div>
-									</div>
-								</div>
-								<div class="card-footer">
-									<div class="text-right">
-										<a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-trash-can"></i>
-										</a> <a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-ban ban"></i>
-										</a> <a href="#" class="btn btn-sm btn-primary"> <i
-											class="fas fa-user"></i>상세보기
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- 사용자 프로필 끝 -->
-
-						<!-- 사용자 프로필 -->
-						<div
-							class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-							<div class="card bg-light d-flex flex-fill">
-
-								<div class="card-body pt-0">
-									<div class="row">
-										<div class="col-7">
-											<h2 class="lead" style="font-weight: bold;">
-												<b>닉네임</b>
-											</h2>
-											<br />
-											<!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p> -->
-											<ul class="ml-4 mb-0 fa-ul text-muted">
-												<li class="small"><span class="fa-li"><i
-														class="fa-solid fa-paw"></i></span>접속상태 : 접속중</li>
-												<br />
-												<li class="small"><span class="fa-li"><i
-														class="fa-solid fa-paw"></i></span>마지막 접속 : 2022/05/17</li>
-											</ul>
-										</div>
-										<div class="col-5 profile-img" style="padding-top: 25px;">
-											<img src="/admin/dist/img/user1-128x128.jpg"
-												alt="user-avatar" class="img-circle img-fluid">
-										</div>
-									</div>
-								</div>
-								<div class="card-footer">
-									<div class="text-right">
-										<a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-trash-can"></i>
-										</a> <a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-ban ban"></i>
-										</a> <a href="#" class="btn btn-sm btn-primary"> <i
-											class="fas fa-user"></i>상세보기
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- 사용자 프로필 끝 -->
-
-						<!-- 사용자 프로필 -->
-						<div
-							class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-							<div class="card bg-light d-flex flex-fill">
-
-								<div class="card-body pt-0">
-									<div class="row">
-										<div class="col-7">
-											<h2 class="lead" style="font-weight: bold;">
-												<b>닉네임</b>
-											</h2>
-											<br />
-											<!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p> -->
-											<ul class="ml-4 mb-0 fa-ul text-muted">
-												<li class="small"><span class="fa-li"><i
-														class="fa-solid fa-paw"></i></span>접속상태 : 접속중</li>
-												<br />
-												<li class="small"><span class="fa-li"><i
-														class="fa-solid fa-paw"></i></span>마지막 접속 : 2022/05/17</li>
-											</ul>
-										</div>
-										<div class="col-5 profile-img" style="padding-top: 25px;">
-											<img src="/admin/dist/img/user1-128x128.jpg"
-												alt="user-avatar" class="img-circle img-fluid">
-										</div>
-									</div>
-								</div>
-								<div class="card-footer">
-									<div class="text-right">
-										<a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-trash-can"></i>
-										</a> <a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-ban ban"></i>
-										</a> <a href="#" class="btn btn-sm btn-primary"> <i
-											class="fas fa-user"></i>상세보기
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- 사용자 프로필 끝 -->
-
-						<!-- 사용자 프로필 -->
-						<div
-							class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-							<div class="card bg-light d-flex flex-fill">
-
-								<div class="card-body pt-0">
-									<div class="row">
-										<div class="col-7">
-											<h2 class="lead" style="font-weight: bold;">
-												<b>닉네임</b>
-											</h2>
-											<br />
-											<!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p> -->
-											<ul class="ml-4 mb-0 fa-ul text-muted">
-												<li class="small"><span class="fa-li"><i
-														class="fa-solid fa-paw"></i></span>접속상태 : 접속중</li>
-												<br />
-												<li class="small"><span class="fa-li"><i
-														class="fa-solid fa-paw"></i></span>마지막 접속 : 2022/05/17</li>
-											</ul>
-										</div>
-										<div class="col-5 profile-img" style="padding-top: 25px;">
-											<img src="/admin/dist/img/user1-128x128.jpg"
-												alt="user-avatar" class="img-circle img-fluid">
-										</div>
-									</div>
-								</div>
-								<div class="card-footer">
-									<div class="text-right">
-										<a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-trash-can"></i>
-										</a> <a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-ban ban"></i>
-										</a> <a href="#" class="btn btn-sm btn-primary"> <i
-											class="fas fa-user"></i>상세보기
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- 사용자 프로필 끝 -->
-
-						<!-- 사용자 프로필 -->
-						<div
-							class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-							<div class="card bg-light d-flex flex-fill">
-
-								<div class="card-body pt-0">
-									<div class="row">
-										<div class="col-7">
-											<h2 class="lead" style="font-weight: bold;">
-												<b>닉네임</b>
-											</h2>
-											<br />
-											<!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p> -->
-											<ul class="ml-4 mb-0 fa-ul text-muted">
-												<li class="small"><span class="fa-li"><i
-														class="fa-solid fa-paw"></i></span>접속상태 : 접속중</li>
-												<br />
-												<li class="small"><span class="fa-li"><i
-														class="fa-solid fa-paw"></i></span>마지막 접속 : 2022/05/17</li>
-											</ul>
-										</div>
-										<div class="col-5 profile-img" style="padding-top: 25px;">
-											<img src="/admin/dist/img/user1-128x128.jpg"
-												alt="user-avatar" class="img-circle img-fluid">
-										</div>
-									</div>
-								</div>
-								<div class="card-footer">
-									<div class="text-right">
-										<a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-trash-can"></i>
-										</a> <a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-ban ban"></i>
-										</a> <a href="#" class="btn btn-sm btn-primary"> <i
-											class="fas fa-user"></i>상세보기
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- 사용자 프로필 끝 -->
-
-						<!-- 사용자 프로필 -->
-						<div
-							class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-							<div class="card bg-light d-flex flex-fill">
-
-								<div class="card-body pt-0">
-									<div class="row">
-										<div class="col-7">
-											<h2 class="lead" style="font-weight: bold;">
-												<b>닉네임</b>
-											</h2>
-											<br />
-											<!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p> -->
-											<ul class="ml-4 mb-0 fa-ul text-muted">
-												<li class="small"><span class="fa-li"><i
-														class="fa-solid fa-paw"></i></span>접속상태 : 접속중</li>
-												<br />
-												<li class="small"><span class="fa-li"><i
-														class="fa-solid fa-paw"></i></span>마지막 접속 : 2022/05/17</li>
-											</ul>
-										</div>
-										<div class="col-5 profile-img" style="padding-top: 25px;">
-											<img src="/admin/dist/img/user1-128x128.jpg"
-												alt="user-avatar" class="img-circle img-fluid">
-										</div>
-									</div>
-								</div>
-								<div class="card-footer">
-									<div class="text-right">
-										<a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-trash-can"></i>
-										</a> <a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-ban ban"></i>
-										</a> <a href="#" class="btn btn-sm btn-primary"> <i
-											class="fas fa-user"></i>상세보기
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- 사용자 프로필 끝 -->
-
-						<!-- 사용자 프로필 -->
-						<div
-							class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-							<div class="card bg-light d-flex flex-fill">
-
-								<div class="card-body pt-0">
-									<div class="row">
-										<div class="col-7">
-											<h2 class="lead" style="font-weight: bold;">
-												<b>닉네임</b>
-											</h2>
-											<br />
-											<!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p> -->
-											<ul class="ml-4 mb-0 fa-ul text-muted">
-												<li class="small"><span class="fa-li"><i
-														class="fa-solid fa-paw"></i></span>접속상태 : 접속중</li>
-												<br />
-												<li class="small"><span class="fa-li"><i
-														class="fa-solid fa-paw"></i></span>마지막 접속 : 2022/05/17</li>
-											</ul>
-										</div>
-										<div class="col-5 profile-img" style="padding-top: 25px;">
-											<img src="/admin/dist/img/user1-128x128.jpg"
-												alt="user-avatar" class="img-circle img-fluid">
-										</div>
-									</div>
-								</div>
-								<div class="card-footer">
-									<div class="text-right">
-										<a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-trash-can"></i>
-										</a> <a href="#" class="btn btn-sm bg-teal"> <i
-											class="fa-solid fa-ban ban"></i>
-										</a> <a href="#" class="btn btn-sm btn-primary"> <i
-											class="fas fa-user"></i>상세보기
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
+						
 						<!-- 사용자 프로필 끝 -->
 					</div>
 				</div>
@@ -590,24 +307,17 @@
 		</section>
 		<!-- /.content -->
 		<div class="friendList-paging">
-			<nav
-				class="navigation pagination justify-content-between bg-transparent text-uppercase"
+			<c:if test="${count > 9 }">
+			<nav class="navigation pagination justify-content-between bg-transparent text-uppercase"
 				role="navigation">
-				<a class="prev disabled" href="#"> Prev </a>
-				<div class="nav-links">
-					<ul class="page-numbers">
-						<li><span aria-current="page" class="page-numbers current">1</span></li>
-						<li><a class="page-numbers" href="#">2</a></li>
-						<li><a class="page-numbers" href="#">3</a></li>
-						<li><a class="page-numbers" href="#">4</a></li>
-						<li><a class="page-numbers" href="#">5</a></li>
-						<li><a class="page-numbers" href="#">6</a></li>
-						<li><a class="page-numbers" href="#">7</a></li>
-						<li><a class="page-numbers" href="#">8</a></li>
-					</ul>
-				</div>
-				<a class="next" href="#"> Next </a>
+				<div class="nav-links " >
+				<c:set  var="recordsCnt" value="${count}" />
+				<c:set  var="jspFile" value="friendList?" />
+				<c:set  var="perpage" value="9" />
+			</div>
+			<%@include file="/WEB-INF/views/include/paging.jsp"%>
 			</nav>
+			</c:if>
 		</div>
 	</div>
 	</div>
@@ -648,6 +358,12 @@
 	<script src="../../admin/dist/js/adminlte.js"></script>
 	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 	<script src="../../admin/dist/js/pages/dashboard.js"></script>
+	<script type="text/javascript">
+	$('#friendChat').click(function(){
+		$('#friendChating').submit()
+	})
+
+	</script>
 </body>
 </html>
 
