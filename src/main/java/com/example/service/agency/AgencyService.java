@@ -80,7 +80,7 @@ public interface AgencyService {
 	//병원 검색 기능
     List<AgencyVO> agencyHospitalSearch(AgencyVO vo);
     
-    //병원 검색 기능
+    //장례식장 검색 기능
     List<AgencyVO> agencyHallSearch(AgencyVO vo);
 	
 //**************************************************

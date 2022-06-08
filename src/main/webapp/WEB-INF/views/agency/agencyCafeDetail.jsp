@@ -228,71 +228,66 @@
     
   <!-- 모달 신고창 띄우기 ************************************************* --> 
     
-    <div class="modal" >
-  <div class="modal_content" 
-       title="클릭하면 창이 닫힙니다." style="padding-top: 20px;padding-bottom: 20px;">
-       
-      
-    
-    <div class="col-12 mt-4 mt-lg-0">
-    
-    <button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-    
-   
+<div class="modal">
+    <div class="modal_content"
+         title="클릭하면 창이 닫힙니다." style="padding-top: 20px;padding-bottom: 20px;">
 
-<h4>회원 신고하기</h4>
-    
+        <div class="col-12 mt-4 mt-lg-0">
+
+            <button type="button" class="close">
+                <span aria-hidden="true">×</span>
+                <span class="sr-only">Close</span>
+            </button>
+
+            <h4>게시글 신고하기</h4>
+
             <div class="widget-sidebar pet-sidebar">
-                
-              
-                 <div class="padding-6">
-                  <div class="gen-after-report">
-                     <div class="gen-extra-report">
+                <div class="padding-6">
+                    <div class="gen-after-report">
+                        <div class="gen-extra-report">
+                            <ul>
+                                <li>
+                                    <div style="float: left">작성자 : ${community.user.userEmail }</div>
+                                    <div style="float: left">작성자 : ${community.user.userEmail }</div>
+                                </li>
+                                <br>
+                                <li>
+                                    <div style="float: left; height: 150px;">내용 : ${community.communityContent}</div>
+                                </li>
 
-                   <ul>
-                   
-                    <li>
-                    <div style="float: left">신고 작성자:</div>
-                    <div style="float: left">홍길동</div>
-                     </li>
-                     <br>
-                    
-                    <li>
-                     <div style="float: left">신고 내용:</div><br>
-                     <div style="float: center">Streamlab is a long established fact that a reader will be distracted by the readable content of a page when Streamlab at its layout. The point of using Lorem Streamlab is that it has a more-or-less normal distribution of Streamlab as opposed Streamlab</div>
-                     </li>
-                     
-                        
-                   </ul>
-                   </div> 
-</div>
-</div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
- 
-<div id="water" >
-   <div class="form-group">
-
-<select class="form-control2" style="text-align-last:center" >
-<option >게시글 도배</option>
-<option>욕설/비방</option>
-<option>음란성</option>
-<option>광고/홍보성</option>
-<option>개인정보 유출</option>
-<option>저작권 불법 도용</option>
-<option>기타</option>
-</select>
-</div>
-</div>  
-</div>                  
-                  
-                    <button type="submit" id="btn1" class="btn btn-primary btn-block font-weight-bold text-uppercase">
+                <div id="water">
+                    <form action="/community/reportCommunity" method="post">
+                        <input type="hidden" name="communityNum" value="${community.communityNum}">
+                        <input type="text" name="userEmail" value="${community.user.userEmail}">
+                        <div class="form-group">
+                            <select name="rReason" class="form-control">
+                                <option value="0">신고 사유 선택</option>
+                                <option value="게시글 도배">게시글 도배</option>
+                                <option value="욕설/비방">욕설/비방</option>
+                                <option value="음란성">음란성</option>
+                                <option value="광고/홍보성">광고/홍보성</option>
+                                <option value="개인정보 유출">개인정보 유출</option>
+                                <option value="저작권 불법 도용">저작권 불법 도용</option>
+                                <option value="기타">기타</option>
+                            </select>
+                        </div>
+                        <button type="submit" id="btn1" class="btn btn-primary btn-block font-weight-bold text-uppercase">
                         신고하기
                     </button>
-                
+                </form>
+                </div>
             </div>
+
+
+
         </div>
-    
     </div>
+</div>
                   
    <!-- 모달창 테이블 끝 ******************************************************** -->               
                   
