@@ -105,4 +105,10 @@ public class ApiController {
 		
 	}
 	
+	////친구채팅창 떠나는 시간 저장
+	@RequestMapping("leaveTime")
+	public void leaveTime(UserVO vo) {
+		service.leaveTime(vo);
+	}
+	
 }

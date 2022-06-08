@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,10 +57,10 @@ public class ChatingController {
 
 	
 	@PostMapping(value = "/friend")
-	public void roomGoOut(ChatingRoomVO vo) {
+	public String roomGoOut(ChatingRoomVO vo) {
 		//채팅방나가면 테이블에 user 정보 삭제
 		service.deleteByRoomMember(vo);
-		
+		return "redirect:/include/Main";
 	}
 	
 	@PostMapping("/friendChat")

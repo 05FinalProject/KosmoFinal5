@@ -108,10 +108,14 @@ public class ChatingServiceImpl implements ChatingService {
 		HashMap<String,Object> hm = new HashMap<String,Object>();
 		for(ChatingRoomVO v : list) {
 			hm = new HashMap<String,Object>();
-			hm.put("img", img.findByUserEmail(v.getRoomMember()).get(0).getPImgname()); //img
-			hm.put("nickName",usr.findById(v.getRoomMember()).get().getUserNickname());//niname
-			hm.put("email", v.getRoomMember());
-			rlist.add(hm);
+			List<ImgVO> l = img.findByUserEmail(v.getRoomMember());
+			if (l.size()>0) {
+				hm.put("img", l.get(0).getPImgname()); //img
+				hm.put("nickName",usr.findById(v.getRoomMember()).get().getUserNickname());//niname
+				hm.put("email", v.getRoomMember());
+				rlist.add(hm);
+			}
+			
 		}
 		return rlist;
 	}
@@ -227,6 +231,12 @@ public class ChatingServiceImpl implements ChatingService {
 	public List<FriendVO> friendSearch(String str,String str2){
 		return fri.friendSearch(str ,str2);
 		
+	}
+	
+	public void leaveTime(UserVO vo) {
+		UserVO u = usr.findById(vo.getUserEmail()).get();
+		u.setChatLeave(LocalDateTime.now());
+		usr.save(u);
 	}
 	
 }
