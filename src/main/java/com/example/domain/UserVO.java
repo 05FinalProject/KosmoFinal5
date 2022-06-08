@@ -1,5 +1,6 @@
 package com.example.domain;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 
@@ -44,6 +45,9 @@ public class UserVO {
 	
 	@Column(name="user_nickname",length = 100)
 	private String userNickname;
+	
+	@Column(name="chat_leave")
+	private LocalDateTime chatLeave;
 	
 	@Column(insertable = false,updatable = false,name = "user_logout_time")
 	@Temporal(TemporalType.DATE)

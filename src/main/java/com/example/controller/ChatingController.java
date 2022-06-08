@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,7 +38,7 @@ public class ChatingController {
 		
 	}
 	
-	@GetMapping("/room")
+	@PostMapping("/room")
 	public void room(Model m,UserVO user) {
 		//채팅방list 출력
 		m.addAttribute("list", service.getAllRooms(user));
@@ -56,13 +57,13 @@ public class ChatingController {
 
 	
 	@PostMapping(value = "/friend")
-	public void roomGoOut(ChatingRoomVO vo) {
+	public String roomGoOut(ChatingRoomVO vo) {
 		//채팅방나가면 테이블에 user 정보 삭제
 		service.deleteByRoomMember(vo);
-		
+		return "redirect:/include/Main";
 	}
 	
-	@GetMapping("/friendChat")
+	@PostMapping("/friendChat")
 	public void friendChat(UserVO vo ,HttpServletRequest request,Model m) {
 		//session 생성 및 user의 Email 저장
 		HttpSession session = request.getSession();

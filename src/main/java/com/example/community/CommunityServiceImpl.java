@@ -27,9 +27,9 @@ public class CommunityServiceImpl implements CommunityService {
 	private UserRepository userRepo;
 
 	@Autowired
-
-	ReportRepository reportRepo;
+	private ReportRepository reportRepo;
 	
+	@Autowired
 	private CommentRepository commentRepo;
 
 	@Autowired
@@ -116,7 +116,7 @@ public class CommunityServiceImpl implements CommunityService {
 
 	// 일상공유 댓글 리스트
 	public List<CommentVO> commentList(Integer communityNum) {
-
+		
 		return commentRepo.findByCommunity(communityRepo.findById(communityNum).get());
 	}
 
@@ -143,6 +143,8 @@ public class CommunityServiceImpl implements CommunityService {
 	public void reportCommunity(Integer communityNum, String user, String rReason) {
 		ReportVO vo = new ReportVO();
 		Date date = new Date();
+		
+		System.out.println("서비스 임플");
 		vo.setCommunity(communityRepo.findById(communityNum).get()); // forigen key
 		vo.setUser(userRepo.findById(user).get()); // forigen key
 		vo.setRReason(rReason);
@@ -150,6 +152,7 @@ public class CommunityServiceImpl implements CommunityService {
 
 		reportRepo.save(vo);
 	}
+	
 	//이미지 리스트 출력
 	public List<ImgVO> imgList(Integer communityNum) {
 		return imgRepo.findByCommunity(communityRepo.findById(communityNum).get());
