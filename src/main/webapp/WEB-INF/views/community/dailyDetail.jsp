@@ -268,7 +268,6 @@ span {
 }
 </style>
 
-
 </head>
 
 
@@ -311,7 +310,6 @@ span {
 						<hr>
 
 						<div>
-
 							<div class="communityContent beforeUpdate">${community.communityContent }</div>
 							<input type="text" class="updateInput" name="communityContent"
 								value="${community.communityContent }" />
@@ -340,7 +338,7 @@ span {
 						<hr>
 
 						<!-- 댓글리스트 출력 -->
-						<c:forEach items="${commentList }" var="comment">
+						<c:forEach items="${commentList}" var="comment">
 							<div class="seller-information">
 								<div class="information-content">
 									<img src="/community/images/user/user-25.jpg"
@@ -382,7 +380,7 @@ span {
 		</div>
 	</div>
 
-    <!-- 모달 신고창 띄우기 ************************************************* -->
+	<!-- 모달 신고창 띄우기 ************************************************* -->
 <div class="modal">
     <div class="modal_content"
          title="클릭하면 창이 닫힙니다." style="padding-top: 20px;padding-bottom: 20px;">
@@ -402,7 +400,6 @@ span {
                         <div class="gen-extra-report">
                             <ul>
                                 <li>
-                                    <div style="float: left">작성자 : ${community.user.userEmail }</div>
                                     <div style="float: left">작성자 : ${community.user.userEmail }</div>
                                 </li>
                                 <br>
@@ -450,8 +447,9 @@ span {
 </body>
 
 <script type="text/javascript">
-    $(".siren").click(function () {
+    $("#siren").click(function (e) {
         $(".modal").fadeIn();
+		e.preventDefault()
     });
 
     $(".close").click(function () {

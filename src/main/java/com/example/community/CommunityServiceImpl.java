@@ -27,9 +27,9 @@ public class CommunityServiceImpl implements CommunityService {
 	private UserRepository userRepo;
 
 	@Autowired
+	private ReportRepository reportRepo;
 
-	ReportRepository reportRepo;
-	
+	@Autowired
 	private CommentRepository commentRepo;
 
 	@Autowired

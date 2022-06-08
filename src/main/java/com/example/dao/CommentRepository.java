@@ -12,7 +12,5 @@ import com.example.domain.CommentVO;
 public interface CommentRepository extends CrudRepository<CommentVO, Integer> {
 	
 	List<CommentVO> findByCommunity(CommunityVO community);
-	 
-	 
 	
 }

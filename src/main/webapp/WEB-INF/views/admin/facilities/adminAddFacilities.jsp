@@ -111,7 +111,7 @@
 								<div class="form-group">
 									<select class="form-control" name="agencyCategoryNum">
 										<!-- 선택을 안하면 입력이 안되게 설정해야함(나중에)... -->
-										<option value="0">===기관선택===</option>
+										<option selected disabled>===기관선택===</option>
 										<option value="1">애견호텔</option>
 										<option value="2">애견카페</option>
 										<option value="3">동물병원</option>
@@ -164,12 +164,11 @@
 							</div>
 
 							<div class="modal-footer">
-								<button type="submit" class="btn btn-secondary m-2 btn-success swalDefaultSuccess"
+								<button type="submit" class="btn btn-success swalDefaultSuccess"
 										id="btnInsert">등록</button>
-								<button type="button" class="btn btn-secondary m-2 btn-danger"
+								<button type="reset" class="btn btn-secondary m-2 btn-danger"
 										id="btnCancle" data-dismiss="modal">취소</button>
 							</div>
-
 						</div>
 					</form>
 				</div>
@@ -237,11 +236,17 @@
 	$('#addFacilities').addClass('active')
 
 	$(function () {
-		$('.swalDefaultSuccess').click(function() {
-			Toast.fire({
-				icon: 'success',
-				title: '시설이 등록되었습니다.'
-			})
+		$('#btnInsert').click(function() {
+			if(confirm('등록하시겠습니까?')==true){
+				Toast.fire({
+					icon: 'success',
+					title: '시설이 등록되었습니다.'
+				})
+			}
+			else {
+				return;
+			}
+
 		});
 	})
 </script>

@@ -12,6 +12,7 @@ import com.example.dao.AbandonedRepository;
 import com.example.dao.AgencyRepository;
 import com.example.domain.AbandonedVO;
 import com.example.domain.AgencyVO;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Service
 public class AdminAgencyServiceImpl implements AdminAgencyService{
@@ -88,6 +89,17 @@ public class AdminAgencyServiceImpl implements AdminAgencyService{
 		updateAgency.setAgencyAddress(addr);	
 		updateAgency.setAgencyAddress2(subAddr);	
 		return aRepo.save(updateAgency);//업데이트 문장 돌리기
+	}
+
+	//보호소 수정
+	@Override
+	public AbandonedVO updateShelter(Integer abNo, @RequestParam String abName, @RequestParam String abAge, @RequestParam String abImage) {
+		AbandonedVO updateShelter = abRepo.findById(abNo).get();
+		updateShelter.setAbName(abName);
+		updateShelter.setAbAge(abAge);
+		updateShelter.setAbImage(abImage);
+
+		return abRepo.save(updateShelter);
 	}
 
 	//시설등록

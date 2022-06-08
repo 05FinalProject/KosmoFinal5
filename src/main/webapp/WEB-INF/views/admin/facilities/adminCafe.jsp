@@ -123,12 +123,94 @@
 									</div>
 									<div class="card-footer">
 										<div class="text-right">
-											<a href="#" class="btn btn-sm btn-warning">수정 </a> 
+											<a class="btn btn-sm btn-warning" data-toggle="modal" data-target="#cafeModal${cafe.agencyNum}" class="btn btn-sm btn-warning">수정 </a>
 											<a href="#" class="btn btn-sm btn-danger"> 삭제 </a>
 										</div>
 									</div>									
 								</div>							
-							</div>											
+							</div>
+							<!-- Modal -->
+							<div class="modal fade" id="cafeModal${cafe.agencyNum}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title"
+												id="cafeModal${cafe.agencyNum}Label">${cafe.agencyName}
+											</h5>
+											<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close" onclick="location.href='/adminCafe'">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<!-- form start -->
+										<div class="modal-body">
+											<div class="container-fluid">
+												<div class="row">
+													<form action="/admin/update" method="post">
+														<input type="hidden" name="agencyNum" value="${cafe.agencyNum}">
+														<div class="row">
+															<div class="mb-3 col-md-12">
+																<label for="exampleFormControlInput1"
+																	   class="form-label">시설명</label> <input type="text"
+																											 class="form-control" id="exampleFormControlInput1"
+																											 name="facility" value="${cafe.agencyName}">
+															</div>
+
+															<div class="mb-3 col-md-12">
+																<label for="exampleFormControlInput1"
+																	   class="form-label">시설주소</label> <input type="hidden"
+																											  id="sample6_postcode" placeholder="우편번호"
+																											  class="form-control" readonly> <input type="button"
+																																					onclick="sample6_execDaumPostcode()" value="주소찾기"
+																																					class="btn btn-block btn-secondary"><br>
+																<input type="text" id="sample6_address"
+																	   placeholder="주소" class="form-control"  value="${cafe.agencyAddress}" readonly name="addr"><br>
+																<input type="text" id="sample6_detailAddress"
+																	   placeholder="상세주소" class="form-control" value="${cafe.agencyAddress2}" name="subAddr"> <input
+																	type="hidden" id="sample6_extraAddress"
+																	placeholder="참고항목" class="form-control">
+															</div>
+
+															<div class="mb-3 col-md-12">
+																<label for="exampleFormControlInput1"
+																	   class="form-label">전화번호</label> <input type="text"
+																											  class="form-control" id="exampleFormControlInput1"
+																											  name="tel" value="${cafe.agencyTel}">
+															</div>
+
+															<div class="mb-3 col-md-12">
+																<label for="exampleFormControlTextarea1"
+																	   class="form-label">소개글</label>
+																<textarea class="form-control"
+																		  id="exampleFormControlTextarea1" rows="3"
+																		  placeholder="내용을 입력해주세요" name="content" value="${cafe.agencyContent}"></textarea>
+															</div>
+
+															<div class="mb-3 col-md-12">
+																<label for="exampleInputPassword1" class="form-label" value="${cafe.agencyImage}">이미지
+																	첨부</label>
+																<div class="custom-file">
+																	<input type="file" class="custom-file-input"
+																		   id="customFile"> <label
+																		class="custom-file-label" for="customFile">Choose
+																	file</label>
+																</div>
+															</div>
+
+															<div class="modal-footer">
+																<button type="submit" class="btn btn-secondary m-2 btn-success"
+																		id="btnUpdate">수정</button>
+																<button type="button" class="btn btn-secondary m-2 btn-danger"
+																		id="btnCancle" data-dismiss="modal" onclick="location.href='/adminHotel'">취소</button>
+															</div>
+														</div>
+													</form>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 							</c:forEach>	
 						</div>
 										

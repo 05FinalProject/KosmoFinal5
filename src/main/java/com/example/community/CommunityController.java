@@ -19,13 +19,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import org.springframework.web.bind.annotation.RequestParam;
-
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -56,8 +50,8 @@ public class CommunityController {
 	}
 
 	// 일상공유 상세보기 페이지
-	@RequestMapping(value = "/dailyDetail", method = RequestMethod.GET)
-	public String dailyDetail(CommunityVO vo, Model m) {
+	@RequestMapping(value = "/dailyDetail/{number}", method = RequestMethod.POST)
+	public String dailyDetail(@PathVariable Integer number, CommunityVO vo, Model m) {
 		m.addAttribute("community", c_service.getCommunity(vo));
 		
 		
@@ -118,13 +112,6 @@ public class CommunityController {
 //	public void getCommunity(CommunityVO vo, Model m) {
 //		m.addAttribute("community", c_service.getCommunity(vo));
 //	}
-	
-
-	
-	
-	
-	
-	
 
 	//일상공유 게시글 삭제
 	@RequestMapping(value="/deleteCommunity", method = RequestMethod.GET)
@@ -166,6 +153,4 @@ public class CommunityController {
 		c_service.reportCommunity(communityNum, userEmail, rReason);
 		return "redirect:/community/daily";
 	}
-		
-
 }
