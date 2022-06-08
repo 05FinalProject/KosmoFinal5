@@ -126,11 +126,15 @@
 
 					<li class="nav-item"><a class="nav-links info"
 						href="/agency/encyclopedia">반려견 사전</a></li>
-
-					<li class="nav-item"><a class="nav-links chat"
-						href="/chating/friend?count=1">채팅방</a></li>
-
+					
+					<li class="nav-item">
+					<c:if test="${not empty sessionScope.userEmail }">
+					<a class="nav-links chat"  id="chatingRoom">채팅방</a></c:if></li>
 				</ul>
+				<form action="/chating/room" method="post" id="chatingFrm">
+				<input type="hidden" name="userEmail" value="${sessionScope.userEmail}">
+				</form>
+				
 
 				<div class="weather ">
 					 <div class="iconc bg-white"></div>
@@ -234,6 +238,13 @@
 				$(".chat").css("color","white");
 			});
 			
+			$("#chatingRoom").click(function(){
+				$("#chatingFrm").submit();
+			});
+		
+		
+		
+		
 		});
 	</script>
 	
