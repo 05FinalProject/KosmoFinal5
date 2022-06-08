@@ -121,11 +121,7 @@ public class CommunityController {
 //	}
 	
 
-	
-	
-	
-	
-	
+
 
 	//일상공유 게시글 삭제
 	@RequestMapping(value="/deleteCommunity", method = RequestMethod.GET)
