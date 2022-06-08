@@ -166,9 +166,9 @@
 								<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 									<span class="dropdown-item dropdown-header">15
 										Notifications</span>
-									<div class="dropdown-divider" id="unreadMessageBtn"></div>
-									<a  class="dropdown-item"> <i
-										class="fas fa-envelope mr-2"></i> <label id="unreadMessage">4</label> new messages
+									<div class="dropdown-divider"></div>
+									<a  class="dropdown-item"  id="unreadMessageBtn"> <i
+										class="fas fa-envelope mr-2"></i> <label id="unreadMessage">0</label> new messages
 									</a>
 									<c:if test="${sessionScope.userEmail != null }">
 									<form id="friendChating" action="/chating/friendChat" method="post">
