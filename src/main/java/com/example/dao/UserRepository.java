@@ -3,6 +3,7 @@ package com.example.dao;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.domain.PetVO;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -41,14 +42,12 @@ public interface UserRepository extends CrudRepository<UserVO, String>{
 	UserVO save(String userEmail, String userPass);
 
 	
-	// 반려견 등록
-
-	//****************************관리자***********************
-	//대시보드 페이지 총 유저수 출력
-	@Query("SELECT count(uvo) FROM UserVO uvo")
-	int totalUserCount();
+	// 반려견 리스트 출력
+	@Query("SELECT pvo FROM PetVO pvo WHERE pvo.petNum=:petNum")
+	PetVO findByPetNum();
 
 
-	
-	 
+	//SELECT count(*) FROM user WHERE user_signup = curdate()
+	@Query("SELECT count(u) FROM UserVO u WHERE u.userSignup=current_date")
+	int getSignupCount();
 }

@@ -71,13 +71,13 @@
                                         <th>전화번호</th>
                                         <th>주소</th>
                                         <th>가입날짜</th>
-                                        <th width="50">회원상태</th>
+                                        <th width="70">회원상태</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <c:forEach items="${userList}" var="user">
                                         <tr>
-                                            <td>${user.userEmail}</td>
+                                            <td data-toggle="modal" data-target="#userModal${user.userPhone}">${user.userEmail}</td>
                                             <td>${user.userNickname}</td>
                                             <td>${user.userName}</td>
                                             <td>${user.userPhone}</td>
@@ -100,6 +100,52 @@
                                                 </c:choose>
                                             </td>
                                         </tr>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="userModal${user.userPhone}" data-backdrop="static" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="userModalLabel">Modal title</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <!-- 테이블 넣기 -->
+                                                        <div class="container">
+                                                            <table class="table table-bordered">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>이름</th>
+                                                                    <th>나이</th>
+                                                                    <th>성별</th>
+                                                                    <th>견종</th>
+                                                                    <th>중성화여부</th>
+                                                                    <th>몸무게</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <c:forEach var="pet" items="${petList}">
+                                                                    <tr>
+                                                                        <td>${petList.}</td>
+                                                                        <td>${petList.m_name}</td>
+                                                                        <td>${petList.m_phone}</td>
+                                                                        <td>${petList.m_email}</td>
+                                                                    </tr>
+                                                                </c:forEach>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+
+                                                            ${user.userName}
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </c:forEach>
                                     </tbody>
                                     <tfoot>
@@ -108,7 +154,6 @@
                             <!-- /.card-body -->
                         </div>
                         <!-- /.card -->
-
                     </div>
                     <!-- /.col -->
                 </div>
@@ -128,8 +173,6 @@
     <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
-
 <!-- jQuery -->
 <script src="/admin/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->

@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
+import com.example.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -19,10 +20,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.community.CommunityVO;
-import com.example.domain.AbandonedVO;
-import com.example.domain.AgencyVO;
-import com.example.domain.ReportVO;
-import com.example.domain.UserVO;
 import com.example.service.admin.AdminAgencyService;
 import com.example.service.admin.AdminCommunityService;
 import com.example.service.admin.AdminReportService;
@@ -88,7 +85,17 @@ public class AdminMainController {
 		model.addAttribute("userSignup", userSignupJson);
 		System.out.println("테스트"+model.getAttribute("userSignup"));
 
+		//대시보드 수 출력
+		/*총유저수
+		반려견등록수
+		게시글 일상공유 등록 수
+		오늘 등록된 회원가입수*/
+		//서비스 호출 => 레포때려버리기
+		model.addAttribute("getUserTotalSize", adminUserService.getUserTotalSize());
+		model.addAttribute("getPetTotalSize", adminUserService.getPetTotalSize());
+		model.addAttribute("getCommunityTotalSize", adminCommunityService.getCommunityTotalSize());
 
+		model.addAttribute("getSignupCount", adminUserService.getSignupCount());
 
 		return "/admin/indexAdmin";
 	}
@@ -108,15 +115,17 @@ public class AdminMainController {
 		UserVO vo = new UserVO();
 		List<UserVO> list = adminUserService.userList(vo);
 		m.addAttribute("userList", list);
-
 		return "/admin/adminUser";
 	}
 
-	//회원강아지 정보
-	@RequestMapping(value="adminDog", method=RequestMethod.GET)
-	public String adminDog() {
+	//회원강아지 정보 리스트(회원 클릭시)
+	/*@RequestMapping(value="/adminDog", method=RequestMethod.GET)
+	public String adminDog(Model m) {
+		PetVO petVO = new PetVO();
+		List<PetVO> list = adminUserService.petList(vo);
+		m.addAttribute("petList", petList);
 		return "/admin/adminDog";
-	}
+	}*/
 
 	/*//회원삭제
 	@RequestMapping(value = "{userEmail}", method = RequestMethod.DELETE)
