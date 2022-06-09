@@ -189,9 +189,7 @@ public class LoginController {
 		m.addAttribute("review", lservice.findByReviewList(userEmail));
 	}
 	
-	
-	
-	
+
 	
 	
 //	/* 회원탈퇴 */

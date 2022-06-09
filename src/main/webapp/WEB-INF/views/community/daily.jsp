@@ -113,10 +113,7 @@
 							<div id="post-1"
 								 class="post type-post post-1 card post-card post-grid-card h-100">
 								<a class="infoLink">
-										<%--<a href="/community/dailyDetail?communityNum=${community.communityNum }">--%>
-									<form action="/community/dailyDetail" method="post" >
-										<input type="hidden" name="communityNum" value="${community.communityNum }">
-									</form>
+									<a href="/community/dailyDetail?communityNum=${community.communityNum }">
 									<img class="card-img-top img-fluid"
 										 src="../../pictures/placeholder/530x400.svg" alt="Post"></a>
 								<div class="card-body">

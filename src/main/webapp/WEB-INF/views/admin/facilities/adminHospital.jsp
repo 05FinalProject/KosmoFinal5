@@ -200,7 +200,6 @@
 																	<button type="button" class="btn btn-secondary m-2 btn-danger"
 																			id="btnCancle" data-dismiss="modal" onclick="location.href='/adminHotel'">취소</button>
 																</div>
-
 															</div>
 														</form>
 													</div>

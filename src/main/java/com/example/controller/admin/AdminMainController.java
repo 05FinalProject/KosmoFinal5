@@ -88,6 +88,8 @@ public class AdminMainController {
 		model.addAttribute("userSignup", userSignupJson);
 		System.out.println("테스트"+model.getAttribute("userSignup"));
 
+
+
 		return "/admin/indexAdmin";
 	}
 	//*****************************************************************
@@ -240,7 +242,7 @@ public class AdminMainController {
 		m.addAttribute("paging", adminAgencyService.getHotelPaging(paging));
 		m.addAttribute("count",adminAgencyService.countHotelRecord());	
 
-		return "/admin/facilities/adminHotel";		
+		return "/admin/facilities/adminHotel";
 	}
 
 	//시설관리(장례식장)
@@ -254,7 +256,7 @@ public class AdminMainController {
 		Pageable paging = PageRequest.of(page-1, 9, Sort.Direction.ASC, "agencyNum");
 		m.addAttribute("paging", adminAgencyService.getFunehallPaging(paging));
 		m.addAttribute("count",adminAgencyService.countFunehallRecord());
-		return "/admin/facilities/adminFuneralhall";		
+		return "/admin/facilities/adminFuneralhall";
 	}
 
 	//시설관리(애견카페)
