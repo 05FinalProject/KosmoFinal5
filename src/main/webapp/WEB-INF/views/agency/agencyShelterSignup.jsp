@@ -83,8 +83,9 @@
                                     
 								    
 								    <!--  2번째 시작********************************************************* -->  
+								    <c:if test="${empty sessionScope.userEmail }"></c:if>
 								    
-								    
+								    <c:if test="${not empty sessionScope.userEmail  }">
 								        <h5 id="titleCenter"><strong>입양 신청자(이하 입양자)</strong></h5>
 								        <div class="form-group first field--not-empty">
 											<label for="userName">성명&nbsp; &nbsp; &nbsp; &nbsp;<span
@@ -111,6 +112,7 @@
 											<label class="control control--checkbox mb-0"><span class="caption"></span>
 											</label>
 										</div>
+										</c:if>
 								</div>
 								
 							</div>
