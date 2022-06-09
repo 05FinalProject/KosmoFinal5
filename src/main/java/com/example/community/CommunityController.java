@@ -59,7 +59,8 @@ public class CommunityController {
 	@RequestMapping(value = "/dailyDetail", method = RequestMethod.GET)
 	public String dailyDetail(CommunityVO vo, Model m) {
 		System.out.println("상세보기 페이지");
-		m.addAttribute("community", c_service.getCommunity(vo));
+		CommunityVO community = c_service.getCommunity(vo);
+		m.addAttribute("community", community);
 		
 		
 		//일상공유 댓글리스트
@@ -69,9 +70,12 @@ public class CommunityController {
 		
 		
 		//일상공유 이미지 리스트
-		List<ImgVO> imgList = c_service.imgList(vo.getCommunityNum());
-		m.addAttribute("imgList", imgList);
-		System.out.println(m.getAttribute("imgList"));
+		//커뮤니티에서 이미지 추출
+		/*
+		 * List<ImgVO> imgList = c_service.imgList(vo.getCommunityNum());
+		 * m.addAttribute("imgList", imgList);
+		 * System.out.println(m.getAttribute("imgList"));
+		 */
 		
 		
 		return "/community/dailyDetail";
@@ -166,5 +170,9 @@ public class CommunityController {
 		return "redirect:/community/daily";
 	}
 		
+	//좋아요
+	public void likeIt() {
+		
+	}
 
 }

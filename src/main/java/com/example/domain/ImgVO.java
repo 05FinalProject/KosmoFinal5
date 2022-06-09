@@ -18,6 +18,7 @@ import javax.persistence.Transient;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.community.CommunityVO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
@@ -38,6 +39,7 @@ public class ImgVO {
 	@Column(length = 200,name = "p_rimgname")
 	private String realImgName;
 
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="c_num")
 	private CommunityVO community;
