@@ -13,6 +13,7 @@ import com.example.domain.UserVO;
 @Service
 public class SignUpServiceImpl implements SignUpService {
 	
+	
 	@Autowired
 	private UserRepository user;
 	
@@ -60,41 +61,23 @@ public class SignUpServiceImpl implements SignUpService {
 	}
 	
 
-	/**	비밀번호 찾기
-	 * 	- DB에서 회원 정보 찾기
-	 * 	- MemberDAO의 pwSearch() 호출
-	 * @param MemberVO vo 
-	 * @return MemberVO vo
-	 * 			- null O : 비밀번호 재설정 X 
-	 * 			- null X : 비밀전호 재설정 O
-	 */
+	/*	비밀번호 찾기 */
 	@Override
 	public UserVO pwSearch(UserVO vo) {
-		return user.pwSearch(vo.getUserEmail());
+		return user.pwSearch(vo.getUserEmail(), vo.getUserName());
 	}
-	
-	/** 비밀번호 변경
-	 *	- DB에 동일한 이메일을 가진 회원의 비밀번호를 변경 
-	 * 	- MemberDAO의 pwChange() 호출
-	 * @param MemberVO vo 
-	 * @return int ( 입력 성공 시 1을 리턴 )
-	 */
+
+	/* 비밀번호 변경 */
 	@Override
 	public UserVO pwChange(UserVO vo) {
 		return user.save(vo.getUserEmail(), vo.getUserPass());
 	}
 //	
 //
-//	/**	회원 정보 수정
-//	 * - DB에 동일한 이메일을 가진 회원의 정보를 수정
-//	 * @param MemberVO vo 
-//	 * @return int ( 입력 성공 시 1을 리턴 )
-//	 */
+//	/*	회원 정보 수정 */
 //	@Override
 //	public int userUpdate(UserVO vo) {
 //		return memberDAO.memberUpdate(vo);
-//	}
-//
 //	}
 //
 //	@Override
@@ -106,7 +89,5 @@ public class SignUpServiceImpl implements SignUpService {
 //	public int userDefaultList(UserVO vo) {
 //		return memberDAO.memberDefaultList(vo);
 //	}
-	
-	
 	
 }
