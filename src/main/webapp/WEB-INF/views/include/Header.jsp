@@ -185,7 +185,7 @@
 		</nav>
 	</header>
 	
-	<div id="map" style="width: 100%; height: 350px; display: none"></div>
+	<div id="map2" style="width: 100%; height: 350px; display:none;"></div>
 
 
 	<script type="text/javascript" src="/js/jquery.min.js?ver=3.6.0"></script>
