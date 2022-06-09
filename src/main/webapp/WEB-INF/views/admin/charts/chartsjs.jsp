@@ -52,7 +52,7 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div claadminChartsjsss="cadminChartsjsol-md-6">
                         <!-- DONUT CHART -->
                         <div class="card card-danger">
                             <div class="card-header">

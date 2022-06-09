@@ -53,11 +53,6 @@
                     <input type="text" class="form-control" id="userName" name="userName">
                   </div>
                   
-                  <!-- TEL -->
-                  <div class="form-group first field--not-empty">
-                    	<label for="userPhone">휴대전화&nbsp; &nbsp; &nbsp; &nbsp;<span class="error_box"></span></label>
-                    	<input type="tel" class="form-control" id="userPhone" name="userPhone">
-                  </div>
                   
                   <!-- BTN PW CHANGE -->              
                   <input type="button" id="btnPwSearch" value="비밀번호 찾기" class="btn btn-pill text-white btn-block btn-orange" style="background-color:#F8b03a;">

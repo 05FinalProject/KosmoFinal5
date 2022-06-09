@@ -9,6 +9,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import com.example.domain.ReportVO;
+import com.example.domain.UserVO;
 
 import java.util.Date;
 import java.util.List;
@@ -19,13 +20,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import org.springframework.web.bind.annotation.RequestParam;
-
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -49,17 +44,25 @@ public class CommunityController {
 		}
 		Pageable paging = PageRequest.of(page - 1, 8, Sort.Direction.DESC, "communityNum");
 
+		System.out.println( c_service.getCommunityPaging(paging));
 		m.addAttribute("paging", c_service.getCommunityPaging(paging));
-
 		m.addAttribute("count", c_service.countCommunityRecord());
+		
+		//게시글 썸네일 띄우기
+		//List<HashMap<String, Object>> list  = c_service.getThumbnail(vo);
+		
+		
+
 		return "/community/daily";
 	}
 
 	// 일상공유 상세보기 페이지
+
 	@RequestMapping(value = "/dailyDetail", method = RequestMethod.GET)
 	public String dailyDetail(CommunityVO vo, Model m) {
 		System.out.println("상세보기 페이지");
-		m.addAttribute("community", c_service.getCommunity(vo));
+		CommunityVO community = c_service.getCommunity(vo);
+		m.addAttribute("community", community);
 		
 		
 		//일상공유 댓글리스트
@@ -68,10 +71,16 @@ public class CommunityController {
 		System.out.println(vo.getCommunityNum());
 		
 		
+		
+		
+		
 		//일상공유 이미지 리스트
-		List<ImgVO> imgList = c_service.imgList(vo.getCommunityNum());
-		m.addAttribute("imgList", imgList);
-		System.out.println(m.getAttribute("imgList"));
+		//커뮤니티에서 이미지 추출
+		/*
+		 * List<ImgVO> imgList = c_service.imgList(vo.getCommunityNum());
+		 * m.addAttribute("imgList", imgList);
+		 * System.out.println(m.getAttribute("imgList"));
+		 */
 		
 		
 		return "/community/dailyDetail";
@@ -119,8 +128,6 @@ public class CommunityController {
 //	public void getCommunity(CommunityVO vo, Model m) {
 //		m.addAttribute("community", c_service.getCommunity(vo));
 //	}
-	
-
 
 
 	//일상공유 게시글 삭제
@@ -161,10 +168,14 @@ public class CommunityController {
 		System.out.println(userEmail);
 		System.out.println(rReason);
 		c_service.reportCommunity(communityNum, userEmail, rReason);
-		System.out.println("컨트롤러");
 		
 		return "redirect:/community/daily";
 	}
+
 		
+	//좋아요
+	public void likeIt() {
+		
+	}
 
 }

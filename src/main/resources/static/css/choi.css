@@ -1,0 +1,189 @@
+
+
+.color_chang {
+  color: #fff;
+  background-color: #ED7A64;
+  border-color: #ED7A64;
+  margin-top: 50px;
+}
+.color_chang:hover {
+  color: #fff;
+  background-color: #D6524F;
+  border-color: #D6524F;
+}
+
+
+
+
+/*----------모달관련된거--------신고기능 */
+html, body {
+	height: 100%;
+	margin: 0;
+	display: block;
+	z-index: 100;
+}
+
+.mw {
+	position: fixed; /* position:static */;
+	top: 30%;
+	left: 30%;
+	width: 100%;
+	height: 100%;
+	display: none;
+	z-index: 99999;
+}
+
+.mw .bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: .5; /* filter:alpha(opacity=50) */;
+	z-index: 105000;
+}
+
+.mw .fg {
+	position: absolute;
+	top: 40%;
+	left: 40%;
+	width: 400px;
+	height: 260px;
+	margin: -100px 0 0 -200px;
+	padding: 20px;
+	border: 3px solid #ccc;
+	background: #fff;
+	z-index: 105000;
+}
+
+.modal-button {
+	background: #fff;
+	border: 0;
+	outline: 0;
+	font-size: 15px;
+	color: #323232;
+}
+
+.report {
+	height: 400px;
+}
+
+.modalchang {
+	height: 400px;
+	width: 600px;
+}
+
+.report_op {
+	width: 365px;
+	height: 150px;
+}
+
+.report_button{
+	border: 0;
+	outline: 0;
+	background-color: #fff;
+}
+
+/* 
+.listing__details__comment>div, h4 {
+	display: none;
+	padding-top: 0px;
+	
+} */
+
+/*----------모달관련된거--------신고기능 */
+
+
+
+/* 리뷰 목록 아작스  */
+div.box {
+
+	height: 200px;
+
+	width: 400px;
+	
+	margin-left: 30px;
+	}
+
+
+
+.listing__details__comment__item__picccc {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.reviewChang{
+    margin-top: 40px;
+}
+
+.dateReview{
+	margin-left: 595px;
+
+}
+
+.dateReview span{
+		 font-size: 13px;
+  		color: #f03250;
+}
+
+div h5{
+	font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+/* ************************ 지도  */
+
+
+ 	.customoverlay {
+        position: relative;
+        bottom: 85px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        border-bottom: 2px solid #ddd;
+        float: left;
+      }
+
+      .customoverlay:nth-of-type(n) {
+        border: 0;
+        box-shadow: 0px 1px 2px #888;
+      }
+
+      .customoverlay a {
+        display: block;
+        text-decoration: none;
+        color: #000;
+        text-align: center;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: bold;
+        overflow: hidden;
+        background-color: #ED7A64;
+        background: #ED7A64
+          url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png)
+          no-repeat right 14px center;
+      }
+
+      .customoverlay .title {
+        display: block;
+        text-align: center;
+        background: #fff;
+        margin-right: 35px;
+        padding: 10px 15px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .customoverlay:after {
+        content: "";
+        position: absolute;
+        margin-left: -12px;
+        left: 50%;
+        bottom: -12px;
+        width: 22px;
+        height: 12px;
+        background: url("https://t1.daumcdn.net/local./resources/img/localimages/07/mapapidoc/vertex_white.png");
+      }
+

@@ -43,6 +43,9 @@ public interface AdminAgencyService {
 	//시설수정
 	public AgencyVO updateAgency(Integer agencyNum, String tel, String name, String content, String addr, String subAddr);
 
+	//보호소 수정
+	public  AbandonedVO updateShelter(Integer abNo, @RequestParam String abName, @RequestParam String abAge, @RequestParam String abImage);
+
 	//시설등록
 	public AgencyVO insertAgency(Integer agencyCategoryNum, String agencyName, String addr, String subAddr, String tel, String agencyContent, String agencyImage);
 

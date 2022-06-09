@@ -74,4 +74,13 @@ public class UserVO {
 	
 	@Transient
 	private boolean isRememberEmail;
+	
+	@Transient
+	private String address;
+	
+	@Transient
+	private String title;
+	
+	@Transient
+	private String message;
 }

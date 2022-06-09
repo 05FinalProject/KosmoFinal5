@@ -5,11 +5,14 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.domain.ImgVO;
 import com.example.domain.UserVO;
+import com.example.mail.MailDto;
+import com.example.mail.SendEmailService;
 import com.example.service.chatingService.ChatingService;
 import com.example.service.signUpService.SignUpService;
 
@@ -23,6 +26,9 @@ public class HomeController {
 	@Autowired
 	private ChatingService cservice;
 
+	@Autowired
+	private SendEmailService sendService;
+	
 	@RequestMapping("/Main")
 	public void MainPage(UserVO vo,HttpSession session,Model m) {
 		UserVO u = new UserVO();
@@ -98,7 +104,7 @@ public class HomeController {
 	/* 비밀번호 찾기 */
 	@RequestMapping(value="pwSearch", produces="application/text;charset=utf-8")
 	@ResponseBody
-	public String pwSearch(UserVO vo, HttpSession session) {
+	public String pwSearch(UserVO vo) {
 		UserVO result = signUp.pwSearch(vo);
 		String message = "";	// 회원 정보 유무를 담을 변수
 		
@@ -106,14 +112,15 @@ public class HomeController {
 			// 회원정보가 없다는 뜻
 			message = "N";
 		}
-
-		/*	존재하는 회원이면 해당 이메일을 세션에 저장, 추후에 저장한 이메일을 비밀번호 재설정에서 사용함 */
-		session.setAttribute("userEmail", vo.getUserEmail());
-
 		return message;
-
 	}//end of pwSearch()
 
+	/* 등록된 이메일로 인증번호를 발송하고 발송된 인증번호로 사용자의 패스워드 변경*/
+	@PostMapping("/sendEmail")
+	public @ResponseBody void sendEmail(String userEmail, String userName) {
+	       MailDto dto = sendService.createMailAndChangePassword(userEmail, userName);
+	       sendService.mailSend(dto);
+	}
 	
 	
 	/* 비밀번호 재설정 */

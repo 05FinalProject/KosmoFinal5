@@ -199,9 +199,9 @@
 																</div>
 
 																<div class="modal-footer">
-																	<button type="submit" class="btn btn-secondary m-2"
+																	<button type="submit" class="btn btn-secondary m-2 btn-success"
 																		id="btnUpdate">수정</button>
-																	<button type="button" class="btn btn-secondary m-2"
+																	<button type="button" class="btn btn-secondary m-2 btn-danger"
 																		id="btnCancle" data-dismiss="modal" onclick="location.href='/adminHotel'">취소</button>
 																</div>
 

@@ -10,6 +10,7 @@ import com.example.community.CommunityVO;
 import com.example.domain.CommentVO;
 import com.example.domain.ImgVO;
 import com.example.domain.PetVO;
+import com.example.domain.UserVO;
 @Repository
 public interface ImgRepository extends CrudRepository<ImgVO, Integer> {
 	
@@ -22,9 +23,20 @@ public interface ImgRepository extends CrudRepository<ImgVO, Integer> {
 	
 	public List<ImgVO> findByCommunity(CommunityVO community);
 
+	public List<ImgVO> findByUser(UserVO u);
+
 	
 //	@Query(value ="SELECT i FROM ImgVO i WHERE i.pRimgname=:pRimgname", nativeQuery=true)
 //	public List<ImgVO> findByPet(PetVO pet);
 
+	@Query(value="SELECT i.p_rimgname, c.c_title, c.c_insertdate, u.user_nickname, c.c_num  \r\n"
+			+ "FROM community c INNER JOIN img i \r\n"
+			+ "ON c.c_num = i.c_num \r\n"
+			+ "INNER JOIN user u \r\n"
+			+ "ON c.user_email = u.user_email \r\n"
+			+ "WHERE c.c_num = :communityVo\r\n"
+			+ "group by i.p_imgnum\r\n"
+			+ "order by i.p_imgnum limit 1;", nativeQuery = true)
+	public List<Object[]> findByCommunityAndUserOrderByAsc(Integer communityVo);
 }	
 

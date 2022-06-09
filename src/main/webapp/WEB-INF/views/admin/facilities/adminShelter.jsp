@@ -60,6 +60,12 @@
 	margin-top: 30px;
 
 }
+
+.small{
+	text-align: left;
+	margin-left:-25px;
+}
+
 </style>
 
 </head>
@@ -101,22 +107,20 @@
 											<div class="row">
 												<div class="col-7 agencyCon">
 													<h2 class="lead">
-														<b>${shelter.agencyName}</b>
+														<b>${shelter.abName}</b>
 													</h2>
 													<p class="text-muted text-sm">
-														<b>About: </b> ${shelter.agencyContent}
+														<b>견종 : </b> ${shelter.abKind}
 													</p>
 													<ul class="ml-4 mb-0 fa-ul text-muted">
-														<li class="small"><span class="fa-li"><i
-																class="fas fa-lg fa-building" aria-hidden="true"></i></span>
-															Address: ${shelter.agencyAddress}</li>
-														<li class="small"><span class="fa-li"><i
-																class="fas fa-lg fa-phone" aria-hidden="true"></i></span> Phone
-															#: ${shelter.agencyTel}</li>
+														<li class="small"><span class="fa-li"></span>
+															나이 : ${shelter.abAge}</li>
+														<li class="small"><span class="fa-li"></span>
+															성별 : ${shelter.abGender}</li>
 													</ul>
 												</div>
 												<div class="col-5 text-center">
-													<img src="${shelter.agencyImage}" alt="user-avatar"
+													<img src="${shelter.abImage}" alt="user-avatar"
 														class="img-square img-fluid agencyImg">
 												</div>
 											</div>
@@ -124,22 +128,22 @@
 										<div class="card-footer">
 											<div class="text-right">
 												<a class="btn btn-sm btn-warning" data-toggle="modal"
-													data-target="#hotelModal${shelter.agencyNum}">수정 </a> <a
+													data-target="#shelterModal${shelter.abNo}">수정 </a> <a
 													href="#" class="btn btn-sm btn-danger"> 삭제 </a>
 											</div>
 										</div>
 									</div>
 								</div>
 								<!-- Modal -->
-								<div class="modal fade" id="shelterModal${shelter.agencyNum}"
+								<div class="modal fade" id="shelterModal${shelter.abNo}"
 									tabindex="-1"
-									aria-labelledby="shelterModal${shelter.agencyNum}Label"
+									aria-labelledby="shelterModal${shelter.abNo}Label"
 									aria-hidden="true">
 									<div class="modal-dialog">
 										<div class="modal-content">
 											<div class="modal-header">
 												<h5 class="modal-title"
-													id="shelterModal${shelter.agencyNum}Label">${shelter.agencyName}
+													id="shelterModal${shelter.abNo}Label">${shelter.abName}
 												</h5>
 												<button type="button" class="close" data-dismiss="modal"
 													aria-label="Close">
@@ -150,59 +154,23 @@
 											<div class="modal-body">
 												<div class="container-fluid">
 													<div class="row">
-														<form action="/admin/update" method="post">
-														  <input type="hidden" name="agencyNum" value="${shelter.agencyNum}">
+														<form action="/admin/update2" method="post">
+														  <input type="hidden" name="agencyNum" value="${shelter.abNo}">
 															<div class="row">
-																<div class="mb-3 col-md-6">
-																	<label for="exampleFormControlInput1"
-																		class="form-label">기관선택</label>
-																	<div class="form-group">
-																		<select class="form-control">
-																			<!-- 선택을 안하면 입력이 안되게 설정해야함(나중에)... -->
-																			<option value="1">애견호텔</option>
-																			<option value="2">애견카페</option>
-																			<option value="3">동물병원</option>
-																			<option value="4">보호소</option>																			
-																			<option value="5">장례식장</option>
-																		</select>
-																	</div>
-																</div>
 
 																<div class="mb-3 col-md-6">
 																	<label for="exampleFormControlInput1"
-																		class="form-label">시설명</label> <input type="text"
+																		class="form-label">이름</label> <input type="text"
 																		class="form-control" id="exampleFormControlInput1"
-																		name="facility" value="${shelter.agencyName}">
-																</div>
-
-																<div class="mb-3 col-md-12">
-																	<label for="exampleFormControlInput1"
-																		class="form-label">시설주소</label> <input type="text"
-																		id="sample6_postcode" placeholder="우편번호"
-																		class="form-control"> <input type="button"
-																		onclick="sample6_execDaumPostcode()" value="우편번호 찾기"
-																		class="btn btn-block btn-secondary"><br>
-																	<input type="text" id="sample6_address"
-																		placeholder="주소" class="form-control"><br>
-																	<input type="text" id="sample6_detailAddress"
-																		placeholder="상세주소" class="form-control"> <input
-																		type="text" id="sample6_extraAddress"
-																		placeholder="참고항목" class="form-control">
-																</div>
-
-																<div class="mb-3 col-md-12">
-																	<label for="exampleFormControlInput1"
-																		class="form-label">전화번호</label> <input type="text"
-																		class="form-control" id="exampleFormControlInput1"
-																		name="tel">
+																		name="facility" value="${shelter.abName}">
 																</div>
 
 																<div class="mb-3 col-md-12">
 																	<label for="exampleFormControlTextarea1"
-																		class="form-label">소개글</label>
-																	<textarea class="form-control"
-																		id="exampleFormControlTextarea1" rows="3"
-																		placeholder="내용을 입력해주세요" name="content"></textarea>
+																		class="form-label">나이</label>
+																	<input type="text"
+																		   class="form-control" id="exampleFormControlInput1"
+																		   name="facility" value="${shelter.abAge}">
 																</div>
 
 																<div class="mb-3 col-md-12">
@@ -217,10 +185,10 @@
 																</div>
 
 																<div class="modal-footer">
-																	<button type="submit" class="btn btn-secondary m-2"
+																	<button type="submit" class="btn btn-secondary m-2 btn-success"
 																		id="btnQnAWrite">수정</button>
-																	<button type="button" class="btn btn-secondary m-2"
-																		id="btnList" data-dismiss="modal">취소</button>
+																	<button type="button" class="btn btn-secondary m-2 btn-danger"
+																		id="btnCancle" data-dismiss="modal">취소</button>
 																</div>
 
 															</div>
@@ -266,7 +234,7 @@
 	<!-- /.control-sidebar -->
 	</div>
 	<!-- ./wrapper -->
-	
+
 	<!-- jQuery -->
 	<script src="../../plugins/jquery/jquery.min.js"></script>
 	<!-- Bootstrap 4 -->
@@ -312,6 +280,25 @@
 		$('#facilities').addClass('menu-is-opening')
 		$('#facilities').addClass('menu-open')
 		$('#shelter').addClass('active')
+	</script>
+	<script type="text/javascript">
+		/*
+			* each : 하나씩 뽑음
+			* <a class="page-link" href="adminHotel?P=2&amp;page=13">13</a>
+			* a태그 사이에 있는 숫자13을 찾아야 합니다
+			* a태그안에 있는 text를 찾고 page랑 같으면
+			* active클래스 추가
+			* */
+		$(function(){
+			var page = '${param.page}'
+			$('.pagination').find('li').each(function(){
+				if(page == $(this).find('a').text()){
+					$(this).addClass('active')
+				}
+				//console.log(e.text())
+			})
+		})
+
 	</script>
 		<script
 		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

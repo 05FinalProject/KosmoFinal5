@@ -152,13 +152,13 @@ public class LoginController {
 	public void myDogDetail(PetVO pvo, Model m) {
 		m.addAttribute("pet", lservice.getPetDetail(pvo));
 	}
-	
+
 	/* 반려견 추가 페이지 (견종) */
 	@RequestMapping(value="/myPage/myPageDogAdd", method=RequestMethod.GET)
 	public void myPageDogAdd(Model m) {
 		m.addAttribute("kindList", fservice.getDogList());
 	}
-	
+
 	/* 반려견 추가 버튼 이벤트 */
 	@RequestMapping(value="/myPage/petAdd", method=RequestMethod.POST)
 	public String petAdd(PetVO pvo, MultipartFile file, HttpSession session) {
@@ -176,7 +176,7 @@ public class LoginController {
 		
 		return "redirect:/include/myPage/myPageDogList";
 	}
-	
+
 	/* 유저의 글 */
 	@RequestMapping("/myPage/myPageBoard")
 	public void myPageBoard(HttpSession session, Model m) {	
@@ -189,9 +189,7 @@ public class LoginController {
 		m.addAttribute("review", lservice.findByReviewList(userEmail));
 	}
 	
-	
-	
-	
+
 	
 	
 //	/* 회원탈퇴 */

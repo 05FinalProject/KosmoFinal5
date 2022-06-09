@@ -45,14 +45,9 @@ public class AdminMainController {
 	private AdminCommunityService adminCommunityService;
 
 
+	//********************대시보드,차트***********************************
 	@RequestMapping(value="/admin", method=RequestMethod.GET)
-	public String adminPage() {
-		return "/admin/indexAdmin";
-	}
-
-	//******************차트*******************************
-	@RequestMapping(value="/adminChartsjs", method=RequestMethod.GET)
-	public String charts(Model model) {
+	public String adminPage(Model model) {
 		//리스트 담기 (도넛차트)
 		List<HashMap<String, Object>> list = adminAgencyService.chartAgencyCount();//서비스 리턴
 		Gson agencyGson = new Gson();
@@ -61,15 +56,15 @@ public class AdminMainController {
 		Iterator<HashMap<String, Object>> agencyIterator = list.iterator();
 		while (agencyIterator.hasNext()) {
 			HashMap agencyCount = agencyIterator.next();
-			JsonObject object = new JsonObject();			
+			JsonObject object = new JsonObject();
 			Integer agencyChartCount =Integer.parseInt(String.valueOf(agencyCount.get("chartCount")));
 			Integer agencyCategoryNum =Integer.parseInt(String.valueOf(agencyCount.get("agencyCategoryNum")));
-			
+
 			object.addProperty("agencyChartCount", agencyChartCount);
 			object.addProperty("agencyCategoryNum", agencyCategoryNum);
 			agencyJArray.add(object);
 		}
-		
+
 		String agencyJson = agencyGson.toJson(agencyJArray);
 		model.addAttribute("agency", agencyJson);
 
@@ -92,10 +87,13 @@ public class AdminMainController {
 		String userSignupJson = userSignupGson.toJson(userSignupJArray);
 		model.addAttribute("userSignup", userSignupJson);
 		System.out.println("테스트"+model.getAttribute("userSignup"));
-			
-		
-		return "/admin/charts/chartsjs";
+
+
+
+		return "/admin/indexAdmin";
 	}
+	//*****************************************************************
+
 
 	//차트2
 	@RequestMapping(value="/adminFlot", method=RequestMethod.GET)
@@ -244,7 +242,7 @@ public class AdminMainController {
 		m.addAttribute("paging", adminAgencyService.getHotelPaging(paging));
 		m.addAttribute("count",adminAgencyService.countHotelRecord());	
 
-		return "/admin/facilities/adminHotel";		
+		return "/admin/facilities/adminHotel";
 	}
 
 	//시설관리(장례식장)
@@ -258,7 +256,7 @@ public class AdminMainController {
 		Pageable paging = PageRequest.of(page-1, 9, Sort.Direction.ASC, "agencyNum");
 		m.addAttribute("paging", adminAgencyService.getFunehallPaging(paging));
 		m.addAttribute("count",adminAgencyService.countFunehallRecord());
-		return "/admin/facilities/adminFuneralhall";		
+		return "/admin/facilities/adminFuneralhall";
 	}
 
 	//시설관리(애견카페)
@@ -291,6 +289,13 @@ public class AdminMainController {
 	public String adminUpdateFacilities(Integer agencyNum, @RequestParam String tel, @RequestParam String facility, @RequestParam String content, @RequestParam String addr, @RequestParam String subAddr) {
 		adminAgencyService.updateAgency(agencyNum, tel, facility, content, addr, subAddr);
 		return "redirect:/adminHotel";
+	}
+
+	//보호소 수정
+	@RequestMapping(value="/admin/update2", method = RequestMethod.POST)
+	public String adminUpdateShelter(Integer abNo, @RequestParam String abName, @RequestParam String abAge, @RequestParam String abImage) {
+		adminAgencyService.updateShelter(abNo, abName, abAge, abImage);
+		return "redirect:/adminShelter";
 	}
 
 	//시설 리스트 페이지
