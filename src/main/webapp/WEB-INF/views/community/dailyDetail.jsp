@@ -262,8 +262,17 @@ span {
 }
 
 #wrap {
-	width: 350px;
+	width: 450px;
 	margin: 0 auto;
+}
+
+.bx-viewport {
+	height: 100%;
+}
+
+#bx-pager {
+	width: 150px;
+	dispaly: flex;
 }
 </style>
 
@@ -380,15 +389,19 @@ span {
 
 
 						<div id="wrap">
-							<ul class="slider" width="300px">
-								<c:forEach items="${imgList}" var="img">
-									<li>
-										<a href="#"><img src="/img/communityImg/${img.realImgName}" width="500px" height="500px"></a>
-									</li>
-											
-											
+							<ul class="slider">
+								<c:forEach items="${community.imgList}" var="img">
+									<li><a href="#"><img
+											src="/img/communityImg/${img.realImgName}" width="500px"></a></li>
 								</c:forEach>
 							</ul>
+						 	<%-- <div id="bx-pager">
+									<c:set var="img" value="${imgList }"></c:set>
+									<c:forEach items="${imgList }" var="community.img">
+										<a data-slide-index="0" href=""><img src="/img/communityImg/${community.img.realImgName}" /></a>						
+									</c:forEach>								
+
+							</div>  --%>
 						</div>
 						<!-- *************************************** 이미지 슬라이더 끝 ********************************************** -->
 
@@ -556,7 +569,6 @@ span {
 
 	<%@include file="../include/Footer.jsp"%>
 </body>
-
 <script type="text/javascript">
 	$(".siren").click(function() {
 		$(".modal").fadeIn();
@@ -566,6 +578,7 @@ span {
 		$(".modal").fadeOut();
 	});
 </script>
+
 
 <!-- 템플릿2 -->
 <!-- Links of JS files -->
@@ -579,18 +592,21 @@ span {
 <script src="/community/js/wow.min.js"></script>
 <script src="/community/js/main.js"></script>
 <script src="/js/choi.js"></script>
+<!-- jQuery library (served from Google) -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script src="/js/jquery.bxslider.js"></script>
 
 
 
 <script type="text/javascript">
-$(document).ready(function() {
-	$(".slider").bxSlider({
-		auto : true
+	$(document).ready(function() {
+		$(".slider").bxSlider({
+			auto : true,
+			/* adaptiveHeight : true,*/ 
+			/* pagerCustom : '#bx-pager' */
+		});
+
 	});
-
-});
-
 
 	$(function() {
 		$('.updateInput').hide();
