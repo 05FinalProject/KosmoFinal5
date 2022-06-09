@@ -108,28 +108,28 @@ public class LoginServiceImpl implements LoginService {
 		return null;
 	}
 
-
+	/* 내가 작성한 글*/
 	@Override
 	public List<CommunityVO> findCommunityList(String userEmail) {
 		UserVO u = user.findById(userEmail).get();
 		return cmR.findByUser(u);
 	}
 
-
+	/* 내가 작성한 댓글*/
 	@Override
 	public List<CommentVO> findCommentList(String userEmail) {
 		UserVO u = user.findById(userEmail).get();
 		return cr.findByUser(u);
 	}
 
-
+	/* 내가 작성한 리뷰 */
 	@Override
 	public List<ReviewVO> findByReviewList(String userEmail) {
 		UserVO u = user.findById(userEmail).get();
 		return rv.findByUser(u);
 	}
 
-
+	/* 내가 좋아요한 글 */
 	@Override
 	public List<CommunityVO> findCommunityByLike(String userEmail) {
 		UserVO u = user.findById(userEmail).get();
