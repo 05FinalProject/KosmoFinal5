@@ -46,6 +46,21 @@ p{
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
+
+.account-setting-list-tabs .nav .nav-item .nav-link:hover, .account-setting-list-tabs .nav .nav-item .nav-link.active {
+    color: #DC6721;
+}
+
+.favourite-table table thead tr th {
+    border: none;
+    border-bottom-width: 0px;
+    vertical-align: middle;
+    padding: 15px 25px;
+    white-space: nowrap;
+    font-size: 15px;
+    color: #DC6721;
+    font-weight: 600;
+    font-family: var(--heading-font-family);
 }
 
 </style>
@@ -107,37 +122,170 @@ p{
 
 	<div class="content-wrapper myBoard">
 
-		<!-- 탭 거꾸로 배치-->
+		<!-- 탭-->
 		<div class="content-page-box-area">
 			<div class="account-setting-list-tabs">
 				<ul class="nav nav-tabs" id="myTab" role="tablist">
 
-					<li class="nav-item"><a class="nav-link active"
-						id="notification-tab" data-bs-toggle="tab" href="#notification"
-						role="tab" aria-controls="notification">작성한 글</a></li>
+					<li class="nav-item"><a class="nav-link active title" id="wCommunity-tab" 
+						data-bs-toggle="tab" href="#wCommunity" role="tab" 
+						aria-controls="wCommunity">작성한 글</a></li>
 
-					<li class="nav-item"><a class="nav-link" id="privacy-tab"
-						data-bs-toggle="tab" href="#privacy" role="tab"
-						aria-controls="privacy">작성한 댓글</a></li>
+					<li class="nav-item"><a class="nav-link title" id="comment-tab"
+						data-bs-toggle="tab" href="#comment" role="tab"
+						aria-controls="comment">작성한 댓글</a></li>
 
-					<li class="nav-item"><a class="nav-link" id="account-tab"
-						data-bs-toggle="tab" href="#account" role="tab"
-						aria-controls="account">좋아요한 글</a></li>
+					<li class="nav-item"><a class="nav-link title" id="review-tab"
+						data-bs-toggle="tab" href="#review" role="tab"
+						aria-controls="review">작성한 리뷰</a></li>
 
-					<li class="nav-item"><a class="nav-link"
-						id="profile-information-tab" data-bs-toggle="tab"
-						href="#profile-information" role="tab"
-						aria-controls="profile-information">즐겨찾는 산책로</a></li>
+					<li class="nav-item"><a class="nav-link title" id="likeIt-tab"
+						data-bs-toggle="tab" href="#likeIt" role="tab"
+						aria-controls="likeIt">좋아요한 글</a></li>
+
+					<li class="nav-item"><a class="nav-link title" id="walkMap-tab" 
+						data-bs-toggle="tab" href="#walkMap" role="tab"
+						aria-controls="walkMap">즐겨찾는 산책로</a></li>
 
 				</ul>
 			</div>
 
 
 			<div class="tab-content" id="myTabContent">
+			
+							<!-- 작성한 글 -->
+				<div class="tab-pane fade show active" id="wCommunity"role="tabpanel">
+					<div>
+						<div class="content-page-box-area">
+							<div class="row">
+							<c:forEach items="${CommunityWrite}" var="w">
+								<div class="col-lg-3 col-md-6">
+									<div class="single-events-card">
+										<a href="#"> <img src="w" alt="image"></a>
+										<div class="events-content">
+											<span>${w.communityTitle }</span>
+											<h3>
+												<a href="#">${w.communityContent}</a>
+											</h3>
+											<p>${w.communityInsertdate}</p>
+										</div>
+									</div>
+								</div>
+								</c:forEach>
+							</div>
+						</div>
+					</div>	
+				</div>
+			
+
+				<!-- 작성한 댓글 -->
+				<div class="tab-pane fade" id="comment" role="tabpanel">
+				<hr style="color:white">
+					<div>
+						<div class="content-page-box-area">
+							<div class="row">
+								
+								<div class="col-lg-12 col-md-12">
+								
+									<div class="favourite-table table-responsive">
+										<table class="table table-bordered">
+											<thead>
+												<tr>
+													<th>게시물 제목</th>
+													<th>게시물 내용</th>
+													<th>댓글 내용</th>
+													<th>작성일자</th>
+												</tr>
+											</thead>
+										<c:forEach items="${comment}" var="c">
+											<tbody>
+												<tr>
+													<td><a href="#">${c.community.communityTitle }</a></td>												
+													<td>${c.community.communityContent }</td>													
+													<td>${c.commentContent } </td>
+													<td>${c.commentInsertdate }</td>
+												</tr>
+											</tbody>
+										</c:forEach>											
+										</table>
+									</div>
+									
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			<!-- 작성한 리뷰 -->	
+			<div class="tab-pane fade" id="review" role="tabpanel">
+				<hr style="color:white">
+					<div>
+						<div class="content-page-box-area">
+							<div class="row">
+								
+								<div class="col-lg-12 col-md-12">
+								
+									<div class="favourite-table table-responsive">
+										<table class="table table-bordered">
+											<thead>
+												<tr>
+													<th>기관명</th>
+													<th>리뷰내용</th>
+													<th>작성일자</th>
+													<th>기관위치</th>
+												</tr>
+											</thead>
+										<c:forEach items="${review}" var="r">
+											<tbody>
+												<tr>
+													<td><a href="#">${r.agency.agencyName }</a> </td>
+													<td>${r.reviewContent }</td>
+													<td>${r.reviewInsertdate }</td>
+													<td>${r.agency.agencyAddress }</td>
+												</tr>
+											</tbody>
+										</c:forEach>
+										</table>
+									</div>
+									
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 좋아요한 글 -->
+				<div class="tab-pane fade" id="likeIt" role="tabpanel">
+				<c:forEach items="${like}" var="l">
+					<div>
+						<div class="content-page-box-area">
+							<div class="row">
+								<div class="col-lg-2 col-md-6">
+									<div class="single-events-card">
+										<a href="#"> <img src="assets/images/events/events-1.jpg"
+											alt="image">
+										</a>
+										<div class="events-content">
+										<span>${l.communityTitle}</span>
+											<h3>
+												<a href="#">${l.communityContent }</a>
+											</h3>
+											<p>${l.user.userNickname} </p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</c:forEach>
+				</div>
+
+
 				<!-- 즐겨찾는 산책로 -->
-				<div class="tab-pane fade" id="profile-information" role="tabpanel">
+				<div class="tab-pane fade" id="walkMap" role="tabpanel">
 					<form class="account-setting-form">
-						<h3>즐겨찾는 산책로</h3>
 
 						<div class="row">
 							<div class="col-lg-6 col-md-6">
@@ -306,102 +454,6 @@ p{
 					</form>
 				</div>
 
-				<!-- 좋아요한 글 -->
-				<div class="tab-pane fade" id="account" role="tabpanel">
-								<c:forEach items="${like}" var="l">
-					<div>
-						<div class="content-page-box-area">
-							<div class="row">
-								<div class="col-lg-2 col-md-6">
-									<div class="single-events-card">
-										<a href="#"> <img src="assets/images/events/events-1.jpg"
-											alt="image">
-										</a>
-										<div class="events-content">
-										<span>${l.communityTitle}</span>
-											<h3>
-												<a href="#">${l.communityContent }</a>
-											</h3>
-											<p>${l.user.userNickname} </p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</c:forEach>
-				</div>
-
-				<!-- 작성한 댓글 -->
-				<div class="tab-pane fade" id="privacy" role="tabpanel">
-				<c:forEach items="${comment}" var="c">
-					<div>
-						<div class="content-page-box-area">
-							<div class="row">
-								<div class="col-lg-12 col-md-12">
-									<div class="favourite-table table-responsive">
-										<table class="table table-bordered">
-											<thead>
-												<tr>
-													<th>댓글내용</th>
-													<th>작성일자</th>
-													<th>게시물 제목</th>
-													<th>게시물 내용</th>
-												</tr>
-											</thead>
-
-											<tbody>
-												<tr>
-													<td>
-														<p>${c.commentContent }</p>
-													</td>
-													<td>${c.commentInsertdate }</td>
-													<td>${c.community.communityTitle }</td>
-													<td class="info">
-														<div class="text">
-															<h6>
-																<a href="#">${c.community.communityContent }</a>
-															</h6>
-														</div>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					</c:forEach>
-				</div>
-
-				<!-- 작성한 글 -->
-				<div class="tab-pane fade show active" id="notification"role="tabpanel">
-				<c:forEach items="${CommunityWrite}" var="w">
-					<div>
-						<div class="content-page-box-area">
-							<div class="row">
-								<div class="col-lg-3 col-md-6">
-									<div class="single-events-card">
-										<a href="#"> <img src="assets/images/events/events-1.jpg"
-											alt="image">
-										</a>
-										<div class="events-content">
-											<span>${w.communityTitle }</span>
-											<h3>
-												<a href="#">${w.communityContent}</a>
-											</h3>
-											<p>${w.communityInsertdate}</p>
-
-										</div>
-									</div>
-								</div>
-							</div>
-
-						</div>
-					</div>
-									</c:forEach>
-				</div>
 
 			</div>
 		</div>
