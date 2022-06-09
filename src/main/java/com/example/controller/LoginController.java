@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.community.CommunityService;
 import com.example.domain.ImgVO;
 import com.example.domain.PetVO;
 import com.example.domain.UserVO;
@@ -33,9 +32,6 @@ public class LoginController {
 	
 	@Autowired
 	private FriendService fservice;
-	
-	@Autowired
-	private CommunityService Cservice;
 	
 	/* 로그인 페이지로 이동*/
 	@RequestMapping("/Login")
@@ -144,7 +140,12 @@ public class LoginController {
 
 	/* 반려견 리스트 페이지 이동*/
 	@RequestMapping("/myPage/myPageDogList")
-	public void myDogList() {
+	public void myDogList(HttpSession session, Model m) {
+		
+		String userEmail = session.getAttribute("userEmail").toString();
+		
+		m.addAttribute("petList", lservice.findmMyPet(userEmail));
+		m.addAttribute("petImg", lservice.findmMyPetImg(userEmail));
 	}
 
 	/* 반려견 정보 상세보기*/
@@ -172,7 +173,6 @@ public class LoginController {
 			ivo.setPet(lservice.getPetOwnerByUser(userEmail));
 			ivo.setFile3(file);
 			lservice.insertImgVO(ivo);
-		
 		
 		return "redirect:/include/myPage/myPageDogList";
 	}
