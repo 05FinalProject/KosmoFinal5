@@ -124,6 +124,9 @@ ul {
 	padding-bottom: 15px;
 }
 
+.listing__item__text__inside{
+   max-height: 150px;
+}
 
 
 
@@ -454,11 +457,37 @@ ul {
 
 										}
 									})
+})
+<!--**** 검색기능끝 *************************  -->
 
-						})
+
+
+//**************************************						
+//병원리스트 div 틀 크기들 동일시 주는것
 						
+function equalHeights( $objs )
+{
+  var highest = 0;
+
+  $objs.each(function() {
+    thisHeight = $(this).height();
+    if(thisHeight > highest ) {
+      highest = thisHeight;
+    }
+  });
+
+  $objs.height( highest );
+}
+
+ $(function(){
+    setTimeout(function(){
+        equalHeights( $(".listing__item__text") );
+    },);
+}); 
+ 
+//******************************************** 
 	</script>
 
-	<!--**** 검색기능끝 *************************  -->
+	
 </body>
 </html>

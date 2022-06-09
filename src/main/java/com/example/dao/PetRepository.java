@@ -12,5 +12,6 @@ public interface PetRepository extends CrudRepository<PetVO, Integer>{
 
 	List<PetVO> findByUser(UserVO vo);
 
-	
+	List<PetVO> getPetOwnerByUser(UserVO vo);
+
 }
