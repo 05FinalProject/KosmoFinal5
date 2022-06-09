@@ -9,6 +9,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import com.example.domain.ReportVO;
+import com.example.domain.UserVO;
 
 import java.util.Date;
 import java.util.List;
@@ -43,9 +44,15 @@ public class CommunityController {
 		}
 		Pageable paging = PageRequest.of(page - 1, 8, Sort.Direction.DESC, "communityNum");
 
+		System.out.println( c_service.getCommunityPaging(paging));
 		m.addAttribute("paging", c_service.getCommunityPaging(paging));
-
 		m.addAttribute("count", c_service.countCommunityRecord());
+		
+		//게시글 썸네일 띄우기
+		//List<HashMap<String, Object>> list  = c_service.getThumbnail(vo);
+		
+		
+
 		return "/community/daily";
 	}
 
@@ -62,6 +69,9 @@ public class CommunityController {
 		List<CommentVO> commentList = c_service.commentList(vo.getCommunityNum());
 		m.addAttribute("commentList", commentList);
 		System.out.println(vo.getCommunityNum());
+		
+		
+		
 		
 		
 		//일상공유 이미지 리스트

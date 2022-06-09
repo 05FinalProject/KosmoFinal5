@@ -1,6 +1,8 @@
 package com.example.community;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import com.example.dao.ReportRepository;
@@ -62,8 +64,28 @@ public class CommunityServiceImpl implements CommunityService {
 	// *******************************************************************
 	// 일상공유 페이지 페이징 처리
 	@Override
-	public List<CommunityVO> getCommunityPaging(Pageable paging) {
-		return communityRepo.findAll(paging);
+	public List<HashMap<String, Object>> getCommunityPaging(Pageable paging) {
+		List<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+		
+		for(CommunityVO communityVo:communityRepo.findAll(paging)) {
+			HashMap<String, Object> hm = new HashMap<String, Object>();
+			hm.put("communityNum", communityVo.getCommunityNum());
+			hm.put("communityInsertdate", communityVo.getCommunityInsertdate());
+			hm.put("communityTitle", communityVo.getCommunityTitle());
+			hm.put("userNickname", communityVo.getUser().getUserNickname());
+			
+			CommunityVO communityVo2 = new CommunityVO();
+			communityVo2.setCommunityNum(communityVo.getCommunityNum());
+			List<ImgVO> imgList = imgRepo.findByCommunity(communityVo2);
+			if(imgList.size() > 0 ) {
+				hm.put("communityImg", imgRepo.findByCommunity(communityVo2).get(0).getRealImgName());
+				
+			}
+			
+			
+			list.add(hm);
+		}
+		return list;
 	}
 
 	@Override
@@ -162,5 +184,28 @@ public class CommunityServiceImpl implements CommunityService {
 	//게시글 좋아요
 	public void likeIt(CommunityVO communityVo, UserVO userVo) {
 		UserVO user = userRepo.findById(userVo.getUserEmail()).get();
+	}
+	
+	//게시글 썸네일 띄우기
+	public List<HashMap<String, Object>> getThumbnail(CommunityVO communityVo) {
+		List<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+		for(Object[] object : imgRepo.findByCommunityAndUserOrderByAsc(communityVo.getCommunityNum())) {
+			HashMap<String, Object> hm = new HashMap<String, Object>();
+			
+			hm.put("rImgName", object[0]);
+			hm.put("title", object[1]);
+			hm.put("insertdate", object[2]);
+			hm.put("userNickname", object[3]);
+			hm.put("communityNum", object[4]);
+			
+			list.add(hm);
+			
+			
+			
+			
+		
+			
+		}
+		return list;
 	}
 }
