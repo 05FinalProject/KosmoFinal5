@@ -54,9 +54,10 @@ public class CommunityVO {
 	@JoinColumn(name = "user_email")
 	private UserVO user;
 	
-
-	@OneToMany(mappedBy = "community")
-	private List<ImgVO> imgList;
+	/*
+	 * 
+	 * private List<ImgVO> imgList;
+	 */
 	
 	@Transient
 	private int page;
