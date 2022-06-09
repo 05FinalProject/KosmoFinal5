@@ -10,6 +10,7 @@ import com.example.community.CommunityVO;
 import com.example.domain.CommentVO;
 import com.example.domain.ImgVO;
 import com.example.domain.PetVO;
+import com.example.domain.UserVO;
 @Repository
 public interface ImgRepository extends CrudRepository<ImgVO, Integer> {
 	
@@ -21,6 +22,8 @@ public interface ImgRepository extends CrudRepository<ImgVO, Integer> {
 
 	
 	public List<ImgVO> findByCommunity(CommunityVO community);
+
+	public List<ImgVO> findByUser(UserVO u);
 
 	
 //	@Query(value ="SELECT i FROM ImgVO i WHERE i.pRimgname=:pRimgname", nativeQuery=true)
