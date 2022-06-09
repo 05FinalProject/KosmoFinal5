@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -19,6 +20,9 @@ import com.example.domain.DogKindVO;
 import com.example.domain.ReviewVO;
 import com.example.domain.UserVO;
 import com.example.service.agency.AgencyService;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 @Controller
 @RequestMapping("/agency")
@@ -26,8 +30,6 @@ public class AgencyController {
 
 	@Autowired
 	private AgencyService agencyservice;
-	
-	
 
 	// ******************************************************************************
 	//// agencyhotel 보기
@@ -40,10 +42,30 @@ public class AgencyController {
 		}
 		Pageable paging = PageRequest.of(page - 1, 16, Sort.Direction.ASC, "agencyNum");
 
-		m.addAttribute("paging", agencyservice.getHotelPaging(paging));
+		List<AgencyVO> l = agencyservice.getHotelPaging(paging);
+		m.addAttribute("paging", l);
 
 		m.addAttribute("count", agencyservice.countHotelRecord());
-		return "/agency/agencyHotel";
+		
+		
+		//호텔의 이름, 위도, 경도 가져오기
+        List<HashMap<String, Object>> mapList = agencyservice.mapList(1);//서비스 리턴
+        
+        Gson mapListGson = new Gson();
+        JsonArray mapListJArray = new JsonArray();
+
+        for(AgencyVO v : l) {
+        	JsonObject object = new JsonObject();
+        	object.addProperty("name", v.getAgencyName());
+        	object.addProperty("lon", v.getAgencyLon());
+        	object.addProperty("lat", v.getAgencyLat());
+        	mapListJArray.add(object);
+        }
+
+        String mapListJson = mapListGson.toJson(mapListJArray);
+        m.addAttribute("mapList", mapListJson);
+        
+        return "/agency/agencyHotel";
 	}
 
 	// agencyhotel 상세보기
@@ -51,13 +73,13 @@ public class AgencyController {
 	public void agencyHotelDetail(Model m, AgencyVO vo) {
 		System.out.println(vo.getAgencyNum());
 		m.addAttribute("hotel", agencyservice.getagencyHotel(vo));
-		
-	//agencyhotel 리뷰 리스트 보여주기	
+
+		// agencyhotel 리뷰 리스트 보여주기
 		List<ReviewVO> reviews = agencyservice.findByAgencyNum(vo);
-		if(reviews.size() >0) {
+		if (reviews.size() > 0) {
 		}
 		m.addAttribute("reviews", reviews);
-
+		
 	}
 
 	// **************************************************************************************************
@@ -74,21 +96,40 @@ public class AgencyController {
 		}
 		Pageable paging = PageRequest.of(page - 1, 16, Sort.Direction.ASC, "agencyNum");
 
-		m.addAttribute("paging", agencyservice.getCafePaging(paging));
+		List<AgencyVO> l = agencyservice.getCafePaging(paging);
+		m.addAttribute("paging", l);
 
 		m.addAttribute("count", agencyservice.countCafeRecord());
-		return "/agency/agencyCafe";
+		
+		//카페의 이름, 위도, 경도 가져오기
+        List<HashMap<String, Object>> mapList = agencyservice.mapList(2);//서비스 리턴
+        
+        Gson mapListGson = new Gson();
+        JsonArray mapListJArray = new JsonArray();
+
+        for(AgencyVO v : l) {
+        	JsonObject object = new JsonObject();
+        	object.addProperty("name", v.getAgencyName());
+        	object.addProperty("lon", v.getAgencyLon());
+        	object.addProperty("lat", v.getAgencyLat());
+        	mapListJArray.add(object);
+        }
+
+        String mapListJson = mapListGson.toJson(mapListJArray);
+        m.addAttribute("mapList", mapListJson);
+        
+        return "/agency/agencyCafe";
 	}
 
-	// agencyCafe 상세보기 
+	// agencyCafe 상세보기
 	@RequestMapping(value = "/agencyCafeDetail", method = RequestMethod.GET)
 	public void agencyCafeDetail(Model m, AgencyVO vo) {
-		
+
 		m.addAttribute("cafe", agencyservice.getagencyCafe(vo));
-		
-	//agencyCafe 리뷰 리스트 보여주기
+
+		// agencyCafe 리뷰 리스트 보여주기
 		List<ReviewVO> reviews = agencyservice.findByAgencyNum(vo);
-		if(reviews.size() >0) {
+		if (reviews.size() > 0) {
 		}
 		m.addAttribute("reviews", reviews);
 
@@ -96,7 +137,6 @@ public class AgencyController {
 
 	// ***********************************************************************************
 
-	
 ////agencyhospital 보기
 	@RequestMapping(value = "/agencyHospital", method = RequestMethod.GET)
 	public String agencyHospital(Model m, AgencyVO vo) {
@@ -107,61 +147,96 @@ public class AgencyController {
 		}
 		Pageable paging = PageRequest.of(page - 1, 16, Sort.Direction.ASC, "agencyNum");
 
-		m.addAttribute("paging", agencyservice.getHospitalPaging(paging));
+		List<AgencyVO> l = agencyservice.getHospitalPaging(paging);
+		m.addAttribute("paging", l);
+		
+        m.addAttribute("count", agencyservice.countHospitalRecord());
+		
+		//병원의 이름, 위도, 경도 가져오기
+        List<HashMap<String, Object>> mapList = agencyservice.mapList(3);//서비스 리턴
+        
+        Gson mapListGson = new Gson();
+        JsonArray mapListJArray = new JsonArray();
 
-		m.addAttribute("count", agencyservice.countHospitalRecord());
+        for(AgencyVO v : l) {
+        	JsonObject object = new JsonObject();
+        	object.addProperty("name", v.getAgencyName());
+        	object.addProperty("lon", v.getAgencyLon());
+        	object.addProperty("lat", v.getAgencyLat());
+        	mapListJArray.add(object);
+        }
+
+        String mapListJson = mapListGson.toJson(mapListJArray);
+        m.addAttribute("mapList", mapListJson);
+		
+		
 		return "/agency/agencyHospital";
 	}
-	
-	// agencyhospital 상세보기 
-		@RequestMapping(value = "/agencyHospitalDetail", method = RequestMethod.GET)
-		public void agencyHospitalDetail(Model m, AgencyVO vo) {
-			
-			m.addAttribute("hospital", agencyservice.getagencyHospital(vo));
-			
-			
-			//agencyhospital 리뷰 리스트 보여주기
-			List<ReviewVO> reviews = agencyservice.findByAgencyNum(vo);
-			if(reviews.size() >0) {
-			}
-			m.addAttribute("reviews", reviews);
+
+	// agencyhospital 상세보기
+	@RequestMapping(value = "/agencyHospitalDetail", method = RequestMethod.GET)
+	public void agencyHospitalDetail(Model m, AgencyVO vo) {
+
+		m.addAttribute("hospital", agencyservice.getagencyHospital(vo));
+
+		// agencyhospital 리뷰 리스트 보여주기
+		List<ReviewVO> reviews = agencyservice.findByAgencyNum(vo);
+		if (reviews.size() > 0) {
 		}
-	
-	//**********************************************************************************
-		///agency장례식장 보기
-		@RequestMapping(value = "/agencyHall", method = RequestMethod.GET)
-		public String agencyHall(Model m, AgencyVO vo) {
+		m.addAttribute("reviews", reviews);
+	}
 
-			int page = 1;
-			if (vo.getPage() != 0) {
-				page = vo.getPage();
-			}
-			Pageable paging = PageRequest.of(page - 1, 16, Sort.Direction.ASC, "agencyNum");
+	// **********************************************************************************
+	/// agency장례식장 보기
+	@RequestMapping(value = "/agencyHall", method = RequestMethod.GET)
+	public String agencyHall(Model m, AgencyVO vo) {
 
-			m.addAttribute("paging", agencyservice.getHallPaging(paging));
-
-			m.addAttribute("count", agencyservice.countFunehallRecord());
-			return "/agency/agencyHall";
+		int page = 1;
+		if (vo.getPage() != 0) {
+			page = vo.getPage();
 		}
+		Pageable paging = PageRequest.of(page - 1, 16, Sort.Direction.ASC, "agencyNum");
 
+		List<AgencyVO> l = agencyservice.getHallPaging(paging);
+		m.addAttribute("paging", l);
 		
-		// agency장례식장 상세보기 
-				@RequestMapping(value = "/agencyHallDetail", method = RequestMethod.GET)
-				public void agencyHallDetail(Model m, AgencyVO vo) {
-					
-					m.addAttribute("hall", agencyservice.getagencyHall(vo));
-					
-					
-					//agency장례식장 리뷰 리스트 보여주기
-					List<ReviewVO> reviews = agencyservice.findByAgencyNum(vo);
-					if(reviews.size() >0) {
-					}
-					m.addAttribute("reviews", reviews);
-				}
+		m.addAttribute("count", agencyservice.countFunehallRecord());
 		
-				
-	
+		//장례식장 이름, 위도, 경도 가져오기
+        List<HashMap<String, Object>> mapList = agencyservice.mapList(5);//서비스 리턴
+        
+        Gson mapListGson = new Gson();
+        JsonArray mapListJArray = new JsonArray();
+
+        for(AgencyVO v : l) {
+        	JsonObject object = new JsonObject();
+        	object.addProperty("name", v.getAgencyName());
+        	object.addProperty("lon", v.getAgencyLon());
+        	object.addProperty("lat", v.getAgencyLat());
+        	mapListJArray.add(object);
+        }
+
+        String mapListJson = mapListGson.toJson(mapListJArray);
+        m.addAttribute("mapList", mapListJson);
 		
+		
+		
+		return "/agency/agencyHall";
+	}
+
+	// agency장례식장 상세보기
+	@RequestMapping(value = "/agencyHallDetail", method = RequestMethod.GET)
+	public void agencyHallDetail(Model m, AgencyVO vo) {
+
+		m.addAttribute("hall", agencyservice.getagencyHall(vo));
+
+		// agency장례식장 리뷰 리스트 보여주기
+		List<ReviewVO> reviews = agencyservice.findByAgencyNum(vo);
+		if (reviews.size() > 0) {
+		}
+		m.addAttribute("reviews", reviews);
+	}
+
 	// ************************************************************************************
 
 	// agencyShelter 페이징 처리
@@ -187,19 +262,15 @@ public class AgencyController {
 		m.addAttribute("shelter", agencyservice.getagencyShelter(vo));
 
 	}
-	
-	
-	//보호소 입양신청서 페이지 
-			@RequestMapping(value = "/agencyShelterSignup", method = RequestMethod.GET)
-			public void agencyShelterSignup(Model m, AbandonedVO vo) {
-			m.addAttribute("signup",agencyservice.agencyShelterSignup(vo));	
-		}
-	
+
+	// 보호소 입양신청서 페이지
+	@RequestMapping(value = "/agencyShelterSignup", method = RequestMethod.GET)
+	public void agencyShelterSignup(Model m, AbandonedVO vo) {
+		m.addAttribute("signup", agencyservice.agencyShelterSignup(vo));
+	}
+
 	// ***************************************************************************************************
 
-	
-	
-	
 	// *****************************************************************************
 	// 강아지 백과사전 페이지 및 페이징 처리
 	@RequestMapping(value = "/encyclopedia", method = RequestMethod.GET)
@@ -219,14 +290,12 @@ public class AgencyController {
 
 	// 강아지 백과사전 상세보기
 
-	
-	  @RequestMapping(value ="/encyclopediaDetail", method=RequestMethod.GET)
-	  public void encyclopediaDetail(Model m,DogKindVO vo) {
-	  System.out.println(vo.getDogNum());
-	  m.addAttribute("encyclopedia",agencyservice.getencyclopedia(vo));
-	  }
-	
-	  
+	@RequestMapping(value = "/encyclopediaDetail", method = RequestMethod.GET)
+	public void encyclopediaDetail(Model m, DogKindVO vo) {
+		System.out.println(vo.getDogNum());
+		m.addAttribute("encyclopedia", agencyservice.getencyclopedia(vo));
+	}
+
 	// ***************************************************************************************************
 	// ********************************************************************************
 
@@ -235,7 +304,7 @@ public class AgencyController {
 	public void cafeSearch(AgencyVO vo) {
 
 	}
-	
+
 	// agencyhotel 페이지에 검색 기능
 	@RequestMapping("/hotelSearch")
 	public void hotelSearch(AgencyVO vo) {
@@ -247,82 +316,57 @@ public class AgencyController {
 	public void hospitalSearch(AgencyVO vo) {
 
 	}
-	
+
 	// agency장례식장 페이지에 검색 기능
-		@RequestMapping("/hallSearch")
-		public void hallSearch(AgencyVO vo) {
+	@RequestMapping("/hallSearch")
+	public void hallSearch(AgencyVO vo) {
 
-		}
-		
-		
-	//*******************************************************************************
-	//agencyCafe   리뷰작성 
-		
-		@RequestMapping(value="/insertReview", method = RequestMethod.POST)
-		public String agencyCafeUpdate(ReviewVO review, UserVO vo ,AgencyVO vv, HttpSession s) {
-			review.setUser(vo);
-			review.setAgency(vv);
-			agencyservice.insertReview(review);
-			
-			return "redirect:/agency/agencyCafeDetail?agencyNum="+vv.getAgencyNum();
-		}	
-		
-		
-	
-	//agencyhotel  리뷰 작성
-		
-		@RequestMapping(value="/insertHotelReview", method = RequestMethod.POST)
-		public String agencyHotelUpdate(ReviewVO review,UserVO vo ,AgencyVO vv, HttpSession s) {
-			review.setUser(vo);
-			review.setAgency(vv);
-			agencyservice.insertHotelReview(review);
-			return "redirect:/agency/agencyHotelDetail?agencyNum="+vv.getAgencyNum();
-		}	
-	
-		//agency병원 리뷰 작성
-		
-				@RequestMapping(value="/insertHospitalReview", method = RequestMethod.POST)
-				public String agencyHospitalUpdate(ReviewVO review,UserVO vo ,AgencyVO vv, HttpSession s) {
-					review.setUser(vo);
-					review.setAgency(vv);
-					agencyservice.insertHospitalReview(review);
-					return "redirect:/agency/agencyHospitalDetail?agencyNum="+vv.getAgencyNum();
-				}	
-		
-				
-		//agency장례식장 리뷰 작성
-				
-		@RequestMapping(value="/insertHallReview", method = RequestMethod.POST)
-		public String agencyHallUpdate(ReviewVO review,UserVO vo ,AgencyVO vv, HttpSession s) {
-				review.setUser(vo);
-				review.setAgency(vv);
-				agencyservice.insertHospitalReview(review);
-				return "redirect:/agency/agencyHallDetail?agencyNum="+vv.getAgencyNum();
-				}			
-		
-	//*********************************************************************	
-		
-		
-		
-		
-	
-		
-		
-	//***********************************************************************************	
-		
-	
-
-	@RequestMapping(value = "/agencytest", method = RequestMethod.GET)
-	public String agencytest() {
-		return "/include/agencytest";
 	}
 
-	@RequestMapping(value = "/agencytestDetail", method = RequestMethod.GET)
-	public String agencytestDetail() {
-		return "/include/agencytestDetail";
+	// *******************************************************************************
+	// agencyCafe 리뷰작성
+
+	@RequestMapping(value = "/insertReview", method = RequestMethod.POST)
+	public String agencyCafeUpdate(ReviewVO review, UserVO vo, AgencyVO vv, HttpSession s) {
+		review.setUser(vo);
+		review.setAgency(vv);
+		agencyservice.insertReview(review);
+
+		return "redirect:/agency/agencyCafeDetail?agencyNum=" + vv.getAgencyNum();
 	}
 
+	// agencyhotel 리뷰 작성
+
+	@RequestMapping(value = "/insertHotelReview", method = RequestMethod.POST)
+	public String agencyHotelUpdate(ReviewVO review, UserVO vo, AgencyVO vv, HttpSession s) {
+		review.setUser(vo);
+		review.setAgency(vv);
+		agencyservice.insertHotelReview(review);
+		return "redirect:/agency/agencyHotelDetail?agencyNum=" + vv.getAgencyNum();
+	}
+
+	// agency병원 리뷰 작성
+
+	@RequestMapping(value = "/insertHospitalReview", method = RequestMethod.POST)
+	public String agencyHospitalUpdate(ReviewVO review, UserVO vo, AgencyVO vv, HttpSession s) {
+		review.setUser(vo);
+		review.setAgency(vv);
+		agencyservice.insertHospitalReview(review);
+		return "redirect:/agency/agencyHospitalDetail?agencyNum=" + vv.getAgencyNum();
+	}
+
+	// agency장례식장 리뷰 작성
+
+	@RequestMapping(value = "/insertHallReview", method = RequestMethod.POST)
+	public String agencyHallUpdate(ReviewVO review, UserVO vo, AgencyVO vv, HttpSession s) {
+		review.setUser(vo);
+		review.setAgency(vv);
+		agencyservice.insertHospitalReview(review);
+		return "redirect:/agency/agencyHallDetail?agencyNum=" + vv.getAgencyNum();
+	}
+
+	// *********************************************************************
+
 	
-	
-	
+
 }

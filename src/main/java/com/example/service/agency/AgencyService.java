@@ -1,5 +1,6 @@
 package com.example.service.agency;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.data.domain.Pageable;
@@ -13,7 +14,15 @@ import com.example.domain.UserVO;
 
 
 public interface AgencyService {
+	
+	
+	//카테고리 별 위도 경도 이름 가져오기
+	public List<HashMap<String, Object>> mapList(Integer number);
 
+	
+	
+//*******************************************************************************
+	
 	//보호소 페이지 처리
 	public List<AbandonedVO> getPaging(Pageable paging);
 	
