@@ -530,8 +530,9 @@
                 <div id="water">
                     <form action="/community/reportCommunity" method="post">
                         <input type="hidden" name="communityNum"
-                               value="${community.communityNum}"> <%--<input type="text"
-								name="userEmail" value="${community.user.userEmail}">--%>
+                               value="${community.communityNum}">
+                        <input type="hidden"
+								name="userEmail" value="${community.user.userEmail}">
                         <div class="form-group">
                             <select name="rReason" class="form-control">
                                 <option value="0">신고 사유 선택</option>
@@ -544,7 +545,7 @@
                                 <option value="기타">기타</option>
                             </select>
                         </div>
-                        <button type="submit" id="btn1"
+                        <button type="submit" id="btnReport"
                                 class="btn btn-primary btn-block font-weight-bold text-uppercase">
                             신고하기
                         </button>
@@ -683,7 +684,21 @@
 
 		}
 
-	})
+        $(function () {
+            $('#btnReport').click(function() {
+                if(confirm('신고하시겠습니까?')){
+                    alert("신고완료");
+                }
+                else {
+                    return;
+                }
+
+            });
+
+	    })
+    });
+
+
 </script>
 
 </html>
