@@ -42,7 +42,12 @@ public interface UserRepository extends CrudRepository<UserVO, String>{
 
 	
 	// 반려견 등록
-	
+
+	//****************************관리자***********************
+	//대시보드 페이지 총 유저수 출력
+	@Query("SELECT count(uvo) FROM UserVO uvo")
+	int totalUserCount();
+
 
 	
 	 
