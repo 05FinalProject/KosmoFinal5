@@ -234,9 +234,12 @@ $(function(){
 
    <!--카카오 지도 연결-->
     <!--******** Map Begin *******************************************-->
+  
     <div class="listing__map">
+    
       <div id="map" style="width: 100%; height: 52em"></div>
     </div>
+    
     <!--****** Map End ***********************************************-->
 
     
@@ -254,15 +257,15 @@ $(function(){
 
     
     <!--카카오맵 출력하려면 필요한 키값-->
-    <script
+    <!-- <script
       type="text/javascript"
       src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ef81fd1e646b0a15481c65c77c4029e6&libraries=services"
-    ></script>
+    ></script> -->
     <!--카카오 맵 js-->
     <script src="/agency/js/kakaoMap.js"></script>
     
     
-    <script type="text/javascript" src="/js/jquery.min.js?ver=3.6.0"></script>
+ <script type="text/javascript" src="/js/jquery.min.js?ver=3.6.0"></script>
 <script type="text/javascript" src="/js/popper.min.js?ver=1.16.1"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js?ver=4.6.0"></script>
 <script type="text/javascript" src="/js/smartmenus.min.js?ver=1.1.1"></script>
@@ -276,11 +279,63 @@ $(function(){
 <script>
 		var container = document.getElementById('map');
 		var options = {
-			center: new kakao.maps.LatLng(33.450701, 126.570667),
-			level: 3
+			center: new kakao.maps.LatLng(37.50212393, 127.0888401),
+			level: 10
 		};
 
 		var map = new kakao.maps.Map(container, options);
+		
+		
+		//-----------------------------------------------------------------
+		let jsonDataMapList = ${mapList};
+	    let jsonObjectMapList = JSON.stringify(jsonDataMapList);
+	    let jDataMapList = JSON.parse(jsonObjectMapList);
+	    
+	    let MapListName = []; // 배열생성
+	    let MapListLon = [];
+	    let MapListLat = [];
+
+	    for (let i = 0; i < jDataMapList.length; i++) {
+	        let dMapList = jDataMapList[i];
+	        MapListName.push(dMapList.name);
+	        MapListLon.push(dMapList.lon);
+	        MapListLat.push(dMapList.lat);
+	    }
+
+	    var MapListArray = [];
+
+	    for (var i = 0; i < MapListName.length; i++){
+	        MapListArray.push ({title: MapListName[i], latlng: new kakao.maps.LatLng(MapListLat[i], MapListLon[i])})
+	    }
+
+	    console.log(MapListArray)
+		
+		var positions = MapListArray
+		console.log(positions)
+
+		// 마커 이미지의 이미지 주소입니다
+		var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+		    
+		for (var i = 0; i < positions.length; i ++) {
+		    
+		    // 마커 이미지의 이미지 크기 입니다
+		    var imageSize = new kakao.maps.Size(24, 35); 
+		    
+			// 마커 이미지를 생성합니다    
+		    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+		    
+		    
+		    // 마커를 생성합니다
+		    var marker = new kakao.maps.Marker({
+		        map: map, // 마커를 표시할 지도
+		        position: positions[i].latlng, // 마커를 표시할 위치
+		        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+		        image : markerImage, // 마커 이미지 
+		        content : positions[i].title
+		    });
+		    
+		   
+		}
 	</script>
 
 

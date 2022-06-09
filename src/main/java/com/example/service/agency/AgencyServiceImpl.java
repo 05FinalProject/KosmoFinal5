@@ -2,7 +2,7 @@ package com.example.service.agency;
 
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +37,28 @@ public class AgencyServiceImpl implements AgencyService{
     
     @Autowired
     private UserRepository usr;
+    
+    
+    
+  //*****************************************************
+  	//카테고리 별 위도 경도 이름 가져오기
+  		public List<HashMap<String, Object>> mapList(Integer number){
+  			List<HashMap<String, Object>> categoryMapList = new ArrayList<HashMap<String,Object>>();
+
+  	        for(Object[] o : agencyRepo.mapList(number)) {
+  	            HashMap<String, Object> hm = new HashMap<String, Object>();
+  	            hm.put("name", o[0]);
+  	            hm.put("lat", o[1]);
+  	            hm.put("lon", o[2]);
+  	            categoryMapList.add(hm);
+  	        }
+
+  	        return categoryMapList;
+  	    };
+  		
+  	
+  	//**********************************************************
+    
 	//*******************************************************
 	//보호소 페이지 처리 
 	public List<AbandonedVO> getPaging(Pageable paging){
@@ -46,10 +68,7 @@ public class AgencyServiceImpl implements AgencyService{
 	public int countRecord() {
 		return abandonedRepo.countRecord();
 	}
-	//*****************************************************
 	
-	
-	//**********************************************************
 	//호텔 페이지 처리 
 	@Override
 	public List<AgencyVO> getHotelPaging(Pageable paging) {		
@@ -60,10 +79,8 @@ public class AgencyServiceImpl implements AgencyService{
 	public int countHotelRecord() {		
 		return agencyRepo.countHotelRecord();
 	}
-    //***************************************************************
+    
 	
-	
-	//**************************************************************
 	//카페 페이지 처리
 	@Override
 	public List<AgencyVO> getCafePaging(Pageable paging) {		
@@ -76,7 +93,7 @@ public class AgencyServiceImpl implements AgencyService{
 	}
 	
 	
-	//**************************************************************
+	
 	//병원 페이지 처리
 	@Override
 	public List<AgencyVO> getHospitalPaging(Pageable paging) {		
@@ -88,7 +105,7 @@ public class AgencyServiceImpl implements AgencyService{
 	return agencyRepo.countHospitalRecord();
 	}
 	
-	//**************************************************************
+	
 		//장례식장 페이지 처리
 		@Override
 		public List<AgencyVO> getHallPaging(Pageable paging) {		
@@ -99,8 +116,6 @@ public class AgencyServiceImpl implements AgencyService{
 		public int countFunehallRecord() {		
 		return agencyRepo.countFunehallRecord();
 		}
-	
-	//************************************************************************
 	
 	
 	//백과사전 페이지 처리
@@ -224,7 +239,7 @@ public class AgencyServiceImpl implements AgencyService{
 				}			
 		
 		
-		//병원 검색 기능 			 
+		//장례식장 검색 기능 			 
 				public List<AgencyVO> agencyHallSearch(AgencyVO vo){
 					ArrayList<AgencyVO> list = new ArrayList<AgencyVO>();
 					for(Object[] o : agencyRepo.agencyHallSearch(vo.getAgencyName())) {
@@ -256,6 +271,8 @@ public class AgencyServiceImpl implements AgencyService{
 	    
 		//호텔 리뷰 작성
 		public void insertHotelReview(ReviewVO vo) {
+			
+			
 			UserVO v = usr.findById(vo.getUser().getUserEmail()).get();
 			vo.setUser(v);
 			AgencyVO a = agencyRepo.findById(vo.getAgency().getAgencyNum()).get();

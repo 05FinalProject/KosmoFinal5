@@ -28,8 +28,6 @@ pageEncoding="UTF-8"%>
     <a href="/agency/agencyCafeDetail">정보기관상세페이지(카페)</a><br /><br />
     <a href="/agency/agencyHospital?page=1">정보기관페이지(병원)</a><br /><br />
     <a href="/agency/agencyHall?page=1">정보기관페이지(장례식장))</a><br /><br />
-    <a href="include/agencytest">정보기관페이지</a><br /><br />
-    <a href="include/agencytestDetail">정보기관상세페이지</a><br /><br />
     <a href="/agency/agencyShelter?page=1">보호소페이지</a><br /><br />
     <a href="/agency/agencyShelterDetail">보호소 상세페이지</a><br /><br />
     <a href="/agency/encyclopedia">백과사전 페이지</a><br /><br />
