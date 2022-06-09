@@ -356,7 +356,6 @@ $('#btnPwSearch').click(function(){
 	
 	// input에 입력된 값을 공백제거하고 변수에 담기
 	var userEmail = $.trim($("#userEmail").val());
-	var userPhone = $.trim($("#userPhone").val());	
 	var userName = $.trim($("#userName").val());
 	
 	// 회원 정보가 있는지 확인
@@ -364,7 +363,6 @@ $('#btnPwSearch').click(function(){
     	type : 'post',
     	url : 'pwSearch',
     	data : { userEmail : $('#userEmail').val(),
-    			userPhone : $('#userPhone').val(),
     			userName : $('#userName').val(),
     	 		},
     	contentType : 'application/x-www-form-urlencoded;charset=utf-8',
@@ -373,16 +371,24 @@ $('#btnPwSearch').click(function(){
     		if(result == 'N'){
 	        		$('.error_box.pwSearch').html("존재하는 회원이 아닙니다.");
 				}else{
-	        		document.pwSearchForm.submit();
-				}
+	        		$('.error_box.pwSearch').html("등록된 이메일로 인증번호를 전송하였습니다.");
+	        		$.ajax({
+					type: "post",
+					url: "sendEmail",
+					data:{
+						"userEmail": userEmail,
+						"userName": userName
+					}
+				})
+			}
     	},
     	error : function(err){
 	        
 			alert('실패');
     		console.log(err);
     	}
-    }); //end of ajax
-}) // end of #btnPwSearch
+    });
+})
 
 
 
