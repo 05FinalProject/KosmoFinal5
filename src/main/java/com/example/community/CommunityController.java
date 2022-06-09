@@ -44,8 +44,8 @@ public class CommunityController {
 		Pageable paging = PageRequest.of(page - 1, 8, Sort.Direction.DESC, "communityNum");
 
 		m.addAttribute("paging", c_service.getCommunityPaging(paging));
-
 		m.addAttribute("count", c_service.countCommunityRecord());
+
 		return "/community/daily";
 	}
 
