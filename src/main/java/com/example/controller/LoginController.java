@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -139,13 +142,19 @@ public class LoginController {
 	}
 
 	/* 반려견 리스트 페이지 이동*/
-	@RequestMapping("/myPage/myPageDogList")
-	public void myDogList(HttpSession session, Model m) {
+	@RequestMapping(value = "/myPage/myPageDogList", method = RequestMethod.GET )
+	public String myPetList(PetVO pvo, Model m) {
+		int page = 1;
+		if (pvo.getPage() != 0) {
+			page = pvo.getPage();
+		}
+		Pageable paging = PageRequest.of(page -1, 3, Sort.Direction.DESC, "petNum");
 		
-		String userEmail = session.getAttribute("userEmail").toString();
+		System.out.println( lservice.getPetListPaging(paging));
+		m.addAttribute("paging", lservice.getPetListPaging(paging));
+		m.addAttribute("count", lservice.countPetRecord());
 		
-		m.addAttribute("petList", lservice.findmMyPet(userEmail));
-		m.addAttribute("petImg", lservice.findmMyPetImg(userEmail));
+		return "/include/myPage/myPageDogList";
 	}
 
 	/* 반려견 정보 상세보기*/
@@ -154,13 +163,13 @@ public class LoginController {
 		m.addAttribute("pet", lservice.getPetDetail(pvo));
 	}
 
-	/* 반려견 추가 페이지 (견종) */
+	/* 반려견 등록 페이지 (견종) */
 	@RequestMapping(value="/myPage/myPageDogAdd", method=RequestMethod.GET)
 	public void myPageDogAdd(Model m) {
 		m.addAttribute("kindList", fservice.getDogList());
 	}
 
-	/* 반려견 추가 버튼 이벤트 */
+	/* 반려견 등록 버튼 이벤트 */
 	@RequestMapping(value="/myPage/petAdd", method=RequestMethod.POST)
 	public String petAdd(PetVO pvo, MultipartFile file, HttpSession session) {
 		
@@ -178,7 +187,7 @@ public class LoginController {
 	}
 
 	/* 유저의 글 */
-	@RequestMapping("/myPage/myPageBoard")
+	@RequestMapping(value = "/myPage/myPageBoard", method = RequestMethod.GET)
 	public void myPageBoard(HttpSession session, Model m) {	
 		
 		String userEmail = session.getAttribute("userEmail").toString();
@@ -189,7 +198,6 @@ public class LoginController {
 		m.addAttribute("review", lservice.findByReviewList(userEmail));
 	}
 	
-
 	
 	
 //	/* 회원탈퇴 */
