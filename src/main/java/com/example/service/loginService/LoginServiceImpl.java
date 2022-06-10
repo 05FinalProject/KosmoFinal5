@@ -96,13 +96,6 @@ public class LoginServiceImpl implements LoginService {
 		return pevo;
 	}
 
-	/* 반려견리스트 누를 때 이미지 불러오기 */
-//	@Override
-//	public ImgVO getPetImg(ImgVO ivo) {
-//		return Img.findByPet(ivo.getPet()).get(0);
-//	}
-
-
 	@Override
 	public PetVO petAdd(PetVO pvo) {
 		return null;
@@ -156,6 +149,28 @@ public class LoginServiceImpl implements LoginService {
 			v = list.get(0);
 		}
 		return v;
+	}
+
+	/* 마이페이지 - 반려견 리스트 */
+	@Override
+	public List<PetVO> findmMyPet(String userEmail) {
+		UserVO u = user.findById(userEmail).get();
+		return pet.findByUser(u);
+	}
+
+	/* 마이페이지 - 반려견 리스트 사진 */
+	@Override
+	public List<PetVO> findmMyPetImg(String userEmail) {
+		UserVO u = user.findById(userEmail).get();
+		List<ImgVO> ImgList = Img.findByUser(u);
+		
+		List<PetVO> resultList = new ArrayList<PetVO>();
+		
+		for (ImgVO Img : ImgList) {
+			PetVO vo = Img.getPet();
+			resultList.add(vo);
+		}
+		return resultList;
 	}
 
 

@@ -100,7 +100,7 @@
           
           <!-- 나의 산책로 -->
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/walk/myWalk" class="nav-link">
               <p>
                 나의 산책로
               </p>

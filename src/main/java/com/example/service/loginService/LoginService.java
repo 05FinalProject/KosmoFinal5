@@ -2,12 +2,9 @@ package com.example.service.loginService;
 
 import java.util.List;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import com.example.community.CommunityVO;
 import com.example.domain.CommentVO;
 import com.example.domain.ImgVO;
-import com.example.domain.LikeItVO;
 import com.example.domain.PetVO;
 import com.example.domain.ReviewVO;
 import com.example.domain.UserVO;
@@ -38,15 +35,21 @@ public interface LoginService {
 	public void insertImgVO(ImgVO ivo);
 	public PetVO getPetOwnerByUser(String userEmail);
 
+	/* 마이페이지 - 내가 쓴 커뮤니티 글*/
 	public List<CommunityVO> findCommunityList(String userEmail);
 	
+	/* 마이페이지 - 내가 쓴 댓글 */
 	public List<CommentVO> findCommentList(String userEmail);
 	
+	/* 마이페이지 - 내가 쓴 리뷰 */
 	public List<ReviewVO> findByReviewList(String userEmail);
 	
+	/* 마이페이지 - 내가 좋아요한 글 */
 	public List<CommunityVO> findCommunityByLike(String userEmail);
-	
-//	public ImgVO getPetImg(ImgVO ivo);
+
+	/* 등록한 반려견 불러오기 2 */
+	public List<PetVO> findmMyPet(String userEmail);
+	public List<PetVO> findmMyPetImg(String userEmail);
 	
 //	/* 회원탈퇴용으로 쓰는 중*/
 //	public void delete(UserVO vo);
