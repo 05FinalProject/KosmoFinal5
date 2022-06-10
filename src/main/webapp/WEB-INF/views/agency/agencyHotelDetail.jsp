@@ -431,31 +431,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
     </section>
     <!-- Listing Section End -->
 
-<footer class="footer bg-dark text-white">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2">
-                <ul class="nav"><img href="#" src="/img/WithYouTitle.png" class="footerLogo" >
-            </ul>
-            </div>
-            <div class="col-md-4">
-                <ul class="nav justify-content-center">
-                    <li class="nav-item footerFont"><p class="nav-link">주소 : 서울특별시 금천구 가산디지털2로 123 2차) 월드 메르디앙</p></li>
-                </ul>
-            </div>
-            <div class="col-md-3">
-                <ul class="nav justify-content-center">
-                    <li class="nav-item footerFont"><p class="nav-link">고객센터: 02-2005-8523</p></li>
-                </ul>
-            </div>
-            <div class="col-md-3">
-                <ul class="nav justify-content-center">
-                    <li class="nav-item footerFont"><p class="nav-link">이메일: swkosmo@daum.net</p></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer>
+
 
     <!-- Js Plugins -->
     <script src="/agency/js/jquery-3.3.1.min.js"></script>
@@ -515,24 +491,35 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 		// 마커가 지도 위에 표시되도록 설정합니다
 		marker.setMap(map);
  
-      $("#filter-search").click(function name(params) {
-        var regex = /[^0-9.;\-]/g;
-        var result = $("#radius").val().replace(regex, "");
-        console.log(result);
-      });
       
-
-	  $(".siren").click(function(){
-		$(".modal").fadeIn();
-	  });
-	  
-	  $(".close").click(function(){
-	    $(".modal").fadeOut();
-	  });
 	  
     </script>
 
- 
+ <footer class="footer bg-dark text-white">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <ul class="nav"><img href="#" src="/img/WithYouTitle.png" class="footerLogo" >
+            </ul>
+            </div>
+            <div class="col-md-4">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item footerFont"><p class="nav-link">주소 : 서울특별시 금천구 가산디지털2로 123 2차) 월드 메르디앙</p></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item footerFont"><p class="nav-link">고객센터: 02-2005-8523</p></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item footerFont"><p class="nav-link">이메일: swkosmo@daum.net</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
 
 
 

@@ -94,7 +94,7 @@ $(function(){
        if(page == $(this).find('a').text()){
           $(this).addClass('active')
        }
-       //console.log(e.text())
+       
     })
  })
 
@@ -143,6 +143,12 @@ $(function(){
 	padding-bottom: 15px;
 }
 
+.customoverlay {position:relative;bottom:85px;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;float:left;}
+.customoverlay:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
+.customoverlay a {display:block;text-decoration:none;color:#000;text-align:center;border-radius:6px;font-size:14px;font-weight:bold;overflow:hidden;background: #d95050;background: #d95050 url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
+.customoverlay .title {display:block;text-align:center;background:#fff;margin-right:35px;padding:10px 15px;font-size:14px;font-weight:bold;}
+.customoverlay:after {content:'';position:absolute;margin-left:-12px;left:50%;bottom:-12px;width:22px;height:12px;background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+     
      
    </style>
   </head>
@@ -151,13 +157,7 @@ $(function(){
   
   <body class="home page page-template-template-lana-editor">
    
-  <!-- Header Section Begin -->
-  
-    
-  <!-- Header Section End -->
-     
-   
-   <!-- Listing Section Begin -->
+  <!-- Listing Section Begin -->
     <section class="listing nice-scroll">
     
   <div class="search1 wh" >
@@ -256,11 +256,6 @@ $(function(){
     <script src="/agency/js/main.js"></script>
 
     
-    <!--카카오맵 출력하려면 필요한 키값-->
-    <!-- <script
-      type="text/javascript"
-      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ef81fd1e646b0a15481c65c77c4029e6&libraries=services"
-    ></script> -->
     <!--카카오 맵 js-->
     <script src="/agency/js/kakaoMap.js"></script>
     
@@ -308,32 +303,52 @@ $(function(){
 	        MapListArray.push ({title: MapListName[i], latlng: new kakao.maps.LatLng(MapListLat[i], MapListLon[i])})
 	    }
 
-	    console.log(MapListArray)
+	    var positions = MapListArray
 		
-		var positions = MapListArray
-		console.log(positions)
-
 		// 마커 이미지의 이미지 주소입니다
-		var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+		var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png"; 
 		    
 		for (var i = 0; i < positions.length; i ++) {
 		    
 		    // 마커 이미지의 이미지 크기 입니다
 		    var imageSize = new kakao.maps.Size(24, 35); 
 		    
+		    var imageOption = {offset: new kakao.maps.Point(27, 69)};
+		    
 			// 마커 이미지를 생성합니다    
-		    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+		     var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption); 
+	    markerPosition = new kakao.maps.LatLng(37.54699, 127.09598);
 		    
 		    
 		    // 마커를 생성합니다
 		    var marker = new kakao.maps.Marker({
-		        map: map, // 마커를 표시할 지도
-		        position: positions[i].latlng, // 마커를 표시할 위치
-		        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+		       position: positions[i].latlng, // 마커를 표시할 위치
+		       // title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
 		        image : markerImage, // 마커 이미지 
-		        content : positions[i].title
+		        
 		    });
 		    
+		    marker.setMap(map);
+
+		    console.log( positions[i].latlng.Ma)
+		    
+		    var iwContent ='<div class="customoverlay">' +
+		    '  <a href="https://map.kakao.com/link/map/11394059" target="_blank">' +
+		    '    <span class="title">'+positions[i].title+'</span>' +
+		    '  </a>' +
+		    '</div>';
+		    // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+		      var iwPosition = new kakao.maps.LatLng(positions[i].latlng.Ma, positions[i].latlng.La); //인포윈도우 표시 위치입니다 */ 
+
+		    
+		    // 커스텀 오버레이를 생성합니다
+	        var customOverlay = new kakao.maps.CustomOverlay({
+	          map: map,
+	          position: iwPosition,
+	          content: iwContent,
+	          yAnchor: 0.9,
+	          xAnchor: 0.61
+	        });
 		   
 		}
 	</script>
