@@ -369,31 +369,28 @@ star-input>.input.focus{outline:1px dotted #ddd;}
               <div class="listing__details__review">
                 <h4>리뷰작성</h4>
                 <form action="/agency/insertHotelReview" method="post"  >
+                  <input type="hidden" name="userEmail" value="${sessionScope.userEmail}">
+                <input type="hidden" name="agencyNum" value="${hotel.agencyNum}">
+               
                 
                 <span class="star-input">
 					<span class="input">
-				    	<input type="radio" name="star-input" value="1" id="p1">
+				    	<input type="radio" name="reviewStar" value="1" id="p1">
 				    	<label for="p1">1</label>
-				    	<input type="radio" name="star-input" value="2" id="p2">
+				    	<input type="radio" name="reviewStar" value="2" id="p2">
 				    	<label for="p2">2</label>
-				    	<input type="radio" name="star-input" value="3" id="p3">
+				    	<input type="radio" name="reviewStar" value="3" id="p3">
 				    	<label for="p3">3</label>
-				    	<input type="radio" name="star-input" value="4" id="p4">
+				    	<input type="radio" name="reviewStar" value="4" id="p4">
 				    	<label for="p4">4</label>
-				    	<input type="radio" name="star-input" value="5" id="p5">
+				    	<input type="radio" name="reviewStar" value="5" id="p5">
 				    	<label for="p5">5</label>
 				  	</span>
-				  	<output for="star-input" name="reviewStar" placeholder="Review"><b>0</b>점</output>						
+				  	<output for="star-input"><b></b>점</output>						
 				</span>       
                 
-                <input type="hidden" name="userEmail" value="${sessionScope.userEmail}">
-                <input type="hidden" name="agencyNum" value="${hotel.agencyNum}">
-      
-                  
-      
-                <textarea placeholder="Review" name="reviewContent"></textarea>
+               <textarea placeholder="Review" name="reviewContent"></textarea>
                 
-                	
                <button type="submit" class="site-btn">작성</button>
                 </form>
               </div>
@@ -434,77 +431,6 @@ star-input>.input.focus{outline:1px dotted #ddd;}
     </section>
     <!-- Listing Section End -->
 
-
-    <!-- Js Plugins -->
-    <script src="/agency/js/jquery-3.3.1.min.js"></script>
-    <script src="/agency/js/bootstrap.min.js"></script>
-    <script src="/agency/js/jquery.nice-select.min.js"></script>
-    <script src="/agency/js/jquery-ui.min.js"></script>
-    <script src="/agency/js/jquery.nicescroll.min.js"></script>
-    <script src="/agency/js/jquery.barfiller.js"></script>
-    <script src="/agency/js/jquery.magnific-popup.min.js"></script>
-    <script src="/agency/js/jquery.slicknav.js"></script>
-    <script src="/agency/js/owl.carousel.min.js"></script>
-    <script src="/agency/js/main.js"></script>
-
-    <!--직접 만든 js-->
-    <script src="/agency/js/yang.js"></script>
-    <script src="/agency/js/slide.js"></script>
-    <script src="/js/star.js"></script>
-    <script src="/js/jquery-1.11.3.min.js"></script>
-
-    <!--카카오맵 출력하려면 필요한 키값-->
-    <script
-      type="text/javascript"
-      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ef81fd1e646b0a15481c65c77c4029e6&libraries=services"
-    ></script>
-    <!--카카오 맵 js-->
-    <script src="/agency/js/kakaoMap.js"></script>
-    
-    
-    <script type="text/javascript" src="/js/jquery.min.js?ver=3.6.0"></script>
-<script type="text/javascript" src="/js/popper.min.js?ver=1.16.1"></script>
-<script type="text/javascript" src="/js/bootstrap.min.js?ver=4.6.0"></script>
-<script type="text/javascript" src="/js/smartmenus.min.js?ver=1.1.1"></script>
-<script type="text/javascript" src="/js/smartmenus-bootstrap.min.js?ver=1.1.1"></script>
-<script type="text/javascript" src="/js/swiper.min.js?ver=4.5.3"></script>
-<script type="text/javascript" src="/js/scrollmagic.min.js?ver=2.0.8"></script>
-<script type="text/javascript" src="/js/magnific-popup.min.js?ver=1.1.0"></script>
-<script type="text/javascript" src="/js/custom-theme.js?ver=1.0.0"></script>
-<script src="https://kit.fontawesome.com/8eb5905426.js" crossorigin="anonymous"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5a0a025e110dde0902210e297400a7be"></script>
-<script>
-		var container = document.getElementById('map');
-		var options = {
-			center: new kakao.maps.LatLng(33.450701, 126.570667),
-			level: 3
-		};
-
-		var map = new kakao.maps.Map(container, options);
-	</script>
-
-<script type="text/javascript">
-
- 
-      $("#filter-search").click(function name(params) {
-        var regex = /[^0-9.;\-]/g;
-        var result = $("#radius").val().replace(regex, "");
-        console.log(result);
-      });
-      
-
-	  $(".siren").click(function(){
-		$(".modal").fadeIn();
-	  });
-	  
-	  $(".close").click(function(){
-	    $(".modal").fadeOut();
-	  });
-	  
-    </script>
-
- 
-
 <footer class="footer bg-dark text-white">
     <div class="container-fluid">
         <div class="row">
@@ -530,6 +456,84 @@ star-input>.input.focus{outline:1px dotted #ddd;}
         </div>
     </div>
 </footer>
+
+    <!-- Js Plugins -->
+    <script src="/agency/js/jquery-3.3.1.min.js"></script>
+    <script src="/agency/js/bootstrap.min.js"></script>
+    <script src="/agency/js/jquery.nice-select.min.js"></script>
+    <script src="/agency/js/jquery-ui.min.js"></script>
+    <script src="/agency/js/jquery.nicescroll.min.js"></script>
+    <script src="/agency/js/jquery.barfiller.js"></script>
+    <script src="/agency/js/jquery.magnific-popup.min.js"></script>
+    <script src="/agency/js/jquery.slicknav.js"></script>
+    <script src="/agency/js/owl.carousel.min.js"></script>
+    <script src="/agency/js/main.js"></script>
+
+    <!--직접 만든 js-->
+  
+    <script src="/agency/js/slide.js"></script>
+    <script src="/js/star.js"></script>
+    <script src="/js/jquery-1.11.3.min.js"></script>
+
+    <!--카카오맵 출력하려면 필요한 키값-->
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ef81fd1e646b0a15481c65c77c4029e6&libraries=services"
+    ></script>
+    <!--카카오 맵 js-->
+    <script src="/agency/js/kakaoMap.js"></script>
+    
+    
+    <script type="text/javascript" src="/js/jquery.min.js?ver=3.6.0"></script>
+<script type="text/javascript" src="/js/popper.min.js?ver=1.16.1"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js?ver=4.6.0"></script>
+<script type="text/javascript" src="/js/smartmenus.min.js?ver=1.1.1"></script>
+<script type="text/javascript" src="/js/smartmenus-bootstrap.min.js?ver=1.1.1"></script>
+<script type="text/javascript" src="/js/swiper.min.js?ver=4.5.3"></script>
+<script type="text/javascript" src="/js/scrollmagic.min.js?ver=2.0.8"></script>
+<script type="text/javascript" src="/js/magnific-popup.min.js?ver=1.1.0"></script>
+<script type="text/javascript" src="/js/custom-theme.js?ver=1.0.0"></script>
+<script src="https://kit.fontawesome.com/8eb5905426.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5a0a025e110dde0902210e297400a7be"></script>
+<script type="text/javascript">
+		var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(${hotel.agencyLat }, ${hotel.agencyLon }),
+			level: 1
+		};
+		
+		var map = new kakao.maps.Map(container, options);
+		
+		// 마커가 표시될 위치입니다 
+		var markerPosition  = new kakao.maps.LatLng(${hotel.agencyLat }, ${hotel.agencyLon }); 
+		
+		// 마커를 생성합니다
+		var marker = new kakao.maps.Marker({
+		    position: markerPosition
+		});
+		
+		// 마커가 지도 위에 표시되도록 설정합니다
+		marker.setMap(map);
+ 
+      $("#filter-search").click(function name(params) {
+        var regex = /[^0-9.;\-]/g;
+        var result = $("#radius").val().replace(regex, "");
+        console.log(result);
+      });
+      
+
+	  $(".siren").click(function(){
+		$(".modal").fadeIn();
+	  });
+	  
+	  $(".close").click(function(){
+	    $(".modal").fadeOut();
+	  });
+	  
+    </script>
+
+ 
+
 
 
 </body>

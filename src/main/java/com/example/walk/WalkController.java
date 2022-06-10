@@ -27,5 +27,13 @@ public class WalkController {
 		return "/walk/walk";
 	}
 	
+	@RequestMapping(value ="myWalk", method=RequestMethod.GET)
+	public String myWalk(WalkVO vo) {
+		
+		
+		
+		return "/walk/myWalk";
+	}
+	
 
 }

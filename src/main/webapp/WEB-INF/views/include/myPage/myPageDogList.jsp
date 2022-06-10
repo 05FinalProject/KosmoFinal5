@@ -140,7 +140,7 @@
 					<!-- 등록된 반려견이 있으면 리스트 형식으로 출력 -->
 					
 						<c:if test="${sessionScope.pets ne null }">
-							<c:forEach var="pet" items="${sessionScope.pets}">
+							<c:forEach var="petList" items="${petList}" varStatus="status">
 								<div class="blog-posts sticky-posts"
 									style="margin-top: 2%; margin-bottom: 2%; border-radius: 25px; border-right-style: solid; border-color: orange;">
 									<div id="post-1" class="post type-post post-1 card post-card"
@@ -148,33 +148,33 @@
 										<div class="row">
 											<div class="col-md-3 mx-auto" style="margin: 1%;">
 												<img class="card-img"
-													src="../img/petImg/${img.realImgName}" alt="Post"
+													src="/img/petImg/${petImg[status.index].petNum }" alt="Post"
 													style="width: 250px; height: 250px; border-radius: 50%;">
 											</div>
 											<div class="col-md-6 mr-auto">
 												<div
 													class="card-body h-100 d-flex align-items-start flex-column">
 													<h3 class="post-title card-title">
-														<a href="/include/myPage/myPageDogDetail?petNum=${pet.petNum }">${pet.petName}</a>
+														<a href="/include/myPage/myPageDogDetail?petNum=${petList.petNum }">${petList.petName}</a>
 													</h3>
 													<p class="post-text card-text">
 													<table>
 														<tr>
 															<th>견종 :</th>
-															<th>${pet.petVariety}</th>
+															<th>${petList.petVariety}</th>
 														</tr>
 														<tr>
 															<th>성별 :</th>
-															<th>${pet.petGender}</th>
+															<th>${petList.petGender}</th>
 														</tr>
 														<tr>
 															<th>나이 :</th>
-															<th>${pet.petAge}세</th>
+															<th>${petList.petAge}세</th>
 														</tr>
 														<tr>
 															<th>중성화 :</th>
 															<th>&nbsp; <c:choose>
-																	<c:when test="${pet.petNeutering == 'Y'}">
+																	<c:when test="${petList.petNeutering == 'Y'}">
 															했어요
 															</c:when>
 																	<c:otherwise>

@@ -19,6 +19,10 @@ public interface AgencyRepository extends CrudRepository<AgencyVO, Integer>{
 	
 	//public List<AgencyVO> findByACategoryNum(int aCategoryNum);
 	
+	//지도~
+	@Query(value="SELECT a_name, a_lat, a_lon FROM agency WHERE a_category_num = :number", nativeQuery = true)
+	public List<Object[]> mapList(Integer number);
+	
 	//***************************관리자 페이징 처리********************************
 	//시설 페이징 처리(호텔)
 	@Query("SELECT count(a) as count FROM AgencyVO a WHERE a.agencyCategoryNum = 1")

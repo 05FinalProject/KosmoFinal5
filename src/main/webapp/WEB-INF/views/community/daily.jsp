@@ -112,20 +112,20 @@
 						<div class="blog-grid-col col-12 col-md-6 col-lg-3">
 							<div id="post-1"
 								 class="post type-post post-1 card post-card post-grid-card h-100">
-								<a class="infoLink">
 									<a href="/community/dailyDetail?communityNum=${community.communityNum }">
+									<!-- 이미지 크기 : 530x400 -->
 									<img class="card-img-top img-fluid"
-										 src="../../pictures/placeholder/530x400.svg" alt="Post"></a>
+										 src="/img/communityImg/${community.communityImg}" alt="Post"></a>
 								<div class="card-body">
 									<ul class="post-meta">
-										<li><a href="/community/dailyDetail/${community.communityNum }">${community.communityInsertdate }</a></li>
+										<li><a href="/community/dailyDetail?communityNum=${community.communityNum }">${community.communityInsertdate }</a></li>
 									</ul>
 									<span><img class="siren" src="../../img/siren.png"></span>
 									<h5 class="post-title card-title" id="post-title">
 										<a href="/community/dailyDetail?communityNum=${community.communityNum }">${community.communityTitle }</a>
 									</h5>
 									<div class="post-text card-text">
-										<p class="post-text card-text">${community.user.userNickname }</p>
+										<p class="post-text card-text">${community.userNickname }</p>
 									</div>
 									<div class="comment-img">
 											<span><img class="emptyHeart"

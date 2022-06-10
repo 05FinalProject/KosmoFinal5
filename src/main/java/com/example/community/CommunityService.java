@@ -1,5 +1,6 @@
 package com.example.community;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.data.domain.Pageable;
@@ -23,7 +24,7 @@ public interface CommunityService {
 	
 	//**************************************************************
 	//일상공유 게시글 페이지 처리
-	public List<CommunityVO> getCommunityPaging(Pageable paging);
+	public List<HashMap<String, Object>> getCommunityPaging(Pageable paging);
 	
 	public int countCommunityRecord();
 	//**************************************************************
@@ -54,4 +55,7 @@ public interface CommunityService {
 	
 	//게시글 좋아요
 	public void likeIt(CommunityVO communityVo, UserVO userVo);
+	
+	//게시글 썸네일 띄우기
+	public List<HashMap<String, Object>> getThumbnail(CommunityVO community);
 }
