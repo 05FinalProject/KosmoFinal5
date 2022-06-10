@@ -233,7 +233,7 @@
 			type:'get',
 			success:function(){
 				alert('요창을 발송하였습니다.')
-				$('#list').remove($(this))
+				location.reload()
 			}
 		})
 	})

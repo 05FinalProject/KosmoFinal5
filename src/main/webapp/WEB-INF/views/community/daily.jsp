@@ -137,19 +137,7 @@
 										<div class="post-text card-text">
 											<p class="post-text card-text">${community.userNickname }</p>
 										</div>
-										<div class="comment-img">
-											<c:if test="${not empty sessionScope.userEmail }">
-											<c:choose>
-												<c:when test="${community.likeState eq 0 }" >
-													<span><i class="heart-click fa-regular fa-heart" style="color:red;"></i></span>												
-												</c:when>
-												<c:otherwise>
-													<span><i class=" heart-click fa-solid fa-heart" style="color:red;"></i></span>												
-												</c:otherwise>
-											</c:choose>
-											</c:if>
-											<span><i class="fa-regular fa-comment-dots"></i></span>
-										</div>
+										
 									</div>
 
 								</div>
@@ -194,14 +182,8 @@
 			$(this).children("form").submit()
 		})
 		
-		
-		$(function(){
-			$('.heart-click').click(function(){
-				alert('눌림')
-				
-			})
-			
-		});
+
+
 	</script>
 
 </body>

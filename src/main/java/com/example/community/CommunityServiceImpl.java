@@ -192,12 +192,16 @@ public class CommunityServiceImpl implements CommunityService {
 	
 	//게시글 좋아요
 	public void likeIt(Integer communityNum, String userEmail) {
+		System.out.println("좋아요 서비스 임플");
+		
 		CommunityVO cvo = new CommunityVO();
 		UserVO uvo = new UserVO();
 		
 							//select
 		cvo = communityRepo.findById(communityNum).get();
+		System.out.println(cvo);
 		uvo = userRepo.findById(userEmail).get();
+		System.out.println(uvo);
 		LikeItVO likeItVo = likeItRepo.findByCommunityAndUser(cvo, uvo);
 		
 		/* 1select를 해서 담긴 변수 필요(a) 3if a가 데이터가 있으면 좋아요가 눌렸다는 뜻으로 상태변경 해줘야 함
