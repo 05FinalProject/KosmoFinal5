@@ -117,99 +117,87 @@
 			<div class="row">
 				<div class="col-9 mx-auto">
 
-					<!-- 등록된 반려견이 없으면 출력 -->
-					<c:if test="${sessionScope.pets eq null }">
-						<div class="blog-posts sticky-posts"
-							style="margin-top: 2%; margin-bottom: 2%; border-radius: 25px; border-right-style: solid; border-color: orange;">
-							<div id="post-1" class="post type-post post-1 card post-card"
-								style="border-radius: 25px;">
-								<div class="row">
-									<div class="col-md-6 mr-auto">
-										<div
-											class="card-body h-100 d-flex align-items-center flex-column">
-											<h3>
-												<a href="myPageDogAdd">등록된 정보가 없습니다.(클릭)</a>
-											</h3>
+						<c:forEach var="pet" items="${paging}">
+							<div class="blog-posts sticky-posts"
+								style="margin-top: 2%; margin-bottom: 2%; border-radius: 25px; border-right-style: solid; border-color: orange;">
+								<div id="post-1" class="post type-post post-1 card post-card"
+									style="border-radius: 25px;">
+									<div class="row">
+										<div class="col-md-3 mx-auto" style="margin: 1%;">
+											<img class="card-img"
+												src="/img/petImg/${pet.petImg }" alt="Post"
+												style="width: 250px; height: 250px; border-radius: 50%;">
 										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</c:if>
-
-					<!-- 등록된 반려견이 있으면 리스트 형식으로 출력 -->
-					
-						<c:if test="${sessionScope.pets ne null }">
-							<c:forEach var="petList" items="${petList}" varStatus="status">
-								<div class="blog-posts sticky-posts"
-									style="margin-top: 2%; margin-bottom: 2%; border-radius: 25px; border-right-style: solid; border-color: orange;">
-									<div id="post-1" class="post type-post post-1 card post-card"
-										style="border-radius: 25px;">
-										<div class="row">
-											<div class="col-md-3 mx-auto" style="margin: 1%;">
-												<img class="card-img"
-													src="/img/petImg/${petImg[status.index].petNum }" alt="Post"
-													style="width: 250px; height: 250px; border-radius: 50%;">
-											</div>
-											<div class="col-md-6 mr-auto">
-												<div
-													class="card-body h-100 d-flex align-items-start flex-column">
-													<h3 class="post-title card-title">
-														<a href="/include/myPage/myPageDogDetail?petNum=${petList.petNum }">${petList.petName}</a>
-													</h3>
-													<p class="post-text card-text">
-													<table>
-														<tr>
-															<th>견종 :</th>
-															<th>${petList.petVariety}</th>
-														</tr>
-														<tr>
-															<th>성별 :</th>
-															<th>${petList.petGender}</th>
-														</tr>
-														<tr>
-															<th>나이 :</th>
-															<th>${petList.petAge}세</th>
-														</tr>
-														<tr>
-															<th>중성화 :</th>
-															<th>&nbsp; <c:choose>
-																	<c:when test="${petList.petNeutering == 'Y'}">
+										<div class="col-md-6 mr-auto">
+											<div
+												class="card-body h-100 d-flex align-items-start flex-column">
+												<h3 class="post-title card-title">
+													<a
+														href="/include/myPage/myPageDogDetail?petNum=${pet.petNum }">${pet.petName}</a>
+												</h3>
+												<p class="post-text card-text">
+												<table>
+													<tr>
+														<th>견종 :</th>
+														<th>${pet.petVariety}</th>
+													</tr>
+													<tr>
+														<th>성별 :</th>
+														<th>${pet.petGender}</th>
+													</tr>
+													<tr>
+														<th>나이 :</th>
+														<th>${pet.petAge}세</th>
+													</tr>
+													<tr>
+														<th>중성화 :</th>
+														<th>&nbsp; <c:choose>
+																<c:when test="${pet.petNeutering == 'Y'}">
 															했어요
 															</c:when>
-																	<c:otherwise>
+																<c:otherwise>
 															안했어요
 															</c:otherwise>
-																</c:choose>
+															</c:choose>
 
-															</th>
-														</tr>
-													</table>
-													</p>
-													<div
-														class="d-flex justify-content-between align-items-center post-meta mt-auto w-100">
-														<a href="myPageDogDelete"
-															class="more-link card-link d-flex align-items-center">
-															삭제 <i class="lana-icon-arrow-right text-primary"></i>
-														</a>
-													</div>
+														</th>
+													</tr>
+												</table>
+												</p>
+												<div
+													class="d-flex justify-content-between align-items-center post-meta mt-auto w-100">
+													<a href="myPageDogDelete"
+														class="more-link card-link d-flex align-items-center">
+														삭제 <i class="lana-icon-arrow-right text-primary"></i>
+													</a>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-							</c:forEach>
-							
-							<div
-								class="d-flex justify-content-end align-items-center post-meta w-100">
-								<a href="myPageDogAdd"
-									class="more-link card-link d-flex align-items-center"> 추가
-									등록 &nbsp; <i class="lana-icon-arrow-right text-primary"></i>
-								</a>
 							</div>
-							
-						</c:if>
-					
+						</c:forEach>
+
+						<div
+							class="d-flex justify-content-end align-items-center post-meta w-100">
+							<a href="myPageDogAdd"
+								class="more-link card-link d-flex align-items-center"> 추가 등록
+								&nbsp; <i class="lana-icon-arrow-right text-primary"></i>
+							</a>
+						</div>
+
+						<nav class="pagination" role="navigation">
+
+							<div class="nav-links">
+								<c:set var="recordsCnt" value="${count}" />
+								<c:set var="jspFile" value="daily?" />
+								<c:set var="perpage" value="8" />
+							</div>
+
+							<!-- include 페이징  jsp파일  -->
+							<%@include file="../../include/paging.jsp"%>
+						</nav>
+
 				</div>
 			</div>
 		</main>

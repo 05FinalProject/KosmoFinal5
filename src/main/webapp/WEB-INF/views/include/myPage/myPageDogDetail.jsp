@@ -137,7 +137,7 @@
           <div class="row" style="margin-top:5%;">
             <div class="col-12 col-sm-7">
               <div class="col-10 mx-auto my-auto">
-                <img src="${pet.img. }" class="product-image" alt="Product Image">
+                <img src="/img/petImg/${img.petImg }" class="product-image" alt="Product Image">
               </div>
             </div>
             <div class="col-12 col-sm-5">
@@ -160,7 +160,12 @@
                     <label class="btn btn-default text-center active">
                       ${pet.petGender }
                       <br>
+                      <c:if test="${pet.petGender eq '남아' }">
                       <i class="fas fa-user fa text-blue"></i>
+                      </c:if>
+                      <c:if test="${pet.petGender ne '남아' }">
+                      <i class="fas fa-user fa text-red"></i>
+                      </c:if>
                     </label>
                     
                     </th>
@@ -177,14 +182,14 @@
                       <i class="fas fa-dot-circle fa text-green"></i>
                     </label>
                     </c:if>
-                  	
-                  	<c:if test="${pet.petGender eq 'N'}">
-                  	<label class="btn btn-default text-center">
+					<c:if test="${pet.petNeutering ne 'Y'}">
+                    <label class="btn btn-default text-center active">
                       안했어요
                       <br>
-                      <i class="fas fa-times-circle fa text-orange"></i>
+                      <i class="fas fa-dot-circle fa text-yellow"></i>
                     </label>
                     </c:if>
+
                     
                     </th>
                     
