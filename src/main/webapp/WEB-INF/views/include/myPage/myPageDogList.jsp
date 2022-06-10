@@ -151,16 +151,7 @@
 													</tr>
 													<tr>
 														<th>중성화 :</th>
-														<th>&nbsp; <c:choose>
-																<c:when test="${pet.petNeutering == 'Y'}">
-															했어요
-															</c:when>
-																<c:otherwise>
-															안했어요
-															</c:otherwise>
-															</c:choose>
-
-														</th>
+														<th>&nbsp;${pet.petNeutering}</th>
 													</tr>
 												</table>
 												</p>
@@ -190,8 +181,8 @@
 
 							<div class="nav-links">
 								<c:set var="recordsCnt" value="${count}" />
-								<c:set var="jspFile" value="daily?" />
-								<c:set var="perpage" value="8" />
+								<c:set var="jspFile" value="myPageDogList?" />
+								<c:set var="perpage" value="3" />
 							</div>
 
 							<!-- include 페이징  jsp파일  -->
