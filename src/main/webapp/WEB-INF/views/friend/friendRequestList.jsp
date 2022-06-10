@@ -67,114 +67,29 @@
 			</div>
 
 			<!-- 친구차단 리스트 -->
+			<c:forEach items="${friendRequestList }" var="vo">
 			<div class="boxbox">
 				<div class="item d-flex justify-content-between align-items-center">
 					<div class="figure">
 						<a href="my-profile.html"><img
-							src="/community/images/user/user-55.jpg" class="rounded-circle"
+							src="/${vo.img }" class="rounded-circle"
 							alt="image"></a>
 					</div>
 					<div class="text">
 						<h4>
-							<a href="my-profile.html">닉네임</a>
+							<a href="my-profile.html">${vo.user1.userNickname}</a>
 						</h4>
 
 
 					</div>
 					<div class="icon">
-						<a href="#" style="color:#20C997;"><i class="fa-regular fa-circle-check"></i></a> 
-						<a href="#"> <i class="fa-regular fa-circle-xmark"></i></a>
+						<a class="agree" style="color:#20C997;" userEmail="${vo.user1.userEmail }"><i class="fa-regular fa-circle-check"></i></a> 
+						<a class="refuse" userEmail="${vo.user1.userEmail }" > <i class="fa-regular fa-circle-xmark"></i></a>
 					</div>
 				</div>
 			</div>
 			
-				<!-- 친구차단 리스트 -->
-			<div class="boxbox">
-				<div class="item d-flex justify-content-between align-items-center">
-					<div class="figure">
-						<a href="my-profile.html"><img
-							src="/community/images/user/user-55.jpg" class="rounded-circle"
-							alt="image"></a>
-					</div>
-					<div class="text">
-						<h4>
-							<a href="my-profile.html">닉네임</a>
-						</h4>
-
-
-					</div>
-					<div class="icon">
-						<a href="#" style="color:#20C997;"><i class="fa-regular fa-circle-check"></i></a> 
-						<a href="#"> <i class="fa-regular fa-circle-xmark"></i></a>
-					</div>
-				</div>
-			</div>
-			
-				<!-- 친구차단 리스트 -->
-			<div class="boxbox">
-				<div class="item d-flex justify-content-between align-items-center">
-					<div class="figure">
-						<a href="my-profile.html"><img
-							src="/community/images/user/user-55.jpg" class="rounded-circle"
-							alt="image"></a>
-					</div>
-					<div class="text">
-						<h4>
-							<a href="my-profile.html">닉네임</a>
-						</h4>
-
-
-					</div>
-					<div class="icon">
-						<a href="#" style="color:#20C997;"><i class="fa-regular fa-circle-check"></i></a> 
-						<a href="#"> <i class="fa-regular fa-circle-xmark"></i></a>
-					</div>
-				</div>
-			</div>
-			
-				<!-- 친구차단 리스트 -->
-			<div class="boxbox">
-				<div class="item d-flex justify-content-between align-items-center">
-					<div class="figure">
-						<a href="my-profile.html"><img
-							src="/community/images/user/user-55.jpg" class="rounded-circle"
-							alt="image"></a>
-					</div>
-					<div class="text">
-						<h4>
-							<a href="my-profile.html">닉네임</a>
-						</h4>
-
-
-					</div>
-					<div class="icon">
-						<a href="#" style="color:#20C997;"><i class="fa-regular fa-circle-check"></i></a> 
-						<a href="#"> <i class="fa-regular fa-circle-xmark"></i></a>
-					</div>
-				</div>
-			</div>
-			
-				<!-- 친구차단 리스트 -->
-			<div class="boxbox">
-				<div class="item d-flex justify-content-between align-items-center">
-					<div class="figure">
-						<a href="my-profile.html"><img
-							src="/community/images/user/user-55.jpg" class="rounded-circle"
-							alt="image"></a>
-					</div>
-					<div class="text">
-						<h4>
-							<a href="my-profile.html">닉네임</a>
-						</h4>
-
-
-					</div>
-					<div class="icon">
-						<a href="#" style="color:#20C997;"><i class="fa-regular fa-circle-check"></i></a> 
-						<a href="#"> <i class="fa-regular fa-circle-xmark"></i></a>
-					</div>
-				</div>
-			</div>
+			</c:forEach>
 			
 			
 			
@@ -184,20 +99,7 @@
 			<nav
 				class="navigation pagination justify-content-between bg-transparent text-uppercase"
 				role="navigation">
-				<a class="prev disabled" href="#"> Prev </a>
-				<div class="nav-links">
-					<ul class="page-numbers">
-						<li><span aria-current="page" class="page-numbers current">1</span></li>
-						<li><a class="page-numbers" href="#">2</a></li>
-						<li><a class="page-numbers" href="#">3</a></li>
-						<li><a class="page-numbers" href="#">4</a></li>
-						<li><a class="page-numbers" href="#">5</a></li>
-						<li><a class="page-numbers" href="#">6</a></li>
-						<li><a class="page-numbers" href="#">7</a></li>
-						<li><a class="page-numbers" href="#">8</a></li>
-					</ul>
-				</div>
-				<a class="next" href="#"> Next </a>
+				
 			</nav>
 		</div>
 
@@ -216,4 +118,31 @@
 <script src="/community/js/owl.carousel.min.js"></script>
 <script src="/community/js/wow.min.js"></script>
 <script src="/community/js/main.js"></script>
+<script type="text/javascript">
+	$('.agree').click(function(){
+		
+		$.ajax({
+			url:'/api/complet',
+			data:{userEmail:$(this).attr('userEmail'),
+				message:'agree'},
+			type:'get',
+			success:function(){
+				location.reload()
+			}
+		})
+	})
+	
+	$('.refuse').click(function(){
+		
+		$.ajax({
+			url:'/api/complet',
+			data:{userEmail:$(this).attr('userEmail'),
+				message:'refuse'},
+			type:'get',
+			success:function(){
+				location.reload()
+			}
+		})
+	})
+</script>
 </html>
