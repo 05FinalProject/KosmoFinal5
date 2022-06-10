@@ -137,19 +137,7 @@
 										<div class="post-text card-text">
 											<p class="post-text card-text">${community.userNickname }</p>
 										</div>
-										<div class="comment-img">
-											<c:if test="${not empty sessionScope.userEmail }">
-											<c:choose>
-												<c:when test="${community.likeState eq 0 }" >
-													<span><i class="heart-click fa-regular fa-heart" style="color:red;"></i></span>												
-												</c:when>
-												<c:otherwise>
-													<span><i class=" heart-click fa-solid fa-heart" style="color:red;"></i></span>												
-												</c:otherwise>
-											</c:choose>
-											</c:if>
-											<span><i class="fa-regular fa-comment-dots"></i></span>
-										</div>
+										
 									</div>
 
 								</div>
@@ -194,31 +182,7 @@
 			$(this).children("form").submit()
 		})
 		
-			    /* **************************************** 좋아요 버튼 ************************************ */
-		$(function(){
-			$('.heart-click').click(function(){
-				alert('눌림')
-		 		$.ajax({
-					url : '/community/daily', // url로 변경 ( 홈페이지 주소로 뒤에는 RequestMapping의 값을)
-					type : 'post',
-					/* contentType : 'application/x-www-form-urlencoded;charset=utf-8', 
-					 data : {
-						communityNum: ${community.communityNum }
-						
-						
-					},
-					success : function(data) {
-						if(data == 0) {
-							alert("좋아요 실패")
-						} else {
-							
-							alert("좋아요 성공")
-						}
-					}
-				});  
-			})
-			
-		});
+
 
 	</script>
 
