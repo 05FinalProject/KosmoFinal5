@@ -126,7 +126,7 @@
 									<div id="communityImgList">
 										<a
 											href="/community/dailyDetail?communityNum=${community.communityNum }">
-											<!-- 이미지 크기  --> <img class="card-img-top img-fluid"
+											 <img class="card-img-top img-fluid"
 											src="/img/communityImg/${community.communityImg}" alt="Post">
 										</a>
 									</div>
@@ -135,7 +135,7 @@
 											<li><a
 												href="/community/dailyDetail?communityNum=${community.communityNum }">${community.communityInsertdate }</a></li>
 										</ul>
-										<span><img class="siren" src="../../img/siren.png"></span>
+										
 										<h5 class="post-title card-title" id="post-title">
 											<a
 												href="/community/dailyDetail?communityNum=${community.communityNum }">${community.communityTitle }</a>
