@@ -272,4 +272,13 @@ public class ChatingServiceImpl implements ChatingService {
 		return list ;
 	}
 	
+	public void friendRequest(String email1 , String email2) {
+		
+		FriendVO vo = new FriendVO();
+		vo.setUser1(usr.findById(email1).get());
+		vo.setUser2(usr.findById(email2).get());
+		vo.setUserSign("2");
+		fri.save(vo);
+	}
+	
 }

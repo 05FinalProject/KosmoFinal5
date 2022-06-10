@@ -30,7 +30,7 @@ public interface UserRepository extends CrudRepository<UserVO, String>{
 			+ "where user_email=:email or user_email1=:email\r\n"
 			+ ")  and  user_email not in(select user_email1\r\n"
 			+ "from friend\r\n"
-			+ "where user_email=:email or user_email1=:email\r\n"
+			+ "where user_email=:email or user_email=:email\r\n"
 			+ ")\r\n"
 			+ "order by rand() limit 18;" ,nativeQuery = true)
 	List<Object[]> getRandomUsers(String email);
