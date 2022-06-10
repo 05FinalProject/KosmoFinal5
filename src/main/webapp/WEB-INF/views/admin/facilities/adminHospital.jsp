@@ -200,6 +200,7 @@
 																	<button type="button" class="btn btn-secondary m-2 btn-danger"
 																			id="btnCancle" data-dismiss="modal" onclick="location.href='/adminHotel'">취소</button>
 																</div>
+
 															</div>
 														</form>
 													</div>
@@ -290,6 +291,16 @@
 		$('#facilities').addClass('menu-is-opening')
 		$('#facilities').addClass('menu-open')
 		$('#hospital').addClass('active')
+
+		$(function(){
+			var page = '${param.page}'
+			$('.pagination').find('li').each(function(){
+				if(page == $(this).find('a').text()){
+					$(this).addClass('active')
+				}
+				//console.log(e.text())
+			})
+		})
 	</script>
 	<script
 		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

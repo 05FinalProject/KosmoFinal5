@@ -227,7 +227,7 @@
 						<ul class="pagination justify-content-center m-0">
 							<c:set var="recordsCnt" value="${count}" />
 							<c:set var="jspFile" value="adminHotel?" />
-							<c:set var="perpage" value="9" />
+							<c:set var="perpage" value="9"/>
 						</ul>
 						<%@include file="paging.jsp"%>
 					</nav>
