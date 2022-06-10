@@ -175,9 +175,18 @@
 										<input type="hidden" value="${sessionScope.userEmail }" name="userEmail" />
 									</form>
 									<div class="dropdown-divider"></div>
+									<c:choose>
+									<c:when test="${friendRequest != 0}">
 									<a href="/friend/friendRequestList" class="dropdown-item"> <i
 										class="fas fa-users mr-2"></i> <label id="friendRequests">${friendRequest}</label> friend requests
 									</a>
+									</c:when>
+									<c:otherwise>
+									<a href="/friend/friendRequestList" class="dropdown-item"> <i
+										class="fas fa-users mr-2"></i> <label id="friendRequests">0</label> friend requests
+									</a>
+									</c:otherwise>
+									</c:choose>
 									</c:if>
 									
 								</div></li>

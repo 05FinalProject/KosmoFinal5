@@ -123,5 +123,10 @@ public class ApiController {
 		
 	}
 	
-	
+	//
+	@RequestMapping("/complet")
+	public void complet(UserVO vo,HttpSession session) {
+		String userEmail = session.getAttribute("userEmail").toString();
+		service.complet(vo,userEmail);
+	}
 }
