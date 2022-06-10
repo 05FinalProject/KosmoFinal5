@@ -138,13 +138,16 @@
 											<p class="post-text card-text">${community.userNickname }</p>
 										</div>
 										<div class="comment-img">
+											<c:if test="${not empty sessionScope.userEmail }">
 											<c:choose>
-												<!-- 로그인 상태일 때 하트 클릭 가능 -->
-												<c:when test="${not empty sessionScope.userEmail }">
+												<c:when test="${community.likeState eq 0 }" >
 													<span><i class="heart-click fa-regular fa-heart" style="color:red;"></i></span>												
 												</c:when>
-												<span><i class=" heart-click fa-solid fa-heart" style="color:red;"></i></span>
+												<c:otherwise>
+													<span><i class=" heart-click fa-solid fa-heart" style="color:red;"></i></span>												
+												</c:otherwise>
 											</c:choose>
+											</c:if>
 											<span><i class="fa-regular fa-comment-dots"></i></span>
 										</div>
 									</div>
@@ -157,11 +160,10 @@
 
 					<nav class="pagination" role="navigation">
 
-						<div class="nav-links">
 							<c:set var="recordsCnt" value="${count}" />
 							<c:set var="jspFile" value="daily?" />
 							<c:set var="perpage" value="8" />
-						</div>
+						
 
 						<!-- include 페이징  jsp파일  -->
 						<%@include file="../include/paging.jsp"%>
@@ -191,6 +193,15 @@
 		$('.infoLink').click(function() {
 			$(this).children("form").submit()
 		})
+		
+		
+		$(function(){
+			$('.heart-click').click(function(){
+				alert('눌림')
+				
+			})
+			
+		});
 	</script>
 
 </body>

@@ -20,6 +20,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import com.example.domain.ImgVO;
 import com.example.domain.UserVO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
@@ -54,10 +55,10 @@ public class CommunityVO {
 	@JoinColumn(name = "user_email")
 	private UserVO user;
 	
-	/*
-	 * 
-	 * private List<ImgVO> imgList;
-	 */
+//	 @JsonIgnore
+//	 @OneToMany
+//	 private List<ImgVO> imgList;
+	 
 	
 	@Transient
 	private int page;

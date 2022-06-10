@@ -14,9 +14,10 @@ public class CommunityRestController {
 
 	// 게시글 좋아요
 	@RequestMapping(value = "/fullHeart", method = RequestMethod.POST)
-	public boolean likeIt(Integer communityNum, String userEmail, Integer likeNum, Integer likeState) {
-		c_service.likeIt(communityNum, userEmail, likeNum, likeState);
-		return true;
+	public String likeIt(Integer communityNum, String userEmail) {
+		c_service.likeIt(communityNum, userEmail);
+		return "yes";
 	}
 
+	
 }

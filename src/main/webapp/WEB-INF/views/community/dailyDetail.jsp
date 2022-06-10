@@ -285,111 +285,17 @@
 <%@include file="../include/Header.jsp" %>
 
 <body>
+
 	<div id="total">
 		<form method="post">
 			<input name="communityNum" type="hidden"
-				value="${community.communityNum }">
+				value="1">
 			<div class="row justify-content-center">
 				<div class="col-lg-6 col-md-12">
 					<div class="pet-details-image">
-						<!-- 사용자가 첨부한 이미지 들어오는 자리 -->
-						<%-- <c:forEach items="${imgList}" var="img">
-							<img src="/img/communityImg/${img.realImgName}">
-						</c:forEach> --%>
-
-
-						<!-- ****************************** 이미지 슬라이더 시작 *********************************** -->
-						<%-- <div class="listing__details__gallery__pic">
-
-							<div class="listing__details__gallery__slider owl-carousel">
-								<c:forEach items="${fromReviewRealFname}" var="fromReviewRealFname">
-								<c:forEach items="${imgList}" var="img">
-									<c:choose>
-										<c:when test="${ fromReviewRealFname.REVIEWREALFNAME != '0' }">
-										<c:when test="${ img.realImgName != null }">
-											<img data-imgbigurl="./resources/reviewUpload/${fromReviewRealFname.REVIEWREALFNAME }" src="./resources/reviewUpload/${fromReviewRealFname.REVIEWREALFNAME }" 
-											width="100%" height="160px" alt="">
-											<img data-imgbigurl="/img/communityImg/${img.realImgName}"
-												src="/img/communityImg/${img.realImgName}" width="100%"
-												height="160px" alt="">
-										</c:when>
-										<c:otherwise>
-											<c:if test="${fromReviewRealFname.REVIEWREALFNAME == '0' }">
-											<c:if test="${img.realImgName == null }">
-												<img data-imgbigurl="/img/communityImg/no_image.png"
-													src="/img/communityImg/no_image.png" width="100%"
-													height="160px" alt="">
-											</c:if>
-										</c:otherwise>
-
-									</c:choose>
-								</c:forEach>
-							</div>
-						</div>
-						<c:choose>
-							<c:when test="${ reviewInfo.REVIEWNUMBER != '0'  }">
-							<c:when test="${ community.communityNum != null  }">
-
-								<div class="listing__details__comment">
-									<div class="listing__details__comment__item">
-										<div class="listing__details__comment__item__pic">
-											<input type="hidden" name="reviewNumber" value="${reviewInfo.REVIEWNUMBER }">
-											<input type="hidden" name="communityNum"
-												value="${community.communityNum }">
-
-
-											<c:forEach items="${ProfileRealFname }" var="ProfileRealFname">
-											<c:forEach items="${imgList }" var="img2">
-
-												<c:choose>
-													<c:when test="${ProfileRealFname.REVIEWNUMBER eq reviewInfo.REVIEWNUMBER }">
-													<c:when
-														test="${img2.community.communityNum eq community.communityNum }">
-																												<img src="./resources/upload/${ProfileRealFname.MEMBERREALFNAME }" alt="">													
-														<img src="/img/communityImg/${img2.realImgName}" alt="">
-
-
-													</c:when>
-												</c:choose>
-											</c:forEach>
-
-										</div>
-										<div class="listing__details__comment__item__text">
-																						<c:set var="email" value="${sessionScope.logemail}" />
-											<c:set var="communityNum" value="${community.communityNum}"></c:set>
-											<c:forEach items="${imgList }" var="img3">
-												<c:choose>
-
-																									<c:when	test="${sessionScope.logemail eq reviewInfo.MEMBEREMAIL}">
-													<c:when
-														test="${community.communityNum eq img3.community.communityNum}">
-																											<c:if test="${reviewInfo.REVIEWREALFNAME ne '0' }">
-														<c:if test="${img.realImgName != null}">
-																													<img class="imgClass" width="180" height="120" src="./resources/reviewUpload/${reviewInfo.REVIEWREALFNAME }">
-															<img class="imgClass" width="180" height="120"
-																src="/img/communityImg/${img3.realImgName}">
-
-														</c:if>
-														<c:if test="${img.realImgName == null }">
-															<img width="180" height="120"
-																src="/img/communityImg/no_image.png">
-
-														</c:if>
-													</c:when>
-												</c:choose>
-											</c:forEach>
-										</div>
-									</div>
-								</div>
-
-							</c:when>
-
-						</c:choose> --%>
-
-
 						<div id="wrap">
 							<ul class="slider">
-								<c:forEach items="${community.imgList}" var="img">
+								<c:forEach items="${community}" var="img">
 									<li><a href="#"><img
 											src="/img/communityImg/${img.realImgName}" width="500px"></a></li>
 								</c:forEach>
@@ -410,12 +316,12 @@
                 <div class="products-details-content">
                     <div id="userProfile" class="container">
                         <div class="item" id="communityTitle">
-                            <h3 class="beforeUpdate">${community.communityTitle }</h3>
+                            <h3 class="beforeUpdate">${community[0].community.communityTitle}</h3>
                             <input type="text" class="updateInput" name="communityTitle"
-                                   value="${community.communityTitle }"/>
+                                   value="${community[0].community.communityTitle}"/>
                         </div>
                         <div class="item">
-                            <h3>${community.user.userNickname }</h3>
+                            <h3>${community[0].community.user.userNickname}</h3>
                         </div>
                         <div class="item" id="fa-user-plus">
                             <a><i class="fa-solid fa-user-plus"></i></a>
@@ -428,18 +334,18 @@
                     <hr>
 
                     <div>
-                        <div class="communityContent beforeUpdate">${community.communityContent }</div>
+                        <div class="communityContent beforeUpdate">${community[0].community.communityContent}</div>
                         <input type="text" class="updateInput" name="communityContent"
-                               value="${community.communityContent }"/>
+                               value="${community[0].community.communityContent}"/>
                         <div id="etc">
                             <div class="container" id="btnbtn">
-                                <span>${community.communityInsertdate }</span>
+                                <span>${community[0].community.communityInsertdate}</span>
 
                                 <button class="item" id="siren">
                                     <img class="siren" src="../../img/siren.png">
                                 </button>
                                 <c:if
-                                        test="${community.user.userNickname eq sessionScope.userNickname }">
+                                        test="${community[0].community.user.userNickname eq sessionScope.userNickname}">
                                         <span><img class="emptyHeart"
 												src="../../img/emptyHeart.png"></span>
                                     <div class="item" id="item1">
@@ -463,8 +369,8 @@
                             <div class="information-content">
                                 <img src="/community/images/user/user-25.jpg"
                                      class="rounded-circle" alt="image">
-                                <h6>${comment.user.userNickname }</h6>
-                                <p>${comment.commentContent }</p>
+                                <h6>${comment.user.userNickname}</h6>
+                                <p>${comment.commentContent}</p>
                             </div>
                             <br/>
                         </div>
@@ -485,7 +391,7 @@
             <div class="input-group input-group-lg">
                 <input type="hidden" name="userEmail"
                        value="${sessionScope.userEmail}"/> <input type="hidden"
-                                                                  name="communityNum" value="${community.communityNum}">
+                                                                  name="communityNum" value="1">
                 <input
                         type="text" name="commentContent"
                         class="form-control bg-transparent border-primary text-uppercase"
@@ -517,12 +423,12 @@
                             <ul>
                                 <li>
                                     <div style="float: left">작성자 :
-                                        ${community.user.userEmail }</div>
+                                        ${community[0].community.user.userEmail }</div>
                                 </li>
                                 <br>
                                 <li>
                                     <div style="float: left; height: 150px;">내용 :
-                                        ${community.communityContent}</div>
+                                        ${community[0].community.communityContent}</div>
                                 </li>
                             </ul>
                         </div>
@@ -532,9 +438,9 @@
                 <div id="water">
                     <form action="/community/reportCommunity" method="post">
                         <input type="hidden" name="communityNum"
-                               value="${community.communityNum}">
+                               value="1">
                         <input type="hidden"
-								name="userEmail" value="${community.user.userEmail}">
+								name="userEmail" value="${community[0].community.user.userEmail}">
                         <div class="form-group">
                             <select name="rReason" class="form-control">
                                 <option value="0">신고 사유 선택</option>
@@ -597,8 +503,8 @@
 	$(document).ready(function() {
 		$(".slider").bxSlider({
 			auto : true,
-			/* adaptiveHeight : true,*/ 
-			/* pagerCustom : '#bx-pager' */
+			 adaptiveHeight : true,
+			pagerCustom : '#bx-pager' 
 		});
 
 	});
@@ -657,7 +563,7 @@
 				.on(
 						'click',
 						function() {
-							var communityNum = "${community.communityNum }"
+							var communityNum = "${community[0].community.communityNum }"
 							if (confirm("삭제하시겠습니까?")) {
 								location.href = "/community/deleteCommunity?communityNum="
 										+ communityNum

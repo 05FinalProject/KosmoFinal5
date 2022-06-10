@@ -61,9 +61,10 @@ public class CommunityServiceImpl implements CommunityService {
 	}
 
 	// 일상공유 페이지 상세보기
-	public CommunityVO getCommunity(CommunityVO vo) {
-		CommunityVO cvo = communityRepo.findById(vo.getCommunityNum()).get();
-		return communityRepo.save(cvo);
+	public List<ImgVO> getCommunity(CommunityVO vo) {
+		List<ImgVO> imgList = imgRepo.findByCommunity(vo);
+		//CommunityVO cvo = communityRepo.findById(vo.getCommunityNum()).get();
+		return imgList;
 	}
 
 	// *******************************************************************
@@ -77,7 +78,10 @@ public class CommunityServiceImpl implements CommunityService {
 			hm.put("communityNum", communityVo.getCommunityNum());
 			hm.put("communityInsertdate", communityVo.getCommunityInsertdate());
 			hm.put("communityTitle", communityVo.getCommunityTitle());
+			
 			hm.put("userNickname", communityVo.getUser().getUserNickname());
+			
+			
 			
 			CommunityVO communityVo2 = new CommunityVO();
 			communityVo2.setCommunityNum(communityVo.getCommunityNum());
@@ -187,10 +191,47 @@ public class CommunityServiceImpl implements CommunityService {
 	}
 	
 	//게시글 좋아요
-	public void likeIt(LikeItVO likeVo) {
-		likeItRepo.findById(communityRepo.findById(communityNum).get());
+	public void likeIt(Integer communityNum, String userEmail) {
+		CommunityVO cvo = new CommunityVO();
+		UserVO uvo = new UserVO();
+		
+							//select
+		cvo = communityRepo.findById(communityNum).get();
+		uvo = userRepo.findById(userEmail).get();
+		LikeItVO likeItVo = likeItRepo.findByCommunityAndUser(cvo, uvo);
+		
+		/* 1select를 해서 담긴 변수 필요(a) 3if a가 데이터가 있으면 좋아요가 눌렸다는 뜻으로 상태변경 해줘야 함
+		 * 									2데이터가 없으면 좋아요가 안 눌렸다는 뜻으로 상태변경 해줘야 함
+		 * 4좋아요를 취소했다가 다시 좋아요를 눌렀을 때 변경된 데이터가 존재하므로 다시 update해줘야 함 */
+		
+		if(likeItVo == null) {
+			LikeItVO lvo = new LikeItVO();
+			lvo.setCommunity(cvo);
+			lvo.setUser(uvo);
+			lvo.setLikeState(1);  //기본값
+			likeItRepo.save(lvo);
+		} else {
+			if (likeItVo.getLikeState()==1) {
+				likeItVo.setLikeState(0);
+				likeItRepo.save(likeItVo);
+			} else {
+				likeItVo.setLikeState(1);
+				likeItRepo.save(likeItVo);
+			}
+		}
+	
 	}
 
+	
+	//게시글 좋아요 상태 검색
+	public Integer likeItList(Integer communityNum, String userEmail) {
+		LikeItVO likeItVo = likeItRepo.findByCommunityAndUser(communityRepo.findById(communityNum).get(), userRepo.findById(userEmail).get());
+		if(likeItVo == null) {
+			return 0;
+		} else {
+			return likeItVo.getLikeState();
+		}
+	}
 	
 	//게시글 썸네일 띄우기
 	public List<HashMap<String, Object>> getThumbnail(CommunityVO communityVo) {
