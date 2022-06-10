@@ -281,4 +281,9 @@ public class ChatingServiceImpl implements ChatingService {
 		fri.save(vo);
 	}
 	
+	//친구요청을 가졌오기
+	public List<FriendVO> getFriendRequests(UserVO vo){
+		return fri.getFriendRequests(vo.getUserEmail());
+	}
+	
 }

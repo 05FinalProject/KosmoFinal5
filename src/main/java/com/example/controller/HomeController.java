@@ -36,6 +36,7 @@ public class HomeController {
 			u = cservice.getUserInfo(session.getAttribute("userEmail").toString());
 			
 			m.addAttribute("unreadMessage", cservice.UnreadMessage(u).size());
+			m.addAttribute("friendRequest", cservice.getFriendRequests(u).size());
 			
 		}
 		

@@ -24,5 +24,10 @@ public interface FriendRepository extends CrudRepository<FriendVO, Integer> {
 			+ "(f.userSign=0 and f.user2.userEmail=:email and f.user1.userEmail like :search)")
 	List<FriendVO> friendSearch(String search , String email);
 	
+	//select * from friend where (user_sign=2 and user_email='abcd1@naver.com') or (user_sign=2 and user_email1='abcd1@naver.com');
+	@Query("SELECT f FROM FriendVO f WHERE (f.userSign=2 and f.user1.userEmail=:userEmail) or (f.userSign=2 and f.user2.userEmail=:userEmail)")
+	List<FriendVO> getFriendRequests(String userEmail);
+	
+	
 	
 }
