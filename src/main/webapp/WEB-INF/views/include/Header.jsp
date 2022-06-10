@@ -164,9 +164,9 @@
 									<small><span class="badge badge-warning navbar-badge">N</span></small>
 							</a>
 								<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-									<span class="dropdown-item dropdown-header">15
-										Notifications</span>
-									<div class="dropdown-divider"></div>
+<!-- 									<span class="dropdown-item dropdown-header">15 -->
+<!-- 										Notifications</span> -->
+<!-- 									<div class="dropdown-divider"></div> -->
 									<a  class="dropdown-item"  id="unreadMessageBtn"> <i
 										class="fas fa-envelope mr-2"></i> <label id="unreadMessage">0</label> new messages
 									</a>
@@ -174,11 +174,12 @@
 									<form id="friendChating" action="/chating/friendChat" method="post">
 										<input type="hidden" value="${sessionScope.userEmail }" name="userEmail" />
 									</form>
-									</c:if>
 									<div class="dropdown-divider"></div>
 									<a href="/friend/friendRequestList" class="dropdown-item"> <i
-										class="fas fa-users mr-2"></i> 8 friend requests
+										class="fas fa-users mr-2"></i> <label id="friendRequests">${friendRequest}</label> friend requests
 									</a>
+									</c:if>
+									
 								</div></li>
 							<!-- 알림 추가 끝 -->
 

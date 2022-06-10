@@ -63,10 +63,10 @@ public class FriendController {
 		if(cnt>18) {
 			cnt=18;
 		} 
-		if(session.getAttribute("userRandom")==null) {
+		
 			
-			session.setAttribute("userRandom", list);
-		}
+		session.setAttribute("userRandom", list);
+		
 		m.addAttribute("count", cnt);
 	}
 	

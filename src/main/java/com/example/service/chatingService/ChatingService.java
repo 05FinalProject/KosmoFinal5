@@ -56,4 +56,6 @@ public interface ChatingService {
 	public List<HashMap<String, Object>> UnreadMessage(UserVO vo);
 	
 	public void friendRequest(String email1 , String email2);
+	
+	public List<FriendVO> getFriendRequests(UserVO vo);
 }
