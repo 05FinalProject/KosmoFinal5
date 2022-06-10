@@ -300,13 +300,13 @@
 											src="/img/communityImg/${img.realImgName}" width="500px"></a></li>
 								</c:forEach>
 							</ul>
-						 	<%-- <div id="bx-pager">
+						 	<div id="bx-pager">
 									<c:set var="img" value="${imgList }"></c:set>
 									<c:forEach items="${imgList }" var="community.img">
 										<a data-slide-index="0" href=""><img src="/img/communityImg/${community.img.realImgName}" /></a>						
 									</c:forEach>								
 
-							</div>  --%>
+							</div>
 						</div>
 						<!-- *************************************** 이미지 슬라이더 끝 ********************************************** -->
 					</div>
@@ -371,6 +371,7 @@
                                      class="rounded-circle" alt="image">
                                 <h6>${comment.user.userNickname}</h6>
                                 <p>${comment.commentContent}</p>
+                                
                             </div>
                             <br/>
                         </div>
@@ -604,6 +605,33 @@
             });
 
 	    })
+	    
+	    
+	    /* **************************************** 좋아요 버튼 ************************************ */
+		$(function(){
+			$('.heart-click').click(function(){
+				alert('눌림')
+				$.ajax({
+					url : '/community/daily', // url로 변경 ( 홈페이지 주소로 뒤에는 RequestMapping의 값을)
+					type : 'post',
+					/* contentType : 'application/x-www-form-urlencoded;charset=utf-8', */
+					data : {
+						communityNum: ${community.communityNum }
+						
+						
+					},
+					success : function(data) {
+						if(data == 0) {
+							alert("좋아요 실패")
+						} else {
+							
+							alert("좋아요 성공")
+						}
+					}
+				});
+			})
+			
+		});
     });
 
 

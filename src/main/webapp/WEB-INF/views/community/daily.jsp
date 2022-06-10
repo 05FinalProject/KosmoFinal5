@@ -194,14 +194,32 @@
 			$(this).children("form").submit()
 		})
 		
-		
+			    /* **************************************** 좋아요 버튼 ************************************ */
 		$(function(){
 			$('.heart-click').click(function(){
 				alert('눌림')
-				
+		 		$.ajax({
+					url : '/community/daily', // url로 변경 ( 홈페이지 주소로 뒤에는 RequestMapping의 값을)
+					type : 'post',
+					/* contentType : 'application/x-www-form-urlencoded;charset=utf-8', 
+					 data : {
+						communityNum: ${community.communityNum }
+						
+						
+					},
+					success : function(data) {
+						if(data == 0) {
+							alert("좋아요 실패")
+						} else {
+							
+							alert("좋아요 성공")
+						}
+					}
+				});  
 			})
 			
 		});
+
 	</script>
 
 </body>
