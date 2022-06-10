@@ -45,7 +45,7 @@ public class CommunityController {
 		Pageable paging = PageRequest.of(page - 1, 8, Sort.Direction.DESC, "communityNum");
 
 		List<HashMap<String, Object>> cvo = c_service.getCommunityPaging(paging);
-		System.out.println( cvo);
+		System.out.println(cvo);
 		List<HashMap<String, Object>> rlist = new ArrayList<HashMap<String, Object>>();
 		
 		//게시글 썸네일 띄우기
@@ -70,9 +70,8 @@ public class CommunityController {
 	}
 
 	// 일상공유 상세보기 페이지
-
 	@RequestMapping(value = "/dailyDetail", method = RequestMethod.GET)
-	public String dailyDetail(CommunityVO vo, Model m) {
+	public String dailyDetail(CommunityVO vo, Model m, HttpSession session) {
 		System.out.println("상세보기 페이지");
 		List<ImgVO> community = c_service.getCommunity(vo);
 		System.out.println(community);
@@ -84,9 +83,11 @@ public class CommunityController {
 		m.addAttribute("commentList", commentList);
 		System.out.println(commentList);
 		
+		//좋아요
+		Integer likeState = c_service.likeItList(vo.getCommunityNum(), (String)session.getAttribute("userEmail"));
+		m.addAttribute("likeState", likeState);
 		
-		
-		
+
 		
 		//일상공유 이미지 리스트
 		//커뮤니티에서 이미지 추출
