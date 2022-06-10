@@ -3,6 +3,7 @@ package com.example.dao;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.domain.PetVO;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -22,7 +23,16 @@ public interface UserRepository extends CrudRepository<UserVO, String>{
 	@Query("SELECT count(user) FROM UserVO user")
 	int getUserCount();
 
-	@Query(value="select user_email,user_nickname from user where user_email !=:email  order by rand() limit 18" ,nativeQuery = true)
+	@Query(value="select user_email,user_nickname\r\n"
+			+ "from user \r\n"
+			+ "where user_email !=:email and user_email not in(select user_email \r\n"
+			+ "from friend\r\n"
+			+ "where user_email=:email or user_email1=:email\r\n"
+			+ ")  and  user_email not in(select user_email1\r\n"
+			+ "from friend\r\n"
+			+ "where user_email=:email or user_email1=:email\r\n"
+			+ ")\r\n"
+			+ "order by rand() limit 18;" ,nativeQuery = true)
 	List<Object[]> getRandomUsers(String email);
 	
 	// 로그인
@@ -41,6 +51,10 @@ public interface UserRepository extends CrudRepository<UserVO, String>{
 	UserVO save(String userEmail, String userPass);
 
 
+	// 반려견 리스트 출력
+	@Query("SELECT pvo FROM PetVO pvo WHERE pvo.petNum=:petNum")
+	PetVO findByPetNum();
+
 	//****************************관리자***********************
 	//대시보드 페이지 총 유저수 출력
 	@Query("SELECT count(uvo) FROM UserVO uvo")
@@ -49,6 +63,8 @@ public interface UserRepository extends CrudRepository<UserVO, String>{
 	UserVO findUserByUserEmail(String userEmail);
 
 
-	
-	 
+	//대시보드 오늘 등록된 회원가입 수 출력
+	//SELECT count(*) FROM user WHERE user_signup = curdate()
+	@Query("SELECT count(u) FROM UserVO u WHERE u.userSignup=current_date")
+	int getSignupCount();
 }

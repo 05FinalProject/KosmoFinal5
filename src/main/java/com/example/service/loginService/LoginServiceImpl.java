@@ -1,19 +1,23 @@
 package com.example.service.loginService;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.example.community.CommunityRepository;
 import com.example.community.CommunityVO;
+import com.example.dao.AgencyRepository;
 import com.example.dao.CommentRepository;
 import com.example.dao.ImgRepository;
 import com.example.dao.LikeItRepository;
 import com.example.dao.PetRepository;
 import com.example.dao.ReviewRepository;
 import com.example.dao.UserRepository;
+import com.example.domain.AgencyVO;
 import com.example.domain.CommentVO;
 import com.example.domain.ImgVO;
 import com.example.domain.LikeItVO;
@@ -28,22 +32,23 @@ public class LoginServiceImpl implements LoginService {
 	private UserRepository user;
 	
 	@Autowired
-	private ImgRepository Img;
+	private ImgRepository img;
 	
 	@Autowired
 	private PetRepository pet;
 
 	@Autowired
-	private CommunityRepository cmR;
+	private CommunityRepository communityR;
 	
 	@Autowired
-	private CommentRepository cr;
+	private CommentRepository commentR;
 	
 	@Autowired
-	private ReviewRepository rv;
+	private ReviewRepository reviewR;
 	
 	@Autowired
-	private LikeItRepository li;
+	private LikeItRepository likeItR;
+	
 	
 	@Override
 	public UserVO findByUserEmail(String userEmail) {
@@ -54,7 +59,7 @@ public class LoginServiceImpl implements LoginService {
 	/* DB에 회원의 사진이 있으면 가져오기 */
 	@Override
 	public ImgVO findBypRimgname(String pRimgname) {
-		return Img.findByUserEmail(pRimgname).get(0);
+		return img.findByUserEmail(pRimgname).get(0);
 	}
 
 	/* DB에 회원의 반려견 리스트 가져오기 */
@@ -63,14 +68,17 @@ public class LoginServiceImpl implements LoginService {
 		return (List<PetVO>) pet.findAll();
 	}
 	
+	/* 마이프로필 - 프로필사진 변경 */
 	@Override
 	public void userImgUpdate(ImgVO ivo) {
-		ImgVO result = Img.findByUserEmail(ivo.getUser().getUserEmail()).get(0);
+		ImgVO result = img.findByUserEmail(ivo.getUser().getUserEmail()).get(0);
 		result.setPImgname(ivo.getPImgname());
 		result.setRealImgName("img/userImg/"+ivo.getRealImgName());
-		Img.save(result);
+		img.save(result);
 	}
 
+	/* 로그인 시 DB 이메일/비밀번호 체크*/
+	@Override
 	public UserVO checkPass(UserVO vo) {
 		return user.checkPass(vo.getUserEmail(),vo.getUserPass());
 	}
@@ -85,59 +93,10 @@ public class LoginServiceImpl implements LoginService {
 	/* 반려견 이미지 등록 */
 	@Override
 	public void insertImgVO(ImgVO ivo) {
-		Img.save(ivo);
+		img.save(ivo);
 		
 	}
-
-	/* 반려견 상세보기 */
-	@Override
-	public PetVO getPetDetail(PetVO pvo) {
-		PetVO pevo = pet.findById(pvo.getPetNum()).get();
-		return pevo;
-	}
-
-	@Override
-	public PetVO petAdd(PetVO pvo) {
-		return null;
-	}
-
-	/* 내가 작성한 글*/
-	@Override
-	public List<CommunityVO> findCommunityList(String userEmail) {
-		UserVO u = user.findById(userEmail).get();
-		return cmR.findByUser(u);
-	}
-
-	/* 내가 작성한 댓글*/
-	@Override
-	public List<CommentVO> findCommentList(String userEmail) {
-		UserVO u = user.findById(userEmail).get();
-		return cr.findByUser(u);
-	}
-
-	/* 내가 작성한 리뷰 */
-	@Override
-	public List<ReviewVO> findByReviewList(String userEmail) {
-		UserVO u = user.findById(userEmail).get();
-		return rv.findByUser(u);
-	}
-
-	/* 내가 좋아요한 글 */
-	@Override
-	public List<CommunityVO> findCommunityByLike(String userEmail) {
-		UserVO u = user.findById(userEmail).get();
-		List<LikeItVO> likeList = li.findByUser(u);
-
-		List<CommunityVO> resultList = new ArrayList<CommunityVO>();
-		
-		for (LikeItVO like : likeList){
-			CommunityVO vo = like.getCommunity();
-			resultList.add(vo);
-		}
-		return resultList;
-	}
-
-
+	
 	/* 반려견 이미지 등록에 써먹는 중*/
 	@Override
 	public PetVO getPetOwnerByUser(String userEmail) {
@@ -153,26 +112,103 @@ public class LoginServiceImpl implements LoginService {
 
 	/* 마이페이지 - 반려견 리스트 */
 	@Override
-	public List<PetVO> findmMyPet(String userEmail) {
-		UserVO u = user.findById(userEmail).get();
-		return pet.findByUser(u);
+	public List<HashMap<String, Object>> getPetListPaging(Pageable paging){
+		List<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+		
+		for(PetVO pvo:pet.findAll(paging)) {
+			HashMap<String, Object> hm = new HashMap<String, Object>();
+			hm.put("petNum", pvo.getPetNum());
+			hm.put("petName",pvo.getPetName());
+			hm.put("petAge", pvo.getPetAge());
+			hm.put("petGender", pvo.getPetGender());
+			hm.put("petVariety", pvo.getPetVariety());
+			hm.put("petNeutering", pvo.getPetNeutering());
+			
+			PetVO pvo2 = new PetVO();
+			pvo2.setPetNum(pvo.getPetNum());
+			System.out.println(pvo2);
+			List<ImgVO> imgList = img.findByPet(pvo2);
+			if(imgList.size() > 0 ) {
+				hm.put("petImg", imgList.get(imgList.size()-1).getRealImgName());
+			}
+			
+			list.add(hm);
+		}
+		return list;
+	}
+	
+	@Override
+	public int countPetRecord() {
+		return pet.countPetRecord();
+	}
+	
+	/* 반려견 상세보기 */
+	@Override
+	public PetVO getPetDetail(PetVO pvo) {
+		PetVO pevo = pet.findById(pvo.getPetNum()).get();
+		return pevo;
 	}
 
-	/* 마이페이지 - 반려견 리스트 사진 */
+	/* ? */
 	@Override
-	public List<PetVO> findmMyPetImg(String userEmail) {
+	public PetVO petAdd(PetVO pvo) {
+		return null;
+	}
+
+
+
+	/* 내가 작성한 글*/
+	@Override
+	public List<CommunityVO> findCommunityList(String userEmail) {
 		UserVO u = user.findById(userEmail).get();
-		List<ImgVO> ImgList = Img.findByUser(u);
+		return communityR.findByUser(u);
+	}
+
+	/* 내가 작성한 댓글*/
+	@Override
+	public List<CommentVO> findCommentList(String userEmail) {
+		UserVO u = user.findById(userEmail).get();
+		return commentR.findByUser(u);
+	}
+
+	/* 내가 작성한 리뷰 */
+	@Override
+	public List<ReviewVO> findByReviewList(String userEmail) {
+		UserVO u = user.findById(userEmail).get();
+		return reviewR.findByUser(u);
+	}
+
+	/* 내가 좋아요한 글 */
+	@Override
+	public List<CommunityVO> findCommunityByLike(String userEmail) {
+		UserVO u = user.findById(userEmail).get();
+		List<LikeItVO> likeList = likeItR.findByUser(u);
+
+		List<CommunityVO> resultList = new ArrayList<CommunityVO>();
 		
-		List<PetVO> resultList = new ArrayList<PetVO>();
-		
-		for (ImgVO Img : ImgList) {
-			PetVO vo = Img.getPet();
+		for (LikeItVO like : likeList){
+			CommunityVO vo = like.getCommunity();
 			resultList.add(vo);
 		}
 		return resultList;
 	}
 
+
+	@Override
+	public List<PetVO> findmMyPet(String userEmail) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public List<PetVO> findmMyPetImg(String userEmail) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	
 
 //	/* 회원탈퇴용으로 쓰는 중*/
 //	@Override

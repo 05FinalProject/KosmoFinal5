@@ -69,12 +69,11 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-6 col-6">
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
-
+                <h3>${getUserTotalSize}</h3>
                 <p>총 유저수</p>
               </div>
               <div class="icon">
@@ -83,12 +82,11 @@
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-6 col-6">
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
-
+                <h3>${getPetTotalSize}</h3>
                 <p>반려견 등록수</p>
               </div>
               <div class="icon">
@@ -97,11 +95,11 @@
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-6 col-6">
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3>${getSignupCount}</h3>
 
                 <p>오늘 등록된 회원가입 수</p>
               </div>
@@ -111,12 +109,11 @@
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-6 col-6">
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
-
+                <h3>${getCommunityTotalSize}</h3>
                 <p>게시글 등록 수</p>
               </div>
               <div class="icon">
@@ -255,7 +252,6 @@ $('#dashboard').addClass('active')
 </script>
 
 <script>
-
   function colorize() {
     let r = Math.floor(Math.random() * 200);
     let g = Math.floor(Math.random() * 200);
