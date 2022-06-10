@@ -48,7 +48,7 @@ public class AgencyController {
 		m.addAttribute("count", agencyservice.countHotelRecord());
 		
 		
-		//호텔의 이름, 위도, 경도 가져오기
+		//호텔의 이름, 위도, 경도 가져오기 **************************************
         List<HashMap<String, Object>> mapList = agencyservice.mapList(1);//서비스 리턴
         
         Gson mapListGson = new Gson();
@@ -117,6 +117,9 @@ public class AgencyController {
 
         String mapListJson = mapListGson.toJson(mapListJArray);
         m.addAttribute("mapList", mapListJson);
+        
+        
+       
         
         return "/agency/agencyCafe";
 	}
@@ -292,7 +295,7 @@ public class AgencyController {
 
 	@RequestMapping(value = "/encyclopediaDetail", method = RequestMethod.GET)
 	public void encyclopediaDetail(Model m, DogKindVO vo) {
-		System.out.println(vo.getDogNum());
+		
 		m.addAttribute("encyclopedia", agencyservice.getencyclopedia(vo));
 	}
 
