@@ -47,7 +47,6 @@ public class LoginController {
 	public String loginCheck(UserVO vo, HttpSession session, Model m){
 		UserVO result = lservice.findByUserEmail(vo.getUserEmail());
 		ImgVO result2 = lservice.findBypRimgname(vo.getUserEmail());
-		List<PetVO> result3 = lservice.findByPetNum(vo.getUserEmail());
 		UserVO check = lservice.checkPass(vo);
 		String message = "";
 		if(check == null) {
@@ -63,8 +62,6 @@ public class LoginController {
 		session.setAttribute("userAddress", result.getUserAddress());
 		session.setAttribute("userAdmin", result.getUserAdmin());
 		session.setAttribute("pRimgname", result2.getRealImgName());
-		session.setAttribute("pets", result3);
-		m.addAttribute("pets", result3.get(0));
 		
 		
 		session.setMaxInactiveInterval(60*60*24);
@@ -144,6 +141,7 @@ public class LoginController {
 	/* 반려견 리스트 페이지 이동*/
 	@RequestMapping(value = "/myPage/myPageDogList", method = RequestMethod.GET )
 	public String myPetList(PetVO pvo, Model m) {
+		
 		int page = 1;
 		if (pvo.getPage() != 0) {
 			page = pvo.getPage();
