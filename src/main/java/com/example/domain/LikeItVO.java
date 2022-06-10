@@ -23,6 +23,11 @@ public class LikeItVO {
 	@Column(name = "like_num")
 	private Integer likeNum;
 	
+	
+	@Column(name="like_state")
+	private Integer likeState;
+	
+	
 	@ManyToOne
 	@JoinColumn(name="u_email")
 	private UserVO user;
@@ -30,6 +35,8 @@ public class LikeItVO {
 	@ManyToOne
 	@JoinColumn(name="c_num")
 	private CommunityVO community;
+	
+	
 	
 	
 

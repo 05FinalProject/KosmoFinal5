@@ -36,7 +36,7 @@ public class CommunityController {
 
 	// 일상공유 리스트 페이지
 	@RequestMapping(value = "/daily", method = RequestMethod.GET)
-	public String daily(Model m, CommunityVO vo) {
+	public String daily(Model m, CommunityVO vo, HttpSession session) {
 		System.out.println("너오니?66666666666666666");
 		int page = 1;
 		if (vo.getPage() != 0) {
@@ -44,12 +44,25 @@ public class CommunityController {
 		}
 		Pageable paging = PageRequest.of(page - 1, 8, Sort.Direction.DESC, "communityNum");
 
-		System.out.println( c_service.getCommunityPaging(paging));
-		m.addAttribute("paging", c_service.getCommunityPaging(paging));
-		m.addAttribute("count", c_service.countCommunityRecord());
+		List<HashMap<String, Object>> cvo = c_service.getCommunityPaging(paging);
+		System.out.println( cvo);
+		List<HashMap<String, Object>> rlist = new ArrayList<HashMap<String, Object>>();
 		
 		//게시글 썸네일 띄우기
 		//List<HashMap<String, Object>> list  = c_service.getThumbnail(vo);
+		
+		//좋아요 상태 리스트 띄우기
+		for(HashMap<String, Object> map : cvo) {
+			Integer num = (Integer)map.get("communityNum");
+		
+			System.out.println(num+ "좋아요 상태 리스트");
+			Integer likeState = c_service.likeItList(num,(String)session.getAttribute("userEmail"));
+			map.put("likeState", likeState);
+			rlist.add(map);
+		}
+		
+		m.addAttribute("paging", rlist);
+		m.addAttribute("count", c_service.countCommunityRecord());
 		
 		
 
@@ -61,14 +74,15 @@ public class CommunityController {
 	@RequestMapping(value = "/dailyDetail", method = RequestMethod.GET)
 	public String dailyDetail(CommunityVO vo, Model m) {
 		System.out.println("상세보기 페이지");
-		CommunityVO community = c_service.getCommunity(vo);
+		List<ImgVO> community = c_service.getCommunity(vo);
+		System.out.println(community);
 		m.addAttribute("community", community);
 		
 		
 		//일상공유 댓글리스트
 		List<CommentVO> commentList = c_service.commentList(vo.getCommunityNum());
 		m.addAttribute("commentList", commentList);
-		System.out.println(vo.getCommunityNum());
+		System.out.println(commentList);
 		
 		
 		
@@ -173,9 +187,5 @@ public class CommunityController {
 	}
 
 		
-	//좋아요
-	public void likeIt() {
-		
-	}
-
+	
 }
