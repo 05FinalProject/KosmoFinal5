@@ -23,7 +23,16 @@ public interface UserRepository extends CrudRepository<UserVO, String>{
 	@Query("SELECT count(user) FROM UserVO user")
 	int getUserCount();
 
-	@Query(value="select user_email,user_nickname from user where user_email !=:email  order by rand() limit 18" ,nativeQuery = true)
+	@Query(value="select user_email,user_nickname\r\n"
+			+ "from user \r\n"
+			+ "where user_email !=:email and user_email not in(select user_email \r\n"
+			+ "from friend\r\n"
+			+ "where user_email=:email or user_email1=:email\r\n"
+			+ ")  and  user_email not in(select user_email1\r\n"
+			+ "from friend\r\n"
+			+ "where user_email=:email or user_email1=:email\r\n"
+			+ ")\r\n"
+			+ "order by rand() limit 18;" ,nativeQuery = true)
 	List<Object[]> getRandomUsers(String email);
 	
 	// 로그인
