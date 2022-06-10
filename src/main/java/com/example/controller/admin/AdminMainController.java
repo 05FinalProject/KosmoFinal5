@@ -298,7 +298,7 @@ public class AdminMainController {
 	@RequestMapping(value="/admin/update", method = RequestMethod.POST)
 	public String adminUpdateFacilities(Integer agencyNum, @RequestParam String tel, @RequestParam String facility, @RequestParam String content, @RequestParam String addr, @RequestParam String subAddr) {
 		adminAgencyService.updateAgency(agencyNum, tel, facility, content, addr, subAddr);
-		return "redirect:/adminHotel";
+		return "redirect:/indexAdmin";
 	}
 
 	//보호소 수정
@@ -315,16 +315,6 @@ public class AdminMainController {
 		return "/admin/facilities/adminAddFacilities";
 	}
 
-
-
-	//시설등록 테스트 할거
-	/*@RequestMapping(value="/admin/insertAgency", method=RequestMethod.POST)
-	public String adminInsertFacilities(Integer agencyNum, @RequestParam int agencyCategoryNum, @RequestParam String agencyName, @RequestParam String addr, @RequestParam String subAddr, @RequestParam String tel, @RequestParam String agencyContent, @RequestParam String agencyImage) {
-		System.out.println("인서트");
-		adminAgencyService.insertAgency(agencyNum, agencyCategoryNum, agencyName, addr, subAddr, tel, agencyContent, agencyImage);
-		return "redirect:/adminAddFacilities";
-	}*/
-
 	//시설삭제
 
 	// ******************************************************************************
@@ -332,7 +322,7 @@ public class AdminMainController {
 
 
 
-	// **************************커뮤니티 관리**************************************
+	// **************************커뮤니티 관리*****************************************
 	//커뮤 관리
 	@RequestMapping(value="adminComunities", method=RequestMethod.GET)
 	public String adminCommunities() {
