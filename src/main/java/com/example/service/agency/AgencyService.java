@@ -34,6 +34,7 @@ public interface AgencyService {
 	
 	public int countHotelRecord();
 	
+	
 	//카페 페이지 처리 
 	public List<AgencyVO> getCafePaging(Pageable paging);
 		
