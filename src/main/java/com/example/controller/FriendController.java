@@ -57,13 +57,15 @@ public class FriendController {
 	
 	@RequestMapping(value="/friendFind", method = RequestMethod.GET)
 	public void friendFind(Model m, HttpSession session) {
-		int cnt = service.getUserCount()-1;  //자기 빼고 숫자 세야하기 때문에 -1(레코드 수)
+		//int cnt = service.getUserCount()-1;  //자기 빼고 숫자 세야하기 때문에 -1(레코드 수)
+		List<UserVO> list = service.getRandomUsers((String)session.getAttribute("userEmail"));
+		int cnt = list.size();
 		if(cnt>18) {
 			cnt=18;
 		} 
 		if(session.getAttribute("userRandom")==null) {
 			
-			session.setAttribute("userRandom", service.getRandomUsers((String)session.getAttribute("userEmail")));
+			session.setAttribute("userRandom", list);
 		}
 		m.addAttribute("count", cnt);
 	}
