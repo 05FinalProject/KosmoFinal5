@@ -51,5 +51,8 @@ public class AgencyVO {
 	
 	@Transient
 	private int page;
+	
+	@Transient
+	private double avgStars;
 
 }
