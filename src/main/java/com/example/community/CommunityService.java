@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.example.domain.AgencyVO;
 import com.example.domain.CommentVO;
 import com.example.domain.ImgVO;
+import com.example.domain.LikeItVO;
 import com.example.domain.UserVO;
 
 
@@ -54,7 +55,7 @@ public interface CommunityService {
 	public void reportCommunity(Integer communityNum, String user, String rReason);
 	
 	//게시글 좋아요
-	public void likeIt(CommunityVO communityVo, UserVO userVo);
+	public void likeIt(LikeItVO likeVo);
 	
 	//게시글 썸네일 띄우기
 	public List<HashMap<String, Object>> getThumbnail(CommunityVO community);

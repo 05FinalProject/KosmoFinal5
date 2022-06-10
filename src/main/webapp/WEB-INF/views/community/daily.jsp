@@ -44,13 +44,7 @@
 
 
 <style type="text/css">
-.emptyHeart {
-	width: 20px;
-}
 
-.comment {
-	width: 20px;
-}
 
 .siren {
 	width: 24px;
@@ -99,7 +93,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 210px;
+	width: 100%;
 	height: 180px;
 }
 </style>
@@ -144,9 +138,14 @@
 											<p class="post-text card-text">${community.userNickname }</p>
 										</div>
 										<div class="comment-img">
-											<span><img class="emptyHeart"
-												src="../../img/emptyHeart.png"></span> <span><img
-												class="comment" src="../../img/comment.png"></span>
+											<c:choose>
+												<!-- 로그인 상태일 때 하트 클릭 가능 -->
+												<c:when test="${not empty sessionScope.userEmail }">
+													<span><i class="heart-click fa-regular fa-heart" style="color:red;"></i></span>												
+												</c:when>
+												<span><i class=" heart-click fa-solid fa-heart" style="color:red;"></i></span>
+											</c:choose>
+											<span><i class="fa-regular fa-comment-dots"></i></span>
 										</div>
 									</div>
 

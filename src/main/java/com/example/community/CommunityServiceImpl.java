@@ -14,9 +14,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.example.dao.CommentRepository;
 import com.example.dao.ImgRepository;
+import com.example.dao.LikeItRepository;
 import com.example.dao.UserRepository;
 import com.example.domain.CommentVO;
 import com.example.domain.ImgVO;
+import com.example.domain.LikeItVO;
 import com.example.domain.UserVO;
 
 @Service
@@ -36,6 +38,9 @@ public class CommunityServiceImpl implements CommunityService {
 
 	@Autowired
 	private ImgRepository imgRepo;
+	
+	@Autowired
+	private LikeItRepository likeItRepo;
 
 
 	/*
@@ -182,9 +187,10 @@ public class CommunityServiceImpl implements CommunityService {
 	}
 	
 	//게시글 좋아요
-	public void likeIt(CommunityVO communityVo, UserVO userVo) {
-		UserVO user = userRepo.findById(userVo.getUserEmail()).get();
+	public void likeIt(LikeItVO likeVo) {
+		likeItRepo.findById(communityRepo.findById(communityNum).get());
 	}
+
 	
 	//게시글 썸네일 띄우기
 	public List<HashMap<String, Object>> getThumbnail(CommunityVO communityVo) {
@@ -198,11 +204,7 @@ public class CommunityServiceImpl implements CommunityService {
 			hm.put("userNickname", object[3]);
 			hm.put("communityNum", object[4]);
 			
-			list.add(hm);
-			
-			
-			
-			
+			list.add(hm);		
 		
 			
 		}

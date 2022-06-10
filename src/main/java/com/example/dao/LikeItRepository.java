@@ -12,4 +12,5 @@ public interface LikeItRepository extends CrudRepository<LikeItVO, Integer>{
 
 	List<LikeItVO> findByUser(UserVO u);
 
+	
 }

@@ -440,6 +440,8 @@
                                 </button>
                                 <c:if
                                         test="${community.user.userNickname eq sessionScope.userNickname }">
+                                        <span><img class="emptyHeart"
+												src="../../img/emptyHeart.png"></span>
                                     <div class="item" id="item1">
                                         <input class="beforeUpdate updateBtn beforeUpdateBtn"
                                                type="submit" value="수정"/> <input

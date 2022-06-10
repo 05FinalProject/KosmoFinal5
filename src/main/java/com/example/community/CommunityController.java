@@ -173,11 +173,5 @@ public class CommunityController {
 	}
 
 		
-	//게시글 좋아요
-	@RequestMapping(value="", method = RequestMethod.POST)
-	public boolean likeIt(Integer communityNum, String userEmail, Integer likeNum) {
 	
-		return ;
-	}
-
 }
