@@ -27,7 +27,6 @@
 
 <style type="text/css">
 .row {
-	margin-top: 2%;
 	margin-bottom: 2%;
 }
 
@@ -49,6 +48,39 @@
 	background: #20C997;
 	border-radius: 8px;
 }
+
+.myPage-sideBar {
+    float: none;
+    left: 0;
+    position: absolute;
+    height: 100%;
+}
+
+.sidebar{
+	margin-top:20%;
+	margin-left:5%;
+}
+
+p{
+	display:inline;
+	font-size:15px;
+	margin:0;
+	white-space:noraml;
+	line-height: 1.8;
+	font-weight: 400;
+	color: black;
+}
+
+.footer{
+    background: #fff;
+    border-top: 1px solid #4c4c4c;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    position: relative;
+    margin-top: 10%;
+}
+
+}
 </style>
 
 </head>
@@ -58,15 +90,13 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 
 <div class="wrapper">
-  <aside class="myPage-sidebar asidebar beta">
+  <aside class="myPage-sideBar asidebar beta">
     <div class="sidebar">
-      <div>
-      </div>
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- 마이 프로필 -->
           <li class="nav-item">
-            <a href="/include/myPage/myPageProfile" class="nav-link">
+            <a href="/myPage/myPageProfile" class="nav-link">
               <p>
                 마이 프로필
               </p>
@@ -74,7 +104,7 @@
           </li>
           <!-- 나의 게시글 -->
           <li class="nav-item">
-            <a href="/include/myPage/myPageBoard" class="nav-link">
+            <a href="/myPage/myPageBoard" class="nav-link">
               <p>
                 나의 게시글
               </p>
@@ -82,7 +112,7 @@
           </li>
           <!-- 반려동물 -->
           <li class="nav-item">
-            <a href="/include/myPage/myPageDogList" class="nav-link">
+            <a href="/myPage/myPageDogList" class="nav-link">
               <p>
                 반려동물
               </p>
@@ -90,7 +120,7 @@
           </li>
           <!-- 펫친관리 -->
           <li class="nav-item">
-            <a href="/friend/friendList" class="nav-link active">
+            <a href="/friend/friendList" class="nav-link">
               <p>
                 펫친관리
               </p>
@@ -98,7 +128,7 @@
           </li>
           <!-- 친구찾기 -->
           <li class="nav-item">
-            <a href="/friend/friendFind" class="nav-link">
+            <a href="/friend/friendFind" class="nav-link active">
               <p>
                 펫친찾기
               </p>
@@ -106,7 +136,7 @@
           </li>
           <!-- 나의 산책로 -->
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/walk/myWalk" class="nav-link">
               <p>
                 나의 산책로
               </p>
@@ -238,9 +268,8 @@
 		})
 	})
 	</script>
+	<%@include file="../include/Footer.jsp"%>
 </body>
-
-<%@include file="../include/Footer.jsp"%>
 
 
 </html>

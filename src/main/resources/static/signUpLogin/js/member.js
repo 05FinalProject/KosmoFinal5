@@ -322,7 +322,7 @@ $('#btnLogin').click(function(){
 	
   $.ajax({
 	type : 'post',
-	url : '/include/loginCheck',
+	url : '/myPage/loginCheck',
 	data : { userEmail : $("#userEmail").val(),
 			userPass : $("#userPass").val(),
 			rememberEmail : rememberEmail
