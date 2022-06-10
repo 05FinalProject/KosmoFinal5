@@ -27,6 +27,7 @@ import com.example.service.admin.AdminUserService;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
@@ -118,14 +119,14 @@ public class AdminMainController {
 		return "/admin/adminUser";
 	}
 
-	//회원강아지 정보 리스트(회원 클릭시)
-	/*@RequestMapping(value="/adminDog", method=RequestMethod.GET)
-	public String adminDog(Model m) {
-		PetVO petVO = new PetVO();
-		List<PetVO> list = adminUserService.petList(vo);
-		m.addAttribute("petList", petList);
-		return "/admin/adminDog";
-	}*/
+	//회원 펫 리스트 띄우기
+	@RequestMapping(value="/admin/getUserPet")
+	@ResponseBody
+	public List<PetVO> getUserPet(UserVO userVO){
+		List<PetVO> l = adminUserService.getUserPet(userVO);
+		System.out.println(l);
+		return l;
+	}
 
 	/*//회원삭제
 	@RequestMapping(value = "{userEmail}", method = RequestMethod.DELETE)

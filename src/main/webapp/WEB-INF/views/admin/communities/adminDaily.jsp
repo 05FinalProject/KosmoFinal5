@@ -72,7 +72,7 @@
 						<thead>
 							<tr>
 								<th width="70">제목</th>
-								<th>작성자</th>
+								<th width="50">작성자</th>
 								<th>내용</th>
 								<th>날짜</th>
 								<th width="50">삭제</th>

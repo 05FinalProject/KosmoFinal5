@@ -293,6 +293,16 @@
 		$('#facilities').addClass('menu-is-opening')
 		$('#facilities').addClass('menu-open')
 		$('#cafe').addClass('active')
+
+		$(function(){
+			var page = '${param.page}'
+			$('.pagination').find('li').each(function(){
+				if(page == $(this).find('a').text()){
+					$(this).addClass('active')
+				}
+				//console.log(e.text())
+			})
+		})
 	</script>
 </body>
 </html>

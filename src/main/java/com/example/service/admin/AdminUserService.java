@@ -19,9 +19,7 @@ public interface AdminUserService {
 
 	public int getSignupCount();
 
-	//강아지 리스트 출력
-	public List<PetVO> petList(PetVO vo);
-
-	
+	//
+	public List<PetVO> getUserPet(UserVO userVO);
 
 }

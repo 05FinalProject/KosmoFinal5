@@ -19,6 +19,12 @@
     <link rel="stylesheet" href="/admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/admin/dist/css/adminlte.min.css">
+
+    <style>
+        #modelTbody{
+            text-align: center;
+        }
+    </style>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -31,6 +37,42 @@
     <%@ include file="../admin/common/adminNavbar.jsp" %>
 
     <%@ include file="../admin/common/adminSidebar.jsp" %>
+
+
+    <input type="hidden" id="userEmail" value="" />
+    <!-- Modal -->
+    <div class="modal fade" id="userModal${user.userPhone}" data-backdrop="static" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">반려견 정보</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table id="example3" class="table table-hover">
+                        <thead style="text-align:center">
+                            <tr>
+                                <th>이름</th>
+                                <th>나이</th>
+                                <th>성별</th>
+                                <th>견종</th>
+                                <th>몸무게</th>
+                                <th>중성화여부</th>
+                            </tr>
+                        </thead>
+                        <tbody id="modelTbody">
+
+                         </tbody>
+                     </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -77,7 +119,7 @@
                                     <tbody>
                                     <c:forEach items="${userList}" var="user">
                                         <tr>
-                                            <td data-toggle="modal" data-target="#userModal${user.userPhone}">${user.userEmail}</td>
+                                            <td data-toggle="modal" data-target="#userModal" content="${user.userEmail}" class="email">${user.userEmail}</td>
                                             <td>${user.userNickname}</td>
                                             <td>${user.userName}</td>
                                             <td>${user.userPhone}</td>
@@ -93,62 +135,15 @@
                                                         <form action="/deleteUser" method="post">
                                                             <input type="hidden" name="userEmail"
                                                                    value="${user.userEmail}"/>
-                                                            <button type="submit" class="btn btn-outline-danger">삭제
+                                                            <button id="btnDelete" type="submit" class="btn btn-outline-danger">삭제
                                                             </button>
                                                         </form>
                                                     </c:otherwise>
                                                 </c:choose>
                                             </td>
                                         </tr>
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="userModal${user.userPhone}" data-backdrop="static" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="userModalLabel">Modal title</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <!-- 테이블 넣기 -->
-                                                        <div class="container">
-                                                            <table class="table table-bordered">
-                                                                <thead>
-                                                                <tr>
-                                                                    <th>이름</th>
-                                                                    <th>나이</th>
-                                                                    <th>성별</th>
-                                                                    <th>견종</th>
-                                                                    <th>중성화여부</th>
-                                                                    <th>몸무게</th>
-                                                                </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                <c:forEach var="pet" items="${petList}">
-                                                                    <tr>
-                                                                        <td>${petList.}</td>
-                                                                        <td>${petList.m_name}</td>
-                                                                        <td>${petList.m_phone}</td>
-                                                                        <td>${petList.m_email}</td>
-                                                                    </tr>
-                                                                </c:forEach>
 
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-
-                                                            ${user.userName}
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </c:forEach>
-                                    </tbody>
-                                    <tfoot>
                                 </table>
                             </div>
                             <!-- /.card-body -->
@@ -165,13 +160,13 @@
     </div>
     <!-- /.content-wrapper -->
     <%@ include file="../admin/common/adminFooter.jsp" %>
-
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
         <!-- Control sidebar content goes here -->
     </aside>
     <!-- /.control-sidebar -->
 </div>
+
 <!-- ./wrapper -->
 <!-- jQuery -->
 <script src="/admin/plugins/jquery/jquery.min.js"></script>
@@ -211,9 +206,43 @@
         });
     });
 
-    $('#frm').val(${user.user_email})
+</script>
+<script type="text/javascript">
+    $('.email').click(function () {
+        $('#modelTbody').empty()
+        $('#userEmail').val($(this).attr('content'))
+        $.ajax({
+            url: '/admin/getUserPet',
+            data: {userEmail: $('#userEmail').val()},
+            type: 'get',
+            dataType: 'json',
+            success: function (data) {
 
-    console.log($('#frm').val())
+                data.forEach(function(e){
+                    $('#modelTbody').append(' <tr>'+
+                        ' <td>'+e.petName+'</td>'+
+                        '<td>'+e.petAge+'</td>'+
+                        '<td>'+e.petGender+'</td>'+
+                        '<td>'+e.petVariety+'</td>'+
+                        '<td>'+e.petWeight+'</td>'+
+                        '<td>'+e.petNeutering+'</td>'+
+                        '</tr>')
+                })
+            }
+        })
+    })
+
+    $(function () {
+        $('#btnDelete').click(function() {
+            if(confirm('회원을 삭제하시겠습니까?')){
+                alert('탈퇴완료')
+            }
+            else {
+                return;
+            }
+        });
+    })
+
 </script>
 </body>
 </html>

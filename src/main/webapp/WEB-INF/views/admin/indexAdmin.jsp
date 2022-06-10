@@ -69,7 +69,7 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-6 col-6">
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
@@ -82,7 +82,7 @@
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-6 col-6">
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
@@ -95,7 +95,7 @@
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-6 col-6">
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
@@ -109,7 +109,7 @@
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-6 col-6">
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
@@ -249,71 +249,6 @@
 <script src="/admin/dist/js/pages/dashboard.js"></script>
 <script type="text/javascript">
 $('#dashboard').addClass('active')
-
-//강아지 리스트 ajax
-$.ajax({
-  url :'/admin/movieAdmin/'+contentNumber,
-  type:'get',
-  dataType:'json',
-  contentType:'application/json',
-  success: function(data){
-
-    let src = data.contentPosterImagesUrl
-    let youtubeUrlsrc = data.contentYoutubeUrl /*  링크가 없으면 */
-    let mainImagesUrl = data.contentMainImagesUrl
-
-    var arrValues = new Array();
-    var arrValues2 = new Array();
-
-
-    $("#contentImages>.img22").remove();
-    $('#myModal').modal('show');
-    //$('#myModal iframe').attr('src', youtubeUrlsrc);
-    if (youtubeUrlsrc != 'noYoutubeLink') {
-      $('#myModal img').attr('src', src);
-
-      $('#contentImages').append("<iframe class='img22' src="+youtubeUrlsrc+" width='350' height='300' frameborder='0' allowfullscreen=''></iframe>");
-    } else {
-
-      $('#myModal img').attr('src', src);
-      $('#contentImages').append("<img class='img22' alt='' src="+ mainImagesUrl +" width='350' height='300' >")
-    }
-
-
-    $('.contentNumber').text(data.contentNumber);
-    $('.contentInfo').text(data.contentInfo);
-    $('.contentAge').val(data.contentAge);
-    $('.contentRunningTime').val(data.contentRunningTime);
-    $('.contentReleaseDate').val(data.contentReleaseDate);
-    $('.contentTitle').val(data.contentTitle);
-
-
-    // console.log(JSON.stringify(data.contentGenre[0].genre.genreName))
-    for (let i = 0; i < data.contentGenre.length; i++) {
-      arrValues.push(data.contentGenre[i].genre.genreName);
-      $('.contentGenre').text(arrValues)
-    }
-    console.log(JSON.stringify(data.contentOtt))
-    for (let i = 0; i < data.contentOtt.length ; i++) {
-      arrValues2.push(data.contentOtt[i].ott.ottName);
-      $('.contentOtt').text(arrValues2);
-
-    }
-    if(data.contentState ==" " || data.contentState == 0){
-      $('.contentState').text("삭제완료");
-    } else{
-      $('.contentState').text("삭제처리안됨");
-    }
-
-    $('#deleteContentNumber').val(data.contentNumber)
-
-  },
-  error : function(e){
-
-    console.log(e)
-  }
-
-})
 </script>
 
 <script>

@@ -47,6 +47,7 @@ public interface UserRepository extends CrudRepository<UserVO, String>{
 	PetVO findByPetNum();
 
 
+	//대시보드 오늘 등록된 회원가입 수 출력
 	//SELECT count(*) FROM user WHERE user_signup = curdate()
 	@Query("SELECT count(u) FROM UserVO u WHERE u.userSignup=current_date")
 	int getSignupCount();

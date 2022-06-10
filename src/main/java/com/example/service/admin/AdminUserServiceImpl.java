@@ -60,10 +60,14 @@ public class AdminUserServiceImpl implements AdminUserService{
 		return userRepo.getSignupCount();
 	}
 
-	@Override
-	public List<PetVO> petList(PetVO vo) {
-		return (List<PetVO>)userRepo.findByPetNum();
+	public List<PetVO> adminUserDog(UserVO userVO){
+
+		return petRepo.findByUser(userVO);
 	}
 
+	//강아지 리스트 출력
+	public List<PetVO> getUserPet(UserVO userVO){
+		return petRepo.findByUser(userVO);
+	}
 
 }
