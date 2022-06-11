@@ -57,25 +57,28 @@
 	color: white;
 }
 
-.iconc{
-	border-radius: 400px
+.iconc {
+	border-radius: 400px;
+}
+
+ul {
+	align-items: center;
 }
 </style>
 
- <script
-      defer
-      src="https://use.fontawesome.com/releases/v5.15.2/js/all.js"
-      integrity="sha384-vuFJ2JiSdUpXLKGK+tDteQZBqNlMwAjhZ3TvPaDfN9QmbPb7Q8qUpbSNapQev3YF"
-      crossorigin="anonymous"
-    ></script>
+<script defer
+	src="https://use.fontawesome.com/releases/v5.15.2/js/all.js"
+	integrity="sha384-vuFJ2JiSdUpXLKGK+tDteQZBqNlMwAjhZ3TvPaDfN9QmbPb7Q8qUpbSNapQev3YF"
+	crossorigin="anonymous"></script>
 </head>
 <body class="home page page-template-template-lana-editor">
 
 	<header class="header bg-dark">
 		<nav class="navbar navbar-expand-lg navbar-dark navbar-only"
 			id="lana-pet-main-navbar">
-			<a class="navbar-brand" href="/include/Main" style="margin-left: 3%;"> <img
-				class="navbar-logo headlogo" src="/img/logo3.png" alt="Navbar Logo">
+			<a class="navbar-brand" href="/include/Main" style="margin-left: 3%;">
+				<img class="navbar-logo headlogo" src="/img/logo3.png"
+				alt="Navbar Logo">
 			</a>
 			<!-- 반응형 웹 작동 시 나타남 -->
 			<div class="toggler-buttons d-flex flex-fill justify-content-end">
@@ -94,7 +97,7 @@
 			</div>
 			<!-- 반응형 커팅선 -->
 
-			<div class="collapse navbar-collapse" id="lana-navbar">
+			<div class="collapse navbar-collapse" id="lana-navbar" >
 				<ul class="navbar-nav mr-auto">
 
 					<li class="nav-item dropdown"><a
@@ -126,18 +129,21 @@
 
 					<li class="nav-item"><a class="nav-links info"
 						href="/agency/encyclopedia">반려견 사전</a></li>
-					
-					<li class="nav-item">
-					<c:if test="${not empty sessionScope.userEmail }">
-					<a class="nav-links chat" id="chatingRoom" style="cursor:pointer;">채팅방</a></c:if></li>
+
+					<li class="nav-item"><c:if
+							test="${not empty sessionScope.userEmail }">
+							<a class="nav-links chat" id="chatingRoom"
+								style="cursor: pointer;">채팅방</a>
+						</c:if></li>
 				</ul>
 				<form action="/chating/room" method="post" id="chatingFrm">
-				<input type="hidden" name="userEmail" value="${sessionScope.userEmail}">
+					<input type="hidden" name="userEmail"
+						value="${sessionScope.userEmail}">
 				</form>
-				
+
 
 				<div class="weather ">
-					 <div class="iconc bg-white"></div>
+					<div class="iconc bg-white"></div>
 					<!-- 	<div class="CurrIcon"></div>
 					<div class="CurrTemp"></div>
 					<div class="City"></div> -->
@@ -148,52 +154,56 @@
 					<ul class="nav button-nav">
 						<!-- 세션입력에 따른 헤더 노출화면 -->
 						<c:if test="${empty sessionScope.userNickname }">
-							<li class="nav-item" style="color: white;"><a href="/myPage/Login"
+							<li class="nav-item" style="color: white;"><a
+								href="/myPage/Login"
 								class="btn btn-sm text-uppercase font-weight-bold my-auto"
 								style="color: white;"> Login </a></li>
 						</c:if>
 
 						<c:if test="${not empty sessionScope.userNickname }">
 							<li class="nav-item" style="color: white;"><a
-								href="/myPage/myPageProfile"> <%= session.getAttribute("userNickname") %></a>님
+								href="/myPage/myPageProfile"> <%=session.getAttribute("userNickname")%></a>님
 								환영합니다.</li>
 
 							<!-- 알림 추가 -->
 							<li class="nav-item dropdown"><a class="nav-link"
-								data-toggle="dropdown" href="#"> <i class="far fa-bell"></i>
+								data-toggle="dropdown" href="#"> <i class="far fa-bell" style="color:ff8a00;"></i>
 									<small><span class="badge badge-warning navbar-badge">N</span></small>
 							</a>
 								<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-<!-- 									<span class="dropdown-item dropdown-header">15 -->
-<!-- 										Notifications</span> -->
-<!-- 									<div class="dropdown-divider"></div> -->
-									<a  class="dropdown-item"  id="unreadMessageBtn"> <i
-										class="fas fa-envelope mr-2"></i> <label id="unreadMessage">0</label> new messages
-									</a>
+								<!-- 	<a class="dropdown-item" id="unreadMessageBtn"> <i
+										class="fas fa-envelope mr-2"></i> <label id="unreadMessage">0</label>
+										new messages
+									</a> -->
 									<c:if test="${sessionScope.userEmail != null }">
-									<form id="friendChating" action="/chating/friendChat" method="post">
-										<input type="hidden" value="${sessionScope.userEmail }" name="userEmail" />
-									</form>
-									<div class="dropdown-divider"></div>
-									<c:choose>
-									<c:when test="${friendRequest != 0}">
-									<a href="/friend/friendRequestList" class="dropdown-item"> <i
-										class="fas fa-users mr-2"></i> <label id="friendRequests">${friendRequest}</label> friend requests
-									</a>
-									</c:when>
-									<c:otherwise>
-									<a href="/friend/friendRequestList" class="dropdown-item"> <i
-										class="fas fa-users mr-2"></i> <label id="friendRequests">0</label> friend requests
-									</a>
-									</c:otherwise>
-									</c:choose>
+										<form id="friendChating" action="/chating/friendChat"
+											method="post">
+											<input type="hidden" value="${sessionScope.userEmail }"
+												name="userEmail" />
+										</form>
+										<div class="dropdown-divider"></div>
+										<c:choose>
+											<c:when test="${friendRequest != 0}">
+												<a href="/friend/friendRequestList" class="dropdown-item">
+													<i class="fas fa-users mr-2"></i> <label
+													id="friendRequests">${friendRequest}</label> friend
+													requests
+												</a>
+											</c:when>
+											<c:otherwise>
+												<a href="/friend/friendRequestList" class="dropdown-item">
+													<i class="fas fa-users mr-2"></i> <label
+													id="friendRequests">0</label> friend requests
+												</a>
+											</c:otherwise>
+										</c:choose>
 									</c:if>
-									
+
 								</div></li>
 							<!-- 알림 추가 끝 -->
 
-							<li class="nav-item"><a href="/myPage/logout" style="color: white;">Logout</a>
-							</li>
+							<li class="nav-item"><a href="/myPage/logout"
+								style="color: white;">Logout</a></li>
 						</c:if>
 
 
@@ -203,8 +213,8 @@
 
 		</nav>
 	</header>
-	
-	<div id="map2" style="width: 100%; height: 350px; display:none;"></div>
+
+	<div id="map2" style="width: 100%; height: 350px; display: none;"></div>
 
 
 	<script type="text/javascript" src="/js/jquery.min.js?ver=3.6.0"></script>
@@ -219,59 +229,56 @@
 		src="/js/magnific-popup.min.js?ver=1.1.0"></script>
 	<script type="text/javascript" src="/js/custom-theme.js?ver=1.0.0"></script>
 	<script type="text/javascript">
-		$(document).ready(function(){
-			
-			
-			$(".organi").mouseover(function(){
-				$(".organi").css("color","#f8b03a");
+		$(document).ready(function() {
+
+			$(".organi").mouseover(function() {
+				$(".organi").css("color", "#f8b03a");
 			});
-			$(".organi").mouseleave(function(){
-				$(".organi").css("color","white");	
+			$(".organi").mouseleave(function() {
+				$(".organi").css("color", "white");
 			});
-			$(".comu").mouseover(function(){
-				$(".comu").css("color","#f8b03a");
+			$(".comu").mouseover(function() {
+				$(".comu").css("color", "#f8b03a");
 			});
-			$(".comu").mouseleave(function(){
-				$(".comu").css("color","white");
+			$(".comu").mouseleave(function() {
+				$(".comu").css("color", "white");
 			});
-			$(".info").mouseover(function(){
-				$(".info").css("color","#f8b03a");
+			$(".info").mouseover(function() {
+				$(".info").css("color", "#f8b03a");
 			});
-			$(".info").mouseleave(function(){
-				$(".info").css("color","white");
+			$(".info").mouseleave(function() {
+				$(".info").css("color", "white");
 			});
-			
-			$(".btn-light").mouseover(function(){
-				$(".btn-light").css("color","#f8b03a");
+
+			$(".btn-light").mouseover(function() {
+				$(".btn-light").css("color", "#f8b03a");
 			});
-			$(".btn-light").mouseleave(function(){
-				$(".btn-light").css("color","white");
+			$(".btn-light").mouseleave(function() {
+				$(".btn-light").css("color", "white");
 			});
-			
-			$(".chat").mouseover(function(){
-				$(".chat").css("color","#f8b03a");
+
+			$(".chat").mouseover(function() {
+				$(".chat").css("color", "#f8b03a");
 			});
-			$(".chat").mouseleave(function(){
-				$(".chat").css("color","white");
+			$(".chat").mouseleave(function() {
+				$(".chat").css("color", "white");
 			});
-			
-			$("#chatingRoom").click(function(){
+
+			$("#chatingRoom").click(function() {
 				$("#chatingFrm").submit();
 			});
-		
-			$('#unreadMessageBtn').click(function(){
+
+			$('#unreadMessageBtn').click(function() {
 				$('#friendChating').submit()
 			})
-			
+
 		});
 	</script>
-	
-	<script
-      type="text/javascript"
-      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f5b6c107c52e63373c42ed42d662f260"
-    ></script>
-    <script type="text/javascript" src="/main/weather.js"></script>
-    
+
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f5b6c107c52e63373c42ed42d662f260"></script>
+	<script type="text/javascript" src="/main/weather.js"></script>
+
 
 
 </body>
