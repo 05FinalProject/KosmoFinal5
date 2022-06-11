@@ -1,7 +1,5 @@
 package com.example.controller;
 
-import java.util.List;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,19 +21,120 @@ import org.springframework.web.multipart.MultipartFile;
 import com.example.domain.ImgVO;
 import com.example.domain.PetVO;
 import com.example.domain.UserVO;
+import com.example.mail.MailDto;
+import com.example.mail.SendEmailService;
 import com.example.service.friendService.FriendService;
 import com.example.service.loginService.LoginService;
+import com.example.service.signUpService.SignUpService;
 
 @SessionAttributes("user")
 @Controller
-@RequestMapping("/include")
+@RequestMapping("/myPage")
 public class LoginController {
+	
+	@Autowired
+	private SignUpService signUp;
 	
 	@Autowired
 	private LoginService lservice;
 	
 	@Autowired
 	private FriendService fservice;
+	
+	@Autowired
+	private SendEmailService sendService;
+	
+	@RequestMapping("/signUp")
+	public void signUpPage() {
+	}
+	
+	@RequestMapping("/signUpSuccess")
+	public String signUp(UserVO vo) {
+		
+		ImgVO ivo = new ImgVO();
+		
+		if (vo.getAddr3() != null) {
+			vo.setUserAddress(vo.getAddr2() + vo.getAddr3());
+			vo.setUserBlack("N");
+			vo.setUserAdmin("N");
+			ivo.setRealImgName("img/userImg/noImage.jpg");
+			
+			//signUp.insertUser(vo);
+			ivo.setUser(vo);
+			signUp.insertImage(ivo);
+			
+			return "redirect:/myPage/Login";
+			
+		} else {
+			return "redirect:/myPage/signUp";
+		}
+	}
+
+	@RequestMapping(value = "/nicknameCheck", produces = "application/text;charset=utf-8")
+	@ResponseBody
+	public String nicknameCheck(UserVO vo) {
+		UserVO result = signUp.nicknameCheck(vo); // 사용가능한 닉네임이면 null값이 넘어옴
+		String message = ""; // 닉네임 사용 가능 여부를 담을 변수
+
+		if (result == null) { // 검색되는 레코드가 없으면 닉네임 사용 가능
+			message = "Y";
+		} // end of if
+		return message;
+	}
+
+	@RequestMapping(value = "/emailCheck", produces = "application/text;charset=utf-8")
+	@ResponseBody
+	public String emailCheck(UserVO vo) {
+		UserVO result = signUp.emailCheck(vo); // 사용가능한 이메일이면 null값이 넘어옴
+		String message = ""; // 이메일 사용 가능 여부를 담을 변수
+
+		if (result == null) { // 검색되는 레코드가 없으면 이메일 사용 가능
+			message = "Y";
+		} // end of if
+		return message;
+	}
+
+	@RequestMapping("/findPassPage")
+	public void findPass() {
+	}
+
+	@RequestMapping("/changePassPage")
+	public void changePass() {	
+	}
+	
+	
+	/* 비밀번호 찾기 */
+	@RequestMapping(value="pwSearch", produces="application/text;charset=utf-8")
+	@ResponseBody
+	public String pwSearch(UserVO vo) {
+		UserVO result = signUp.pwSearch(vo);
+		String message = "";	// 회원 정보 유무를 담을 변수
+		
+		if(result == null) {
+			// 회원정보가 없다는 뜻
+			message = "N";
+		}
+		return message;
+	}//end of pwSearch()
+
+	/* 등록된 이메일로 인증번호를 발송하고 발송된 인증번호로 사용자의 패스워드 변경*/
+	@PostMapping("/sendEmail")
+	public @ResponseBody void sendEmail(String userEmail, String userName) {
+	       MailDto dto = sendService.createMailAndChangePassword(userEmail, userName);
+	       sendService.mailSend(dto);
+	}
+	
+	
+	/* 비밀번호 재설정 */
+	@RequestMapping("pwChange")
+	public String pwChange(UserVO vo, HttpSession session) {
+		vo.setUserEmail(session.getAttribute("userEmail").toString());
+		signUp.pwChange(vo);
+
+		return "redirect:/myPage/Login";
+
+	}//end of pwChange()
+	
 	
 	/* 로그인 페이지로 이동*/
 	@RequestMapping("/Login")
@@ -105,7 +205,7 @@ public class LoginController {
 					response.addCookie(removeEmail);
 				}//end of if - 쿠키값이 null값인지 검사
 			}//end of if - 체크박스에 체크가 되어있는지
-			return "redirect:Main";
+			return "redirect:/include/Main";
 	}
 			
 	/* 로그아웃 (세션 종료) */
@@ -115,11 +215,11 @@ public class LoginController {
 			System.out.println(session.getAttribute("userEmail") + "님 로그아웃");
 			session.invalidate();
 			
-			return "redirect:Main";
+			return "redirect:/include/Main";
 	}
 	
 	/* 프로필 수정 */
-	@RequestMapping("/myPage/userUpdate")
+	@RequestMapping("/userUpdate")
 	public String UserUpdate(ImgVO ivo, HttpServletRequest request,Model m) {
 		
 		HttpSession session = request.getSession();
@@ -130,16 +230,16 @@ public class LoginController {
 		ivo.setUser(vo);
 		lservice.userImgUpdate(ivo);
 		m.addAttribute("pRimgname", "img/userImg/"+ivo.getRealImgName());
-		return "/include/myPage/imgModify";
+		return "/myPage/imgModify";
 	}
 	
 	/* 프로필 페이지 이동*/
-	@RequestMapping("/myPage/myPageProfile")
+	@RequestMapping("/myPageProfile")
 	public void myPageProfile() {
 	}
 
 	/* 반려견 리스트 페이지 이동*/
-	@RequestMapping(value = "/myPage/myPageDogList", method = RequestMethod.GET )
+	@RequestMapping(value = "/myPageDogList", method = RequestMethod.GET )
 	public String myPetList(PetVO pvo, Model m) {
 		
 		int page = 1;
@@ -152,23 +252,23 @@ public class LoginController {
 		m.addAttribute("paging", lservice.getPetListPaging(paging));
 		m.addAttribute("count", lservice.countPetRecord());
 		
-		return "/include/myPage/myPageDogList";
+		return "/myPage/myPageDogList";
 	}
 
 	/* 반려견 정보 상세보기*/
-	@RequestMapping(value="/myPage/myPageDogDetail")
+	@RequestMapping(value="/myPageDogDetail")
 	public void myDogDetail(PetVO pvo, Model m) {
 		m.addAttribute("pet", lservice.getPetDetail(pvo));
 	}
 
 	/* 반려견 등록 페이지 (견종) */
-	@RequestMapping(value="/myPage/myPageDogAdd", method=RequestMethod.GET)
+	@RequestMapping(value="/myPageDogAdd", method=RequestMethod.GET)
 	public void myPageDogAdd(Model m) {
 		m.addAttribute("kindList", fservice.getDogList());
 	}
 
 	/* 반려견 등록 버튼 이벤트 */
-	@RequestMapping(value="/myPage/petAdd", method=RequestMethod.POST)
+	@RequestMapping(value="/petAdd", method=RequestMethod.POST)
 	public String petAdd(PetVO pvo, MultipartFile file, HttpSession session) {
 		
 		String userEmail = session.getAttribute("userEmail").toString();
@@ -181,11 +281,11 @@ public class LoginController {
 			ivo.setFile3(file);
 			lservice.insertImgVO(ivo);
 		
-		return "redirect:/include/myPage/myPageDogList";
+		return "redirect:/myPage/myPageDogList";
 	}
 
 	/* 유저의 글 */
-	@RequestMapping(value = "/myPage/myPageBoard", method = RequestMethod.GET)
+	@RequestMapping(value = "/myPageBoard", method = RequestMethod.GET)
 	public void myPageBoard(HttpSession session, Model m) {	
 		
 		String userEmail = session.getAttribute("userEmail").toString();

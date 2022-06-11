@@ -13,7 +13,7 @@
 <button id="btn"></button>
 <script type="text/javascript">
 $('#btn').click(function(){
-	location.href="/include/myPage/myPageProfile"
+	location.href="/myPage/myPageProfile"
 })
 
 </script>

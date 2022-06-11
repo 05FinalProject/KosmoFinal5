@@ -24,7 +24,7 @@
     <title>비밀번호 찾기</title>
   </head>
   <body>
-  	<%@include file="./Header.jsp" %>
+  	<%@include file="/WEB-INF/views/include/Header.jsp" %>
   <div class="content">
     <div class="container">
       <div class="row justify-content-center">
@@ -62,8 +62,8 @@
                     </label>
                     
                     <!-- BTN LOGIN -->
-                 <span class=""><a href="Main" class="forgot-pass">홈 화면으로 가기</a></span>
-                 <span class="ml-auto"><a href="Login" class="forgot-pass">로그인 하기</a></span> 
+                 <span class=""><a href="/include/Main" class="forgot-pass">홈 화면으로 가기</a></span>
+                 <span class="ml-auto"><a href="/myPage/Login" class="forgot-pass">로그인 하기</a></span> 
                   </div>
 
                 </form>
@@ -76,7 +76,7 @@
       </div>
     </div>
   </div>
-<%@include file="./Footer.jsp" %>
+<%@include file="/WEB-INF/views/include/Footer.jsp" %>
 
   
   

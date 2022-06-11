@@ -32,66 +32,130 @@
 	margin-left: 30px;
 	max-width: 250px;
 } */
-ul{
-    list-style: none;       /* ul태그의 불릿 제거 */
-    padding-left: 0px;
+ul {
+	list-style: none; /* ul태그의 불릿 제거 */
+	padding-left: 0px;
 }
-.walk-list{
-    height: 60px;
-    margin: 10px;                   /* 바깥쪽 여백 */
-    padding: 10px;
-    background-color: #ffeb9b;
-    border-radius: 7px;             /* 모서리 둥글게 처리 */
+
+.walk-list {
+	height: 60px;
+	margin: 10px; /* 바깥쪽 여백 */
+	padding: 10px;
+	background-color: #ffeb9b;
+	border-radius: 7px; /* 모서리 둥글게 처리 */
 	font-family: inherit;
 	align-items: center;
-	display:flex;
+	display: flex;
 	font-size: 19px;
 	text-align: center;
-
 }
+
 .walk-color {
 	color: #ff5c00;
 }
+
+footer {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+.asidebar {
+    width: 12%;
+    background-color: white;
+    position: absolute;
+    height: 90%;
+}
+
+
 </style>
 </head>
-<body>
+<body class="hold-transition sidebar-mini layout-fixed">
 	<%@include file="../include/Header.jsp"%>
+	<div class="wrapper">
+		<aside class="asidebar beta">
+			<div class="sidebar">
+				<div class="user-panel mt-3 pb-3 mb-3 d-flex"></div>
+				<nav class="mt-2">
+					<ul class="nav nav-pills nav-sidebar flex-column"
+						data-widget="treeview" role="menu" data-accordion="false">
 
-	<div class="container">
-		<div class="row">
-			<div class="calendar-container col-md-8">
-				<div class="my-calendar clearfix">
-					<div class="clicked-date">
-						<div class="cal-day"></div>
-						<div class="cal-date"></div>
-					</div>
-					<div class="calendar-box">
-						<div class="ctr-box clearfix">
-							<button type="button" title="prev" class="btn-cal prev"></button>
-							<span class="cal-month"></span> <span class="cal-year"></span>
-							<button type="button" title="next" class="btn-cal next"></button>
-						</div>
-						<table class="cal-table">
-							<thead>
-								<tr>
-									<th>S</th>
-									<th>M</th>
-									<th>T</th>
-									<th>W</th>
-									<th>T</th>
-									<th>F</th>
-									<th>S</th>
-								</tr>
-							</thead>
-							<tbody class="cal-body"></tbody>
-						</table>
-					</div>
-				</div>
-				<!-- // .my-calendar -->
+						<!-- 마이 프로필 -->
+						<li class="nav-item"><a href="/myPage/myPageProfile"
+							class="nav-link">
+								<p>마이 프로필</p>
+						</a></li>
+
+						<!-- 나의 게시글 -->
+						<li class="nav-item"><a href="/myPage/myPageBoard"
+							class="nav-link">
+								<p>나의 게시글</p>
+						</a></li>
+
+						<!-- 반려동물 -->
+						<li class="nav-item"><a href="/myPage/myPageDogList"
+							class="nav-link">
+								<p>반려동물</p>
+						</a></li>
+
+						<!-- 펫친관리 -->
+						<li class="nav-item"><a href="/friend/friendList"
+							class="nav-link">
+								<p>펫친관리</p>
+						</a></li>
+
+						<!-- 친구찾기 -->
+						<li class="nav-item"><a href="/friend/friendFind"
+							class="nav-link">
+								<p>펫친찾기</p>
+						</a></li>
+
+						<!-- 나의 산책로 -->
+						<li class="nav-item"><a href="/walk/myWalk" class="nav-link active">
+								<p>나의 산책로</p>
+						</a></li>
+
+					</ul>
+				</nav>
 			</div>
-			<div class="col-md-4 mt-4">
+		</aside>
+		<div class="content-wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="calendar-container col-md-8">
+						<div class="my-calendar clearfix">
+							<div class="clicked-date">
+								<div class="cal-day"></div>
+								<div class="cal-date"></div>
+							</div>
+							<div class="calendar-box">
+								<div class="ctr-box clearfix">
+									<button type="button" title="prev" class="btn-cal prev"></button>
+									<span class="cal-month"></span> <span class="cal-year"></span>
+									<button type="button" title="next" class="btn-cal next"></button>
+								</div>
+								<table class="cal-table">
+									<thead>
+										<tr>
+											<th>S</th>
+											<th>M</th>
+											<th>T</th>
+											<th>W</th>
+											<th>T</th>
+											<th>F</th>
+											<th>S</th>
+										</tr>
+									</thead>
+									<tbody class="cal-body"></tbody>
+								</table>
+							</div>
+						</div>
+						<!-- // .my-calendar -->
+					</div>
+					<div class="col-md-4 mt-4">
 
-		<!-- 		<a class="walk-modal" data-toggle="modal"
+						<!-- 		<a class="walk-modal" data-toggle="modal"
 					data-target="#calendarModal">
 					<div class="walk-list mt-3">
 						산책시간  <span>1</span>분 &nbsp;
@@ -105,79 +169,80 @@ ul{
 					</div>
 				</a> -->
 
-				<ul>
-					<a class="walk-modal" data-toggle="modal"
-						data-target="#calendarModal">
-						<li class="walk-list">시간 <span class="walk-color">123456</span>분
-							&nbsp; 거리 <span class="text-primary">123456</span>km <!-- 200일 d-day를 츨력할 공간 -->
-							</span>
-							<div id="dday100"></div> <!-- 100일 d-day를 츨력할 공간 --> </span></li>
-					</a>
-					<li class="walk-list font-weight-bold">시간 &nbsp;  
-					<span class="font-weight-bold walk-color">123456</span>분 &nbsp; 거리 
-					&nbsp;<span class="font-weight-bold walk-color">123456</span>km <!-- 200일 d-day를 츨력할 공간 -->
-						</span></li>
-					<li class="walk-list"><span class="days">300일</span> <span
-						class="days2">
-							<div id="dday300"></div> <!-- 300일 d-day를 츨력할 공간 -->
-					</span></li>
-					<li class="walk-list"><span class="days">1년</span> <span
-						class="days2">
-							<div id="dday365"></div> <!-- 1주년 d-day를 츨력할 공간 -->
-					</span></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-
-	<!-- 모달 -->
-	<div class="modal fade" id="calendarModal" tabindex="-1"
-		aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id=""></h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
+						<ul>
+							<a class="walk-modal" data-toggle="modal"
+								data-target="#calendarModal">
+								<li class="walk-list">시간 <span class="walk-color">123456</span>분
+									&nbsp; 거리 <span class="text-primary">123456</span>km <!-- 200일 d-day를 츨력할 공간 -->
+									</span>
+									<div id="dday100"></div> <!-- 100일 d-day를 츨력할 공간 --> </span></li>
+							</a>
+							<li class="walk-list font-weight-bold">시간 &nbsp; <span
+								class="font-weight-bold walk-color">123456</span>분 &nbsp; 거리
+								&nbsp;<span class="font-weight-bold walk-color">123456</span>km
+								<!-- 200일 d-day를 츨력할 공간 --> </span></li>
+							<li class="walk-list"><span class="days">300일</span> <span
+								class="days2">
+									<div id="dday300"></div> <!-- 300일 d-day를 츨력할 공간 -->
+							</span></li>
+							<li class="walk-list"><span class="days">1년</span> <span
+								class="days2">
+									<div id="dday365"></div> <!-- 1주년 d-day를 츨력할 공간 -->
+							</span></li>
+						</ul>
+					</div>
 				</div>
-				<!-- form start -->
-				<div class="modal-body">
-					<div class="container-fluid">
-						<!-- <div class="row"> -->
-						<div id="walkDate" class="mb-4">
-							<h1>산책 날짜</h1>
-						</div>
-						<div class="row walk-time mb-3">
-							<div class="col-2"></div>
-							<label for="walk-start" class="control-label">시작:</label>
-							<div class="col-3">
-								<input type="text" class="form-control" id="walk-start" name="" />
-							</div>
-							<label for="walk-end" class="control-label">종료:</label>
-							<div class="col-3">
-								<input type="text" class="form-control" id="walk-end" name="" />
-							</div>
-						</div>
+			</div>
 
-						<div class="row">
-							<div class="mb-3 col-2"></div>
-							<div class="mb-3 col-4 walk-info">
-								<label for="exampleFormControlInput1" class="form-label">산책시간</label>
-								<input type="text" class="form-control"
-									id="exampleFormControlInput1" name="" />
-							</div>
-							<div class="mb-3 col-4 walk-info">
-								<label for="exampleFormControlInput1" class="form-label">거리</label>
+			<!-- 모달 -->
+			<div class="modal fade" id="calendarModal" tabindex="-1"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id=""></h5>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<!-- form start -->
+						<div class="modal-body">
+							<div class="container-fluid">
+								<!-- <div class="row"> -->
+								<div id="walkDate" class="mb-4">
+									<h1>산책 날짜</h1>
+								</div>
+								<div class="row walk-time mb-3">
+									<div class="col-2"></div>
+									<label for="walk-start" class="control-label">시작:</label>
+									<div class="col-3">
+										<input type="text" class="form-control" id="walk-start"
+											name="" />
+									</div>
+									<label for="walk-end" class="control-label">종료:</label>
+									<div class="col-3">
+										<input type="text" class="form-control" id="walk-end" name="" />
+									</div>
+								</div>
 
-								<input type="text" class="form-control"
-									id="exampleFormControlInput1"
-									2
+								<div class="row">
+									<div class="mb-3 col-2"></div>
+									<div class="mb-3 col-4 walk-info">
+										<label for="exampleFormControlInput1" class="form-label">산책시간</label>
+										<input type="text" class="form-control"
+											id="exampleFormControlInput1" name="" />
+									</div>
+									<div class="mb-3 col-4 walk-info">
+										<label for="exampleFormControlInput1" class="form-label">거리</label>
+
+										<input type="text" class="form-control"
+											id="exampleFormControlInput1"
+											2
                           name="facility" />
-							</div>
+									</div>
 
-							<!-- <div class="mb-3 col-md-4">
+									<!-- <div class="mb-3 col-md-4">
                         <label for="exampleFormControlInput1" class="form-label"
                           >칼로리</label
                         >
@@ -189,16 +254,17 @@ ul{
                           name="facility"
                         />
                       </div> -->
-							<div id="map3" style="width: 100%; height: 350px"></div>
+									<div id="map3" style="width: 100%; height: 350px"></div>
 
-							<!-- </div> -->
+									<!-- </div> -->
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 
 
 	<%@include file="../include/Footer.jsp"%>

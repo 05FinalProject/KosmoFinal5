@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>마이페이지 - 친구정보</title>
+<title>마이페이지 - 나의 프로필</title>
 
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet"
@@ -38,25 +39,14 @@
 <!-- WithYou myPage Custom Css-->
 <link rel="stylesheet" href="/myPage/css/myPage.css">
 
-<style>
-
-.context{
-    margin-left: 0%;
-}
-
-.boxbox{
-	padding-bottom:5%;
-}
-</style>
-
 </head>
 <body class="hold-transition sidebar-mini layout-fixed"
 	style="background-color: #f4f6f9;">
-	<%@include file="../include/Header.jsp"%>
+	<%@include file="/WEB-INF/views/include/Header.jsp" %>
+	
 	<div class="wrapper">
 		<!-- Main Sidebar Container -->
-		<!-- Sidebar -->
-		<aside class="myPage-sidebar asidebar beta">
+  <aside class="myPage-sidebar asidebar beta">
     <div class="sidebar">
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       </div>
@@ -65,7 +55,7 @@
 
           <!-- 마이 프로필 -->
           <li class="nav-item">
-            <a href="/myPage/myPageProfile" class="nav-link">
+            <a href="/myPage/myPageProfile" class="nav-link active">
               <p>
                 마이 프로필
               </p>
@@ -74,7 +64,7 @@
         
           <!-- 나의 게시글 -->
           <li class="nav-item">
-            <a href="/mypage/myPageBoard" class="nav-link">
+            <a href="/myPage/myPageBoard" class="nav-link">
               <p>
                 나의 게시글
               </p>
@@ -92,7 +82,7 @@
 
           <!-- 펫친관리 -->
           <li class="nav-item">
-            <a href="/friend/friendList" class="nav-link active">
+            <a href="/friend/friendList" class="nav-link">
               <p>
                 펫친관리
               </p>
@@ -110,7 +100,7 @@
           
           <!-- 나의 산책로 -->
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/walk/myWalk" class="nav-link">
               <p>
                 나의 산책로
               </p>
@@ -121,27 +111,31 @@
       </nav>
     </div>
   </aside>
-		<!-- /.sidebar -->
-		<div class="content-wrapper">
-			<!-- 내용 넣는 곳 -->
-			<div class="card-body box-profile">
-				<div class="text-center">
-					<img class="profile-user-img img-fluid img-circle"
-						src="../../admin/dist/img/user4-128x128.jpg"
-						alt="User profile picture" style="width: 15%; height: 15%;">
+		<div class="content-wrapper" style="margin-left: 10%;">
+		
+		<form action="userUpdate" method="post" id="userUpdateForm" enctype="multipart/form-data">
+			<input type="hidden" value="/${sessionScope.pRimgname }" id="imgSrc" />
+			<section class="content-header">
+				<div class="container-fluid profileHead"></div>
+				<!-- /.container-fluid -->
+			</section>
+			<div class="card-body box-profile userFileForm">
+				<div class="text-center" id="imgArea">
+				<!-- 사진 출력 줄 -->
 				</div>
 				<div class="text-center">
-					<button href="javascript(0);" class="btn btm-sm btn-add"
+					<label class="btn btm-sm btn-add" for="userFile"
 						style="background-color: #F8b03a; color: white; padding: 0.5%; margin-top: 1%">
-						친구 추가</i>
-					</button>
-					<input type="file" id="file" style="display: none;">
+						사진 수정</i>
+					</label>
+					<input type="file" id="userFile" name="file" style="display: none;">
 				</div>
 			</div>
+			<!-- /.card-body -->
 			<section class="content context">
 				<div class="container-fluid">
 					<div class="row">
-						<div class="col-md-8 boxbox" style="float: none; margin: 0 auto;">
+						<div class="col-md-8" style="float: none; margin: 0 auto;">
 							<div class="card">
 								<div class="card-body">
 									<div class="tab-content">
@@ -150,60 +144,45 @@
 										<div class="active tab-pane" id="settings">
 											<form class="form-horizontal">
 												<div class="form-group row">
-													<label for="inputName" class="col-sm-2 col-form-label">닉네임</label>
+													<label for="inputName" class="col-sm-2 col-form-label">이메일</label>
 													<div class="col-sm-10">
-														<input type="text" class="form-control">
-															
-													</div>
-												</div>
-												<div class="form-group row">
-													<label for="inputEmail" class="col-sm-2 col-form-label">견종선택</label>
-													<div class="col-sm-10">
-														<select class="form-control" style="float: left;">
-															<option>견종 선택</option>
-															<c:forEach var="vo" items="${kindList}">
-																<option>${vo.dogKind}</option>
-															</c:forEach>
-
-														</select>
+														<input type="email" class="form-control" id="inputName"
+															value="${sessionScope.userEmail }" disabled="">
 													</div>
 												</div>
 												<div class="form-group row">
 													<label for="inputExperience"
-														class="col-sm-2 col-form-label">반려견 이름</label>
+														class="col-sm-2 col-form-label">이름</label>
 													<div class="col-sm-10">
-														<input type="text" class="form-control" inputmode="text">
+														<input type="text" class="form-control" id="inputEmail"
+															value="${sessionScope.userName }" disabled="">
 													</div>
 												</div>
 												<div class="form-group row">
-													<label for="inputSkills" class="col-sm-2 col-form-label">반려견
-														몸무게</label>
+													<label for="inputSkills" class="col-sm-2 col-form-label">전화번호</label>
 													<div class="col-sm-10">
-														<input type="tel" class="form-control" id="inputSkills">
-															
+														<input type="tel" class="form-control" id="inputSkills"
+															value="${sessionScope.userPhone }" disabled="">
 													</div>
 												</div>
 												<div class="form-group row">
-													<label for="inputSkills" class="col-sm-2 col-form-label">반려견
-														성별</label>
-													<div>
-														<button class="btn btn-modify btn-sm boy"
-															style="background-color: #F8b03a; color: white; margin-left: 15px;">남아</button>
-														<button class="btn btn-modify btn-sm girl"
-															style="background-color: #F8b03a; color: white;">여아</button>
+													<label for="inputSkills" class="col-sm-2 col-form-label">닉네임</label>
+													<div class="col-sm-10">
+														<input type="text" class="form-control" id="inputSkills"
+															value="${sessionScope.userNickname }" disabled="">
 													</div>
 												</div>
 												<div class="form-group row">
-													<label for="inputSkills" class="col-sm-2 col-form-label">중성화
-														여부</label>
-													<div>
-														<button class="btn btn-modify btn-sm yes"
-															style="background-color: #F8b03a; color: white; margin-left: 15px;">했어요</button>
-														<button class="btn btn-modify btn-sm no"
-															style="background-color: #F8b03a; color: white;">안했어요</button>
+													<label for="inputSkills" class="col-sm-2 col-form-label">주소</label>
+													<div class="col-sm-10">
+														<input type="text" class="form-control" id="inputSkills"
+															value="${sessionScope.userAddress }" disabled="">
 													</div>
 												</div>
-
+												<div style="float: right;">
+													<button type="submit" class="btn btn-modify"
+														style="background-color: #F8b03a; color: white;">완료</button>
+												</div>
 											</form>
 										</div>
 										<!-- /.tab-pane -->
@@ -219,10 +198,13 @@
 					<!-- /.row -->
 				</div>
 			</section>
+			
+			</form>
+			
 		</div>
 	</div>
 	<!-- ./wrapper -->
-	<%@include file="../include/Footer.jsp"%>
+	<%@include file="/WEB-INF/views/include/Footer.jsp" %>
 
 	<!-- jQuery -->
 	<script src="../../admin/plugins/jquery/jquery.min.js"></script>
@@ -258,6 +240,40 @@
 	<script src="../../admin/dist/js/adminlte.js"></script>
 	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 	<script src="../../admin/dist/js/pages/dashboard.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$(".btn-add").mouseover(function() {
+				$(".btn-add").css("background-color", "#dc6721");
+			});
+			$(".btn-add").mouseout(function() {
+				$(".btn-add").css("background-color", "#F8b03a");
+			});
+
+			$(".btn-modify").mouseover(function() {
+				$(".btn-modify").css("background-color", "#dc6721");
+			});
+			$(".btn-modify").mouseout(function() {
+				$(".btn-modify").css("background-color", "#F8b03a");
+			});
+			/* 프로필사진 업로드 */
+			$(".btn-add").click(function(e) {
+				e.preventDefault();
+				$("#userFile").click();
+			});
+		
+		
+			$('#imgArea').append('<img class="profile-user-img img-fluid img-circle userFile"'+
+				'src="'+$('#imgSrc').val()+'" alt="User profile picture" style="width: 15%; height: 15%;">')
+		
+		
+			/* 
+			$('#userDelete').click(function(){
+				$('#frmDelete').submit
+			})
+		 	*/
+		 
+		});
+	</script>
 </body>
 </html>
 
