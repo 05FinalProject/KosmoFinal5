@@ -117,9 +117,9 @@ information-content {
 	display: flex;
 }
 
-span {
+/* span {
 	margin-right: 60%;
-}
+} */
 
 #communityTitle {
 	margin-right: 60%;
@@ -142,6 +142,7 @@ span {
 	width: 40px;
 	border: none;
 	float: right;
+	
 }
 
 .write-comment {
@@ -250,10 +251,6 @@ ul {
 	display: flex;
 }
 
-span {
-	margin-right: 60%;
-}
-
 #communityTitle {
 	margin-right: 60%;
 }
@@ -288,6 +285,27 @@ span {
 	width: 100%;
 	height: 100%;
 }
+/* .comment-img {
+	display:flex;
+	
+} */
+
+body {
+    height: 100%
+}
+
+#boxbox {
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 60px;
+}
+
+footer {
+    position: relative;
+    transform: translatY(-100%);
+} 
+
+
 </style>
 
 </head>
@@ -296,11 +314,11 @@ span {
 <%@include file="../include/Header.jsp"%>
 
 <body>
-
+<div class="col-md-12" id="boxbox">
 	<div id="total">
 		<form method="post">
 			<input name="communityNum" type="hidden" value="1">
-			<div class="row justify-content-center">
+			<div class="row justify-content-center" style="float:left;">
 				<div class="col-lg-6 col-md-12">
 					<div class="pet-details-image">
 						<div id="wrap">
@@ -324,7 +342,7 @@ span {
 				</div>
 			</div>
 
-			<div class="col-lg-6 col-md-12">
+			<div class="col-lg-6" style="float:right;">
 				<div class="products-details-content">
 					<div id="userProfile" class="container">
 						<div class="item" id="communityTitle">
@@ -353,26 +371,28 @@ span {
 							value="${community[0].community.communityContent}" />
 						<div id="etc">
 							<div class="container" id="btnbtn">
-								<span>${community[0].community.communityInsertdate}</span> <input
+								<span>${community[0].community.communityInsertdate}</span> 
+								<input
 									type="hidden" class="likeBtn"
 									value="${sessionScope.userEmail }">
 								<div class="comment-img">
 									<c:if test="${not empty sessionScope.userEmail }">
 										<c:choose>
 											<c:when test="${likeState eq 0 }">
-												<span><a type="button" class="heart-click"><i
+												<span class="item"><a type="button" class="heart-click"><i
 														class="fa-regular fa-heart" style="color: red;"></i></a></span>
 											</c:when>
 											<c:otherwise>
-												<span ><a type="button" class="heart-click"><i
+												<span class="item"><a type="button" class="heart-click"><i
 														class="heart-click fa-solid fa-heart" style="color: red;"></i></a></span>
 											</c:otherwise>
 										</c:choose>
 									</c:if>
-									<span><i class="fa-regular fa-comment-dots"></i></span>
+									<span class="item"><i class="fa-regular fa-comment-dots"></i></span>
 								</div>
 								<button class="item" id="siren">
-									<img class="siren" src="../../img/siren.png">
+								 	<img class="siren" src="../../img/siren.png">
+									<!-- <i class="siren" class="fa-solid fa-light-emergency-on"></i> -->
 								</button>
 								<c:if
 									test="${community[0].community.user.userNickname eq sessionScope.userNickname}">
