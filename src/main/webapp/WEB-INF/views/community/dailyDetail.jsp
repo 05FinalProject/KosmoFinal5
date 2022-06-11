@@ -328,7 +328,8 @@ span {
 				<div class="products-details-content">
 					<div id="userProfile" class="container">
 						<div class="item" id="communityTitle">
-							<input type="hidden" name="communityNum" class="likelike" value="${community[0].community.communityNum}">
+							<input type="hidden" name="communityNum" class="likelike"
+								value="${community[0].community.communityNum}">
 							<h3 class="beforeUpdate">${community[0].community.communityTitle}</h3>
 							<input type="text" class="updateInput" name="communityTitle"
 								value="${community[0].community.communityTitle}" />
@@ -352,15 +353,32 @@ span {
 							value="${community[0].community.communityContent}" />
 						<div id="etc">
 							<div class="container" id="btnbtn">
-								<span>${community[0].community.communityInsertdate}</span>
-
+								<span>${community[0].community.communityInsertdate}</span> <input
+									type="hidden" class="likeBtn"
+									value="${sessionScope.userEmail }">
+								<div class="comment-img">
+									<c:if test="${not empty sessionScope.userEmail }">
+										<c:choose>
+											<c:when test="${likeState eq 0 }">
+												<span><a type="button" class="heart-click"><i
+														class="fa-regular fa-heart" style="color: red;"></i></a></span>
+											</c:when>
+											<c:otherwise>
+												<span ><a type="button" class="heart-click"><i
+														class="heart-click fa-solid fa-heart" style="color: red;"></i></a></span>
+											</c:otherwise>
+										</c:choose>
+									</c:if>
+									<span><i class="fa-regular fa-comment-dots"></i></span>
+								</div>
 								<button class="item" id="siren">
 									<img class="siren" src="../../img/siren.png">
 								</button>
 								<c:if
 									test="${community[0].community.user.userNickname eq sessionScope.userNickname}">
-									<span><img class="emptyHeart"
-										src="../../img/emptyHeart.png"></span>
+									<!-- 	<span><img class="emptyHeart"
+										src="../../img/emptyHeart.png"></span> -->
+
 									<div class="item" id="item1">
 										<input class="beforeUpdate updateBtn beforeUpdateBtn"
 											type="submit" value="수정" /> <input
@@ -374,22 +392,7 @@ span {
 							</div>
 						</div>
 					</div>
-					<input type="hidden" class="likeBtn" value="${sessionScope.userEmail }">
-					<div class="comment-img">
-						<c:if test="${not empty sessionScope.userEmail }">
-							<c:choose>
-								<c:when test="${likeState eq 0 }">
-									<span><a type="button" class="heart-click"><i class="fa-regular fa-heart"
-										style="color: red;"></i></a></span>
-								</c:when>
-								<c:otherwise>
-									<span><a type="button" class="heart-click"><i class="heart-click fa-solid fa-heart"
-										style="color: red;"></i></a></span>
-								</c:otherwise>
-							</c:choose>
-						</c:if>
-						<span><i class="fa-regular fa-comment-dots"></i></span>
-					</div>
+
 					<hr>
 
 					<!-- 댓글리스트 출력 -->
@@ -495,16 +498,14 @@ span {
 	<%@include file="../include/Footer.jsp"%>
 </body>
 <script type="text/javascript">
+	$("#siren").click(function(e) {
+		$(".modal").fadeIn();
+		e.preventDefault()
+	});
 
-    $("#siren").click(function (e) {
-        $(".modal").fadeIn();
-        e.preventDefault()
-    });
-
-    $(".close").click(function () {
-        $(".modal").fadeOut();
-    });
-
+	$(".close").click(function() {
+		$(".modal").fadeOut();
+	});
 </script>
 
 
@@ -527,12 +528,11 @@ span {
 
 
 <script type="text/javascript">
-
 	$(document).ready(function() {
 		$(".slider").bxSlider({
 			auto : true,
-			 adaptiveHeight : true,
-			pagerCustom : '#bx-pager' 
+			adaptiveHeight : true,
+			pagerCustom : '#bx-pager'
 		});
 
 	});
@@ -549,8 +549,7 @@ span {
 				.click(
 						function(e) {
 							e.preventDefault();
-							input_title
-									.val();
+							input_title.val();
 							input_content = $('input[name="communityContent"]')
 									.val();
 							input_communityNum = $('input[name="communityNum"]')
@@ -620,57 +619,53 @@ span {
 
 		}
 
-        $(function () {
-            $('#btnReport').click(function() {
-                if(confirm('신고하시겠습니까?')){
-                    alert("신고완료");
-                }
-                else {
-                    return;
-                }
-
-            });
-
-	    })
-	    
-		 /* **************************************** 좋아요 버튼 ************************************ */
-		$('.heart-click').click(function(){
-			alert($('.likelike').val())
-			const likelike = $('.likelike').val()
-			const userEmail = $('.likeBtn').val()
-			
-			$.ajax({
-				url : '/community/fullHeart',
-				type : 'post',
-				data:{
-					communityNum : likelike,
-					userEmail : userEmail
-				},
-				success : 
-					function(data){
-					alert("왔다")
-					let likedata = "";
-					$('.heart-click').empty();  //해당 클래스를 비움
-					if(data == 0) {
-						likedata = '<i class="fa-regular fa-heart" style="color: red;"></i>';
-					} else {
-						likedata = '<i class="fa-solid fa-heart" style="color: red;"></i>';
-					}
-					$('.heart-click').append(likedata);  //자식으로 다시 붙임
-				},
-				error : function(err) {
-					alert('좋아요 에러');
-					console.log(err);
+		$(function() {
+			$('#btnReport').click(function() {
+				if (confirm('신고하시겠습니까?')) {
+					alert("신고완료");
+				} else {
+					return;
 				}
-			}); 
-		});
-			
-	    
-	    
 
-    });
+			});
 
+		})
 
+		/* **************************************** 좋아요 버튼 ************************************ */
+		$('.heart-click')
+				.click(
+						function() {
+							alert($('.likelike').val())
+							const likelike = $('.likelike').val()
+							const userEmail = $('.likeBtn').val()
+
+							$
+									.ajax({
+										url : '/community/fullHeart',
+										type : 'post',
+										data : {
+											communityNum : likelike,
+											userEmail : userEmail
+										},
+										success : function(data) {
+											alert("왔다")
+											let likedata = "";
+											$('.heart-click').empty(); //해당 클래스를 비움
+											if (data == 0) {
+												likedata = '<i class="fa-regular fa-heart" style="color: red;"></i>';
+											} else {
+												likedata = '<i class="fa-solid fa-heart" style="color: red;"></i>';
+											}
+											$('.heart-click').append(likedata); //자식으로 다시 붙임
+										},
+										error : function(err) {
+											alert('좋아요 에러');
+											console.log(err);
+										}
+									});
+						});
+
+	});
 </script>
 
 </html>
