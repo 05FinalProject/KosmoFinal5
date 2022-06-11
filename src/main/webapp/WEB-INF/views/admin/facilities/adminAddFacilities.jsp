@@ -237,16 +237,12 @@
 
 	$(function () {
 		$('#btnInsert').click(function() {
-			if(confirm('등록하시겠습니까?')==true){
-				Toast.fire({
-					icon: 'success',
-					title: '시설이 등록되었습니다.'
-				})
+			if(confirm('등록하시겠습니까?')){
+				alert('등록완료');
 			}
 			else {
 				return;
 			}
-
 		});
 	})
 </script>

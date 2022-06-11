@@ -201,11 +201,13 @@ public class AdminMainController {
 		return "/admin/report/adminRpCommunity";
 	}
 
-	//블랙리스트
+	//블랙리스트 리스트 출력
 	@RequestMapping(value="adminBlacklist", method=RequestMethod.GET)
 	public String Blacklist() {
+
 		return "/admin/report/adminBlacklist";
 	}
+
 	// ******************************************************************************
 
 	//*******************************시설관리***************************************
@@ -308,7 +310,7 @@ public class AdminMainController {
 		return "redirect:/adminShelter";
 	}
 
-	//시설 리스트 페이지
+	//시설 등록
 	@RequestMapping(value = "/adminAddFacilities", method = RequestMethod.GET)
 	public String adminAddFacilities(){
 
@@ -330,7 +332,7 @@ public class AdminMainController {
 		return "/admin/communities/adminCommunities";
 	}
 
-	//커뮤 일상
+	//커뮤 일상공유 리스트 출력
 	@RequestMapping(value="adminDaily", method=RequestMethod.GET)
 	public String adminDaily(Model m) {
 		CommunityVO vo = new CommunityVO();

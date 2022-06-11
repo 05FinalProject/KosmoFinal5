@@ -30,6 +30,7 @@ public interface ReportRepository extends CrudRepository<ReportVO, Integer>{
 	 		+ "INNER JOIN report rp    "
 	 		+ "ON cm.c_num = rp.c_num    ", nativeQuery = true)
 	 List<Object[]> reportCommunity();
-	 
+
 	 //블랙리스트 출력
+
 }

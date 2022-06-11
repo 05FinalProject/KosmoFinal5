@@ -188,7 +188,7 @@
 																</div>
 
 																<div class="mb-3 col-md-12">
-																	<label for="exampleInputPassword1" class="form-label" value="${hotel.agencyImage}">이미지
+																	<label for="exampleInputFile" class="form-label" value="${hotel.agencyImage}">이미지
 																		첨부</label>
 																	<div class="custom-file">
 																		<input type="file" class="custom-file-input"
