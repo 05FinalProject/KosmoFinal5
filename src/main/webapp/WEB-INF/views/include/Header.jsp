@@ -168,13 +168,13 @@ ul {
 							<!-- 알림 추가 -->
 							<li class="nav-item dropdown"><a class="nav-link"
 								data-toggle="dropdown" href="#"> <i class="far fa-bell" style="color:ff8a00;"></i>
-									<small><span class="badge badge-warning navbar-badge">N</span></small>
+								<small><span class="badge badge-warning navbar-badge">N</span></small>
 							</a>
 								<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-								<!-- 	<a class="dropdown-item" id="unreadMessageBtn"> <i
+									<a class="dropdown-item" id="unreadMessageBtn"> <i
 										class="fas fa-envelope mr-2"></i> <label id="unreadMessage">0</label>
 										new messages
-									</a> -->
+									</a>
 									<c:if test="${sessionScope.userEmail != null }">
 										<form id="friendChating" action="/chating/friendChat"
 											method="post">
@@ -185,6 +185,7 @@ ul {
 										<c:choose>
 											<c:when test="${friendRequest != 0}">
 												<a href="/friend/friendRequestList" class="dropdown-item">
+											
 													<i class="fas fa-users mr-2"></i> <label
 													id="friendRequests">${friendRequest}</label> friend
 													requests

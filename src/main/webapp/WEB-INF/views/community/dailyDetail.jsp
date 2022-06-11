@@ -548,16 +548,18 @@ footer {
 
 
 <script type="text/javascript">
-	$(document).ready(function() {
+
+	$(function() {
 		$(".slider").bxSlider({
 			auto : true,
 			adaptiveHeight : true,
-			pagerCustom : '#bx-pager'
+			/* pagerCustom : '#bx-pager' */
 		});
 
 	});
 
 	$(function() {
+		
 		$('.updateInput').hide();
 		$('.beforeUpdateBtn').click(function(e) {
 			e.preventDefault();

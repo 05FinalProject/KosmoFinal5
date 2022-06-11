@@ -210,197 +210,210 @@ header .subHeader .headerInner .gnb-bar .gnb-list.hover_menu.on {
 
 
 
-	<main class="main">
-		<div id="post-1" class="page type-page post-1">
-			<div class="container post-container bg-white">
+<main class="main">
+	<div id="post-1" class="page type-page post-1">
+		<div class="container post-container bg-white">
 
-				<div class="row justify-content-start post-row no-gutters">
-					<div
-						class="col-12 px-0 px-sm-3 col-md-10 offset-md-1 px-md-0 col-xl-9">
-						<div class="post-content">
-							<h3 class="font-weight-bold">일상공유</h3>
+			<div class="row justify-content-start post-row no-gutters">
+				<div
+					class="col-12 px-0 px-sm-3 col-md-10 offset-md-1 px-md-0 col-xl-9">
+					<div class="post-content">
+						<h3 class="font-weight-bold">일상공유</h3>
 
-							<form id="contactform" class="contact-form mt-5"
-								action="writeDaily" method="post" enctype="multipart/form-data">
-								<input type="hidden" value="${sessionScope.userEmail }" name="userEmail"/>
-								<!-- 이미지 미리보기 -->
-								<div id='image_preview'>
-									<h4>미리보기</h4>
-									<input type='file' id='btnAtt' multiple='multiple' name="file" />
-									
-									<div id='att_zone'
-										data-placeholder='파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요.'></div>
-								</div>
-								<br />
-								
+						<form id="communityForm" class="contact-form mt-5"
+							action="writeDaily" method="post" enctype="multipart/form-data" onsubmit="return formCheck();">
+							<input type="hidden" value="${sessionScope.userEmail }"
+								name="userEmail" />
+							<!-- 이미지 미리보기 -->
+							<div id='image_preview'>
+								<h4>미리보기</h4>
+								<input type='file' id='btnAtt' multiple='multiple' name="file" />
 
-								<div class="form-group row">
-									<div class="col">
-										<label class="font-weight-bold">글작성<span
-											style="color: red">*</span></label>
-										<div class="form-group row">
-											<div class="col">
-												<input type="text" class="form-control" name="communityTitle"
-													placeholder="제목을 입력해주세요." aria-required="true"
-													required="required">
-											</div>
+								<div id='att_zone'
+									data-placeholder='파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요.'></div>
+							</div>
+							<br />
+
+
+							<div class="form-group row">
+								<div class="col">
+									<label class="font-weight-bold">글작성<span
+										style="color: red">*</span></label>
+									<div class="form-group row">
+										<div class="col">
+											<input type="text" class="form-control" id="title"
+												name="communityTitle" placeholder="제목을 입력해주세요.">
+												
 										</div>
-										<textarea class="form-control" name="communityContent"
-											rows="8" aria-required="true" aria-label="Message"
-											placeholder="내용을 입력해주세요."></textarea>
 									</div>
+									<textarea class="form-control" name="communityContent" id="content"
+										rows="8" aria-required="true" aria-label="Message"
+										placeholder="내용을 입력해주세요."></textarea>
 								</div>
-								<div class="row text-center">
-									<div class="col" id="btn-group">
-										<a href="daily" id="wrtieDaily-cancle">취소</a>							
-										<button id="writeDaily-btn" type="submit">등록</button>										
-									</div>
+							</div>
+							<div class="row text-center">
+								<div class="col" id="btn-group">
+									<a href="daily" id="wrtieDaily-cancle">취소</a>
+									<button id="writeDaily-btn" type="submit">등록</button>
 								</div>
-							</form>
-						</div>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 
-	</main>
+</main>
 
 
-	<%@include file="../include/Footer.jsp"%>
+<%@include file="../include/Footer.jsp"%>
 
-	<script type="text/javascript" src="../js/jquery.min.js?ver=3.6.0"></script>
-	<script type="text/javascript" src="../js/popper.min.js?ver=1.16.1"></script>
-	<script type="text/javascript" src="../js/bootstrap.min.js?ver=4.6.0"></script>
-	<script type="text/javascript" src="../js/smartmenus.min.js?ver=1.1.1"></script>
-	<script type="text/javascript"
-		src="../js/smartmenus-bootstrap.min.js?ver=1.1.1"></script>
-	<script type="text/javascript" src="../js/swiper.min.js?ver=4.5.3"></script>
-	<script type="text/javascript" src="../js/scrollmagic.min.js?ver=2.0.8"></script>
-	<script type="text/javascript"
-		src="../js/magnific-popup.min.js?ver=1.1.0"></script>
-	<script type="text/javascript" src="../js/custom-theme.js?ver=1.0.0"></script>
-	<script type="text/javascript">
-	/* 	$(document).ready(function(){
-			$("#writeDaily-imgupload").click(function(e){
-				e.preventDefault();
-				$("#file").click();
-			});
-		});
-		$('body').click(function(){
-			$(".ui-sortable").append('<li data-type="image" data-ori_preview="file0" data-preview="news0" data-thumb_crob="1" data-crob="crob_img1">' +	 
-					'<div class="click-item thumb_btn">' +	 
-							'<input type="radio" name="crob_thumb_img" id="crob_img1"></div>' +	 
-						'<img class="write-crob-thumb" id="crob_main_thumb1" src="C:\Users\wlsgm\OneDrive\바탕 화면\도루묵.jpg">' +	 
-					'<div class="tag-item" hidden=""></div>	' +	 										
-						'<button type="button" class="util_btn del_util" onclick="pageSnsWrite.deleteImage("file0",0)"></button></li>')
-		}) */
-		 
+<script type="text/javascript" src="../js/jquery.min.js?ver=3.6.0"></script>
+<script type="text/javascript" src="../js/popper.min.js?ver=1.16.1"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js?ver=4.6.0"></script>
+<script type="text/javascript" src="../js/smartmenus.min.js?ver=1.1.1"></script>
+<script type="text/javascript"
+	src="../js/smartmenus-bootstrap.min.js?ver=1.1.1"></script>
+<script type="text/javascript" src="../js/swiper.min.js?ver=4.5.3"></script>
+<script type="text/javascript" src="../js/scrollmagic.min.js?ver=2.0.8"></script>
+<script type="text/javascript"
+	src="../js/magnific-popup.min.js?ver=1.1.0"></script>
+<script type="text/javascript" src="../js/custom-theme.js?ver=1.0.0"></script>
+<script type="text/javascript">
+
+
+	
+( /* att_zone : 이미지들이 들어갈 위치 id, btn : file tag id */
+		  imageView = function imageView(att_zone, btn){
+
+		    var attZone = document.getElementById(att_zone);
+		    var btnAtt = document.getElementById(btn)
+		    var sel_files = [];
+		    
+		    // 이미지와 체크 박스를 감싸고 있는 div 속성
+		    var div_style = 'display:inline-block;position:relative;'
+		                  + 'width:150px;height:120px;margin:5px;z-index:1';
+		    // 미리보기 이미지 속성
+		    var img_style = 'width:100%;height:100%;z-index:none';
+		    // 이미지안에 표시되는 체크박스의 속성
+		    var chk_style = 'width:30px;height:30px;position:absolute;font-size:24px;'
+		                  + 'right:0px;bottom:0px;z-index:999;background-color:rgba(255,255,255,0.1);color:#f00';
+		  
+		    btnAtt.onchange = function(e){
+		      var files = e.target.files;
+		      var fileArr = Array.prototype.slice.call(files)
+		      for(f of fileArr){
+		        imageLoader(f);
+		      }
+		    }  
+		    
+		  
+		    // 탐색기에서 드래그앤 드롭 사용
+		    attZone.addEventListener('dragenter', function(e){
+		      e.preventDefault();
+		      e.stopPropagation();
+		    }, false)
+		    
+		    attZone.addEventListener('dragover', function(e){
+		      e.preventDefault();
+		      e.stopPropagation();
+		      
+		    }, false)
+		  
+		    attZone.addEventListener('drop', function(e){
+		      var files = {};
+		      e.preventDefault();
+		      e.stopPropagation();
+		      var dt = e.dataTransfer;
+		      files = dt.files;
+		      for(f of files){
+		        imageLoader(f);
+		      }
+		      
+		    }, false)
+		    
+
+		    
+		    /*첨부된 이미리즐을 배열에 넣고 미리보기 */
+		    imageLoader = function(file){
+		      sel_files.push(file);
+		      var reader = new FileReader();
+		      reader.onload = function(ee){
+		        let img = document.createElement('img')
+		        img.setAttribute('style', img_style)
+		        img.src = ee.target.result;
+		        attZone.appendChild(makeDiv(img, file));
+		      }
+		      
+		      reader.readAsDataURL(file);
+		    }
+		    
+		    /*첨부된 파일이 있는 경우 checkbox와 함께 attZone에 추가할 div를 만들어 반환 */
+		    makeDiv = function(img, file){
+		      var div = document.createElement('div')
+		      div.setAttribute('style', div_style)
+		      
+		      var btn = document.createElement('input')
+		      btn.setAttribute('type', 'button')
+		      btn.setAttribute('value', 'x')
+		      btn.setAttribute('delFile', file.name);
+		      btn.setAttribute('style', chk_style);
+		      btn.onclick = function(ev){
+		        var ele = ev.srcElement;
+		        var delFile = ele.getAttribute('delFile');
+		        for(var i=0 ;i<sel_files.length; i++){
+		          if(delFile== sel_files[i].name){
+		            sel_files.splice(i, 1);      
+		          }
+		        }
+		        
+		        dt = new DataTransfer();
+		        for(f in sel_files) {
+		          var file = sel_files[f];
+		          dt.items.add(file);
+		        }
+		        btnAtt.files = dt.files;
+		        var p = ele.parentNode;
+		        attZone.removeChild(p)
+		      }
+		      div.appendChild(img)
+		      div.appendChild(btn)
+		      return div
+		    }
+		  }
+		)('att_zone', 'btnAtt')
 		
-		( /* att_zone : 이미지들이 들어갈 위치 id, btn : file tag id */
-				  imageView = function imageView(att_zone, btn){
-
-				    var attZone = document.getElementById(att_zone);
-				    var btnAtt = document.getElementById(btn)
-				    var sel_files = [];
-				    
-				    // 이미지와 체크 박스를 감싸고 있는 div 속성
-				    var div_style = 'display:inline-block;position:relative;'
-				                  + 'width:150px;height:120px;margin:5px;z-index:1';
-				    // 미리보기 이미지 속성
-				    var img_style = 'width:100%;height:100%;z-index:none';
-				    // 이미지안에 표시되는 체크박스의 속성
-				    var chk_style = 'width:30px;height:30px;position:absolute;font-size:24px;'
-				                  + 'right:0px;bottom:0px;z-index:999;background-color:rgba(255,255,255,0.1);color:#f00';
-				  
-				    btnAtt.onchange = function(e){
-				      var files = e.target.files;
-				      var fileArr = Array.prototype.slice.call(files)
-				      for(f of fileArr){
-				        imageLoader(f);
-				      }
-				    }  
-				    
-				  
-				    // 탐색기에서 드래그앤 드롭 사용
-				    attZone.addEventListener('dragenter', function(e){
-				      e.preventDefault();
-				      e.stopPropagation();
-				    }, false)
-				    
-				    attZone.addEventListener('dragover', function(e){
-				      e.preventDefault();
-				      e.stopPropagation();
-				      
-				    }, false)
-				  
-				    attZone.addEventListener('drop', function(e){
-				      var files = {};
-				      e.preventDefault();
-				      e.stopPropagation();
-				      var dt = e.dataTransfer;
-				      files = dt.files;
-				      for(f of files){
-				        imageLoader(f);
-				      }
-				      
-				    }, false)
-				    
-
-				    
-				    /*첨부된 이미리즐을 배열에 넣고 미리보기 */
-				    imageLoader = function(file){
-				      sel_files.push(file);
-				      var reader = new FileReader();
-				      reader.onload = function(ee){
-				        let img = document.createElement('img')
-				        img.setAttribute('style', img_style)
-				        img.src = ee.target.result;
-				        attZone.appendChild(makeDiv(img, file));
-				      }
-				      
-				      reader.readAsDataURL(file);
-				    }
-				    
-				    /*첨부된 파일이 있는 경우 checkbox와 함께 attZone에 추가할 div를 만들어 반환 */
-				    makeDiv = function(img, file){
-				      var div = document.createElement('div')
-				      div.setAttribute('style', div_style)
-				      
-				      var btn = document.createElement('input')
-				      btn.setAttribute('type', 'button')
-				      btn.setAttribute('value', 'x')
-				      btn.setAttribute('delFile', file.name);
-				      btn.setAttribute('style', chk_style);
-				      btn.onclick = function(ev){
-				        var ele = ev.srcElement;
-				        var delFile = ele.getAttribute('delFile');
-				        for(var i=0 ;i<sel_files.length; i++){
-				          if(delFile== sel_files[i].name){
-				            sel_files.splice(i, 1);      
-				          }
-				        }
-				        
-				        dt = new DataTransfer();
-				        for(f in sel_files) {
-				          var file = sel_files[f];
-				          dt.items.add(file);
-				        }
-				        btnAtt.files = dt.files;
-				        var p = ele.parentNode;
-				        attZone.removeChild(p)
-				      }
-				      div.appendChild(img)
-				      div.appendChild(btn)
-				      return div
-				    }
-				  }
-				)('att_zone', 'btnAtt')
-				
-				
-				
-				/* 이미지 다중 업로드 */
-		 
-	</script>
+/* 이미지 다중 업로드 */
+		
+/* 글작성 유효성 검사 */
+ 
+function formCheck(){
+	
+	var image = document.forms[0].file.value;
+	var title = document.forms[0].communityTitle.value;
+	var content = document.forms[0].communityContent.value;
+	
+	if(image==null) {
+		alert('사진을 등록하세요.')
+		document.forms[0].image.focus();
+		return false;
+	}
+	if(title==null) {
+		alert('제목을 입력하세요.')
+		document.forms[0].title.focus();
+		return false;
+	}
+	if(content==null) {
+		alert('내용을 입력하세요.')
+		document.forms[0].content.focus();
+		return false;
+	}
+};
+    
+ 
+	 
+</script>
 
 </body>
 </html>
