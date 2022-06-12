@@ -74,7 +74,7 @@
             <div class="small-box bg-info">
               <div class="inner">
                 <h3>${getUserTotalSize}</h3>
-                <p>총 유저수</p>
+                <p style="font-size: 25px">총 유저수</p>
               </div>
               <div class="icon">
                 <i class="fa-solid fa-users"></i>
@@ -87,7 +87,7 @@
             <div class="small-box bg-success">
               <div class="inner">
                 <h3>${getPetTotalSize}</h3>
-                <p>반려견 등록수</p>
+                <p style="font-size: 25px">반려견 등록수</p>
               </div>
               <div class="icon">
                 <i class="fa-solid fa-dog"></i>
@@ -101,7 +101,7 @@
               <div class="inner">
                 <h3>${getSignupCount}</h3>
 
-                <p>오늘 등록된 회원가입 수</p>
+                <p style="font-size: 25px">오늘 등록된 회원가입 수</p>
               </div>
               <div class="icon">
                 <i class="fa-solid fa-user-plus"></i>
@@ -114,7 +114,7 @@
             <div class="small-box bg-danger">
               <div class="inner">
                 <h3>${getCommunityTotalSize}</h3>
-                <p>게시글 등록 수</p>
+                <p style="font-size: 25px">게시글 등록 수</p>
               </div>
               <div class="icon">
                 <i class="fa-solid fa-square-pen"></i>
@@ -132,7 +132,7 @@
                 <!-- DONUT CHART -->
                 <div class="card card-danger">
                   <div class="card-header">
-                    <h3 class="card-title">시설 별 등록 갯수</h3>
+                    <h3 class="card-title" style="font-size: 20px">시설 별 등록 갯수</h3>
                     <div class="card-tools">
                       <button type="button" class="btn btn-tool"
                               data-card-widget="collapse">
@@ -161,7 +161,7 @@
               <div class="col-md-6">
                 <div class="card card-danger">
                   <div class="card-header">
-                    <h3 class="card-title">월별 회원가입수</h3>
+                    <h3 class="card-title" style="font-size: 20px">월별 회원가입수</h3>
                     <div class="card-tools">
                       <button type="button" class="btn btn-tool"
                               data-card-widget="collapse">
@@ -328,7 +328,12 @@ $('#dashboard').addClass('active')
   let ctx2 = document.getElementById('userBarchart').getContext('2d');
   new Chart(ctx2, {
     type: 'bar',
-    data: data2
+    data: data2,
+    options: {
+      legend: {
+        display: false
+      }
+    }
   });
 </script>
 </body>

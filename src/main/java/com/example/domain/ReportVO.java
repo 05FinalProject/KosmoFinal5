@@ -49,5 +49,6 @@ public class ReportVO {
 	@Column(insertable = false, updatable = false, columnDefinition = "date default (current_date)",name = "r_date")
 	@Temporal(TemporalType.DATE)
 	private Date rDate;
+
 	
 }

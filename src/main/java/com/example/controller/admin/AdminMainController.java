@@ -201,11 +201,33 @@ public class AdminMainController {
 		return "/admin/report/adminRpCommunity";
 	}
 
-	//블랙리스트
-	@RequestMapping(value="adminBlacklist", method=RequestMethod.GET)
-	public String Blacklist() {
+	//블랙리스트 리스트 출력
+	@RequestMapping(value="/adminBlacklist", method=RequestMethod.GET)
+	public String Blacklist(Model model) {
+		UserVO vo = new UserVO();
+		List<UserVO> blackList = adminUserService.blackList(vo);
+		model.addAttribute("blackList", blackList);
+
 		return "/admin/report/adminBlacklist";
 	}
+
+	//블랙리스트 등록
+	@RequestMapping(value = "insertBlackList", method = RequestMethod.POST)
+	public String insertBlackList(String userEmail) {
+		System.out.println("블랙리스트 등록중");
+		adminUserService.insertBlackList(userEmail);
+		return "redirect:/adminUser";
+	}
+
+	//블랙리스트 취소
+	@RequestMapping(value = "/cancelBlack", method = RequestMethod.POST)
+	public String cancelBlack(String userEmail){
+		System.out.println(userEmail);
+		System.out.println("블랙리스트 취소");
+		adminUserService.cancelBlackList(userEmail);
+		return "redirect:/adminBlacklist";
+	}
+
 	// ******************************************************************************
 
 	//*******************************시설관리***************************************
@@ -298,7 +320,7 @@ public class AdminMainController {
 	@RequestMapping(value="/admin/update", method = RequestMethod.POST)
 	public String adminUpdateFacilities(Integer agencyNum, @RequestParam String tel, @RequestParam String facility, @RequestParam String content, @RequestParam String addr, @RequestParam String subAddr) {
 		adminAgencyService.updateAgency(agencyNum, tel, facility, content, addr, subAddr);
-		return "redirect:/adminHotel";
+		return "redirect:/indexAdmin";
 	}
 
 	//보호소 수정
@@ -308,22 +330,12 @@ public class AdminMainController {
 		return "redirect:/adminShelter";
 	}
 
-	//시설 리스트 페이지
+	//시설 등록
 	@RequestMapping(value = "/adminAddFacilities", method = RequestMethod.GET)
 	public String adminAddFacilities(){
 
 		return "/admin/facilities/adminAddFacilities";
 	}
-
-
-
-	//시설등록 테스트 할거
-	/*@RequestMapping(value="/admin/insertAgency", method=RequestMethod.POST)
-	public String adminInsertFacilities(Integer agencyNum, @RequestParam int agencyCategoryNum, @RequestParam String agencyName, @RequestParam String addr, @RequestParam String subAddr, @RequestParam String tel, @RequestParam String agencyContent, @RequestParam String agencyImage) {
-		System.out.println("인서트");
-		adminAgencyService.insertAgency(agencyNum, agencyCategoryNum, agencyName, addr, subAddr, tel, agencyContent, agencyImage);
-		return "redirect:/adminAddFacilities";
-	}*/
 
 	//시설삭제
 
@@ -332,7 +344,7 @@ public class AdminMainController {
 
 
 
-	// **************************커뮤니티 관리**************************************
+	// **************************커뮤니티 관리*****************************************
 	//커뮤 관리
 	@RequestMapping(value="adminComunities", method=RequestMethod.GET)
 	public String adminCommunities() {
@@ -340,7 +352,7 @@ public class AdminMainController {
 		return "/admin/communities/adminCommunities";
 	}
 
-	//커뮤 일상
+	//커뮤 일상공유 리스트 출력
 	@RequestMapping(value="adminDaily", method=RequestMethod.GET)
 	public String adminDaily(Model m) {
 		CommunityVO vo = new CommunityVO();

@@ -117,9 +117,7 @@ public class ImgVO {
 				file.transferTo(files);
 			} catch (Exception e) {
 				e.printStackTrace();
-			} 
+			}
 		}
-
 	}
-
 }

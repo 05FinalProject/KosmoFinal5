@@ -73,7 +73,7 @@
                   <tr>
                   	<th width="70">게시글번호</th>
                     <th>게시글제목</th>
-                    <th>닉네임</th>
+                    <th>이메일</th>
                     <th>신고사유</th>
                     <th width="80">신고날짜</th>
                     <th width="50">삭제</th>

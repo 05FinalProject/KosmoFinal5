@@ -2,6 +2,8 @@ package com.example.service.admin;
 
 import java.util.List;
 
+import com.example.dao.UserRepository;
+import com.example.domain.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,9 @@ public class AdminReportServiceImpl implements AdminReportService{
 	
 	@Autowired
 	private ReportRepository rpRepo;
+
+	@Autowired
+	private UserRepository uRepo;
 
 	//리뷰 목록 출력
 	@Override
@@ -35,20 +40,6 @@ public class AdminReportServiceImpl implements AdminReportService{
 		return rpRepo.reportCommunity();
 	}
 
-	//블랙리스트 목록 출력
-	@Override
-	public List<ReportVO> blackList(ReportVO vo) {
-		
-		return (List<ReportVO>)rpRepo.findAll();
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 
 }
