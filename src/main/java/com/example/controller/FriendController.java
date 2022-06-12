@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.example.domain.FriendVO;
 import com.example.domain.PetVO;
 import com.example.domain.UserVO;
 import com.example.service.chatingService.ChatingService;
@@ -49,8 +50,9 @@ public class FriendController {
 	}
 
 	@RequestMapping("/friendRequestList")
-	public void friendRequestList() {
-
+	public void friendRequestList(HttpSession session,Model m) {
+		String userEmail = session.getAttribute("userEmail").toString();
+		m.addAttribute("friendRequestList", service.getFriendRequests(userEmail));
 	}
 
 	

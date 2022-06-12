@@ -63,7 +63,7 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed "
 	style="background-color: #f4f6f9;">
-	<%@include file="../Header.jsp"%>
+	<%@include file="/WEB-INF/views/include/Header.jsp" %>
 	<div class="wrapper">
 		<!-- Main Sidebar Container -->
 		<aside class="myPage-sidebar asidebar beta">
@@ -74,19 +74,19 @@
 						data-widget="treeview" role="menu" data-accordion="false">
 
 						<!-- 마이 프로필 -->
-						<li class="nav-item"><a href="/include/myPage/myPageProfile"
+						<li class="nav-item"><a href="/myPage/myPageProfile"
 							class="nav-link">
 								<p>마이 프로필</p>
 						</a></li>
 
 						<!-- 나의 게시글 -->
-						<li class="nav-item"><a href="/include/myPage/myPageBoard"
+						<li class="nav-item"><a href="/myPage/myPageBoard"
 							class="nav-link">
 								<p>나의 게시글</p>
 						</a></li>
 
 						<!-- 반려동물 -->
-						<li class="nav-item"><a href="/include/myPage/myPageDogList"
+						<li class="nav-item"><a href="/myPage/myPageDogList"
 							class="nav-link active">
 								<p>반려동물</p>
 						</a></li>
@@ -104,7 +104,7 @@
 						</a></li>
 
 						<!-- 나의 산책로 -->
-						<li class="nav-item"><a href="#" class="nav-link">
+						<li class="nav-item"><a href="/walk/myWalk" class="nav-link">
 								<p>나의 산책로</p>
 						</a></li>
 
@@ -151,16 +151,7 @@
 													</tr>
 													<tr>
 														<th>중성화 :</th>
-														<th>&nbsp; <c:choose>
-																<c:when test="${pet.petNeutering == 'Y'}">
-															했어요
-															</c:when>
-																<c:otherwise>
-															안했어요
-															</c:otherwise>
-															</c:choose>
-
-														</th>
+														<th>&nbsp;${pet.petNeutering}</th>
 													</tr>
 												</table>
 												</p>
@@ -190,12 +181,12 @@
 
 							<div class="nav-links">
 								<c:set var="recordsCnt" value="${count}" />
-								<c:set var="jspFile" value="daily?" />
-								<c:set var="perpage" value="8" />
+								<c:set var="jspFile" value="myPageDogList?" />
+								<c:set var="perpage" value="3" />
 							</div>
 
 							<!-- include 페이징  jsp파일  -->
-							<%@include file="../../include/paging.jsp"%>
+							<%@include file="/WEB-INF/views/include/paging.jsp"%>
 						</nav>
 
 				</div>
@@ -204,7 +195,7 @@
 
 	</div>
 	<!-- ./wrapper -->
-	<%@include file="../Footer.jsp"%>
+	<%@include file="/WEB-INF/views/include/Footer.jsp" %>
 
 	<!-- jQuery -->
 	<script src="../../admin/plugins/jquery/jquery.min.js"></script>

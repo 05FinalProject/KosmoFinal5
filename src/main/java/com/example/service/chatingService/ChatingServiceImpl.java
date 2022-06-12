@@ -285,5 +285,24 @@ public class ChatingServiceImpl implements ChatingService {
 	public List<FriendVO> getFriendRequests(UserVO vo){
 		return fri.getFriendRequests(vo.getUserEmail());
 	}
+
+	@Override
+	public void complet(UserVO vo, String email) {
+		System.out.println(vo);
+		
+		UserVO uvo = new UserVO();
+		uvo.setUserEmail(email);
+		System.out.println(uvo);
+		FriendVO v = fri.findByUser1AndUser2(vo,uvo);
+		System.out.println("ㄱㄱㄱ");
+		if (vo.getMessage().equals("agree")) {
+			v.setUserSign("0");
+			fri.save(v);
+		}else {
+			v.setUserSign("3");
+			fri.save(v);
+		}
+		
+	}
 	
 }

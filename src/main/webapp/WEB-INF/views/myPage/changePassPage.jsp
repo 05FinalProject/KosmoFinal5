@@ -24,7 +24,7 @@
     <title>비밀번호 찾기</title>
   </head>
   <body>
-  	<%@include file="./Header.jsp" %>
+  	<%@include file="/WEB-INF/views/include/Header.jsp" %>
   	
   <div class="content">
     <div class="container">
@@ -71,7 +71,7 @@
       </div>
     </div>
   </div>
-<%@include file="./Footer.jsp" %>
+<%@include file="/WEB-INF/views/include/Footer.jsp" %>
 
 
 

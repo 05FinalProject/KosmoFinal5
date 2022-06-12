@@ -58,4 +58,6 @@ public interface ChatingService {
 	public void friendRequest(String email1 , String email2);
 	
 	public List<FriendVO> getFriendRequests(UserVO vo);
+	
+	public void complet(UserVO vo,String email);
 }

@@ -38,4 +38,7 @@ public class FriendVO {
 	@Transient
 	private String friend;
 	
+	@Transient
+	private String img;
+	
 }
