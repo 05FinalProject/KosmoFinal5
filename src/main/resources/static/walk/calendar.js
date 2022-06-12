@@ -164,6 +164,28 @@ $calBody.addEventListener("click", (e) => {
 });
 
 //동적으로 생성된 것도 클릭하면 이벤트 발생
-$(document).on("click", ".day", function () {
-  alert($(this).attr("data-fdate"));
+$(document).on("click", ".day", function () {  
+  $.ajax({
+	url:"/walk/myWalk2",
+	data:{date:$(this).attr("data-fdate")} ,
+	type: "get",
+	success: function(result){
+		console.log(result)
+		$("#walkDog").empty();
+		$.each(result, function(k, v) {
+			let dog =	'<a class="walk-modal" data-toggle="modal" data-target="#calendarModal">'
+					+'<li class="walk-list">시간 <span class="walk-color">'
+					+ result[k]["walkTime"]+
+					'</span>분'
+					 +	'&nbsp; 거리 <span class="text-primary">'
+					 + result[k]["walkDistance"] +
+					 '</span>m '
+					 +'<input type="hidden" value='+ result[k]["walkId"] +' />'
+					 +'</li>'
+					 +'</a>';
+					 
+		$("#walkDog").append(dog);			 			
+		})
+	}
+})
 });
