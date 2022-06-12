@@ -39,7 +39,7 @@ public class FriendController {
 		m.addAttribute("count", friendList.size());
 	}
 	
-	@RequestMapping("/friendBlockList")
+	@RequestMapping(value="/friendBlockList")
 	public void friendBlockList() {
 		
 	}
@@ -71,6 +71,7 @@ public class FriendController {
 		
 		m.addAttribute("count", cnt);
 	}
+
 	
 	
 }

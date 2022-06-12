@@ -146,13 +146,13 @@
 								<div class="card-body">
 									<div class="tab-content">
 										<!-- /.tab-pane -->
-
+										
 										<div class="active tab-pane" id="settings">
 											<form class="form-horizontal">
 												<div class="form-group row">
 													<label for="inputName" class="col-sm-2 col-form-label">닉네임</label>
 													<div class="col-sm-10">
-														<input type="text" class="form-control">
+														<input type="text" class="form-control" name="frindNickname">
 															
 													</div>
 												</div>
@@ -164,7 +164,6 @@
 															<c:forEach var="vo" items="${kindList}">
 																<option>${vo.dogKind}</option>
 															</c:forEach>
-
 														</select>
 													</div>
 												</div>
