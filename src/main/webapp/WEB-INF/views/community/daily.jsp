@@ -44,8 +44,6 @@
 
 
 <style type="text/css">
-
-
 .siren {
 	width: 24px;
 }
@@ -118,10 +116,17 @@
 								<div id="post-1"
 									class="post type-post post-1 card post-card post-grid-card h-100">
 									<div id="communityImgList">
-										<a
-											href="/community/dailyDetail?communityNum=${community.communityNum }">
-											 <img class="card-img-top img-fluid"
-											src="/img/communityImg/${community.communityImg}" alt="Post">
+										<a href="/community/dailyDetail?communityNum=${community.communityNum }">											
+											<%-- <img class="card-img-top img-fluid" src="/img/communityImg/${community.communityImg}" alt="Post"> --%>
+											<c:choose>
+												<c:when test="${community.communityImg ne null}">
+													<img src="/img/communityImg/${community.communityImg}">							
+												</c:when>										
+												<c:otherwise>
+													<c:if test="${community.communityImg eq null }"></c:if>
+														<img src="/img/communityImg/no_image.png">
+												</c:otherwise>
+											</c:choose>
 										</a>
 									</div>
 									<div class="card-body">
@@ -129,7 +134,7 @@
 											<li><a
 												href="/community/dailyDetail?communityNum=${community.communityNum }">${community.communityInsertdate }</a></li>
 										</ul>
-										
+
 										<h5 class="post-title card-title" id="post-title">
 											<a
 												href="/community/dailyDetail?communityNum=${community.communityNum }">${community.communityTitle }</a>
@@ -137,7 +142,7 @@
 										<div class="post-text card-text">
 											<p class="post-text card-text">${community.userNickname }</p>
 										</div>
-										
+
 									</div>
 
 								</div>
@@ -148,10 +153,10 @@
 
 					<nav class="pagination" role="navigation">
 
-							<c:set var="recordsCnt" value="${count}" />
-							<c:set var="jspFile" value="daily?" />
-							<c:set var="perpage" value="8" />
-						
+						<c:set var="recordsCnt" value="${count}" />
+						<c:set var="jspFile" value="daily?" />
+						<c:set var="perpage" value="8" />
+
 
 						<!-- include 페이징  jsp파일  -->
 						<%@include file="../include/paging.jsp"%>

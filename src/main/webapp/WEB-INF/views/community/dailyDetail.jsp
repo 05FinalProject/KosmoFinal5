@@ -117,10 +117,9 @@ information-content {
 	display: flex;
 }
 
-/* span {
-	margin-right: 60%;
-} */
-
+#time{
+	margin-right: 30%;
+}
 #communityTitle {
 	margin-right: 60%;
 }
@@ -142,7 +141,6 @@ information-content {
 	width: 40px;
 	border: none;
 	float: right;
-	
 }
 
 .write-comment {
@@ -289,22 +287,20 @@ ul {
 	display:flex;
 	
 } */
-
 body {
-    height: 100%
+	height: 100%
 }
 
 #boxbox {
-    min-height: 100%;
-    position: relative;
-    padding-bottom: 60px;
+	min-height: 60%;
+	position: relative;
+	padding-bottom: 60px;
 }
 
 footer {
-    position: relative;
-    transform: translatY(-100%);
-} 
-
+	position: relative;
+	transform: translatY(-100%);
+}
 
 </style>
 
@@ -314,160 +310,160 @@ footer {
 <%@include file="../include/Header.jsp"%>
 
 <body>
-<div class="col-md-12" id="boxbox">
-	<div id="total">
-		<form method="post">
-			<input name="communityNum" type="hidden" value="1">
-			<div class="row justify-content-center" style="float:left;">
-				<div class="col-lg-6 col-md-12">
-					<div class="pet-details-image">
-						<div id="wrap">
-							<ul class="slider">
-								<c:forEach items="${community}" var="img">
+	<div class="col-md-12" id="boxbox">
+		<div id="total">
+			<form method="post">
+				<input name="communityNum" type="hidden" value="1">
+				<div class="row justify-content-center" style="float: left;">
+					<div class="col-lg-6 col-md-12">
+						<div class="pet-details-image">
+							<div id="wrap">
+								<ul class="slider">
 									<%-- <li><a href="#"><img
 											src="/img/communityImg/${img.realImgName}"></a></li> --%>
-									<c:choose>
-										<c:when test="${param.data != '' || param.data ne null}">
-											<li><a href="#"><img
-											src="/img/communityImg/${img.realImgName}"></a></li>
-										</c:when>
-										<c:otherwise>
-											<c:if test="${param.data eq null}">
-												<img src="/img/communityImg/no_image.png"/>
-											</c:if>
-										</c:otherwise>
-									</c:choose>
-								</c:forEach>
-							</ul>
-						</div>
-						<div id="bx-pager">
-							<c:set var="img" value="${imgList }"></c:set>
-							<c:forEach items="${imgList }" var="community.img">
-								<a data-slide-index="0" href=""><img
-									src="/img/communityImg/${community.img.realImgName}" /></a>
-							</c:forEach>
-
-						</div>
-					</div>
-					<!-- *************************************** 이미지 슬라이더 끝 ********************************************** -->
-				</div>
-			</div>
-
-			<div class="col-lg-6" style="float:right;">
-				<div class="products-details-content">
-					<div id="userProfile" class="container">
-						<div class="item" id="communityTitle">
-							<input type="hidden" name="communityNum" class="likelike"
-								value="${community[0].community.communityNum}">
-							<h3 class="beforeUpdate">${community[0].community.communityTitle}</h3>
-							<input type="text" class="updateInput" name="communityTitle"
-								value="${community[0].community.communityTitle}" />
-						</div>
-						<div class="item">
-							<h3>${community[0].community.user.userNickname}</h3>
-						</div>
-						<div class="item" id="fa-user-plus">
-							<a><i class="fa-solid fa-user-plus"></i></a>
-						</div>
-						<div class="item" id="fa-user-check">
-							<a><i class="fa-solid fa-user-check"></i></a>
-						</div>
-
-					</div>
-					<hr>
-
-					<div>
-						<div class="communityContent beforeUpdate">${community[0].community.communityContent}</div>
-						<input type="text" class="updateInput" name="communityContent"
-							value="${community[0].community.communityContent}" />
-						<div id="etc">
-							<div class="container" id="btnbtn">
-								<span>${community[0].community.communityInsertdate}</span> 
-								<input
-									type="hidden" class="likeBtn"
-									value="${sessionScope.userEmail }">
-								<div class="comment-img">
-									<c:if test="${not empty sessionScope.userEmail }">
+									<c:forEach items="${community}" var="img">
 										<c:choose>
-											<c:when test="${likeState eq 0 }">
-												<span class="item"><a type="button" class="heart-click"><i
-														class="fa-regular fa-heart" style="color: red;"></i></a></span>
+											<c:when test="${img.realImgName ne null}">
+												<li><a href="#"><img
+														src="/img/communityImg/${img.realImgName}"></a></li>
 											</c:when>
 											<c:otherwise>
-												<span class="item"><a type="button" class="heart-click"><i
-														class="heart-click fa-solid fa-heart" style="color: red;"></i></a></span>
+											<c:if test="${img.realImgName eq null }"></c:if>
+												<li><img src="/img/communityImg/no_image.png"></li>
 											</c:otherwise>
 										</c:choose>
-									</c:if>
-									<span class="item"><i class="fa-regular fa-comment-dots"></i></span>
-								</div>
-								<button class="item" id="siren">
-								 	<img class="siren" src="../../img/siren.png">
-									<!-- <i class="siren" class="fa-solid fa-light-emergency-on"></i> -->
-								</button>
-								<c:if
-									test="${community[0].community.user.userNickname eq sessionScope.userNickname}">
-									<!-- 	<span><img class="emptyHeart"
+									</c:forEach>
+								</ul>
+							</div>
+							<div id="bx-pager">
+								<c:set var="img" value="${imgList }"></c:set>
+								<c:forEach items="${imgList }" var="community.img">
+									<a data-slide-index="0" href=""><img
+										src="/img/communityImg/${community.img.realImgName}" /></a>
+								</c:forEach>
+
+							</div>
+						</div>
+						<!-- *************************************** 이미지 슬라이더 끝 ********************************************** -->
+					</div>
+				</div>
+
+				<div class="col-lg-6" style="float: right;">
+					<div class="products-details-content" >
+						<div id="userProfile" class="container">
+							<div class="item" id="communityTitle">
+								<input type="hidden" name="communityNum" class="likelike"
+									value="${community[0].community.communityNum}">
+								<h3 class="beforeUpdate">${community[0].community.communityTitle}</h3>
+								<input type="text" class="updateInput" name="communityTitle"
+									value="${community[0].community.communityTitle}" />
+							</div>
+							<div class="item">
+								<h3>${community[0].community.user.userNickname}</h3>
+							</div>
+							<div class="item" id="fa-user-plus">
+								<a><i class="fa-solid fa-user-plus"></i></a>
+							</div>
+							<div class="item" id="fa-user-check">
+								<a><i class="fa-solid fa-user-check"></i></a>
+							</div>
+
+						</div>
+						<hr>
+
+						<div>
+							<div class="communityContent beforeUpdate">${community[0].community.communityContent}</div>
+							<input type="text" class="updateInput" name="communityContent"
+								value="${community[0].community.communityContent}" />
+							<div id="etc">
+								<div class="container" id="btnbtn">
+									<span id="time">${community[0].community.communityInsertdate}</span> <input
+										type="hidden" class="likeBtn"
+										value="${sessionScope.userEmail }">
+									<div class="comment-img">
+										<c:if test="${not empty sessionScope.userEmail }">
+											<c:choose>
+												<c:when test="${likeState eq 0 }">
+													<span class="item"><a type="button"
+														class="heart-click"><i class="fa-regular fa-heart"
+															style="color: red;"></i></a></span>
+												</c:when>
+												<c:otherwise>
+													<span class="item"><a type="button"
+														class="heart-click"><i
+															class="heart-click fa-solid fa-heart" style="color: red;"></i></a></span>
+												</c:otherwise>
+											</c:choose>
+										</c:if>
+										<span class="item"><i
+											class="fa-regular fa-comment-dots"></i></span>
+									</div>
+									<button class="item" id="siren">
+										<img class="siren" src="../../img/siren.png">
+										<!-- <i class="siren" class="fa-solid fa-light-emergency-on"></i> -->
+									</button>
+									<c:if
+										test="${community[0].community.user.userNickname eq sessionScope.userNickname}">
+										<!-- 	<span><img class="emptyHeart"
 										src="../../img/emptyHeart.png"></span> -->
 
-									<div class="item" id="item1">
-										<input class="beforeUpdate updateBtn beforeUpdateBtn"
-											type="submit" value="수정" /> <input
-											class="updateInput updateBtn afterUpdateBtn" type="submit"
-											value="수정" />
-									</div>
-									<div class="item" id="item2">
-										<a><input type="button" id="deleteBtn" value="삭제" /></a>
-									</div>
-								</c:if>
+										<div class="item" id="item1">
+											<input class="beforeUpdate updateBtn beforeUpdateBtn"
+												type="submit" value="수정" /> <input
+												class="updateInput updateBtn afterUpdateBtn" type="submit"
+												value="수정" />
+										</div>
+										<div class="item" id="item2">
+											<a><input type="button" id="deleteBtn" value="삭제" /></a>
+										</div>
+									</c:if>
+								</div>
 							</div>
 						</div>
-					</div>
 
-					<hr>
+						<hr>
 
-					<!-- 댓글리스트 출력 -->
-					<c:forEach items="${commentList}" var="comment">
-						<div class="seller-information">
-							<div class="information-content">
-								<img src="/community/images/user/user-25.jpg"
-									class="rounded-circle" alt="image">
-								<h6>${comment.user.userNickname}</h6>
-								<p>${comment.commentContent}</p>
+						<!-- 댓글리스트 출력 -->
+						<c:forEach items="${commentList}" var="comment">
+							<div class="seller-information">
+								<div class="information-content">
+									<img src="/community/images/user/user-25.jpg"
+										class="rounded-circle" alt="image">
+									<h6>${comment.user.userNickname}</h6>
+									<p>${comment.commentContent}</p>
 
+								</div>
+								<br />
 							</div>
-							<br />
+						</c:forEach>
+						<div class="load-more-posts-btn">
+							<a href="#"><i class="flaticon-loading" id="load">댓글 더 보기</i></a>
 						</div>
-					</c:forEach>
-					<div class="load-more-posts-btn">
-						<a href="#"><i class="flaticon-loading" id="load">댓글 더 보기</i></a>
+						<div class="text-center" id="end">마지막 댓글입니다.</div>
 					</div>
-					<div class="text-center" id="end">마지막 댓글입니다.</div>
 				</div>
-			</div>
-		</form>
-	</div>
+			</form>
+		</div>
 
-	<!-- 댓글 입력창 -->
-	<div class="col-md-6 ms-auto">
-		<form class="mt-5" action="/community/writeCommunitycomment"
-			method="post">
-			<div class="input-group input-group-lg">
-				<input type="hidden" name="userEmail"
-					value="${sessionScope.userEmail}" /> <input type="hidden"
-					name="communityNum" value="1"> <input type="text"
-					name="commentContent"
-					class="form-control bg-transparent border-primary text-uppercase"
-					placeholder="댓글을 입력해주세요.">
-				<div class="input-group-append">
-					<button type="submit" id="subscribe"
-						class="btn btn-primary text-uppercase font-weight-bold">등록
-					</button>
+		<!-- 댓글 입력창 -->
+	</div>
+		<div class="col-md-6 ms-auto pb-5">
+			<form class="mt-5" action="/community/writeCommunitycomment" method="post">				
+				<div class="input-group input-group-lg">
+					<input type="hidden" name="userEmail"
+						value="${sessionScope.userEmail}" /> <input type="hidden"
+						name="communityNum" value="1"> <input type="text"
+						name="commentContent"
+						class="form-control bg-transparent border-primary text-uppercase"
+						placeholder="댓글을 입력해주세요.">
+					<div class="input-group-append">
+						<button type="submit" id="subscribe"
+							class="btn btn-primary text-uppercase font-weight-bold">등록
+						</button>
+					</div>
 				</div>
-			</div>
-		</form>
-	</div>
-	</div>
+			</form>
+		</div>
 
 	<!-- 모달 신고창 띄우기 ************************************************* -->
 	<div class="modal">
@@ -551,7 +547,7 @@ footer {
 <script src="/js/owl.carousel.min.js"></script>
 <script src="/community/js/wow.min.js"></script>
 <script src="/community/js/main.js"></script>
-<script src="/js/choi.js"></script>
+<!-- <script src="/js/choi.js"></script> -->
 <!-- jQuery library (served from Google) -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script src="/js/jquery.bxslider.js"></script>
@@ -559,18 +555,17 @@ footer {
 
 
 <script type="text/javascript">
-
 	$(function() {
 		$(".slider").bxSlider({
 			auto : true,
 			adaptiveHeight : true,
-			/* pagerCustom : '#bx-pager' */
+		/* pagerCustom : '#bx-pager' */
 		});
 
 	});
 
 	$(function() {
-		
+
 		$('.updateInput').hide();
 		$('.beforeUpdateBtn').click(function(e) {
 			e.preventDefault();
@@ -580,9 +575,10 @@ footer {
 
 		$('.afterUpdateBtn')
 				.click(
+						
 						function(e) {
 							e.preventDefault();
-							input_title.val();
+							input_title = $('input[name="communityTitle"]').val();
 							input_content = $('input[name="communityContent"]')
 									.val();
 							input_communityNum = $('input[name="communityNum"]')

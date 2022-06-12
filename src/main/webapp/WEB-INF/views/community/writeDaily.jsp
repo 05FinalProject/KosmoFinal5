@@ -282,8 +282,6 @@ header .subHeader .headerInner .gnb-bar .gnb-list.hover_menu.on {
 <script type="text/javascript" src="../js/custom-theme.js?ver=1.0.0"></script>
 <script type="text/javascript">
 
-
-	
 ( /* att_zone : 이미지들이 들어갈 위치 id, btn : file tag id */
 		  imageView = function imageView(att_zone, btn){
 
@@ -387,12 +385,11 @@ header .subHeader .headerInner .gnb-bar .gnb-list.hover_menu.on {
 /* 이미지 다중 업로드 */
 		
 /* 글작성 유효성 검사 */
- 
 function formCheck(){
 	
-	var image = document.communityForm.file.value;
-	var title = document.communityForm.communityTitle.value;
-	var content = document.communityForm.communityContent.value;
+	var image = document.forms[0].file.value;
+	var title = document.forms[0].communityTitle.value;
+	var content = document.forms[0].communityContent.value;
 	
 	if(image==null) {
 		alert('사진을 등록하세요.')
@@ -406,7 +403,7 @@ function formCheck(){
 		document.communityForm.communityTitle.focus();
 		return false;
 	} else if (title.length > 20) {
-		alert('제목은 최소 20자리 이하이어야 합니다.');
+		alert('제목은 최대 20자리 이하이어야 합니다.');
 		document.communityForm.communityTitle.focus();
 		return false;
 	}

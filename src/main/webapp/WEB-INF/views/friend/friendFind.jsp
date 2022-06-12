@@ -134,14 +134,7 @@ p{
               </p>
             </a>
           </li>
-          <!-- 차단한 친구 -->
-          <li class="nav-item">
-            <a href="/friend/friendBlockList" class="nav-link">
-              <p>
-                차단한 친구
-              </p>
-            </a>
-          </li>
+       
           <!-- 나의 산책로 -->
           <li class="nav-item">
             <a href="/walk/myWalk" class="nav-link">

@@ -26,7 +26,7 @@ public interface CommunityRepository extends CrudRepository<CommunityVO, Integer
 	@Query("SELECT count(c) as count FROM CommunityVO c")
 	int countCommunityRecord();
 		
-	List<CommunityVO> findAll(Pageable paging);
+	List<CommunityVO> findAllByCommunityState(Pageable paging, Integer communityState);
 	
 	
 	//****************admin*****************
