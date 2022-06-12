@@ -190,6 +190,7 @@
 							class="stories-carousel swiper-container swiper-container-items h-100">
 							<div class="swiper-wrapper">
 								<!-- 슬라이드  -->
+								<c:forEach var="vo" items="${MostlikeIt }" >
 								<div class="swiper-slide">
 									<div
 										class="lana_story type-lana_story card story-slide-card mx-0 mx-md-3 h-100"
@@ -199,88 +200,20 @@
 												<img src="/pictures/placeholder/100x100.svg"
 													class="img-fluid rounded-circle" alt="Pet">
 												<div class="media-body align-self-center">
-													<h5 class="post-title card-title">회원 닉네임</h5>
+													<h5 class="post-title card-title">${vo.nickName }</h5>
 												</div>
 											</div>
-											<img src="/img/testimg.jpg"
+											<img src="/img/communityImg/${vo.img }"
 												style="width: 240px; height: 240px;" />
-											<p class="post-text card-text">우리갱얼지 귀엽죵</p>
+											<p class="post-text card-text">${vo.title }</p>
 										</div>
 									</div>
 								</div>
 
-								<div class="swiper-slide">
-									<div
-										class="lana_story type-lana_story card story-slide-card mx-0 mx-md-3 h-100"
-										data-scroll-animate="fadeIn">
-										<div class="card-body">
-											<div class="media">
-												<img src="/pictures/placeholder/100x100.svg"
-													class="img-fluid rounded-circle" alt="Pet">
-												<div class="media-body align-self-center">
-													<h5 class="post-title card-title">회원 닉네임</h5>
-												</div>
-											</div>
-											<img src="/img/testimg.jpg"
-												style="width: 240px; height: 240px;" />
-											<p class="post-text card-text">우리갱얼지 귀엽죵</p>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div
-										class="lana_story type-lana_story card story-slide-card mx-0 mx-md-3 h-100"
-										data-scroll-animate="fadeIn">
-										<div class="card-body">
-											<div class="media">
-												<img src="/pictures/placeholder/100x100.svg"
-													class="img-fluid rounded-circle" alt="Pet">
-												<div class="media-body align-self-center">
-													<h5 class="post-title card-title">회원 닉네임</h5>
-												</div>
-											</div>
-											<img src="/img/testimg.jpg"
-												style="width: 240px; height: 240px;" />
-											<p class="post-text card-text">우리갱얼지 귀엽죵</p>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div
-										class="lana_story type-lana_story card story-slide-card mx-0 mx-md-3 h-100"
-										data-scroll-animate="fadeIn">
-										<div class="card-body">
-											<div class="media">
-												<img src="/pictures/placeholder/100x100.svg"
-													class="img-fluid rounded-circle" alt="Pet">
-												<div class="media-body align-self-center">
-													<h5 class="post-title card-title">회원 닉네임</h5>
-												</div>
-											</div>
-											<img src="/img/testimg.jpg"
-												style="width: 240px; height: 240px;" />
-											<p class="post-text card-text">우리갱얼지 귀엽죵</p>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div
-										class="lana_story type-lana_story card story-slide-card mx-0 mx-md-3 h-100"
-										data-scroll-animate="fadeIn">
-										<div class="card-body">
-											<div class="media">
-												<img src="/pictures/placeholder/100x100.svg"
-													class="img-fluid rounded-circle" alt="Pet">
-												<div class="media-body align-self-center">
-													<h5 class="post-title card-title">회원 닉네임</h5>
-												</div>
-											</div>
-											<img src="/img/testimg.jpg"
-												style="width: 240px; height: 240px;" />
-											<p class="post-text card-text">우리갱얼지 귀엽죵</p>
-										</div>
-									</div>
-								</div>
+								</c:forEach>
+								
+								
+								
 
 							</div>
 							<div class="swiper-pagination" data-scroll-animate="fadeInDown"></div>
