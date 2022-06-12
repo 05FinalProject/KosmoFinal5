@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
@@ -44,10 +45,12 @@ public class LoginController {
 	@Autowired
 	private SendEmailService sendService;
 	
+	/* 회원가입 페이지 */
 	@RequestMapping("/signUp")
 	public void signUpPage() {
 	}
 	
+	/* 회원가입 확인 */
 	@RequestMapping("/signUpSuccess")
 	public String signUp(UserVO vo) {
 		
@@ -63,13 +66,16 @@ public class LoginController {
 			ivo.setUser(vo);
 			signUp.insertImage(ivo);
 			
+			/* 성공! */
 			return "redirect:/myPage/Login";
 			
 		} else {
+			/* 실패! */
 			return "redirect:/myPage/signUp";
 		}
 	}
 
+	/* 닉네임 중복 검사 */
 	@RequestMapping(value = "/nicknameCheck", produces = "application/text;charset=utf-8")
 	@ResponseBody
 	public String nicknameCheck(UserVO vo) {
@@ -82,6 +88,7 @@ public class LoginController {
 		return message;
 	}
 
+	/* 이메일 중복 검사 */
 	@RequestMapping(value = "/emailCheck", produces = "application/text;charset=utf-8")
 	@ResponseBody
 	public String emailCheck(UserVO vo) {
@@ -94,14 +101,10 @@ public class LoginController {
 		return message;
 	}
 
+	/* 비밀번호 찾기 페이지로 이동 (인증키) */
 	@RequestMapping("/findPassPage")
 	public void findPass() {
 	}
-
-	@RequestMapping("/changePassPage")
-	public void changePass() {	
-	}
-	
 	
 	/* 비밀번호 찾기 */
 	@RequestMapping(value="pwSearch", produces="application/text;charset=utf-8")
@@ -124,16 +127,71 @@ public class LoginController {
 	       sendService.mailSend(dto);
 	}
 	
+	/* 비밀번호 재설정 과정 중 현재 비밀번호 체크 */
+	@RequestMapping("/pwCheckPage")
+	public void pwCheck(HttpServletRequest request, Model m) {
+		HttpSession session = request.getSession();
+		String userEmail = (String)session.getAttribute("userEmail");
+		
+		UserVO result = lservice.findByUserEmail(userEmail);
+		
+		m.addAttribute("result", result);
+		m.addAttribute("userEmail",userEmail);
+	}
 	
-	/* 비밀번호 재설정 */
-	@RequestMapping("pwChange")
-	public String pwChange(UserVO vo, HttpSession session) {
-		vo.setUserEmail(session.getAttribute("userEmail").toString());
-		signUp.pwChange(vo);
-
-		return "redirect:/myPage/Login";
-
-	}//end of pwChange()
+	/* 비밀번호 변경확인*/
+	@RequestMapping("/pwCheck")
+	public String pwCheck(HttpServletRequest request, UserVO vo, Model m) {
+		
+		HttpSession session = request.getSession();
+		
+		String userEmail = (String)session.getAttribute("userEmail");
+		
+		vo.setUserEmail(userEmail);
+		
+		UserVO result = lservice.passCheck(vo);
+		
+		if (result != null) {
+			session.setAttribute("userPass", userEmail);
+			return "redirect:pwCheckPage";
+		} else {
+			m.addAttribute("userPass",result);
+			return "redirect:pwChangePage";
+		}
+		
+	}
+	
+	/* 비밀번호 변경하기 */
+	@RequestMapping("/pwChangePage")
+	public void pwChangePage(HttpServletRequest request, Model m) {
+		HttpSession session = request.getSession();
+		String userEmail = (String)session.getAttribute("userEmail");
+		
+		UserVO result = lservice.findByUserEmail(userEmail);
+		m.addAttribute("userE", userEmail);
+		m.addAttribute("userEamil", result);
+	}
+	
+	/* 비밀번호 업데이트*/
+	@RequestMapping("/pwChange")
+	public String pwChange(HttpServletRequest request, UserVO uvo, Model m) {
+		
+		HttpSession session = request.getSession();
+		String userEmail = (String)session.getAttribute("userEmail");
+		
+		UserVO result = lservice.findByUserEmail(userEmail);
+		
+		if (result == null) {
+			session.setAttribute("userEmail", userEmail);
+			return "redirect:pwChangePage";	
+		} else {
+			result.setUserPass(uvo.getUserPass());
+			lservice.saveUserEmail(result);
+			session.invalidate();
+			return "/myPage/Login";
+		}
+	}
+	
 	
 	
 	/* 로그인 페이지로 이동*/
@@ -218,7 +276,7 @@ public class LoginController {
 			return "redirect:/include/Main";
 	}
 	
-	/* 프로필 수정 */
+	/* 프로필 사진 수정 */
 	@RequestMapping("/userUpdate")
 	public String UserUpdate(ImgVO ivo, HttpServletRequest request,Model m) {
 		
@@ -275,11 +333,11 @@ public class LoginController {
 		
 		lservice.insertPet(userEmail, pvo);
 		
-			ImgVO ivo = new ImgVO();
-			
-			ivo.setPet(lservice.getPetOwnerByUser(userEmail));
-			ivo.setFile3(file);
-			lservice.insertImgVO(ivo);
+		ImgVO ivo = new ImgVO();
+		
+		ivo.setPet(lservice.getPetOwnerByUser(userEmail));
+		ivo.setFile3(file);
+		lservice.insertImgVO(ivo);
 		
 		return "redirect:/myPage/myPageDogList";
 	}

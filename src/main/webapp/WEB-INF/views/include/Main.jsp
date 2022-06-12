@@ -129,13 +129,15 @@
 				<nav>
 					<ul>
 						<li>
+						<a href="/agency/agencyHotel">
 							<div>
 								<img src="/img/mainpage/premium-icon-hotel-3009487.png" />
 							</div>
 							<div class="agency-name mt-2">애견호텔</div>
+							</a>
 						</li>
 						<li>
-							<a href="/include/agencyCafe">
+							<a href="/agency/agencyCafe">
 							<div>
 								<img src="/img/mainpage/premium-icon-cafe-3361447.png" />
 							</div>
@@ -143,14 +145,16 @@
 							</a>
 						</li>
 						<li>
+						<a href="/agency/agencyHospital">
 							<div>
 								<img
 									src="/img/mainpage/premium-icon-hospital-building-2749678.png" />
 							</div>
 							<div class="agency-name mt-2">동물병원</div>
+							</a>
 						</li>
 						<li>
-							<a href="/include/agencyCafe">
+							<a href="/agency/agencyShelter">
 							<div>
 								<img src="/img/mainpage/premium-icon-animal-shelter-5871573.png" />
 							</div>
@@ -158,10 +162,12 @@
 							</a>
 						</li>
 						<li>
+						<a href="/agency/agencyHall">
 							<div>
 								<img src="/img/mainpage/free-icon-death-3455284.png" />
 							</div>
 							<div class="agency-name mt-2">장례식장</div>
+							</a>
 						</li>
 					</ul>
 				</nav>
@@ -190,97 +196,30 @@
 							class="stories-carousel swiper-container swiper-container-items h-100">
 							<div class="swiper-wrapper">
 								<!-- 슬라이드  -->
+								<c:forEach var="vo" items="${MostlikeIt }" >
 								<div class="swiper-slide">
 									<div
 										class="lana_story type-lana_story card story-slide-card mx-0 mx-md-3 h-100"
 										data-scroll-animate="fadeIn">
-										<div class="card-body">
+										<div class="card-body" style="text-align: center;">
 											<div class="media">
-												<img src="/pictures/placeholder/100x100.svg"
+												<img src="/${vo.userImg }"
 													class="img-fluid rounded-circle" alt="Pet">
 												<div class="media-body align-self-center">
-													<h5 class="post-title card-title">회원 닉네임</h5>
+													<h5 class="post-title card-title">${vo.nickName }</h5>
 												</div>
 											</div>
-											<img src="/img/testimg.jpg"
+											<img src="/img/communityImg/${vo.img }"
 												style="width: 240px; height: 240px;" />
-											<p class="post-text card-text">우리갱얼지 귀엽죵</p>
+											<p class="post-text card-text">${vo.title }</p>
 										</div>
 									</div>
 								</div>
 
-								<div class="swiper-slide">
-									<div
-										class="lana_story type-lana_story card story-slide-card mx-0 mx-md-3 h-100"
-										data-scroll-animate="fadeIn">
-										<div class="card-body">
-											<div class="media">
-												<img src="/pictures/placeholder/100x100.svg"
-													class="img-fluid rounded-circle" alt="Pet">
-												<div class="media-body align-self-center">
-													<h5 class="post-title card-title">회원 닉네임</h5>
-												</div>
-											</div>
-											<img src="/img/testimg.jpg"
-												style="width: 240px; height: 240px;" />
-											<p class="post-text card-text">우리갱얼지 귀엽죵</p>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div
-										class="lana_story type-lana_story card story-slide-card mx-0 mx-md-3 h-100"
-										data-scroll-animate="fadeIn">
-										<div class="card-body">
-											<div class="media">
-												<img src="/pictures/placeholder/100x100.svg"
-													class="img-fluid rounded-circle" alt="Pet">
-												<div class="media-body align-self-center">
-													<h5 class="post-title card-title">회원 닉네임</h5>
-												</div>
-											</div>
-											<img src="/img/testimg.jpg"
-												style="width: 240px; height: 240px;" />
-											<p class="post-text card-text">우리갱얼지 귀엽죵</p>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div
-										class="lana_story type-lana_story card story-slide-card mx-0 mx-md-3 h-100"
-										data-scroll-animate="fadeIn">
-										<div class="card-body">
-											<div class="media">
-												<img src="/pictures/placeholder/100x100.svg"
-													class="img-fluid rounded-circle" alt="Pet">
-												<div class="media-body align-self-center">
-													<h5 class="post-title card-title">회원 닉네임</h5>
-												</div>
-											</div>
-											<img src="/img/testimg.jpg"
-												style="width: 240px; height: 240px;" />
-											<p class="post-text card-text">우리갱얼지 귀엽죵</p>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div
-										class="lana_story type-lana_story card story-slide-card mx-0 mx-md-3 h-100"
-										data-scroll-animate="fadeIn">
-										<div class="card-body">
-											<div class="media">
-												<img src="/pictures/placeholder/100x100.svg"
-													class="img-fluid rounded-circle" alt="Pet">
-												<div class="media-body align-self-center">
-													<h5 class="post-title card-title">회원 닉네임</h5>
-												</div>
-											</div>
-											<img src="/img/testimg.jpg"
-												style="width: 240px; height: 240px;" />
-											<p class="post-text card-text">우리갱얼지 귀엽죵</p>
-										</div>
-									</div>
-								</div>
+								</c:forEach>
+								
+								
+								
 
 							</div>
 							<div class="swiper-pagination" data-scroll-animate="fadeInDown"></div>
@@ -296,135 +235,6 @@
 
 
 
-		<!-- 반려견에 대한 설명(가장 등록이 많이 된 반려견 6개 띄워주기) -->
-		<div id="gallery-container" class="container section-py--large">
-			<div class="row justify-content-center">
-				<div class="col-12 col-md-10 col-lg-6 text-center">
-					<h1 class="mb-4 font-weight-bold" data-scroll-animate="fadeInDown">인기
-						많은 반려견</h1>
-					<p data-scroll-animate="fadeInUp">가장 많이 등록된 반려견이에요!</p>
-					<div class="lana-hr lana-hr-4 border-primary mt-4"
-						data-scroll-animate="zoomIn"></div>
-				</div>
-			</div>
-			<div class="row text-center my-5 mfp-gallery">
-				<div class="col-12 col-sm-6 col-lg-4 my-3">
-					<a href="/pictures/placeholder/1920x1080.svg"
-						class="lana-img-overlay image-link text-white"
-						data-scroll-animate="comeInRight"> <img
-						src="/pictures/placeholder/640x430.svg"
-						class="mfp-image img-fluid" alt="Pet">
-						<div class="container overlay-content">
-							<div class="row h-100">
-								<div class="col-12 align-self-end p-5">
-									<div class="d-flex justify-content-between">
-										<span class="title h3">Jumbo</span> <i
-											class="fas fa-search-plus fa-2x align-middle"></i>
-									</div>
-								</div>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-12 col-sm-6 col-lg-4 my-3">
-					<a href="pictures/placeholder/1920x1080.svg"
-						class="lana-img-overlay image-link text-white"
-						data-scroll-animate="comeInUp"> <img
-						src="/pictures/placeholder/640x430.svg"
-						class="mfp-image img-fluid" alt="Pet">
-						<div class="container overlay-content">
-							<div class="row h-100">
-								<div class="col-12 align-self-end p-5">
-									<div class="d-flex justify-content-between">
-										<span class="title h3">Jack</span> <i
-											class="fas fa-search-plus fa-2x align-middle"></i>
-									</div>
-								</div>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-12 col-sm-6 col-lg-4 my-3">
-					<a href="/pictures/placeholder/1920x1080.svg"
-						class="lana-img-overlay image-link text-white"
-						data-scroll-animate="comeInLeft"> <img
-						src="/pictures/placeholder/640x430.svg"
-						class="mfp-image img-fluid" alt="Pet">
-						<div class="container overlay-content">
-							<div class="row h-100">
-								<div class="col-12 align-self-end p-5">
-									<div class="d-flex justify-content-between">
-										<span class="title h3">Bo</span> <i
-											class="fas fa-search-plus fa-2x align-middle"></i>
-									</div>
-								</div>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-12 col-sm-6 col-lg-4 my-3">
-					<a href="/pictures/placeholder/1920x1080.svg"
-						class="lana-img-overlay image-link text-white"
-						data-scroll-animate="comeInRight"> <img
-						src="/pictures/placeholder/640x430.svg"
-						class="mfp-image img-fluid" alt="Pet">
-						<div class="container overlay-content">
-							<div class="row h-100">
-								<div class="col-12 align-self-end p-5">
-									<div class="d-flex justify-content-between">
-										<span class="title h3">Rusty</span> <i
-											class="fas fa-search-plus fa-2x align-middle"></i>
-									</div>
-								</div>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-12 col-sm-6 col-lg-4 my-3">
-					<a href="/pictures/placeholder/1920x1080.svg"
-						class="lana-img-overlay image-link text-white"
-						data-scroll-animate="comeInDown"> <img
-						src="/pictures/placeholder/640x430.svg"
-						class="mfp-image img-fluid" alt="Pet">
-						<div class="container overlay-content">
-							<div class="row h-100">
-								<div class="col-12 align-self-end p-5">
-									<div class="d-flex justify-content-between">
-										<span class="title h3">Linda</span> <i
-											class="fas fa-search-plus fa-2x align-middle"></i>
-									</div>
-								</div>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-12 col-sm-6 col-lg-4 my-3">
-					<a href="/pictures/placeholder/1920x1080.svg"
-						class="lana-img-overlay image-link text-white"
-						data-scroll-animate="comeInLeft"> <img
-						src="/pictures/placeholder/640x430.svg"
-						class="mfp-image img-fluid" alt="Pet">
-						<div class="container overlay-content">
-							<div class="row h-100">
-								<div class="col-12 align-self-end p-5">
-									<div class="d-flex justify-content-between">
-										<span class="title h3">Shadow</span> <i
-											class="fas fa-search-plus fa-2x align-middle"></i>
-									</div>
-								</div>
-							</div>
-						</div>
-					</a>
-				</div>
-			</div>
-		<!-- 	<div class="row">
-				<div class="col-12 text-center">
-					<a href="#"
-						class="btn btn-primary btn-lg text-uppercase font-weight-bold w-15x">Show
-						More</a>
-				</div>
-			</div> -->
-		</div>
 
 
 	</main>

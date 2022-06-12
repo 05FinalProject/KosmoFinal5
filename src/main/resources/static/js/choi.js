@@ -66,7 +66,7 @@
 		
 		
 		// 로딩시 실행
-		readOldNotify(startIndex);
+		//readOldNotify(startIndex);
 		
 		// 더보기 클릭시
 		$('#searchMoreNotify').click(function(){

@@ -210,36 +210,108 @@ star-input>.input.focus{outline:1px dotted #ddd;}
          
             <div class="listing__item__text__inside">
               <a href="/agency/agencyHotelDetail?agencyNum=${vo.agencyNum }"><h5>${vo.agencyName }</h5></a>
+        
+      <!-- 별점 평점 나타내기 ************************************** --> 
+        
+              <div class="listing__item__text__rating">
+                    <c:choose>
+                    <c:when test="${vo.avgStars eq '5'}">
+                    <i class="fa fa-star" style="color:red;"></i>
+                    <i class="fa fa-star" style="color:red;"></i>
+                    <i class="fa fa-star" style="color:red;"></i>
+                    <i class="fa fa-star" style="color:red;"></i>
+                    <i class="fa fa-star" style="color:red;"></i>
+                    </c:when>
+                    
+                    <c:when test="${vo.avgStars eq '4.5' }">
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" ></i>
+					</c:when>
+                    
+				    <c:when test="${vo.avgStars eq '4' }">	
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" ></i>
+					</c:when>
+					
+					<c:when test="${vo.avgStars eq '3.5' }">
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					</c:when>
+					
+					<c:when test="${vo.avgStars eq '3' }">
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					</c:when>
+					
+					<c:when test="${vo.avgStars eq '2.5' }">
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					</c:when>	
+					
+					<c:when test="${vo.avgStars eq '2' }">
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					</c:when>		
+					
+					<c:when test="${vo.avgStars eq '1.5' }">
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					</c:when>	
+								
+				    <c:when test="${vo.avgStars eq '1' }">	
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					</c:when>
+					
+					<c:when test="${vo.avgStars eq '0.5' }">	
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					</c:when>
+					
+					<c:when test="${vo.avgStars eq '0' }">	
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					</c:when>
+					
+										
+                    </c:choose>
+                    
+                    <output for="star-input">${vo.avgStars}<b></b>점</output>	
+                    </div>
+               
+   <!--  별점 평점 나타내기 끝 ********************************** -->            
              
-           
-              <span class="star-input">
-					<span class="input">
-				    	<input type="radio" name="reviewStar" value="1" id="p1">
-				    	<label for="p1">${vo.avgStars}</label>
-				    	<input type="radio" name="reviewStar" value="2" id="p2">
-				    	<label for="p2">${vo.avgStars}</label>
-				    	<input type="radio" name="reviewStar" value="3" id="p3">
-				    	<label for="p3">${vo.avgStars}</label>
-				    	<input type="radio" name="reviewStar" value="4" id="p4">
-				    	<label for="p4">${vo.avgStars}</label>
-				    	<input type="radio" name="reviewStar" value="5" id="p5">
-				    	<label for="p5">${vo.avgStars}</label>
-				  	</span>
-				  	<output for="star-input"><b>${vo.avgStars}</b>점</output>						
-				</span>        
-              
-             
-              <!-- <div class="listing__item__text__rating">
-                이쪽에 별 대신 맛평가 들어가야함
-                <div class="listing__item__rating__star">
-                  <span class="icon_star"></span>
-                  <span class="icon_star"></span>
-                  <span class="icon_star"></span>
-                  <span class="icon_star"></span>
-                  <span class="icon_star-half_alt"></span>
-                </div>
-                가격대 가지고와야함
-                </div> -->
+            
               <ul>
                 <!--주소 이름 가지고와야함 -->
                 <li><span class="icon_pin_alt"></span> ${vo.agencyAddress }</li>
@@ -430,13 +502,15 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 																				+ d.agencyName
 																				+ '</h5></a>'
 																				+ ' <div class="listing__item__text__rating">'
-																				+ '  <div class="listing__item__rating__star">'
-																				+ '   <span class="icon_star"></span>'
-																				+ '  <span class="icon_star"></span>'
-																				+ ' <span class="icon_star"></span>'
-																				+ ' <span class="icon_star"></span>'
-																				+ ' <span class="icon_star-half_alt"></span>'
-																				+ '</div> </div><ul>'
+																				+ '<i class="fa fa-star" style="color:red;"></i> '
+																				+ '<i class="fa fa-star" style="color:red;"></i> '
+																				+ '<i class="fa fa-star" style="color:red;"></i> '
+																				+ '<i class="fa fa-star" style="color:red;"></i> '
+																				+ '<i class="fa fa-star" style="color:red;"></i> '
+																				+ ' <output for="star-input">'
+																				+ d.avgStars
+																				+ '<b></b>점</output>' 
+																				+ '</div><ul>'
 																				+ '<li><span class="icon_pin_alt"></span>'
 																				+ d.agencyAddress
 																				+ '</li>'
