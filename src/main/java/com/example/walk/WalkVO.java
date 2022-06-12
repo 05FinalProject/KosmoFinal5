@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.example.domain.UserVO;
 
@@ -53,6 +54,10 @@ public class WalkVO {
 	@ManyToOne
 	@JoinColumn(name = "user_email")
 	private UserVO user;
+	
+	
+	@Transient
+	private String date;
 
 	
 
