@@ -241,7 +241,7 @@ $('#btnSignUp').click(function(){
 	}
 	
 	// 이메일 중복 여부 체크 했는지 확인
-	if( !nicknameCheck ){
+	if( !emailCheck ){
 		$('label[for="userEmail"] .error_box').html("이메일 중복 여부를 확인해주세요.");
 		return;
 	}else {
@@ -262,18 +262,24 @@ $('#btnSignUp').click(function(){
 		$.ajax({
 			    	type : 'post',
 			    	url : 'emailCheck',
-			    	data : { userEmail : $('#userEmail').val() },
+			    	data : { userEmail : $('#userEmail').val(), 
+			    			userNickName : $('#userNickname').val()
+			    	},
 			    	contentType : 'application/x-www-form-urlencoded;charset=utf-8',
 			    	success : function(result){
 			    		// 중복 검사 후 나오는 결과 에러박스에 출력
 			    		if(result == 'Y'){
 			    			$('label[for="userEmail"] .error_box').html("");
+			    			$('label[for="userNickName"] .error_box').html("");
 				        		document.member_frm.submit();
 				        		alert("회원가입이 되었습니다.");
 							}else{
 				        		$('label[for="userEmail"] .error_box').css('color','#ED7A64');
 								$('label[for="userEmail"] .error_box').html("이메일 중복 여부를 확인해주세요.");
 				        		emailCheck = false;
+								$('label[for="userNickname"] .error_box').css('color','#ED7A64');
+								$('label[for="userNickname"] .error_box').html("닉네임 중복 여부를 확인해주세요.");
+				        		nicknameCheck = false;
 				        		return;
 							}
 			    	},
@@ -347,12 +353,9 @@ $('#btnLogin').click(function(){
 }); //end of #btnLogin 
 
 
-/*********************************************************************
-	[ 비밀번호 재설정 페이지(1) ]
-	비밀번호 찾기 버튼 클릭
-*/
-/* 비밀번호 찾기*/
-$('#btnPwSearch').click(function(){
+/**********************************************************************/
+/* 비밀번호 찾기 (임시번호 발급) */
+$('#btnPwSend').click(function(){
 	
 	// input에 입력된 값을 공백제거하고 변수에 담기
 	var userEmail = $.trim($("#userEmail").val());
@@ -380,6 +383,9 @@ $('#btnPwSearch').click(function(){
 						"userName": userName
 					}
 				})
+				alert("인증번호로 로그인 후 비밀번호 변경을 권장합니다.");
+					$("#btnPwSend").css("display","none")
+					$("#btnReSend").css("display","block")
 			}
     	},
     	error : function(err){
@@ -390,14 +396,63 @@ $('#btnPwSearch').click(function(){
     });
 })
 
+$('#btnReSend').click(function(){
+	
+	// input에 입력된 값을 공백제거하고 변수에 담기
+	var userEmail = $.trim($("#userEmail").val());
+	var userName = $.trim($("#userName").val());
+	
+	// 회원 정보가 있는지 확인
+ 	  $.ajax({
+    	type : 'post',
+    	url : 'pwSearch',
+    	data : { userEmail : $('#userEmail').val(),
+    			userName : $('#userName').val(),
+    	 		},
+    	contentType : 'application/x-www-form-urlencoded;charset=utf-8',
+    	success : function(result){
+    		// 중복 검사 후 나오는 결과 에러박스에 출력
+    		if(result == 'N'){
+	        		$('.error_box.pwSearch').html("존재하는 회원이 아닙니다.");
+				}else{
+	        		$('.error_box.pwSearch').html("재전송되었습니다.");
+	        		$.ajax({
+					type: "post",
+					url: "sendEmail",
+					data:{
+						"userEmail": userEmail,
+						"userName": userName
+					}
+				})
+				alert("인증번호로 로그인 후 비밀번호 변경을 권장합니다.");
+			}
+    	},
+    	error : function(err){
+	        
+			alert('실패');
+    		console.log(err);
+    	}
+    });
+})
+/**********************************************************************/
 
 
 // [ 비밀번호 재설정 페이지(2) ]
 $('#btnPwChange').click(function(){
+	var nowPass = $.trim($("#nowPass").val());
 	var userPass = $.trim($("#userPass").val());
 	var userPassCheck = $.trim($("#userPassCheck").val());
 	
-	/* 비밀번호 */
+	/* 현재 비밀번호 */
+	if(nowPass == ''){
+		$('label[for="nowPass"] .error_box').html(blank);
+		$('#nowPass').focus();
+    		return;
+		}else{
+		$('label[for="nowPass"] .error_box').html("");
+		}
+	
+	/* 변경할 비밀번호 */
 	if(userPass == ''){
 		$('label[for="userPass"] .error_box').html(blank);
 		$('#userPass').focus();
@@ -407,14 +462,13 @@ $('#btnPwChange').click(function(){
 		}
 	
 	if( !RegexPW.test(userPass) ){
-
 		$('label[for="userPass"] .error_box').html("비밀번호는 영문자와 숫자를 사용하여 6~15자로 작성해 주십시오.");
 		return;
 	}else{
 		$('label[for="userPass"] .error_box').html("");
 		}
 	
-	/* 비밀번호 재확인 */
+	/* 변경할 비밀번호 재확인 */
 	if(userPassCheck == ''){
 		$('label[for="userPassCheck"] .error_box').html("필수 입력 사항입니다.");
 		$('#userPassCheck').focus();
@@ -428,102 +482,35 @@ $('#btnPwChange').click(function(){
 		$('label[for="userPassCheck"] .error_box').html("비밀번호가 일치하지 않습니다.");
 		$('#userPassCheck').focus();
 		return;
-	}
-	document.pwChangeForm.submit();
-	alert("비밀번호가 변경되었습니다.");
+		}
 	
+	  $.ajax({
+			type : 'post',
+			url : 'pwChange',
+			data : { nowPass : $("#nowPass").val(),
+					userPass : $("#userPass").val(),
+	 		},
+			contentType : 'application/x-www-form-urlencoded;charset=utf-8',
+			success : function(result){
+		// 중복 검사 후 나오는 결과 에러박스에 출력
+				if(result == "N"){
+        		$('.error_box.pwChange').html("비밀번호가 일치하지 않습니다.");
+			
+			}else{
+			// 결과가 result = "Y"이면 로그인 성공 -> loginMove로 이동
+        			document.pwChangeForm.submit();
+	alert("비밀번호가 변경되었습니다.");
+			}
+	},
+	error : function(err){
+		alert(err);
+		console.log(err);
+	}
+	});//end of ajax
+
 }); // end of #btnPwChange
 
-/* 회원 정보 수정*/
-$('#btnMemberUpdate').click(function(){
-	
-	// input에 입력된 값을 공백제거하고 변수에 담기
-	var userNickname = $.trim($("#userNickname").val());
-	var userPass = $.trim($("#userPass").val());
-	var userPassCheck = $.trim($("#userPassCheck").val());
-	var userName = $.trim($("#userName").val());
-	var userGender = $.trim($("#userGender").val());
-	var userPhone = $.trim($("#userPhone").val());
-	
-	
-	/* 닉네임 */
-	if(userNickname == ''){
-		$('label[for="userNickname"] .error_box').html(blank);
-		$('#userNickname').focus();
-    		return;
-		}else{
-		$('label[for="userNickname"] .error_box').html("");
-		}		
-	
-	if( !RegexNick.test(userNickname) ){
 
-		$('label[for="userNickname"] .error_box').html("닉네임 형식이 올바르지 않습니다.");
-		return;
-	}else{
-		$('label[for="userNickname"] .error_box').html("");
-		}
-	
-	if(userPass != ""){
-	
-	/* 비밀번호 */
-
-	if( !RegexPW.test(userPass) ){
-
-		$('label[for="userPass"] .error_box').html("비밀번호는 영문자와 숫자를 사용하여 6~15자로 작성해 주십시오.");
-		return;
-	}else{
-		$('label[for="userPass"] .error_box').html("");
-		}
-	
-	/* 비밀번호 재확인 */
-	/* 비밀번호 일치 여부 확인 */
-	if(userPass != userPassCheck){
-		$('label[for="userPassCheck"] .error_box').html("비밀번호가 일치하지 않습니다.");
-		$('#userPassCheck').focus();
-		return;
-	}
-	}// end of if(비밀번호 입력 여부)
-	
-	/* 이름 */
-	if(userName == ''){
-		$('label[for="userName"] .error_box').html(blank);
-		$('#userName').focus();
-    		return;
-		}else{
-		$('label[for="userName"] .error_box').html("");
-		}
-	if( !RegexName.test(userName) ){
-
-		$('label[for="userName"] .error_box').html("이름 형식이 올바르지 않습니다.");
-		return;
-	}else{
-		$('label[for="userName"] .error_box').html("");
-		}
-		
-	/* 휴대전화 */
-	if(userPhone == ''){
-		$('label[for="userPhone"] .error_box').html(blank);
-		$('#userPhone').focus();
-    		return false;
-		}else{
-		$('label[for="userPhone"] .error_box').html("");
-		}
-		
-	if( !RegexTel.test(userPhone) ){
-
-		$('label[for="userPhone"] .error_box').html("전화번호 형식이 올바르지 않습니다. ex)010-000~0-000~0");
-		return;
-	}else{
-		$('label[for="userPhone"] .error_box').html("");
-		}
-	
-	
-	 document.memberUpdateForm.submit();
-	 alert("회원 정보 수정이 완료되었습니다.");
-}) //end of #btnMemberUpdate
-$('#btnAgree').click(function(){
-	$('#agreeForm').toggle();
-});
 $('#userDelete').click(function(){
 	var result = confirm("정말 탈퇴하시겠습니까?");
 	if(result){

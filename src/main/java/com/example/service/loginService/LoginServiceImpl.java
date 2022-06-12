@@ -83,6 +83,28 @@ public class LoginServiceImpl implements LoginService {
 		return user.checkPass(vo.getUserEmail(),vo.getUserPass());
 	}
 
+	@Override
+	public UserVO passCheck(UserVO vo) {
+		List<UserVO> passCheck = (List<UserVO>) user.findAll();
+		
+		for(UserVO check: passCheck) {
+			if(check.getUserEmail().equals(vo.getUserEmail()) && check.getUserPass().equals(vo.getUserPass())) {
+				return check;
+			}
+		}
+		return null;
+	}
+	
+	
+	
+	
+	
+	@Override
+	public void saveUserEmail(UserVO result) {
+		user.save(result);
+		
+	}
+	
 	/* 반려견 등록 */
 	@Override
 	public void insertPet(String userEmail, PetVO pvo) {
@@ -137,6 +159,7 @@ public class LoginServiceImpl implements LoginService {
 		return list;
 	}
 	
+	/* 마이페이지 반려견 리스트 페이징 */
 	@Override
 	public int countPetRecord() {
 		return pet.countPetRecord();
@@ -196,14 +219,12 @@ public class LoginServiceImpl implements LoginService {
 
 	@Override
 	public List<PetVO> findmMyPet(String userEmail) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 	@Override
 	public List<PetVO> findmMyPetImg(String userEmail) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	

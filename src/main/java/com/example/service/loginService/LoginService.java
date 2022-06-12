@@ -31,6 +31,10 @@ public interface LoginService {
 	/* 로그인 시 비밀번호 유효성검사 */
 	public UserVO checkPass(UserVO vo);
 
+	/* 비밀번호 변경 */
+	public void saveUserEmail(UserVO result);
+
+	
 	/* 반려견 등록 */
 	public PetVO petAdd(PetVO pvo);
 	void insertPet(String userEmail, PetVO pvo);
@@ -38,7 +42,6 @@ public interface LoginService {
 	/* 반려견 이미지 등록 */
 	public void insertImgVO(ImgVO ivo);
 	public PetVO getPetOwnerByUser(String userEmail);
-	
 	
 	/* 반려견 상세보기 */
 	public PetVO getPetDetail(PetVO pvo);
@@ -55,6 +58,8 @@ public interface LoginService {
 	List<ReviewVO> findByReviewList(String userEmail);
 
 	List<CommunityVO> findCommunityByLike(String userEmail);
+
+	public UserVO passCheck(UserVO vo);
 
 	
 //	/* 회원탈퇴용으로 쓰는 중*/
