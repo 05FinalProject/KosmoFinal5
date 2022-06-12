@@ -224,8 +224,9 @@ star-input>.input.focus{outline:1px dotted #ddd;}
                <!-- ********* 1칸 리뷰 테이블 *******--> 
                 <div class="listing__details__comment__item">
                   <c:forEach var="review" items="${reviews}" >
+           
             
-                  <div class="listing__details__comment__item__pic">
+              <div class="listing__details__comment__item__pic">
                     
                   </div>
                   <div class="listing__details__comment__item__text">
@@ -280,6 +281,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
                       내용:${review.reviewContent }
                     </p>
                     <ul>
+                  
                       <span><img class="siren" src="../../img/siren.png"></span>
                      
                     </ul>
