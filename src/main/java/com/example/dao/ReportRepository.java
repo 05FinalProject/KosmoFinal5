@@ -31,6 +31,5 @@ public interface ReportRepository extends CrudRepository<ReportVO, Integer>{
 	 		+ "ON cm.c_num = rp.c_num    ", nativeQuery = true)
 	 List<Object[]> reportCommunity();
 
-	 //블랙리스트 출력
 
 }

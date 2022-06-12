@@ -202,10 +202,30 @@ public class AdminMainController {
 	}
 
 	//블랙리스트 리스트 출력
-	@RequestMapping(value="adminBlacklist", method=RequestMethod.GET)
-	public String Blacklist() {
+	@RequestMapping(value="/adminBlacklist", method=RequestMethod.GET)
+	public String Blacklist(Model model) {
+		UserVO vo = new UserVO();
+		List<UserVO> blackList = adminUserService.blackList(vo);
+		model.addAttribute("blackList", blackList);
 
 		return "/admin/report/adminBlacklist";
+	}
+
+	//블랙리스트 등록
+	@RequestMapping(value = "insertBlackList", method = RequestMethod.POST)
+	public String insertBlackList(String userEmail) {
+		System.out.println("블랙리스트 등록중");
+		adminUserService.insertBlackList(userEmail);
+		return "redirect:/adminUser";
+	}
+
+	//블랙리스트 취소
+	@RequestMapping(value = "/cancelBlack", method = RequestMethod.POST)
+	public String cancelBlack(String userEmail){
+		System.out.println(userEmail);
+		System.out.println("블랙리스트 취소");
+		adminUserService.cancelBlackList(userEmail);
+		return "redirect:/adminBlacklist";
 	}
 
 	// ******************************************************************************

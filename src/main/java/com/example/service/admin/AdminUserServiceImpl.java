@@ -25,13 +25,7 @@ public class AdminUserServiceImpl implements AdminUserService{
 		return (List<UserVO>)userRepo.findAll();
 	}
 
-	//회원 삭제
-	/*@Override
-	public void deleteUser(UserVO vo) {
-	userRepo.deleteById(vo.getUserEmail());
-		
-	}*/
-
+	//회원탈퇴
 	@Override
 	public void deleteUser(String userEmail) {
 		UserVO userVO = userRepo.findById(userEmail).get();
@@ -69,5 +63,31 @@ public class AdminUserServiceImpl implements AdminUserService{
 	public List<PetVO> getUserPet(UserVO userVO){
 		return petRepo.findByUser(userVO);
 	}
+
+	//블랙리스트 목록 출력
+	@Override
+	public List<UserVO> blackList(UserVO vo) {
+
+		return userRepo.blackList("Y");
+ 	}
+
+	//블랙리스트 등록
+	@Override
+	public void  insertBlackList(String userEmail) {
+		UserVO userVO = userRepo.findById(userEmail).get();
+		userVO.setUserBlack("Y");
+
+		userRepo.save(userVO);
+	}
+
+	//블랙리스트 취소
+	@Override
+	public void cancelBlackList(String userEmail) {
+		UserVO userVO = userRepo.findById(userEmail).get();
+		userVO.setUserBlack("N");
+
+		userRepo.save(userVO);
+	}
+
 
 }

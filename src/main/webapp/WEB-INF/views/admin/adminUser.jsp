@@ -24,6 +24,11 @@
         #modelTbody{
             text-align: center;
         }
+
+        .manage{
+            display: flex;
+
+        }
     </style>
 </head>
 <body class="hold-transition sidebar-mini">
@@ -108,36 +113,45 @@
                                     <thead>
                                     <tr>
                                         <th>이메일</th>
-                                        <th>닉네임</th>
                                         <th>이름</th>
                                         <th>전화번호</th>
                                         <th>주소</th>
                                         <th>가입날짜</th>
-                                        <th width="70">회원상태</th>
+                                        <th style="text-align: center">관리</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <c:forEach items="${userList}" var="user">
                                         <tr>
                                             <td data-toggle="modal" data-target="#userModal" content="${user.userEmail}" class="email">${user.userEmail}</td>
-                                            <td>${user.userNickname}</td>
                                             <td>${user.userName}</td>
                                             <td>${user.userPhone}</td>
                                             <td>${user.userAddress}</td>
                                             <td>${user.userSignup}</td>
                                             <td>
                                                 <c:set var="yn" value="${user.userState}"/>
+                                                <c:set var="black" value="${user.userBlack}"/>
                                                 <c:choose>
                                                     <c:when test="${yn eq 'N'}">
                                                         탈퇴회원
                                                     </c:when>
+                                                    <c:when test="${black eq 'Y'}">
+                                                        블랙리스트
+                                                    </c:when>
                                                     <c:otherwise>
+                                                        <div class="manage">
                                                         <form action="/deleteUser" method="post">
                                                             <input type="hidden" name="userEmail"
                                                                    value="${user.userEmail}"/>
-                                                            <button id="btnDelete" type="submit" class="btn btn-outline-danger">삭제
+                                                            <button id="btnDelete" type="submit" class="btn btn-outline-danger">탈퇴
                                                             </button>
                                                         </form>
+                                                        <form action="/insertBlackList" method="post">
+                                                            <input type="hidden" name="userEmail" value="${user.userEmail}"/>
+                                                            <button id="btnBlack" type="submit" class="btn btn-outline-dark">블랙
+                                                            </button>
+                                                        </form>
+                                                        </div>
                                                     </c:otherwise>
                                                 </c:choose>
                                             </td>
@@ -234,11 +248,12 @@
 
     $(function () {
         $('#btnDelete').click(function() {
-            if(confirm('회원을 삭제하시겠습니까?')){
-                alert('탈퇴완료')
+            let secession = confirm('회원을 탈퇴시키겠습니까?');
+            if(secession == true){
+                alert('탈퇴완료');
             }
-            else {
-                return;
+            else{
+               return false;
             }
         });
     })

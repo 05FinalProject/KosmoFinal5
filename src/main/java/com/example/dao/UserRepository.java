@@ -62,4 +62,11 @@ public interface UserRepository extends CrudRepository<UserVO, String>{
 	//SELECT count(*) FROM user WHERE user_signup = curdate()
 	@Query("SELECT count(u) FROM UserVO u WHERE u.userSignup=current_date")
 	int getSignupCount();
+
+
+	//블랙리스트 회원 출력
+	@Query("SELECT uvo FROM UserVO uvo WHERE uvo.userBlack = :userBlack")
+	public List<UserVO> blackList(String userBlack);
+
+
 }

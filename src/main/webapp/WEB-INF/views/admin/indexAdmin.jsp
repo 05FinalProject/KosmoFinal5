@@ -328,7 +328,12 @@ $('#dashboard').addClass('active')
   let ctx2 = document.getElementById('userBarchart').getContext('2d');
   new Chart(ctx2, {
     type: 'bar',
-    data: data2
+    data: data2,
+    options: {
+      legend: {
+        display: false
+      }
+    }
   });
 </script>
 </body>

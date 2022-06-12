@@ -19,7 +19,16 @@ public interface AdminUserService {
 
 	public int getSignupCount();
 
-	//
+	//강아지 리스트 출력
 	public List<PetVO> getUserPet(UserVO userVO);
+
+	//블랙리스트 출력
+	public List<UserVO> blackList(UserVO vo);
+
+	//회원 블랙리스트 등록
+	public void insertBlackList(String userEmail);
+
+	//회원 블랙리스트 취소
+	public void cancelBlackList(String userEmail);
 
 }

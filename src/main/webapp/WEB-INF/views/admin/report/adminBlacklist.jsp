@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -73,51 +75,31 @@
                           
                   <thead>
                   <tr>
-                  	<th width="40">번호</th>
-                    <th  width="200">이메일</th>
-                    <th  width="150">닉네임</th>
-                    <th>사유</th>
-                    <th width="150">등록날짜</th>
-                    <th width="50">삭제</th>
+                    <th>이메일</th>
+                    <th>이름</th>
+                    <th>가입일</th>
+					<th width="150">관리</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                 	<td text-align="center">1</td>
-                    <td>tt@naver.com</td>
-                    <td>최악이예요
-                    </td>
-                    <td>욕설</td>
-                    <td>2022-05-13</td>
-                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
-                  </tr>
-                  <tr>
-                  	<td text-align="center">2</td>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td>5</td>
-                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
-                  </tr>
-                  <tr>
-                  	<td text-align="center">3</td>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.5
-                    </td>
-                    <td>Win 95+</td>
-                    <td>5.5</td>
-                    <td><button type="button" class="btn btn-outline-danger">삭제</button></td>
-                  </tr>
-                  </tbody>                
+                  	<c:forEach items="${blackList}" var="black">
+						<tr>
+							<td>${black.userEmail}</td>
+							<td>${black.userName}</td>
+							<td>${black.userSignup}</td>
+							<td>
+								<form action="cancelBlack" method="post">
+									<input type="hidden" name="userEmail" value=${black.userEmail}  />
+									<button id="btnCancel" type="submit" class="btn btn-outline-dark">블랙리스트 해제</button>
+								</form>
+							</td>
+						</tr>
+					</c:forEach>
+                  </tbody>
                 </table>                            
               </div>
-       
               <!-- /.card-body -->
-            </div>      
-            <button type="button" class="btn btn-primary" id="black">블랙리스트등록</button>    
+           </div>
 		</div>    
 		 
 		<!-- Main content -->
