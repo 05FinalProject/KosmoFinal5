@@ -129,13 +129,15 @@
 				<nav>
 					<ul>
 						<li>
+						<a href="/agency/agencyHotel">
 							<div>
 								<img src="/img/mainpage/premium-icon-hotel-3009487.png" />
 							</div>
 							<div class="agency-name mt-2">애견호텔</div>
+							</a>
 						</li>
 						<li>
-							<a href="/include/agencyCafe">
+							<a href="/agency/agencyCafe">
 							<div>
 								<img src="/img/mainpage/premium-icon-cafe-3361447.png" />
 							</div>
@@ -143,14 +145,16 @@
 							</a>
 						</li>
 						<li>
+						<a href="/agency/agencyHospital">
 							<div>
 								<img
 									src="/img/mainpage/premium-icon-hospital-building-2749678.png" />
 							</div>
 							<div class="agency-name mt-2">동물병원</div>
+							</a>
 						</li>
 						<li>
-							<a href="/include/agencyCafe">
+							<a href="/agency/agencyShelter">
 							<div>
 								<img src="/img/mainpage/premium-icon-animal-shelter-5871573.png" />
 							</div>
@@ -158,10 +162,12 @@
 							</a>
 						</li>
 						<li>
+						<a href="/agency/agencyHall">
 							<div>
 								<img src="/img/mainpage/free-icon-death-3455284.png" />
 							</div>
 							<div class="agency-name mt-2">장례식장</div>
+							</a>
 						</li>
 					</ul>
 				</nav>
@@ -195,7 +201,7 @@
 									<div
 										class="lana_story type-lana_story card story-slide-card mx-0 mx-md-3 h-100"
 										data-scroll-animate="fadeIn">
-										<div class="card-body">
+										<div class="card-body" style="text-align: center;">
 											<div class="media">
 												<img src="/${vo.userImg }"
 													class="img-fluid rounded-circle" alt="Pet">
