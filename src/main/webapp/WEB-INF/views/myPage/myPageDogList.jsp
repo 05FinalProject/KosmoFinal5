@@ -117,7 +117,7 @@
 			<div class="row">
 				<div class="col-9 mx-auto">
 
-					<c:if test="${empty myPet.petNum}">
+<%-- 					<c:if test="${empty myPet.petNum}">
 						<div class="blog-posts sticky-posts"
 							style="margin-top: 2%; margin-bottom: 2%; border-radius: 25px; border-right-style: solid; border-color: orange;">
 							<div id="post-1" class="post type-post post-1 card post-card"
@@ -134,9 +134,9 @@
 								</div>
 							</div>
 						</div>
-					</c:if>
+					</c:if> --%>
 
-					<c:if test="${not empty myPet.petNum }">
+					<%-- <c:if test="${not empty myPet.petNum }"> --%>
 						<c:forEach var="pet" items="${paging}">
 							<div class="blog-posts sticky-posts"
 								style="margin-top: 2%; margin-bottom: 2%; border-radius: 25px; border-right-style: solid; border-color: orange;">
@@ -174,13 +174,6 @@
 													</tr>
 												</table>
 												</p>
-												<div
-													class="d-flex justify-content-between align-items-center post-meta mt-auto w-100">
-													<a href="myPageDogDelete"
-														class="more-link card-link d-flex align-items-center">
-														삭제 <i class="lana-icon-arrow-right text-primary"></i>
-													</a>
-												</div>
 											</div>
 										</div>
 									</div>
@@ -207,7 +200,7 @@
 							<!-- include 페이징  jsp파일  -->
 							<%@include file="/WEB-INF/views/include/paging.jsp"%>
 						</nav>
-					</c:if>
+					<%-- </c:if> --%>
 
 				</div>
 			</div>

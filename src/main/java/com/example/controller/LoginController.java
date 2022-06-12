@@ -310,6 +310,7 @@ public class LoginController {
 		Pageable paging = PageRequest.of(page -1, 3, Sort.Direction.DESC, "petNum");
 		/* 유저의 글 */
 		
+		session.setAttribute("userEmail", paging);
 		
 		m.addAttribute("myPet", pvo);
 		m.addAttribute("paging", lservice.getPetListPaging(paging));
