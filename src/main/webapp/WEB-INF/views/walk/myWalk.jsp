@@ -91,40 +91,19 @@ ul{
 			</div>
 			<div class="col-md-4 mt-4">
 
-		<!-- 		<a class="walk-modal" data-toggle="modal"
-					data-target="#calendarModal">
-					<div class="walk-list mt-3">
-						산책시간  <span>1</span>분 &nbsp;
-						거리  <span>1</span>km
-					</div>
-				</a>
-				 <a class="walk-modal" data-toggle="modal"
-					data-target="#calendarModal">
-					<div class="walk-list mt-3">
-						<span>in progress</span> <span>in progress</span>
-					</div>
-				</a> -->
 
-				<ul>
-					<a class="walk-modal" data-toggle="modal"
-						data-target="#calendarModal">
-						<li class="walk-list">시간 <span class="walk-color">123456</span>분
-							&nbsp; 거리 <span class="text-primary">123456</span>km <!-- 200일 d-day를 츨력할 공간 -->
-							</span>
-							<div id="dday100"></div> <!-- 100일 d-day를 츨력할 공간 --> </span></li>
-					</a>
-					<li class="walk-list font-weight-bold">시간 &nbsp;  
-					<span class="font-weight-bold walk-color">123456</span>분 &nbsp; 거리 
-					&nbsp;<span class="font-weight-bold walk-color">123456</span>km <!-- 200일 d-day를 츨력할 공간 -->
-						</span></li>
-					<li class="walk-list"><span class="days">300일</span> <span
-						class="days2">
-							<div id="dday300"></div> <!-- 300일 d-day를 츨력할 공간 -->
-					</span></li>
-					<li class="walk-list"><span class="days">1년</span> <span
-						class="days2">
-							<div id="dday365"></div> <!-- 1주년 d-day를 츨력할 공간 -->
-					</span></li>
+				<ul id="walkDog">
+					<c:forEach items="${walkList}" var="walk">
+
+						<a class="walk-modal" data-toggle="modal"
+							data-target="#calendarModal">
+							<li class="walk-list">시간 <span class="walk-color">${walk.walkTime}</span>분
+								&nbsp; 거리 <span class="text-primary">${walk.walkDistance }</span>m 
+								<input value=${walk.walkId } type="hidden"/>
+								</li>
+						</a>
+					</c:forEach>
+					
 				</ul>
 			</div>
 		</div>
@@ -205,7 +184,7 @@ ul{
 
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f5b6c107c52e63373c42ed42d662f260"></script>
-	<script>
+	<!-- <script>
       var mapContainer = document.getElementById("map3"), // 지도를 표시할 div
         mapOption = {
           center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -257,10 +236,6 @@ ul{
 
         // }
 
-        console.log("위도 : " + lat);
-        console.log("경도 : " + lon);
-        console.log(listLat);
-        console.log(listLon);
 
         mylotation(lat, lon);
 
@@ -286,7 +261,7 @@ ul{
       }
       var navi;
 
-      var imageSrc =
+/*       var imageSrc =
           "https://vrthumb.clipartkorea.co.kr/2015/11/12/cb059000011.jpg", // 마커이미지의 주소입니다
         imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
         imageOption = { offset: new kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
@@ -297,9 +272,9 @@ ul{
         imageSrc,
         imageSize,
         imageOption
-      );
-      var flag = false;
-      function displayMarker(locPosition, message) {
+      ); */
+      // var flag = false;
+   /*    function displayMarker(locPosition, message) {
         //마커 하나만 생성
         if (flag) {
           marker.setMap(null);
@@ -326,7 +301,7 @@ ul{
 
         // // 지도 중심좌표를 접속위치로 변경합니다
         map.setCenter(locPosition);
-      }
+      }  */
 
       // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
 
@@ -372,9 +347,7 @@ ul{
 
         // console.log("거리" + distance(lat, lon, lat, lon));
       }
-      function relayout() {
-        map.relayout();
-      }
+
 
       $(document).on("click", ".walk-modal", function () {
         setTimeout(function () {
@@ -385,7 +358,100 @@ ul{
       // $(".walk-modal").click(function name(params) {
       //   alert("ddd");
       // });
+      
+      $(document).on("click", ".walk-list", function () { 
+     	  $.ajax({
+    			url:"/walk/myWalk3",
+    			data:{walkId:$(this).children("input").val()} ,
+    			type: "get",
+    			success: function(result){
+    				console.log(result);
+    				
+    				$("#walk-start").val(result.walkStart);
+
+    				
+    				
+    			} 
+     	  })
+      });
+    </script> -->
+    <script>
+    var mapContainer = document.getElementById('map3'), // 지도를 표시할 div 
+    mapOption = { 
+        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
+
+	// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+	var map = new kakao.maps.Map(mapContainer, mapOption);
+	
+	// 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+	var linePath = [
+	    new kakao.maps.LatLng(33.452344169439975, 126.56878163224233),
+	    new kakao.maps.LatLng(33.452739313807456, 126.5709308145358),
+	    new kakao.maps.LatLng(33.45178067090639, 126.5726886938753),
+	];
+
+	// 지도에 표시할 선을 생성합니다
+	var polyline = new kakao.maps.Polyline({
+	    path: linePath, // 선을 구성하는 좌표배열 입니다
+	    strokeWeight: 5, // 선의 두께 입니다
+	    strokeColor: '#FFAE00', // 선의 색깔입니다
+	    strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+	    strokeStyle: 'solid' // 선의 스타일입니다
+	});
+
+	// 지도에 선을 표시합니다 
+	polyline.setMap(map);  
     </script>
+
+	<script type="text/javascript">
+		$(document).on("click", ".walk-modal", function() {
+			setTimeout(function() {
+				map.relayout();
+			}, 500);
+		});
+		const lotation = new kakao.maps.LatLng(lat, lon);
+		$(document).on("click", ".walk-list", function() {
+			$.ajax({
+				url : "/walk/myWalk3",
+				data : {
+					walkId : $(this).children("input").val()
+				},
+				type : "get",
+				success : function(result) {
+					console.log(result);
+					zip= rows=>rows[0].map((_,c)=>rows.map(row=>row[c]));
+				/* 	let lotation = new kakao.maps.LatLng(lat, lon);
+					linePath.push(); */
+					let lat = result.walkLat
+					let lon = result.walkLon
+					let latList = lat.split(",")
+					let lonList = lon.split(",")
+					
+					const coorList = latList.map((x, i) => [x, lonList[i]]);
+					/* console.log(coorList) */
+					
+				for ( var coor in coorList) {
+					console.log("qweqwe"+coorList[coor])
+					
+				}
+
+					
+				/* 	for ( var a, b in (latList, lonList)) {
+						console.log(latList[a]);
+						console.log(lonList[b]);
+					} */
+					
+					
+					
+					$("#walk-start").val(result.walkStart);
+				}
+			})
+		});
+	</script>
+
+
 	<script type="text/javascript" src="/walk/calendar.js"></script>
 </body>
 </html>
