@@ -167,10 +167,13 @@ ul {
 
 							<!-- 알림 추가 -->
 							<li class="nav-item dropdown"><a class="nav-link"
-
+<<<<<<< HEAD
 								data-toggle="dropdown" href="#"> <i class="far fa-bell" style="color:ff8a00;"></i>
 								<small><span class="badge badge-warning navbar-badge">N</span></small>
-
+=======
+								data-toggle="dropdown" > <i class="far fa-bell"></i>
+									<small><span class="badge badge-warning navbar-badge">N</span></small>
+>>>>>>> upstream/main
 							</a>
 								<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 									<a class="dropdown-item" id="unreadMessageBtn"> <i

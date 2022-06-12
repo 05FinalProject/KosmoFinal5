@@ -2,6 +2,8 @@ package com.example.walk;
 
 import java.util.List;
 
+import com.example.domain.UserVO;
+
 public interface WalkService {
 	
 	public void insertWalk(WalkVO vo);
@@ -11,6 +13,8 @@ public interface WalkService {
 	public List<WalkVO> selectWalk2(String user);
 
 	WalkVO getById(int num);
+	
+	UserVO getById(String email);
 	
 
 }

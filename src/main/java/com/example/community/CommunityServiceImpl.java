@@ -53,6 +53,7 @@ public class CommunityServiceImpl implements CommunityService {
 		CommunityVO cvo = new CommunityVO();
 		Date date = new Date();
 		cvo.setUser(userRepo.findById(userEmail).get());
+		cvo.setCommunityState(0);
 		cvo.setCommunityTitle(communityTitle);
 		cvo.setCommunityContent(communityContent);
 		cvo.setCommunityInsertdate(date);
@@ -73,12 +74,13 @@ public class CommunityServiceImpl implements CommunityService {
 	public List<HashMap<String, Object>> getCommunityPaging(Pageable paging) {
 		List<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
 		
-		for(CommunityVO communityVo:communityRepo.findAll(paging)) {
+		
+		
+		for(CommunityVO communityVo:communityRepo.findAllByCommunityState(paging,Integer.valueOf(0))) {
 			HashMap<String, Object> hm = new HashMap<String, Object>();
 			hm.put("communityNum", communityVo.getCommunityNum());
 			hm.put("communityInsertdate", communityVo.getCommunityInsertdate());
-			hm.put("communityTitle", communityVo.getCommunityTitle());
-			
+			hm.put("communityTitle", communityVo.getCommunityTitle());			
 			hm.put("userNickname", communityVo.getUser().getUserNickname());
 			
 			
@@ -128,7 +130,9 @@ public class CommunityServiceImpl implements CommunityService {
 	// 일상공유 게시글 삭제
 	public void deleteCommunity(Integer communityNum) {
 
-		communityRepo.deleteById(communityNum);
+		CommunityVO cvo = communityRepo.findById(communityNum).get();
+		cvo.setCommunityState(1);
+		communityRepo.save(cvo);
 	}
 
 	// 일상공유 댓글 작성

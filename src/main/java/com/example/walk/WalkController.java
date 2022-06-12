@@ -13,12 +13,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.domain.UserVO;
+
 @Controller
 @RequestMapping("/walk")
 public class WalkController {
 	
 	@Autowired
 	private WalkService walkService;
+	
 	
 	@RequestMapping(value ="", method=RequestMethod.GET)
 	public String walk(WalkVO vo) {
@@ -28,7 +31,11 @@ public class WalkController {
 	}
 	
 	@RequestMapping(value ="", method=RequestMethod.POST)
-	public String walk2(WalkVO vo) {
+	public String walk2(WalkVO vo, HttpSession session) {
+		
+		String userEmail= session.getAttribute("userEmail").toString();
+		UserVO userVo = walkService.getById(userEmail);
+		vo.setUser(userVo);
 		
 		walkService.insertWalk(vo);
 		

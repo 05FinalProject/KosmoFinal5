@@ -51,6 +51,9 @@ public class CommunityVO {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date communityUpdatedate;
 	
+	@Column(name="c_state")
+	private Integer communityState;
+	
 	@ManyToOne
 	@JoinColumn(name = "user_email")
 	private UserVO user;
