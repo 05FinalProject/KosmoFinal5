@@ -6,6 +6,7 @@ import java.util.List;
 import com.example.domain.ChatingRoomVO;
 import com.example.domain.FriendVO;
 import com.example.domain.ImgVO;
+import com.example.domain.LikeItVO;
 import com.example.domain.UserVO;
 
 public interface ChatingService {
@@ -60,4 +61,6 @@ public interface ChatingService {
 	public List<FriendVO> getFriendRequests(UserVO vo);
 	
 	public void complet(UserVO vo,String email);
+	
+	public List<HashMap<String, Object>> getMostLikeIt();
 }

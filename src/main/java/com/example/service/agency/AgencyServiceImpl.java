@@ -69,6 +69,7 @@ public class AgencyServiceImpl implements AgencyService{
 		return abandonedRepo.countRecord();
 	}
 	
+	//*************************************************************************
 	//호텔 페이지 처리 //호텔 페이지에서 별점 평균값 표시 
 	@Override
 	public List<AgencyVO> getHotelPaging(Pageable paging) {	
@@ -93,25 +94,49 @@ public class AgencyServiceImpl implements AgencyService{
 		return agencyRepo.countHotelRecord();
 	}
     
-	
-	//카페 페이지 처리
+//*****************************************************************************	
+	//카페 페이지 처리 // 카페 별점 평점 나타내기 
 	@Override
-	public List<AgencyVO> getCafePaging(Pageable paging) {		
-		return agencyRepo.findByAgencyCategoryNum(paging, 2);
+	public List<AgencyVO> getCafePaging(Pageable paging) {	
+		List<AgencyVO> list = agencyRepo.findByAgencyCategoryNum(paging, 2);
+		List<AgencyVO> rlist = new ArrayList<AgencyVO>();
+		for(AgencyVO avo : list) {
+			Object aob = reviewRepo.agencyStarAvg(avo.getAgencyNum());
+			if(aob != null) {
+				avo.setAvgStars((double)aob);
+			}else {
+				avo.setAvgStars(0.0);
+			}
+			
+			rlist.add(avo);
+		}
+		return rlist;
 	}
-	
+		
 	@Override
 	public int countCafeRecord() {		
 		return agencyRepo.countCafeRecord();
 	}
 	
+//*****************************************************************	
 	
-	
-	//병원 페이지 처리
+	//병원 페이지 처리 //병원 별점 평균 처리 
 	@Override
 	public List<AgencyVO> getHospitalPaging(Pageable paging) {		
-	return agencyRepo.findByAgencyCategoryNum(paging, 3);
+		List<AgencyVO> list = agencyRepo.findByAgencyCategoryNum(paging, 3);
+		List<AgencyVO> rlist = new ArrayList<AgencyVO>();
+		for(AgencyVO avo : list) {
+			Object aob = reviewRepo.agencyStarAvg(avo.getAgencyNum());
+			if(aob != null) {
+				avo.setAvgStars((double)aob);
+			}else {
+				avo.setAvgStars(0.0);
+			}
+			
+			rlist.add(avo);
 		}
+		return rlist;
+	}
 			
 	@Override
 	public int countHospitalRecord() {		
@@ -119,11 +144,24 @@ public class AgencyServiceImpl implements AgencyService{
 	}
 	
 	
+	//*******************************************************************
 		//장례식장 페이지 처리
 		@Override
 		public List<AgencyVO> getHallPaging(Pageable paging) {		
-		return agencyRepo.findByAgencyCategoryNum(paging, 5);
+			List<AgencyVO> list = agencyRepo.findByAgencyCategoryNum(paging, 5);
+			List<AgencyVO> rlist = new ArrayList<AgencyVO>();
+			for(AgencyVO avo : list) {
+				Object aob = reviewRepo.agencyStarAvg(avo.getAgencyNum());
+				if(aob != null) {
+					avo.setAvgStars((double)aob);
+				}else {
+					avo.setAvgStars(0.0);
+				}
+				
+				rlist.add(avo);
 			}
+			return rlist;
+		}
 				
 		@Override
 		public int countFunehallRecord() {		

@@ -5,21 +5,24 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
+import java.util.Set;import org.apache.jasper.TrimSpacesOption;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.community.CommunityRepository;
+import com.example.community.CommunityVO;
 import com.example.dao.ChatingRoomRepository;
 import com.example.dao.FriendChatingRepository;
 import com.example.dao.FriendRepository;
 import com.example.dao.ImgRepository;
+import com.example.dao.LikeItRepository;
 import com.example.dao.PetRepository;
 import com.example.dao.UserRepository;
 import com.example.domain.ChatingRoomVO;
 import com.example.domain.FriendChatingVO;
 import com.example.domain.FriendVO;
 import com.example.domain.ImgVO;
+import com.example.domain.LikeItVO;
 import com.example.domain.PetVO;
 import com.example.domain.UserVO;
 
@@ -43,6 +46,12 @@ public class ChatingServiceImpl implements ChatingService {
 	
 	@Autowired
 	private PetRepository pr;
+	
+	@Autowired
+	private LikeItRepository like;
+	
+	@Autowired
+	private CommunityRepository comm;
 	
 	//채팅방멤버삭제
 	public void deleteByRoomMember(ChatingRoomVO vo) {
@@ -305,4 +314,32 @@ public class ChatingServiceImpl implements ChatingService {
 		
 	}
 	
+	
+	// 좋아요 제일 많은 개시글 5개
+	public List<HashMap<String, Object>> getMostLikeIt(){
+		List<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+		
+		for(Object[] o : like.LikeItRepository()) {
+			HashMap<String, Object> hm = new HashMap<String, Object>();
+			List<ImgVO> imgs = img.findByCommunity(comm.findById((int)o[0]).get());
+			if (imgs.size()>0) {
+				ImgVO imgvo = imgs.get(0);
+				hm.put("img",imgvo.getRealImgName() );
+				hm.put("title",imgvo.getCommunity().getCommunityTitle() );
+				hm.put("nickName",imgvo.getCommunity().getUser().getUserNickname() );
+				UserVO u = new UserVO();
+				u.setUserEmail(imgvo.getCommunity().getUser().getUserEmail());
+				hm.put("userImg",img.findByUser(u).get(0).getRealImgName());
+				
+				list.add(hm);
+			}else {
+				CommunityVO co = comm.findById((int)o[0]).get();
+				hm.put("title",co.getCommunityTitle() );
+				hm.put("nickName",co.getUser().getUserNickname() );
+				hm.put("userImg",img.findByUser(co.getUser()).get(0).getRealImgName());
+				list.add(hm);
+			}
+		}
+		return list;
+	}
 }
