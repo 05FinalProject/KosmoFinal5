@@ -63,7 +63,7 @@
 
 p{
 	display:inline;
-	font-size:15px;
+	font-size:17px;
 	margin:0;
 	white-space:noraml;
 	line-height: 1.8;

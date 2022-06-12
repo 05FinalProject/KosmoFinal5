@@ -359,7 +359,7 @@ footer {
 									value="${community[0].community.communityTitle}" />
 							</div>
 							<div class="item">
-								<h3>${community[0].community.user.userNickname}</h3>
+								<h3>작성자 : ${community[0].community.user.userNickname}</h3>
 							</div>
 							<div class="item" id="fa-user-plus">
 								<a><i class="fa-solid fa-user-plus"></i></a>

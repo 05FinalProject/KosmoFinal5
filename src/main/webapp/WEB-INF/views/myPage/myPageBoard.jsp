@@ -251,29 +251,38 @@ p{
 				</div>
 
 				<!-- 좋아요한 글 -->
-				<div class="tab-pane fade" id="likeIt" role="tabpanel">
-				<c:forEach items="${like}" var="l">
+			<div class="tab-pane fade" id="likeIt" role="tabpanel">
+				<hr style="color:white">
 					<div>
 						<div class="content-page-box-area">
 							<div class="row">
-								<div class="col-lg-2 col-md-6">
-									<div class="single-events-card">
-										<a href="#"> <img src="assets/images/events/events-1.jpg"
-											alt="image">
-										</a>
-										<div class="events-content">
-										<span>${l.communityTitle}</span>
-											<h3>
-												<a href="#">${l.communityContent }</a>
-											</h3>
-											<p>${l.user.userNickname} </p>
-										</div>
+								
+								<div class="col-lg-12 col-md-12">
+								
+									<div class="favourite-table table-responsive">
+										<table class="table table-bordered">
+											<thead>
+												<tr>
+													<th>제목</th>
+													<th>내용</th>
+													<th>작성자</th>
+												</tr>
+											</thead>
+										<c:forEach items="${like}" var="l">
+											<tbody>
+												<tr>
+													<td>${l.communityTitle }</td>
+													<td>${l.communityContent }</td>
+													<td>${l.user.userNickname }</td>
+												</tr>
+											</tbody>
+										</c:forEach>
+										</table>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</c:forEach>
 				</div>
 
 

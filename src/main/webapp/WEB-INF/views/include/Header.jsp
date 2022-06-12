@@ -64,6 +64,10 @@
 ul {
 	align-items: center;
 }
+
+#chatingRoom{
+	color: white;
+}
 </style>
 
 <script defer
@@ -193,7 +197,7 @@ ul {
 								</div></li>
 							<!-- 알림 추가 끝 -->
 
-							<li class="nav-item"><a href="/myPage/logout"
+							<li class="nav-item"><a href="/myPage/logout" class="logout"
 								style="color: white;">Logout</a></li>
 						</c:if>
 
@@ -246,6 +250,15 @@ ul {
 			$(".walk").mouseleave(function() {
 				$(".walk").css("color", "white");
 			});
+			
+			
+			$(".logout").mouseover(function() {
+				$(".logout").css("color", "#f8b03a");
+			});
+			$(".logout").mouseleave(function() {
+				$(".logout").css("color", "white");
+			});
+			
 			
 			$(".btn-light").mouseover(function() {
 				$(".btn-light").css("color", "#f8b03a");

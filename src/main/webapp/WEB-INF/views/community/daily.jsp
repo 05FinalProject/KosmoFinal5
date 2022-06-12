@@ -132,15 +132,15 @@
 									<div class="card-body">
 										<ul class="post-meta">
 											<li><a
-												href="/community/dailyDetail?communityNum=${community.communityNum }">${community.communityInsertdate }</a></li>
+												href="/community/dailyDetail?communityNum=${community.communityNum }">쟉성일자 : ${community.communityInsertdate }</a></li>
 										</ul>
 
 										<h5 class="post-title card-title" id="post-title">
 											<a
-												href="/community/dailyDetail?communityNum=${community.communityNum }">${community.communityTitle }</a>
+												href="/community/dailyDetail?communityNum=${community.communityNum }">제목 : ${community.communityTitle }</a>
 										</h5>
 										<div class="post-text card-text">
-											<p class="post-text card-text">${community.userNickname }</p>
+											<p class="post-text card-text">작성자 : ${community.userNickname }</p>
 										</div>
 
 									</div>

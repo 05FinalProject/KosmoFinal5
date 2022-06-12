@@ -122,7 +122,9 @@
 	justify-content: center;
 }
 
-     
+h6{
+	text-align: center;
+}
    </style>
   </head>
 
@@ -164,7 +166,8 @@
 						</div>
 					</div>
 					<div class="bx-txt">
-						<h6><p>${vo.dogNum}</p> ${vo.dogKind}(${vo.dogLocal})</h6>
+						<h6 style="font-weight:bolder">${vo.dogKind}</h6>
+						<h6>(${vo.dogLocal})</h6>
 
 				 </div>
 				</a>

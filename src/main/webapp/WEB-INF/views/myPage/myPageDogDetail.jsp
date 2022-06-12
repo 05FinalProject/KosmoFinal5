@@ -54,7 +54,35 @@
     <link rel="stylesheet" id="swiper-css" href="/css/swiper.min.css?ver=4.5.3" type="text/css" media="all">
     <link rel="stylesheet" id="magnific-popup-css" href="/css/magnific-popup.min.css?ver=1.1.0" type="text/css"
           media="all">
+<style>
+.btn2 {
+    display: inline-block;
+    font-weight: 400;
+    color: #212121;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.5rem;
+}
 
+    .css_test {
+		width:600px;
+		height:400px;
+		border:10px insert #dd9700;
+		outline:10px outset #dd9700;
+		border-radius:50%;
+		padding:2px;
+    }
+    
+@media (max-width:800px) {
+	.detail{
+		text-align:center;
+	}
+}
+</style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed "
 	style="background-color: #f4f6f9;">
@@ -137,27 +165,27 @@
           <div class="row" style="margin-top:5%;">
             <div class="col-12 col-sm-7">
               <div class="col-10 mx-auto my-auto">
-                <img src="/img/petImg/${petImg.realImgName }" class="product-image" alt="Product Image">
+                <img src="/img/petImg/${petImg.realImgName }" class="product-image css_test" alt="Product Image">
               </div>
             </div>
-            <div class="col-12 col-sm-5">
+            <div class="col-12 col-sm-5 detail">
               <h3 class="my-3">${petImg.pet.petName }</h3>
               <hr>
               <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <table>
                   <tr> 
-                    <th>견&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;종 : </th>
+                    <th>견&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;종 :&nbsp; </th>
                     <th>${petImg.pet.petVariety }</th>
                   </tr>
                   <tr> 
                     <th>몸무게 : </th>
-                    <th>${petImg.pet.petWeight }</th>
+                    <th>${petImg.pet.petWeight }&nbsp;kg</th>
                   </tr>
                   <tr>
                     <th>성별 : </th>
                     
                     <th>
-                    <label class="btn btn-default text-center active">
+                    <label class="btn2 btn-default text-center active">
                       ${petImg.pet.petGender }
                       <br>
                       <c:if test="${petImg.pet.petGender eq '남아' }">
@@ -176,14 +204,14 @@
                     <th>
                     
                     <c:if test="${petImg.pet.petNeutering eq 'Y'}">
-                    <label class="btn btn-default text-center active">
+                    <label class="btn2 btn-default text-center active">
                       했어요
                       <br>
                       <i class="fas fa-dot-circle fa text-green"></i>
                     </label>
                     </c:if>
 					<c:if test="${petImg.pet.petNeutering ne 'Y'}">
-                    <label class="btn btn-default text-center active">
+                    <label class="btn2 btn-default text-center active">
                       안했어요
                       <br>
                       <i class="fas fa-dot-circle fa text-yellow"></i>
@@ -197,7 +225,7 @@
                   
                 </table>
               </div>
-6
+
             </div>
           </div>
                   

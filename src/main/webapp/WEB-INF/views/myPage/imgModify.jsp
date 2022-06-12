@@ -4,20 +4,21 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<meta http-equiv="refresh" content="5; url=/myPage/myPageProfile"/>
 
+<title>5초간의 여유</title>
+<link href='https://fonts.googleapis.com/css?family=Cabin+Condensed:700' rel='stylesheet' type='text/css'>
+<link rel='stylesheet' type='text/css' href="/signUpLogin/css/loding.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-수정완료되었습니다.~
-<button id="btn"></button>
-<script type="text/javascript">
-$('#btn').click(function(){
-	location.href="/myPage/myPageProfile"
-})
-
-</script>
-
+<p>
+  (주) 너 와 함 개
+  <span>
+    이미지 수정이 <br>진행되고 있습니다.
+  </span>
+    &mdash; 자동으로 넘어갑니다 &mdash;
+</p>
 </body>
 
 </html>
