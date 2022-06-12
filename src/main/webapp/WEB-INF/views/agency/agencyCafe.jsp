@@ -132,6 +132,26 @@ ul {
 .customoverlay:after {content:'';position:absolute;margin-left:-12px;left:50%;bottom:-12px;width:22px;height:12px;background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
 
 
+.star-input>.input,
+.star-input>.input>label:hover,
+.star-input>.input>input:focus+label,
+.star-input>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('/img/grade_img.png')no-repeat;}
+.star-input{display:inline-block; white-space:nowrap;width:225px;height:40px;}
+.star-input>.input{display:inline-block;width:150px;background-size:150px;height:28px;white-space:nowrap;overflow:hidden;position: relative;}
+.star-input>.input>input{position:absolute;width:1px;height:1px;opacity:0;}
+star-input>.input.focus{outline:1px dotted #ddd;}
+.star-input>.input>label{width:30px;height:0;padding:28px 0 0 0;overflow: hidden;float:left;cursor: pointer;position: absolute;top: 0;left: 0;}
+.star-input>.input>label:hover,
+.star-input>.input>input:focus+label,
+.star-input>.input>input:checked+label{background-size: 150px;background-position: 0 bottom;}
+.star-input>.input>label:hover~label{background-image: none;}
+.star-input>.input>label[for="p1"]{width:30px;z-index:5;}
+.star-input>.input>label[for="p2"]{width:60px;z-index:4;}
+.star-input>.input>label[for="p3"]{width:90px;z-index:3;}
+.star-input>.input>label[for="p4"]{width:120px;z-index:2;}
+.star-input>.input>label[for="p5"]{width:150px;z-index:1;}
+.star-input>output{display:inline-block;width:60px; font-size:18px;text-align:right; vertical-align:middle;}
+
 </style>
 </head>
 
@@ -162,8 +182,11 @@ ul {
 
 				     
 				     <div>
-						<img id="agencyImage" class="listing__item__pic set-bg"
-							src="${vo.agencyImage}" />
+						 <c:if test="${vo.agencyImage !=null }">
+          <img id="agencyImage" 
+            class="listing__item__pic set-bg"
+            src="${vo.agencyImage }" />
+           </c:if>
 						<div class="listing__item__pic__btns">
 							<a href="#"><span class="icon_zoom-in_alt"></span></a> <a
 								href="#"><span class="icon_heart_alt"></span></a>
@@ -174,16 +197,107 @@ ul {
 
 						<div class="listing__item__text__inside">
 							<a href="/agency/agencyCafeDetail?agencyNum=${vo.agencyNum }"><h5>${vo.agencyName }</h5></a>
+							
 							<div class="listing__item__text__rating">
-								<!-- 이쪽에 별 대신 맛평가 들어가야함-->
-								<div class="listing__item__rating__star">
-									<span class="icon_star"></span> <span class="icon_star"></span>
-									<span class="icon_star"></span> <span class="icon_star"></span>
-									<span class="icon_star-half_alt"></span>
-								</div>
-								<!-- 가격대 가지고와야함-->
-							</div>
-							<ul>
+								
+							<c:choose>
+                    <c:when test="${vo.avgStars eq '5'}">
+                    <i class="fa fa-star" style="color:red;"></i>
+                    <i class="fa fa-star" style="color:red;"></i>
+                    <i class="fa fa-star" style="color:red;"></i>
+                    <i class="fa fa-star" style="color:red;"></i>
+                    <i class="fa fa-star" style="color:red;"></i>
+                    </c:when>
+                    
+                    <c:when test="${vo.avgStars eq '4.5' }">
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" ></i>
+					</c:when>
+                    
+					<c:when test="${vo.avgStars eq '4' }">
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" ></i>
+					</c:when>
+					
+					<c:when test="${vo.avgStars eq '3.5' }">
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					</c:when>
+					
+					<c:when test="${vo.avgStars eq '3' }">
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					</c:when>
+					
+					<c:when test="${vo.avgStars eq '2.5' }">
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					</c:when>	
+					
+					<c:when test="${vo.avgStars eq '2' }">
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					</c:when>		
+					
+					<c:when test="${vo.avgStars eq '1.5' }">
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					</c:when>	
+								
+				    <c:when test="${vo.avgStars eq '1' }">	
+					<i class="fa fa-star" style="color:red;"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					</c:when>
+					
+					<c:when test="${vo.avgStars eq '0.5' }">	
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					</c:when>
+					
+					<c:when test="${vo.avgStars eq '0' }">	
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					</c:when>
+					
+										
+                    </c:choose>
+                    
+                    <output for="star-input">${vo.avgStars}<b></b>점</output>	
+                    </div>
+               
+   <!--  별점 평점 나타내기 끝 ********************************** -->          	
+								
+								<ul>
 								<!--주소 이름 가지고와야함-->
 								<li><span class="icon_pin_alt"></span> ${vo.agencyAddress }</li>
 								<li><span class="icon_phone"></span> ${vo.agencyTel }</li>
@@ -217,9 +331,7 @@ ul {
 	</section>
 <!--  Section End -->
 
-
-
-	<!--카카오 지도 연결-->
+   <!--카카오 지도 연결-->
 	<!--******** Map Begin *******************************************-->
 	<div class="listing__map">
 		<div id="map" style="width: 100%; height: 52em"></div>
@@ -384,14 +496,16 @@ ul {
 																				+ '"><h5>'
 																				+ d.agencyName
 																				+ '</h5></a>'
-																				+ ' <div class="listing__item__text__rating">'
-																				+ '  <div class="listing__item__rating__star">'
-																				+ '   <span class="icon_star"></span>'
-																				+ '  <span class="icon_star"></span>'
-																				+ ' <span class="icon_star"></span>'
-																				+ ' <span class="icon_star"></span>'
-																				+ ' <span class="icon_star-half_alt"></span>'
-																				+ '</div> </div><ul>'
+																				+ '<div class="listing__item__text__rating">'
+																			    + '<i class="fa fa-star" style="color:red;"></i> '
+																				+ '<i class="fa fa-star" style="color:red;"></i> '
+																				+ '<i class="fa fa-star" style="color:red;"></i> '
+																				+ '<i class="fa fa-star" style="color:red;"></i> '
+																				+ '<i class="fa fa-star" style="color:red;"></i> '
+																				+ ' <output for="star-input">'
+																				+ d.avgStars
+																				+ '<b></b>점</output>' 
+																				+ ' </div><ul>'
 																				+ '<li><span class="icon_pin_alt"></span>'
 																				+ d.agencyAddress
 																				+ '</li>'
