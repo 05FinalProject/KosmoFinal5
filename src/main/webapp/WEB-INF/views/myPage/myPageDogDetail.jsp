@@ -137,33 +137,33 @@
           <div class="row" style="margin-top:5%;">
             <div class="col-12 col-sm-7">
               <div class="col-10 mx-auto my-auto">
-                <img src="/img/petImg/${img.petImg }" class="product-image" alt="Product Image">
+                <img src="/img/petImg/${petImg.realImgName }" class="product-image" alt="Product Image">
               </div>
             </div>
             <div class="col-12 col-sm-5">
-              <h3 class="my-3">${pet.petName }</h3>
+              <h3 class="my-3">${petImg.pet.petName }</h3>
               <hr>
               <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <table>
                   <tr> 
                     <th>견&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;종 : </th>
-                    <th>${pet.petVariety }</th>
+                    <th>${petImg.pet.petVariety }</th>
                   </tr>
                   <tr> 
                     <th>몸무게 : </th>
-                    <th>${pet.petWeight }</th>
+                    <th>${petImg.pet.petWeight }</th>
                   </tr>
                   <tr>
                     <th>성별 : </th>
                     
                     <th>
                     <label class="btn btn-default text-center active">
-                      ${pet.petGender }
+                      ${petImg.pet.petGender }
                       <br>
-                      <c:if test="${pet.petGender eq '남아' }">
+                      <c:if test="${petImg.pet.petGender eq '남아' }">
                       <i class="fas fa-user fa text-blue"></i>
                       </c:if>
-                      <c:if test="${pet.petGender ne '남아' }">
+                      <c:if test="${petImg.pet.petGender ne '남아' }">
                       <i class="fas fa-user fa text-red"></i>
                       </c:if>
                     </label>
@@ -175,14 +175,14 @@
                     <th>중성화 : </th>
                     <th>
                     
-                    <c:if test="${pet.petNeutering eq 'Y'}">
+                    <c:if test="${petImg.pet.petNeutering eq 'Y'}">
                     <label class="btn btn-default text-center active">
                       했어요
                       <br>
                       <i class="fas fa-dot-circle fa text-green"></i>
                     </label>
                     </c:if>
-					<c:if test="${pet.petNeutering ne 'Y'}">
+					<c:if test="${petImg.pet.petNeutering ne 'Y'}">
                     <label class="btn btn-default text-center active">
                       안했어요
                       <br>
@@ -197,17 +197,7 @@
                   
                 </table>
               </div>
-
-
-              <div class="mt-4">
-                <div class="btn btn-primary btn-lg btn-flat">
-                  수정
-                </div>
-
-                <div class="btn btn-danger btn-lg btn-flat float-right">
-                  삭제
-                </div>
-              </div>
+6
             </div>
           </div>
                   

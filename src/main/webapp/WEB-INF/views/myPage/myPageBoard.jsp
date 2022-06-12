@@ -143,10 +143,6 @@ p{
 						data-bs-toggle="tab" href="#likeIt" role="tab"
 						aria-controls="likeIt">좋아요한 글</a></li>
 
-					<li class="nav-item"><a class="nav-link title" id="walkMap-tab" 
-						data-bs-toggle="tab" href="#walkMap" role="tab"
-						aria-controls="walkMap">즐겨찾는 산책로</a></li>
-
 				</ul>
 			</div>
 
@@ -161,13 +157,13 @@ p{
 							<c:forEach items="${CommunityWrite}" var="w">
 								<div class="col-lg-3 col-md-6">
 									<div class="single-events-card">
-										<a href="#"> <img src="w" alt="image"></a>
+										<img src="/img/communityImg/${w.realImgName }" alt="image">
 										<div class="events-content">
-											<span>${w.communityTitle }</span>
+											<a href="/community/dailyDetail?communityNum=${w.community.communityNum }"><span>제목 :</span>&nbsp;<span>${w.community.communityTitle }</span></a>
 											<h3>
-												<a href="#">${w.communityContent}</a>
+												내용 : ${w.community.communityContent}
 											</h3>
-											<p>${w.communityInsertdate}</p>
+											<p>작성일자 : ${w.community.communityInsertdate}</p>
 										</div>
 									</div>
 								</div>
@@ -200,7 +196,7 @@ p{
 										<c:forEach items="${comment}" var="c">
 											<tbody>
 												<tr>
-													<td><a href="#">${c.community.communityTitle }</a></td>												
+													<td><a href="/community/dailyDetail?communityNum=${c.community.communityNum }">${c.community.communityTitle }</a></td>												
 													<td>${c.community.communityContent }</td>													
 													<td>${c.commentContent } </td>
 													<td>${c.commentInsertdate }</td>
@@ -239,7 +235,7 @@ p{
 										<c:forEach items="${review}" var="r">
 											<tbody>
 												<tr>
-													<td><a href="#">${r.agency.agencyName }</a> </td>
+													<td><a href="/agency/agencyHotelDetail?agencyNum=${r.agency.agencyNum }">${r.agency.agencyName }</a> </td>
 													<td>${r.reviewContent }</td>
 													<td>${r.reviewInsertdate }</td>
 													<td>${r.agency.agencyAddress }</td>
@@ -248,9 +244,7 @@ p{
 										</c:forEach>
 										</table>
 									</div>
-									
 								</div>
-								
 							</div>
 						</div>
 					</div>
@@ -280,178 +274,6 @@ p{
 						</div>
 					</div>
 				</c:forEach>
-				</div>
-
-
-				<!-- 즐겨찾는 산책로 -->
-				<div class="tab-pane fade" id="walkMap" role="tabpanel">
-					<form class="account-setting-form">
-
-						<div class="row">
-							<div class="col-lg-6 col-md-6">
-								<div class="form-group">
-									<label>First Name</label> <input type="text"
-										class="form-control" placeholder="First name">
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-6">
-								<div class="form-group">
-									<label>Last Name</label> <input type="text"
-										class="form-control" placeholder="Last name">
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-6">
-								<div class="form-group">
-									<label>Email</label> <input type="email" class="form-control"
-										placeholder="Email">
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-6">
-								<div class="form-group">
-									<label>Backup Email</label> <input type="email"
-										class="form-control" placeholder="Backup email">
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-6">
-								<div class="form-group">
-									<label>Date of Birth</label> <input type="text"
-										class="form-control" placeholder="Date of birth"
-										id="datepicker">
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-6">
-								<div class="form-group">
-									<label>Phone No:</label> <input type="number"
-										class="form-control" placeholder="Phone no">
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-6">
-								<div class="form-group">
-									<label>Occupation</label> <select class="form-select">
-										<option selected="1">Occupation</option>
-										<option value="2">Software Developer</option>
-										<option value="3">Biomedical Engineer</option>
-										<option value="4">Civil Engineer</option>
-										<option value="5">General Practitioner</option>
-										<option value="6">Structural Engineer</option>
-										<option value="7">Pharmacy Technician</option>
-										<option value="8">Mechanical Engineer</option>
-										<option value="9">Petroleum Engineer</option>
-										<option value="10">Technician</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-6">
-								<div class="form-group">
-									<label>Gender</label> <select class="form-select">
-										<option selected="1">Gender</option>
-										<option value="2">Male</option>
-										<option value="3">Female</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-6">
-								<div class="form-group">
-									<label>Relation Status</label> <select class="form-select">
-										<option selected="1">Relation Status</option>
-										<option value="2">Married</option>
-										<option value="3">Unmarried</option>
-										<option value="4">Single</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-6">
-								<div class="form-group">
-									<label>Blood Group</label> <select class="form-select">
-										<option selected="1">Blood Group</option>
-										<option value="2">A+</option>
-										<option value="3">A-</option>
-										<option value="4">B+</option>
-										<option value="5">B-</option>
-										<option value="6">O+</option>
-										<option value="7">O-</option>
-										<option value="8">AB+</option>
-										<option value="9">AB-</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-6">
-								<div class="form-group">
-									<label>Website</label> <input type="text" class="form-control"
-										placeholder="Website">
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-6">
-								<div class="form-group">
-									<label>Language</label> <select class="form-select">
-										<option selected="1">Language</option>
-										<option value="2">English</option>
-										<option value="3">Portuguese</option>
-										<option value="4">Japanese</option>
-										<option value="5">Russian</option>
-										<option value="6">Javanese</option>
-										<option value="7">Gujarati</option>
-										<option value="8">Yoruba</option>
-										<option value="9">Polish</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-6">
-								<div class="form-group">
-									<label>Address</label> <input type="text" class="form-control"
-										placeholder="Address">
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-6">
-								<div class="form-group">
-									<label>City</label> <select class="form-select">
-										<option selected="1">City</option>
-										<option value="2">Canada</option>
-										<option value="3">Germany</option>
-										<option value="4">Switzerland</option>
-										<option value="5">Australia</option>
-										<option value="6">United States</option>
-										<option value="7">New Zealand</option>
-										<option value="8">United Kingdom</option>
-										<option value="9">Netherlands</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-6">
-								<div class="form-group">
-									<label>State</label> <select class="form-select">
-										<option selected="1">State</option>
-										<option value="2">Canada</option>
-										<option value="3">Germany</option>
-										<option value="4">Switzerland</option>
-										<option value="5">Australia</option>
-										<option value="6">United States</option>
-										<option value="7">New Zealand</option>
-										<option value="8">United Kingdom</option>
-										<option value="9">Netherlands</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-6">
-								<div class="form-group">
-									<label>Country</label> <select class="form-select">
-										<option selected="1">Country</option>
-										<option value="2">Canada</option>
-										<option value="3">Germany</option>
-										<option value="4">Switzerland</option>
-										<option value="5">Australia</option>
-										<option value="6">United States</option>
-										<option value="7">New Zealand</option>
-										<option value="8">United Kingdom</option>
-										<option value="9">Netherlands</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-lg-12 col-md-12">
-								<button type="submit" class="default-btn">Save</button>
-							</div>
-						</div>
-					</form>
 				</div>
 
 

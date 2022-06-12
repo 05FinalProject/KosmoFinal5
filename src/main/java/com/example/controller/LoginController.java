@@ -1,5 +1,8 @@
 package com.example.controller;
 
+import java.util.HashMap;
+import java.util.List;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -298,15 +301,17 @@ public class LoginController {
 
 	/* 반려견 리스트 페이지 이동*/
 	@RequestMapping(value = "/myPageDogList", method = RequestMethod.GET )
-	public String myPetList(PetVO pvo, Model m) {
+	public String myPetList(PetVO pvo, Model m, HttpSession session) {
 		
 		int page = 1;
 		if (pvo.getPage() != 0) {
 			page = pvo.getPage();
 		}
 		Pageable paging = PageRequest.of(page -1, 3, Sort.Direction.DESC, "petNum");
+		/* 유저의 글 */
 		
-		System.out.println( lservice.getPetListPaging(paging));
+		
+		m.addAttribute("myPet", pvo);
 		m.addAttribute("paging", lservice.getPetListPaging(paging));
 		m.addAttribute("count", lservice.countPetRecord());
 		
@@ -316,7 +321,7 @@ public class LoginController {
 	/* 반려견 정보 상세보기*/
 	@RequestMapping(value="/myPageDogDetail")
 	public void myDogDetail(PetVO pvo, Model m) {
-		m.addAttribute("pet", lservice.getPetDetail(pvo));
+		m.addAttribute("petImg", lservice.getPetDetail(pvo));
 	}
 
 	/* 반려견 등록 페이지 (견종) */
@@ -331,11 +336,11 @@ public class LoginController {
 		
 		String userEmail = session.getAttribute("userEmail").toString();
 		
-		lservice.insertPet(userEmail, pvo);
-		
 		ImgVO ivo = new ImgVO();
 		
-		ivo.setPet(lservice.getPetOwnerByUser(userEmail));
+		UserVO uvo = lservice.getUserInfo(userEmail);
+		pvo.setUser(uvo);
+		ivo.setPet(pvo);
 		ivo.setFile3(file);
 		lservice.insertImgVO(ivo);
 		
