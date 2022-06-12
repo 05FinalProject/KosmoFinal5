@@ -232,7 +232,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
                     <div class="listing__details__comment__item__rating">
                     <c:choose>
                     <c:when test="${review.reviewStar eq '5'}">
-                    <i class="fa fa-star" style="color:red;"	></i>
+                    <i class="fa fa-star" style="color:red;"></i>
                     <i class="fa fa-star" style="color:red;"></i>
                     <i class="fa fa-star" style="color:red;"></i>
                     <i class="fa fa-star" style="color:red;"></i>

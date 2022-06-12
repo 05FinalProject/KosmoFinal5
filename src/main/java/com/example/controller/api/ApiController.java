@@ -3,6 +3,9 @@ package com.example.controller.api;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -111,4 +114,19 @@ public class ApiController {
 		service.leaveTime(vo);
 	}
 	
+	//친구 요청
+	@RequestMapping("/friendRequest")
+	public void friendRequest(UserVO vo , HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String userEmail = session.getAttribute("userEmail").toString();
+		service.friendRequest(userEmail,vo.getUserEmail());
+		
+	}
+	
+	//
+	@RequestMapping("/complet")
+	public void complet(UserVO vo,HttpSession session) {
+		String userEmail = session.getAttribute("userEmail").toString();
+		service.complet(vo,userEmail);
+	}
 }

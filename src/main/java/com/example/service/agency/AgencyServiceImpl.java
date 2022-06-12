@@ -69,11 +69,24 @@ public class AgencyServiceImpl implements AgencyService{
 		return abandonedRepo.countRecord();
 	}
 	
-	//호텔 페이지 처리 
+	//호텔 페이지 처리 //호텔 페이지에서 별점 평균값 표시 
 	@Override
-	public List<AgencyVO> getHotelPaging(Pageable paging) {		
-		return agencyRepo.findByAgencyCategoryNum(paging, 1);
+	public List<AgencyVO> getHotelPaging(Pageable paging) {	
+		List<AgencyVO> list = agencyRepo.findByAgencyCategoryNum(paging, 1);
+		List<AgencyVO> rlist = new ArrayList<AgencyVO>();
+		for(AgencyVO avo : list) {
+			Object aob = reviewRepo.agencyStarAvg(avo.getAgencyNum());
+			if(aob != null) {
+				avo.setAvgStars((double)aob);
+			}else {
+				avo.setAvgStars(0.0);
+			}
+			
+			rlist.add(avo);
+		}
+		return rlist;
 	}
+	
 	
 	@Override
 	public int countHotelRecord() {		

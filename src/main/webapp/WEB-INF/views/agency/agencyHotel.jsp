@@ -149,7 +149,27 @@ $(function(){
 .customoverlay .title {display:block;text-align:center;background:#fff;margin-right:35px;padding:10px 15px;font-size:14px;font-weight:bold;}
 .customoverlay:after {content:'';position:absolute;margin-left:-12px;left:50%;bottom:-12px;width:22px;height:12px;background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
      
-     
+
+.star-input>.input,
+.star-input>.input>label:hover,
+.star-input>.input>input:focus+label,
+.star-input>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('/img/grade_img.png')no-repeat;}
+.star-input{display:inline-block; white-space:nowrap;width:225px;height:40px;}
+.star-input>.input{display:inline-block;width:150px;background-size:150px;height:28px;white-space:nowrap;overflow:hidden;position: relative;}
+.star-input>.input>input{position:absolute;width:1px;height:1px;opacity:0;}
+star-input>.input.focus{outline:1px dotted #ddd;}
+.star-input>.input>label{width:30px;height:0;padding:28px 0 0 0;overflow: hidden;float:left;cursor: pointer;position: absolute;top: 0;left: 0;}
+.star-input>.input>label:hover,
+.star-input>.input>input:focus+label,
+.star-input>.input>input:checked+label{background-size: 150px;background-position: 0 bottom;}
+.star-input>.input>label:hover~label{background-image: none;}
+.star-input>.input>label[for="p1"]{width:30px;z-index:5;}
+.star-input>.input>label[for="p2"]{width:60px;z-index:4;}
+.star-input>.input>label[for="p3"]{width:90px;z-index:3;}
+.star-input>.input>label[for="p4"]{width:120px;z-index:2;}
+.star-input>.input>label[for="p5"]{width:150px;z-index:1;}
+.star-input>output{display:inline-block;width:60px; font-size:18px;text-align:right; vertical-align:middle;}
+ 
    </style>
   </head>
 
@@ -190,8 +210,27 @@ $(function(){
          
             <div class="listing__item__text__inside">
               <a href="/agency/agencyHotelDetail?agencyNum=${vo.agencyNum }"><h5>${vo.agencyName }</h5></a>
-              <div class="listing__item__text__rating">
-                <!-- 이쪽에 별 대신 맛평가 들어가야함-->
+             
+           
+              <span class="star-input">
+					<span class="input">
+				    	<input type="radio" name="reviewStar" value="1" id="p1">
+				    	<label for="p1">${vo.avgStars}</label>
+				    	<input type="radio" name="reviewStar" value="2" id="p2">
+				    	<label for="p2">${vo.avgStars}</label>
+				    	<input type="radio" name="reviewStar" value="3" id="p3">
+				    	<label for="p3">${vo.avgStars}</label>
+				    	<input type="radio" name="reviewStar" value="4" id="p4">
+				    	<label for="p4">${vo.avgStars}</label>
+				    	<input type="radio" name="reviewStar" value="5" id="p5">
+				    	<label for="p5">${vo.avgStars}</label>
+				  	</span>
+				  	<output for="star-input"><b>${vo.avgStars}</b>점</output>						
+				</span>        
+              
+             
+              <!-- <div class="listing__item__text__rating">
+                이쪽에 별 대신 맛평가 들어가야함
                 <div class="listing__item__rating__star">
                   <span class="icon_star"></span>
                   <span class="icon_star"></span>
@@ -199,8 +238,8 @@ $(function(){
                   <span class="icon_star"></span>
                   <span class="icon_star-half_alt"></span>
                 </div>
-                <!-- 가격대 가지고와야함-->
-                </div>
+                가격대 가지고와야함
+                </div> -->
               <ul>
                 <!--주소 이름 가지고와야함 -->
                 <li><span class="icon_pin_alt"></span> ${vo.agencyAddress }</li>
@@ -306,7 +345,7 @@ $(function(){
 	    var positions = MapListArray
 		
 		// 마커 이미지의 이미지 주소입니다
-		var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png"; 
+		var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
 		    
 		for (var i = 0; i < positions.length; i ++) {
 		    

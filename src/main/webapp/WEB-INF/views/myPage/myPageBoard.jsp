@@ -72,7 +72,7 @@ p{
 
 <body class="hold-transition sidebar-mini layout-fixed "
 	style="background-color: #f4f6f9;">
-	<%@include file="../Header.jsp"%>
+	<%@include file="/WEB-INF/views/include/Header.jsp" %>
 	<div class="wrapper">
 	<aside class="myPage-sidebar asidebar beta">
 		<div class="sidebar">
@@ -82,18 +82,18 @@ p{
 					data-widget="treeview" role="menu" data-accordion="false" style="color:black;">
 
 					<!-- 마이 프로필 -->
-					<li class="nav-item"><a href="/include/myPage/myPageProfile" class="nav-link">
+					<li class="nav-item"><a href="/myPage/myPageProfile" class="nav-link">
 							<p>마이 프로필</p>
 					</a></li>
 
 					<!-- 나의 게시글 -->
-					<li class="nav-item"><a href="/include/myPage/myPageBoard"
+					<li class="nav-item"><a href="/myPage/myPageBoard"
 						class="nav-link active">
 							<p>나의 게시글</p>
 					</a></li>
 
 					<!-- 반려동물 -->
-					<li class="nav-item"><a href="/include/myPage/myPageDogList" class="nav-link">
+					<li class="nav-item"><a href="/myPage/myPageDogList" class="nav-link">
 							<p>반려동물</p>
 					</a></li>
 
@@ -110,7 +110,7 @@ p{
 					</a></li>
 
 					<!-- 나의 산책로 -->
-					<li class="nav-item"><a href="#" class="nav-link">
+					<li class="nav-item"><a href="/walk/myWalk" class="nav-link">
 							<p>나의 산책로</p>
 					</a></li>
 
@@ -460,7 +460,7 @@ p{
 	</div>
 	</div>
 	<!-- End Main Content Wrapper Area -->
-	<%@include file="../Footer.jsp"%>
+	<%@include file="/WEB-INF/views/include/Footer.jsp" %>
 
 	<!-- Links of JS files -->
 	<!-- jQuery -->

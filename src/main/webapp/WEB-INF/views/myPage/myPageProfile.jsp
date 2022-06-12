@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>마이페이지 - 반려견 정보 수정</title>
+<title>마이페이지 - 나의 프로필</title>
 
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet"
@@ -36,31 +36,16 @@
 <!-- summernote -->
 <link rel="stylesheet"
 	href="../../admin/plugins/summernote/summernote-bs4.min.css">
-
 <!-- WithYou myPage Custom Css-->
 <link rel="stylesheet" href="/myPage/css/myPage.css">
 
-    <link rel="stylesheet" id="montserrat-css"
-          href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
-    <link rel="stylesheet" id="open-sans-css"
-          href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i">
-
-    <link rel="stylesheet" id="animate-css" href="/css/animate.min.css?ver=3.7.2" type="text/css" media="all">
-    <link rel="stylesheet" id="font-awesome-css" href="/css/font-awesome.min.css?ver=5.15.4" type="text/css"
-          media="all">
-    <link rel="stylesheet" id="bootstrap-css" href="/css/bootstrap.min.css?ver=4.6.0" type="text/css" media="all">
-    <link rel="stylesheet" id="smartmenus-bootstrap-css" href="/css/smartmenus-bootstrap.min.css?ver=1.1.1"
-          type="text/css" media="all">
-    <link rel="stylesheet" id="swiper-css" href="/css/swiper.min.css?ver=4.5.3" type="text/css" media="all">
-    <link rel="stylesheet" id="magnific-popup-css" href="/css/magnific-popup.min.css?ver=1.1.0" type="text/css"
-          media="all">
-
 </head>
-<body class="hold-transition sidebar-mini layout-fixed "
+<body class="hold-transition sidebar-mini layout-fixed"
 	style="background-color: #f4f6f9;">
-	<%@include file="../Header.jsp"%>
+	<%@include file="/WEB-INF/views/include/Header.jsp" %>
+	
 	<div class="wrapper">
-		
+		<!-- Main Sidebar Container -->
   <aside class="myPage-sidebar asidebar beta">
     <div class="sidebar">
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -70,7 +55,7 @@
 
           <!-- 마이 프로필 -->
           <li class="nav-item">
-            <a href="/include/myPage/myPageProfile" class="nav-link">
+            <a href="/myPage/myPageProfile" class="nav-link active">
               <p>
                 마이 프로필
               </p>
@@ -79,7 +64,7 @@
         
           <!-- 나의 게시글 -->
           <li class="nav-item">
-            <a href="/include/myPage/myPageBoard" class="nav-link">
+            <a href="/myPage/myPageBoard" class="nav-link">
               <p>
                 나의 게시글
               </p>
@@ -88,7 +73,7 @@
 
           <!-- 반려동물 -->
           <li class="nav-item">
-            <a href="/include/myPage/myPageDogList" class="nav-link active">
+            <a href="/myPage/myPageDogList" class="nav-link">
               <p>
                 반려동물
               </p>
@@ -115,7 +100,7 @@
           
           <!-- 나의 산책로 -->
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/walk/myWalk" class="nav-link">
               <p>
                 나의 산책로
               </p>
@@ -126,99 +111,100 @@
       </nav>
     </div>
   </aside>
+		<div class="content-wrapper" style="margin-left: 10%;">
+		
+		<form action="userUpdate" method="post" id="userUpdateForm" enctype="multipart/form-data">
+			<input type="hidden" value="/${sessionScope.pRimgname }" id="imgSrc" />
+			<section class="content-header">
+				<div class="container-fluid profileHead"></div>
+				<!-- /.container-fluid -->
+			</section>
+			<div class="card-body box-profile userFileForm">
+				<div class="text-center" id="imgArea">
+				<!-- 사진 출력 줄 -->
+				</div>
+				<div class="text-center">
+					<label class="btn btm-sm btn-add" for="userFile"
+						style="background-color: #F8b03a; color: white; padding: 0.5%; margin-top: 1%">
+						사진 수정</i>
+					</label>
+					<input type="file" id="userFile" name="file" style="display: none;">
+				</div>
+			</div>
+			<!-- /.card-body -->
+			<section class="content context">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-8" style="float: none; margin: 0 auto;">
+							<div class="card">
+								<div class="card-body">
+									<div class="tab-content">
+										<!-- /.tab-pane -->
 
-  
-
-    <section class="content-wrapper">
-    <form action="myPageDogDetail" method="post">
-      <input name="petNum" type="hidden" value="${pet.petNum }">
-      <div>
-        <div class="card-body">
-          <div class="row" style="margin-top:5%;">
-            <div class="col-12 col-sm-7">
-              <div class="col-10 mx-auto my-auto">
-                <img src="${pet.img. }" class="product-image" alt="Product Image">
-              </div>
-            </div>
-            <div class="col-12 col-sm-5">
-              <h3 class="my-3">${pet.petName }</h3>
-              <hr>
-              <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <table>
-                  <tr> 
-                    <th>견&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;종 : </th>
-                    <th>${pet.petVariety }</th>
-                  </tr>
-                  <tr> 
-                    <th>몸무게 : </th>
-                    <th>${pet.petWeight }</th>
-                  </tr>
-                  <tr>
-                    <th>성별 : </th>
-                    
-                    <th>
-                    <label class="btn btn-default text-center active">
-                      ${pet.petGender }
-                      <br>
-                      <i class="fas fa-user fa text-blue"></i>
-                    </label>
-                    
-                    </th>
-                    
-                  </tr>
-                  <tr>
-                    <th>중성화 : </th>
-                    <th>
-                    
-                    <c:if test="${pet.petNeutering eq 'Y'}">
-                    <label class="btn btn-default text-center active">
-                      했어요
-                      <br>
-                      <i class="fas fa-dot-circle fa text-green"></i>
-                    </label>
-                    </c:if>
-                  	
-                  	<c:if test="${pet.petGender eq 'N'}">
-                  	<label class="btn btn-default text-center">
-                      안했어요
-                      <br>
-                      <i class="fas fa-times-circle fa text-orange"></i>
-                    </label>
-                    </c:if>
-                    
-                    </th>
-                    
-                  </tr>
-                  
-                </table>
-              </div>
-
-
-              <div class="mt-4">
-                <div class="btn btn-primary btn-lg btn-flat">
-                  수정
-                </div>
-
-                <div class="btn btn-danger btn-lg btn-flat float-right">
-                  삭제
-                </div>
-              </div>
-            </div>
-          </div>
-                  
-        </div>
-        <!-- /.card-body -->
-      </div>
-      <!-- /.card -->
-      </form>
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-
-
+										<div class="active tab-pane" id="settings">
+											<form class="form-horizontal">
+												<div class="form-group row">
+													<label for="inputName" class="col-sm-2 col-form-label">이메일</label>
+													<div class="col-sm-10">
+														<input type="email" class="form-control" id="inputName"
+															value="${sessionScope.userEmail }" disabled="">
+													</div>
+												</div>
+												<div class="form-group row">
+													<label for="inputExperience"
+														class="col-sm-2 col-form-label">이름</label>
+													<div class="col-sm-10">
+														<input type="text" class="form-control" id="inputEmail"
+															value="${sessionScope.userName }" disabled="">
+													</div>
+												</div>
+												<div class="form-group row">
+													<label for="inputSkills" class="col-sm-2 col-form-label">전화번호</label>
+													<div class="col-sm-10">
+														<input type="tel" class="form-control" id="inputSkills"
+															value="${sessionScope.userPhone }" disabled="">
+													</div>
+												</div>
+												<div class="form-group row">
+													<label for="inputSkills" class="col-sm-2 col-form-label">닉네임</label>
+													<div class="col-sm-10">
+														<input type="text" class="form-control" id="inputSkills"
+															value="${sessionScope.userNickname }" disabled="">
+													</div>
+												</div>
+												<div class="form-group row">
+													<label for="inputSkills" class="col-sm-2 col-form-label">주소</label>
+													<div class="col-sm-10">
+														<input type="text" class="form-control" id="inputSkills"
+															value="${sessionScope.userAddress }" disabled="">
+													</div>
+												</div>
+												<div style="float: right;">
+													<button type="submit" class="btn btn-modify"
+														style="background-color: #F8b03a; color: white;">완료</button>
+												</div>
+											</form>
+										</div>
+										<!-- /.tab-pane -->
+									</div>
+									<!-- /.tab-content -->
+								</div>
+								<!-- /.card-body -->
+							</div>
+							<!-- /.card -->
+						</div>
+						<!-- /.col -->
+					</div>
+					<!-- /.row -->
+				</div>
+			</section>
+			
+			</form>
+			
+		</div>
+	</div>
 	<!-- ./wrapper -->
-	<%@include file="../Footer.jsp"%>
+	<%@include file="/WEB-INF/views/include/Footer.jsp" %>
 
 	<!-- jQuery -->
 	<script src="../../admin/plugins/jquery/jquery.min.js"></script>
@@ -252,21 +238,8 @@
 		src="../../admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 	<!-- AdminLTE App -->
 	<script src="../../admin/dist/js/adminlte.js"></script>
-	<script src="../../admin/dist/js/adminlte.min.js"></script>
 	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 	<script src="../../admin/dist/js/pages/dashboard.js"></script>
-	
-	<script type="text/javascript" src="/js/jquery.min.js?ver=3.6.0"></script>
-	<script type="text/javascript" src="/js/popper.min.js?ver=1.16.1"></script>
-	<script type="text/javascript" src="/js/bootstrap.min.js?ver=4.6.0"></script>
-	<script type="text/javascript" src="/js/smartmenus.min.js?ver=1.1.1"></script>
-	<script type="text/javascript" src="/js/smartmenus-bootstrap.min.js?ver=1.1.1"></script>
-	<script type="text/javascript" src="/js/swiper.min.js?ver=4.5.3"></script>
-	<script type="text/javascript" src="/js/scrollmagic.min.js?ver=2.0.8"></script>
-	<script type="text/javascript" src="/js/magnific-popup.min.js?ver=1.1.0"></script>
-	<script type="text/javascript" src="/js/custom-theme.js?ver=1.0.0"></script>
-	
-	
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$(".btn-add").mouseover(function() {
@@ -285,9 +258,20 @@
 			/* 프로필사진 업로드 */
 			$(".btn-add").click(function(e) {
 				e.preventDefault();
-				$("#file").click();
+				$("#userFile").click();
 			});
-
+		
+		
+			$('#imgArea').append('<img class="profile-user-img img-fluid img-circle userFile"'+
+				'src="'+$('#imgSrc').val()+'" alt="User profile picture" style="width: 15%; height: 15%;">')
+		
+		
+			/* 
+			$('#userDelete').click(function(){
+				$('#frmDelete').submit
+			})
+		 	*/
+		 
 		});
 	</script>
 </body>

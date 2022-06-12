@@ -24,7 +24,7 @@
     <title>Login</title>
   </head>
   <body>
-  	<%@include file="./Header.jsp" %>
+  	<%@include file="/WEB-INF/views/include/Header.jsp" %>
 
   
   <div class="content">
@@ -68,9 +68,9 @@
                   <div class="d-flex mb-5 align-items-center" id="homeGO">
                     <label class="control control--checkbox mb-0"><span class="caption"></span>
                     </label>
-                    <span class="ml-auto"><a href="/include/signUp" class="forgot-pass">회원가입 하기</a></span> 
+                    <span class="ml-auto"><a href="/myPage/signUp" class="forgot-pass">회원가입 하기</a></span> 
                     &nbsp;&nbsp;<span class="colorChange">|</span>&nbsp;&nbsp;
-                    <span class=""><a href="/include/findPassPage" class="forgot-pass">비밀번호 찾기</a></span> 
+                    <span class=""><a href="/myPage/findPassPage" class="forgot-pass">비밀번호 찾기</a></span> 
                   </div>
 
                   <!-- <span class="d-block text-center my-4 text-muted"> or sign in with</span>
@@ -94,7 +94,7 @@
       </div>
     </div>
   </div>
-  		<%@include file="./Footer.jsp" %>
+  		<%@include file="/WEB-INF/views/include/Footer.jsp" %>
   		
     <script src="../signUpLogin/js/jquery-3.3.1.min.js"></script>
     <script src="../signUpLogin/js/popper.min.js"></script>

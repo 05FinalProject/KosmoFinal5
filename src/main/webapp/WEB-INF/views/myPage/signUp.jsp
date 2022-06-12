@@ -25,7 +25,7 @@
 	</head>
 
 	<body>
-	<%@include file="./Header.jsp" %>
+	<%@include file="/WEB-INF/views/include/Header.jsp" %>
 		<div class="content">
 			<div class="container">
 				<div class="row justify-content-center">
@@ -495,7 +495,7 @@
 				</div>
 			</div>
 		</div>
-		<%@include file="./Footer.jsp" %>
+		<%@include file="/WEB-INF/views/include/Footer.jsp" %>
 
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 		<script type="text/javascript" src="/js/jquery.min.js?ver=3.6.0"></script>

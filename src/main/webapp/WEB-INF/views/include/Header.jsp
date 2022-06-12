@@ -148,14 +148,14 @@
 					<ul class="nav button-nav">
 						<!-- 세션입력에 따른 헤더 노출화면 -->
 						<c:if test="${empty sessionScope.userNickname }">
-							<li class="nav-item" style="color: white;"><a href="/include/Login"
+							<li class="nav-item" style="color: white;"><a href="/myPage/Login"
 								class="btn btn-sm text-uppercase font-weight-bold my-auto"
 								style="color: white;"> Login </a></li>
 						</c:if>
 
 						<c:if test="${not empty sessionScope.userNickname }">
 							<li class="nav-item" style="color: white;"><a
-								href="/include/myPage/myPageProfile"> <%= session.getAttribute("userNickname") %></a>님
+								href="/myPage/myPageProfile"> <%= session.getAttribute("userNickname") %></a>님
 								환영합니다.</li>
 
 							<!-- 알림 추가 -->
@@ -164,9 +164,9 @@
 									<small><span class="badge badge-warning navbar-badge">N</span></small>
 							</a>
 								<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-									<span class="dropdown-item dropdown-header">15
-										Notifications</span>
-									<div class="dropdown-divider"></div>
+<!-- 									<span class="dropdown-item dropdown-header">15 -->
+<!-- 										Notifications</span> -->
+<!-- 									<div class="dropdown-divider"></div> -->
 									<a  class="dropdown-item"  id="unreadMessageBtn"> <i
 										class="fas fa-envelope mr-2"></i> <label id="unreadMessage">0</label> new messages
 									</a>
@@ -174,15 +174,25 @@
 									<form id="friendChating" action="/chating/friendChat" method="post">
 										<input type="hidden" value="${sessionScope.userEmail }" name="userEmail" />
 									</form>
-									</c:if>
 									<div class="dropdown-divider"></div>
+									<c:choose>
+									<c:when test="${friendRequest != 0}">
 									<a href="/friend/friendRequestList" class="dropdown-item"> <i
-										class="fas fa-users mr-2"></i> 8 friend requests
+										class="fas fa-users mr-2"></i> <label id="friendRequests">${friendRequest}</label> friend requests
 									</a>
+									</c:when>
+									<c:otherwise>
+									<a href="/friend/friendRequestList" class="dropdown-item"> <i
+										class="fas fa-users mr-2"></i> <label id="friendRequests">0</label> friend requests
+									</a>
+									</c:otherwise>
+									</c:choose>
+									</c:if>
+									
 								</div></li>
 							<!-- 알림 추가 끝 -->
 
-							<li class="nav-item"><a href="/include/logout" style="color: white;">Logout</a>
+							<li class="nav-item"><a href="/myPage/logout" style="color: white;">Logout</a>
 							</li>
 						</c:if>
 
