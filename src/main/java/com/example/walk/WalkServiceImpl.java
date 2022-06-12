@@ -61,4 +61,11 @@ public class WalkServiceImpl implements WalkService{
 		return vo;
 	}
 
+	@Override
+	public UserVO getById(String email) {
+		
+		
+		return userRepository.findById(email).get();
+	}
+
 }

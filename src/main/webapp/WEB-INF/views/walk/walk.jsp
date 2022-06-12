@@ -46,10 +46,12 @@
 } */
 #stopbtn {
 	width: 10%;
+	height:60px;
+	
 }
 
 .walk-container {
-	display: flex;
+	display: none;
 	width: 101.5%;
 	/* margin-left:0.6%; */
 	justify-content: center;
@@ -58,6 +60,7 @@
 	bottom: 0;
 	height: 10%;
 	align-items: center;
+	
 }
 
 .walk-container2 {
@@ -65,6 +68,19 @@
 	width: 101.5%;
 	justify-content: center;
 }
+
+#walk-distance {
+  width: 200px;
+  background-color: #DDDDDD;
+  border: none;
+  font-size: 30pt;
+  color: #4c4c4c;
+  text-align: center;
+  font-family: sans-serif;
+  border-radius: 7px;
+
+}
+
 </style>
  <link rel="stylesheet" href="/walk/button.css" />
 </head>
@@ -77,17 +93,19 @@
 				<div class="walk-container2">
 					<button type="button" id="startbtn" class="btn-gradient bg-dark block">산책시작</button>
 				</div>
-					<div class="walk-container">
-						<input name="walkDistance" id="walk-distance" />
+					<div id="walk-container" class="walk-container">
+						
+							<input name="walkDistance" id="walk-distance" value="0"/>						
+						
 						<button type="submit" id="stopbtn" class="btn-gradient bg-dark block">산책종료</button>
-						<div id="timerBox" class="bg-white timerBox">
+						<div id="timerBox" class="timerBox">
 							<div id="time" class="time">00:00:00</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
+			
 		<input name="walkLon" id="walk-path-lon" value="" type="hidden"/> 
 		<input name="walkLat" id="walk-path-lat" value="" type="hidden"/> 
 		<input name="walkTime" id="walk-time" value="" type="hidden"/> 
@@ -100,7 +118,7 @@
 
 
 	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f5b6c107c52e63373c42ed42d662f260"></script>
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=14293d64b90930e74504f9d40667530b"></script>
 	<script>
 		var mapContainer = document.getElementById("map"), // 지도를 표시할 div
 		mapOption = {
@@ -181,7 +199,7 @@
 		}
 		var navi;
 		
-		var imageSrc = "/img/walk.png", // 마커이미지의 주소입니다    
+		var imageSrc = "/img/walk3.png", // 마커이미지의 주소입니다    
 	    imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
 	    imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 
@@ -260,23 +278,11 @@
 			}
 			
 
-			// console.log("거리" + distance(lat, lon, lat, lon));
 
 			console.log("라인" + linePath);
 		}
 
-		// 지도에 표시할 선을 생성합니다
-
-		//   private static double distance(double lat1, double lon1, double lat2, double lon2) {
-		// 	double theta = lon1 - lon2;
-		// 	double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2))
-		// 			+ Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
-		// 	dist = Math.acos(dist);
-		// 	dist = rad2deg(dist);
-		// 	dist = dist * 60 * 1.1515 * 1609.344;
-		// 	dist = dist / 1000;
-		// 	return dist; // 단위 km
-		// }
+	
 
 		function distance(lat1, lon1, lat2, lon2) {
 			var theta = lon1 - lon2;
@@ -320,6 +326,11 @@
 						$("#walk-distance").val(0)
 						
 					}
+				   var x = document.getElementById("walk-container");
+					
+					$("#startbtn").hide()
+					x.style.display="flex";
+					
 				});
 
 		$("#stopbtn").click(function name(params) {
