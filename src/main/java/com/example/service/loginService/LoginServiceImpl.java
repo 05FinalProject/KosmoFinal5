@@ -115,21 +115,15 @@ public class LoginServiceImpl implements LoginService {
 	/* 반려견 이미지 등록 */
 	@Override
 	public void insertImgVO(ImgVO ivo) {
+		System.out.println(ivo);
+		pet.save(ivo.getPet());
 		img.save(ivo);
 		
 	}
 	
-	/* 반려견 이미지 등록에 써먹는 중*/
 	@Override
-	public PetVO getPetOwnerByUser(String userEmail) {
-		UserVO uvo = new UserVO();
-		uvo.setUserEmail(userEmail);
-		List<PetVO> list = pet.getPetOwnerByUser(uvo);
-		PetVO v = new PetVO();
-		if(list.size() > 0) {
-			v = list.get(0);
-		}
-		return v;
+	public UserVO getUserInfo(String userEmail) {
+		return user.findById(userEmail).get();
 	}
 
 	/* 마이페이지 - 반려견 리스트 */
@@ -167,9 +161,19 @@ public class LoginServiceImpl implements LoginService {
 	
 	/* 반려견 상세보기 */
 	@Override
-	public PetVO getPetDetail(PetVO pvo) {
+	public ImgVO getPetDetail(PetVO pvo) {
 		PetVO pevo = pet.findById(pvo.getPetNum()).get();
-		return pevo;
+		
+		ImgVO ivo = new ImgVO();
+		
+		List<ImgVO> imgList = img.findByPet(pevo);
+		
+		if (imgList.size() > 0) {
+			ivo = imgList.get(0);
+		}
+		
+			
+		return ivo;
 	}
 
 	/* ? */
@@ -182,9 +186,21 @@ public class LoginServiceImpl implements LoginService {
 
 	/* 내가 작성한 글*/
 	@Override
-	public List<CommunityVO> findCommunityList(String userEmail) {
+	public List<ImgVO> findCommunityList(String userEmail) {
+		
+		List<ImgVO> rList = new ArrayList<ImgVO>();
 		UserVO u = user.findById(userEmail).get();
-		return communityR.findByUser(u);
+		
+		ImgVO ivo = new ImgVO();
+		
+		for (CommunityVO co: communityR.findByUser(u)) {
+			List<ImgVO> imgs = img.findByCommunity(co);
+				if(imgs.size() > 0) {
+					ivo = img.findByCommunity(co).get(0);
+				}
+			rList.add(ivo);
+		}
+		return rList;
 	}
 
 	/* 내가 작성한 댓글*/
@@ -227,6 +243,14 @@ public class LoginServiceImpl implements LoginService {
 	public List<PetVO> findmMyPetImg(String userEmail) {
 		return null;
 	}
+
+
+	@Override
+	public List<HashMap<String, Object>> myPetList(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 	
 	

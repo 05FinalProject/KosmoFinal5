@@ -41,17 +41,17 @@ public interface LoginService {
 
 	/* 반려견 이미지 등록 */
 	public void insertImgVO(ImgVO ivo);
-	public PetVO getPetOwnerByUser(String userEmail);
+	
 	
 	/* 반려견 상세보기 */
-	public PetVO getPetDetail(PetVO pvo);
+	public ImgVO getPetDetail(PetVO pvo);
 	
 
 	/* 등록한 반려견 불러오기 2 */
 	public List<PetVO> findmMyPet(String userEmail);
 	public List<PetVO> findmMyPetImg(String userEmail);
 
-	List<CommunityVO> findCommunityList(String userEmail);
+	List<ImgVO> findCommunityList(String userEmail);
 
 	List<CommentVO> findCommentList(String userEmail);
 
@@ -61,6 +61,9 @@ public interface LoginService {
 
 	public UserVO passCheck(UserVO vo);
 
+	public UserVO getUserInfo(String userEmail);
+
+	public List<HashMap<String, Object>> myPetList(String string);
 	
 //	/* 회원탈퇴용으로 쓰는 중*/
 //	public void delete(UserVO vo);

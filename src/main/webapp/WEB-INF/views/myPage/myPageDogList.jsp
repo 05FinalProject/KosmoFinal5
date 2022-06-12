@@ -63,7 +63,7 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed "
 	style="background-color: #f4f6f9;">
-	<%@include file="/WEB-INF/views/include/Header.jsp" %>
+	<%@include file="/WEB-INF/views/include/Header.jsp"%>
 	<div class="wrapper">
 		<!-- Main Sidebar Container -->
 		<aside class="myPage-sidebar asidebar beta">
@@ -117,6 +117,26 @@
 			<div class="row">
 				<div class="col-9 mx-auto">
 
+					<c:if test="${empty myPet.petNum}">
+						<div class="blog-posts sticky-posts"
+							style="margin-top: 2%; margin-bottom: 2%; border-radius: 25px; border-right-style: solid; border-color: orange;">
+							<div id="post-1" class="post type-post post-1 card post-card"
+								style="border-radius: 25px;">
+								<div class="row">
+									<div class="col-md-6 mr-auto">
+										<div
+											class="card-body h-100 d-flex align-items-center flex-column">
+											<h3>
+												<a href="myPageDogAdd">등록된 정보가 없습니다.(클릭)</a>
+											</h3>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</c:if>
+
+					<c:if test="${not empty myPet.petNum }">
 						<c:forEach var="pet" items="${paging}">
 							<div class="blog-posts sticky-posts"
 								style="margin-top: 2%; margin-bottom: 2%; border-radius: 25px; border-right-style: solid; border-color: orange;">
@@ -124,16 +144,15 @@
 									style="border-radius: 25px;">
 									<div class="row">
 										<div class="col-md-3 mx-auto" style="margin: 1%;">
-											<img class="card-img"
-												src="/img/petImg/${pet.petImg }" alt="Post"
+											<img class="card-img" src="/img/petImg/${pet.petImg }"
+												alt="Post"
 												style="width: 250px; height: 250px; border-radius: 50%;">
 										</div>
 										<div class="col-md-6 mr-auto">
 											<div
 												class="card-body h-100 d-flex align-items-start flex-column">
 												<h3 class="post-title card-title">
-													<a
-														href="/include/myPage/myPageDogDetail?petNum=${pet.petNum }">${pet.petName}</a>
+													<a href="/myPage/myPageDogDetail?petNum=${pet.petNum }">${pet.petName}</a>
 												</h3>
 												<p class="post-text card-text">
 												<table>
@@ -188,6 +207,7 @@
 							<!-- include 페이징  jsp파일  -->
 							<%@include file="/WEB-INF/views/include/paging.jsp"%>
 						</nav>
+					</c:if>
 
 				</div>
 			</div>
@@ -195,7 +215,7 @@
 
 	</div>
 	<!-- ./wrapper -->
-	<%@include file="/WEB-INF/views/include/Footer.jsp" %>
+	<%@include file="/WEB-INF/views/include/Footer.jsp"%>
 
 	<!-- jQuery -->
 	<script src="../../admin/plugins/jquery/jquery.min.js"></script>

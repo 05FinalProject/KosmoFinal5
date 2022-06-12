@@ -14,7 +14,7 @@ public interface PetRepository extends CrudRepository<PetVO, Integer>{
 
 	List<PetVO> findByUser(UserVO vo);
 
-	List<PetVO> getPetOwnerByUser(UserVO vo);
+	
 
 	
 	// 마이페이지 - 반려견 리스트 페이징 처리
