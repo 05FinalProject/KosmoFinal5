@@ -32,6 +32,8 @@ public class HomeController {
 			
 			m.addAttribute("unreadMessage", cservice.UnreadMessage(u).size());
 			m.addAttribute("friendRequest", cservice.getFriendRequests(u).size());
+			System.out.println(cservice.getMostLikeIt());
+			m.addAttribute("MostlikeIt", cservice.getMostLikeIt());
 			
 		}
 		
