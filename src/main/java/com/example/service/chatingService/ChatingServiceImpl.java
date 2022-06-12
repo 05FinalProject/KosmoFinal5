@@ -323,15 +323,20 @@ public class ChatingServiceImpl implements ChatingService {
 			HashMap<String, Object> hm = new HashMap<String, Object>();
 			List<ImgVO> imgs = img.findByCommunity(comm.findById((int)o[0]).get());
 			if (imgs.size()>0) {
-				ImgVO img = imgs.get(0);
-				hm.put("img",img.getRealImgName() );
-				hm.put("title",img.getCommunity().getCommunityTitle() );
-				hm.put("nickName",img.getCommunity().getUser().getUserNickname() );
+				ImgVO imgvo = imgs.get(0);
+				hm.put("img",imgvo.getRealImgName() );
+				hm.put("title",imgvo.getCommunity().getCommunityTitle() );
+				hm.put("nickName",imgvo.getCommunity().getUser().getUserNickname() );
+				UserVO u = new UserVO();
+				u.setUserEmail(imgvo.getCommunity().getUser().getUserEmail());
+				hm.put("userImg",img.findByUser(u).get(0).getRealImgName());
+				
 				list.add(hm);
 			}else {
 				CommunityVO co = comm.findById((int)o[0]).get();
 				hm.put("title",co.getCommunityTitle() );
 				hm.put("nickName",co.getUser().getUserNickname() );
+				hm.put("userImg",img.findByUser(co.getUser()).get(0).getRealImgName());
 				list.add(hm);
 			}
 		}
