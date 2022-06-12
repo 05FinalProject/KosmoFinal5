@@ -324,8 +324,19 @@ footer {
 						<div id="wrap">
 							<ul class="slider">
 								<c:forEach items="${community}" var="img">
-									<li><a href="#"><img
+									<%-- <li><a href="#"><img
+											src="/img/communityImg/${img.realImgName}"></a></li> --%>
+									<c:choose>
+										<c:when test="${param.data != '' || param.data ne null}">
+											<li><a href="#"><img
 											src="/img/communityImg/${img.realImgName}"></a></li>
+										</c:when>
+										<c:otherwise>
+											<c:if test="${param.data eq null}">
+												<img src="/img/communityImg/no_image.png"/>
+											</c:if>
+										</c:otherwise>
+									</c:choose>
 								</c:forEach>
 							</ul>
 						</div>
