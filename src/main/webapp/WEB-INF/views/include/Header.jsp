@@ -143,7 +143,7 @@
 					<div class="City"></div> -->
 				</div>
 
-				<div class="button-nav-widget d-none d-xl-inline-flex"
+				<div class="button-nav-widget 	d-none d-xl-inline-flex"
 					style="margin-right: 3%;">
 					<ul class="nav button-nav">
 						<!-- 세션입력에 따른 헤더 노출화면 -->
@@ -160,7 +160,7 @@
 
 							<!-- 알림 추가 -->
 							<li class="nav-item dropdown"><a class="nav-link"
-								data-toggle="dropdown" href="#"> <i class="far fa-bell"></i>
+								data-toggle="dropdown" > <i class="far fa-bell"></i>
 									<small><span class="badge badge-warning navbar-badge">N</span></small>
 							</a>
 								<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
