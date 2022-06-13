@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<meta http-equiv="refresh" content="5; url=/myPage/myPageProfile"/>
+<meta http-equiv="refresh" content="3; url=/myPage/myPageProfile"/>
 
 <title>5초간의 여유</title>
 <link href='https://fonts.googleapis.com/css?family=Cabin+Condensed:700' rel='stylesheet' type='text/css'>
