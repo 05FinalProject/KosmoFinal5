@@ -65,7 +65,7 @@ ul {
 	align-items: center;
 }
 
-#chatingRoom{
+#chatingRoom {
 	color: white;
 }
 </style>
@@ -98,34 +98,57 @@ ul {
 					aria-expanded="false" aria-label="Toggle navigation">
 					<i class="fas fa-bars fa-lg fa-fw text-light"></i>
 				</button>
+
+				<c:choose>
+				
+				<c:when test="${empty sessionScope.userEmail }">
+				<button class="navbar-toggler" type="button"
+					onclick="location.href='/myPage/Login'">
+					<i class="fas fa-user fa-lg fa-fw text-light"></i>
+				</button>
+				</c:when>
+
+				<c:otherwise>
+				<button class="navbar-toggler" type="button"
+					onclick="location.href='/myPage/myPageProfile'">
+					<i class="fas fa-user fa-lg fa-fw text-primary" style="color:blue"></i>
+				</button>
+				<button class="navbar-toggler" type="button"
+					onclick="location.href='/myPage/logout'">
+					<i class="fa fa-window-close fa-lg fa-fw text-light"></i>
+				</button>
+				</c:otherwise>
+				
+				</c:choose>
+				
 			</div>
 			<!-- 반응형 커팅선 -->
 
 			<div class="collapse navbar-collapse" id="lana-navbar">
 				<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-links daily"
+					<li class="nav-item"><a class="nav-links daily"
 						href="/community/daily">일상공유</a></li>
 
-				<li class="nav-item dropdown"><a
-					class="nav-links dropdown-toggle organi" href="#"
-					id="page-dropdown" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false">관련기관</a>
-					<ul class="dropdown-menu" aria-labelledby="page-dropdown">
-						<li><a class="dropdown-item" href="/agency/agencyHotel">애견호텔</a></li>
-						<li><a class="dropdown-item" href="/agency/agencyCafe">애견카페</a></li>
-						<li><a class="dropdown-item" href="/agency/agencyHospital">동물병원</a></li>
-						<li><a class="dropdown-item" href="/agency/agencyShelter">보호소</a></li>
-						<li><a class="dropdown-item" href="/agency/agencyHall">장례식장</a></li>
-					</ul></li>
+					<li class="nav-item dropdown"><a
+						class="nav-links dropdown-toggle organi" href="#"
+						id="page-dropdown" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false">관련기관</a>
+						<ul class="dropdown-menu" aria-labelledby="page-dropdown">
+							<li><a class="dropdown-item" href="/agency/agencyHotel">애견호텔</a></li>
+							<li><a class="dropdown-item" href="/agency/agencyCafe">애견카페</a></li>
+							<li><a class="dropdown-item" href="/agency/agencyHospital">동물병원</a></li>
+							<li><a class="dropdown-item" href="/agency/agencyShelter">보호소</a></li>
+							<li><a class="dropdown-item" href="/agency/agencyHall">장례식장</a></li>
+						</ul></li>
 
 
-				<li class="nav-item"><a class="nav-links info"
+					<li class="nav-item"><a class="nav-links info"
 						href="/agency/encyclopedia">반려견 사전</a></li>
 					<c:if test="${not empty sessionScope.userEmail }">
 						<li class="nav-item"><a class="nav-links chat"
 							id="chatingRoom" style="cursor: pointer;">채팅방</a></li>
-						<li class="nav-item"><a class="nav-links walk"
-							href="/walk" style="cursor: pointer;">산책하기</a></li>
+						<li class="nav-item"><a class="nav-links walk" href="/walk"
+							style="cursor: pointer;">산책하기</a></li>
 					</c:if>
 				</ul>
 				<form action="/chating/room" method="post" id="chatingFrm">
@@ -164,7 +187,8 @@ ul {
 										class="badge badge-warning navbar-badge">N</span></small>
 
 							</a>
-								<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right bell2">
+								<div
+									class="dropdown-menu dropdown-menu-lg dropdown-menu-right bell2">
 									<a class="dropdown-item" id="unreadMessageBtn"> <i
 										class="fas fa-envelope mr-2"></i> <label id="unreadMessage">0</label>
 										new messages
@@ -224,83 +248,86 @@ ul {
 		src="/js/magnific-popup.min.js?ver=1.1.0"></script>
 	<script type="text/javascript" src="/js/custom-theme.js?ver=1.0.0"></script>
 	<script type="text/javascript">
-		$(document).ready(function() {
+		$(document)
+				.ready(
+						function() {
 
-			$(".organi").mouseover(function() {
-				$(".organi").css("color", "#f8b03a");
-			});
-			$(".organi").mouseleave(function() {
-				$(".organi").css("color", "white");
-			});
-			$(".daily").mouseover(function() {
-				$(".daily").css("color", "#f8b03a");
-			});
-			$(".daily").mouseleave(function() {
-				$(".daily").css("color", "white");
-			});
-			$(".info").mouseover(function() {
-				$(".info").css("color", "#f8b03a");
-			});
-			$(".info").mouseleave(function() {
-				$(".info").css("color", "white");
-			});
-			$(".walk").mouseover(function() {
-				$(".walk").css("color", "#f8b03a");
-			});
-			$(".walk").mouseleave(function() {
-				$(".walk").css("color", "white");
-			});
-			
-			
-			$(".logout").mouseover(function() {
-				$(".logout").css("color", "#f8b03a");
-			});
-			$(".logout").mouseleave(function() {
-				$(".logout").css("color", "white");
-			});
-			
-			
-			$(".btn-light").mouseover(function() {
-				$(".btn-light").css("color", "#f8b03a");
-			});
-			$(".btn-light").mouseleave(function() {
-				$(".btn-light").css("color", "white");
-			});
+							$(".organi").mouseover(function() {
+								$(".organi").css("color", "#f8b03a");
+							});
+							$(".organi").mouseleave(function() {
+								$(".organi").css("color", "white");
+							});
+							$(".daily").mouseover(function() {
+								$(".daily").css("color", "#f8b03a");
+							});
+							$(".daily").mouseleave(function() {
+								$(".daily").css("color", "white");
+							});
+							$(".info").mouseover(function() {
+								$(".info").css("color", "#f8b03a");
+							});
+							$(".info").mouseleave(function() {
+								$(".info").css("color", "white");
+							});
+							$(".walk").mouseover(function() {
+								$(".walk").css("color", "#f8b03a");
+							});
+							$(".walk").mouseleave(function() {
+								$(".walk").css("color", "white");
+							});
 
-			$(".chat").mouseover(function() {
-				$(".chat").css("color", "#f8b03a");
-			});
-			$(".chat").mouseleave(function() {
-				$(".chat").css("color", "white");
-			});
+							$(".logout").mouseover(function() {
+								$(".logout").css("color", "#f8b03a");
+							});
+							$(".logout").mouseleave(function() {
+								$(".logout").css("color", "white");
+							});
 
-			$("#chatingRoom").click(function() {
-				$("#chatingFrm").submit();
-			});
+							$(".btn-light").mouseover(function() {
+								$(".btn-light").css("color", "#f8b03a");
+							});
+							$(".btn-light").mouseleave(function() {
+								$(".btn-light").css("color", "white");
+							});
 
-			$('#unreadMessageBtn').click(function() {
-				$('#friendChating').submit()
-			})
+							$(".chat").mouseover(function() {
+								$(".chat").css("color", "#f8b03a");
+							});
+							$(".chat").mouseleave(function() {
+								$(".chat").css("color", "white");
+							});
 
-			$('.svg-inline--fa fa-bell fa-w-14').click(function(){
-				$('.dropdown-menu dropdown-menu-lg dropdown-menu-right').addClass()
-			})
-			
-			$('.bell').mouseover(function(){
-				$('.bell2').addClass("show");
-			})
-			$('.bell2').mouseover(function(){
-				$('.bell2').addClass("show");
-			})
-		
-			$('.bell2').mouseleave(function(){
-				setTimeout(function(){
-					$('.bell2').removeClass("show");
-				}, 1000);
-			})
+							$("#chatingRoom").click(function() {
+								$("#chatingFrm").submit();
+							});
 
+							$('#unreadMessageBtn').click(function() {
+								$('#friendChating').submit()
+							})
 
-		});
+							$('.svg-inline--fa fa-bell fa-w-14')
+									.click(
+											function() {
+												$(
+														'.dropdown-menu dropdown-menu-lg dropdown-menu-right')
+														.addClass()
+											})
+
+							$('.bell').mouseover(function() {
+								$('.bell2').addClass("show");
+							})
+							$('.bell2').mouseover(function() {
+								$('.bell2').addClass("show");
+							})
+
+							$('.bell2').mouseleave(function() {
+								setTimeout(function() {
+									$('.bell2').removeClass("show");
+								}, 1000);
+							})
+
+						});
 	</script>
 
 	<script type="text/javascript"

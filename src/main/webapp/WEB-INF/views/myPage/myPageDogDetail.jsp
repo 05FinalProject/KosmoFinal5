@@ -174,7 +174,7 @@
               <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <table>
                   <tr> 
-                    <th>견&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;종 :&nbsp; </th>
+                    <th>견&nbsp;&nbsp;&nbsp;&nbsp;종 :&nbsp; </th>
                     <th>${petImg.pet.petVariety }</th>
                   </tr>
                   <tr> 
@@ -187,7 +187,6 @@
                     <th>
                     <label class="btn2 btn-default text-center active">
                       ${petImg.pet.petGender }
-                      <br>
                       <c:if test="${petImg.pet.petGender eq '남아' }">
                       <i class="fas fa-user fa text-blue"></i>
                       </c:if>
@@ -206,14 +205,13 @@
                     <c:if test="${petImg.pet.petNeutering eq 'Y'}">
                     <label class="btn2 btn-default text-center active">
                       했어요
-                      <br>
+
                       <i class="fas fa-dot-circle fa text-green"></i>
                     </label>
                     </c:if>
 					<c:if test="${petImg.pet.petNeutering ne 'Y'}">
                     <label class="btn2 btn-default text-center active">
                       안했어요
-                      <br>
                       <i class="fas fa-dot-circle fa text-yellow"></i>
                     </label>
                     </c:if>

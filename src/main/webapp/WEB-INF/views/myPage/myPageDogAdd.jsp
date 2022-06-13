@@ -75,6 +75,25 @@
     border-radius: 0.25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+
+.submit{
+	border-style:none;
+	background-color:##F8b03a;
+}
+
+.btn2 {
+    display: inline-block;
+    font-weight: 400;
+    color: #212121;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 6px;
+    border-style:none;
+}
 </style>
 
 </head>
@@ -153,7 +172,7 @@
 												<p class="message">Drag files to upload</p>
 												<img src="" alt="미리보기 이미지" class="preview">
 											</div>
-											<label class="file-label" for="chooseFile">이미지</label> 
+											<label class="file-label imgAdd" for="chooseFile">이미지</label> 
 											<input class="file" id="chooseFile" type="file" name="file"
 												onchange="dropFile.handleFiles(this.files)" multiple="multiple"
 												accept="image/png, image/jpeg, image/gif">
@@ -228,12 +247,12 @@
 								</div>
 
 								<div class="mt-4">
-									<div class="btn btn-primary btn-flat btn-add" id="petAdd">
+									<div class="btn2 btn-primary btn-flat btn-add touch" id="petAdd">
 									<input type="hidden" name=userEmail value="${sessionScope.userEmail }">
-										<button type="submit">등록</button>
+										<input type="hidden" class="submit">등록
 									</div>
 
-									<div class="btn btn-danger btn-flat float-right"
+									<div class="btn2 btn-danger btn-flat float-right touch"
 										onclick="location.href='/include/myPage/myPageDogList'">
 										<input type="hidden">취소
 									</div>
@@ -309,13 +328,19 @@
 				$(".btn-add").css("background-color", "#F8b03a");
 			});
 
-			$(".btn-modify").mouseover(function() {
-				$(".btn-modify").css("background-color", "#dc6721");
+			$(".submit").mouseover(function() {
+				$(".submit").css("background-color", "#dc6721");
 			});
-			$(".btn-modify").mouseout(function() {
-				$(".btn-modify").css("background-color", "#F8b03a");
+			$(".submit").mouseout(function() {
+				$(".submit").css("background-color", "#F8b03a");
 			});
 			
+			$(".imgAdd").mouseover(function() {
+				$(".imgAdd").css("background-color", "#3a5e3a");
+			});
+			$(".imgAdd").mouseout(function() {
+				$(".imgAdd").css("background-color", "#5b975b");
+			});
 		});
 	</script>
 </body>
